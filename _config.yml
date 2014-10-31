@@ -1,6 +1,6 @@
-#baseurl: /datatables-cn
-baseurl: /
+baseurl: /datatables-cn
+#baseurl: /
+#port: 341
 encoding: utf-8
 destination: deploy
-port: 341
-exclude: ['reload.bat','server.bat']
+exclude: ['reload.bat','server.bat','*.iml']

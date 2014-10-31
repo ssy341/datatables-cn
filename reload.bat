@@ -1,1 +1,1 @@
-jekyll build
+jekyll build --watch
