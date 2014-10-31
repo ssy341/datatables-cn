@@ -1,8 +1,21 @@
----
-layout: default
-title: Datatables 中文网
----
- <div class="navbar navbar-inverse navbar-fixed-top">
+<!DOCTYPE html>
+<html lang="utf-8">
+  <head>
+  <meta charset="utf-8">
+<title>Datatables 中文网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10 。
+Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者掌握并使用这一jQuery插件。">
+  <!-- Le styles -->
+<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+<link href="css/docs.css" rel="stylesheet">
+ <link rel="shortcut icon" href="images/favicon.png">
+
+  </head>
+  <body>
+   <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -61,8 +74,12 @@ title: Datatables 中文网
 </div>
 
 
-    {% include copyright.html %}
-    {% include script.html %}
+    <footer class="footer">
+      <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</footer>
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
 
 
 <script type="text/javascript">
@@ -74,3 +91,6 @@ $(document).ready( function () {
   });
 } );
 </script>
+
+  </body>
+</html>
