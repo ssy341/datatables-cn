@@ -406,7 +406,7 @@
       <created>1414770181888</created>
       <updated>1414770181888</updated>
       <workItem from="1414770188147" duration="3729000" />
-      <workItem from="1415026689194" duration="3021000" />
+      <workItem from="1415026689194" duration="3039000" />
     </task>
     <task id="LOCAL-00001" summary="添加首页">
       <created>1414771614027</created>
@@ -440,11 +440,15 @@
       <created>1415030048193</created>
       <updated>1415030048193</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="example.html">
+      <created>1415030079036</created>
+      <updated>1415030079036</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6750000" />
+    <option name="totallyTimeSpent" value="6768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1292" height="786" extended-state="0" />
