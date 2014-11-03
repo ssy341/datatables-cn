@@ -1,32 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ee1297b8-d593-4dc1-bc08-f820b41dc526" name="Default" comment="rm md license">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/advanced_init.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/ajax.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/api.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/basic_init.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/data_sources.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/plug-ins.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/server_side.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/_includes/example/styling.html" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\README.md" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\docs.css" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\img\bs-docs-masthead-pattern.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\img\glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\shCore.css" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\css\shThemeDefault.css" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\images\favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\index.html" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\js\application.js" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\js\shBrushJScript.js" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\js\shBrushXml.js" afterPath="" />
-      <change type="DELETED" beforePath="F:\github-datatables-cn\deploy\js\shCore.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
+    <list default="true" id="ee1297b8-d593-4dc1-bc08-f820b41dc526" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="github-datatables-cn.iws" />
@@ -113,7 +88,7 @@
       <file leaf-file-name="_config.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22606383" vertical-offset="0" max-vertical-offset="376">
+            <state vertical-scroll-proportion="0.22727273" vertical-offset="0" max-vertical-offset="374">
               <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
               <folding />
             </state>
@@ -128,6 +103,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="shansiyi" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -426,7 +406,7 @@
       <created>1414770181888</created>
       <updated>1414770181888</updated>
       <workItem from="1414770188147" duration="3729000" />
-      <workItem from="1415026689194" duration="2965000" />
+      <workItem from="1415026689194" duration="3021000" />
     </task>
     <task id="LOCAL-00001" summary="添加首页">
       <created>1414771614027</created>
@@ -456,17 +436,21 @@
       <created>1414774110978</created>
       <updated>1414774110978</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="example.html">
+      <created>1415030048193</created>
+      <updated>1415030048193</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6694000" />
+    <option name="totallyTimeSpent" value="6750000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1292" height="786" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39850748" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3997006" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3283582" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -475,6 +459,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -482,7 +467,6 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2294686" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -505,7 +489,8 @@
     <MESSAGE value="更改统计代码" />
     <MESSAGE value="mod md" />
     <MESSAGE value="rm md license" />
-    <option name="LAST_COMMIT_MESSAGE" value="rm md license" />
+    <MESSAGE value="example.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="example.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -652,7 +637,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22606383" vertical-offset="0" max-vertical-offset="376">
+        <state vertical-scroll-proportion="0.22727273" vertical-offset="0" max-vertical-offset="374">
           <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
           <folding />
         </state>
