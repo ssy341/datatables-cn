@@ -1,21 +1,20 @@
 ---
 layout: example_layout
-title: Datatables | 示例 | 功能启用/禁用
+title: Datatables | 示例 | 默认排序
 ---
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h3>功能启用/禁用</h3>
+        <h3>默认排序</h3>
 
         <p>
-            如果你不想使用datatables的某项特性，那么你可以禁用它，下面的例子展示了只启用查找功能(默认是启用的)
+            在datatables初始化时你可以使用order选项指定列怎么排序，order可以接受多个二维数组数据，数组第一个位置为第几列，第二个位置为标示asc(升序)或desc(降序)
         </p>
-        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./filter_only_code.html" target="_blank"
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./table_sorting_code.html" target="_blank"
            role="button">代码回放</a>
     </div>
 </header>
 
 <div class="container" style="margin-top:20px">
-
 <!-- 表格开始 -->
 <table id="example" class="display" cellspacing="0" width="100%">
 <thead>
@@ -509,12 +508,10 @@ title: Datatables | 示例 | 功能启用/禁用
 </ul>
 <div class="tab-content">
 <div class="tab-pane active" id="tab1">
-            <pre class="brush:js;toolbar:false">
-            $(document).ready(function() {
+           <pre class="brush:js;toolbar:false">$(document).ready(function() {
               $('#example').dataTable( {
-                &quot;paging&quot;:   false,
-                &quot;ordering&quot;: false,
-                &quot;info&quot;:     false
+              //跟数组下标一样，第一列从0开始，这里表格初始化时，第四列默认降序
+                &quot;order&quot;: [[ 3, &quot;desc&quot; ]]
               } );
             } );
             </pre>
@@ -1005,21 +1002,23 @@ title: Datatables | 示例 | 功能启用/禁用
 <p>
     <br/>
 </p>
+</div>
+</div>
+</div>
 
-</div>
-</div>
 {% include post.html %}
-</div>
-</div><!--/row-->
-{% include copyright.html %}
 
+</div><!--/row-->
+
+
+{% include copyright.html %}
 {% include example_script.html %}
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({
-            "paging": false,
-            "ordering": false,
-            "info": false
+            "order": [
+                [ 3, "desc" ]
+            ]
         });
     });
 </script>

@@ -1,15 +1,24 @@
 ---
 layout: example_layout
-title: Datatables | 示例 | 功能启用/禁用
+title: Datatables | 示例 | 多列排序
 ---
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h3>功能启用/禁用</h3>
+        <h3>多列排序</h3>
 
         <p>
-            如果你不想使用datatables的某项特性，那么你可以禁用它，下面的例子展示了只启用查找功能(默认是启用的)
+            datatables允许同时指定多个列排序，有很多不同的方法来实现：
         </p>
-        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./filter_only_code.html" target="_blank"
+        <ul>
+            <li>用户按住shirft，鼠标分别点击第一列，第二列等等，可以实现多列同时排序</li>
+            <li>给每列加上columns.orderData选项,即如果指定列排序时，第一列有相同数据，则按照第二列排序</li>
+            <li>使用columns.orderData选项给多列排序，比如[ [0,'asc'], [1,'asc'] ]</li>
+            <li>使用order()方法实现多列排序，详细参见api</li>
+        </ul>
+        <p>注意，可以使用orderMulti 选项来禁用用户按住shift点击多列排序</p>
+
+        <p>下面这个例子告诉大家怎么使用columns.orderData选项来进行多列排序</p>
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./multi_col_sort_code.html" target="_blank"
            role="button">代码回放</a>
     </div>
 </header>
@@ -510,11 +519,19 @@ title: Datatables | 示例 | 功能启用/禁用
 <div class="tab-content">
 <div class="tab-pane active" id="tab1">
             <pre class="brush:js;toolbar:false">
-            $(document).ready(function() {
+              $(document).ready(function() {
               $('#example').dataTable( {
-                &quot;paging&quot;:   false,
-                &quot;ordering&quot;: false,
-                &quot;info&quot;:     false
+
+                columnDefs: [ {
+                  targets: [ 0 ],
+                  orderData: [ 0, 1 ]  //如果第一列进行排序，有相同数据则按照第二列顺序排列
+                }, {
+                  targets: [ 1 ],
+                  orderData: [ 1, 0 ]  //如果第二列进行排序，有相同数据则按照第一列顺序排列
+                }, {
+                  targets: [ 4 ],
+                  orderData: [ 4, 0 ]  //如果第五列进行排序，有相同数据则按照第一列顺序排列
+                } ]
               } );
             } );
             </pre>
@@ -1005,21 +1022,32 @@ title: Datatables | 示例 | 功能启用/禁用
 <p>
     <br/>
 </p>
-
+</div>
 </div>
 </div>
 {% include post.html %}
-</div>
 </div><!--/row-->
+
 {% include copyright.html %}
 
 {% include example_script.html %}
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({
-            "paging": false,
-            "ordering": false,
-            "info": false
+            columnDefs: [
+                {
+                    targets: [ 0 ],
+                    orderData: [ 0, 1 ]
+                },
+                {
+                    targets: [ 1 ],
+                    orderData: [ 1, 0 ]
+                },
+                {
+                    targets: [ 4 ],
+                    orderData: [ 4, 0 ]
+                }
+            ]
         });
     });
 </script>

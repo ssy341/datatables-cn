@@ -5,23 +5,52 @@ title: Datatables | 示例 | 0配置
 <header class="jumbotron subhead" id="overview">
     <div class="container">
         <h3>0配置</h3>
+
         <p>
             datatables默认情况已启用一些功能，搜索、 排序、 分页等功能已经开启，如本示例所示。
         </p>
-        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./zero_configuration_code.html" target="_blank" role="button">代码回放</a>
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./zero_configuration_code.html" target="_blank"
+           role="button">代码回放</a>
     </div>
 </header>
 
-<div class="container"  style="margin-top:20px">
+<div class="container" style="margin-top:20px">
 
 <!-- 表格开始 -->
-<table id="example" class="display dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+<table id="example" class="display dataTable" cellspacing="0" width="100%" role="grid" aria-describedby="example_info"
+       style="width: 100%;">
 <thead>
-<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column ascending" style="width: 135px;">Name</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 223px;">Position</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 99px;">Office</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 41px;">Age</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 91px;">Start date</th><th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-label="Salary: activate to sort column ascending" style="width: 78px;">Salary</th></tr>
+<tr role="row">
+    <th class="sorting_asc" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending"
+        aria-label="Name: activate to sort column ascending" style="width: 135px;">Name
+    </th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+        aria-label="Position: activate to sort column ascending" style="width: 223px;">Position
+    </th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+        aria-label="Office: activate to sort column ascending" style="width: 99px;">Office
+    </th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+        aria-label="Age: activate to sort column ascending" style="width: 41px;">Age
+    </th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+        aria-label="Start date: activate to sort column ascending" style="width: 91px;">Start date
+    </th>
+    <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"
+        aria-label="Salary: activate to sort column ascending" style="width: 78px;">Salary
+    </th>
+</tr>
 </thead>
 
 <tfoot>
-<tr><th rowspan="1" colspan="1">Name</th><th rowspan="1" colspan="1">Position</th><th rowspan="1" colspan="1">Office</th><th rowspan="1" colspan="1">Age</th><th rowspan="1" colspan="1">Start date</th><th rowspan="1" colspan="1">Salary</th></tr>
+<tr>
+    <th rowspan="1" colspan="1">Name</th>
+    <th rowspan="1" colspan="1">Position</th>
+    <th rowspan="1" colspan="1">Office</th>
+    <th rowspan="1" colspan="1">Age</th>
+    <th rowspan="1" colspan="1">Start date</th>
+    <th rowspan="1" colspan="1">Salary</th>
+</tr>
 </tfoot>
 
 <tbody>
@@ -989,9 +1018,9 @@ title: Datatables | 示例 | 0配置
 </div><!--/row-->
 
 {% include copyright.html %}
-
+{% include example_script.html %}
 <script type="text/javascript">
-    $(document).ready( function () {
+    $(document).ready(function () {
         $('#example').DataTable();
-    } );
+    });
 </script>

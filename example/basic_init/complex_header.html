@@ -1,15 +1,15 @@
 ---
 layout: example_layout
-title: Datatables | 示例 | 功能启用/禁用
+title: Datatables | 示例 | 制定复杂的表头(和并列/合并行)
 ---
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h3>功能启用/禁用</h3>
+        <h3>制定复杂的表头(和并列/合并行)</h3>
 
         <p>
-            如果你不想使用datatables的某项特性，那么你可以禁用它，下面的例子展示了只启用查找功能(默认是启用的)
+            在使用表格的时候总会遇到要分组列的情况，datatables完全支持合并列/合并行，下面的例子告诉你怎么使用
         </p>
-        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./filter_only_code.html" target="_blank"
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./complex_header_code.html" target="_blank"
            role="button">代码回放</a>
     </div>
 </header>
@@ -20,7 +20,11 @@ title: Datatables | 示例 | 功能启用/禁用
 <table id="example" class="display" cellspacing="0" width="100%">
 <thead>
 <tr>
-    <th>Name</th>
+    <th rowspan="2">Name</th>
+    <th colspan="2">Information</th>
+    <th colspan="3">Contact</th>
+</tr>
+<tr>
     <th>Position</th>
     <th>Office</th>
     <th>Age</th>
@@ -511,25 +515,25 @@ title: Datatables | 示例 | 功能启用/禁用
 <div class="tab-pane active" id="tab1">
             <pre class="brush:js;toolbar:false">
             $(document).ready(function() {
-              $('#example').dataTable( {
-                &quot;paging&quot;:   false,
-                &quot;ordering&quot;: false,
-                &quot;info&quot;:     false
-              } );
+              $('#example').dataTable();
             } );
             </pre>
 </div>
 <div class="tab-pane" id="tab2">
 <pre class="brush:xml;toolbar:false">&lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
         &lt;thead&gt;
-            &lt;tr&gt;
-                &lt;th&gt;Name&lt;/th&gt;
-                &lt;th&gt;Position&lt;/th&gt;
-                &lt;th&gt;Office&lt;/th&gt;
-                &lt;th&gt;Age&lt;/th&gt;
-                &lt;th&gt;Start date&lt;/th&gt;
-                &lt;th&gt;Salary&lt;/th&gt;
-            &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th rowspan=&quot;2&quot;&gt;Name&lt;/th&gt;
+            &lt;th colspan=&quot;2&quot;&gt;Information&lt;/th&gt;
+            &lt;th colspan=&quot;3&quot;&gt;Contact&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Position&lt;/th&gt;
+            &lt;th&gt;Office&lt;/th&gt;
+            &lt;th&gt;Age&lt;/th&gt;
+            &lt;th&gt;Start date&lt;/th&gt;
+            &lt;th&gt;Salary&lt;/th&gt;
+        &lt;/tr&gt;
         &lt;/thead&gt;
 
         &lt;tfoot&gt;
@@ -1005,21 +1009,20 @@ title: Datatables | 示例 | 功能启用/禁用
 <p>
     <br/>
 </p>
+</div>
+</div>
+</div>
 
-</div>
-</div>
+
 {% include post.html %}
-</div>
+
 </div><!--/row-->
+
 {% include copyright.html %}
 
 {% include example_script.html %}
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#example').dataTable({
-            "paging": false,
-            "ordering": false,
-            "info": false
-        });
+        $('#example').dataTable();
     });
 </script>

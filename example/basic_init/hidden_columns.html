@@ -1,15 +1,21 @@
 ---
 layout: example_layout
-title: Datatables | 示例 | 功能启用/禁用
+title: Datatables | 示例 | 隐藏列
 ---
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h3>功能启用/禁用</h3>
+        <h3>隐藏列</h3>
 
         <p>
-            如果你不想使用datatables的某项特性，那么你可以禁用它，下面的例子展示了只启用查找功能(默认是启用的)
+            有些数据不希望显示在屏幕上，或者需要什么条件才会显示，你可以使用columns.visible选项来实现
         </p>
-        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./filter_only_code.html" target="_blank"
+
+        <p>被隐藏的列依然是表格的一部分，通过column().visible()方法来显示</p>
+
+        <p>被隐藏的列既然是表格的一部分，那么用户也可以搜索和访问被隐藏的列的相关内容</p>
+
+        <p>下面的例子展示了office和age两列不显示（右键查看网页源代码可以看到），并且不能被搜索到</p>
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="./hidden_columns_code.html" target="_blank"
            role="button">代码回放</a>
     </div>
 </header>
@@ -502,6 +508,7 @@ title: Datatables | 示例 | 功能启用/禁用
 
 <!-- 表格结束 -->
 
+
 <div class="tabbable"> <!-- Only required for left/right tabs -->
 <ul class="nav nav-tabs">
     <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
@@ -510,11 +517,19 @@ title: Datatables | 示例 | 功能启用/禁用
 <div class="tab-content">
 <div class="tab-pane active" id="tab1">
             <pre class="brush:js;toolbar:false">
-            $(document).ready(function() {
+             $(document).ready(function() {
               $('#example').dataTable( {
-                &quot;paging&quot;:   false,
-                &quot;ordering&quot;: false,
-                &quot;info&quot;:     false
+                &quot;columnDefs&quot;: [
+                  {
+                    &quot;targets&quot;: [ 2 ],
+                    &quot;visible&quot;: false,
+                    &quot;searchable&quot;: false
+                  },
+                  {
+                    &quot;targets&quot;: [ 3 ],
+                    &quot;visible&quot;: false
+                  }
+                ]
               } );
             } );
             </pre>
@@ -1008,18 +1023,30 @@ title: Datatables | 示例 | 功能启用/禁用
 
 </div>
 </div>
-{% include post.html %}
 </div>
-</div><!--/row-->
-{% include copyright.html %}
 
+
+{% include post.html %}
+
+</div><!--/row-->
+
+
+{% include copyright.html %}
 {% include example_script.html %}
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({
-            "paging": false,
-            "ordering": false,
-            "info": false
+            "columnDefs": [
+                {
+                    "targets": [ 2 ],
+                    "visible": false,
+                    "searchable": false
+                },
+                {
+                    "targets": [ 3 ],
+                    "visible": false
+                }
+            ]
         });
     });
 </script>
