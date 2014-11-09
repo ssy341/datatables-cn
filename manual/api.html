@@ -1,0 +1,307 @@
+---
+layout: manual_detail_layout
+title: Datatables | 手册 | API
+---
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+    <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <li class="nav-header">手册</li>
+            <li><a href="/manual/install.html">安装</a></li>
+            <li><a href="/manual/data.html">数据</a></li>
+            <li><a href="/manual/options.html">选项</a></li>
+            <li class="active"><a href="/manual/api.html">API</a></li>
+            <li><a href="#">样式</a></li>
+            <li><a href="#">事件</a></li>
+            <li><a href="#">正文数据</a></li>
+            <li><a href="#">服务器支持处理</a></li>
+            <li><a href="#">国际化</a></li>
+        </ul>
+    </div><!--/.well -->
+</div><!--/span-->
+<div class="span9">
+<h2 data-anchor="DataTables-Manual">API</h2>
+<p>
+    Datatables拥有一个强大的API可以用来操作表格中的数据，他有下面六个关键部分:
+</p>
+<ul class=" list-paddingleft-2" style="list-style-type: circle;">
+    <li>
+        表格
+    </li>
+    <li>
+        列
+    </li>
+    <li>
+        行
+    </li>
+    <li>
+        单元格
+    </li>
+    <li>
+        核心方法
+    </li>
+    <li>
+        工具类
+    </li>
+</ul>
+<p> Datatables完整的方法列表，请参考<a href="http://datatables.net/reference/api/">API</a></p>
+<h2 data-anchor="Processing-modes">
+    专业术语(Terminology)
+</h2>
+<p>
+    为了api文档的简约型，下面定义了一些术语:
+</p>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        实例（Instance）  --就是指datatables初始化后的表格(i.e. 是 new Api()的结果).
+    </li>
+    <li>
+        结果集（Result set）  --本质上就像一个jquery的数组，拥有数组相同的方法(sort（）和push())。
+    </li>
+    <li>
+        环境、容器（Context）  --这个解释比较模糊，简单来说就是datatables在运行是时所处环境.
+    </li>
+</ul>
+
+<h2 data-anchor="Data-source-types">
+    访问API(Accessing the API)
+</h2>
+
+<p>
+    一个datatables实例可以通过下面三个方法实现:
+</p>
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        $( selector ).DataTable();
+    </li>
+    <li>
+        $( selector ).dataTable().api();
+    </li>
+    <li>
+        new $.fn.dataTable.Api( selector );
+    </li>
+</ul>
+<p>
+    主要是要注意$( selector ).DataTable()与$( selector ).dataTable()两者之间的区别.前者返回一个datatable中API实例,而后者返回一个jQuery对象.一个api()方法添加到jQuery对象,这样你可以很轻松地访问API.
+    但是jQuery对象可以用于操纵表节点,与任何其他jQuery实例一样(像addClass()).
+</p>
+<p>
+    <b>更新提示：</b></br>
+    Datatables API的V1.9及更早的版本使用$().dataTable().method()进行访问,这样被用于通过datatables API方法扩展jQuery对象.</br>
+    旧的API仍旧可用于Datatables V1.10,向后兼容,但是新的API(见左图)现在是首选,因为它提供了更大的灵活性和功能的改善.
+</p>
+<h2 data-anchor="Data-source-types">
+    连锁(Chaining)
+</h2>
+<p>
+    你可以像使用jquery那样连锁，
+</p>
+<pre class="brush:js;toolbar:false">
+   var table = $('#example').DataTable();
+   table.search( 'Fiona' ).draw();
+</pre>
+<p>
+    它同样可以写成这样：
+</p>
+<pre class="brush:js;toolbar:false">
+    var table = $('#example').DataTable();
+    table.search( 'Fiona' );
+    table.draw();
+</pre>
+<p>
+    在这种情况下的功能是相同的,但是连锁可以让代码更加简洁和易懂.</br>
+    Datatables API从jQuery的链接中分离的方法是Datatables中利用嵌套的方法和属性.例如ajax.json()方法允许您从一个Ajax调用datatable中访问到最新
+    的JSON数据--在这种情况下,JSON()方法是Ajax特性的一个子类属性.同样的,columns()方法(以及其他数据操作方法)提供自己的链接子方法.例如
+    columns().visible()方法.这允许API非常富有表现力的依据你如何访问数据,提供有关之前被定义的方法.</br>
+    API的所有顶级方法将永远可用,在各级嵌套的API.例如draw()是一个顶级的方法,但它可以被定义，当一行从表中被移除以后:table.row( selector ).remove().draw();</br>
+    请注意,并不是所有的方法将返回一个API实例链接.有时候,返回API实例链接不太合适,像cell().node()得到一个td / th对象.API参考文档包含每个方法的全部细节以及它将返回什么.
+</p>
+<h3 data-anchor="Objects" style="margin: 1em 0px 0.5em; padding: 0px; font-size: 1.4em; font-weight: normal; color: rgb(51, 51, 51); font-family: &#39;Helvetica Neue&#39;, HelveticaNeue, Helvetica, Verdana, Arial, sans-serif; line-height: 20.8799991607666px; white-space: normal; background-color: rgb(255, 255, 255);">
+    多个表(Multiple tables)
+</h3>
+<p>
+    Datatables中API可以引用多个表的上下文实例.API在一个上下文中每个表相同的.例如：
+</p>
+<pre class="brush:js;toolbar:false">
+    var tables = $('.dataTable').DataTable();
+
+    tables.page( 'next' ).draw( false );
+</pre>
+<p>
+    这段代码通过类dataTable将选择文档中的所有表,同时跳转下一页的数据显示（使用page(）方法）.
+</p>
+<p>
+    同样的，如果需要一个API实例能引用一个单独的表,仅仅通过改变jQuery选择器创建API实例:$('#myTable').DataTable(); 将与一个表创建一个API实例的上下文.
+</p>
+<h3 data-anchor="Instances" style="margin: 1em 0px 0.5em; padding: 0px; font-size: 1.4em; font-weight: normal; color: rgb(51, 51, 51); font-family: &#39;Helvetica Neue&#39;, HelveticaNeue, Helvetica, Verdana, Arial, sans-serif; line-height: 20.8799991607666px; white-space: normal; background-color: rgb(255, 255, 255);">
+    复数/单数(Plural / Singular)
+</h3>
+<p>
+    使用API时,你会发现这些方法充分利用复数和单数的术语.虽然这是在一个API相对罕见的.它是为了反映你访问数据表的方式,例如rows().data()方法,将返回一个API实例包涵所选择行的数据结果集（即像一个数组）. </br>
+    而row().data()方法只返回这一行的数据.这使得使用API更加直观,你总是会得到你所期望的结果.</br>
+    我们需要明确的是,在英语(国际用户):</br>
+    -Singular===1  </br>
+    -Plural>1  </br>
+    所以,如果你想使用一个选择器的方法来选择多个项,使用复数形式的方法。如果你想选择一个特定的项目,使用单数形式.
+</p>
+<h3 data-anchor="DOM" style="margin: 1em 0px 0.5em; padding: 0px; font-size: 1.4em; font-weight: normal; color: rgb(51, 51, 51); font-family: &#39;Helvetica Neue&#39;, HelveticaNeue, Helvetica, Verdana, Arial, sans-serif; line-height: 20.8799991607666px; white-space: normal; background-color: rgb(255, 255, 255);">
+    例子-列过滤器(Example - column filter)
+</h3>
+<p>
+    API参考文档包含一个例子对于每个API方法,以及它的详细描述,它返回什么,参数将接受,但是让我们形成上述概念详细,逐行例证如何使用Datatables API.在本例中,我们创建一个选择元素在表中的每一列的页脚单元,它包含的数据列,将用于搜索表。
+</p>
+<pre class="brush:js;toolbar:false">
+        var table = $(&#39;#example&#39;).DataTable();
+
+    table.columns().flatten().each( function ( colIdx ) {
+    // Create the select list and search operation
+    var select = $(&#39;&lt;select /&gt;&#39;)
+        .appendTo(
+            table.column(colIdx).footer()
+        )
+        .on( &#39;change&#39;, function () {
+            table
+                .column( colIdx )
+                .search( $(this).val() )
+                .draw();
+        } );
+
+    // Get the search data for the first column and add to the select list
+    table
+        .column( colIdx )
+        .cache( &#39;search&#39; )
+        .sort()
+        .unique()
+        .each( function ( d ) {
+            select.append( $(&#39;&lt;option value=&quot;&#39;+d+&#39;&quot;&gt;&#39;+d+&#39;&lt;/option&gt;&#39;) );
+        } );
+</pre>
+
+<ul class=" list-paddingleft-2" style="list-style-type: disc;">
+    <li>
+        第1行：根据表的上下文中得到一个Datatables API实例对象
+    </li>
+    <li>
+        第3行：用方法columns()查找表中的所有列,flatten()方法是用来减少列的二维数组返回columns()一维数组的列索引,实用的方法each()是用于每一个选中行执行一个动作.
+    </li>
+    <li>
+        第5行：为列选择元素的创建过滤器.
+    </li>
+    <li>
+        第7行：使用column().footer()方法在页脚单元插入的一个列元素.
+    </li>
+    <li>
+        第9行：当select元素的值改变时,用方法 jQuery on()执行一个动作--在这种情况下搜索表.
+    </li>
+    <li>
+        第10-13行：用column().search()方法搜索队列,使用draw()方法链接来更新表的显示结果.
+    </li>
+    <li>
+        第17-19行：从列中获取数据,Datatables使用column().cache()方法搜索表.
+    </li>
+    <li>
+        第20-21行：实用的方法sort()和unique()被用于减少数据，使得数据成为一个良好有序列表,如你想呈现给终端用户的一样.
+    </li>
+    <li>
+        第22-24行：一个搜索词选项添加到选择列表,可以使用了.
+    </li>
+</ul>
+<p>
+    如你所见，DataTables API非常灵活,提供了一个广泛的选项来访问和操纵表,请参阅API参考文档的完整列表的方法,它们都是可用的.此外,插件如Editor可以用自定义扩展API方法,如row().edit()和cell().edit()等选项.
+</p>
+<blockquote>
+    <p><a href="http://datatables.net/manual/api" title="api">http://datatables.net/manual/api</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+    {% include post.html %}
+
+</div><!--/span-->
+</div><!--/row-->
+
+<hr>
+
+
+</div><!--/.fluid-container-->
+
+{% include example_script.html %}
+
+<script type="text/javascript">
+    $(document).ready( function () {
+        var data = [
+            [
+                "Tiger Nixon",
+                "System Architect",
+                "Edinburgh",
+                "5421",
+                "2011/04/25",
+                "$3,120"
+            ],
+            [
+                "Garrett Winters",
+                "Director",
+                "Edinburgh",
+                "8422",
+                "2011/07/25",
+                "$5,300"
+            ]
+        ];
+        $('#dataTable1').DataTable({
+            data: data
+        });
+
+
+        var data2 = [
+            {
+                "name":       "Tiger Nixon",
+                "position":   "System Architect",
+                "salary":     "$3,120",
+                "start_date": "2011/04/25",
+                "office":     "Edinburgh",
+                "extn":       "5421"
+            },
+            {
+                "name":       "Garrett Winters",
+                "position":   "Director",
+                "salary":     "$5,300",
+                "start_date": "2011/07/25",
+                "office":     "Edinburgh",
+                "extn":       "8422"
+            }
+        ]
+
+        $('#dataTable2').DataTable( {
+            data: data2,
+            columns: [
+                { data: 'name' },
+                { data: 'position' },
+                { data: 'salary' },
+                { data: 'office' }
+            ]
+        } );
+
+        function Employee (name,position,salary,office) {
+
+            this.name = name;
+            this.position = position;
+            this.salary = salary;
+            this._office = office;
+            this.office = function () {
+                return this._office;
+            }
+        };
+
+        $('#dataTable3').DataTable( {
+            data: [
+                new Employee( "Tiger Nixon", "System Architect", "$3,120", "Edinburgh" ),
+                new Employee( "Garrett Winters", "Director", "$5,300", "Edinburgh" )
+            ],
+            columns: [
+                { data: 'name' },
+                { data: 'salary' },
+                { data: 'office()' },
+                { data: 'position' }
+            ]
+        } );
+    } );
+</script>
