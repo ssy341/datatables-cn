@@ -3,10 +3,22 @@
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
-<script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJScript.js"></script>
-<script src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushXml.js"></script>
+<script id="shCore" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushXml.js"></script>
+<script>
+   /* if (typeof SyntaxHighlighter === 'undefined') {
+        document.createElementsById('shCore').src = "library/sh/js/shCore.js";
+        document.createElementsById('shBrushXml').src = "library/sh/js/shBrushXml.js";
+        document.createElementsById('shBrushJScript').src = "library/sh/js/shBrushJScript.js";
+        document.body.appendChild(script);
+        console.log(123);
+    }else{
+        console.log(456);
+    }*/
+</script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
+
 
 <!-- DataTables -->
 <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
