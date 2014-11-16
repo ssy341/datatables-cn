@@ -1,0 +1,122 @@
+---
+layout: example_layout
+title: Datatables | 示例 | API | 添加行
+---
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h3>添加行</h3>
+
+        <p>
+            这个例子演示了通过点击按钮添加一条数据到表格中 <br/>
+            <code>row.add()</code>添加一行 <br/>
+            <code>rows.add()</code>添加多行（注意多了一个s） <br/>
+            需要注意的是，你调用这个方法后需要重绘表格（调用 <code>draw()</code>）才能看到效果
+        </p>
+    </div>
+</header>
+
+<div class="container" style="margin-top:20px">
+    <button id="addRow">添加一行</button>
+    <!-- 表格开始 -->
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            <th>Column 4</th>
+            <th>Column 5</th>
+        </tr>
+        </tfoot>
+    </table>
+    <!-- 表格结束 -->
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+        <pre class="brush:js;toolbar:false">$(document).ready(function() {
+    var t = $(&#39;#example&#39;).DataTable();
+    var counter = 1;
+
+    $(&#39;#addRow&#39;).on( &#39;click&#39;, function () {
+        t.row.add( [
+            counter +&#39;.1&#39;,
+            counter +&#39;.2&#39;,
+            counter +&#39;.3&#39;,
+            counter +&#39;.4&#39;,
+            counter +&#39;.5&#39;
+        ] ).draw();
+
+        counter++;
+    } );
+
+    // Automatically add a first row of data
+    $(&#39;#addRow&#39;).click();
+} );</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+<pre class="brush:html;toolbar:false">
+    &lt;button id=&quot;addRow&quot;&gt;添加一行&lt;/button&gt;
+    &lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Column 1&lt;/th&gt;
+                &lt;th&gt;Column 2&lt;/th&gt;
+                &lt;th&gt;Column 3&lt;/th&gt;
+                &lt;th&gt;Column 4&lt;/th&gt;
+                &lt;th&gt;Column 5&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Column 1&lt;/th&gt;
+                &lt;th&gt;Column 2&lt;/th&gt;
+                &lt;th&gt;Column 3&lt;/th&gt;
+                &lt;th&gt;Column 4&lt;/th&gt;
+                &lt;th&gt;Column 5&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;</pre>
+            </div>
+        </div>
+    </div>
+    {% include post.html %}
+</div><!--/row-->
+{% include copyright.html %}
+{% include example_script.html %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        var t = $('#example').DataTable();
+        var counter = 1;
+
+        $('#addRow').on('click', function () {
+            t.row.add([
+                        counter + '.1',
+                        counter + '.2',
+                        counter + '.3',
+                        counter + '.4',
+                        counter + '.5'
+            ]).draw();
+
+            counter++;
+        });
+
+        // Automatically add a first row of data
+        $('#addRow').click();
+    });
+</script>
