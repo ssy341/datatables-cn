@@ -19,6 +19,10 @@
 </script>
 <script type="text/javascript">SyntaxHighlighter.all();</script>
 
-
-<!-- DataTables -->
+{% if include.param == "1.10.4" %}
+<!-- DataTables 1.10.4-->
+<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+{% else %}
+<!-- DataTables 1.10.0 -->
 <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+{% endif %}
