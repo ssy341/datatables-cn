@@ -1,0 +1,122 @@
+---
+layout: manual_detail_layout
+title: Datatables | 手册 | 国际化
+---
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span3">
+    <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <li class="nav-header">手册</li>
+            <li><a href="install.html">安装</a></li>
+            <li><a href="data.html">数据</a></li>
+            <li><a href="options.html">选项</a></li>
+            <li><a href="api.html">API</a></li>
+            <li><a href="styling.html">样式</a></li>
+            <li><a href="#">事件</a></li>
+            <li><a href="#">正文数据</a></li>
+            <li><a href="#">服务器支持处理</a></li>
+            <li class="active"><a href="#">国际化</a></li>
+        </ul>
+    </div><!--/.well -->
+</div><!--/span-->
+<div class="span9">
+<h2>国际化（Internationalisation）</h2>
+<p>
+    Datatables默认的是英语，但是可以很容翻译成其他的语言。 <br/>
+    由社区提供的超过50多种语言，让你在Datatables中使用
+</p>
+<h3>配置（Configuration）</h3>
+<p> Datatables中所使用的语言选项是通过 <code>language</code> 来配置的。
+    这是一个对象字符串，通过一个参数来描述Datatables的每个部分。
+    语言选项的完整参数可以参考 <a href="#"> <code>language</code> </a> 文档。</p>
+<p>
+    在Datatables中，语言选项的配置与 <a href="#">其他配置</a> 方式完全相同，作为初始化设置的一部分，这个例子展示了如何修改搜索字符串:
+</p>
+
+<pre class="brush:js;toolbar:false">  $(&#39;#example&#39;).DataTable( {
+    language: {
+        search: &quot;在表格中搜索:&quot;
+    }
+} );</pre>
+<p>
+    与其他初始化选项一样，你可以按你所希望的改变尽可能多或尽可能少的选项。那些选项你不赋值，Datatables会使用默认值，
+    本示例显示每个语言选项，用中文显示Datatables接口：
+</p>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).DataTable({
+    language: {
+        &quot;sProcessing&quot;: &quot;处理中...&quot;,
+        &quot;sLengthMenu&quot;: &quot;显示 _MENU_ 项结果&quot;,
+        &quot;sZeroRecords&quot;: &quot;没有匹配结果&quot;,
+        &quot;sInfo&quot;: &quot;显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项&quot;,
+        &quot;sInfoEmpty&quot;: &quot;显示第 0 至 0 项结果，共 0 项&quot;,
+        &quot;sInfoFiltered&quot;: &quot;(由 _MAX_ 项结果过滤)&quot;,
+        &quot;sInfoPostFix&quot;: &quot;&quot;,
+        &quot;sSearch&quot;: &quot;搜索:&quot;,
+        &quot;sUrl&quot;: &quot;&quot;,
+        &quot;sEmptyTable&quot;: &quot;表中数据为空&quot;,
+        &quot;sLoadingRecords&quot;: &quot;载入中...&quot;,
+        &quot;sInfoThousands&quot;: &quot;,&quot;,
+        &quot;oPaginate&quot;: {
+            &quot;sFirst&quot;: &quot;首页&quot;,
+            &quot;sPrevious&quot;: &quot;上页&quot;,
+            &quot;sNext&quot;: &quot;下页&quot;,
+            &quot;sLast&quot;: &quot;末页&quot;
+        },
+        &quot;oAria&quot;: {
+            &quot;sSortAscending&quot;: &quot;: 以升序排列此列&quot;,
+            &quot;sSortDescending&quot;: &quot;: 以降序排列此列&quot;
+        }
+    }
+});</pre>
+<h3>
+    异步加载翻译（Ajax loading a translation）
+</h3>
+<p>
+    为了方便起见，DataTables提供一个选项，用于从服务器Ajax加载语言信息。这个通过 <code>language.url</code> 进行配置，例如：
+</p>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).DataTable({
+    language: {
+        url: &#39;/localisation/Chinese.json&#39;
+    }
+});</pre>
+<p>
+    作为与 <code>language</code> 中其他选项一样，Ajax加载文件，可以指定尽可能多或尽可能少的选项，根据需要对Datatables中语言选项进行设置。
+    任何不指定的选项,将使用Datatables中默认值。
+</p>
+<h3>
+    数值型数据的排序（Ordering of numeric data）
+</h3>
+<p>
+    数值数据呈现格式往往按照一定的规则，比如将一个给定的字符定义为一个decimal类型，分离器和数字类型的识别，比如货币符号。
+    DataTables将会自动检测数值型数据类型，比如货币、百分比值和分离器的值。但是默认情况下这些工作用一个点(.)作为十进制数值数据，
+    如同数值如何在Javascript中表示一样。
+</p>
+    <p>
+        DataTables中可以使用通过language.decimal()将任何字符转换成十进制数值数据，提供完整的数值类型为任何形式的数字数据检测和
+        排序。例如，世界上许多地方使用逗号(,)小数位,Unicode定义了十进制分隔符(?),和一个破折号(-)有时被用于金融文件等等。
+    </p>
+    <p>
+        通过language.decimal()选项配置，你可以告诉DataTables，在你的表中哪些字段转换成十进制数值数据，并对这些数据进行正确的排序。
+        与Datatables其他语言参数一样，language.decimal()可以被定义在表的初始化中或者定义在一个语言文件中通过Ajax进行加载(如下所示)。
+    </p>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).DataTable( {
+    language: {
+        decimal: &quot;,&quot;,
+    }
+} );</pre>
+<h3>
+    可用的翻译(Available translations)
+</h3>
+<p>
+    DataTables社区共同递交了超过50个翻译，可以直接在Datatables中使用。用法参考 <a href="http://datatables.net/plug-ins/i18n/">plug-ins</a>。
+</p>
+<blockquote>
+    <p><a href="http://datatables.net/manual/api" title="i18n">http://datatables.net/manual/i18n</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+    {% include post.html %}
+
+</div><!--/span-->
+</div><!--/row-->
+</div><!--/.fluid-container-->
