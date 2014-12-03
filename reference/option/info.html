@@ -1,0 +1,28 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项| 
+---
+<h1 class="page_title">info</h1>
+
+<div class="since">Since: 1.10</div><p>控制是否显示表格的信息</p>
+<a name="Description"></a><h2 data-anchor="Description">说明</h2>
+<p>Disable will show information about the table including information about filtered data if that action is being performed（这句话好像有问题，说的反了）. 这个配置允许打开或者关闭这个特性。</p>
+
+<p>需要注意的是，默认情况下信息提示显示在表格下面的左边，但是这个可以用<a href="dom.html"><code class="option" title="DataTables initialisation option">dom<span>DT</span></code></a> 和 CSS来控制.</p>
+<a name="Type"></a><h2 data-anchor="Type">数据类型</h2>
+<p>这个选项用下列的数据类型赋值:</p>
+
+<ul class="markdown">
+<li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+</ul>
+<a name="Default"></a><h2 data-anchor="Default">默认值</h2><ul class="markdown"><li>Value: <code>true</code></li></ul>
+<a name="Example"></a><h2 data-anchor="Example">示例</h2><div class="reference_examples"><div class="reference_example"><div class="title"><p>Disable information display:</p>
+</div><pre><code class="multiline language-js">$('#example').dataTable( {
+  &quot;info&quot;: false
+} );</code></pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2><p>The following options are directly related and may also be useful in your application development.</p><div class="reference_related">Options<ul class="markdown"><li><a href="//datatables.net/reference/option/language.info"><code class="init" title="Initialisation option">language.info</code></a></li><li><a href="//datatables.net/reference/option/language.infoEmpty"><code class="init" title="Initialisation option">language.infoEmpty</code></a></li><li><a href="//datatables.net/reference/option/language.infoFiltered"><code class="init" title="Initialisation option">language.infoFiltered</code></a></li><li><a href="//datatables.net/reference/option/infoCallback"><code class="init" title="Initialisation option">infoCallback</code></a></li></ul></div><div class="clear"></div>
+				</div>
+			</div>
+<blockquote>
+  <p><a href="http://datatables.net/manual/options" title="options">http://datatables.net/manual/options</a></p>
+  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
