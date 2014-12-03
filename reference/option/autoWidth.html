@@ -1,0 +1,58 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项| 自动宽度
+---
+<h2 class="page_title">自动宽度(autoWidth)</h2>
+<div class="since">Since: 1.10</div>
+<p>控制DataTables列宽的智能控制</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>启用或者禁止自动列宽的计算。如果已经定义了列宽，禁止这个选项可以实现最优的性能（因为这个选项会耗费一点的时间去计算列宽）。 <a href="columns.width.html"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a>.</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>这个选项用下列的数据类型赋值。</p>
+<ul class="markdown">
+  <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<ul class="markdown">
+  <li>Value: <code>true</code></li>
+</ul>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>禁止智能计算列宽:</p>
+    </div>
+    <pre><code class="multiline language-js">$('#example').dataTable( {
+  &quot;autoWidth&quot;: false
+} );</code></pre>
+  </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的配置是直接相关的，并且可能在你的开发中用得到。</p>
+<div class="reference_related">API
+  <ul class="markdown">
+    <li><a href="../api/columns.adjust().html"><code class="api" title="API method">columns.adjust()</code></a></li>
+  </ul>
+</div>
+<div class="reference_related">Events
+  <ul class="markdown">
+    <li><a href="../event/column-sizing.html"><code class="event" title="Event">column-sizing</code></a></li>
+  </ul>
+</div>
+<div class="reference_related">Options
+  <ul class="markdown">
+    <li><a href="columns.width.html"><code class="init" title="Initialisation option">columns.width</code></a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<blockquote>
+  <p><a href="http://datatables.net/manual/options" title="options">http://datatables.net/manual/options</a></p>
+  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
