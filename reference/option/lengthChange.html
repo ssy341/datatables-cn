@@ -1,0 +1,56 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项| 自动宽度
+---
+<h1 class="page_title">lengthChange</h1>
+<div class="since">Since: 1.10</div>
+<p>是否允许最终用户改变表格每页显示的记录数。</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>如果pagination启用了, 这个选项设为true会显示一个可以让用户选择每页显示多少条记录的下拉框。 下拉框中的选项值利用<a href="lengthMenu.html"><code class="option" title="DataTables initialisation option">lengthMenu<span>DT</span></code></a> 来配置。</p>
+<p>注意：默认情况下这个下拉框在表格的左上角显示。在哪里显示可以通过<a href="dom.html"><code class="option" title="DataTables initialisation option">dom<span>DT</span></code></a> 和 CSS控制。</p>
+<p>另外，如果pagination使用<a href="paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a> 配置成禁用，这个选项就会自动被设为false。因为如果pagination被禁用，这个选项就没有存在的合理性了。</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>This option can be given in the following type(s):</p>
+<ul class="markdown">
+  <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<ul class="markdown">
+  <li>Value: <code>true</code></li>
+</ul>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>Disable user ability to change number of records per page:</p>
+    </div>
+    <pre><code class="multiline language-js">$('#example').dataTable( {
+  &quot;lengthChange&quot;: false
+} );</code></pre>
+  </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">Related</h2>
+<p>The following options are directly related and may also be useful in your application development.</p>
+<div class="reference_related">API
+  <ul class="markdown">
+    <li><a href="../api/page.len().html"><code class="api" title="API method">page.len()</code></a></li>
+  </ul>
+</div>
+<div class="reference_related">Options
+  <ul class="markdown">
+    <li><a href="dom.html"><code class="init" title="Initialisation option">dom</code></a></li>
+    <li><a href="lengthMenu.html"><code class="init" title="Initialisation option">lengthMenu</code></a></li>
+    <li><a href="language.lengthMenu.html"><code class="init" title="Initialisation option">language.lengthMenu</code></a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<blockquote>
+  <p><a href="http://datatables.net/reference/option/lengthChange">http://datatables.net/reference/option/lengthChange</a></p>
+  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small> </blockquote>
