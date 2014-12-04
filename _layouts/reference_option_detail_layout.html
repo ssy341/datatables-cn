@@ -8,27 +8,14 @@
      {% include reference_nav.html %}
      <div class="container-fluid">
 		<div class="row-fluid">
-			<div class="span3">
-				<div class="well sidebar-nav">
-					<ul class="nav nav-list">
-						<li class="nav-header">手册</li>
-						<li class="active"><a href="#">配置选项</a></li>
-						<li><a href="install.html">API</a></li>
-						<li><a href="data.html">事件</a></li>
-						<li><a href="#">数据类型</a></li>
-					</ul>
-				</div><!--/.well -->
-			</div><!--/span-->
-			<div class="span9">
-
+            <div class="span2"></div>
+			<div class="span8">
 				{{content}}
 				{% include post.html %}
-
 			</div><!--/row-->
+            <div class="span2"></div>
 		</div><!--/row-->
-
 		<hr>
-
 	</div><!--/.fluid-container-->
 
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
