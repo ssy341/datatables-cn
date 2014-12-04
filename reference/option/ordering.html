@@ -1,0 +1,57 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项|
+---
+<h1 class="page_title">ordering</h1>
+<div class="since">Since: 1.10</div>
+<p>是否允许DataTables排序。</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>允许或禁止对各个数据列使用排序。 默认情况下，点击每列的表头单元格,可以根据该列对整个表格进行排序。这个选项可以停用这个排序功能。</p>
+<p>注意：禁止或者启用单个列的排序功能，可以通过该列的<a href="columns.orderable.html"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a>选项来实现。 现在的这个ordering选项是一个全局的配置- 如果禁止，整个DataTables都会停用排序功能。</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>This option can be given in the following type(s):</p>
+<ul class="markdown">
+  <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<p>true</p>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>Disable ordering in the table:</p>
+    </div>
+    <pre><code class="multiline language-js">$('#example').dataTable( {
+  &quot;ordering&quot;: false
+} );</code></pre>
+  </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>The following options are directly related and may also be useful in your application development.</p>
+<div class="reference_related">API
+  <ul class="markdown">
+    <li><a href="../api/order().html"><code class="api" title="API method">order()</code></a></li>
+    <li><a href="../api/column().order().html"><code class="api" title="API method">column().order()</code></a></li>
+    <li><a href="../api/columns().order().html"><code class="api" title="API method">columns().order()</code></a></li>
+  </ul>
+</div>
+<div class="reference_related">Options
+  <ul class="markdown">
+    <li><a href="columns.orderable.html"><code class="init" title="Initialisation option">columns.orderable</code></a></li>
+    <li><a href="order.html"><code class="init" title="Initialisation option">order</code></a></li>
+    <li><a href="orderFixed.html"><code class="init" title="Initialisation option">orderFixed</code></a></li>
+    <li><a href="orderMulti.html"><code class="init" title="Initialisation option">orderMulti</code></a></li>
+    <li><a href="orderClasses.html"><code class="init" title="Initialisation option">orderClasses</code></a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<blockquote>
+  <p><a href="http://datatables.net/reference/option/ordering">http://datatables.net/reference/option/ordering</a></p>
+  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small> </blockquote>
