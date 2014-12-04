@@ -1,0 +1,40 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项| 自动宽度
+---
+<h1 class="page_title">jQueryUI</h1>
+<div class="since">Since: 1.10</div>
+<p>应用jQuery UI ThemeRoller的标签和CSS类。</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>DataTables能使用各种各样的CSS类库包，其中包括jQuery UI, Twitter Bootstrap 和 Foundation. 但是 Bootstrap, Foundation 和其他的类库需要添加插件， 而jQuery UI 的主题支持是内置在DataTables中的，可以用这个参数来控制是否使用。 如果设置为true, DataTables就可以使用jQuery UI ThemeRoller的标签和css类,使得你的表格和jQuery UI很容易集成起来。</p>
+<p>当设置为true之后, 你需要加载<code>jquery.dataTables_themeroller.css</code>文件，因为ThemeRoller并不能提供DataTables需要的所有style文件。这个文件路径在 DataTables 包(<code class="path" title="File path">media/css</code>)中。</p>
+<p>注意：这个特性已经被抛弃了在DataTables 1.10 版本中，并且以后会在1.11版本中删除。在1.11版本中，这个功能需要采用插件的方式实现，跟其他的css样式一样。可以看 <a href="../../manual/styling/jqueryui.html">DataTables jQuery UI styling documentation</a> 了解更多关于使用jQuery UI定制表格的这个新方法。</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>This option can be given in the following type(s):</p>
+<ul class="markdown">
+  <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<ul class="markdown">
+  <li>Value: <code>false</code></li>
+</ul>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>Enable jQuery UI ThemeRoller support:</p>
+    </div>
+    <pre><code class="multiline language-js">$('#example').dataTable( {
+  &quot;jQueryUI&quot;: true
+} );</code></pre>
+  </div>
+</div>
+</div>
+</div>
+<blockquote>
+  <p><a href="http://datatables.net/manual/options" title="options">http://datatables.net/manual/options</a></p>
+  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small> </blockquote>
