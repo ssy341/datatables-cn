@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>Datatables | 示例 | 网友共享 | 基本增删改查（php）</title>
+    <script type="text/javascript" src='../resources/user_share/basic_curd/jsplugin/jquery.js'></script>
+    <script type="text/javascript"
+            src="../resources/user_share/basic_curd/jsplugin/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../resources/user_share/basic_curd/datatables.js"></script>
+    <script type="text/javascript" src="../resources/user_share/basic_curd/index.js"></script>
+    <script type="text/javascript" src="../resources/user_share/basic_curd/jsplugin/bootstrap/js/bootstrap.js"></script>
+    <link href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shCore.css" rel="stylesheet" type="text/css"/>
+    <link href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../../css/docs.css" rel="stylesheet">
+    <style type="text/css" media="screen">
+        @import "../resources/user_share/basic_curd/jsplugin/bootstrap/css/bootstrap.css";
+        @import "../resources/user_share/basic_curd/jsplugin/datatables/css/dataTableStyle.css";
+    </style>
+</head>
+<body>
+<!-- Navbar
+    ================================================== -->
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/index.html">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li class=""><a href="/index.html">首页</a></li>
+                    <li class="active"><a href="#">例子</a></li>
+                    <li class=""><a href="/manual.html">手册</a></li>
+                    <li class=""><a href="/reference.html">参考</a></li>
+                    <li class=""><a href="#">扩展</a></li>
+                    <li class=""><a href="#">插件</a></li>
+                    <li class=""><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h3>基本增删改查（php）</h3>
+        <p>
+            此例子展示基于Datatables的服务器处理的增删改查，弹窗效果，结合Bootstrap显示表格，局部刷新数据，还应用了sdom，自定义按钮
+            使表格和按钮看起来是一个整体
+         </p>
+    </div>
+</header>
+
+<div class="container" style="margin-top:20px">
+
+    <!-- 表格开始 -->
+    <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover"
+           id="example">
+        <thead>
+        <tr>
+            <th style="width:15px"><input type="checkbox" id='checkAll'></th>
+            <th>昵称</th>
+            <th>技能</th>
+            <th>添加时间</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!-- 表格结束 -->
+
+    <!-- Modal -->
+    <div id="myModal" class="modal hide fade" data-backdrop="false">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+                    aria-hidden="true">×
+            </button>
+            <h3 id="myModalLabel">用户信息</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" id="resForm">
+                <input type="hidden" id="objectId"/>
+
+                <div class="control-group">
+                    <label class="control-label" for="inputName">昵称：</label> <input
+                        type="text" id="inputName" name="name"/>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputJob">技能：</label> <input
+                        type="text" id="inputJob" name="job"/>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputNote">备注：</label>
+                    <textarea name="note" id="inputNote" cols="30" rows="4"></textarea>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="btnSave">确定</button>
+            <button class="btn btn-primary" id="btnEdit">保存</button>
+            <button class="btn btn-danger" data-dismiss="modal"
+                    aria-hidden="true">取消
+            </button>
+        </div>
+    </div>
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+            <li><a href="#tab3" data-toggle="tab">Ajax返回数据</a></li>
+            <li><a href="#tab4" data-toggle="tab">服务器代码-数据返回</a></li>
+            <li><a href="#tab5" data-toggle="tab">服务器代码-删除数据</a></li>
+            <li><a href="#tab6" data-toggle="tab">服务器代码-编辑数据</a></li>
+            <li><a href="#tab7" data-toggle="tab">服务器代码-添加数据</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+                <pre class="brush:js;toolbar:false">var oTable;
+$(document).ready(function () {
+    initModal();
+    oTable = initTable();
+    $(&quot;#btnEdit&quot;).hide();
+    $(&quot;#btnSave&quot;).click(_addFun);
+    $(&quot;#btnEdit&quot;).click(_editFunAjax);
+    $(&quot;#deleteFun&quot;).click(_deleteList);
+    //checkbox全选
+    $(&quot;#checkAll&quot;).live(&quot;click&quot;, function () {
+        if ($(this).attr(&quot;checked&quot;) === &quot;checked&quot;) {
+            $(&quot;input[name=&#39;checkList&#39;]&quot;).attr(&quot;checked&quot;, $(this).attr(&quot;checked&quot;));
+        } else {
+            $(&quot;input[name=&#39;checkList&#39;]&quot;).attr(&quot;checked&quot;, false);
+        }
+    });
+});
+
+/**
+ * 表格初始化
+ * @returns {*|jQuery}
+ */
+function initTable() {
+    var table = $(&quot;#example&quot;).dataTable({
+        //&quot;iDisplayLength&quot;:10,
+        &quot;sAjaxSource&quot;: &quot;http://dt.thxopen.com/example/resources/user_share/basic_curd/dataList.php&quot;,
+        &#39;bPaginate&#39;: true,
+        &quot;bDestory&quot;: true,
+        &quot;bRetrieve&quot;: true,
+        &quot;bFilter&quot;:false,
+        &quot;bSort&quot;: false,
+        &quot;bProcessing&quot;: true,
+        &quot;aoColumns&quot;: [
+            {
+                &quot;mDataProp&quot;: &quot;id&quot;,
+                &quot;fnCreatedCell&quot;: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(&quot;&lt;input type=&#39;checkbox&#39; name=&#39;checkList&#39; value=&#39;&quot; + sData + &quot;&#39;&gt;&quot;);
+
+                }
+            },
+            {&quot;mDataProp&quot;: &quot;name&quot;},
+            {&quot;mDataProp&quot;: &quot;job&quot;},
+            {&quot;mDataProp&quot;: &quot;date&quot;},
+            {&quot;mDataProp&quot;: &quot;note&quot;},
+            {
+                &quot;mDataProp&quot;: &quot;id&quot;,
+                &quot;fnCreatedCell&quot;: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(&quot;&lt;a href=&#39;javascript:void(0);&#39; &quot; +
+                    &quot;onclick=&#39;_editFun(\&quot;&quot; + oData.id + &quot;\&quot;,\&quot;&quot; + oData.name + &quot;\&quot;,\&quot;&quot; + oData.job + &quot;\&quot;,\&quot;&quot; + oData.note + &quot;\&quot;)&#39;&gt;编辑&lt;/a&gt;&amp;nbsp;&amp;nbsp;&quot;)
+                        .append(&quot;&lt;a href=&#39;javascript:void(0);&#39; onclick=&#39;_deleteFun(&quot; + sData + &quot;)&#39;&gt;删除&lt;/a&gt;&quot;);
+                }
+            },
+        ],
+        &quot;sDom&quot;: &quot;&lt;&#39;row-fluid&#39;&lt;&#39;span6 myBtnBox&#39;&gt;&lt;&#39;span6&#39;f&gt;r&gt;t&lt;&#39;row-fluid&#39;&lt;&#39;span6&#39;i&gt;&lt;&#39;span6 &#39;p&gt;&gt;&quot;,
+        &quot;sPaginationType&quot;: &quot;bootstrap&quot;,
+        &quot;oLanguage&quot;: {
+            &quot;sUrl&quot;: &quot;../resources/user_share/basic_curd/jsplugin/datatables/zh-CN.txt&quot;,
+            &quot;sSearch&quot;: &quot;快速过滤：&quot;
+        },
+        &quot;fnCreatedRow&quot;: function (nRow, aData, iDataIndex) {
+            //add selected class
+            $(nRow).click(function () {
+                if ($(this).hasClass(&#39;row_selected&#39;)) {
+                    $(this).removeClass(&#39;row_selected&#39;);
+                } else {
+                    oTable.$(&#39;tr.row_selected&#39;).removeClass(&#39;row_selected&#39;);
+                    $(this).addClass(&#39;row_selected&#39;);
+                }
+            });
+        },
+        &quot;fnInitComplete&quot;: function (oSettings, json) {
+            $(&#39;&lt;a href=&quot;#myModal&quot; id=&quot;addFun&quot; class=&quot;btn btn-primary&quot; data-toggle=&quot;modal&quot;&gt;新增&lt;/a&gt;&#39; + &#39;&amp;nbsp;&#39; +
+            &#39;&lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot; id=&quot;editFun&quot;&gt;修改&lt;/a&gt; &#39; + &#39;&amp;nbsp;&#39; +
+            &#39;&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot; id=&quot;deleteFun&quot;&gt;删除&lt;/a&gt;&#39; + &#39;&amp;nbsp;&#39;).appendTo($(&#39;.myBtnBox&#39;));
+            $(&quot;#deleteFun&quot;).click(_deleteList);
+            $(&quot;#editFun&quot;).click(_value);
+            $(&quot;#addFun&quot;).click(_init);
+        }
+    });
+    return table;
+}
+
+/**
+ * 删除
+ * @param id
+ * @private
+ */
+function _deleteFun(id) {
+    $.ajax({
+        url: &quot;http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFun.php&quot;,
+        data: {&quot;id&quot;: id},
+        type: &quot;post&quot;,
+        success: function (backdata) {
+            if (backdata) {
+                oTable.fnReloadAjax(oTable.fnSettings());
+            } else {
+                alert(&quot;删除失败&quot;);
+            }
+        }, error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+/**
+ * 赋值
+ * @private
+ */
+function _value() {
+    if (oTable.$(&#39;tr.row_selected&#39;).get(0)) {
+        $(&quot;#btnEdit&quot;).show();
+        var selected = oTable.fnGetData(oTable.$(&#39;tr.row_selected&#39;).get(0));
+        $(&quot;#inputName&quot;).val(selected.name);
+        $(&quot;#inputJob&quot;).val(selected.job);
+        $(&quot;#inputDate&quot;).val(selected.date);
+        $(&quot;#inputNote&quot;).val(selected.note);
+        $(&quot;#objectId&quot;).val(selected.id);
+
+        $(&quot;#myModal&quot;).modal(&quot;show&quot;);
+        $(&quot;#btnSave&quot;).hide();
+    } else {
+        alert(&#39;请点击选择一条记录后操作。&#39;);
+    }
+}
+
+/**
+ * 编辑数据带出值
+ * @param id
+ * @param name
+ * @param job
+ * @param note
+ * @private
+ */
+function _editFun(id, name, job, note) {
+    $(&quot;#inputName&quot;).val(name);
+    $(&quot;#inputJob&quot;).val(job);
+    $(&quot;#inputNote&quot;).val(note);
+    $(&quot;#objectId&quot;).val(id);
+    $(&quot;#myModal&quot;).modal(&quot;show&quot;);
+    $(&quot;#btnSave&quot;).hide();
+    $(&quot;#btnEdit&quot;).show();
+}
+
+/**
+ * 初始化
+ * @private
+ */
+function _init() {
+    resetFrom();
+    $(&quot;#btnEdit&quot;).hide();
+    $(&quot;#btnSave&quot;).show();
+}
+
+/**
+ * 添加数据
+ * @private
+ */
+function _addFun() {
+    var jsonData = {
+        &#39;name&#39;: $(&quot;#inputName&quot;).val(),
+        &#39;job&#39;: $(&quot;#inputJob&quot;).val(),
+        &#39;note&#39;: $(&quot;#inputNote&quot;).val()
+    };
+    $.ajax({
+        url: &quot;http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFun.php&quot;,
+        data: jsonData,
+        type: &quot;post&quot;,
+        success: function (backdata) {
+            if (backdata == 1) {
+                $(&quot;#myModal&quot;).modal(&quot;hide&quot;);
+                resetFrom();
+                oTable.fnReloadAjax(oTable.fnSettings());
+            } else if (backdata == 0) {
+                alert(&quot;插入失败&quot;);
+            } else {
+                alert(&quot;防止数据不断增长，会影响速度，请先删掉一些数据再做测试&quot;);
+            }
+        }, error: function (error) {
+            console.log(error);
+        }
+    });
+}
+
+
+/*
+ add this plug in
+ // you can call the below function to reload the table with current state
+ Datatables刷新方法
+ oTable.fnReloadAjax(oTable.fnSettings());
+ */
+$.fn.dataTableExt.oApi.fnReloadAjax = function (oSettings) {
+    //oSettings.sAjaxSource = sNewSource;
+    this.fnClearTable(this);
+    this.oApi._fnProcessingDisplay(oSettings, true);
+    var that = this;
+
+    $.getJSON(oSettings.sAjaxSource, null, function (json) {
+        /* Got the data - add it to the table */
+        for (var i = 0; i &lt; json.aaData.length; i++) {
+            that.oApi._fnAddData(oSettings, json.aaData[i]);
+        }
+        oSettings.aiDisplay = oSettings.aiDisplayMaster.slice();
+        that.fnDraw(that);
+        that.oApi._fnProcessingDisplay(oSettings, false);
+    });
+}
+
+
+/**
+ * 编辑数据
+ * @private
+ */
+function _editFunAjax() {
+    var id = $(&quot;#objectId&quot;).val();
+    var name = $(&quot;#inputName&quot;).val();
+    var job = $(&quot;#inputJob&quot;).val();
+    var note = $(&quot;#inputNote&quot;).val();
+    var jsonData = {
+        &quot;id&quot;: id,
+        &quot;name&quot;: name,
+        &quot;job&quot;: job,
+        &quot;note&quot;: note
+    };
+    $.ajax({
+        type: &#39;POST&#39;,
+        url: &#39;http://dt.thxopen.com/example/resources/user_share/basic_curd/editFun.php&#39;,
+        data: jsonData,
+        success: function (json) {
+            if (json) {
+                $(&quot;#myModal&quot;).modal(&quot;hide&quot;);
+                resetFrom();
+                oTable.fnReloadAjax(oTable.fnSettings());
+            } else {
+                alert(&quot;更新失败&quot;);
+            }
+        }
+    });
+}
+/**
+ * 初始化弹出层
+ */
+function initModal() {
+    $(&#39;#myModal&#39;).on(&#39;show&#39;, function () {
+        $(&#39;body&#39;, document).addClass(&#39;modal-open&#39;);
+        $(&#39;&lt;div class=&quot;modal-backdrop fade in&quot;&gt;&lt;/div&gt;&#39;).appendTo($(&#39;body&#39;, document));
+    });
+    $(&#39;#myModal&#39;).on(&#39;hide&#39;, function () {
+        $(&#39;body&#39;, document).removeClass(&#39;modal-open&#39;);
+        $(&#39;div.modal-backdrop&#39;).remove();
+    });
+}
+
+/**
+ * 重置表单
+ */
+function resetFrom() {
+    $(&#39;form&#39;).each(function (index) {
+        $(&#39;form&#39;)[index].reset();
+    });
+}
+
+
+/**
+ * 批量删除
+ * 未做
+ * @private
+ */
+function _deleteList() {
+    var str = &#39;&#39;;
+    $(&quot;input[name=&#39;checkList&#39;]:checked&quot;).each(function (i, o) {
+        str += $(this).val();
+        str += &quot;,&quot;;
+    });
+    if (str.length &gt; 0) {
+        var IDS = str.substr(0, str.length - 1);
+        alert(&quot;你要删除的数据集id为&quot; + IDS);
+    } else {
+        alert(&quot;至少选择一条记录操作&quot;);
+    }
+}</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+                <pre class="brush:html;toolbar:false">&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;table table-striped table-bordered table-hover&quot;
+       id=&quot;example&quot;&gt;
+    &lt;thead&gt;
+    &lt;tr&gt;
+        &lt;th style=&quot;width:15px&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&#39;checkAll&#39;&gt;&lt;/th&gt;
+        &lt;th&gt;昵称&lt;/th&gt;
+        &lt;th&gt;技能&lt;/th&gt;
+        &lt;th&gt;添加时间&lt;/th&gt;
+        &lt;th&gt;备注&lt;/th&gt;
+        &lt;th&gt;操作&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab3">
+                F12查看
+            </div>
+            <div class="tab-pane" id="tab4">
+                <pre class="brush:php;toolbar:false">&lt;?php
+   $output = array(
+      &quot;aaData&quot; =&gt; array()
+   );
+
+    try {
+        //连接数据库
+        $db = new SQLite3(&#39;curd.sqlite3&#39;);
+    } catch (Exception $e) {
+        fatal(
+            &quot;数据库连接出错&quot; . $e-&gt;getMessage()
+        );
+    }
+$sql = &quot;select * from user&quot;;
+$result = $db-&gt;query($sql);
+while ($row = $result-&gt;fetchArray(SQLITE3_ASSOC)) {
+    $row = array(
+        &quot;id&quot; =&gt; $row[&#39;id&#39;],
+        &quot;name&quot; =&gt; $row[&#39;name&#39;],
+        &quot;job&quot; =&gt; $row[&#39;job&#39;],
+        &quot;date&quot; =&gt; $row[&#39;start_date&#39;],
+        &quot;note&quot; =&gt; $row[&#39;note&#39;]
+
+    );
+    $output[&#39;aaData&#39;][] = $row;
+}
+$db-&gt;close();
+echo json_encode( $output );
+
+function fatal($msg)
+{
+    echo json_encode(array(
+        &quot;error&quot; =&gt; $msg
+    ));
+    exit(0);
+}
+
+?&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab5">
+               <pre class="brush:php;toolbar:false">&lt;?php
+    $id = $_POST[&#39;id&#39;];
+    try {
+        //连接数据库
+        $db = new SQLite3(&#39;curd.sqlite3&#39;);
+    } catch (Exception $e) {
+        fatal(
+            &quot;数据库连接出错&quot; . $e-&gt;getMessage()
+        );
+    }
+
+    $query = &quot;delete from user where id = &quot; . $id;
+    $resultQ = $db-&gt;query($query);
+    if ($resultQ) {
+        echo 1;
+    } else {
+        echo 0;
+    }
+    $db-&gt;close();
+?&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab6">
+                <pre class="brush:php;toolbar:false">&lt;?php
+$id = $_POST[&#39;id&#39;];
+$name = $_POST[&#39;name&#39;];
+$job = $_POST[&#39;job&#39;];
+$note = $_POST[&#39;note&#39;];
+try {
+    //连接数据库
+    $db = new SQLite3(&#39;curd.sqlite3&#39;);
+} catch (Exception $e) {
+    fatal(
+        &quot;数据库连接出错&quot; . $e-&gt;getMessage()
+    );
+}
+$updateSql = &quot;update user set name = &#39;&quot; . $name . &quot;&#39; , job = &#39;&quot; . $job . &quot;&#39;, note = &#39;&quot; . $note . &quot;&#39; where id = &quot; . $id;
+$resultQ = $db-&gt;query($updateSql);
+if ($resultQ) {
+    echo 1;
+} else {
+    echo 0;
+}
+$db-&gt;close();
+
+function fatal($msg)
+{
+    echo json_encode(array(
+        &quot;error&quot; =&gt; $msg
+    ));
+    exit(0);
+}
+
+?&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab7">
+               <pre class="brush:php;toolbar:false">&lt;?php
+    $name = $_POST[&#39;name&#39;];
+    $job = $_POST[&#39;job&#39;];
+    $note = $_POST[&#39;note&#39;];
+    try {
+        //连接数据库
+        $db = new SQLite3(&#39;curd.sqlite3&#39;);
+    } catch (Exception $e) {
+        fatal(
+            &quot;数据库连接出错&quot; . $e-&gt;getMessage()
+        );
+    }
+    $querySum = &quot;select count(id) as sum from user&quot;;
+    $sumResult = $db-&gt;query($querySum);
+    $SUM=0;
+    while($row = $sumResult-&gt;fetchArray(SQLITE3_ASSOC)){
+        $SUM = $row[&#39;sum&#39;];
+    }
+    if($SUM&lt;341341){
+        $insertSql = &quot;insert into user (name,job,note) &quot; .
+            &quot;values(&#39;&quot; . $name . &quot;&#39;,&#39;&quot; . $job . &quot;&#39;,&#39;&quot; . $note . &quot;&#39;)&quot;;
+        $result = $db-&gt;query($insertSql);
+        $db-&gt;close();
+        if ($result) {
+            echo 1;
+        } else {
+            echo 0;
+        }
+    }else{
+        echo 2;
+    }
+
+    function fatal($msg)
+    {
+        echo json_encode(array(
+            &quot;error&quot; =&gt; $msg
+        ));
+        exit(0);
+    }
+?&gt;</pre>
+            </div>
+        </div>
+    </div>
+    <!-- 评论 -->
+    <div id="SOHUCS"></div>
+    <script>
+        (function () {
+            var appid = 'cyr8jjDJ2',
+                    conf = 'prod_d596729bcd45c9544aac809c726ea090';
+            var doc = document,
+                    s = doc.createElement('script'),
+                    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+            s.type = 'text/javascript';
+            s.charset = 'utf-8';
+            s.src = 'http://assets.changyan.sohu.com/upload/changyan.js?conf=' + conf + '&appid=' + appid;
+            h.insertBefore(s, h.firstChild);
+            window.SCS_NO_IFRAME = true;
+        })()
+    </script>
+    <!-- /评论 -->
+</div>
+<!--/row-->
+<!--footer-->
+<footer class="footer">
+    <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</footer>
+</body>
+</html>
+
+<script id="shCore" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushXml.js"></script>
+<script id="shBrushPhp" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPhp.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
