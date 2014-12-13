@@ -1,28 +1,5 @@
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+{% include libs/jquery_js.html %}
+{% include libs/bootstrap_js.html %}
+{% include libs/sh_js.html %}
+{% include libs/datatables_js.html %}
 
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script id="shCore" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
-<script id="shBrushJScript" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJScript.js"></script>
-<script id="shBrushXml" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushXml.js"></script>
-<script>
-   /* if (typeof SyntaxHighlighter === 'undefined') {
-        document.createElementsById('shCore').src = "library/sh/js/shCore.js";
-        document.createElementsById('shBrushXml').src = "library/sh/js/shBrushXml.js";
-        document.createElementsById('shBrushJScript').src = "library/sh/js/shBrushJScript.js";
-        document.body.appendChild(script);
-        console.log(123);
-    }else{
-        console.log(456);
-    }*/
-</script>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
-
-{% if include.param == "1.10.4" %}
-<!-- DataTables 1.10.4-->
-<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
-{% else %}
-<!-- DataTables 1.10.0 -->
-<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
-{% endif %}

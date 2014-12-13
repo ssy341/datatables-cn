@@ -22,16 +22,12 @@
 		</div><!--/row-->
 		<hr>
 	</div><!--/.fluid-container-->
-
-	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-
-	{% include example_script.html %}
-	<script type="text/javascript">
-		$(document).ready( function () {
-			$('#table_id').DataTable();
-		} );
-	</script>
      {% include copyright.html %}
 </body>
 </html>
+{% include example_script.html %}
+<script type="text/javascript">
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
