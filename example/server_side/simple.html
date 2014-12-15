@@ -50,6 +50,7 @@ title: Datatables | 示例 | 服务器处理 | 简单
             <li><a href="#tab2" data-toggle="tab">html</a></li>
             <li><a href="#tab3" data-toggle="tab">Ajax返回数据</a></li>
             <li><a href="#tab4" data-toggle="tab">服务器处理代码</a></li>
+            <li><a href="#tab5" data-toggle="tab">ajax请求</a></li>
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="tab1">
@@ -198,6 +199,25 @@ function fatal($msg)
     exit(0);
 }</pre>
             </div>
+            <div class="tab-pane" id="tab5">
+                <pre class="brush:js;toolbar:false">%5B=&gt;[
+%5D=&gt;]
+http://dt.thxopen.com/example/resources/server_processing_customCUrl.php?
+draw=1&amp;
+columns[0][data]=0&amp;columns[0][name]=&amp;columns[0][searchable]=true&amp;columns[0][orderable]=true&amp;columns[0][search][value]=&amp;columns[0][search][regex]=false&amp;
+columns[1][data]=1&amp;columns[1][name]=&amp;columns[1][searchable]=true&amp;columns[1][orderable]=true&amp;columns[1][search][value]=&amp;columns[1][search][regex]=false&amp;
+columns[2][data]=2&amp;columns[2][name]=&amp;columns[2][searchable]=true&amp;columns[2][orderable]=true&amp;columns[2][search][value]=&amp;columns[2][search][regex]=false&amp;
+columns[3][data]=3&amp;columns[3][name]=&amp;columns[3][searchable]=true&amp;columns[3][orderable]=true&amp;columns[3][search][value]=&amp;columns[3][search][regex]=false&amp;
+columns[4][data]=4&amp;columns[4][name]=&amp;columns[4][searchable]=true&amp;columns[4][orderable]=true&amp;columns[4][search][value]=&amp;columns[4][search][regex]=false&amp;
+columns[5][data]=5&amp;columns[5][name]=&amp;columns[5][searchable]=true&amp;columns[5][orderable]=true&amp;columns[5][search][value]=&amp;columns[5][search][regex]=false&amp;
+order[0][column]=0&amp;
+order[0][dir]=asc&amp;
+start=0&amp;
+length=10&amp;
+search[value]=&amp;
+search[regex]=false&amp;
+_=1418644693360</pre>
+            </div>
         </div>
     </div>
     {% include post.html %}
@@ -209,7 +229,7 @@ function fatal($msg)
         $('#example').dataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "http://dt.thxopen.com/example/resources/server_processing_custom.php"
+            "ajax": "http://dt.thxopen.com/example/resources/server_processing_customCUrl.php"
         } );
     } );
 </script>

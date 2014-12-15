@@ -23,7 +23,7 @@ $(document).ready(function () {
 function initTable() {
     var table = $("#example").dataTable({
         //"iDisplayLength":10,
-        "sAjaxSource": "http://dt.thxopen.com/example/resources/user_share/basic_curd/dataList.php",
+        "sAjaxSource": "http://dt.thxopen.com/example/resources/user_share/basic_curd/dataListCUrl.php",
         'bPaginate': true,
         "bDestory": true,
         "bRetrieve": true,
@@ -54,7 +54,7 @@ function initTable() {
         "sDom": "<'row-fluid'<'span6 myBtnBox'><'span6'f>r>t<'row-fluid'<'span6'i><'span6 'p>>",
         "sPaginationType": "bootstrap",
         "oLanguage": {
-            "sUrl": "../resources/user_share/basic_curd/jsplugin/datatables/zh-CN.txt",
+            "sUrl": "http://dt.thxopen.com/example/resources/zh_CN.txt",
             "sSearch": "快速过滤："
         },
         "fnCreatedRow": function (nRow, aData, iDataIndex) {
@@ -87,7 +87,7 @@ function initTable() {
  */
 function _deleteFun(id) {
     $.ajax({
-        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFun.php",
+        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFunCUrl.php",
         data: {"id": id},
         type: "post",
         success: function (backdata) {
@@ -162,7 +162,7 @@ function _addFun() {
         'note': $("#inputNote").val()
     };
     $.ajax({
-        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFun.php",
+        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFunCUrl.php",
         data: jsonData,
         type: "post",
         success: function (backdata) {
@@ -223,7 +223,7 @@ function _editFunAjax() {
     };
     $.ajax({
         type: 'POST',
-        url: 'http://dt.thxopen.com/example/resources/user_share/basic_curd/editFun.php',
+        url: 'http://dt.thxopen.com/example/resources/user_share/basic_curd/editFunCUrl.php',
         data: jsonData,
         success: function (json) {
             if (json) {

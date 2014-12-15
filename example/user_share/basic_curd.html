@@ -1,22 +1,16 @@
+---
+layout:
+---
 <!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv=Content-Type content="text/html; charset=utf-8">
     <title>Datatables | 示例 | 网友共享 | 基本增删改查（php）</title>
-    <script type="text/javascript" src='../resources/user_share/basic_curd/jsplugin/jquery.js'></script>
-    <script type="text/javascript"
-            src="../resources/user_share/basic_curd/jsplugin/datatables/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../resources/user_share/basic_curd/datatables.js"></script>
-    <script type="text/javascript" src="../resources/user_share/basic_curd/index.js"></script>
-    <script type="text/javascript" src="../resources/user_share/basic_curd/jsplugin/bootstrap/js/bootstrap.js"></script>
-    <link href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shCore.css" rel="stylesheet" type="text/css"/>
-    <link href="http://agorbatchev.typepad.com/pub/sh/3_0_83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
-
+    {% include libs/sh_css.html %}
+    {% include libs/bootstrap_css.html %}
+    {% include libs/bootstrap_css.html %}
+    <link href="http://db.kinginf.com/libs/datatables/1.9.4/css/dataTableStyle.css" rel="stylesheet" type="text/css"/>
     <link href="../../css/docs.css" rel="stylesheet">
-    <style type="text/css" media="screen">
-        @import "../resources/user_share/basic_curd/jsplugin/bootstrap/css/bootstrap.css";
-        @import "../resources/user_share/basic_curd/jsplugin/datatables/css/dataTableStyle.css";
-    </style>
 </head>
 <body>
 <!-- Navbar
@@ -417,7 +411,42 @@ function _deleteList() {
     &lt;/thead&gt;
     &lt;tbody&gt;
     &lt;/tbody&gt;
-&lt;/table&gt;</pre>
+&lt;/table&gt;
+
+                &lt;!-- Modal --&gt;
+    &lt;div id=&quot;myModal&quot; class=&quot;modal hide fade&quot; data-backdrop=&quot;false&quot;&gt;
+        &lt;div class=&quot;modal-header&quot;&gt;
+            &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot;
+                    aria-hidden=&quot;true&quot;&gt;×
+            &lt;/button&gt;
+            &lt;h3 id=&quot;myModalLabel&quot;&gt;用户信息&lt;/h3&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-body&quot;&gt;
+            &lt;form class=&quot;form-horizontal&quot; id=&quot;resForm&quot;&gt;
+                &lt;input type=&quot;hidden&quot; id=&quot;objectId&quot;/&gt;
+
+                &lt;div class=&quot;control-group&quot;&gt;
+                    &lt;label class=&quot;control-label&quot; for=&quot;inputName&quot;&gt;昵称：&lt;/label&gt; &lt;input
+                        type=&quot;text&quot; id=&quot;inputName&quot; name=&quot;name&quot;/&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;control-group&quot;&gt;
+                    &lt;label class=&quot;control-label&quot; for=&quot;inputJob&quot;&gt;技能：&lt;/label&gt; &lt;input
+                        type=&quot;text&quot; id=&quot;inputJob&quot; name=&quot;job&quot;/&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;control-group&quot;&gt;
+                    &lt;label class=&quot;control-label&quot; for=&quot;inputNote&quot;&gt;备注：&lt;/label&gt;
+                    &lt;textarea name=&quot;note&quot; id=&quot;inputNote&quot; cols=&quot;30&quot; rows=&quot;4&quot;&gt;&lt;/textarea&gt;
+                &lt;/div&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;modal-footer&quot;&gt;
+            &lt;button class=&quot;btn btn-primary&quot; id=&quot;btnSave&quot;&gt;确定&lt;/button&gt;
+            &lt;button class=&quot;btn btn-primary&quot; id=&quot;btnEdit&quot;&gt;保存&lt;/button&gt;
+            &lt;button class=&quot;btn btn-danger&quot; data-dismiss=&quot;modal&quot;
+                    aria-hidden=&quot;true&quot;&gt;取消
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;</pre>
             </div>
             <div class="tab-pane" id="tab3">
                 F12查看
@@ -561,36 +590,16 @@ function fatal($msg)
             </div>
         </div>
     </div>
-    <!-- 评论 -->
-    <div id="SOHUCS"></div>
-    <script>
-        (function () {
-            var appid = 'cyr8jjDJ2',
-                    conf = 'prod_d596729bcd45c9544aac809c726ea090';
-            var doc = document,
-                    s = doc.createElement('script'),
-                    h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-            s.type = 'text/javascript';
-            s.charset = 'utf-8';
-            s.src = 'http://assets.changyan.sohu.com/upload/changyan.js?conf=' + conf + '&appid=' + appid;
-            h.insertBefore(s, h.firstChild);
-            window.SCS_NO_IFRAME = true;
-        })()
-    </script>
-    <!-- /评论 -->
+   {% include post.html %}
 </div>
 <!--/row-->
-<!--footer-->
-<footer class="footer">
-    <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
-    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-    document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
-</footer>
+{% include copyright.html %}
 </body>
 </html>
+{% include libs/jquery_js.html param="1.8.2" %}
+{% include libs/datatables_js.html param="1.9.4" %}
+{% include libs/bootstrap_js.html %}
+{% include libs/sh_js.html %}
+<script type="text/javascript" src="../resources/user_share/basic_curd/index.js"></script>
+<script type="text/javascript" src="../resources/user_share/basic_curd/datatables.js"></script>
 
-<script id="shCore" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shCore.js"></script>
-<script id="shBrushJScript" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushJScript.js"></script>
-<script id="shBrushXml" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushXml.js"></script>
-<script id="shBrushPhp" src="http://agorbatchev.typepad.com/pub/sh/3_0_83/scripts/shBrushPhp.js"></script>
-<script type="text/javascript">SyntaxHighlighter.all();</script>

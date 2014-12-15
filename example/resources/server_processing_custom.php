@@ -15,11 +15,11 @@ try {
 }
 
 //获取Datatables发送的参数 必要
-$draw = $_GET['draw'];//这个值作者会直接返回给前台
+$draw = $_POST['draw'];//这个值作者会直接返回给前台
 
 //排序
-$order_column = $_GET['order']['0']['column'];//那一列排序，从0开始
-$order_dir = $_GET['order']['0']['dir'];//ase desc 升序或者降序
+$order_column = $_POST['order']['0']['column'];//那一列排序，从0开始
+$order_dir = $_POST['order']['0']['dir'];//ase desc 升序或者降序
 
 //拼接排序sql
 $orderSql = "";
@@ -36,13 +36,13 @@ if(isset($order_column)){
     }
 }
 //搜索
-$search = $_GET['search']['value'];//获取前台传过来的过滤条件
+$search = $_POST['search']['value'];//获取前台传过来的过滤条件
 
 //分页
-$start = $_GET['start'];//从多少开始
-$length = $_GET['length'];//数据长度
+$start = $_POST['start'];//从多少开始
+$length = $_POST['length'];//数据长度
 $limitSql = '';
-$limitFlag = isset($_GET['start']) && $length != -1 ;
+$limitFlag = isset($_POST['start']) && $length != -1 ;
 if ($limitFlag ) {
     $limitSql = " LIMIT ".intval($start).", ".intval($length);
 }

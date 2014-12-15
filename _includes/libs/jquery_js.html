@@ -1,2 +1,6 @@
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+{% if include.param == "1.8.2" %}
+<script src="http://db.kinginf.com/libs/jquery/1.8.2/jquery.js"></script>
+{% else %}
 <script src="http://db.kinginf.com/libs/jquery/1.10.2/jquery.min.js"></script>
+{% endif %}

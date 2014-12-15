@@ -1,5 +1,5 @@
 {
-	"processing": "处理中...",
+	"processing": "玩命加载中...",
 	"lengthMenu": "显示 _MENU_ 项结果",
 	"zeroRecords": "没有匹配结果",
 	"info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
