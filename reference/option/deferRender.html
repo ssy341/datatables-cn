@@ -1,18 +1,28 @@
 ---
 layout: reference_option_detail_layout
-title: Datatables | 参考 | 选项| 
+title: Datatables | 参考 | 选项 | 延迟渲染
 ---
-<h1 class="page_title">deferRender</h1>
+<h1 class="page_title">延迟渲染(deferRender)</h1>
 
 <div class="since">Since: 1.10</div><p>控制表格的延迟渲染，可以提高初始化的速度。</p>
 <a name="Description"></a><h2 data-anchor="Description">说明</h2>
-<p>默认情况下，当DataTables加载Ajax数据或者Javascript数据(<a href="ajax.html"><code class="option" title="DataTables initialisation option">ajax<span>DT</span></code></a> 和 <a href="data.html"><code class="option" title="DataTables initialisation option">data<span>DT</span></code></a> )时，它会提前创建所需的所有HTML元素。当加载大量的数据集时，这个操作所耗费的时间就不能忽视，特别是在旧的浏览器例如IE6-8中运行时。这个选项允许DataTables在需要的时候，才会创建节点(rows and cells in the table body)。</p>
-<p>举个例子来说明，如果你加载一个拥有10,000条记录的数据集到表格，每页显示10条记录，如果这个选项(deferred rendering)开启，DataTables就不会一次创建10,000行，而是只是创建10行。如果用户使用了排序，分页或者搜索结果会在下一次显示的时候，才根据需要自动创建行元素。这实际上是根据分页页面的生命周期来分步的进行创建行。</p>
-<p>需要注意的是，如果这个选项打开，正如大家都知道的，不是所有的行Node是可以被访问的，所以当你使用API的方法时，例如<a href="../api/columns().nodes()"><code class="api" title="DataTables API method">columns().nodes()<span>DT</span></code></a> ，你就必须考虑到这个情况。下面展示了一个例子，演示在这种情况下如何使用jQuery的代理事件。</p>
-
-
+<p>默认情况下，当DataTables加载Ajax数据或者Javascript数据
+    (<a href="ajax.html"><code class="option" title="DataTables initialisation option">ajax<span>DT</span></code></a>
+    和 <a href="data.html"><code class="option" title="DataTables initialisation option">data<span>DT</span></code></a> )时，
+    它会提前创建所需的所有HTML元素。当加载大量的数据集时，这个操作所耗费的时间就不能忽视，特别是在旧的浏览器例如IE6-8中运行时。
+    这个选项允许DataTables在需要的时候，才会创建节点(rows and cells in the table body)。
+</p>
+<p>举个例子来说明，如果你加载一个拥有10,000条记录的数据集到表格，每页显示10条记录，
+    如果这个选项(deferred rendering)开启，DataTables就不会一次创建10,000行，而是只是创建10行。
+    如果用户使用了排序，分页或者搜索结果会在下一次显示的时候，才根据需要自动创建行元素。
+    这实际上是根据分页页面的生命周期来分步的进行创建行。
+</p>
+<p>需要注意的是，如果这个选项打开，正如大家都知道的，不是所有的行Node是可以被访问的，
+    所以当你使用API的方法时，例如<a href="../api/columns().nodes()">
+        <code class="api" title="DataTables API method">columns().nodes()<span>DT</span></code></a> ，
+    你就必须考虑到这个情况。下面展示了一个例子，演示在这种情况下如何使用jQuery的代理事件。
+</p>
 <a name="Type"></a><h2 data-anchor="Type">数据类型</h2><p>这个选项用下列的数据类型赋值:</p>
-
 <ul class="markdown">
 <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
 </ul>
@@ -26,11 +36,26 @@ title: Datatables | 参考 | 选项|
 </div><pre><code class="multiline language-js">$('#example tbody').on( 'click', 'td', function () {
 	alert( 'Clicked on: '+this.innerHTML );
 } );
-
 $('#example').dataTable( {
   &quot;ajax&quot;: &quot;sources/arrays.txt&quot;,
   &quot;deferRender&quot;: true
-} );</code></pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2><p>下面的配置是直接相关的，并且可能在你的开发中用得到。</p><div class="reference_related">Options<ul class="markdown"><li><a href="//datatables.net/reference/option/ajax"><code class="init" title="Initialisation option">ajax</code></a></li><li><a href="//datatables.net/reference/option/data"><code class="init" title="Initialisation option">data</code></a></li></ul></div><div class="clear"></div>
+} );</code></pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2>
+<p>下面的配置是直接相关的，并且可能在你的开发中用得到。</p>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>
+            <a href="//datatables.net/reference/option/ajax">
+                <code class="init" title="Initialisation option">ajax</code>
+            </a>
+        </li>
+        <li>
+            <a href="//datatables.net/reference/option/data">
+                <code class="init" title="Initialisation option">data</code>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="clear"></div>
 				</div>
 			</div>
 <blockquote>

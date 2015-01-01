@@ -2,11 +2,14 @@
 layout: reference_option_detail_layout
 title: Datatables | 参考 | 选项
 ---
-
 <h2 class="page_title">选项(Option)</h2>
 <p>
-	DataTables是一个可高度配置化的类库，可以在生成HTML tables过程中的所有方面实现定制。所有特性可以通过打开、关闭或者定制来满足你对表格所有的要求。定制要先定义一个options，然后传入<code>$().DataTable()</code>构造函数，通过定制options的内容来实现定制。
-	- 例如下面的代码<a href="option/scrollY.html"><code class="option" title="DataTables initialisation option">scrollY<span>DT</span></code></a> 和 <a href="option/paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a> 选项用来允许滚动和禁止分页：
+	DataTables是一个可高度配置化的类库，可以在生成HTML tables过程中的所有方面实现定制。所有特性可以通过打开、关闭或者定制来满足你对表格所有的要求。
+    定制要先定义一个options，然后传入<code>$().DataTable()</code>构造函数，通过定制options的内容来实现定制。
+	- 例如下面的代码
+    <a href="option/scrollY.html"><code class="option" title="DataTables initialisation option">scrollY<span>DT</span></code></a>
+    和 <a href="option/paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a>
+    选项用来允许滚动和禁止分页：
 </p>
 <pre><code class="multiline language-js">$('#myTable').DataTable( {
     scrollY: 300,
@@ -53,7 +56,7 @@ title: Datatables | 参考 | 选项
                 </p>
 			</td>
 			<td>
-				<p>控制Datatables的延迟渲染，可以提高初始化的速度。</p>
+				<p>控制Datatables的延迟渲染，可以提高初始化的速度</p>
 			</td>
 		</tr>
 		<tr>
@@ -267,7 +270,7 @@ title: Datatables | 参考 | 选项
                     <a href="option/createdRow.html"><code class="option" title="DataTables initialisation option">createdRow<span>DT</span></code></a></p>
 			</td>
 			<td>
-				<p>当table的body增加TR调用此函数</p>
+				<p>行被创建时回调函数</p>
 			</td>
 			</tr>
 			<tr>
@@ -279,7 +282,7 @@ title: Datatables | 参考 | 选项
                     </p>
 				</td>
 				<td>
-					<p>表格每次重绘的时候调用</p>
+					<p>表格每次重绘回调函数</p>
 				</td>
 			</tr>
 			<tr>
@@ -309,7 +312,7 @@ title: Datatables | 参考 | 选项
 		<tr>
 			<td>
 				<p>
-					<a href="option/headerCallback.html"><code class="option" title="DataTables initialisation option"> headerCallback<span>DT</span></code></a>
+					<a href="option/headerCallback.html"><code class="option" title="DataTables initialisation option">headerCallback<span>DT</span></code></a>
 				</p></td>
 			<td>
 				<p>表格Header显示时的回调函数</p>
@@ -333,7 +336,7 @@ title: Datatables | 参考 | 选项
 							initComplete<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>初始化结束后的回调函数。</p></td>
+			<td><p>初始化结束后的回调函数</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -342,7 +345,7 @@ title: Datatables | 参考 | 选项
 							preDrawCallback<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>表格绘制前的回调函数。</p></td>
+			<td><p>表格绘制前的回调函数</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -351,7 +354,7 @@ title: Datatables | 参考 | 选项
 							rowCallback<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>表格行(Row)绘制的回调函数。</p></td>
+			<td><p>表格行(Row)绘制的回调函数</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -360,7 +363,7 @@ title: Datatables | 参考 | 选项
 							stateLoadCallback<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>该回调函数定义了从哪里和如何读取保存的状态。</p></td>
+			<td><p>该回调函数定义了从哪里和如何读取保存的状态</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -369,7 +372,7 @@ title: Datatables | 参考 | 选项
 							stateLoaded<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>状态加载完成之后的回调函数。</p></td>
+			<td><p>状态加载完成之后的回调函数</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -378,7 +381,7 @@ title: Datatables | 参考 | 选项
 							stateLoadParams<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>状态加载完成之后，对数据处理的回调函数。</p></td>
+			<td><p>状态加载完成之后，对数据处理的回调函数</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -387,7 +390,7 @@ title: Datatables | 参考 | 选项
 							stateSaveCallback<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>该回调函数定义了状态该存储在什么地方及如何存储。</p></td>
+			<td><p>该回调函数定义了状态该存储在什么地方及如何存储</p></td>
 		</tr>
 		<tr>
 			<td><p>
@@ -396,7 +399,7 @@ title: Datatables | 参考 | 选项
 							stateSaveParams<span>DT</span>
 						</code></a>
 				</p></td>
-			<td><p>对状态进行存储时，对数据处理的回调函数。</p></td>
+			<td><p>对状态进行存储时，对数据处理的回调函数</p></td>
 		</tr>
 	</tbody>
 </table>
@@ -412,55 +415,55 @@ title: Datatables | 参考 | 选项
   <tbody>
     <tr>
       <td><p><a href="option/deferLoading.html"><code class="option" title="DataTables initialisation option">deferLoading<span>DT</span></code></a></p></td>
-      <td><p>延迟请求加载服务端的数据，直到表格第二次绘制。</p></td>
+      <td><p>延迟请求加载服务端的数据，直到表格第二次绘制</p></td>
     </tr>
     <tr>
       <td><p><a href="option/destroy.html"><code class="option" title="DataTables initialisation option">destroy<span>DT</span></code></a></p></td>
-      <td><p>销毁所有符合选择的table，并且用新的options重新创建表格。</p></td>
+      <td><p>销毁所有符合选择的table，并且用新的options重新创建表格</p></td>
     </tr>
     <tr>
       <td><p><a href="option/displayStart.html"><code class="option" title="DataTables initialisation option">displayStart<span>DT</span></code></a></p></td>
-      <td><p>初始化显示的时候从第几条数据开始显示(一开始显示第几页)。</p></td>
+      <td><p>初始化显示的时候从第几条数据开始显示(一开始显示第几页)</p></td>
     </tr>
     <tr>
       <td><p><a href="option/dom.html"><code class="option" title="DataTables initialisation option">dom<span>DT</span></code></a></p></td>
-      <td><p>定义DataTables的组件元素的显示和显示顺序。</p></td>
+      <td><p>定义DataTables的组件元素的显示和显示顺序</p></td>
     </tr>
     <tr>
       <td><p><a href="option/lengthMenu.html"><code class="option" title="DataTables initialisation option">lengthMenu<span>DT</span></code></a></p></td>
-      <td><p>定义在每页显示记录数的<code>select</code>中显示的选项。</p></td>
+      <td><p>定义在每页显示记录数的<code>select</code>中显示的选项</p></td>
     </tr>
     <tr>
       <td><p><a href="option/order.html"><code class="option" title="DataTables initialisation option">order<span>DT</span></code></a></p></td>
-      <td><p>表格在初始化的时候的排序。</p></td>
+      <td><p>表格在初始化的时候的排序</p></td>
     </tr>
     <tr>
       <td><p><a href="option/orderCellsTop.html"><code class="option" title="DataTables initialisation option">orderCellsTop<span>DT</span></code></a></p></td>
-      <td><p>控制表头的哪一个cell可以应用于该列的排序响应。</p></td>
+      <td><p>控制表头的哪一个cell可以应用于该列的排序响应</p></td>
     </tr>
     <tr>
       <td><p><a href="option/orderClasses.html"><code class="option" title="DataTables initialisation option">orderClasses<span>DT</span></code></a></p></td>
-      <td><p>高亮显示在table的body中排序的列。</p></td>
+      <td><p>高亮显示在table的body中排序的列</p></td>
     </tr>
     <tr>
       <td><p><a href="option/orderFixed.html"><code class="option" title="DataTables initialisation option">orderFixed<span>DT</span></code></a></p></td>
-      <td><p>在表格中总是起作用的排序。</p></td>
+      <td><p>在表格中总是起作用的排序</p></td>
     </tr>
     <tr>
       <td><p><a href="option/orderMulti.html"><code class="option" title="DataTables initialisation option">orderMulti<span>DT</span></code></a></p></td>
-      <td><p>是否允许多列排序。</p></td>
+      <td><p>是否允许多列排序</p></td>
     </tr>
     <tr>
       <td><p><a href="option/pageLength.html"><code class="option" title="DataTables initialisation option">pageLength<span>DT</span></code></a></p></td>
-      <td><p>改变初始的页面长度(每页显示的记录数)。</p></td>
+      <td><p>改变初始的页面长度(每页显示的记录数)</p></td>
     </tr>
     <tr>
       <td><p><a href="option/pagingType.html"><code class="option" title="DataTables initialisation option">pagingType<span>DT</span></code></a></p></td>
-      <td><p>分页按钮的显示方式。</p></td>
+      <td><p>分页按钮的显示方式</p></td>
     </tr>
     <tr>
       <td><p><a href="option/renderer.html"><code class="option" title="DataTables initialisation option">renderer<span>DT</span></code></a></p></td>
-      <td><p>显示组件的渲染方式。</p></td>
+      <td><p>显示组件的渲染方式</p></td>
     </tr>
     <tr>
       <td><p><a href="option/retrieve.html"><code class="option" title="DataTables initialisation option">retrieve<span>DT</span></code></a></p></td>
@@ -468,31 +471,31 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/scrollCollapse.html"><code class="option" title="DataTables initialisation option">scrollCollapse<span>DT</span></code></a></p></td>
-      <td><p>当显示更少的记录时，是否允许表格减少高度。</p></td>
+      <td><p>当显示更少的记录时，是否允许表格减少高度</p></td>
     </tr>
     <tr>
       <td><p><a href="option/search.caseInsensitive.html"><code class="option" title="DataTables initialisation option">search.caseInsensitive<span>DT</span></code></a></p></td>
-      <td><p>在搜索或者过滤时，是否大小写敏感。</p></td>
+      <td><p>在搜索或者过滤时，是否大小写敏感</p></td>
     </tr>
     <tr>
       <td><p><a href="option/search.regex.html"><code class="option" title="DataTables initialisation option">search.regex<span>DT</span></code></a></p></td>
-      <td><p>允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码。</p></td>
+      <td><p>允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码</p></td>
     </tr>
     <tr>
       <td><p><a href="option/search.search.html"><code class="option" title="DataTables initialisation option">search.search<span>DT</span></code></a></p></td>
-      <td><p>初始化时的表格的过滤（搜索）条件。</p></td>
+      <td><p>初始化时的表格的过滤（搜索）条件</p></td>
     </tr>
     <tr>
       <td><p><a href="option/search.smart.html"><code class="option" title="DataTables initialisation option">search.smart<span>DT</span></code></a></p></td>
-      <td><p>允许或者禁止DataTables的只能过滤（搜索）功能。</p></td>
+      <td><p>允许或者禁止DataTables的只能过滤（搜索）功能</p></td>
     </tr>
     <tr>
       <td><p><a href="option/search"><code class="option" title="DataTables initialisation option">search<span>DT</span></code></a></p></td>
-      <td><p>设置一个全局的过滤条件。</p></td>
+      <td><p>设置一个全局的过滤条件</p></td>
     </tr>
     <tr>
       <td><p><a href="option/searchCols"><code class="option" title="DataTables initialisation option">searchCols<span>DT</span></code></a></p></td>
-      <td><p>给每一列定义一个初始的搜索条件。</p></td>
+      <td><p>给每一列定义一个初始的搜索条件</p></td>
     </tr>
     <tr>
       <td><p><a href="option/searchDelay"><code class="option" title="DataTables initialisation option">searchDelay<span>DT</span></code></a></p></td>
@@ -500,15 +503,15 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/stateDuration"><code class="option" title="DataTables initialisation option">stateDuration<span>DT</span></code></a></p></td>
-      <td><p>间隔多长时间保存一次状态。</p></td>
+      <td><p>间隔多长时间保存一次状态</p></td>
     </tr>
     <tr>
       <td><p><a href="option/stripeClasses"><code class="option" title="DataTables initialisation option">stripeClasses<span>DT</span></code></a></p></td>
-      <td><p>设置斑马条（奇偶行）的css class.</p></td>
+      <td><p>设置斑马条（奇偶行）的css class</p></td>
     </tr>
     <tr>
       <td><p><a href="option/tabIndex"><code class="option" title="DataTables initialisation option">tabIndex<span>DT</span></code></a></p></td>
-      <td><p>用键盘上的Tab键浏览时的顺序。</p></td>
+      <td><p>用键盘上的Tab键浏览时的顺序</p></td>
     </tr>
   </tbody>
 </table>
@@ -524,27 +527,27 @@ title: Datatables | 参考 | 选项
   <tbody>
     <tr>
       <td><p><a href="option/columnDefs.targets"><code class="option" title="DataTables initialisation option">columnDefs.targets<span>DT</span></code></a></p></td>
-      <td><p>为一个或多个列编制定义。</p></td>
+      <td><p>为一个或多个列编制定义</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columnDefs"><code class="option" title="DataTables initialisation option">columnDefs<span>DT</span></code></a></p></td>
-      <td><p>设置定义列的初始属性。</p></td>
+      <td><p>设置定义列的初始属性</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.cellType"><code class="option" title="DataTables initialisation option">columns.cellType<span>DT</span></code></a></p></td>
-      <td><p>为列指定一个单元格类型。</p></td>
+      <td><p>为列指定一个单元格类型</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.className"><code class="option" title="DataTables initialisation option">columns.className<span>DT</span></code></a></p></td>
-      <td><p>为指定的列的每个单元格都指定一个css class.</p></td>
+      <td><p>为指定的列的每个单元格都指定一个css class</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.contentPadding"><code class="option" title="DataTables initialisation option">columns.contentPadding<span>DT</span></code></a></p></td>
-      <td><p>当计算最佳显示状态时，文字内容部分需要增加的css padding值。</p></td>
+      <td><p>当计算最佳显示状态时，文字内容部分需要增加的css padding值</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.createdCell"><code class="option" title="DataTables initialisation option">columns.createdCell<span>DT</span></code></a></p></td>
-      <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM.</p></td>
+      <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.data"><code class="option" title="DataTables initialisation option">columns.data<span>DT</span></code></a></p></td>
@@ -556,31 +559,31 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/columns.name"><code class="option" title="DataTables initialisation option">columns.name<span>DT</span></code></a></p></td>
-      <td><p>为列设定一个别名（描述性名字）。</p></td>
+      <td><p>为列设定一个别名（描述性名字）</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.orderable"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a></p></td>
-      <td><p>在该列上允许或者禁止排序功能。</p></td>
+      <td><p>在该列上允许或者禁止排序功能</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.orderData"><code class="option" title="DataTables initialisation option">columns.orderData<span>DT</span></code></a></p></td>
-      <td><p>定义多个列的默认排序条件。</p></td>
+      <td><p>定义多个列的默认排序条件</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.orderDataType"><code class="option" title="DataTables initialisation option">columns.orderDataType<span>DT</span></code></a></p></td>
-      <td><p>列的表格的DOM类型，可以用来方便排序。</p></td>
+      <td><p>列的表格的DOM类型，可以用来方便排序</p></td>
     </tr>
     <tr>
       <td><p><a href="columns.orderSequence"><code class="option" title="DataTables initialisation option">columns.orderSequence<span>DT</span></code></a></p></td>
-      <td><p>排序的顺序，正序或倒序。</p></td>
+      <td><p>排序的顺序，正序或倒序</p></td>
     </tr>
     <tr>
       <td><p><a href="reference/option/columns.render"><code class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a></p></td>
-      <td><p>在列上处理数据的函数，可以再次自定义显示内容。</p></td>
+      <td><p>在列上处理数据的函数，可以再次自定义显示内容</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.searchable"><code class="option" title="DataTables initialisation option">columns.searchable<span>DT</span></code></a></p></td>
-      <td><p>在该列上允许或者禁止过滤搜索记录。</p></td>
+      <td><p>在该列上允许或者禁止过滤搜索记录</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.title"><code class="option" title="DataTables initialisation option">columns.title<span>DT</span></code></a></p></td>
@@ -588,11 +591,11 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/columns.type"><code class="option" title="DataTables initialisation option">columns.type<span>DT</span></code></a></p></td>
-      <td><p>设定该列的类型 - 在该列排序或者搜索的时候使用。</p></td>
+      <td><p>设定该列的类型 - 在该列排序或者搜索的时候使用</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.visible"><code class="option" title="DataTables initialisation option">columns.visible<span>DT</span></code></a></p></td>
-      <td><p>显示或隐藏该列。</p></td>
+      <td><p>显示或隐藏该列</p></td>
     </tr>
     <tr>
       <td><p><a href="option/columns.width"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a></p></td>
@@ -600,7 +603,7 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/columns"><code class="option" title="DataTables initialisation option">columns<span>DT</span></code></a></p></td>
-      <td><p>设定列的所有初始属性。</p></td>
+      <td><p>设定列的所有初始属性</p></td>
     </tr>
   </tbody>
 </table>
@@ -632,19 +635,19 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/language.emptyTable"><code class="option" title="DataTables initialisation option">language.emptyTable<span>DT</span></code></a></p></td>
-      <td><p>当表格没有数据时，表格所显示的字符串。</p></td>
+      <td><p>当表格没有数据时，表格所显示的字符串</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.info"><code class="option" title="DataTables initialisation option">language.info<span>DT</span></code></a></p></td>
-      <td><p>表格的page分页所需显示的所有字符串。</p></td>
+      <td><p>表格的page分页所需显示的所有字符串</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.infoEmpty"><code class="option" title="DataTables initialisation option">language.infoEmpty<span>DT</span></code></a></p></td>
-      <td><p>当表格没有数据时，汇总地方显示的字符串。</p></td>
+      <td><p>当表格没有数据时，汇总地方显示的字符串</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.infoFiltered"><code class="option" title="DataTables initialisation option">language.infoFiltered<span>DT</span></code></a></p></td>
-      <td><p>当表格搜索后，在汇总字符串上需要增加的内容。</p></td>
+      <td><p>当表格搜索后，在汇总字符串上需要增加的内容</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.infoPostFix"><code class="option" title="DataTables initialisation option">language.infoPostFix<span>DT</span></code></a></p></td>
@@ -652,64 +655,63 @@ title: Datatables | 参考 | 选项
     </tr>
     <tr>
       <td><p><a href="option/language.lengthMenu"><code class="option" title="DataTables initialisation option">language.lengthMenu<span>DT</span></code></a></p></td>
-      <td><p>'每页显示记录'的下拉框的提示信息。</p></td>
+      <td><p>'每页显示记录'的下拉框的提示信息</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.loadingRecords"><code class="option" title="DataTables initialisation option">language.loadingRecords<span>DT</span></code></a></p></td>
-      <td><p>加载数据时的提示信息 - 当 Ajax请求数据时显示。</p></td>
+      <td><p>加载数据时的提示信息 - 当 Ajax请求数据时显示</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.paginate.first"><code class="option" title="DataTables initialisation option">language.paginate.first<span>DT</span></code></a></p></td>
-      <td><p>分页信息的 'first' 按钮显示的信息。</p></td>
+      <td><p>分页信息的 'first' 按钮显示的信息</p></td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.paginate.last"><code class="option" title="DataTables initialisation option">language.paginate.last<span>DT</span></code></a></p></td>
-      <td><p>分页信息的 'last' 按钮显示的信息。</p></td>
+      <td><p>分页信息的 'last' 按钮显示的信息</p></td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.paginate.next"><code class="option" title="DataTables initialisation option">language.paginate.next<span>DT</span></code></a></p></td>
-      <td><p>分页信息的 'next' 按钮显示的信息。</p></td>
+      <td><p>分页信息的 'next' 按钮显示的信息</p></td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.paginate.previous"><code class="option" title="DataTables initialisation option">language.paginate.previous<span>DT</span></code></a></p></td>
-      <td><p>分页信息的 'previous' 按钮显示的信息。</p></td>
+      <td><p>分页信息的 'previous' 按钮显示的信息</p></td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.paginate"><code class="option" title="DataTables initialisation option">language.paginate<span>DT</span></code></a></p></td>
-      <td><p>分页信息显示所需的字符串的所有信息。</p></td>
+      <td><p>分页信息显示所需的字符串的所有信息</p></td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.processing"><code class="option" title="DataTables initialisation option">language.processing<span>DT</span></code></a></p></td>
-      <td><p>当table处理用户处理信息时，显示的信息字符串。</p></td>
+      <td><p>当table处理用户处理信息时，显示的信息字符串</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.search"><code class="option" title="DataTables initialisation option">language.search<span>DT</span></code></a></p></td>
-      <td><p>搜索框的提示信息。</p></td>
+      <td><p>搜索框的提示信息</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.searchPlaceholder"><code class="option" title="DataTables initialisation option">language.searchPlaceholder<span>DT</span></code></a></p></td>
-      <td><p>搜索框(input)的placeholder属性。</p></td>
+      <td><p>搜索框(input)的placeholder属性</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.thousands"><code class="option" title="DataTables initialisation option">language.thousands<span>DT</span></code></a></p></td>
-      <td><p>千位的分隔符。</p></td>
+      <td><p>千位的分隔符</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.url"><code class="option" title="DataTables initialisation option">language.url<span>DT</span></code></a></p></td>
-      <td><p>从远程地址中加载语言信息。</p></td>
+      <td><p>从远程地址中加载语言信息</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language"><code class="option" title="DataTables initialisation option">language<span>DT</span></code></a></p></td>
-      <td><p>所有DataTables的语言配置都在这里。</p></td>
+      <td><p>所有DataTables的语言配置都在这里</p></td>
     </tr>
     <tr>
       <td><p><a href="option/language.zeroRecords"><code class="option" title="DataTables initialisation option">language.zeroRecords<span>DT</span></code></a></p></td>
-      <td><p>当搜索结果为空时，显示的信息。</p></td>
+      <td><p>当搜索结果为空时，显示的信息</p></td>
     </tr>
   </tbody>
 </table>
 <blockquote>
-
 	<p><a href="http://datatables.net/reference/option/" title="options">http://datatables.net/reference/option/</a></p>
 	<small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
