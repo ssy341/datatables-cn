@@ -20,7 +20,7 @@ jquery 表格插件
 
 中文论坛：
 
-[http://forum.thxopen.com/](http://forum.thxopen.com/)
+[http://dt.thxopen.com/bbs/forum.php](http://dt.thxopen.com/bbs/forum.php)
 
 
 
