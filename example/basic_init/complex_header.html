@@ -1,6 +1,6 @@
 ---
 layout: example_layout
-title: Datatables | 示例 | 制定复杂的表头(和并列/合并行)
+title: Datatables | 示例 | 制定复杂的表头(合并列/合并行)
 ---
 <header class="jumbotron subhead" id="overview">
     <div class="container">
@@ -14,8 +14,9 @@ title: Datatables | 示例 | 制定复杂的表头(和并列/合并行)
     </div>
 </header>
 
-<div class="container" style="margin-top:20px">
-
+<div class="row-fluid" style="margin-top:20px">
+<div class="span1"></div>
+<div class="span10">
 <!-- 表格开始 -->
 <table id="example" class="display" cellspacing="0" width="100%">
 <thead>
@@ -1006,16 +1007,15 @@ title: Datatables | 示例 | 制定复杂的表头(和并列/合并行)
             &lt;/tr&gt;
         &lt;/tbody&gt;
     &lt;/table&gt;</pre>
-<p>
-    <br/>
-</p>
 </div>
 </div>
 </div>
 
-
+{% include quote.html param='http://datatables.net/examples/basic_init/complex_header.html' %}
 {% include post.html %}
 
+</div>
+<div class="span1"></div>
 </div><!--/row-->
 
 {% include copyright.html %}
