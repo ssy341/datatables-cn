@@ -1,0 +1,98 @@
+---
+layout: example_layout
+title: Datatables | 示例 | Ajax | 延迟渲染数据以提高速度
+---
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <p>当处大数据量时，你可以寻求改善Datatables的运行的速度。使用 <code>deferRender <span>DT</span></code>  选项，可以做到这一点，让Datatables延迟渲染。</p>
+        <p>下面的例子可能感受不到这个参数的效果，但是你可以试试大数据量</p>
+    </div>
+</header>
+
+<div class="row-fluid" style="margin-top:20px">
+    <div class="span1"></div>
+    <div class="span10">
+        <!-- 表格开始 -->
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </tfoot>
+    </table>
+    <!-- 表格结束 -->
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+  <pre class="brush:js;toolbar:false"> $(document).ready(function() {
+        $(&#39;#example&#39;).dataTable( {
+            &quot;ajax&quot;: &quot;data/arrays.txt&quot;,
+            //当处理大数据时，延迟渲染数据，有效提高Datatables处理能力
+            &quot;deferRender&quot;: true
+        } );
+    } );</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+<pre class="brush:html;toolbar:false">&lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;</pre>
+            </div>
+        </div>
+    </div>
+    {% include quote.html param='http://datatables.net/examples/ajax/defer_render.html'%}
+    {% include post.html %}
+    </div>
+    <div class="span1"></div>
+</div><!--/row-->
+{% include copyright.html %}
+{% include example_script.html %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable( {
+            "ajax": "data/arrays.txt",
+            //当处理大数据时，延迟渲染数据，有效提高Datatables处理能力
+            "deferRender": true
+        } );
+    } );
+</script>

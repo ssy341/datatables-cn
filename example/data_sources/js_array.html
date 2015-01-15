@@ -1,0 +1,186 @@
+---
+layout: example_layout
+title: Datatables | 示例 | 数据源 | Javascript数据源
+---
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <p>Datatables也可以直接接受一个js数组来初始化表格</p>
+    </div>
+</header>
+<div class="row-fluid" style="margin-top:20px">
+    <div class="span1"></div>
+    <div class="span10">
+        <!-- 表格开始 -->
+<div id="demo"></div>
+<!-- 表格结束 -->
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+    <li><a href="#tab2" data-toggle="tab">html</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab1">
+        <pre class="brush:js;toolbar:false">var dataSet = [
+    [&#39;Trident&#39;,&#39;Internet Explorer 4.0&#39;,&#39;Win 95+&#39;,&#39;4&#39;,&#39;X&#39;],
+    [&#39;Trident&#39;,&#39;Internet Explorer 5.0&#39;,&#39;Win 95+&#39;,&#39;5&#39;,&#39;C&#39;],
+    [&#39;Trident&#39;,&#39;Internet Explorer 5.5&#39;,&#39;Win 95+&#39;,&#39;5.5&#39;,&#39;A&#39;],
+    [&#39;Trident&#39;,&#39;Internet Explorer 6&#39;,&#39;Win 98+&#39;,&#39;6&#39;,&#39;A&#39;],
+    [&#39;Trident&#39;,&#39;Internet Explorer 7&#39;,&#39;Win XP SP2+&#39;,&#39;7&#39;,&#39;A&#39;],
+    [&#39;Trident&#39;,&#39;AOL browser (AOL desktop)&#39;,&#39;Win XP&#39;,&#39;6&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Firefox 1.0&#39;,&#39;Win 98+ / OSX.2+&#39;,&#39;1.7&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Firefox 1.5&#39;,&#39;Win 98+ / OSX.2+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Firefox 2.0&#39;,&#39;Win 98+ / OSX.2+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Firefox 3.0&#39;,&#39;Win 2k+ / OSX.3+&#39;,&#39;1.9&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Camino 1.0&#39;,&#39;OSX.2+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Camino 1.5&#39;,&#39;OSX.3+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Netscape 7.2&#39;,&#39;Win 95+ / Mac OS 8.6-9.2&#39;,&#39;1.7&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Netscape Browser 8&#39;,&#39;Win 98SE+&#39;,&#39;1.7&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Netscape Navigator 9&#39;,&#39;Win 98+ / OSX.2+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.0&#39;,&#39;Win 95+ / OSX.1+&#39;,1,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.1&#39;,&#39;Win 95+ / OSX.1+&#39;,1.1,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.2&#39;,&#39;Win 95+ / OSX.1+&#39;,1.2,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.3&#39;,&#39;Win 95+ / OSX.1+&#39;,1.3,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.4&#39;,&#39;Win 95+ / OSX.1+&#39;,1.4,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.5&#39;,&#39;Win 95+ / OSX.1+&#39;,1.5,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.6&#39;,&#39;Win 95+ / OSX.1+&#39;,1.6,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.7&#39;,&#39;Win 98+ / OSX.1+&#39;,1.7,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Mozilla 1.8&#39;,&#39;Win 98+ / OSX.1+&#39;,1.8,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Seamonkey 1.1&#39;,&#39;Win 98+ / OSX.2+&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Gecko&#39;,&#39;Epiphany 2.20&#39;,&#39;Gnome&#39;,&#39;1.8&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;Safari 1.2&#39;,&#39;OSX.3&#39;,&#39;125.5&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;Safari 1.3&#39;,&#39;OSX.3&#39;,&#39;312.8&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;Safari 2.0&#39;,&#39;OSX.4+&#39;,&#39;419.3&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;Safari 3.0&#39;,&#39;OSX.4+&#39;,&#39;522.1&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;OmniWeb 5.5&#39;,&#39;OSX.4+&#39;,&#39;420&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;iPod Touch / iPhone&#39;,&#39;iPod&#39;,&#39;420.1&#39;,&#39;A&#39;],
+    [&#39;Webkit&#39;,&#39;S60&#39;,&#39;S60&#39;,&#39;413&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 7.0&#39;,&#39;Win 95+ / OSX.1+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 7.5&#39;,&#39;Win 95+ / OSX.2+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 8.0&#39;,&#39;Win 95+ / OSX.2+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 8.5&#39;,&#39;Win 95+ / OSX.2+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 9.0&#39;,&#39;Win 95+ / OSX.3+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 9.2&#39;,&#39;Win 88+ / OSX.3+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera 9.5&#39;,&#39;Win 88+ / OSX.3+&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Opera for Wii&#39;,&#39;Wii&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Nokia N800&#39;,&#39;N800&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Presto&#39;,&#39;Nintendo DS browser&#39;,&#39;Nintendo DS&#39;,&#39;8.5&#39;,&#39;C/A&lt;sup&gt;1&lt;/sup&gt;&#39;],
+    [&#39;KHTML&#39;,&#39;Konqureror 3.1&#39;,&#39;KDE 3.1&#39;,&#39;3.1&#39;,&#39;C&#39;],
+    [&#39;KHTML&#39;,&#39;Konqureror 3.3&#39;,&#39;KDE 3.3&#39;,&#39;3.3&#39;,&#39;A&#39;],
+    [&#39;KHTML&#39;,&#39;Konqureror 3.5&#39;,&#39;KDE 3.5&#39;,&#39;3.5&#39;,&#39;A&#39;],
+    [&#39;Tasman&#39;,&#39;Internet Explorer 4.5&#39;,&#39;Mac OS 8-9&#39;,&#39;-&#39;,&#39;X&#39;],
+    [&#39;Tasman&#39;,&#39;Internet Explorer 5.1&#39;,&#39;Mac OS 7.6-9&#39;,&#39;1&#39;,&#39;C&#39;],
+    [&#39;Tasman&#39;,&#39;Internet Explorer 5.2&#39;,&#39;Mac OS 8-X&#39;,&#39;1&#39;,&#39;C&#39;],
+    [&#39;Misc&#39;,&#39;NetFront 3.1&#39;,&#39;Embedded devices&#39;,&#39;-&#39;,&#39;C&#39;],
+    [&#39;Misc&#39;,&#39;NetFront 3.4&#39;,&#39;Embedded devices&#39;,&#39;-&#39;,&#39;A&#39;],
+    [&#39;Misc&#39;,&#39;Dillo 0.8&#39;,&#39;Embedded devices&#39;,&#39;-&#39;,&#39;X&#39;],
+    [&#39;Misc&#39;,&#39;Links&#39;,&#39;Text only&#39;,&#39;-&#39;,&#39;X&#39;],
+    [&#39;Misc&#39;,&#39;Lynx&#39;,&#39;Text only&#39;,&#39;-&#39;,&#39;X&#39;],
+    [&#39;Misc&#39;,&#39;IE Mobile&#39;,&#39;Windows Mobile 6&#39;,&#39;-&#39;,&#39;C&#39;],
+    [&#39;Misc&#39;,&#39;PSP browser&#39;,&#39;PSP&#39;,&#39;-&#39;,&#39;C&#39;],
+    [&#39;Other browsers&#39;,&#39;All others&#39;,&#39;-&#39;,&#39;-&#39;,&#39;U&#39;]
+];
+
+$(document).ready(function() {
+    $(&#39;#demo&#39;).html( &#39;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; border=&quot;0&quot; class=&quot;display&quot; id=&quot;example&quot;&gt;&lt;/table&gt;&#39; );
+
+    $(&#39;#example&#39;).dataTable( {
+        &quot;data&quot;: dataSet,
+        &quot;columns&quot;: [
+            { &quot;title&quot;: &quot;Engine&quot; },
+            { &quot;title&quot;: &quot;Browser&quot; },
+            { &quot;title&quot;: &quot;Platform&quot; },
+            { &quot;title&quot;: &quot;Version&quot;, &quot;class&quot;: &quot;center&quot; },
+            { &quot;title&quot;: &quot;Grade&quot;, &quot;class&quot;: &quot;center&quot; }
+        ]
+    } );
+} );</pre>
+</div>
+<div class="tab-pane" id="tab2">
+<pre class="brush:html;toolbar:false"></pre>
+</div>
+</div>
+</div>
+    {% include quote.html param='http://datatables.net/examples/data_sources/js_array.html'%}
+{% include post.html %}
+    </div>
+    <div class="span1"></div>
+</div><!--/row-->
+{% include copyright.html %}
+{% include example_script.html %}
+<script type="text/javascript">
+    var dataSet = [
+        ['Trident','Internet Explorer 4.0','Win 95+','4','X'],
+        ['Trident','Internet Explorer 5.0','Win 95+','5','C'],
+        ['Trident','Internet Explorer 5.5','Win 95+','5.5','A'],
+        ['Trident','Internet Explorer 6','Win 98+','6','A'],
+        ['Trident','Internet Explorer 7','Win XP SP2+','7','A'],
+        ['Trident','AOL browser (AOL desktop)','Win XP','6','A'],
+        ['Gecko','Firefox 1.0','Win 98+ / OSX.2+','1.7','A'],
+        ['Gecko','Firefox 1.5','Win 98+ / OSX.2+','1.8','A'],
+        ['Gecko','Firefox 2.0','Win 98+ / OSX.2+','1.8','A'],
+        ['Gecko','Firefox 3.0','Win 2k+ / OSX.3+','1.9','A'],
+        ['Gecko','Camino 1.0','OSX.2+','1.8','A'],
+        ['Gecko','Camino 1.5','OSX.3+','1.8','A'],
+        ['Gecko','Netscape 7.2','Win 95+ / Mac OS 8.6-9.2','1.7','A'],
+        ['Gecko','Netscape Browser 8','Win 98SE+','1.7','A'],
+        ['Gecko','Netscape Navigator 9','Win 98+ / OSX.2+','1.8','A'],
+        ['Gecko','Mozilla 1.0','Win 95+ / OSX.1+',1,'A'],
+        ['Gecko','Mozilla 1.1','Win 95+ / OSX.1+',1.1,'A'],
+        ['Gecko','Mozilla 1.2','Win 95+ / OSX.1+',1.2,'A'],
+        ['Gecko','Mozilla 1.3','Win 95+ / OSX.1+',1.3,'A'],
+        ['Gecko','Mozilla 1.4','Win 95+ / OSX.1+',1.4,'A'],
+        ['Gecko','Mozilla 1.5','Win 95+ / OSX.1+',1.5,'A'],
+        ['Gecko','Mozilla 1.6','Win 95+ / OSX.1+',1.6,'A'],
+        ['Gecko','Mozilla 1.7','Win 98+ / OSX.1+',1.7,'A'],
+        ['Gecko','Mozilla 1.8','Win 98+ / OSX.1+',1.8,'A'],
+        ['Gecko','Seamonkey 1.1','Win 98+ / OSX.2+','1.8','A'],
+        ['Gecko','Epiphany 2.20','Gnome','1.8','A'],
+        ['Webkit','Safari 1.2','OSX.3','125.5','A'],
+        ['Webkit','Safari 1.3','OSX.3','312.8','A'],
+        ['Webkit','Safari 2.0','OSX.4+','419.3','A'],
+        ['Webkit','Safari 3.0','OSX.4+','522.1','A'],
+        ['Webkit','OmniWeb 5.5','OSX.4+','420','A'],
+        ['Webkit','iPod Touch / iPhone','iPod','420.1','A'],
+        ['Webkit','S60','S60','413','A'],
+        ['Presto','Opera 7.0','Win 95+ / OSX.1+','-','A'],
+        ['Presto','Opera 7.5','Win 95+ / OSX.2+','-','A'],
+        ['Presto','Opera 8.0','Win 95+ / OSX.2+','-','A'],
+        ['Presto','Opera 8.5','Win 95+ / OSX.2+','-','A'],
+        ['Presto','Opera 9.0','Win 95+ / OSX.3+','-','A'],
+        ['Presto','Opera 9.2','Win 88+ / OSX.3+','-','A'],
+        ['Presto','Opera 9.5','Win 88+ / OSX.3+','-','A'],
+        ['Presto','Opera for Wii','Wii','-','A'],
+        ['Presto','Nokia N800','N800','-','A'],
+        ['Presto','Nintendo DS browser','Nintendo DS','8.5','C/A<sup>1</sup>'],
+        ['KHTML','Konqureror 3.1','KDE 3.1','3.1','C'],
+        ['KHTML','Konqureror 3.3','KDE 3.3','3.3','A'],
+        ['KHTML','Konqureror 3.5','KDE 3.5','3.5','A'],
+        ['Tasman','Internet Explorer 4.5','Mac OS 8-9','-','X'],
+        ['Tasman','Internet Explorer 5.1','Mac OS 7.6-9','1','C'],
+        ['Tasman','Internet Explorer 5.2','Mac OS 8-X','1','C'],
+        ['Misc','NetFront 3.1','Embedded devices','-','C'],
+        ['Misc','NetFront 3.4','Embedded devices','-','A'],
+        ['Misc','Dillo 0.8','Embedded devices','-','X'],
+        ['Misc','Links','Text only','-','X'],
+        ['Misc','Lynx','Text only','-','X'],
+        ['Misc','IE Mobile','Windows Mobile 6','-','C'],
+        ['Misc','PSP browser','PSP','-','C'],
+        ['Other browsers','All others','-','-','U']
+    ];
+
+    $(document).ready(function() {
+        $('#demo').html( '<table cellpadding="0" cellspacing="0" border="0" class="display" id="example"></table>' );
+
+        $('#example').dataTable( {
+            "data": dataSet,
+            "columns": [
+                { "title": "Engine" },
+                { "title": "Browser" },
+                { "title": "Platform" },
+                { "title": "Version", "class": "center" },
+                { "title": "Grade", "class": "center" }
+            ]
+        } );
+    } );
+</script>

@@ -1,0 +1,129 @@
+---
+layout: example_layout
+title: Datatables | 示例 | Ajax | 嵌套对象数据（对象）
+---
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <p>该示例展示了Datatables使用对象数据，在最简单的情况下可以读取任意对象的属性，而且只要符合javascript标准，可以扩展到n层的嵌套对象/数组</p>
+        <p>下面的hr对象包含了position、salary、start_date三个属性，contact包含两个数据，通过数组下标的方式取值</p>
+        <p>
+            下面例子的数据模型如下： <br/>
+            <code>
+                {
+                &quot;name&quot;: &quot;Tiger Nixon&quot;,
+                &quot;hr&quot;: {
+                &quot;position&quot;: &quot;System Architect&quot;,
+                &quot;salary&quot;: &quot;$3,120&quot;,
+                &quot;start_date&quot;: &quot;2011/04/25&quot;
+                },
+                &quot;contact&quot;: [
+                &quot;Edinburgh&quot;,
+                &quot;5421&quot;
+                ]
+                }
+             </code>
+        </p>
+    </div>
+</header>
+
+<div class="row-fluid" style="margin-top:20px">
+    <div class="span1"></div>
+    <div class="span10">
+        <!-- 表格开始 -->
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </tfoot>
+    </table>
+    <!-- 表格结束 -->
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+     <pre class="brush:js;toolbar:false">$(document).ready(function() {
+    $(&#39;#example&#39;).dataTable( {
+        &quot;processing&quot;: true,
+        &quot;ajax&quot;: &quot;data/objects_deep.txt&quot;,
+        &quot;columns&quot;: [
+            { &quot;data&quot;: &quot;name&quot; },
+            { &quot;data&quot;: &quot;hr.position&quot; },
+            { &quot;data&quot;: &quot;contact.0&quot; },
+            { &quot;data&quot;: &quot;contact.1&quot; },
+            { &quot;data&quot;: &quot;hr.start_date&quot; },
+            { &quot;data&quot;: &quot;hr.salary&quot; }
+        ]
+    } );
+} );</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+<pre class="brush:html;toolbar:false">&lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;</pre>
+            </div>
+        </div>
+    </div>
+    {% include quote.html param='http://datatables.net/examples/ajax/deep.html'%}
+    {% include post.html %}
+    </div>
+    <div class="span1"></div>
+</div><!--/row-->
+{% include copyright.html %}
+{% include example_script.html %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable( {
+            "processing": true,
+            "ajax": "data/objects_deep.txt",
+            "columns": [
+                { "data": "name" },
+                { "data": "hr.position" },
+                { "data": "contact.0" },
+                { "data": "contact.1" },
+                { "data": "hr.start_date" },
+                { "data": "hr.salary" }
+            ]
+        } );
+    } );
+</script>

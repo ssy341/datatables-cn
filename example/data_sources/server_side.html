@@ -1,0 +1,107 @@
+---
+layout: example_layout
+title: Datatables | 示例 | 数据源 | 服务器处理
+---
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h3>服务器处理</h3>
+        <p>
+            Datatables有许多方法来获取你的数据，如果你的数据量比较大，这个时候你需要使用服务器模式来处理你的数据。
+            在服务器模式下，所有的分页，搜索，排序等操作，Datatables都会交给服务器去处理。所以每次绘制Datatables，
+            都会请求一次服务器获取需要的数据。
+        </p>
+        <p>
+            通过配置<code class="option" title="DataTables initialisation option">serverSide<span>DT</span></code>
+            这个属性来打开Datatables的服务器模式，下面的例子展示了Datatables打开服务器模式。
+        </p>
+    </div>
+</header>
+
+<div class="row-fluid" style="margin-top:20px">
+    <div class="span1"></div>
+    <div class="span10">
+        <!-- 表格开始 -->
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Extn.</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+        </tfoot>
+    </table>
+    <!-- 表格结束 -->
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+    <pre class="brush:js;toolbar:false"> $(document).ready(function() {
+        $(&#39;#example&#39;).dataTable( {
+            &quot;processing&quot;: true,
+            &quot;serverSide&quot;: true,
+            &quot;ajax&quot;: &quot;http://dt.thxopen.com/example/resources/server_processing_customCUrl.php&quot;
+        } );
+    } );</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+              <pre class="brush:html;toolbar:false">&lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tfoot&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Position&lt;/th&gt;
+                &lt;th&gt;Office&lt;/th&gt;
+                &lt;th&gt;Extn.&lt;/th&gt;
+                &lt;th&gt;Start date&lt;/th&gt;
+                &lt;th&gt;Salary&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/tfoot&gt;
+    &lt;/table&gt;</pre>
+                <p>
+            </div>
+        </div>
+    </div>
+    {% include quote.html param='http://datatables.net/examples/data_sources/server_side.html'%}
+    {% include post.html %}
+    </div>
+    <div class="span1"></div>
+</div><!--/row-->
+{% include copyright.html %}
+{% include example_script.html %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').dataTable( {
+            "processing": true,
+            "serverSide": true,
+            "ajax": "http://dt.thxopen.com/example/resources/server_processing_customCUrl.php"
+        } );
+    } );
+</script>
