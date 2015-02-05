@@ -60,4 +60,23 @@ title: Datatables 中文网
             }
         });
     });
+
+    $.get("../assets/updatelog.txt", function (data) {
+        var json = JSON.parse(data);
+        if (json.isNote) {
+            var flag = confirm("网站有更新日志，前往查看点击是，留在当前页点击否");
+            if(flag){
+                window.location.href = "updatelog.html";
+            }
+        }
+    });
+
+    function getDate(){
+        var myDate = new Date();
+        var year = myDate.getFullYear();   //获取完整的年份(4位,1970-????)
+        var month = myDate.getMonth() + 1;      //获取当前月份(0-11,0代表1月)
+        var date = myDate.getDate();       //获取当前日(1-31)
+        var current = year+'-'+month+"-"+date;
+       return current;
+    }
 </script>

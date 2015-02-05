@@ -4,16 +4,19 @@ title: Datatables 中文网 | 更新日志
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
-    <!--meta-->
-    <title>Datatables 中文网 | 更新日志</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10 。
-    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者掌握并使用这一jQuery插件。">
+    {% include head.html %}
     {% include libs/bootstrap_css.html %}
     {% include libs/datatables_css.html %}
     <link href="css/docs.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/favicon.png">
+    <style>
+        .hot {
+            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+            height: 12px;
+            width: 21px;
+            position: absolute;
+        }
+    </style>
 </head>
 <body>
 {% include nav.html %}
@@ -32,7 +35,7 @@ title: Datatables 中文网 | 更新日志
                 加入了回复自动提醒，我会收到邮件，如果能帮你解决，我一定给你排忧解难。
                 如果你也想加入到翻译中来（需要会github），请联系QQ1282262270 标注 dt翻译。
                 如果你有任何意见或建议，欢迎在首页下底部留言，我会真诚的采纳您的意见 <br/>
-                2014年11月7日22:13:33  by 341
+                2014年11月7日22:13:33 by 341
             </p>
         </div>
     </div>
@@ -42,43 +45,36 @@ title: Datatables 中文网 | 更新日志
     <div class="span1"></div>
     <div class="span10">
         <!-- 表格开始 -->
-    <table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>内容</th>
-            <th>时间</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>已经开始同步更新，为了方便大家解决问题，本站开通了
-                <a target="_blank" href="http://dt.thxopen.com/bbs/forum.php')">论坛</a> ，欢迎使用</td>
-            <td>2014-11-22</td>
-        </tr>
-		<tr>
-            <td>加入api中文文档<a target="_blank" href="reference.html"> 传送门</a></td>
-            <td>2014-11-29</td>
-        </tr>
-        <tr>
-            <td>更换服务器，访问速度提升；论坛地址更换<a target="_blank" href="http://dt.thxopen.com/bbs/forum.php">http://dt.thxopen.com/bbs/forum.php</a></td>
-            <td>2014-12-13</td>
-        </tr>
-        <tr>
-            <td>添加<a target="_blank" href="./upgrade/1.10-convert.html">新版本与老版本参数对照表</a></td>
-            <td>2014-12-29</td>
-        </tr>
-        </tbody>
-    </table>
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>内容</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
     </div>
     <div class="span1"></div>
-</div><!--/row-->
-{% include post.html %}
+    <div class="span11">{% include post.html %}</div>
+</div>
+<!--/row-->
+
 <!--footer-->
 {% include copyright.html %}
 {% include script.html %}
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#example').dataTable();
+        $('#example').dataTable({
+            "order": [
+                [ 1, "desc" ]
+            ],
+            paging: !1,
+            dom: "t",
+            ajax:"../assets/updatelog.txt"
+        });
+        localStorage['dt.thxopen.com.flag'] = new Date().getTime();
     });
 </script>
 </body>
