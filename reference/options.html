@@ -11,18 +11,17 @@ title: Datatables | 参考 | 选项
     和 <a href="option/paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a>
     选项用来允许滚动和禁止分页：
 </p>
-<pre><code class="multiline language-js">$('#myTable').DataTable( {
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     scrollY: 300,
     paging: false
-} );
-</code></pre>
+} );</pre>
 <p>
     有非常多的配置项可以用来定制你的表格，在下面的文档中都有说明。
     如果需要从整体上感知DataTables的初始化选项使用，可以阅读
     <a href="../manual/options.html">手册中的配置项</a>。
 </p>
 <div class="ref_search">
-    搜索选项: <input type="text" />
+    全局搜索:<input type="text" />
 </div>
 
 <a name="Features"></a><h2 data-anchor="Features">特性(Features)</h2>
@@ -711,9 +710,19 @@ title: Datatables | 参考 | 选项
     </tr>
   </tbody>
 </table>
-<blockquote>
-	<p><a href="http://datatables.net/reference/option/" title="options">http://datatables.net/reference/option/</a></p>
-	<small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-</blockquote>
+<br/>
+{% include quote.html param='http://datatables.net/reference/option/'%}
+
+<script>
+    var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
+        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
+        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
+        $(window).trigger("resize")
+    }});
+    $("div.ref_search input").on("keyup", function() {
+        y.search(this.value).draw()
+    });
+</script>
+
 
             

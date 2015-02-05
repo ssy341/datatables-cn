@@ -29,18 +29,18 @@ title: Datatables | 参考 | 选项 | 延迟渲染
 <a name="Default"></a><h2 data-anchor="Default">默认值</h2><ul class="markdown"><li>Value: <code>false</code></li></ul>
 <a name="Examples"></a><h2 data-anchor="Examples">示例</h2>
 <div class="reference_examples"><div class="reference_example"><div class="title"><p>打开 deferred rendering:</p>
-</div><pre><code class="multiline language-js">$('#example').dataTable( {
+</div><pre class="brush:js;toolbar:false">$('#example').dataTable( {
   &quot;ajax&quot;: &quot;sources/arrays.txt&quot;,
   &quot;deferRender&quot;: true
-} );</code></pre></div><div class="reference_example"><div class="title"><p>jquery事件配合deferred rendering使用:</p>
-</div><pre><code class="multiline language-js">$('#example tbody').on( 'click', 'td', function () {
+} );</pre></div><div class="reference_example"><div class="title"><p>jquery事件配合deferred rendering使用:</p>
+</div><pre class="brush:js;toolbar:false">$('#example tbody').on( 'click', 'td', function () {
 	alert( 'Clicked on: '+this.innerHTML );
 } );
 $('#example').dataTable( {
   &quot;ajax&quot;: &quot;sources/arrays.txt&quot;,
   &quot;deferRender&quot;: true
-} );</code></pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2>
-<p>下面的配置是直接相关的，并且可能在你的开发中用得到。</p>
+} );</pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">Options
     <ul class="markdown">
         <li>
@@ -56,9 +56,4 @@ $('#example').dataTable( {
     </ul>
 </div>
 <div class="clear"></div>
-				</div>
-			</div>
-<blockquote>
-  <p><a href="http://datatables.net/reference/option/deferRender">http://datatables.net/reference/option/deferRender</a></p>
-  <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-</blockquote>
+{% include quote.html param='http://datatables.net/reference/option/deferRender'%}
