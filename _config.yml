@@ -2,5 +2,4 @@ baseurl: /datatables-cn
 #baseurl: /
 #port: 341
 encoding: utf-8
-destination: deploy
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea']
