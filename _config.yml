@@ -1,5 +1,6 @@
 baseurl: /datatables-cn
 #baseurl: /
 #port: 341
+url: http://dt.thxopen.com
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea']

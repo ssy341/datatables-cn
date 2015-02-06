@@ -31,6 +31,8 @@ jquery: 1.10.2
 ---
 <a href="aasdfa">asdfasdfa</a>
 
+定义变量 {% capture sid %}{{ site.url }}{{ page.url }}{% endcapture %}
+
 
 
 

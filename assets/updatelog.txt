@@ -5,7 +5,7 @@
             "2014-11-22"
         ],
         [
-            "加入api中文文档<a target='_blank' href='reference.html'> 传送门</a>",
+            "加入option,api中文文档<a target='_blank' href='reference.html'> 传送门</a>",
             "2014-11-29"
         ] ,
         [

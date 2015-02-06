@@ -57,7 +57,7 @@ title: Datatables 中文网 | 更新日志
         </table>
     </div>
     <div class="span1"></div>
-    <div class="span11">{% include post.html %}</div>
+    <div class="span11">{% include post.html param= site.url param2 = page.url %}</div>
 </div>
 <!--/row-->
 
@@ -75,6 +75,7 @@ title: Datatables 中文网 | 更新日志
             ajax:"../assets/updatelog.txt"
         });
     });
+    localStorage['dt.thxopen.com.note'] =new Date();
 </script>
 </body>
 </html>
