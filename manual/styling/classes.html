@@ -10,14 +10,11 @@ title: Datatables | 手册 | 样式 | 默认样式
     <meta name="description" content="datatables is jquery-plugin">
 
     <!-- 最新 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="../../library/bootstrap/css/bootstrap.css">
-    <link href="../../library/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <link href="../../library/sh/css/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="../../library/sh/css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+    {% include libs/bootstrap_css.html %}
+    {% include libs/sh_css.html %}
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+    {% include libs/datatables_css.html %}
     <link href="../../css/docs.css" rel="stylesheet">
 
     <style type="text/css">
