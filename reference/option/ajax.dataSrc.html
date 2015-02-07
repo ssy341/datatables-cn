@@ -3,14 +3,14 @@ layout: reference_option_detail_layout
 title: Datatables | 参考 | 选项 | 表格数据属性或操作方法
 ---
 <h1 class="page_title">数据属性(ajax.dataSrc)</h1>
-<div class="since">Since: 1.10</div>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
 <p>表格数据属性或操作方法</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    {% include href/ajax.dt.html %} 选项基本继承了 {% include href/jQuery.ajax.html %} 所有的选项，但是Datatables额外提供了
+    {% include href/ajax.dt %} 选项基本继承了 {% include href/jQuery.ajax %} 所有的选项，但是Datatables额外提供了
     <code>dataSrc</code>属性来改变从服务器返回的数据给Datatables，或者是操作数据从一种形式转换成另一种形式（比如xml、json、yaml等）。
-    这么做是因为 {% include href/ajax.dt.html %} 的 <code>success</code> 选项不能被改变-Datatables内部自己加载数据完成时使用。
+    这么做是因为 {% include href/ajax.dt %} 的 <code>success</code> 选项不能被改变-Datatables内部自己加载数据完成时使用。
 </p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
@@ -64,7 +64,7 @@ title: Datatables | 参考 | 选项 | 表格数据属性或操作方法
                     <tr role="row" class="odd">
                         <td>1</td>
                         <td><code>data</code></td>
-                        <td><p>{% include href/object.js.html %}
+                        <td><p>{% include href/object.js %}
                         </p>
                         </td>
                         <td>No</td>
@@ -82,7 +82,7 @@ title: Datatables | 参考 | 选项 | 表格数据属性或操作方法
         <dd>
             <div class="returns_type">
                 <p>
-                    {% include href/array.js.html %}
+                    {% include href/array.js %}
                 </p>
             </div>
             <p>
@@ -134,7 +134,7 @@ title: Datatables | 参考 | 选项 | 表格数据属性或操作方法
     <div class="reference_example">
         <div class="title">
             <p>
-                操作从服务器返回的数据，给数据添加链接（提示，这里也可以使用{% include href/column.render.dt.html %}来实现，这里只是举个例子如何操作数据 ）
+                操作从服务器返回的数据，给数据添加链接（提示，这里也可以使用{% include href/column.render.dt %}来实现，这里只是举个例子如何操作数据 ）
             </p>
         </div>
    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
@@ -156,14 +156,14 @@ title: Datatables | 参考 | 选项 | 表格数据属性或操作方法
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">API
     <ul class="markdown">
-        <li>{% include href/ajax.json.dt.html %}</li>
-        <li>{% include href/ajax.reload.dt.html %}</li>
-        <li>{% include href/ajax.url.dt.html %}</li>
+        <li>{% include href/ajax.json.dt %}</li>
+        <li>{% include href/ajax.reload.dt %}</li>
+        <li>{% include href/ajax.url.dt %}</li>
     </ul>
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/ajax.dt.html %}</li>
+        <li>{% include href/ajax.dt %}</li>
     </ul>
 </div>
 <div class="clear"></div>

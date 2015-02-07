@@ -1,0 +1,99 @@
+---
+layout: reference_option_detail_layout
+title: Datatables | 参考 | 选项 | 指定table显示的数据
+---
+<h1 class="page_title">数据(data)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>指定table显示的数据</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    单独使用 <code>data</code>来定义table显示的数据，或者配合使用 {% include href/columns.data.dt %} 属性来告诉Datatables怎么从 <code>dota</code> 里获取显示数据
+</p>
+<p>
+    注意，如果指定了{% include href/data.dt %}
+    属性，table里的dom对象会被覆盖掉
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>
+    该选项可以是以下类型：
+    <ul>
+        <li>
+            {% include href/array.js %}
+        </li>
+    </ul>
+</p>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+               使用二维数组：
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+    &quot;data&quot;: [
+        [ &quot;Tiger Nixon&quot;, &quot;System Architect&quot;, &quot;$3,120&quot;, &quot;2011/04/25&quot;, &quot;Edinburgh&quot;, 5421 ],
+        [ &quot;Garrett Winters&quot;, &quot;Director&quot;, &quot;$8,422&quot;, &quot;2011/07/25&quot;, &quot;Edinburgh&quot;, 8422 ],
+        // ...
+    ]
+} );</pre>
+    </div>
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                使用对象数组作为数据源：
+            </p>
+        </div>
+  <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;:       &quot;Tiger Nixon&quot;,
+            &quot;position&quot;:   &quot;System Architect&quot;,
+            &quot;salary&quot;:     &quot;$3,120&quot;,
+            &quot;start_date&quot;: &quot;2011/04/25&quot;,
+            &quot;office&quot;:     &quot;Edinburgh&quot;,
+            &quot;extn&quot;:       5421
+        },
+        {
+            &quot;name&quot;: &quot;Garrett Winters&quot;,
+            &quot;position&quot;: &quot;Director&quot;,
+            &quot;salary&quot;: &quot;5300&quot;,
+            &quot;start_date&quot;: &quot;2011/07/25&quot;,
+            &quot;office&quot;: &quot;Edinburgh&quot;,
+            &quot;extn&quot;: &quot;8422&quot;
+        },
+        // ...
+    ],
+    &quot;columns&quot;: [
+        { &quot;data&quot;: &quot;name&quot; },
+        { &quot;data&quot;: &quot;position&quot; },
+        { &quot;data&quot;: &quot;office&quot; },
+        { &quot;data&quot;: &quot;extn&quot; },
+        { &quot;data&quot;: &quot;start_date&quot; },
+        { &quot;data&quot;: &quot;salary&quot; }
+    ]
+} );</pre>
+    </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/row.add %}</li>
+        <li>{% include href/rows.add %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/ajax.dt %}</li>
+        <li>{% include href/columns.data.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html param='http://datatables.net/reference/option/data'%}

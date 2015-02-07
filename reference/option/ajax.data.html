@@ -3,7 +3,7 @@ layout: reference_option_detail_layout
 title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务端的请求数据
 ---
 <h1 class="page_title">异步数据(ajax.data)</h1>
-<div class="since">Since: 1.10</div>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
 <p>增加或修改通过Ajax提交到服务端的请求数据</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
@@ -11,11 +11,11 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
     当向服务器发出一个ajax请求，Datatables将会把服务器请求到的数据构造成一个数据对象。数据包含的内容取决于Datatables操作的处理模式：
 <ul>
     <li>纯客户端处理，没有其他额外的数据需要提交给服务器</li>
-    <li>服务器处理（{% include href/serverSide.dt.html %}），详细参考 <a href="#">服务器处理指南</a></li>
+    <li>服务器处理（{% include href/serverSide.dt %}），详细参考 <a href="#">服务器处理指南</a></li>
 </ul>
 </p>
 <p>
-    {% include href/ajax.data.dt.html %}
+    {% include href/ajax.data.dt %}
     将额外的参数添加到请求或修改需要被提交的数据对象
 </p>
 <p>
@@ -35,7 +35,7 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
             <p>
                 如果当做一个对象，<a href="#" target="_blank"><code>ajax.data<span>DT</span></code></a>
                 选项用于扩展Datatables构造内部对象，将额外的，静态的参数传递给服务器。对于动态的处理，使用
-                {% include href/ajax.data.dt.html %}作为一个函数（见下文）。
+                {% include href/ajax.data.dt %}作为一个函数（见下文）。
             </p>
         </dd>
     </dl>
@@ -47,7 +47,7 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
         <dt>描述:</dt>
         <dd class="description">
             <p>
-                作为一个函数，{% include href/ajax.data.dt.html %}
+                作为一个函数，{% include href/ajax.data.dt %}
                 选项可以用于修改由Datatables内部构造的原始数据或者完全取代这些，然后ajax请求到服务器
             </p>
 
@@ -72,11 +72,11 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
                     <tr role="row" class="odd">
                         <td>1</td>
                         <td><code>data</code></td>
-                        <td><p>{% include href/object.js.html %}
+                        <td><p>{% include href/object.js %}
                         </p>
                         </td>
                         <td>No</td>
-                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/serverSide.dt.html %})
+                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/serverSide.dt %})
                             这个还会包含服务器请求的一些参数
                         </td>
                     </tr>
@@ -88,12 +88,12 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
         <dd>
             <div class="returns_type">
                 <p>
-                    {% include href/object.js.html %},
-                    {% include href/string.js.html %},
-                    {% include href/undefined.js.html %}
+                    {% include href/object.js %},
+                    {% include href/string.js %},
+                    {% include href/undefined.js %}
                 </p>
             </div>
-            <p>If there is no return value from the function (i.e. {% include href/undefined.js.html %})
+            <p>If there is no return value from the function (i.e. {% include href/undefined.js %})
                 then the original data object passed into the function by DataTables will be used for the request (the
                 function may have manipulated its values).
             </p>
@@ -187,14 +187,14 @@ title: Datatables | 参考 | 选项 | 增加或修改通过Ajax提交到服务�
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">API
     <ul class="markdown">
-        <li>{% include href/ajax.json.dt.html %}</li>
-        <li>{% include href/ajax.reload.dt.html %}</li>
-        <li>{% include href/ajax.url.dt.html %}</li>
+        <li>{% include href/ajax.json.dt %}</li>
+        <li>{% include href/ajax.reload.dt %}</li>
+        <li>{% include href/ajax.url.dt %}</li>
     </ul>
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/ajax.dt.html %}</li>
+        <li>{% include href/ajax.dt %}</li>
     </ul>
 </div>
 <div class="clear"></div>
