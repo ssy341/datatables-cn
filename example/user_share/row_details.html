@@ -154,7 +154,7 @@ title: 行详细内容的展开与折叠 网友共享 示例 Datatables中文网
 
     function fnFormatDetails(nTr, pdataId) {
         //根据配置Id 异步查询数据
-        $.get(&quot;../resources/user_share/row_details/language.json&quot;,
+        $.get(&quot;../resources/user_share/row_details/language.txt&quot;,
                 function(json) {
                     var array = json.data;
                     for (var i = 0; i &lt; array.length; i++) {
@@ -520,9 +520,9 @@ if ( $.fn.DataTable.TableTools ) {
 
     function fnFormatDetails(nTr, pdataId) {
         //根据配置Id 异步查询数据
-        $.get("../resources/user_share/row_details/language.json",
+        $.get("../resources/user_share/row_details/language.txt",
                 function(json) {
-                    var array = json.data;
+                    var array = JSON.parse(json).data;
                     for (var i = 0; i < array.length; i++) {
                         if (pdataId == array[i].language) {
                             var sOut = '<center> <p style="width:70%">' + array[i].desc + '<a target="_blank" href="' + array[i].url + '">更多</a></p></center>';
