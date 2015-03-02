@@ -1,0 +1,104 @@
+---
+layout: default
+title: 网址导航 Datatables 中文网
+---
+{% include nav.html param="index" %}
+<style>
+    dl{
+        line-height: 24px;
+        padding: 10px 0;
+        border-bottom: solid 1px #E1E1E1;
+        margin-bottom: 0;
+    }
+    dl>dt{
+        width: 100px;
+        font-weight: bold;
+        text-align: center;
+    }
+    dt>a{
+        display: block;
+        float: left;
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    dd{
+        margin-top: 5px;
+    }
+    dd>a{
+        margin-left: 10px;
+    }
+</style>
+<div class="container" style="margin-top:100px">
+    <div class="span3"></div>
+    <div class="span6">
+        <form class="form-search" style="margin:0;padding:0" method=get action="http://209.85.229.119/search"
+              target="_blank">
+            <input class="input-medium search-query" type=text name=q style="width:400px">
+            <input class="btn" type=submit name=btnG value="Google搜索">
+        </form>
+    </div>
+    <div class="span3">
+    </div>
+</div>
+<div class="container">
+    <h1>网址导航</h1>
+    <dl>
+        <dt>jQuery插件</dt>
+        <dd>
+            <a href="http://www.ztree.me/v3/main.php#_zTreeInfo" target="_blank" title="树插件">zTree</a>
+            <a href="http://posabsolute.github.io/jQuery-Validation-Engine/" target="_blank"
+               title="表格验证插件">jQuery.validationEngine</a>
+            <a href="http://needim.github.io/noty/" target="_blank" title="提示插件">noty</a>
+            <a href="http://www.highcharts.com/" target="_blank" title="图表插件">Highcharts</a>
+            <a href="http://trirand.com/blog/jqgrid/jqgrid.html" target="_blank" title="表格插件">jqGrid</a>
+            <a href="http://www.kminek.pl/lab/yetii/" target="_blank" title="tab切换">yetii</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>大神博客</dt>
+        <dd >
+            <a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
+            <a href="http://avnpc.com/" target="_blank" title="avnpc">avnpc</a>
+            <a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰">阮一峰</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>Tools</dt>
+        <dd >
+            <a href="http://www.kekaku.com/tools/js_format/index.html" target="_blank" title="js格式化">js格式化</a>
+            <a href="http://www.jslint.com/" target="_blank" title="js格式查错">js格式查错</a>
+            <a href="http://www.bootcss.com/p/websafecolors" target="_blank" title="web安全色">web安全色</a>
+            <a href="http://tool.oschina.net/" target="_blank" title="web工具">开源中国在线工具包</a>
+            <a href="http://www.gbtags.com/gb/debug/1.htm" target="_blank" title="Gbtags在线调试">Gbtags在线调试<span class='hot'></span></a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>在线代码托管</dt>
+        <dd >
+            <a href="https://code.google.com/intl/zh-CN/" target="_blank" title="Google Code">Google Code</a>
+            <a href="https://code.csdn.net/" target="_blank" title="CSDN Code">CSDN Code</a>
+            <a href="https://github.com/ssy341" target="_blank" title="GitHub">GitHub</a>
+            <a href="http://code.taobao.org" target="_blank" title="TaobaoCode">淘宝Code</a>
+            <a href="https://code.jd.com" target="_blank" title="jdCode">京东Code</a>
+        </dd>
+    </dl>
+    <dl>
+        <dt>其他</dt>
+        <dd >
+            <a href="https://github.com/greatfire/wiki" target="_blank" title="google">google访问网址</a>
+            <a href="http://julying.com/" target="_blank" title="前端工程师">前端工程师</a>
+            <a href="http://runjs.cn/" target="_blank" title="RunJS">RunJS</a>
+        </dd>
+    </dl>
+    <div style="margin-top: 20px">
+        <p>如果你想共享自己的精品网址，欢迎在下面留言</p>
+        {% include post.html param= site.url param2 = page.url %}
+    </div>
+</div>
+
+{% include copyright.html %}
+
+
+

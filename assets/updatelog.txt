@@ -19,6 +19,10 @@
         [
             "<a target='_blank' href='http://www.gbtags.com/gb/share/4526.htm'>Datatables新版1.10.4特性讲解征求意见<span class='hot'></span> </a>",
             "2015-02-05"
+        ],
+        [
+            "<a target='_blank' href='http://dt.thxopen.com/tour.html'>Datatables中文网导航<span class='hot'></span></a>",
+            "2015-03-02"
         ]
     ],
     "isNote":true
