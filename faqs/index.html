@@ -1,0 +1,144 @@
+---
+layout: default
+title: 常见问题 Datatables 中文网
+---
+{% include nav.html param="index" %}
+<style>
+    dl{
+        line-height: 24px;
+        padding: 10px 0;
+        border-bottom: solid 1px #E1E1E1;
+        margin-bottom: 0;
+    }
+    dl>dt{
+        width: 100px;
+        font-weight: bold;
+        text-align: center;
+    }
+    dt>a{
+        display: block;
+        float: left;
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    dd{
+        margin-top: 5px;
+    }
+    dd>a{
+        margin-left: 10px;
+    }
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="container" style="margin-top:100px">
+    <div class="span1"></div>
+    <div class="span10">
+        <h2>常见问题</h2>
+        <p>Datatables在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题，有些问题是已知的，我会列举在下面。</p>
+        <h4>获得帮助</h4>
+        <p>
+        <ul>
+            <li><b>问：我有一个问题，我怎么得到帮助？</b></li>
+            <li>答：目前有Datatables中文网，方便大家查阅，如果英语好点的可以直接查看原网站，不管是原网站还是中文网，都有丰富的
+                <a href="../manual" target="_blank">手册</a> , <a href="../reference" target="_blank">参考</a>,<a href="../example" target="_blank">例子</a> ,
+                <a href="http://www.gbtags.com/gb/user/111.htm" target="_blank">极客标签</a>以及下面要说到的常见问题。
+                如果你不能在此页找到你需要的问题，那么你可以在<a href="http://www.gbtags.com/gb/user/111.htm" target="_blank">社区</a>提问
+                或者发布一个<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>
+                (<a href="http://note.youdao.com/share/?id=9d66fe41c12d707b9a1bda6ba7d8a46c&type=note" target="_blank">怎么调试？</a>)
+            </li>
+            <li>
+                小技巧：把下面的超链接拖到书签栏，当打开<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>后，点击这个即可添加Datatables需要的css和js
+                <br/>
+                <button style="width:200px;height: 50px">
+                <a href="javascript: (function() {
+    var css = $('<a>jquery.dataTables.css</a>').attr('href', 'http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css').attr('title', 'http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(css)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+    var jqueryjs = $('<a>jquery.min.js</a>').attr('href', 'http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js').attr('title', 'http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(jqueryjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+    var dtjs = $('<a>jquery.dataTables.min.js</a>').attr('href', 'http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js').attr('title', 'http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(dtjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+})();">Datatables Debug</a></button>
+            </li>
+        </ul>
+        </p>
+        <hr/>
+        <h4>最常见问题</h4>
+        <p>
+            <ul>
+                <li><b>问：控制台报错，提示api方法不可用</b></li>
+                <li>答：1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
+                    <code>$().DataTable()</code> 返回的是Datatables的api实例，  详细参考 <a href="http://dt.thxopen.com/manual/api.html" target="_blank">api手册</a> </li>
+            </ul>
+
+            <ul>
+                <li><b>问：我现在还在使用1.9.x的版本，去哪里查看文档？</b></li>
+                <li>答：旧版本的文档可以查阅这个 <a href="http://legacy.datatables.net/" target="_blank">网址</a> ，因为考虑到版本升级，新版的Datatables对旧版做了兼容性处理，大部分的
+                    配置选项方法在新版中依然兼容，但还是推荐直接升级到最新版使用。 <a href="http://dt.thxopen.com/upgrade/1.10-convert.html" target="_blank">1.10.x与1.9.x参数名对照表</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li><b>问：json数据解析错误</b></li>
+                <li>答：这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数，详细参考 <a href="#"> 调试解决方案</a></li>
+            </ul>
+
+            <ul>
+                <li><b>问：“Requested unknown parameter” 错误</b></li>
+                <li>答：当你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误，详细参考 <a href="#"> 调试解决方案</a></li>
+            </ul>
+
+            <ul>
+                <li><b>问：我在ie中会提示错误，但是chrome、ff这些浏览器却不会</b></li>
+                <li>答：一般可能是缺少逗号，在ie浏览器下会抛出错误，但是chrome这些浏览器会忽略这些错误</li>
+            </ul>
+        </p>
+
+        <hr/>
+        <h4>一般初始化</h4>
+        <p>
+            <ul>
+                <li><b>问:我觉得Datatables在加载的时候比较慢，有没有让Datatables更快一点</b></li>
+                <li>答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
+                    <ul>
+                        <li>如果你是客户端模式，数据在5000条以内，加上 {% include href/orderClasses.dt %}</li>
+                        <li>如果你是ajax加载数据，数据在50000条以内，加上 {% include href/deferRender.dt %}</li>
+                        <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/serverSide.dt %}）</li>
+                    </ul>
+                </li>
+                <li>注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响</li>
+            </ul>
+
+            <ul>
+                <li><b>问:表格不能正常显示</b></li>
+                <li>答：Datatables所需要的table是比较严谨的，table里必须包含thead和tbody表情。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考 <a
+                        href="http://dt.thxopen.com/manual/install.html" target="_blank">安装手册</a> </li>
+            </ul>
+
+            <ul>
+                <li><b>问:表格显示的样式和例子的不同</b></li>
+                <li>答：检查css样式文件是否引入正确（名称和路径），还有页面上引入的其他css有没有一并引入 </li>
+            </ul>
+
+            <ul>
+                <li><b>问:如何按照自己的喜好摆放Datatables的控件</b></li>
+                <li>答：配置 {% include href/dom.dt %} 属性来自有摆放， <a href="http://dt.thxopen.com/example/basic_init/dom.html" target="_blank">示例</a> </li>
+            </ul>
+
+        </p>
+
+        {% include post.html param= site.url param2 = page.url %}
+    </div>
+    <div class="span1">
+    </div>
+</div>
+
+{% include copyright.html %}
+
+
+
