@@ -9,13 +9,15 @@ title: 自动宽度 选项 参考 Datatables中文网
 <h2 data-anchor="Description">说明</h2>
 <p>
     启用或者禁止自动列宽的计算。如果已经定义了列宽，禁止这个选项可以实现最优的性能（因为这个选项会耗费一点的时间去计算列宽）。
-    <a href="columns.width.html"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a>
+    {% include href/columns.width.dt %}
 </p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
 <p>这个选项用下列的数据类型赋值。</p>
 <ul class="markdown">
-  <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
+  <li>
+      {% include href/boolean.js %}
+  </li>
 </ul>
 <a name="Default"></a>
 <h2 data-anchor="Default">默认值</h2>
@@ -27,7 +29,7 @@ title: 自动宽度 选项 参考 Datatables中文网
 <div class="reference_examples">
   <div class="reference_example">
     <div class="title">
-      <p>禁止智能计算列宽:</p>
+      <p>禁止自动计算列宽:</p>
     </div>
     <pre class="brush:js;toolbar:false">$('#example').dataTable( {
   &quot;autoWidth&quot;: false
@@ -39,18 +41,18 @@ title: 自动宽度 选项 参考 Datatables中文网
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">API
   <ul class="markdown">
-    <li><a href="../api/columns.adjust().html"><code class="api" title="API method">columns.adjust()</code></a></li>
+    <li> {% include href/columns.adjust %}</li>
   </ul>
 </div>
 <div class="reference_related">Events
   <ul class="markdown">
-    <li><a href="../event/column-sizing.html"><code class="event" title="Event">column-sizing</code></a></li>
+    <li>{% include href/column.sizing %}</li>
   </ul>
 </div>
 <div class="reference_related">Options
   <ul class="markdown">
-    <li><a href="columns.width.html"><code class="init" title="Initialisation option">columns.width</code></a></li>
+    <li>{% include href/columns.width.dt %}</li>
   </ul>
 </div>
 <div class="clear"></div>
-{% include quote.html param='http://datatables.net/reference/option/autoWidth'%}
+{% include quote.html param='http://datatables.net/reference/option/autoWidth' %}
