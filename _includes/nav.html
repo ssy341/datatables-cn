@@ -1,3 +1,11 @@
+<style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
@@ -17,6 +25,7 @@
                     <li {% if include.param == "extensions" %}class="active"{% endif %}><a href="/extensions">扩展</a></li>
                     <li {% if include.param == "plugins" %}class="active"{% endif %}><a href="/plugins">插件</a></li>
                     <li {% if include.param == "faqs" %}class="active"{% endif %}><a href="/faqs">FAQs</a></li>
+                    <li {% if include.param == "update" %}class="active"{% endif %}><a href="/updatelog.html">更新日志<span id="updateFlag"></span></a></li>
                 </ul>
             </div>
         </div>

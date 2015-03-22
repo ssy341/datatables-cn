@@ -1,0 +1,104 @@
+---
+layout: reference_option_detail_layout
+title: 检索已存在的Datatables实例 选项 参考 Datatables中文网
+---
+<h1 class="page_title">检索已存在的Datatables实例(retrieve)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>检索已存在的Datatables实例</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    意思是如果已经初始化了，则继续使用之前的Datatables实例。下面用代码说明具体意思
+</p>
+        <p>
+            相反如果你不想这样你需要使用{% include href/destroy.dt %}方法来销毁对象
+        </p>
+
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>
+        这个属性接受下列类型的参数：
+    <ul>
+        <li>{% include href/boolean.js %}</li>
+    </ul>
+</p>
+
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<p>
+<ul>
+    <li>Value:false</li>
+</ul>
+</p>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                检索一个已经存在的Datatables实例
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">$(document).ready(function() {
+    initTable();
+    tableActions();
+});
+function initTable() {
+    return $(&#39;#example&#39;).dataTable({
+        &quot;scrollY&quot;: &quot;200px&quot;,
+        &quot;paginate&quot;: false,
+        &quot;retrieve&quot;: true
+    });
+}
+function tableActions() {
+    //这里获得的是之前的Datatables实例而不是重新实例化的
+    var table = initTable();
+}</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+               上面例子还不明白，那再看下面这个例子
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">$(document).ready(function() {
+    $(&quot;#dt&quot;).DataTable({
+        &quot;retrieve&quot;: true,
+        &quot;info&quot;: false //不显示表格信息，在左下角
+    });
+
+    $(&quot;#test&quot;).click(function() {
+        //这里我给一个按钮添加了点击事件，在页面加载完后，Datatables自动创建，当我
+        //当我点击按钮执行下面代码，虽然我没有加上任何的配置项，但是表格的info信息依然是被禁用的
+        //就是说当使用了retrieve属性后，在没有destroy之前，都返回同一个实例，即第一次创建的实例
+        $(&quot;#dt&quot;).DataTable();
+    });
+
+});</pre>
+    </div>
+    <div style="height: 500px;">
+
+        <iframe height=100% width=100% src="http://www.gbtags.com/gb/rtwidget-replayerpreview/509.htm" frameborder=0 allowfullscreen></iframe>
+    </div>
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/destroy.api.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/destroy.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html param='http://datatables.net/reference/option/retrieve'%}

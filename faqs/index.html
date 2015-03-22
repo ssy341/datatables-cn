@@ -2,7 +2,7 @@
 layout: default
 title: 常见问题 Datatables 中文网
 ---
-{% include nav.html param="index" %}
+{% include nav.html param="faqs" %}
 <style>
     dl{
         line-height: 24px;
@@ -130,6 +130,16 @@ title: 常见问题 Datatables 中文网
                 <li>答：配置 {% include href/dom.dt %} 属性来自有摆放， <a href="http://dt.thxopen.com/example/basic_init/dom.html" target="_blank">示例</a> </li>
             </ul>
 
+        </p>
+
+        <hr/>
+        <h4>网友遇到的问题</h4>
+        <p>
+            <ul>
+                <li><b>问：为什么表头会缩在一起，刷新页面后又正常了</b></li>
+                <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
+                还要检查css样式是否引入</li>
+            </ul>
         </p>
 
         {% include post.html param= site.url param2 = page.url %}

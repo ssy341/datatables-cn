@@ -19,7 +19,7 @@ title: 更新日志 Datatables中文网
     </style>
 </head>
 <body>
-{% include nav.html %}
+{% include nav.html param="update" %}
 <header class="jumbotron subhead" id="overview">
     <div class="container">
         <div class="span4">
@@ -72,10 +72,24 @@ title: 更新日志 Datatables中文网
             ],
             paging: !1,
             dom: "t",
-            ajax:"../assets/updatelog.txt"
+            ajax:"../assets/updatelog.txt",
+            "columnDefs": [ {
+                "targets": 0,
+                "render":function(data, type, row, meta){
+                    if(row[2]){
+                        return data+"<span class='hot'></span>";
+                    }else{
+                        return data;
+                    }
+                }
+            } ]
         });
     });
-    localStorage['dt.thxopen.com.note'] =new Date();
+    var time = localStorage['dt.thxopen.com.note'];
+    if(typeof time === 'object'){
+        localStorage.removeItem("dt.thxopen.com.note");
+    }
+    localStorage['dt.thxopen.com.note'] = new Date().getTime();
 </script>
 </body>
 </html>
