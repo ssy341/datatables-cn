@@ -35,37 +35,41 @@ title: Bootstrap 样式 手册 Datatables中文网
 
 <body>
 
-{% include manual_nav.html %}
+{% include nav.html %}
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        {% include manual_styling_nav.html %}
-        <div class="span9">
-            <h3>Bootstrap</h3>
-            <p>Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。
-                目前，Bootstrap最新版本为3.0 。</p>
-            <p>Datatables已经很好的支持Bootstrap，通过下面的示例展示给大家怎么使用Bootstrap来美化Datatables</p>
-            <p>在早起的版本中应用Bootstrap到Datatables稍微麻烦，但是现在新版已经做了很好的改善，你只需要引入Datatables已经写好的css样式和js即可</p>
-            <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css</code></p>
-            <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.js</code></p>
-            <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/bootstrap</code></p>
-            <p>Bootstrap风格的Datatables:<a href="./bootstrap-simple.html" target="_blank">在新的页面查看此示例</a></p>
-            <iframe border="0" frameBorder="0" src="./bootstrap-simple.html" width="100%" height="510"></iframe>
-            <blockquote>
-                <p><a href="http://datatables.net/manual/styling/bootstrap" title="bootstrap">http://datatables.net/manual/styling/bootstrap</a></p>
-                <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-            </blockquote>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row-fluid">
 
-            {% include post.html param= site.url param2 = page.url %}
+            <div class="span9">
+                <h3>Bootstrap</h3>
+                <p>Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。
+                    目前，Bootstrap最新版本为3.0 。</p>
+                <p>Datatables已经很好的支持Bootstrap，通过下面的示例展示给大家怎么使用Bootstrap来美化Datatables</p>
+                <p>在早起的版本中应用Bootstrap到Datatables稍微麻烦，但是现在新版已经做了很好的改善，你只需要引入Datatables已经写好的css样式和js即可</p>
+                <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css</code></p>
+                <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.js</code></p>
+                <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/bootstrap</code></p>
+                <p>Bootstrap风格的Datatables:<a href="./bootstrap-simple.html" target="_blank">在新的页面查看此示例</a></p>
+                <iframe border="0" frameBorder="0" src="./bootstrap-simple.html" width="100%" height="510"></iframe>
+                <blockquote>
+                    <p><a href="http://datatables.net/manual/styling/bootstrap" title="bootstrap">http://datatables.net/manual/styling/bootstrap</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
+                {% include post.html param= site.url param2 = page.url %}
+
+            </div><!--/row-->
+            <div class="span3">
+                {% include manual_styling_left_nav.html param='styling' %}
+            </div>
         </div><!--/row-->
-    </div><!--/row-->
 
-    <hr>
+        <hr>
 
-    {% include copyright.html %}
-
-</div><!--/.fluid-container-->
+    </div><!--/.fluid-container-->
+</div>
+{% include copyright.html %}
 
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 <script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>

@@ -4,22 +4,6 @@ title: 选项 手册 Datatables中文网
 ---
 <div class="container-fluid">
     <div class="row-fluid">
-        <div class="span3">
-            <div class="well sidebar-nav">
-                <ul class="nav nav-list">
-                    <li class="nav-header">手册</li>
-                    <li><a href="install.html">安装</a></li>
-                    <li><a href="data.html">数据</a></li>
-                    <li class="active"><a href="#">选项</a></li>
-                    <li><a href="api.html">API</a></li>
-                    <li><a href="styling.html">样式</a></li>
-                    <li><a href="#">事件</a></li>
-                    <li><a href="#">正文数据</a></li>
-                    <li><a href="#">服务器支持处理</a></li>
-                    <li><a href="#">国际化</a></li>
-                </ul>
-            </div><!--/.well -->
-        </div><!--/span-->
         <div class="span9">
 
             <h2 class="page_title">
@@ -113,6 +97,9 @@ $(&#39;#example&#39;).DataTable( {
             {% include post.html param= site.url param2 = page.url %}
 
         </div><!--/row-->
+        <div class="span3">
+            {% include manual_left_nav.html param='options' %}
+        </div><!--/span-->
     </div><!--/row-->
 
     <hr>

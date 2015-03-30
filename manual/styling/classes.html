@@ -11,7 +11,6 @@ title: 默认样式 样式 手册 Datatables中文网
 
     <!-- 最新 Bootstrap 核心 CSS 文件 -->
     {% include libs/bootstrap_css.html %}
-    {% include libs/sh_css.html %}
 
     <!-- DataTables CSS -->
     {% include libs/datatables_css.html %}
@@ -39,11 +38,11 @@ title: 默认样式 样式 手册 Datatables中文网
 
 <body>
 
-{% include manual_nav.html %}
-
+{% include nav.html %}
+<div class="container">
 <div class="container-fluid">
 <div class="row-fluid">
-{% include manual_styling_nav.html %}
+
 <div class="span9">
 <h2>Default styling options</h2>
 <p>
@@ -456,13 +455,15 @@ title: 默认样式 样式 手册 Datatables中文网
 {% include post.html param= site.url param2 = page.url %}
 
 </div><!--/row-->
+<div class="span3">
+    {% include manual_left_nav.html param='styling' %}
+</div><!--/span-->
 </div><!--/row-->
 
 <hr>
-
-{% include copyright.html %}
-
 </div><!--/.fluid-container-->
+</div>
+{% include copyright.html %}
 {% include example_script.html %}
 <script type="text/javascript">
     $(document).ready( function () {

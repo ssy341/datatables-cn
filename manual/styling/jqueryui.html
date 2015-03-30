@@ -35,35 +35,41 @@ title: jQuery UI 样式 手册 Datatables中文网
 
 <body>
 
-{% include manual_nav.html %}
+{% include nav.html %}
 
-<div class="container-fluid">
-    <div class="row-fluid">
-        {% include manual_styling_nav.html %}
-        <div class="span9">
-            <h3>jQuery UI </h3>
-            <p>jQueryUI 是一套 jQuery 的页面 UI 插件，包含很多种常用的页面空间，例如 Tabs（如本站首页右上角部分） 、拉帘效果（本站首页左上角）、对话框、拖放效果、日期选择、颜色选择、数据排序、窗体大小调整等等非常多的内容。</p>
-            <p>同Bootstrap和Foundation一样，使用jQuery UI也只需引入css和js即可</p>
-            <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.css</code></p>
-            <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.js</code></p>
-            <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/jqueryui</code></p>
-            <p>jQuery UI风格的Datatables:<a href="./jqueryui-simple.html" target="_blank">在新的页面查看此示例</a></p>
-            <iframe border="0" frameBorder="0" src="./jqueryui-simple.html" width="100%" height="530"></iframe>
-            <blockquote>
-                <p><a href="http://datatables.net/manual/styling/jqueryui" title="foundation">http://datatables.net/manual/styling/jqueryui</a></p>
-                <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-            </blockquote>
+<div class="container">
+    <div class="container-fluid">
+        <div class="row-fluid">
 
-            {% include post.html param= site.url param2 = page.url %}
+            <div class="span9">
+                <h3>jQuery UI </h3>
+                <p>jQueryUI 是一套 jQuery 的页面 UI 插件，包含很多种常用的页面空间，例如 Tabs（如本站首页右上角部分） 、拉帘效果（本站首页左上角）、对话框、拖放效果、日期选择、颜色选择、数据排序、窗体大小调整等等非常多的内容。</p>
+                <p>同Bootstrap和Foundation一样，使用jQuery UI也只需引入css和js即可</p>
+                <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.css</code></p>
+                <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.js</code></p>
+                <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/jqueryui</code></p>
+                <p>jQuery UI风格的Datatables:<a href="./jqueryui-simple.html" target="_blank">在新的页面查看此示例</a></p>
+                <iframe border="0" frameBorder="0" src="./jqueryui-simple.html" width="100%" height="530"></iframe>
+                <blockquote>
+                    <p><a href="http://datatables.net/manual/styling/jqueryui" title="foundation">http://datatables.net/manual/styling/jqueryui</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
+                {% include post.html param= site.url param2 = page.url %}
+
+            </div><!--/row-->
+            <div class="span3">
+                {% include manual_styling_left_nav.html param='styling' %}
+            </div>
         </div><!--/row-->
-    </div><!--/row-->
 
-    <hr>
+        <hr>
 
-    {% include copyright.html %}
 
-</div><!--/.fluid-container-->
+
+    </div><!--/.fluid-container-->
+</div>
+{% include copyright.html %}
 {% include libs/jquery_js.html %}
 {% include libs/bootstrap_js.html %}
 </body>
