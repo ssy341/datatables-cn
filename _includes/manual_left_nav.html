@@ -1,0 +1,14 @@
+<div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header"><h3>手册(Manual)</h3></li>
+        <li {% if include.param == "install" %}class="active"{% endif %}><a href="install.html">安装（Installation）</a></li>
+        <li {% if include.param == "data" %}class="active"{% endif %}><a href="data.html">数据（Data）</a></li>
+        <li {% if include.param == "options" %}class="active"{% endif %}><a href="options.html">选项（Options）</a></li>
+        <li {% if include.param == "api" %}class="active"{% endif %}><a href="api.html">API</a></li>
+        <li {% if include.param == "styling" %}class="active"{% endif %}><a href="styling.html">样式（Styling）</a></li>
+        <li {% if include.param == "event" %}class="active"{% endif %}><a href="http://datatables.net/manual/events">事件（Events）</a></li>
+        <li {% if include.param == "orthogonal" %}class="active"{% endif %}><a href="http://datatables.net/manual/orthogonal-data">正文数据（Orthogonal data）</a></li>
+        <li {% if include.param == "serverside" %}class="active"{% endif %}><a href="http://datatables.net/manual/server-side">服务器支持处理（Server-side processing）</a></li>
+        <li {% if include.param == "i18n" %}class="active"{% endif %}><a href="i18n.html">国际化（Internationalisation）</a></li>
+    </ul>
+</div><!--/.well -->
