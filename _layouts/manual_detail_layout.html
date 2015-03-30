@@ -5,8 +5,10 @@
     {% include manual_link.html %}
 </head>
 <body>
-     {% include manual_nav.html %}
-     {{content}}
-     {% include copyright.html %}
+{% include nav.html %}
+    <div class="container">
+        {{content}}
+    </div>
+    {% include copyright.html %}
 </body>
 </html>
