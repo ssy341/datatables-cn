@@ -11,7 +11,7 @@ title: 增加或修改通过Ajax提交到服务端的请求数据(ajax.data)
     当向服务器发出一个ajax请求，Datatables将会把服务器请求到的数据构造成一个数据对象。数据包含的内容取决于Datatables操作的处理模式：
 <ul>
     <li>纯客户端处理，没有其他额外的数据需要提交给服务器</li>
-    <li>服务器处理（{% include href/serverSide.dt %}），详细参考 <a href="#">服务器处理指南</a></li>
+    <li>服务器处理（{% include href/option/serverSide.dt %}），详细参考 <a href="#">服务器处理指南</a></li>
 </ul>
 </p>
 <p>
@@ -76,7 +76,7 @@ title: 增加或修改通过Ajax提交到服务端的请求数据(ajax.data)
                         </p>
                         </td>
                         <td>No</td>
-                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/serverSide.dt %})
+                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/option/serverSide.dt %})
                             这个还会包含服务器请求的一些参数
                         </td>
                     </tr>
