@@ -1,0 +1,82 @@
+---
+title: 更新日志 Datatables中文网
+---
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    {% include head.html %}
+    {% include libs/bootstrap_css.html %}
+    {% include libs/datatables_css.html %}
+    <link href="../css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.png">
+    <style>
+        .hot {
+            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+            height: 12px;
+            width: 21px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+{% include nav.html param="update" %}
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+            <h1>Datetables中文网更新日志</h1>
+            <p style="font-size:15px;text-indent: 2em;">
+
+            </p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row-fluid" style="margin-top:20px">
+            <!-- 表格开始 -->
+            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                <tr>
+                    <th>内容</th>
+                    <th>时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+       {% include post.html param= site.url param2 = page.url %}
+    </div>
+</div>
+<!--/row-->
+
+<!--footer-->
+{% include copyright.html %}
+{% include script.html %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "order": [
+                [ 1, "desc" ]
+            ],
+            paging: !1,
+            dom: "t",
+            ajax:"../assets/updatelog.txt",
+            "columnDefs": [ {
+                "targets": 0,
+                "render":function(data, type, row, meta){
+                    if(row[2]){
+                        return data+"<span class='hot'></span>";
+                    }else{
+                        return data;
+                    }
+                }
+            } ]
+        });
+    });
+    var time = localStorage['dt.thxopen.com.note'];
+    if(typeof time === 'object'){
+        localStorage.removeItem("dt.thxopen.com.note");
+    }
+    localStorage['dt.thxopen.com.note'] = new Date().getTime();
+</script>
+</body>
+</html>

@@ -439,7 +439,7 @@ title: API
         <td><p><a href="//datatables.net/reference/api/column.index()"><code class="api" title="DataTables API method">column.index()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Convert between column index formats</p>
+        <td><p>Convert between column index formats(不明白用意)</p>
         </td>
     </tr>
     <tr>
@@ -447,7 +447,7 @@ title: API
                                                                                 title="DataTables API method">columns().cache()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the DataTables cached data for the selected columns.</p>
+        <td><p>获取表格缓存里被选中的列</p>
         </td>
     </tr>
     <tr>
@@ -455,7 +455,7 @@ title: API
                                                                                title="DataTables API method">columns().data()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the data for the cells in the selected columns.</p>
+        <td><p>获取被选中列的单元格数据</p>
         </td>
     </tr>
     <tr>
@@ -463,7 +463,7 @@ title: API
                                                                                   title="DataTables API method">columns().dataSrc()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the data source property for the selected columns.</p>
+        <td><p>获取选中列的数据源属性名称</p>
         </td>
     </tr>
     <tr>
@@ -471,7 +471,7 @@ title: API
                                                                                  title="DataTables API method">columns().footer()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the footer nodes for the selected columns.</p>
+        <td><p>获取选中列footer的nodes</p>
         </td>
     </tr>
     <tr>
@@ -479,7 +479,7 @@ title: API
                                                                                  title="DataTables API method">columns().header()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the header node for the selected columns.</p>
+        <td><p>获取选中列header的node</p>
         </td>
     </tr>
     <tr>
@@ -487,7 +487,7 @@ title: API
                                                                                   title="DataTables API method">columns().indexes()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the column indexes of the selected columns.</p>
+        <td><p>获取选中列的索引</p>
         </td>
     </tr>
     <tr>
@@ -495,7 +495,7 @@ title: API
                                                                                 title="DataTables API method">columns().nodes()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get the cell nodes for the selected columns.</p>
+        <td><p>获取选中列单元格nodes</p>
         </td>
     </tr>
     <tr>
@@ -503,7 +503,7 @@ title: API
                                                                                 title="DataTables API method">columns().order()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Order the table by the selected columns.</p>
+        <td><p>给选中列排序</p>
         </td>
     </tr>
     <tr>
@@ -511,7 +511,7 @@ title: API
                                                                                  title="DataTables API method">columns().search()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Search for data in the selected columns.</p>
+        <td><p>在指定列搜索</p>
         </td>
     </tr>
     <tr>
@@ -519,14 +519,14 @@ title: API
                                                                                   title="DataTables API method">columns().visible()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Get / set the visibility of the selected columns.</p>
+        <td><p>得到隐藏列或者设置隐藏列</p>
         </td>
     </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/columns()"><code class="api" title="DataTables API method">columns()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Select multiple columns from a table.</p>
+        <td><p>从表格选择多列</p>
         </td>
     </tr>
     <tr>
@@ -534,13 +534,13 @@ title: API
                                                                                title="DataTables API method">columns.adjust()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>Recalculate the column widths</p>
+        <td><p>重新计算列宽</p>
         </td>
     </tr>
     </tbody>
 </table>
 
-<h2 data-anchor="Options">配置(Options)</h2>
+<h2 data-anchor="Options">行(Rows)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -550,109 +550,196 @@ title: API
     </thead>
     <tbody>
     <tr>
-        <td><p><a href="option/deferLoading.html"><code class="option" title="DataTables initialisation option">deferLoading<span>DT</span></code></a></p></td>
-        <td><p>延迟请求加载服务端的数据，直到表格第二次绘制</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().cache()"><code class="api" title="DataTables API method">row().cache()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取缓存里行的数据</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="destroy.html"><code class="option" title="DataTables initialisation option">destroy<span>DT</span></code></a></p></td>
-        <td><p>销毁所有符合选择的table，并且用新的options重新创建表格</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child().hide()"><code class="api"
+                                                                                   title="DataTables API method">row().child().hide()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>隐藏子行然后创建一个新的子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/displayStart.html"><code class="option" title="DataTables initialisation option">displayStart<span>DT</span></code></a></p></td>
-        <td><p>初始化显示的时候从第几条数据开始显示(一开始显示第几页)</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child().remove()"><code class="api"
+                                                                                     title="DataTables API method">row().child().remove()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>删除子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/dom.html"><code class="option" title="DataTables initialisation option">dom<span>DT</span></code></a></p></td>
-        <td><p>定义DataTables的组件元素的显示和显示顺序</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child().show()"><code class="api"
+                                                                                   title="DataTables API method">row().child().show()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>显示子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/lengthMenu.html"><code class="option" title="DataTables initialisation option">lengthMenu<span>DT</span></code></a></p></td>
-        <td><p>定义在每页显示记录数的<code>select</code>中显示的选项</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child()"><code class="api" title="DataTables API method">row().child()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取子行或者设置子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/order.html"><code class="option" title="DataTables initialisation option">order<span>DT</span></code></a></p></td>
-        <td><p>表格在初始化的时候的排序</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child.hide()"><code class="api"
+                                                                                 title="DataTables API method">row().child.hide()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>隐藏子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/orderCellsTop.html"><code class="option" title="DataTables initialisation option">orderCellsTop<span>DT</span></code></a></p></td>
-        <td><p>控制表头的哪一个cell可以应用于该列的排序响应</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child.isShown()"><code class="api"
+                                                                                    title="DataTables API method">row().child.isShown()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>坚持子行是否显示</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/orderClasses.html"><code class="option" title="DataTables initialisation option">orderClasses<span>DT</span></code></a></p></td>
-        <td><p>高亮显示在table的body中排序的列</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child.remove()"><code class="api"
+                                                                                   title="DataTables API method">row().child.remove()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>移除子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/orderFixed.html"><code class="option" title="DataTables initialisation option">orderFixed<span>DT</span></code></a></p></td>
-        <td><p>在表格中总是起作用的排序</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child.show()"><code class="api"
+                                                                                 title="DataTables API method">row().child.show()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>显示子行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/orderMulti.html"><code class="option" title="DataTables initialisation option">orderMulti<span>DT</span></code></a></p></td>
-        <td><p>是否允许多列排序</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().child"><code class="api" title="DataTables API method">row().child<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>子行方法命名空间</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/pageLength.html"><code class="option" title="DataTables initialisation option">pageLength<span>DT</span></code></a></p></td>
-        <td><p>改变初始的页面长度(每页显示的记录数)</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().data()"><code class="api" title="DataTables API method">row().data()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取行数据或者设置行数据</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/pagingType.html"><code class="option" title="DataTables initialisation option">pagingType<span>DT</span></code></a></p></td>
-        <td><p>分页按钮的显示方式</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().index()"><code class="api" title="DataTables API method">row().index()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取行的索引</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/renderer.html"><code class="option" title="DataTables initialisation option">renderer<span>DT</span></code></a></p></td>
-        <td><p>显示组件的渲染方式</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().invalidate()"><code class="api"
+                                                                                 title="DataTables API method">row().invalidate()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>Invalidate the data held in DataTables for the selected row（不理解）</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="retrieve.html"><code class="option" title="DataTables initialisation option">retrieve<span>DT</span></code></a></p></td>
-        <td><p>检索已经存在的Datatables实例</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().node()"><code class="api" title="DataTables API method">row().node()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获得 <code>tr</code> 节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/scrollCollapse.html"><code class="option" title="DataTables initialisation option">scrollCollapse<span>DT</span></code></a></p></td>
-        <td><p>当显示更少的记录时，是否允许表格减少高度</p></td>
+        <td><p><a href="//datatables.net/reference/api/row().remove()"><code class="api" title="DataTables API method">row().remove()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>删除行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/search.caseInsensitive.html"><code class="option" title="DataTables initialisation option">search.caseInsensitive<span>DT</span></code></a></p></td>
-        <td><p>在搜索或者过滤时，是否大小写敏感</p></td>
+        <td><p><a href="//datatables.net/reference/api/row()"><code class="api"
+                                                                    title="DataTables API method">row()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取一行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/search.regex.html"><code class="option" title="DataTables initialisation option">search.regex<span>DT</span></code></a></p></td>
-        <td><p>允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码</p></td>
+        <td><p><a href="//datatables.net/reference/api/row.add()"><code class="api" title="DataTables API method">row.add()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>添加一行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/search.search.html"><code class="option" title="DataTables initialisation option">search.search<span>DT</span></code></a></p></td>
-        <td><p>初始化时的表格的过滤（搜索）条件</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().cache()"><code class="api" title="DataTables API method">rows().cache()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取缓存里的行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/search.smart.html"><code class="option" title="DataTables initialisation option">search.smart<span>DT</span></code></a></p></td>
-        <td><p>允许或者禁止DataTables的只能过滤（搜索）功能</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().data()"><code class="api" title="DataTables API method">rows().data()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取多行数据</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/search"><code class="option" title="DataTables initialisation option">search<span>DT</span></code></a></p></td>
-        <td><p>设置一个全局的过滤条件</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().indexes()"><code class="api"
+                                                                               title="DataTables API method">rows().indexes()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取多行的索引</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/searchCols"><code class="option" title="DataTables initialisation option">searchCols<span>DT</span></code></a></p></td>
-        <td><p>给每一列定义一个初始的搜索条件</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().invalidate()"><code class="api"
+                                                                                  title="DataTables API method">rows().invalidate()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>Invalidate the data held in DataTables for the selected rows（不理解）</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/searchDelay"><code class="option" title="DataTables initialisation option">searchDelay<span>DT</span></code></a></p></td>
-        <td><p>设定搜索的间隔时间。</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().nodes()"><code class="api" title="DataTables API method">rows().nodes()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>获取多个 <code>tr</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/stateDuration"><code class="option" title="DataTables initialisation option">stateDuration<span>DT</span></code></a></p></td>
-        <td><p>间隔多长时间保存一次状态</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows().remove()"><code class="api" title="DataTables API method">rows().remove()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>删除多行</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/stripeClasses"><code class="option" title="DataTables initialisation option">stripeClasses<span>DT</span></code></a></p></td>
-        <td><p>设置斑马条（奇偶行）的css class</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows()"><code class="api"
+                                                                     title="DataTables API method">rows()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>多行对象</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/tabIndex"><code class="option" title="DataTables initialisation option">tabIndex<span>DT</span></code></a></p></td>
-        <td><p>用键盘上的Tab键浏览时的顺序</p></td>
+        <td><p><a href="//datatables.net/reference/api/rows.add()"><code class="api" title="DataTables API method">rows.add()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>添加多行</p>
+        </td>
     </tr>
     </tbody>
 </table>
 <a name="Columns"></a>
-<h2 data-anchor="Columns">列(Columns)</h2>
+<h2 data-anchor="Columns">表格(Tables)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -662,89 +749,103 @@ title: API
     </thead>
     <tbody>
     <tr>
-        <td><p><a href="option/columnDefs.targets"><code class="option" title="DataTables initialisation option">columnDefs.targets<span>DT</span></code></a></p></td>
-        <td><p>为一个或多个列编制定义</p></td>
+        <td><p><a href="//datatables.net/reference/api/table().body()"><code class="api" title="DataTables API method">table().body()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到表格 <code>tbody</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columnDefs"><code class="option" title="DataTables initialisation option">columnDefs<span>DT</span></code></a></p></td>
-        <td><p>设置定义列的初始属性</p></td>
+        <td><p><a href="//datatables.net/reference/api/table().container()"><code class="api"
+                                                                                  title="DataTables API method">table().container()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到表格的容器 <code>div</code>   ，包括dt所有的控件
+        </p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.cellType"><code class="option" title="DataTables initialisation option">columns.cellType<span>DT</span></code></a></p></td>
-        <td><p>为列指定一个单元格类型</p></td>
+        <td><p><a href="//datatables.net/reference/api/table().footer()"><code class="api"
+                                                                               title="DataTables API method">table().footer()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>tfoot</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.className"><code class="option" title="DataTables initialisation option">columns.className<span>DT</span></code></a></p></td>
-        <td><p>为指定的列的每个单元格都指定一个css class</p></td>
+        <td><p><a href="//datatables.net/reference/api/table().header()"><code class="api"
+                                                                               title="DataTables API method">table().header()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>thead</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.contentPadding"><code class="option" title="DataTables initialisation option">columns.contentPadding<span>DT</span></code></a></p></td>
-        <td><p>当计算最佳显示状态时，文字内容部分需要增加的css padding值</p></td>
+        <td><p><a href="//datatables.net/reference/api/table().node()"><code class="api" title="DataTables API method">table().node()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>table</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.createdCell"><code class="option" title="DataTables initialisation option">columns.createdCell<span>DT</span></code></a></p></td>
-        <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM</p></td>
+        <td><p><a href="//datatables.net/reference/api/table()"><code class="api"
+                                                                      title="DataTables API method">table()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到一个table的jquery对象</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.data"><code class="option" title="DataTables initialisation option">columns.data<span>DT</span></code></a></p></td>
-        <td><p>设置列的数据源，即如何从整个Table的数据源(object / array)中获得</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables().body()"><code class="api" title="DataTables API method">tables().body()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到表格 <code>tbody</code>节点,如果是一次性初始化多个表格，使用类选择器，或者table标签选择初始化，使用下列方法，table()针对单个table，tables()针对多个table</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.defaultContent"><code class="option" title="DataTables initialisation option">columns.defaultContent<span>DT</span></code></a></p></td>
-        <td><p>设定该列的默认、静态的内容</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables().containers()"><code class="api"
+                                                                                    title="DataTables API method">tables().containers()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到表格的容器 <code>div</code>   ，包括dt所有的控件
+        </p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.name"><code class="option" title="DataTables initialisation option">columns.name<span>DT</span></code></a></p></td>
-        <td><p>为列设定一个别名（描述性名字）</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables().footer()"><code class="api"
+                                                                                title="DataTables API method">tables().footer()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>tfoot</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.orderable"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a></p></td>
-        <td><p>在该列上允许或者禁止排序功能</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables().header()"><code class="api"
+                                                                                title="DataTables API method">tables().header()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>thead</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.orderData"><code class="option" title="DataTables initialisation option">columns.orderData<span>DT</span></code></a></p></td>
-        <td><p>定义多个列的默认排序条件</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables().nodes()"><code class="api"
+                                                                               title="DataTables API method">tables().nodes()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到 <code>table</code>节点</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/columns.orderDataType"><code class="option" title="DataTables initialisation option">columns.orderDataType<span>DT</span></code></a></p></td>
-        <td><p>列的表格的DOM类型，可以用来方便排序</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="columns.orderSequence"><code class="option" title="DataTables initialisation option">columns.orderSequence<span>DT</span></code></a></p></td>
-        <td><p>排序的顺序，正序或倒序</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="reference/option/columns.render"><code class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a></p></td>
-        <td><p>在列上处理数据的函数，可以再次自定义显示内容</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns.searchable"><code class="option" title="DataTables initialisation option">columns.searchable<span>DT</span></code></a></p></td>
-        <td><p>在该列上允许或者禁止过滤搜索记录</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns.title"><code class="option" title="DataTables initialisation option">columns.title<span>DT</span></code></a></p></td>
-        <td><p>设定该列的标题</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns.type"><code class="option" title="DataTables initialisation option">columns.type<span>DT</span></code></a></p></td>
-        <td><p>设定该列的类型 - 在该列排序或者搜索的时候使用</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns.visible"><code class="option" title="DataTables initialisation option">columns.visible<span>DT</span></code></a></p></td>
-        <td><p>显示或隐藏该列</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns.width"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a></p></td>
-        <td><p>设定列宽</p></td>
-    </tr>
-    <tr>
-        <td><p><a href="option/columns"><code class="option" title="DataTables initialisation option">columns<span>DT</span></code></a></p></td>
-        <td><p>设定列的所有初始属性</p></td>
+        <td><p><a href="//datatables.net/reference/api/tables()"><code class="api" title="DataTables API method">tables()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到table的jquery对象</p>
+        </td>
     </tr>
     </tbody>
 </table>
-<a name="Internationalisation"></a>
-<h2 data-anchor="Internationalisation">国际化(Internationalisation)</h2>
+<a name="Utility"></a>
+<h2 data-anchor="Utility">实用(Utility)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -754,101 +855,246 @@ title: API
     </thead>
     <tbody>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.aria.sortAscending"><code class="option" title="DataTables initialisation option">language.aria.sortAscending<span>DT</span></code></a></p></td>
-        <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+        <td><p><a href="//datatables.net/reference/api/concat()"><code class="api" title="DataTables API method">concat()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>Combine multiple API instances to create a single new instance.(没理解)</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.aria.sortDescending"><code class="option" title="DataTables initialisation option">language.aria.sortDescending<span>DT</span></code></a></p></td>
-        <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+        <td><p><a href="//datatables.net/reference/api/each()"><code class="api"
+                                                                     title="DataTables API method">each()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>遍历结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.aria"><code class="option" title="DataTables initialisation option">language.aria<span>DT</span></code></a></p></td>
-        <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+        <td><p><a href="//datatables.net/reference/api/eq()"><code class="api" title="DataTables API method">eq()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>Reduce an Api instance to a single context and result set.（没理解）</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.decimal"><code class="option" title="DataTables initialisation option">language.decimal<span>DT</span></code></a></p></td>
-        <td><p>小数点表示字符（有些文化中用"，"表示小数点）</p></td>
+        <td><p><a href="//datatables.net/reference/api/filter()"><code class="api" title="DataTables API method">filter()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>从结果集中过滤</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.emptyTable"><code class="option" title="DataTables initialisation option">language.emptyTable<span>DT</span></code></a></p></td>
-        <td><p>当表格没有数据时，表格所显示的字符串</p></td>
+        <td><p><a href="//datatables.net/reference/api/flatten()"><code class="api" title="DataTables API method">flatten()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>把一列或者几列数据从二维数组变成一维数组</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.info"><code class="option" title="DataTables initialisation option">language.info<span>DT</span></code></a></p></td>
-        <td><p>表格的page分页所需显示的所有字符串</p></td>
+        <td><p><a href="//datatables.net/reference/api/indexOf()"><code class="api" title="DataTables API method">indexOf()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>从结果集中找匹配的值，返回找到个数</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.infoEmpty"><code class="option" title="DataTables initialisation option">language.infoEmpty<span>DT</span></code></a></p></td>
-        <td><p>当表格没有数据时，汇总地方显示的字符串</p></td>
+        <td><p><a href="//datatables.net/reference/api/iterator()"><code class="api" title="DataTables API method">iterator()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>遍历表格、列，行，单元格结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.infoFiltered"><code class="option" title="DataTables initialisation option">language.infoFiltered<span>DT</span></code></a></p></td>
-        <td><p>当表格搜索后，在汇总字符串上需要增加的内容</p></td>
+        <td><p><a href="//datatables.net/reference/api/join()"><code class="api"
+                                                                     title="DataTables API method">join()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>给结果集数据以字符连接然后返回一个字符串</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.infoPostFix"><code class="option" title="DataTables initialisation option">language.infoPostFix<span>DT</span></code></a></p></td>
-        <td><p>在汇总字符串上始终增加的字符串</p></td>
+        <td><p><a href="//datatables.net/reference/api/lastIndexOf()"><code class="api" title="DataTables API method">lastIndexOf()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>返回与字符相匹配第一次出现的位置（从后往前）</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.lengthMenu"><code class="option" title="DataTables initialisation option">language.lengthMenu<span>DT</span></code></a></p></td>
-        <td><p>'每页显示记录'的下拉框的提示信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/length"><code class="api"
+                                                                     title="DataTables API method">length<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>返回结果集的长度</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.loadingRecords"><code class="option" title="DataTables initialisation option">language.loadingRecords<span>DT</span></code></a></p></td>
-        <td><p>加载数据时的提示信息 - 当 Ajax请求数据时显示</p></td>
+        <td><p><a href="//datatables.net/reference/api/map()"><code class="api"
+                                                                    title="DataTables API method">map()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>通过回调函数，创建一个新的结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.paginate.first"><code class="option" title="DataTables initialisation option">language.paginate.first<span>DT</span></code></a></p></td>
-        <td><p>分页信息的 'first' 按钮显示的信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/pluck()"><code class="api"
+                                                                      title="DataTables API method">pluck()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>返回指定属性结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.last"><code class="option" title="DataTables initialisation option">language.paginate.last<span>DT</span></code></a></p></td>
-        <td><p>分页信息的 'last' 按钮显示的信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/pop()"><code class="api"
+                                                                    title="DataTables API method">pop()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>从结果集中移除最后一个项目</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.next"><code class="option" title="DataTables initialisation option">language.paginate.next<span>DT</span></code></a></p></td>
-        <td><p>分页信息的 'next' 按钮显示的信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/push()"><code class="api"
+                                                                     title="DataTables API method">push()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>添加一个多个项目到结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.previous"><code class="option" title="DataTables initialisation option">language.paginate.previous<span>DT</span></code></a></p></td>
-        <td><p>分页信息的 'previous' 按钮显示的信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/reduce()"><code class="api" title="DataTables API method">reduce()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>遍历结果集，通过回调函数返回从左到右的数据</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate"><code class="option" title="DataTables initialisation option">language.paginate<span>DT</span></code></a></p></td>
-        <td><p>分页信息显示所需的字符串的所有信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/reduceRight()"><code class="api" title="DataTables API method">reduceRight()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>遍历结果集，通过回调函数返回从右到左的数据</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.processing"><code class="option" title="DataTables initialisation option">language.processing<span>DT</span></code></a></p></td>
-        <td><p>当table处理用户处理信息时，显示的信息字符串</p></td>
+        <td><p><a href="//datatables.net/reference/api/reverse()"><code class="api" title="DataTables API method">reverse()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>反转结果集</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.search"><code class="option" title="DataTables initialisation option">language.search<span>DT</span></code></a></p></td>
-        <td><p>搜索框的提示信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/shift()"><code class="api"
+                                                                      title="DataTables API method">shift()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>移除并返回结果集中的第一个</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.searchPlaceholder"><code class="option" title="DataTables initialisation option">language.searchPlaceholder<span>DT</span></code></a></p></td>
-        <td><p>搜索框(input)的placeholder属性</p></td>
+        <td><p><a href="//datatables.net/reference/api/sort()"><code class="api"
+                                                                     title="DataTables API method">sort()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>对结果集进行排序</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.thousands"><code class="option" title="DataTables initialisation option">language.thousands<span>DT</span></code></a></p></td>
-        <td><p>千位的分隔符</p></td>
+        <td><p><a href="//datatables.net/reference/api/splice()"><code class="api" title="DataTables API method">splice()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>对结果集进行分割</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.url"><code class="option" title="DataTables initialisation option">language.url<span>DT</span></code></a></p></td>
-        <td><p>从远程地址中加载语言信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/to%24()"><code class="api"
+                                                                      title="DataTables API method">to$()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>转为jquery实例</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language"><code class="option" title="DataTables initialisation option">language<span>DT</span></code></a></p></td>
-        <td><p>所有DataTables的语言配置都在这里</p></td>
+        <td><p><a href="//datatables.net/reference/api/toArray()"><code class="api" title="DataTables API method">toArray()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>把结果集转换为javascript数组</p>
+        </td>
     </tr>
     <tr>
-        <td><p><a href="option/language.zeroRecords"><code class="option" title="DataTables initialisation option">language.zeroRecords<span>DT</span></code></a></p></td>
-        <td><p>当搜索结果为空时，显示的信息</p></td>
+        <td><p><a href="//datatables.net/reference/api/toJQuery()"><code class="api" title="DataTables API method">toJQuery()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>转为jQuery实例</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/unique()"><code class="api" title="DataTables API method">unique()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>去重</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/unshift()"><code class="api" title="DataTables API method">unshift()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>在结果集里从头添加一个或多个项目，返回长度</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a name="Static"></a>
+<h2 data-anchor="Static">静态方法(Static)</h2>
+<table class="reference row-border hover">
+    <thead>
+    <tr>
+        <th width="30%">名称</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.isDataTable()"><code class="api"
+                                                                                             title="DataTables API method">$.fn.dataTable.isDataTable()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>检查table是不是datatables实例</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.tables()"><code class="api"
+                                                                                        title="DataTables API method">$.fn.dataTable.tables()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>得到页面上所有的datatables实例</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.util.escapeRegex()"><code class="api"
+                                                                                                  title="DataTables API method">$.fn.dataTable.util.escapeRegex()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>Escape special characters in a regular expression string</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.util.throttle()"><code class="api"
+                                                                                               title="DataTables API method">$.fn.dataTable.util.throttle()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>减少方法调用的频率</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.versionCheck()"><code class="api"
+                                                                                              title="DataTables API method">$.fn.dataTable.versionCheck()<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>版本检查</p>
+        </td>
     </tr>
     </tbody>
 </table>
 <br/>
-{% include quote.html param='http://datatables.net/reference/option/'%}
+{% include quote.html param='http://datatables.net/reference/api/'%}
 
 <script>
     var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
