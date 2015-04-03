@@ -9,7 +9,7 @@
             "2014-12-13",0
         ],
         [
-            "添加<a target='_blank' href='./upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>",
+            "添加<a target='_blank' href='/upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>",
             "2014-12-29",0
         ],
         [
