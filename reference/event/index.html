@@ -1,10 +1,171 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+---
+layout: reference_option_detail_layout
+title: API
+---
+<h2 class="page_title">事件(Events)</h2>
+<p>
+   Datatables对自己所触发的事件都有监听，我们可以监听这些动作做相应的处理，比如表格重绘的时候，我需要做一些操作
+</p>
 
-</body>
-</html>
+<p>
+   Datatables的事件监听使用 {% include href/api/on.dt %} 方法或者   {% include href/jQuery.on %}  ,事件的命名都用dt结尾，
+    保证和其他的命名不冲突，下面的例子显示了如何监听 {% include href/event/draw.dt %}事件
+    <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).on(&#39;draw.dt&#39;,
+    function() {
+        alert(&#39;Table redrawn&#39;);
+    });</pre>
+</p>
+<div class="ref_search">
+    全局搜索:<input type="text" />
+</div>
+
+<a name="Core"></a><h2 data-anchor="Core">事件(Events)</h2>
+
+<table class="reference row-border hover">
+    <thead>
+    <tr>
+        <th width="30%">名称</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/column-sizing"><code class="event" title="DataTables event">column-sizing<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>列大小事件-当表格的列宽重新计算</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/column-visibility"><code class="event"
+                                                                                  title="DataTables event">column-visibility<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>列显示事件-当表格列显示或者隐藏</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/destroy"><code class="event"
+                                                                        title="DataTables event">destroy<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>表格销毁事件-当表格被销毁时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/draw"><code class="event"
+                                                                     title="DataTables event">draw<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>重绘事件-当表格重绘完成后</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/error"><code class="event" title="DataTables event">error<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>错误事件-当在加载数据发生错误时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/init"><code class="event"
+                                                                     title="DataTables event">init<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>加载完成事件-当表格完全加载完毕后</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/length"><code class="event"
+                                                                       title="DataTables event">length<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>分页长度改变事件-当分页长度发生改变</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/order"><code class="event" title="DataTables event">order<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>排序事件-当表格里数据发生排序</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/page"><code class="event"
+                                                                     title="DataTables event">page<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>页面改变事件-当页面发生改变</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/preXhr"><code class="event"
+                                                                       title="DataTables event">preXhr<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>ajax事件-当datatable发出ajax请求前</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/processing"><code class="event" title="DataTables event">processing<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>处理过程事件-当表格正在处理（排序，或者加载）时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/search"><code class="event"
+                                                                       title="DataTables event">search<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>搜索事件-当过滤数据时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/stateLoaded"><code class="event" title="DataTables event">stateLoaded<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>状态被加载事件-一旦状态已经被加载应用</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/stateLoadParams"><code class="event" title="DataTables event">stateLoadParams<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>状态加载事件-当状态正在加载时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/stateSaveParams"><code class="event" title="DataTables event">stateSaveParams<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>状态存储事件-当正在保存表格状态信息时</p>
+        </td>
+    </tr>
+    <tr>
+        <td><p><a href="//datatables.net/reference/event/xhr"><code class="event"
+                                                                    title="DataTables event">xhr<span>DT</span></code></a>
+        </p>
+        </td>
+        <td><p>ajax事件-当datatable发送ajax请求完成时</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br/>
+{% include quote.html param='http://datatables.net/reference/event/'%}
+
+<script>
+    var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
+        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
+        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
+        $(window).trigger("resize")
+    }});
+    $("div.ref_search input").on("keyup", function() {
+        y.search(this.value).draw()
+    });
+</script>
+
+
+            
