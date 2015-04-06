@@ -71,17 +71,11 @@
 </head>
 <body>
      {% include nav.html param='reference' %}
-     <div class="container-fluid">
-		<div class="row-fluid">
-            <div class="span2"></div>
-			<div class="span8">
+     <div class="container">
 				{{content}}
 				{% include post.html param= site.url param2 = page.url %}
-			</div><!--/row-->
-            <div class="span2"></div>
-		</div><!--/row-->
-		<hr>
 	</div><!--/.fluid-container-->
+     <hr>
      {% include copyright.html %}
 </body>
 </html>
