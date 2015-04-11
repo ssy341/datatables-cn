@@ -27,7 +27,11 @@
          [
              "<a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加",
              "2015-04-01",1
-         ]
+         ],
+           [
+               "第一期<a target='_blank' href='/example/'>视频教学</a>",
+               "2015-04-11",1
+           ]
     ],
     "isNote":true
 }

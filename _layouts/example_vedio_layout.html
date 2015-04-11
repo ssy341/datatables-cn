@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include example_meta.html %}
+    {% include example_link.html %}
+</head>
+<body>
+{% include nav.html param='example' %}
+<div class="container">
+    <div class="row-fluid" style="margin-top:20px">
+        <div class="span1"></div>
+        <div class="span10">
+            {{content}}
+        </div>
+        <div class="span1"></div>
+    </div>
+    <!--/row-->
+</div>
+{% include copyright.html %}
+</body>
+</html>
+
+
