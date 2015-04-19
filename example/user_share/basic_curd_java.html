@@ -47,9 +47,9 @@ title: 基本增删改查（java） 网友共享 示例 Datatables中文网
             <div class="tab-pane active" id="tab1">
                <pre class="brush:js;toolbar:false">&lt;!--定义操作列按钮模板--&gt;
 &lt;script id=&quot;tpl&quot; type=&quot;text/x-handlebars-template&quot;&gt;
-    {{#each func}}
+    {% raw %}{{#each func}}
     &lt;button type=&quot;button&quot; class=&quot;btn btn-{{this.type}} btn-sm&quot; onclick=&quot;{{this.fn}}&quot;&gt;{{this.name}}&lt;/button&gt;
-    {{/each}}
+    {{/each}} {% endraw %}
 &lt;/script&gt;
 
 &lt;script&gt;
