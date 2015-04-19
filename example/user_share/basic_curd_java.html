@@ -1,0 +1,673 @@
+---
+title: 基本增删改查（java） 网友共享 示例 Datatables中文网
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>{{ page.title }}</title>
+    {% include libs/sh_css.html %}
+    {% include libs/bootstrap_css.html %}
+    <link href="../../css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+</head>
+<body>
+{% include nav.html param="example" %}
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h3>基本增删改查（java）</h3>
+        <p>
+            此例子展示基于Datatables的最新版1.10.5的服务器处理的增删改查，弹窗效果，结合Bootstrap显示表格，局部刷新数据，还应用了dom，自定义按钮
+            使表格和按钮看起来是一个整体。这个例子中还是用模板引擎，目的是为了掩饰在使用render渲染函数时，如果拼接的html比较多，建议用模板的方式处理，这样代码看起来会比较简洁
+         </p>
+               <p>注意：这个在线例子使用的是IBM bluemix ，所以访问速度有些慢，如果不能正常显示，建议下载源码到本地运行，压缩包包含 src和web两个目录，搭建一个java web工程即可使用</p>
+        <a class="btn btn-lg btn-primary btn-shadow bs3-link"
+           href="/assets/Datatables-serverSide.zip" target="_blank" role="button"
+           title="Datatables-serverSide.zip">代码下载 &raquo;</a>
+    </div>
+</header>
+
+<div class="container" style="margin-top:20px">
+
+    <iframe src="http://dtdemo.mybluemix.net/" frameborder="0" width="100%" height="500" scrolling="yes"></iframe>
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+            <li><a href="#tab2" data-toggle="tab">html</a></li>
+            <li><a href="#tab3" data-toggle="tab">Ajax返回数据</a></li>
+            <li><a href="#tab4" data-toggle="tab">数据返回(list.jsp)</a></li>
+            <li><a href="#tab5" data-toggle="tab">删除数据(del.jsp)</a></li>
+            <li><a href="#tab6" data-toggle="tab">编辑数据(edit.jsp)</a></li>
+            <li><a href="#tab7" data-toggle="tab">添加数据(add.jsp)</a></li>
+            <li><a href="#tab8" data-toggle="tab">实体bean(User)</a></li>
+            <li><a href="#tab9" data-toggle="tab">实体bean(Config)</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab1">
+               <pre class="brush:js;toolbar:false">&lt;!--定义操作列按钮模板--&gt;
+&lt;script id=&quot;tpl&quot; type=&quot;text/x-handlebars-template&quot;&gt;
+    {{#each func}}
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-{{this.type}} btn-sm&quot; onclick=&quot;{{this.fn}}&quot;&gt;{{this.name}}&lt;/button&gt;
+    {{/each}}
+&lt;/script&gt;
+
+&lt;script&gt;
+    var table;
+    var editFlag = false;
+    $(function () {
+
+        $(&#39;#start_date&#39;).datetimepicker();
+
+        var tpl = $(&quot;#tpl&quot;).html();
+        //预编译模板
+        var template = Handlebars.compile(tpl);
+
+        table = $(&#39;#example&#39;).DataTable({
+            ajax: {
+                url: &quot;/list.jsp&quot;
+            },
+            serverSide: true,
+            columns: [
+                {&quot;data&quot;: &quot;name&quot;},
+                {&quot;data&quot;: &quot;position&quot;},
+                {&quot;data&quot;: &quot;salary&quot;},
+                {&quot;data&quot;: &quot;start_date&quot;},
+                {&quot;data&quot;: &quot;office&quot;},
+                {&quot;data&quot;: &quot;extn&quot;},
+                {&quot;data&quot;: null}
+            ],
+            columnDefs: [
+                {
+                    targets: 6,
+                    render: function (a, b, c, d) {
+                        var context =
+                        {
+                            func: [
+                                {&quot;name&quot;: &quot;修改&quot;, &quot;fn&quot;: &quot;edit(\&#39;&quot; + c.name + &quot;\&#39;,\&#39;&quot; + c.position + &quot;\&#39;,\&#39;&quot; + c.salary + &quot;\&#39;,\&#39;&quot; + c.start_date + &quot;\&#39;,\&#39;&quot; + c.office + &quot;\&#39;,\&#39;&quot; + c.extn + &quot;\&#39;)&quot;, &quot;type&quot;: &quot;primary&quot;},
+                                {&quot;name&quot;: &quot;删除&quot;, &quot;fn&quot;: &quot;del(\&#39;&quot; + c.name + &quot;\&#39;)&quot;, &quot;type&quot;: &quot;danger&quot;}
+                            ]
+                        };
+                        var html = template(context);
+                        return html;
+                    }
+                }
+
+            ],
+            &quot;language&quot;: {
+                &quot;lengthMenu&quot;: &quot;_MENU_ 条记录每页&quot;,
+                &quot;zeroRecords&quot;: &quot;没有找到记录&quot;,
+                &quot;info&quot;: &quot;第 _PAGE_ 页 ( 总共 _PAGES_ 页 )&quot;,
+                &quot;infoEmpty&quot;: &quot;无记录&quot;,
+                &quot;infoFiltered&quot;: &quot;(从 _MAX_ 条记录过滤)&quot;,
+                &quot;paginate&quot;: {
+                    &quot;previous&quot;: &quot;上一页&quot;,
+                    &quot;next&quot;: &quot;下一页&quot;
+                }
+            },
+            &quot;dom&quot;: &quot;&lt;&#39;row&#39;&lt;&#39;col-xs-2&#39;l&gt;&lt;&#39;#mytool.col-xs-4&#39;&gt;&lt;&#39;col-xs-6&#39;f&gt;r&gt;&quot; +
+                    &quot;t&quot; +
+                    &quot;&lt;&#39;row&#39;&lt;&#39;col-xs-6&#39;i&gt;&lt;&#39;col-xs-6&#39;p&gt;&gt;&quot;,
+            initComplete: function () {
+                $(&quot;#mytool&quot;).append(&#39;&lt;button id=&quot;datainit&quot; type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;增加基础数据&lt;/button&gt;&amp;nbsp&#39;);
+                $(&quot;#mytool&quot;).append(&#39;&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot; data-toggle=&quot;modal&quot; data-target=&quot;#myModal&quot;&gt;添加&lt;/button&gt;&#39;);
+                $(&quot;#datainit&quot;).on(&quot;click&quot;, initData);
+            }
+
+        });
+
+        $(&quot;#save&quot;).click(add);
+
+        $(&quot;#initData&quot;).click(initSingleData);
+
+    });
+
+    /**
+     * 初始化基础数据
+     */
+    function initData() {
+        var flag = confirm(&quot;本功能将添加数据到数据库，你确定要添加么？&quot;);
+        if (flag) {
+            $.get(&quot;/objects.txt&quot;, function (data) {
+                var jsondata = JSON.parse(data);
+                $(jsondata.data).each(function (index, obj) {
+                    ajax(obj);
+                });
+            });
+        }
+    }
+
+    /**
+     * 初始化基础数据
+     */
+    function initSingleData() {
+        $(&quot;#name&quot;).val(&quot;http://dt.thxopen.com&quot;);
+        $(&quot;#position&quot;).val(&quot;ShiMen&quot;);
+        $(&quot;#salary&quot;).val(&quot;1&quot;);
+        $(&quot;#start_date&quot;).val(&quot;2015/04/01&quot;);
+        $(&quot;#office&quot;).val(&quot;Home&quot;);
+        $(&quot;#extn&quot;).val(&quot;001&quot;);
+    }
+
+    /**
+     * 清除
+     */
+    function clear() {
+        $(&quot;#name&quot;).val(&quot;&quot;).attr(&quot;disabled&quot;,false);
+        $(&quot;#position&quot;).val(&quot;&quot;);
+        $(&quot;#salary&quot;).val(&quot;&quot;);
+        $(&quot;#start_date&quot;).val(&quot;&quot;);
+        $(&quot;#office&quot;).val(&quot;&quot;);
+        $(&quot;#extn&quot;).val(&quot;&quot;);
+        editFlag = false;
+    }
+
+    /**
+     * 添加数据
+     **/
+    function add() {
+        var addJson = {
+            &quot;name&quot;: $(&quot;#name&quot;).val(),
+            &quot;position&quot;: $(&quot;#position&quot;).val(),
+            &quot;salary&quot;: $(&quot;#salary&quot;).val(),
+            &quot;start_date&quot;: $(&quot;#start_date&quot;).val(),
+            &quot;office&quot;: $(&quot;#office&quot;).val(),
+            &quot;extn&quot;: $(&quot;#extn&quot;).val()
+        };
+
+        ajax(addJson);
+    }
+
+    /**
+     *编辑方法
+     **/
+    function edit(name,position,salary,start_date,office,extn) {
+        console.log(name);
+        editFlag = true;
+        $(&quot;#myModalLabel&quot;).text(&quot;修改&quot;);
+        $(&quot;#name&quot;).val(name).attr(&quot;disabled&quot;,true);
+        $(&quot;#position&quot;).val(position);
+        $(&quot;#salary&quot;).val(salary);
+        $(&quot;#start_date&quot;).val(start_date);
+        $(&quot;#office&quot;).val(office);
+        $(&quot;#extn&quot;).val(extn);
+        $(&quot;#myModal&quot;).modal(&quot;show&quot;);
+    }
+
+    function ajax(obj) {
+        var url =&quot;/add.jsp&quot; ;
+        if(editFlag){
+            url = &quot;/edit.jsp&quot;;
+        }
+        $.ajax({
+            url:url ,
+            data: {
+                &quot;name&quot;: obj.name,
+                &quot;position&quot;: obj.position,
+                &quot;salary&quot;: obj.salary,
+                &quot;start_date&quot;: obj.start_date,
+                &quot;office&quot;: obj.office,
+                &quot;extn&quot;: obj.extn
+            }, success: function (data) {
+                table.ajax.reload();
+                $(&quot;#myModal&quot;).modal(&quot;hide&quot;);
+                $(&quot;#myModalLabel&quot;).text(&quot;新增&quot;);
+                clear();
+                console.log(&quot;结果&quot; + data);
+            }
+        });
+    }
+
+
+    /**
+     * 删除数据
+     * @param name
+     */
+    function del(name) {
+        $.ajax({
+            url: &quot;/del.jsp&quot;,
+            data: {
+                &quot;name&quot;: name
+            }, success: function (data) {
+                table.ajax.reload();
+                console.log(&quot;删除成功&quot; + data);
+            }
+        });
+    }
+&lt;/script&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab2">
+               <pre class="brush:html;toolbar:false">&lt;div class=&quot;container&quot;&gt;
+    &lt;table id=&quot;example&quot; class=&quot;table table-striped table-bordered&quot;&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;地点&lt;/th&gt;
+            &lt;th&gt;薪水&lt;/th&gt;
+            &lt;th&gt;入职时间&lt;/th&gt;
+            &lt;th&gt;办公地点&lt;/th&gt;
+            &lt;th&gt;编号&lt;/th&gt;
+            &lt;th&gt;操作&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;&lt;/tbody&gt;
+        &lt;!-- tbody是必须的 --&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;!-- Button trigger modal --&gt;
+
+
+&lt;!-- Modal --&gt;
+&lt;div class=&quot;modal fade&quot; id=&quot;myModal&quot; tabindex=&quot;-1&quot; role=&quot;dialog&quot; aria-labelledby=&quot;myModalLabel&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;span
+                        aria-hidden=&quot;true&quot;&gt;&amp;times;&lt;/span&gt;&lt;/button&gt;
+                &lt;h4 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;新增&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;name&quot; placeholder=&quot;姓名&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;position&quot; placeholder=&quot;位置&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;salary&quot; placeholder=&quot;薪资&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;start_date&quot; placeholder=&quot;时间&quot;
+                           data-date-format=&quot;yyyy/mm/dd&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;office&quot; placeholder=&quot;工作地点&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; id=&quot;extn&quot; placeholder=&quot;编号&quot;&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot; id=&quot;initData&quot;&gt;添加模拟数据&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot; data-dismiss=&quot;modal&quot;&gt;关闭&lt;/button&gt;
+                &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot; id=&quot;save&quot;&gt;保存&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab3">
+                F12查看
+            </div>
+            <div class="tab-pane" id="tab4">
+               <pre class="brush:java;toolbar:false">&lt;%@ page import=&quot;java.sql.ResultSet&quot; %&gt;
+&lt;%@ page import=&quot;java.sql.Statement&quot; %&gt;
+&lt;%@ page import=&quot;java.sql.Connection&quot; %&gt;
+&lt;%@ page import=&quot;com.thxopen.dt.bean.User&quot; %&gt;
+&lt;%@ page import=&quot;com.google.gson.*&quot; %&gt;
+&lt;%@ page import=&quot;java.util.*&quot; %&gt;
+&lt;%@ page import=&quot;com.thxopen.dt.sys.Config&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2015/4/13
+  Time: 11:59
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%
+
+    ResultSet rs = null;
+    Statement stmt = null;
+    Connection conn = new Config(application).getConn();
+    String table = &quot;user&quot;;
+
+    //获取请求次数
+    String draw = &quot;0&quot;;
+    draw = request.getParameter(&quot;draw&quot;);
+    //数据起始位置
+    String start = request.getParameter(&quot;start&quot;);
+    //数据长度
+    String length = request.getParameter(&quot;length&quot;);
+
+    //总记录数
+    String recordsTotal = &quot;0&quot;;
+
+    //过滤后记录数
+    String recordsFiltered = &quot;&quot;;
+
+    //定义列名
+    String[] cols = {&quot;name&quot;, &quot;position&quot;, &quot;salary&quot;, &quot;start_date&quot;, &quot;office&quot;, &quot;extn&quot;};
+    //获取客户端需要那一列排序
+    String orderColumn = &quot;0&quot;;
+    orderColumn = request.getParameter(&quot;order[0][column]&quot;);
+    orderColumn = cols[Integer.parseInt(orderColumn)];
+    //获取排序方式 默认为asc
+    String orderDir = &quot;asc&quot;;
+    orderDir = request.getParameter(&quot;order[0][dir]&quot;);
+
+   /* Map map = request.getParameterMap();
+    Iterator&lt;String&gt; iter = map.keySet().iterator();
+    while (iter.hasNext()) {
+        String key = iter.next();
+        System.out.println(&quot;key=&quot; + key);
+        String[] value = (String[]) map.get(key);
+        System.out.print(&quot;value=&quot;);
+        for (String v : value) {
+//            out.print(v + &quot;  &quot;) ;
+            System.out.println(v + &quot;  &quot;);
+        }
+    }*/
+
+    //获取用户过滤框里的字符
+    String searchValue = request.getParameter(&quot;search[value]&quot;);
+
+    List&lt;String&gt; sArray = new ArrayList&lt;String&gt;();
+    if (!searchValue.equals(&quot;&quot;)) {
+        sArray.add(&quot; name like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+        sArray.add(&quot; position like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+        sArray.add(&quot; salary like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+        sArray.add(&quot; start_date like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+        sArray.add(&quot; office like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+        sArray.add(&quot; extn like &#39;%&quot; + searchValue + &quot;%&#39;&quot;);
+    }
+
+    String individualSearch = &quot;&quot;;
+    if (sArray.size() == 1) {
+        individualSearch = sArray.get(0);
+    } else if (sArray.size() &gt; 1) {
+        for (int i = 0; i &lt; sArray.size() - 1; i++) {
+            individualSearch += sArray.get(i) + &quot; or &quot;;
+        }
+        individualSearch += sArray.get(sArray.size() - 1);
+    }
+
+    List&lt;User&gt; users = new ArrayList&lt;User&gt;();
+    if (conn != null) {
+        String recordsFilteredSql = &quot;select count(1) as recordsFiltered from &quot; + table;
+        stmt = conn.createStatement();
+        //获取数据库总记录数
+        String recordsTotalSql = &quot;select count(1) as recordsTotal from &quot; + table;
+        rs = stmt.executeQuery(recordsTotalSql);
+        while (rs.next()) {
+            recordsTotal = rs.getString(&quot;recordsTotal&quot;);
+        }
+
+
+        String searchSQL = &quot;&quot;;
+        String sql = &quot;SELECT * FROM &quot; + table;
+        if (individualSearch != &quot;&quot;) {
+            searchSQL = &quot; where &quot; + individualSearch;
+        }
+        sql += searchSQL;
+        recordsFilteredSql += searchSQL;
+        sql += &quot; order by &quot; + orderColumn + &quot; &quot; + orderDir;
+        recordsFilteredSql += &quot; order by &quot; + orderColumn + &quot; &quot; + orderDir;
+        sql += &quot; limit &quot; + start + &quot;, &quot; + length;
+
+
+        rs = stmt.executeQuery(sql);
+        while (rs.next()) {
+            users.add(new User(rs.getString(&quot;name&quot;),
+                    rs.getString(&quot;position&quot;),
+                    rs.getString(&quot;salary&quot;),
+                    rs.getString(&quot;start_date&quot;),
+                    rs.getString(&quot;office&quot;),
+                    rs.getString(&quot;extn&quot;)));
+        }
+
+        if (searchValue != &quot;&quot;) {
+            rs = stmt.executeQuery(recordsFilteredSql);
+            while (rs.next()) {
+                recordsFiltered = rs.getString(&quot;recordsFiltered&quot;);
+            }
+        } else {
+            recordsFiltered = recordsTotal;
+        }
+    }
+
+
+    Map&lt;Object, Object&gt; info = new HashMap&lt;Object, Object&gt;();
+    info.put(&quot;data&quot;, users);
+    info.put(&quot;recordsTotal&quot;, recordsTotal);
+    info.put(&quot;recordsFiltered&quot;, recordsFiltered);
+    info.put(&quot;draw&quot;, draw);
+    String json = new Gson().toJson(info);
+    rs.close();
+    stmt.close();
+    conn.close();
+    out.write(json);
+%&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab5">
+              <pre class="brush:java;toolbar:false">&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%@ page import=&quot;com.thxopen.dt.sys.Config&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2015/4/13
+  Time: 11:59
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%
+
+
+    String name = request.getParameter(&quot;name&quot;);
+    PreparedStatement stmt = null;
+    Connection conn = new Config(application).getConn();
+    if (conn != null) {
+        String sql = &quot;delete from user where name = ?&quot;;
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1,name);
+        int flag = stmt.executeUpdate();
+        out.print(flag);
+    }
+    stmt.close();
+    conn.close();
+%&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab6">
+                <pre class="brush:java;toolbar:false">&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%@ page import=&quot;com.thxopen.dt.sys.Config&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2015/4/13
+  Time: 11:59
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%
+
+
+    String name = request.getParameter(&quot;name&quot;);
+    String position = request.getParameter(&quot;position&quot;);
+    String salary = request.getParameter(&quot;salary&quot;);
+    String start_date = request.getParameter(&quot;start_date&quot;);
+    String office = request.getParameter(&quot;office&quot;);
+    String extn = request.getParameter(&quot;extn&quot;);
+
+    Connection conn = new Config(application).getConn();
+    PreparedStatement stmt = null;
+
+    if (conn != null) {
+        String sql = &quot;update user set position = ?,salary = ?,start_date = ?,office = ?,extn = ? where name = ?&quot;;
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(6, name);
+        stmt.setString(1, position);
+        stmt.setString(2, salary);
+        stmt.setString(3, start_date);
+        stmt.setString(4, office);
+        stmt.setString(5, extn);
+
+        int flag = stmt.executeUpdate();
+        out.print(flag);
+    }
+    stmt.close();
+    conn.close();
+%&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab7">
+              <pre class="brush:java;toolbar:false">&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%@ page import=&quot;com.thxopen.dt.sys.Config&quot; %&gt;
+&lt;%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2015/4/13
+  Time: 11:59
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;
+&lt;%
+
+
+    String name = request.getParameter(&quot;name&quot;);
+    String position = request.getParameter(&quot;position&quot;);
+    String salary = request.getParameter(&quot;salary&quot;);
+    String start_date = request.getParameter(&quot;start_date&quot;);
+    String office = request.getParameter(&quot;office&quot;);
+    String extn = request.getParameter(&quot;extn&quot;);
+
+    PreparedStatement stmt = null;
+    Connection conn = new Config(application).getConn();
+    if (conn != null) {
+        String sql = &quot;insert into user values (?,?,?,?,?,?)&quot;;
+        stmt = conn.prepareStatement(sql);
+        stmt.setString(1,name);
+        stmt.setString(2,position);
+        stmt.setString(3,salary);
+        stmt.setString(4,start_date);
+        stmt.setString(5,office);
+        stmt.setString(6,extn);
+
+        int flag = stmt.executeUpdate();
+        out.print(flag);
+    }
+    stmt.close();
+    conn.close();
+%&gt;</pre>
+            </div>
+            <div class="tab-pane" id="tab8">
+               <pre class="brush:java;toolbar:false">package com.thxopen.dt.bean;
+
+/**
+ * Created by Administrator on 2015/4/13.
+ */
+public class User {
+
+    public String name;
+    public String position;
+    public String salary;
+    public String start_date;
+    public String office;
+    public String extn;
+
+    public User(String name, String position, String salary, String start_date, String office, String extn) {
+        this.name = name;
+        this.position = position;
+        this.salary = salary;
+        this.start_date = start_date;
+        this.office = office;
+        this.extn = extn;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(String start_date) {
+        this.start_date = start_date;
+    }
+
+    public String getOffice() {
+        return office;
+    }
+
+    public void setOffice(String office) {
+        this.office = office;
+    }
+
+    public String getExtn() {
+        return extn;
+    }
+
+    public void setExtn(String extn) {
+        this.extn = extn;
+    }
+}</pre>
+            </div>
+            <div class="tab-pane" id="tab9">
+             <pre class="brush:java;toolbar:false">package com.thxopen.dt.sys;
+
+import javax.servlet.ServletContext;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+/**
+ * Created by Administrator on 2015/4/16.
+ */
+public class Config {
+    String deUrl= &quot;jdbc:sqlite:/&quot;;
+    public String url = &quot;&quot;;
+    public ServletContext application;
+
+    public  Config(ServletContext application){
+        this.application = application;
+        try {
+            Class.forName(&quot;org.sqlite.JDBC&quot;);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Connection getConn(){
+        url = deUrl+application.getRealPath(&quot;&quot;).replace(&quot;\\&quot;, &quot;/&quot;) + &quot;/dt.sqlite3&quot;;
+//        url = deUrl + &quot;d:\\workspaces\\workspaces\\Datatables-serverSide\\web\\&quot;.replace(&quot;\\&quot;, &quot;/&quot;) + &quot;/dt.sqlite3&quot;;
+        try {
+            return DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}</pre>
+            </div>
+        </div>
+    </div>
+   {% include post.html param= site.url param2 = page.url %}
+</div><!--/row-->
+{% include copyright.html %}
+</body>
+</html>
+{% include libs/jquery_js.html param="1.8.2" %}
+{% include libs/bootstrap_js.html %}
+{% include libs/sh_js.html %}
+{% include note.js %}
+{% include copy.js %}

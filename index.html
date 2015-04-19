@@ -12,7 +12,7 @@ title: Datatables 中文网
                 <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="http://datatables.net/" target="_blank"
                    role="button">Datatables官网 &raquo;</a>
                 <a class="btn btn-lg btn-primary btn-shadow bs3-link"
-                   href="http://datatables.net/releases/DataTables-1.10.5.zip" target="_blank" role="button"
+                   href="http://datatables.net/releases/DataTables-1.10.6.zip" target="_blank" role="button"
                    title="DataTables-1.10.4">最新版下载 &raquo;</a>
             </p>
             <p>
@@ -45,18 +45,6 @@ title: Datatables 中文网
                 <li>更多特性请到官网查看</li>
             </ul>
             </p>
-            <p>
-                <div class="input-prepend">
-                    <span class="add-on" style="color:black">CSS</span>
-                    <input type="text" class="span5" value="http://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css"
-                           readonly="">
-                </div>
-                <div class="input-prepend">
-                    <span class="add-on" style="color:black">&nbsp;&nbsp;&nbsp;JS</span>
-                    <input type="text" class="span5" value="http://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"
-                           readonly="">
-                </div>
-            </p>
         </div>
     </div>
 </header>
@@ -67,8 +55,7 @@ title: Datatables 中文网
 </div>
 {% include copyright.html %}
 {% include script.html %}
-
-
+{% include libs/datatables_js.html %}
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({

@@ -23,7 +23,7 @@ $(document).ready(function () {
 function initTable() {
     var table = $("#example").dataTable({
         //"iDisplayLength":10,
-        "sAjaxSource": "http://dt.thxopen.com/example/resources/user_share/basic_curd/dataListCUrl.php",
+        "sAjaxSource": "dataList.php",
         'bPaginate': true,
         "bDestory": true,
         "bRetrieve": true,
@@ -54,8 +54,20 @@ function initTable() {
         "sDom": "<'row-fluid'<'span6 myBtnBox'><'span6'f>r>t<'row-fluid'<'span6'i><'span6 'p>>",
         "sPaginationType": "bootstrap",
         "oLanguage": {
-            "sUrl": "http://dt.thxopen.com/example/resources/zh_CN.txt",
-            "sSearch": "快速过滤："
+            "sProcessing": "玩命加载中...",
+            "sLengthMenu": "显示 _MENU_ 项结果",
+            "sZeroRecords": "没有匹配结果",
+            "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+            "sInfoPostFix": "",
+            "sSearch": "搜索:",
+            "oPaginate": {
+                "sFirst":    "首页",
+                "sPrevious": "上页",
+                "sNext":     "下页",
+                "sLast":     "末页"
+            }
         },
         "fnCreatedRow": function (nRow, aData, iDataIndex) {
             //add selected class
@@ -87,7 +99,7 @@ function initTable() {
  */
 function _deleteFun(id) {
     $.ajax({
-        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/deleteFunCUrl.php",
+        url: "deleteFun.php",
         data: {"id": id},
         type: "post",
         success: function (backdata) {
@@ -162,7 +174,7 @@ function _addFun() {
         'note': $("#inputNote").val()
     };
     $.ajax({
-        url: "http://dt.thxopen.com/example/resources/user_share/basic_curd/insertFunCUrl.php",
+        url: "insertFun.php",
         data: jsonData,
         type: "post",
         success: function (backdata) {
@@ -223,7 +235,7 @@ function _editFunAjax() {
     };
     $.ajax({
         type: 'POST',
-        url: 'http://dt.thxopen.com/example/resources/user_share/basic_curd/editFunCUrl.php',
+        url: 'editFun.php',
         data: jsonData,
         success: function (json) {
             if (json) {
