@@ -67,10 +67,10 @@
         width: 90%;
     }
     </style>
-    {% include example_script.html %}
 </head>
 <body>
      {% include nav.html param='reference' %}
+     {% include example_script.html %}
      <div class="container">
 				{{content}}
 				{% include post.html param= site.url param2 = page.url %}
