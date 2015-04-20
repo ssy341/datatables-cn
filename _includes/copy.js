@@ -5,7 +5,9 @@ $('[data-toggle="tooltip"]').tooltip();
 $('#copyurltoclip').on('show.bs.tooltip', function () {
 
     var url = window.location.href;
-    $(this).attr("data-clipboard-text",url);
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
 
 });
 
