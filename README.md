@@ -18,9 +18,9 @@ jquery 表格插件
 
 [http://ssy341.github.io/datatables-cn/](http://ssy341.github.io/datatables-cn/)
 
-中文论坛：
+中文讨论社区：
 
-[http://dt.thxopen.com/bbs/forum.php](http://dt.thxopen.com/bbs/forum.php)
+[http://www.gbtags.com/gb/user/111.htm](http://www.gbtags.com/gb/user/111.htm)
 
 
 
