@@ -58,25 +58,30 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p>{% include href/api/ajax.reload.dt %}
-        </p>
+        <td>
+            <p>
+                {% include href/api/ajax.reload.dt %}
+            </p>
         </td>
         <td><p>重新加载数据源获取数据（不能指定新的数据源）</p>
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/ajax.url().load()"><code class="api"
-                                                                                title="DataTables API method">ajax.url().load()<span>DT</span></code></a>
-        </p>
+        <td>
+            <p>
+                {% include href/api/ajax.url.load.dt %}
+            </p>
         </td>
-        <td><p>从url加载数据</p>
+        <td><p>设置新的url数据源重新加载数据</p>
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/ajax.url()"><code class="api" title="DataTables API method">ajax.url()<span>DT</span></code></a>
-        </p>
+        <td>
+            <p>
+                {% include href/api/ajax.url.dt %}
+            </p>
         </td>
-        <td><p>重新加载数据源获取数据（可以指定新的数据源）</p>
+        <td><p>设置新的url数据源</p>
         </td>
     </tr>
     <tr>
@@ -110,9 +115,10 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/draw()"><code class="api"
-                                                                     title="DataTables API method">draw()<span>DT</span></code></a>
-        </p>
+        <td>
+            <p>
+                {% include href/api/draw.dt %}
+            </p>
         </td>
         <td><p>重绘表格</p>
         </td>
@@ -1077,9 +1083,8 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.util.throttle()"><code class="api"
-                                                                                               title="DataTables API method">$.fn.dataTable.util.throttle()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/fn.dataTable.util.throttle.dt %}
         </td>
         <td><p>减少方法调用的频率</p>
         </td>

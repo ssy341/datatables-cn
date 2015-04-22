@@ -1,0 +1,143 @@
+---
+layout: reference_option_detail_layout
+title: 设置新的url数据源(ajax.url())
+relurl: http://datatables.net/reference/api/ajax.url()
+---
+<h1 class="page_title">ajax.url()</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>设置新的url数据源</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    你可以使用{% include href/api/ajax.reload.dt %}方法来刷新表格数据，但是在某些情况下你需要重新设置其他的数据源
+    这个时候那个使用这个方法会帮到你
+</p>
+        <p>注意，使用 {% include href/api/ajax.url.dt %} 方法只能设置新的url，并不能触发ajax请求，你需要使用
+            {% include href/api/ajax.url.load.dt %} 方法来跟换url并重新获取数据</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span>ajax.url()</h3>
+    <dl>
+        <dt>返回:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    {% include href/string.js %},
+                </p>
+            </div>
+            <p>
+                注意，如果是多个实例，那么返回的是设置了ajax的第一个table实例的url，或者使用{% include href/api/table.dt %}先指定实例后再操作
+            </p>
+        </dd>
+    </dl>
+</div>
+
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span>ajax.url( url )</h3>
+    <dl>
+        <dt>参数:</dt>
+        <dd>
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" id="DataTables_Table_0" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2px;"></th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">是否可选</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td>1</td>
+                        <td><code>url</code></td>
+                        <td>{% include href/string.js %}</td>
+                        <td>NO</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <p>
+                                给表格设置新的url数据源
+                            </p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </dd>
+        <dt>返回:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    {% include href/type/DataTables.Api.dt %},
+                </p>
+            </div>
+            <p>DataTables.Api 实例
+            </p>
+        </dd>
+    </dl>
+</div>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                得到当前url
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">var table = $(&#39;#example&#39;).DataTable( {
+    ajax: &#39;data.json&#39;
+} );
+
+alert( &#39;Data source: &#39;+table.ajax.url() ); // 将打印 &#39;Data source: data.json&#39;</pre>
+    </div>
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                设置新的数据源，并立即加载
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">var table = $(&#39;#example&#39;).DataTable( {
+    ajax: &quot;data.json&quot;
+} );
+
+table.ajax.url( &#39;newData.json&#39; ).load();</pre>
+    </div>
+</div>
+
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/ajax.json.dt %}</li>
+        <li>{% include href/ajax.reload.dt %}</li>
+        <li>{% include href/ajax.url.dt %}</li>
+        <li>{% include href/ajax.url.load.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Events
+    <ul class="markdown">
+        <li>{% include href/event/xhr.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/ajax.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}

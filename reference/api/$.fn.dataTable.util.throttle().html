@@ -1,0 +1,71 @@
+---
+layout: reference_option_detail_layout
+title: 减少方法调用的频率($.fn.dataTable.util.throttle())
+relurl: http://datatables.net/reference/api/%24.fn.dataTable.util.throttle()
+version: 1.10.3
+---
+<h1 class="page_title">$.fn.dataTable.util.throttle()</h1>
+<div style="color: #ac5900;float: right;">支持的版本号: {{ page.version }}</div>
+<p>减少方法调用的频率</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    这个方法可以限制调用方法的次数，比较明显的是如果你是服务器模式，那么过滤框没输入一个字都会发送请求到服务器，在某些时候这肯定是不怎么合理，
+    那么可以通过这个方法设置频率，已达到函数调用的次数
+</p>
+        <p>注意，当这个方法执行后，会重新排序和过滤</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span>throttle( fn, [ period ] )</h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    以减少调用次数
+                </p>
+            </div>
+        </dd>
+
+        <dt>返回:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    {% include href/function.js %}
+                </p>
+            </div>
+            <p>
+                包装函数
+            </p>
+        </dd>
+    </dl>
+</div>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                降低到每1秒调用搜索API方法
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">var table = $(&#39;#myTable&#39;).DataTable();
+var search = $.fn.dataTable.util.throttle(
+    function ( val ) {
+        table.search( val ).draw();
+    },
+    1000
+);
+
+$(&#39;#mySearchBox&#39;).on( &#39;keyup&#39;, function () {
+    search( this.value );
+} );</pre>
+    </div>
+</div>
+
+<div class="clear"></div>
+{% include quote.html %}

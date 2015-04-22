@@ -1,0 +1,118 @@
+---
+layout: reference_option_detail_layout
+title: 设置新的url并加载数据(ajax.url().load())
+relurl: http://datatables.net/reference/api/ajax.url().load()
+---
+<h1 class="page_title">ajax.url().load()</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>设置新的url并加载数据</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    使用{% include href/api/ajax.url.dt %}方法来设置新的请求地址， <code>load()</code>方法才会有效
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span>ajax.url().load( callback, resetPaging )</h3>
+    <dl>
+        <dt>参数:</dt>
+        <dd>
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" id="DataTables_Table_0" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2px;"></th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">是否可选</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td>1</td>
+                        <td><code>callback</code></td>
+                        <td>{% include href/function.js %}</td>
+                        <td>Yes - default:null</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <p>
+                               当服务器返回数据并重绘完毕时执行此回调方法，回调方法返回的是服务器返回的数据
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td>2</td>
+                        <td><code>resetPaging</code></td>
+                        <td>{% include href/boolean.js %}</td>
+                        <td>Yes - default:true</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <p>
+                                重置（默认或者设置为true）或者保持分页信息（设置为false）
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </dd>
+        <dt>返回:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    {% include href/type/DataTables.Api.dt %},
+                </p>
+            </div>
+            <p>DataTables.Api 实例
+            </p>
+        </dd>
+    </dl>
+</div>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                首先用data.json的数据初始化表格，然后立即用newData.json加载数据
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">var table = $(&#39;#example&#39;).DataTable( {
+    ajax: &quot;data.json&quot;
+} );
+
+table.ajax.url( &#39;newData.json&#39; ).load();</pre>
+    </div>
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/ajax.json.dt %}</li>
+        <li>{% include href/ajax.reload.dt %}</li>
+        <li>{% include href/ajax.url.dt %}</li>
+        <li>{% include href/ajax.url.load.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Events
+    <ul class="markdown">
+        <li>{% include href/event/xhr.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/ajax.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}
