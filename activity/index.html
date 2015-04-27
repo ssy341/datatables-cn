@@ -1,0 +1,74 @@
+---
+title: 活动 Datatables中文网
+---
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    {% include head.html %}
+    {% include libs/bootstrap_css.html %}
+    {% include libs/datatables_css.html %}
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <style>
+        .hot {
+            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+            height: 12px;
+            width: 21px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+{% include nav.html param="activity" %}
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>Datetables中文网活动列表</h1>
+        <p style="font-size:15px;text-indent: 2em;">
+                举办活动旨在加强学者的积极性，不要为了使用而使用，更加是学习这种能力。从另一个角度讲也是对自己的总结，只有学会总结，才能一步一步走得更远
+        </p>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row-fluid" style="margin-top:20px">
+        <!-- 表格开始 -->
+        <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+                <th>内容</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    {% include post.html param= site.url param2 = page.url %}
+</div>
+</div>
+<!--/row-->
+
+<!--footer-->
+{% include copyright.html %}
+{% include script.html %}
+{% include libs/datatables_js.html %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable({
+            "order": [
+                [ 1, "desc" ]
+            ],
+            paging: !1,
+            dom: "t",
+            ajax:"/assets/activity.txt",
+            columns:[
+                {data:"title",render:function(data,type,row,meta){
+                    return '<a href="'+row.url+'" target="_blank">'+data+'</a>'
+                }},
+                {data:"date"}
+            ]
+        });
+    });
+</script>
+</body>
+</html>
