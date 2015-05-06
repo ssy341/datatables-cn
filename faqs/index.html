@@ -140,6 +140,10 @@ title: 常见问题 Datatables 中文网
                 <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
                 还要检查css样式是否引入</li>
             </ul>
+            <ul>
+                <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
+                <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
+            </ul>
         </p>
 
         {% include post.html param= site.url param2 = page.url %}

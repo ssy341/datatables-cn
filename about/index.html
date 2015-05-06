@@ -16,16 +16,25 @@ title: 关于Datatables中文网
             width: 21px;
             position: absolute;
         }
+
+        .donateType {
+            color: red;
+        }
+
+        .earnType {
+            color: green;
+        }
     </style>
 </head>
 <body>
 {% include nav.html param="about" %}
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-            <h1>关于Datatables中文网</h1>
-            <p style="font-size: 21px;  font-weight: 200;">
-                All for one,one for all
-            </p>
+        <h1>关于Datatables中文网</h1>
+
+        <p style="font-size: 21px;  font-weight: 200;">
+            All for one,one for all
+        </p>
 
     </div>
 </header>
@@ -46,16 +55,18 @@ title: 关于Datatables中文网
                     <h2>关于我们</h2>
                 </div>
                 <p class="lead" style="text-indent: 2em">
-                    Datatables中文网是结合官网给大家一个完整的、易懂的手册。 本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新， 让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+                    Datatables中文网是结合官网给大家一个完整的、易懂的手册。 本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+                    让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
 
-                同时非常感谢大家对网站的支持，希望能够给大家提供一个好的学习资料，和学习环境</p>
+                    同时非常感谢大家对网站的支持，希望能够给大家提供一个好的学习资料，和学习环境</p>
             </section>
             <section id="joinus">
                 <div class="page-header">
                     <h2>加入我们</h2>
                 </div>
                 <p class="lead" style="text-indent: 2em">
-                    本站为jekyll搭建，源码托管在<a href="http://ssy341.github.io/datatables-cn/index.html">github</a>上,如果你也想加入到翻译中来，请联系QQ1282262270 标注 dt翻译。
+                    本站为jekyll搭建，源码托管在<a href="http://ssy341.github.io/datatables-cn/index.html">github</a>上,如果你也想加入到翻译中来，请联系QQ1282262270
+                    标注 dt翻译。
                     如果你有任何意见或建议，或者我们目前尚未提供的内容，欢迎留言，我会真诚的采纳您的意见
                 </p>
             </section>
@@ -71,12 +82,18 @@ title: 关于Datatables中文网
                 <p>
                 <dl>
                     <dt>
-                        <div style="float: left;padding-top:7px;margin-right: 5px">1、支付宝收款赞助</div>{% include donate.html %}
+                    <div style="float: left;padding-top:7px;margin-right: 5px">1、支付宝收款赞助</div>
+                    {% include donate.html %}
                     </dt>
                     <dt> 2、手机支付宝扫码 <img src="/images/donate.jpg" alt="扫一扫二维码，可以向我付款哦。"/></dt>
-                <dt> 3、通过支付宝账号汇 帐号：  <code>datatables@thxopen.com</code>    姓名：单思义</dt>
-            </dl>
+                    <dt> 3、通过支付宝账号汇 帐号： <code>datatables@thxopen.com</code> 姓名：单思义</dt>
+                </dl>
 
+                <dl>
+                    <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
+                       href="" target="_blank" role="button"
+                       title="查看捐赠情况">查看捐赠情况 &raquo;</a>
+                </dl>
 
                 </p>
             </section>
@@ -85,10 +102,97 @@ title: 关于Datatables中文网
     </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">捐赠情况</h4>
+            </div>
+            <div class="modal-body">
+                <!-- 表格开始 -->
+                <table id="example" class="display" cellspacing="0" width="100%">
+                    <thead>
+                    <tr>
+                        <th>昵称</th>
+                        <th>金额</th>
+                        <th>时间</th>
+                        <th>备注</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                    <th colspan="4"></th>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <!--/row-->
 
 <!--footer-->
 {% include copyright.html %}
 {% include script.html %}
+
+{% include libs/datatables_js.html param='1.10.5' %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myModal').on('show.bs.modal', function (e) {
+            $('#example').dataTable({
+                order: [
+                    [ 2, "desc" ]
+                ],
+                pageLength: 10,
+                dom: "<'row'<'col-xs-6'f>r>" +
+                        "t" +
+                        "<'row'<'span3'i><p>>",
+                lengthChange: !1,
+                columns: [
+                    {data: "nickname"},
+                    {data: "money"},
+                    {data: "date"},
+                    {data: "note"}
+                ],
+                destroy: true,
+                retrieve: false,
+                language: {
+                    search: "过滤：",
+                    paginate: {
+                        first: "首页",
+                        next: "下一页",
+                        last: "最后一页",
+                        previous: "上一页"
+                    },
+                    info: " _START_ 到 _END_ (共 _TOTAL_ 条记录)"
+                },
+                ajax: "/assets/donate.txt",
+                createdRow: function (row, data, dataIndex) {
+                    if (data.type) {
+                        $(row).addClass("donateType");
+                    } else {
+                        $(row).addClass("earnType");
+                    }
+                },
+                initComplete:function(){
+                    var api = this.api();
+                    var dtData = api.column(1).data();
+                    var fda = api.column(1).data().reduce(function (a, b) {
+                        return parseInt(a) + parseInt(b);
+                    });
+                    $(api.column(0).footer()).html("捐赠总额："+fda);
+                }
+            });
+
+            $('#myModal').on('hidden.bs.modal', function (e) {
+
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
