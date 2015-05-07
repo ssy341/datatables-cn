@@ -1,13 +1,13 @@
 $(document).ready(function () {
     $("#example").dataTable({
         //"iDisplayLength":10,
-        "sAjaxSource": "http://dt.thxopen.com/example/resources/user_share/basic_curd/dataListCUrl.php",
+        "sAjaxSource": "dataList.php",
         //'bPaginate': true,
         "bDestory": true,
         "bRetrieve": true,
         //"bFilter":true,
         "bSort": false,
-        //"bProcessing": true,
+        "bProcessing": true,
         "aoColumns": [
             {
                 "mDataProp": "name",
@@ -31,10 +31,16 @@ $(document).ready(function () {
             "url": "http://cdn.datatables.net/plug-ins/e9421181788/i18n/Chinese.json"
         },
         "fnDrawCallback": function (data, x) {
-            $('#example tbody td.inputTd').editable('http://dt.thxopen.com/example/resources/user_share/inline_edit/editableCurl.php');
-            $('#example tbody td.selectTd').editable('http://dt.thxopen.com/example/resources/user_share/inline_edit/editableSelectCurl.php',
+            $('#example tbody td.inputTd').editable('editable.php', {
+                //type      : 'text',
+                //cancel    : '取消',
+                //submit    : '确定',
+                //indicator : '<img src="img/indicator.gif">',
+                //tooltip   : '点击编辑...'
+            });
+            $('#example tbody td.selectTd').editable('editableSelect.php',
                 {
-                    loadurl: 'http://dt.thxopen.com/example/resources/user_share/inline_edit/jsonCUrl.php',
+                    loadurl: 'json.php',
                     //data:{"10":"10","20":"20","30":"30"},
                     type: 'select'
                     //submit : '确定',

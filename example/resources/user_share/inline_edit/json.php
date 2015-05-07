@@ -8,5 +8,6 @@
     $array['selected'] = 'java';
     $array['Ruby'] = 'Ruby';
     $array['C++'] = 'C++';
+    $array['JavaScript'] = 'JavaScript';
     echo json_encode($array);
 ?>
