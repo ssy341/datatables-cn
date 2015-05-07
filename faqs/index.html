@@ -144,6 +144,10 @@ title: 常见问题 Datatables 中文网
                 <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
                 <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
             </ul>
+            <ul>
+                <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
+                <li>答：请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，这个错误指出很明确了返回的一个未知的参数，所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
+            </ul>
         </p>
 
         {% include post.html param= site.url param2 = page.url %}
