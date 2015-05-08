@@ -1,0 +1,990 @@
+---
+title: 自定义过滤/显示隐藏列 网友共享 示例 Datatables中文网
+---
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+    <title>{{ page.title }}</title>
+    {% include libs/sh_css.html %}
+    {% include libs/bootstrap_css.html %}
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+
+</head>
+<body>
+{% include nav.html param="example" %}
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h3>自定义过滤/显示隐藏列</h3>
+
+        <p>
+            此例子为参加 <a href="/activity/1.html" target="_blank">Datatables中文网第一期交流学习活动</a> 网友 逆风 提供的Demo <br/>
+            演示了在表头添加下拉框来过滤数据和添加自定义按钮来动态显示/隐藏指定的列（ <a href="/example/api/show_hide.html" target="_blank">另见</a> ）
+            <br/>
+            例子采用的是dom做为数据源，还实现了删除操作，checkbox多选/反选/全选
+        </p>
+
+        <p>
+            注意：大家可以根据此例子派生，实现自己项目中需要的效果
+        </p>
+
+    </div>
+</header>
+
+<div class="container" style="margin-top:20px">
+
+
+<div class="domab">
+    <div class="" style="float:right;">
+        <label>
+            模糊查询：
+            <input type="text" class="dsearch" placeholder="" aria-controls="example"></label>
+    </div>
+
+    <button id="button" style="float:left;">删除选中的行</button>
+    <div style="float:left; position:relative; z-index:9999;height:100%;">
+        <button class="showcol">列段显示/隐藏</button>
+        <ul class="showul"
+            style=" list-style:none;display:none; position:absolute; left:80px; top:10px; background:#FFFFFF; border:1px solid #ccc; width:200px;">
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="2"/>
+                服务器名称
+            </li>
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="3"/>
+                IP
+            </li>
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="4"/>
+                CPU/内存
+            </li>
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="5"/>
+                数据盘大小
+            </li>
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="6"/>
+                操作系统
+            </li>
+            <li>
+                <input type="checkbox" class="toggle-vis" data-column="7"/>
+                状态
+            </li>
+        </ul>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+<div class="wt100" style="position:relative; overflow:hidden; height:100%">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th style=" width:1px; padding:0"></th>
+            <th style="width:30px; padding:10px 0 10px 10px">
+                <input type="checkbox" id="checkAll"></th>
+            <th>服务器名称</th>
+            <th>IP</th>
+            <th>CPU/内存</th>
+            <th>数据盘大小</th>
+            <th>操作系统</th>
+            <th>状态</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtest</a>
+            </td>
+            <td>192.168.13.7</td>
+            <td>3核/1G</td>
+            <td>5G</td>
+            <td>CentOS 56.5</td>
+            <td>运行中</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtdfest</a>
+            </td>
+            <td>192.168.136.56</td>
+            <td>1核/3G</td>
+            <td>3G</td>
+            <td>
+                <div style="height:21px; line-height:21px; overflow:hidden; width:100px;">CentO核核核核核核核核核核核核核核核核核核核核核vS
+                    53.5
+                </div>
+            </td>
+            <td>已停止</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsfdqtest</a>
+            </td>
+            <td>192.165.13.56</td>
+            <td>1核/16G</td>
+            <td>2G</td>
+            <td>CentOS 52.5</td>
+            <td>运行中</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtest</a>
+            </td>
+            <td>192.168.13.7</td>
+            <td>3核/1G</td>
+            <td>5G</td>
+            <td>CentOS 56.5</td>
+            <td>运行中</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtdfest</a>
+            </td>
+            <td>192.18.136.56</td>
+            <td>1核/3G</td>
+            <td>13G</td>
+            <td>CentOS 53.5</td>
+            <td>已停止</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsfdqtest</a>
+            </td>
+            <td>192.165.13.56</td>
+            <td>1核/16G</td>
+            <td>2G</td>
+            <td>CntOS 52.5</td>
+            <td>运行中</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtest</a>
+            </td>
+            <td>192.168.13.7</td>
+            <td>3核/1G</td>
+            <td>5G</td>
+            <td>CentOS 56.5</td>
+            <td>运行中</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">lsqtdfest</a>
+            </td>
+            <td>192.168.136.56</td>
+            <td>1核/3G</td>
+            <td>3G</td>
+            <td>CentOS 53.5</td>
+            <td>已停止</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true" onClick="clickDom(this);">aaaaaaaaaaaaaaaaaa</a>
+            </td>
+            <td>192.165.13.56</td>
+            <td>1核/16G</td>
+            <td>2G</td>
+            <td>CentOS 52.5</td>
+            <td>运行中</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="checkbox" name="checkList"></td>
+            <td>
+                <a class="clickdom" href="javascript:;" isclick="true"
+                   onClick="clickDom(this);">bbbbbbbbbbbbbbbbbbbb</a>
+            </td>
+            <td>192.165.13.56</td>
+            <td>1核/16G</td>
+            <td>2G</td>
+            <td>CentOS 52.5</td>
+            <td>运行中</td>
+        </tr>
+
+        </tbody>
+    </table>
+    <div class="showslider">
+        <button class="closediv">关闭</button>
+    </div>
+    <style>
+        .showslider {
+            width: 80%;
+            height: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 9px;
+        }
+
+        .addselect {
+            border-radius: 2px;
+            display: inline-block;
+            background-color: #ccc;
+            height: 12px;
+            width: 16px;
+            text-align: center;
+            color: #fff;
+            font-size: 9px;
+            font-family: Arial;
+            position: relative;
+            margin-left: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            vertical-align: top;
+            top: 1px;
+        }
+
+        .addselect select {
+            width: 44px;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        table.dataTable tbody th, table.dataTable th, table.dataTable tbody td {
+            font-size: 12px;
+            text-align: left;
+        }
+
+        table.dataTable thead th {
+            padding: 0 8px;
+        }
+    </style>
+</div>
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">javascript</a></li>
+    <li><a href="#tab2" data-toggle="tab">html</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tab1">
+<pre class="brush:js;toolbar:false"> $(function () {
+
+        var table = $(&#39;#example&#39;).DataTable({
+            &quot;dom&quot;: &#39;&lt;&quot;top&quot;f &gt;rt&lt;&quot;bottom&quot;ilp&gt;&lt;&quot;clear&quot;&gt;&#39;,//dom定位
+            &quot;dom&quot;: &#39;tiprl&#39;,//自定义显示项
+            //&quot;dom&quot;:&#39;&lt;&quot;domab&quot;f&gt;&#39;,
+            &quot;scrollY&quot;: &quot;220px&quot;,//dt高度
+            &quot;lengthMenu&quot;: [
+                [8, 6, 8, -1],
+                [4, 6, 8, &quot;All&quot;]
+            ],//每页显示条数设置
+            &quot;lengthChange&quot;: false,//是否允许用户自定义显示数量
+            &quot;bPaginate&quot;: true, //翻页功能
+            &quot;bFilter&quot;: false, //列筛序功能
+            &quot;searching&quot;: true,//本地搜索
+            &quot;ordering&quot;: true, //排序功能
+            &quot;Info&quot;: true,//页脚信息
+            &quot;autoWidth&quot;: true,//自动宽度
+            &quot;oLanguage&quot;: {//国际语言转化
+                &quot;oAria&quot;: {
+                    &quot;sSortAscending&quot;: &quot; - click/return to sort ascending&quot;,
+                    &quot;sSortDescending&quot;: &quot; - click/return to sort descending&quot;
+                },
+                &quot;sLengthMenu&quot;: &quot;显示 _MENU_ 记录&quot;,
+                &quot;sZeroRecords&quot;: &quot;对不起，查询不到任何相关数据&quot;,
+                &quot;sEmptyTable&quot;: &quot;未有相关数据&quot;,
+                &quot;sLoadingRecords&quot;: &quot;正在加载数据-请等待...&quot;,
+                &quot;sInfo&quot;: &quot;当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录。&quot;,
+                &quot;sInfoEmpty&quot;: &quot;当前显示0到0条，共0条记录&quot;,
+                &quot;sInfoFiltered&quot;: &quot;（数据库中共为 _MAX_ 条记录）&quot;,
+                &quot;sProcessing&quot;: &quot;&lt;img src=&#39;../resources/user_share/row_details/select2-spinner.gif&#39;/&gt; 正在加载数据...&quot;,
+                &quot;sSearch&quot;: &quot;模糊查询：&quot;,
+                &quot;sUrl&quot;: &quot;&quot;,
+                //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+                &quot;oPaginate&quot;: {
+                    &quot;sFirst&quot;: &quot;首页&quot;,
+                    &quot;sPrevious&quot;: &quot; 上一页 &quot;,
+                    &quot;sNext&quot;: &quot; 下一页 &quot;,
+                    &quot;sLast&quot;: &quot; 尾页 &quot;
+                }
+            },
+
+            &quot;columnDefs&quot;: [
+                {
+                    orderable: false,
+
+                    targets: 0 },
+                {
+                    orderable: false,
+
+                    targets: 1 }
+            ],//第一列与第二列禁止排序
+
+            &quot;order&quot;: [
+                [0, null]
+            ],//第一列排序图标改为默认
+            initComplete: function () {//列筛选
+                var api = this.api();
+                api.columns().indexes().flatten().each(function (i) {
+                    if (i != 0 &amp;&amp; i != 1) {//删除第一列与第二列的筛选框
+                        var column = api.column(i);
+                        var $span = $(&#39;&lt;span class=&quot;addselect&quot;&gt;▾&lt;/span&gt;&#39;).appendTo($(column.header()))
+                        var select = $(&#39;&lt;select&gt;&lt;option value=&quot;&quot;&gt;All&lt;/option&gt;&lt;/select&gt;&#39;)
+                                .appendTo($(column.header()))
+                                .on(&#39;click&#39;, function (evt) {
+                                    evt.stopPropagation();
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                    );
+                                    column
+                                            .search(val ? &#39;^&#39; + val + &#39;$&#39; : &#39;&#39;, true, false)
+                                            .draw();
+                                });
+                        column.data().unique().sort().each(function (d, j) {
+                            function delHtmlTag(str) {
+                                return str.replace(/&lt;[^&gt;]+&gt;/g, &quot;&quot;);//去掉html标签
+                            }
+
+                            d = delHtmlTag(d)
+                            select.append(&#39;&lt;option value=&quot;&#39; + d + &#39;&quot;&gt;&#39; + d + &#39;&lt;/option&gt;&#39;)
+                            $span.append(select)
+                        });
+
+                    }
+                });
+
+            }
+
+        });
+
+        //添加索引列
+        table.on(&#39;order.dt search.dt&#39;,
+                function () {
+                    table.column(0, {
+                        search: &#39;applied&#39;,
+                        order: &#39;applied&#39;
+                    }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
+
+        //自定义搜索
+        $(&#39;.dsearch&#39;).on(&#39;keyup click&#39;, function () {
+            var tsval = $(&quot;.dsearch&quot;).val()
+            table.search(tsval, false, false).draw();
+        });
+
+        //checkbox全选
+        $(&quot;#checkAll&quot;).on(&quot;click&quot;, function () {
+            if ($(this).prop(&quot;checked&quot;) === true) {
+                $(&quot;input[name=&#39;checkList&#39;]&quot;).prop(&quot;checked&quot;, $(this).prop(&quot;checked&quot;));
+                $(&#39;#example tbody tr&#39;).addClass(&#39;selected&#39;);
+            } else {
+                $(&quot;input[name=&#39;checkList&#39;]&quot;).prop(&quot;checked&quot;, false);
+                $(&#39;#example tbody tr&#39;).removeClass(&#39;selected&#39;);
+            }
+        });
+
+        //显示隐藏列
+        $(&#39;.toggle-vis&#39;).on(&#39;change&#39;, function (e) {
+            e.preventDefault();
+            console.log($(this).attr(&#39;data-column&#39;));
+            var column = table.column($(this).attr(&#39;data-column&#39;));
+            column.visible(!column.visible());
+        });
+
+        //删除选中行
+        $(&#39;#example tbody&#39;).on(&#39;click&#39;, &#39;tr input[name=&quot;checkList&quot;]&#39;, function () {
+            var $tr = $(this).parents(&#39;tr&#39;);
+            $tr.toggleClass(&#39;selected&#39;);
+            var $tmp = $(&#39;[name=checkList]:checkbox&#39;);
+            $(&#39;#checkAll&#39;).prop(&#39;checked&#39;, $tmp.length == $tmp.filter(&#39;:checked&#39;).length);
+
+        });
+
+        $(&#39;#button&#39;).click(function () {
+            table.row(&#39;.selected&#39;).remove().draw(false);
+        });
+
+        $(&#39;.showcol&#39;).click(function () {
+            $(&#39;.showul&#39;).toggle();
+
+        })
+
+        //获取表格宽度赋值给右侧弹出层
+        wt = $(&#39;.wt100&#39;).width();
+        $(&#39;.showslider&#39;).css(&#39;right&#39;, -wt);
+
+        //关闭右侧弹出层
+        $(&#39;.closediv&#39;).click(function () {
+            $(this).parent(&#39;.showslider&#39;).animate({
+                right: -wt
+            }, 200)
+            $(&#39;.clickdom&#39;).attr(&#39;isclick&#39;, true)
+        });
+
+
+    })
+
+    //右侧弹出详情层
+    /*  var flag=false;
+     function clickDom(obj){
+     var  $par=$(obj).parents(&#39;#example_wrapper&#39;).siblings(&#39;.showslider&#39;)
+     var  isattr=$(obj).attr(&#39;isclick&#39;);
+     if(isattr==&quot;true&quot;){
+     if(flag){
+     $par.animate({
+     right:-wt
+     },200)
+     flag=!flag
+     }
+     else{
+     $par.animate({
+     right:0
+     },200)
+     flag=!flag
+
+     }
+     }
+     $(&#39;.clickdom&#39;).attr(&#39;isclick&#39;,false)
+     $(obj).attr(&#39;isclick&#39;,true)
+
+
+     }
+     */
+    function clickDom(obj) {
+        var $par = $(obj).parents(&#39;#example_wrapper&#39;).siblings(&#39;.showslider&#39;)
+        var isattr = $(obj).attr(&#39;isclick&#39;);
+        if (isattr == &quot;false&quot;) {
+
+        } else {
+            $par.animate({
+                right: -wt
+            }, 200)
+            $par.animate({
+                right: 0
+            }, 400)
+            $(&#39;.clickdom&#39;).attr(&#39;isclick&#39;, true)
+            $(obj).attr(&#39;isclick&#39;, false)
+        }
+
+    }</pre>
+</div>
+<div class="tab-pane" id="tab2">
+<pre class="brush:html;toolbar:false">
+&lt;div class=&quot;domab&quot;&gt;
+    &lt;div class=&quot;&quot; style=&quot;float:right;&quot;&gt;
+        &lt;label&gt;
+            模糊查询：
+            &lt;input type=&quot;text&quot; class=&quot;dsearch&quot; placeholder=&quot;&quot; aria-controls=&quot;example&quot;&gt;&lt;/label&gt;
+    &lt;/div&gt;
+
+    &lt;button id=&quot;button&quot; style=&quot;float:left;&quot;&gt;删除选中的行&lt;/button&gt;
+    &lt;div style=&quot;float:left; position:relative; z-index:9999;height:100%;&quot;&gt;
+        &lt;button class=&quot;showcol&quot;&gt;列段显示/隐藏&lt;/button&gt;
+        &lt;ul class=&quot;showul&quot;
+            style=&quot; list-style:none;display:none; position:absolute; left:80px; top:10px; background:#FFFFFF; border:1px solid #ccc; width:200px;&quot;&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;2&quot;/&gt;
+                服务器名称
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;3&quot;/&gt;
+                IP
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;4&quot;/&gt;
+                CPU/内存
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;5&quot;/&gt;
+                数据盘大小
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;6&quot;/&gt;
+                操作系统
+            &lt;/li&gt;
+            &lt;li&gt;
+                &lt;input type=&quot;checkbox&quot; class=&quot;toggle-vis&quot; data-column=&quot;7&quot;/&gt;
+                状态
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div style=&quot;clear:both;&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;wt100&quot; style=&quot;position:relative; overflow:hidden; height:100%&quot;&gt;
+    &lt;table id=&quot;example&quot; class=&quot;display&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;
+        &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th style=&quot; width:1px; padding:0&quot;&gt;&lt;/th&gt;
+            &lt;th style=&quot;width:30px; padding:10px 0 10px 10px&quot;&gt;
+                &lt;input type=&quot;checkbox&quot; id=&quot;checkAll&quot;&gt;&lt;/th&gt;
+            &lt;th&gt;服务器名称&lt;/th&gt;
+            &lt;th&gt;IP&lt;/th&gt;
+            &lt;th&gt;CPU/内存&lt;/th&gt;
+            &lt;th&gt;数据盘大小&lt;/th&gt;
+            &lt;th&gt;操作系统&lt;/th&gt;
+            &lt;th&gt;状态&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/thead&gt;
+
+        &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+            &lt;th&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;/tfoot&gt;
+        &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.168.13.7&lt;/td&gt;
+            &lt;td&gt;3核/1G&lt;/td&gt;
+            &lt;td&gt;5G&lt;/td&gt;
+            &lt;td&gt;CentOS 56.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtdfest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.168.136.56&lt;/td&gt;
+            &lt;td&gt;1核/3G&lt;/td&gt;
+            &lt;td&gt;3G&lt;/td&gt;
+            &lt;td&gt;
+                &lt;div style=&quot;height:21px; line-height:21px; overflow:hidden; width:100px;&quot;&gt;CentO核核核核核核核核核核核核核核核核核核核核核vS
+                    53.5
+                &lt;/div&gt;
+            &lt;/td&gt;
+            &lt;td&gt;已停止&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsfdqtest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.165.13.56&lt;/td&gt;
+            &lt;td&gt;1核/16G&lt;/td&gt;
+            &lt;td&gt;2G&lt;/td&gt;
+            &lt;td&gt;CentOS 52.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.168.13.7&lt;/td&gt;
+            &lt;td&gt;3核/1G&lt;/td&gt;
+            &lt;td&gt;5G&lt;/td&gt;
+            &lt;td&gt;CentOS 56.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtdfest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.18.136.56&lt;/td&gt;
+            &lt;td&gt;1核/3G&lt;/td&gt;
+            &lt;td&gt;13G&lt;/td&gt;
+            &lt;td&gt;CentOS 53.5&lt;/td&gt;
+            &lt;td&gt;已停止&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsfdqtest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.165.13.56&lt;/td&gt;
+            &lt;td&gt;1核/16G&lt;/td&gt;
+            &lt;td&gt;2G&lt;/td&gt;
+            &lt;td&gt;CntOS 52.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.168.13.7&lt;/td&gt;
+            &lt;td&gt;3核/1G&lt;/td&gt;
+            &lt;td&gt;5G&lt;/td&gt;
+            &lt;td&gt;CentOS 56.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;lsqtdfest&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.168.136.56&lt;/td&gt;
+            &lt;td&gt;1核/3G&lt;/td&gt;
+            &lt;td&gt;3G&lt;/td&gt;
+            &lt;td&gt;CentOS 53.5&lt;/td&gt;
+            &lt;td&gt;已停止&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot; onClick=&quot;clickDom(this);&quot;&gt;aaaaaaaaaaaaaaaaaa&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.165.13.56&lt;/td&gt;
+            &lt;td&gt;1核/16G&lt;/td&gt;
+            &lt;td&gt;2G&lt;/td&gt;
+            &lt;td&gt;CentOS 52.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;input type=&quot;checkbox&quot; name=&quot;checkList&quot;&gt;&lt;/td&gt;
+            &lt;td&gt;
+                &lt;a class=&quot;clickdom&quot; href=&quot;javascript:;&quot; isclick=&quot;true&quot;
+                   onClick=&quot;clickDom(this);&quot;&gt;bbbbbbbbbbbbbbbbbbbb&lt;/a&gt;
+            &lt;/td&gt;
+            &lt;td&gt;192.165.13.56&lt;/td&gt;
+            &lt;td&gt;1核/16G&lt;/td&gt;
+            &lt;td&gt;2G&lt;/td&gt;
+            &lt;td&gt;CentOS 52.5&lt;/td&gt;
+            &lt;td&gt;运行中&lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;div class=&quot;showslider&quot;&gt;
+        &lt;button class=&quot;closediv&quot;&gt;关闭&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;style&gt;
+        .showslider {
+            width: 80%;
+            height: 100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            position: absolute;
+            top: 9px;
+        }
+
+        .addselect {
+            border-radius: 2px;
+            display: inline-block;
+            background-color: #ccc;
+            height: 12px;
+            width: 16px;
+            text-align: center;
+            color: #fff;
+            font-size: 9px;
+            font-family: Arial;
+            position: relative;
+            margin-left: 4px;
+            cursor: pointer;
+            overflow: hidden;
+            vertical-align: top;
+            top: 1px;
+        }
+
+        .addselect select {
+            width: 44px;
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+
+        table.dataTable tbody th, table.dataTable th, table.dataTable tbody td {
+            font-size: 12px;
+            text-align: left;
+        }
+
+        table.dataTable thead th {
+            padding: 0 8px;
+        }
+    &lt;/style&gt;
+&lt;/div&gt;</pre>
+</div>
+</div>
+</div>
+{% include post.html param= site.url param2 = page.url %}
+
+
+</div>
+<!--/row-->
+{% include copyright.html %}
+</body>
+</html>
+{% include libs/jquery_js.html param="1.8.2" %}
+{% include libs/bootstrap_js.html %}
+{% include libs/sh_js.html %}
+{% include note.js %}
+{% include copy.js %}
+
+<script type="text/javascript" charset="utf8"
+        src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(function () {
+
+        var table = $('#example').DataTable({
+            "dom": '<"top"f >rt<"bottom"ilp><"clear">',//dom定位
+            "dom": 'tiprl',//自定义显示项
+            //"dom":'<"domab"f>',
+            "scrollY": "220px",//dt高度
+            "lengthMenu": [
+                [8, 6, 8, -1],
+                [4, 6, 8, "All"]
+            ],//每页显示条数设置
+            "lengthChange": false,//是否允许用户自定义显示数量
+            "bPaginate": true, //翻页功能
+            "bFilter": false, //列筛序功能
+            "searching": true,//本地搜索
+            "ordering": true, //排序功能
+            "Info": true,//页脚信息
+            "autoWidth": true,//自动宽度
+            "oLanguage": {//国际语言转化
+                "oAria": {
+                    "sSortAscending": " - click/return to sort ascending",
+                    "sSortDescending": " - click/return to sort descending"
+                },
+                "sLengthMenu": "显示 _MENU_ 记录",
+                "sZeroRecords": "对不起，查询不到任何相关数据",
+                "sEmptyTable": "未有相关数据",
+                "sLoadingRecords": "正在加载数据-请等待...",
+                "sInfo": "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录。",
+                "sInfoEmpty": "当前显示0到0条，共0条记录",
+                "sInfoFiltered": "（数据库中共为 _MAX_ 条记录）",
+                "sProcessing": "<img src='../resources/user_share/row_details/select2-spinner.gif'/> 正在加载数据...",
+                "sSearch": "模糊查询：",
+                "sUrl": "",
+                //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": " 上一页 ",
+                    "sNext": " 下一页 ",
+                    "sLast": " 尾页 "
+                }
+            },
+
+            "columnDefs": [
+                {
+                    orderable: false,
+
+                    targets: 0 },
+                {
+                    orderable: false,
+
+                    targets: 1 }
+            ],//第一列与第二列禁止排序
+
+            "order": [
+                [0, null]
+            ],//第一列排序图标改为默认
+            initComplete: function () {//列筛选
+                var api = this.api();
+                api.columns().indexes().flatten().each(function (i) {
+                    if (i != 0 && i != 1) {//删除第一列与第二列的筛选框
+                        var column = api.column(i);
+                        var $span = $('<span class="addselect">▾</span>').appendTo($(column.header()))
+                        var select = $('<select><option value="">All</option></select>')
+                                .appendTo($(column.header()))
+                                .on('click', function (evt) {
+                                    evt.stopPropagation();
+                                    var val = $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                    );
+                                    column
+                                            .search(val ? '^' + val + '$' : '', true, false)
+                                            .draw();
+                                });
+                        column.data().unique().sort().each(function (d, j) {
+                            function delHtmlTag(str) {
+                                return str.replace(/<[^>]+>/g, "");//去掉html标签
+                            }
+
+                            d = delHtmlTag(d)
+                            select.append('<option value="' + d + '">' + d + '</option>')
+                            $span.append(select)
+                        });
+
+                    }
+                });
+
+            }
+
+        });
+
+        //添加索引列
+        table.on('order.dt search.dt',
+                function () {
+                    table.column(0, {
+                        search: 'applied',
+                        order: 'applied'
+                    }).nodes().each(function (cell, i) {
+                        cell.innerHTML = i + 1;
+                    });
+                }).draw();
+
+        //自定义搜索
+        $('.dsearch').on('keyup click', function () {
+            var tsval = $(".dsearch").val()
+            table.search(tsval, false, false).draw();
+        });
+
+        //checkbox全选
+        $("#checkAll").on("click", function () {
+            if ($(this).prop("checked") === true) {
+                $("input[name='checkList']").prop("checked", $(this).prop("checked"));
+                $('#example tbody tr').addClass('selected');
+            } else {
+                $("input[name='checkList']").prop("checked", false);
+                $('#example tbody tr').removeClass('selected');
+            }
+        });
+
+        //显示隐藏列
+        $('.toggle-vis').on('change', function (e) {
+            e.preventDefault();
+            console.log($(this).attr('data-column'));
+            var column = table.column($(this).attr('data-column'));
+            column.visible(!column.visible());
+        });
+
+        //删除选中行
+        $('#example tbody').on('click', 'tr input[name="checkList"]', function () {
+            var $tr = $(this).parents('tr');
+            $tr.toggleClass('selected');
+            var $tmp = $('[name=checkList]:checkbox');
+            $('#checkAll').prop('checked', $tmp.length == $tmp.filter(':checked').length);
+
+        });
+
+        $('#button').click(function () {
+            table.row('.selected').remove().draw(false);
+        });
+
+        $('.showcol').click(function () {
+            $('.showul').toggle();
+
+        })
+
+        //获取表格宽度赋值给右侧弹出层
+        wt = $('.wt100').width();
+        $('.showslider').css('right', -wt);
+
+        //关闭右侧弹出层
+        $('.closediv').click(function () {
+            $(this).parent('.showslider').animate({
+                right: -wt
+            }, 200)
+            $('.clickdom').attr('isclick', true)
+        });
+
+
+    })
+
+    //右侧弹出详情层
+    /*  var flag=false;
+     function clickDom(obj){
+     var  $par=$(obj).parents('#example_wrapper').siblings('.showslider')
+     var  isattr=$(obj).attr('isclick');
+     if(isattr=="true"){
+     if(flag){
+     $par.animate({
+     right:-wt
+     },200)
+     flag=!flag
+     }
+     else{
+     $par.animate({
+     right:0
+     },200)
+     flag=!flag
+
+     }
+     }
+     $('.clickdom').attr('isclick',false)
+     $(obj).attr('isclick',true)
+
+
+     }
+     */
+    function clickDom(obj) {
+        var $par = $(obj).parents('#example_wrapper').siblings('.showslider')
+        var isattr = $(obj).attr('isclick');
+        if (isattr == "false") {
+
+        } else {
+            $par.animate({
+                right: -wt
+            }, 200)
+            $par.animate({
+                right: 0
+            }, 400)
+            $('.clickdom').attr('isclick', true)
+            $(obj).attr('isclick', false)
+        }
+
+    }
+</script>

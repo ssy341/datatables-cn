@@ -1,0 +1,202 @@
+@charset "utf-8";
+/* login */
+html,body{ overflow:hidden;}
+body{  background: #65cea7 url("/images/login/login-bg.jpg") no-repeat fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;}
+.log_header {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+}
+.H_login {
+  height: 55px;
+  float: left;
+}
+.H_Pelse {
+  text-align: right;
+  padding-right: 30px;
+  font-size: 15px;
+  color: #fff;
+}
+.H_Pelse a {
+  font-size: 13px;
+  color: #fff;
+  display: inline-block;
+  margin: 0 10px;
+}
+.log_foot {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+}
+.log_foot p {
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+.log_foot p a{ color: #fff;}
+
+.form-signin {
+  max-width: 330px;
+  margin: 100px auto;
+  background: #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.form-signin .form-signin-heading {
+  margin: 0;
+  padding: 25px 15px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+.sign-title {
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  top: -60px;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  text-transform: uppercase;
+}
+.login-wrap {
+  padding: 20px;
+  position: relative;
+}
+.form-signin input[type="text"], .form-signin input[type="password"] {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px solid #6bc5a4;
+    background: #fff;
+    box-shadow: none;
+    font-size: 12px;
+    text-indent: 2em;
+}
+
+.form-signin .btn-login {
+    background: #6bc5a4;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    margin: 20px 0 5px;
+    padding: 5px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    font-size: 30px;
+    outline: none;
+}
+
+.form-signin .btn-login:hover {
+    background: #688ac2;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.form-signin p {
+    text-align: left;
+    color: #b6b6b6;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.form-signin a, .form-signin a:hover {
+    color: #6bc5a4;
+}
+
+.form-signin a:hover {
+    text-decoration: underline;
+}
+.form-signin #imgVerify {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+}
+.form-signin .left-input-icon {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  color: #999;
+  -webkit-transition: color;
+  transition: color;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.Validform_checktip {overflow:hidden;color:#999;font-size:12px;margin: 0;display: block;}
+.Validform_right {display: none;}
+.Validform_wrong {color:#ef4836;white-space:nowrap;font-weight: normal;}
+.Validform_loading {padding-left:20px;}
+.Validform_error {border:1px solid #ef4836 !important;}
+#eMsg{ display: none;}
+/* Progress bar Custom styles
+---------------------------------------------------------------------------------------------- */
+.p0{padding:0;}.s16{font-size:15px; vertical-align: middle;}
+.mb10{margin-bottom: 10px;}
+.progress 
+{
+  height: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #e6e7e8;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+  float: left;
+  width: 0;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  text-align: center;
+  background-color: @primary;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+
+.progress-bar-success {
+  background-color: @success;
+}
+
+.progress-bar-info {
+  background-color: @info;
+}
+
+.progress-bar-warning {
+  background-color: @warning;
+}
+
+.progress-bar-danger {
+  background-color: @danger;
+}
+@media (max-width: 767px){.log_foot{display: none;}
+@media (min-width:768px){.log_foot{display: none;}}
+@media (min-width:992px){.log_foot{display: none;}}
+@media (min-width:1200px){.log_foot{display: block;}}
+
+
+@media (max-width:500px)
+{
+  
+  body
+  {
+      background: #23bab5 ;
+  }
+}

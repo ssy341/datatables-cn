@@ -11,33 +11,10 @@ title: 行详细内容的展开与折叠 网友共享 示例 Datatables中文网
     <link href="../resources/user_share/row_details/style.css" rel="stylesheet">
     <link href="../resources/user_share/row_details/DT_bootstrap.css" rel="stylesheet">
     <link href="../../css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
 </head>
 <body>
-<!-- Navbar
-    ================================================== -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="brand" href="/index.html">Datatables中文网</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class=""><a href="/index.html">首页</a></li>
-                    <li class="active"><a href="#">例子</a></li>
-                    <li class=""><a href="/manual">手册</a></li>
-                    <li class=""><a href="/reference">参考</a></li>
-                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
-                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
-                    <li ><a href="/faqs">FAQs</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+{% include nav.html param="example" %}
 <header class="jumbotron subhead" id="overview">
     <div class="container">
         <h3>行详细内容的展开与折叠</h3>
@@ -45,7 +22,8 @@ title: 行详细内容的展开与折叠 网友共享 示例 Datatables中文网
            感谢网友（飘絮美女）提供此例子， 通过异步加载数据展示行的详细信息，数据为历史上各年度的年度语言
         </p>
         <p>
-            注意：此例子使用的1.9.4版的，写法和新版的有些不一样，具体参考 <a href="../api/row_details.html">官方最新版例子</a>
+            注意：此例子使用的1.9.4版的，写法和新版的有些不一样，具体参考 <a href="../api/row_details.html">官方最新版例子</a><br/>
+            你还可以查看作者在csdn发布的blog， <a href="http://blog.csdn.net/zdx1515888659/article/details/41678129" target="_blank">点我</a>
         </p>
     </div>
 </header>
@@ -441,6 +419,8 @@ if ( $.fn.DataTable.TableTools ) {
 {% include libs/datatables_js.html param='1.9.4' %}
 {% include libs/bootstrap_js.html param='2.3.2' %}
 {% include libs/sh_js.html %}
+{% include note.js %}
+{% include copy.js %}
 <script type="text/javascript" src="../resources/user_share/row_details/DT_bootstrap.js"></script>
 <script>
     var oTable;
