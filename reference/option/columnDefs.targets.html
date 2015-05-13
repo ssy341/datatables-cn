@@ -1,0 +1,104 @@
+---
+layout: reference_option_detail_layout
+title: 指定一列或者多列(columnDefs.targets)
+relurl: http://datatables.net/reference/option/columnDefs.targets
+since: 1.10.0
+---
+<h1 class="page_title">columnDefs.targets</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>指定一列或者多列</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    使用{% include href/option/columnDefs.dt %}参数给列定义，用 <code>columnDefs.targets</code>告诉这个定义是指向那一列或者那几列
+</p>
+<p>
+  他可以是下列情况：
+    <ul>
+        <li>0或者正整数-列从左到右是从0开始</li>
+        <li>一个负数-列从右到左的索引(-1代表最后一列)</li>
+        <li>一个字符串-将字符串和类名匹配列</li>
+        <li>字符串"_all"-所有列</li>
+    </ul>
+<br/>
+        另外， <code>targets</code>可以同时指定多列，接受一个数组（比如 <code>targets: [ -1, -2 ]</code> ）
+</p>
+        <p>注意{% include href/option/columnDefs.dt %} 需要和<code>columnDefs.targets</code> 搭配使用，而{% include href/option/columns.dt %}可以单独使用，这是两者的不同处 </p>
+
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p><font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-58" rel="58" style="text-decoration: none;">这个选项可以在以下类型:
+</font></p>
+<ul class="markdown">
+    <li>
+        {% include href/array.js %}|{% include href/string.js %}|{% include href/integer.js %}
+    </li>
+</ul>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                禁止第一列参与搜索
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;columnDefs&quot;: [ {
+      &quot;targets&quot;: 0,
+      &quot;searchable&quot;: false
+    } ]
+} );</pre>
+    </div>
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                禁止第一列和第三列不能排序
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;columnDefs&quot;: [ {
+      &quot;targets&quot;: [ 0, 2 ],
+      &quot;orderable&quot;: false
+    } ]
+} );</pre>
+    </div>
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                列包含‘nosort’类名的不排序
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+&quot;columnDefs&quot;: [ {
+&quot;targets&quot;: 'nosort',
+&quot;orderable&quot;: false
+} ]
+} );</pre>
+    </div>
+</div>
+
+
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/api/column.dt %}</li>
+        <li>{% include href/api/columns.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/columnDefs.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}

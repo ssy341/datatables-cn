@@ -1,0 +1,86 @@
+---
+layout: reference_option_detail_layout
+title: 设置列特殊的初始化属性(columns)
+relurl: http://datatables.net/reference/option/columns
+since: 1.10.0
+---
+<h1 class="page_title">columns</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>设置列特殊的初始化属性</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    在初始化的时候可以使用本参数来定义列，完整的参数参考下面的相关参数
+    <br/>
+    注意，如果是使用 <code>columns</code>来定义列，那么你的th有多少，就要定义多个个（如果你不指定任何选项可以为null）
+</p>
+
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p><font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-58" rel="58" style="text-decoration: none;">这个选项可以在以下类型:
+</font></p>
+<ul class="markdown">
+    <li>
+        {% include href/array.js %}
+    </li>
+</ul>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                禁止第一列参与过滤(此表格有5列，其他列由于不指定选项，则为null) ，下面两段代码是同样的效果
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;columns&quot;: [
+    { &quot;searchable&quot;: false },
+    null,
+    null,
+    null,
+    null
+  ]
+} );</pre>
+           <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;columnDefs&quot;: [ {
+      &quot;targets&quot;: 0,
+      &quot;searchable&quot;: false
+    } ]
+} );</pre>
+    </div>
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/api/column.dt %}</li>
+        <li>{% include href/api/columns.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/columnDefs.dt %}</li>
+        <li>{% include href/option/columns.cellType.dt %}</li>
+        <li>{% include href/option/columns.className.dt %}</li>
+        <li>{% include href/option/columns.contentPadding.dt %}</li>
+        <li>{% include href/option/columns.createdCell.dt %}</li>
+        <li>{% include href/option/columns.data.dt %}</li>
+        <li>{% include href/option/columns.defaultContent.dt %}</li>
+        <li>{% include href/option/columns.name.dt %}</li>
+        <li>{% include href/option/columns.orderable.dt %}</li>
+        <li>{% include href/option/columns.orderData.dt %}</li>
+        <li>{% include href/option/columns.orderDataType.dt %}</li>
+        <li>{% include href/option/columns.render.dt %}</li>
+        <li>{% include href/option/columns.searchable.dt %}</li>
+        <li>{% include href/option/columns.title.dt %}</li>
+        <li>{% include href/option/columns.type.dt %}</li>
+        <li>{% include href/option/columns.visible.dt %}</li>
+        <li>{% include href/option/columns.width.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}

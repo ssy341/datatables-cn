@@ -152,7 +152,10 @@ title: 常见问题 Datatables 中文网
                 <li><b>问:控制台报错 Cannot read property 'length' of null 是怎么回事</b></li>
                 <li>答：这个一般是返回的数据有问题，比如因该返回data属性，或者 data为空不是[]而是null，dt识别不了所以报此错误</li>
             </ul>
-
+            <ul>
+                <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
+                <li>答：加上 retrieve:true 和 destroy:true 两个参数即可</li>
+            </ul>
 
         </p>
 
