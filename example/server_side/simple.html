@@ -234,7 +234,44 @@ _=1418644693360</pre>
         $('#example').dataTable( {
             "processing": true,
             "serverSide": true,
-            "ajax": "http://dt.thxopen.com/example/resources/server_processing_customCUrl.php"
+            "ajax": "/example/resources/server_processing_customCUrl.php"
+        } );
+    } );
+
+    $(document).on( 'init.dt', function ( e, settings ) {
+        if ( e.namespace !== 'dt' ) {
+            return;
+        }
+
+        var api = new $.fn.dataTable.Api( settings );
+
+        var show = function ( str ) {
+            var preobj = $('#tab3').find('pre')[0];
+            preobj = $(preobj);
+            preobj.remove();
+            var syntaxhighlighterobj = $('#tab3').find('.syntaxhighlighter');
+            syntaxhighlighterobj =  $(syntaxhighlighterobj);
+            syntaxhighlighterobj.remove();
+            try {
+                str = JSON.stringify( str, null, 2 );
+            } catch ( e ) {}
+
+            $('#tab3').append('<pre class="brush:js;toolbar:false">'+str+'</pre>');
+            var preobj2 = $('#tab3').find('pre')[0];
+            preobj2 = $(preobj2);
+
+            SyntaxHighlighter.highlight( {}, preobj2 );
+        };
+
+        // First draw
+        var json = api.ajax.json();
+        if ( json ) {
+            show( json );
+        }
+
+        // Subsequent draws
+        api.on( 'xhr.dt', function ( e, settings, json ) {
+            show( json );
         } );
     } );
 </script>

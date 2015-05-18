@@ -6,6 +6,13 @@
             "date": "2015-5-5",
             "note":"辛苦了",
             "type":0
+        },
+         {
+            "nickname": "张*",
+            "money": "5",
+            "date": "2015-5-16",
+            "note":"捐赠【Datatables中文网】",
+            "type":1
         }
     ]
 }

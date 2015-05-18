@@ -36,9 +36,10 @@ title: 常见问题 Datatables 中文网
         position: absolute;
     }
 </style>
-<div class="container" style="margin-top:100px">
+<div class="container" >
     <div class="span1"></div>
     <div class="span10">
+        {% include ad %}
         <h2>常见问题</h2>
         <p>Datatables在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题，有些问题是已知的，我会列举在下面。</p>
         <h4>获得帮助</h4>
@@ -116,7 +117,7 @@ title: 常见问题 Datatables 中文网
 
             <ul>
                 <li><b>问:表格不能正常显示</b></li>
-                <li>答：Datatables所需要的table是比较严谨的，table里必须包含thead和tbody表情。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考 <a
+                <li>答：Datatables所需要的table是比较严谨的，table里必须包含thead和tbody标签(1.10.x+好像不需要tbody也行了，大家注意自己多尝试)。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考 <a
                         href="/manual/install.html" target="_blank">安装手册</a> </li>
             </ul>
 
