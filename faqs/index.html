@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 常见问题 Datatables 中文网
+relurl: http://datatables.net/faqs/index
 ---
 {% include nav.html param="faqs" %}
 <style>
@@ -39,22 +40,23 @@ title: 常见问题 Datatables 中文网
 <div class="container" >
     <div class="span1"></div>
     <div class="span10">
-        {% include ad %}
         <h2>常见问题</h2>
         <p>Datatables在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题，有些问题是已知的，我会列举在下面。</p>
         <h4>获得帮助</h4>
         <p>
         <ul>
             <li><b>问：我有一个问题，我怎么得到帮助？</b></li>
-            <li>答：目前有Datatables中文网，方便大家查阅，如果英语好点的可以直接查看原网站，不管是原网站还是中文网，都有丰富的
-                <a href="../manual" target="_blank">手册</a> , <a href="../reference" target="_blank">参考</a>,<a href="../example" target="_blank">例子</a> ,
-                <a href="http://www.gbtags.com/gb/user/111.htm" target="_blank">极客标签</a>以及下面要说到的常见问题。
+            <li>答：目前有Datatables中文网，方便大家查阅，如果英语好点的可以直接查看 <a href="http://www.datatables.net" target="_blank">官网</a> ，不管是官网还是中文网，都有丰富的
+                <a href="../manual" target="_blank">手册</a> , <a href="../reference" target="_blank">参考</a>,<a href="../example" target="_blank">例子</a> 以及下面要说到的常见问题。
                 如果你不能在此页找到你需要的问题，那么你可以在<a href="http://www.gbtags.com/gb/user/111.htm" target="_blank">社区</a>提问
                 或者发布一个<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>
                 (<a href="http://www.gbtags.com/gb/share/4819.htm" target="_blank">怎么调试？</a>)
+                <br/>
+                或者加入Datatables交流群里提问，但是需要注意一下，提问先上图片，然后描述问题，最后贴代码（不要吝啬，多贴些不会说你刷屏的）。如果有报错的贴报错，如果是服务器处理的（加了serverSide属性为true）贴上返回数据。
+                问题要明确，给足够的信息，别人才能判断、才能帮助你（注意静止在上班期间私聊别人请教问题，群里如果知道一般会回答，请尊重别人的时间）。如果还是不能解决，根据实际情况再远程协助，希望大家快乐学习。
             </li>
             <li>
-                小技巧：把下面的超链接拖到书签栏，当打开<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>后，点击这个即可添加Datatables需要的css和js
+                <b>小技巧</b>:把下面的超链接拖到书签栏，当打开<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>后，点击这个即可添加Datatables需要的css和js
                 <br/>
                 <button style="width:200px;height: 50px">
                 <a href="javascript: (function() {
@@ -86,17 +88,46 @@ title: 常见问题 Datatables 中文网
 
             <ul>
                 <li><b>问：json数据解析错误</b></li>
-                <li>答：这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数，详细参考 <a href="#"> 调试解决方案</a></li>
-            </ul>
-
-            <ul>
-                <li><b>问：“Requested unknown parameter” 错误</b></li>
-                <li>答：当你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误，详细参考 <a href="#"> 调试解决方案</a></li>
+                <li>答：这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数</li>
             </ul>
 
             <ul>
                 <li><b>问：我在ie中会提示错误，但是chrome、ff这些浏览器却不会</b></li>
                 <li>答：一般可能是缺少逗号，在ie浏览器下会抛出错误，但是chrome这些浏览器会忽略这些错误</li>
+            </ul>
+            <ul>
+                <li><b>问：为什么表头会缩在一起，刷新页面后又正常了</b></li>
+                <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，
+                    获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
+                    还要检查css样式是否引入</li>
+            </ul>
+
+            <ul>
+                <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
+                <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
+                <li>答：1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误。
+                    2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，
+                    3这个错误指出很明确了返回的一个未知的参数，所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
+            </ul>
+
+            <ul>
+                <li><b>问:控制台报错 Cannot read property 'length' of null 是怎么回事</b></li>
+                <li>答：这个一般是返回的数据有问题，比如因该返回data属性，或者 data为空不是[]而是null，dt识别不了所以报此错误</li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
+                <li>答：加上 retrieve:true 和 destroy:true 两个参数即可
+                    另见：{% include href/option/retrieve.dt %}{% include href/option/destroy.dt %} </li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示Datatables warning:Non-table node initialisation (DIV)是怎么回事</b></li>
+                <li>答：这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的id-example在其他元素上，而不是table的id</li>
             </ul>
         </p>
 
@@ -134,32 +165,53 @@ title: 常见问题 Datatables 中文网
         </p>
 
         <hr/>
-        <h4>网友遇到的问题</h4>
+        <h4>许可</h4>
         <p>
             <ul>
-                <li><b>问：为什么表头会缩在一起，刷新页面后又正常了</b></li>
-                <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
-                还要检查css样式是否引入</li>
+                <li><b>问：Datatables是个很棒的插件，要多少钱呢？</b></li>
+                <li>答：Datatables是免费的、开放源码的，不管出于什么目的你都可以下载和使用，应用到你的网站。它是免费供您使用的 ！Datatables是可用在MIT下,你必须遵守 （要做到这一点，只要保证在软件中的版权声明）。</li>
             </ul>
             <ul>
-                <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
-                <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
+                <li><b>问：Datatables真的免费么？甚至可以使用在商业网站上么？</b></li>
+                <li>答：是的 ！Datatables有个很棒的社区使它你能到今天，在更多的地方使用到它，我很高兴作为开放源码。很明显，Datatables对你们的帮助是有的，那么任何回报都是欢迎的。 你可以购买一个 <a
+                        href="http://datatables.net/purchase" target="_blank">支持包</a> 或者在 <a href="http://datatables.net/forums" target="_blank"> 论坛</a> 发表文章代码来表示你喜欢使用Datatables。
+                    前面是对官网的支持，如果你觉得Datatables中文网也帮助到你不少，当时也接受任何回报 <a href="/about/" target="_blank">详见&raquo;</a>
+                </li>
             </ul>
             <ul>
-                <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
-                <li>答：请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，这个错误指出很明确了返回的一个未知的参数，所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
+                <li><b>问：我们不能用MIT许可软件，怎么办？</b></li>
+                <li>答：在罕见的情况下,你不能使用Datatable中在其可用的许可证,请 <a href="http://datatables.net/contact" target="_blank">取得联系</a>讨论替代许可证协议
+                </li>
             </ul>
-            <ul>
-                <li><b>问:控制台报错 Cannot read property 'length' of null 是怎么回事</b></li>
-                <li>答：这个一般是返回的数据有问题，比如因该返回data属性，或者 data为空不是[]而是null，dt识别不了所以报此错误</li>
-            </ul>
-            <ul>
-                <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
-                <li>答：加上 retrieve:true 和 destroy:true 两个参数即可</li>
-            </ul>
-
         </p>
 
+        <hr/>
+        <h4>开发中常见问题</h4>
+        <p>
+        <ul>
+            <li><b>问：我很喜欢这个插件，我该如何贡献呢？</b></li>
+            <li>答：
+                <ul>
+                    <li>在你的blog中宣传Datatables插件的用法或者在项目中实际的应用</li>
+                    <li>告诉你的朋友们你在使用这个插件，告诉他们Datatables和Datatables中文网并传播这两个词</li>
+                    <li>创建 <a href="http://datatables.net/plug-ins/" target="_blank">插件</a>展示在Datatables官网</li>
+                    <li>在论坛积极的帮助其他使用Datatables的朋友</li>
+                    <li>为你找到的bug提供补丁</li>
+                    <li>测试错误</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><b>问：我已经制作了一个插件我要怎么与别人分享？</b></li>
+            <li>答：你可以 <a href="http://datatables.net/contact" target="_blank">寄给我</a>或者发布在论坛上 </a>
+            </li>
+        </ul>
+        <ul>
+            <li><b>问：我想我找到一个错误，我该怎么报告？</b></li>
+            <li>答：把你的错误和完整的测试代码能够错误重现的放到 <a href="http://datatables.net/forums" target="_blank">论坛</a>上 </li>
+        </ul>
+        </p>
+        {% include quote.html %}
         {% include post.html param= site.url param2 = page.url %}
     </div>
     <div class="span1">
