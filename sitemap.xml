@@ -87,6 +87,12 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>http://dt.thxopen.com/manual/server-side.html</loc>
+        <priority>0.8</priority>
+        <lastmod>2015-05-26T13:41:52+00:00</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>http://dt.thxopen.com/reference/</loc>
         <priority>0.8</priority>
         <lastmod>2015-05-13T15:31:50+00:00</lastmod>
