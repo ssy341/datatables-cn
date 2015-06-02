@@ -5,4 +5,4 @@ url: http://dt.thxopen.com
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea']
 #destination: ./_site
-destination: C:\code\xampp\htdocs
+#destination: C:\code\xampp\htdocs
