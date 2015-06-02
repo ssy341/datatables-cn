@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Options 选项(option) 参考(reference) Datatables 中文网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="datatables is jquery-plugin">
+
+    <!-- Le styles -->
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+<!--代码高亮-->
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/docs.css" rel="stylesheet">
+
+<style type="text/css">
+    body {
+        padding-top: 60px;
+    }
+    .sidebar-nav {
+        padding: 9px 0;
+    }
+
+    @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+            float: none;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+</style>
+<link rel="shortcut icon" href="/images/favicon.png">
+	<style>
+    code.option {
+        color: #D14;
+        background-color: #fcf6f8;
+        border: 1px solid #f7d6df;
+    }
+    code>span {
+        border-left: 1px solid rgba(0,0,0,0.2);
+        margin-left: 4px;
+        padding-left: 4px;
+        opacity: 0.5;
+    }
+    div.ref_type {
+        position: relative;
+        padding: 3.5em 1em 1em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #bbb;
+        margin-bottom: 1em
+    }
+
+    div.ref_type:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_type h3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1em;
+        padding: 0.5em;
+        margin-top: 0;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid #ddd;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px
+    }
+
+    div.ref_type span.type {
+        font-size: 0.8em;
+        color: #777;
+        font-style: italic
+    }
+
+    div.ref_type dl dt {
+        font-size: 1.1em
+    }
+
+    div.ref_type dl dd {
+        margin-left: 3em;
+        margin-bottom: 1em
+    }
+
+    div.ref_type dl:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_search input {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 90%;
+    }
+    </style>
+</head>
+<body>
+     <style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li ><a href="/manual">手册</a></li>
+                    <li class="active"><a href="/reference">参考</a></li>
+                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
+                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
+                    <li ><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<!--代码高亮-->
+<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
+<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
+<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+
+
+     <div class="container">
+				<h2 class="page_title">选项(Option)</h2>
+<p>
+	DataTables是一个可高度配置化的类库，可以在生成HTML tables过程中的所有方面实现定制。所有特性可以通过打开、关闭或者定制来满足你对表格所有的要求。
+    定制要先定义一个options，然后传入<code>$().DataTable()</code>构造函数，通过定制options的内容来实现定制。
+	- 例如下面的代码
+    <a href="scrollY.html"><code class="option" title="DataTables initialisation option">scrollY<span>DT</span></code></a>
+    和 <a href="paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a>
+    选项用来允许滚动和禁止分页：
+</p>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    scrollY: 300,
+    paging: false
+} );</pre>
+<p>
+    有非常多的配置项可以用来定制你的表格，在下面的文档中都有说明。
+    如果需要从整体上感知DataTables的初始化选项使用，可以阅读
+    <a href="../../manual/options.html">手册中的配置项</a>。
+</p>
+<div class="ref_search">
+    全局搜索:<input type="text" />
+</div>
+
+<a name="Features"></a><h2 data-anchor="Features">特性(Features)</h2>
+<table class="reference row-border hover">
+	<thead>
+		<tr>
+			<th width="30%">名称</th>
+			<th>说明</th>
+		</tr>
+	</thead>
+    <tbody>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/autoWidth.html" target="_blank">
+    <code>autoWidth<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>控制Datatables是否自适应宽度</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/deferRender.html" target="_blank">
+    <code>deferRender<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>控制Datatables的延迟渲染，可以提高初始化的速度</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/info.html" target="_blank">
+    <code>info<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>控制是否显示表格左下角的信息</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/jQueryUI.html" target="_blank">
+    <code>jQueryUI<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>控制是否使用jquerui的样式（需要引入jqueryui的css）</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/lengthChange.html" target="_blank">
+    <code>lengthChange<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否允许用户改变表格每页显示的记录数</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/ordering.html" target="_blank">
+    <code>ordering<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否允许Datatables开启排序</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/paging.html" target="_blank">
+    <code>paging<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否开启本地分页</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/processing.html" target="_blank">
+    <code>processing<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否显示处理状态(排序的时候，数据很多耗费时间长的话，也会显示这个)</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/scrollX.html" target="_blank">
+    <code>scrollX<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>设置水平滚动</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/scrollY.html" target="_blank">
+    <code>scrollY<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>设置垂直滚动</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="/reference/option/searching.html" target="_blank">
+    <code>searching<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否允许Datatables开启本地搜索</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="http://datatables.net/reference/option/serverSide" target="_blank">
+    <code>serverSide<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>是否开启服务器模式</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                <a href="http://datatables.net/reference/option/stateSave" target="_blank">
+    <code>stateSave<span>DT</span></code>
+</a>
+            </p>
+        </td>
+        <td>
+            <p>保存状态 - 在页面重新加载的时候恢复状态（页码等内容）</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a name="Data"></a><h2 data-anchor="Data">数据(Data)</h2>
+<table class="reference row-border hover">
+	<thead>
+		<tr>
+			<th width="30%">名称</th>
+			<th>说明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<p>
+                    <a href="ajax.data.html">
+                        <code class="option" title="DataTables initialisation option">ajax.data<span>DT</span></code>
+                    </a>
+                </p>
+			</td>
+			<td>
+				<p>增加或修改通过Ajax提交到服务端的请求数据</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+                    <a href="ajax.dataSrc.html">
+                        <code class="option" title="DataTables initialisation option">ajax.dataSrc<span>DT</span></code>
+                    </a>
+                </p>
+			</td>
+			<td>
+				<p>数据属性或操作表数据的方法</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+                    <a href="ajax.html">
+                        <code class="option" title="DataTables initialisation option">ajax<span>DT</span></code>
+                    </a>
+                </p>
+			</td>
+			<td>
+				<p>从一个ajax数据源读取数据给表格内容</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+                    <a href="data.html">
+                        <code class="option" title="DataTables initialisation option">data<span>DT</span></code>
+                    </a>
+                </p>
+			</td>
+			<td>
+				<p>用来显示表格的数据</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<a name="Callbacks"></a><h2 data-anchor="Callbacks">回调函数(Callbacks)</h2>
+<table class="reference row-border hover">
+	<thead>
+		<tr>
+			<th width="30%">名称</th>
+			<th>说明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<p>
+                    <a href="createdRow.html"><code class="option" title="DataTables initialisation option">createdRow<span>DT</span></code></a></p>
+			</td>
+			<td>
+				<p>行被创建时回调函数</p>
+			</td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+                        <a href="option/drawCallback.html">
+                            <code class="option" title="DataTables initialisation option">drawCallback<span>DT</span></code>
+                        </a>
+                    </p>
+				</td>
+				<td>
+					<p>表格每次重绘回调函数</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+                        <a href="/reference/option/footerCallback.html" target="_blank">
+    <code>footerCallback<span>DT</span></code>
+</a>
+                    </p>
+				</td>
+				<td>
+					<p>tfoot的回调函数</p>
+				</td>
+			</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="option/formatNumber.html">
+                        <code class="option" title="DataTables initialisation option">formatNumber<span>DT</span></code>
+                    </a>
+				</p>
+			</td>
+			<td>
+				<p>数字格式化时的回调函数</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="option/headerCallback.html"><code class="option" title="DataTables initialisation option">headerCallback<span>DT</span></code></a>
+				</p></td>
+			<td>
+				<p>表格Header显示时的回调函数</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>
+					<a href="option/infoCallback.html"><code
+							class="option" title="DataTables initialisation option">
+							infoCallback<span>DT</span>
+						</code></a>
+				</p>
+			</td>
+			<td><p>表格状态信息改变的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="/reference/option/initComplete.html" target="_blank">
+    <code>initComplete<span>DT</span></code>
+</a>
+				</p></td>
+			<td><p>初始化结束后的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/preDrawCallback.html"><code
+							class="option" title="DataTables initialisation option">
+							preDrawCallback<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>表格绘制前的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/rowCallback.html"><code
+							class="option" title="DataTables initialisation option">
+							rowCallback<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>表格行(Row)绘制的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/stateLoadCallback.html"><code
+							class="option" title="DataTables initialisation option">
+							stateLoadCallback<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>该回调函数定义了从哪里和如何读取保存的状态</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/stateLoaded.html"><code
+							class="option" title="DataTables initialisation option">
+							stateLoaded<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>状态加载完成之后的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/stateLoadParams.html"><code
+							class="option" title="DataTables initialisation option">
+							stateLoadParams<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>状态加载完成之后，对数据处理的回调函数</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/stateSaveCallback.html"><code
+							class="option" title="DataTables initialisation option">
+							stateSaveCallback<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>该回调函数定义了状态该存储在什么地方及如何存储</p></td>
+		</tr>
+		<tr>
+			<td><p>
+					<a href="option/stateSaveParams.html"><code
+							class="option" title="DataTables initialisation option">
+							stateSaveParams<span>DT</span>
+						</code></a>
+				</p></td>
+			<td><p>对状态进行存储时，对数据处理的回调函数</p></td>
+		</tr>
+	</tbody>
+</table>
+
+<h2 data-anchor="Options">配置(Options)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><a href="option/deferLoading.html"><code class="option" title="DataTables initialisation option">deferLoading<span>DT</span></code></a></p></td>
+      <td><p>延迟请求加载服务端的数据，直到表格第二次绘制</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="destroy.html"><code class="option" title="DataTables initialisation option">destroy<span>DT</span></code></a></p></td>
+      <td><p>销毁所有符合选择的table，并且用新的options重新创建表格</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/displayStart.html"><code class="option" title="DataTables initialisation option">displayStart<span>DT</span></code></a></p></td>
+      <td><p>初始化显示的时候从第几条数据开始显示(一开始显示第几页)</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/dom.html"><code class="option" title="DataTables initialisation option">dom<span>DT</span></code></a></p></td>
+      <td><p>定义DataTables的组件元素的显示和显示顺序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/lengthMenu.html"><code class="option" title="DataTables initialisation option">lengthMenu<span>DT</span></code></a></p></td>
+      <td><p>定义在每页显示记录数的<code>select</code>中显示的选项</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/order.html"><code class="option" title="DataTables initialisation option">order<span>DT</span></code></a></p></td>
+      <td><p>表格在初始化的时候的排序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/orderCellsTop.html"><code class="option" title="DataTables initialisation option">orderCellsTop<span>DT</span></code></a></p></td>
+      <td><p>控制表头的哪一个cell可以应用于该列的排序响应</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/orderClasses.html"><code class="option" title="DataTables initialisation option">orderClasses<span>DT</span></code></a></p></td>
+      <td><p>高亮显示在table的body中排序的列</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/orderFixed.html"><code class="option" title="DataTables initialisation option">orderFixed<span>DT</span></code></a></p></td>
+      <td><p>在表格中总是起作用的排序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/orderMulti.html"><code class="option" title="DataTables initialisation option">orderMulti<span>DT</span></code></a></p></td>
+      <td><p>是否允许多列排序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/pageLength.html"><code class="option" title="DataTables initialisation option">pageLength<span>DT</span></code></a></p></td>
+      <td><p>改变初始的页面长度(每页显示的记录数)</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/pagingType.html"><code class="option" title="DataTables initialisation option">pagingType<span>DT</span></code></a></p></td>
+      <td><p>分页按钮的显示方式</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/renderer.html"><code class="option" title="DataTables initialisation option">renderer<span>DT</span></code></a></p></td>
+      <td><p>显示组件的渲染方式</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="retrieve.html"><code class="option" title="DataTables initialisation option">retrieve<span>DT</span></code></a></p></td>
+      <td><p>检索已经存在的Datatables实例</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/scrollCollapse.html"><code class="option" title="DataTables initialisation option">scrollCollapse<span>DT</span></code></a></p></td>
+      <td><p>当显示更少的记录时，是否允许表格减少高度</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/search.caseInsensitive.html"><code class="option" title="DataTables initialisation option">search.caseInsensitive<span>DT</span></code></a></p></td>
+      <td><p>在搜索或者过滤时，是否大小写敏感</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/search.regex.html"><code class="option" title="DataTables initialisation option">search.regex<span>DT</span></code></a></p></td>
+      <td><p>允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/search.search.html"><code class="option" title="DataTables initialisation option">search.search<span>DT</span></code></a></p></td>
+      <td><p>初始化时的表格的过滤（搜索）条件</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/search.smart.html"><code class="option" title="DataTables initialisation option">search.smart<span>DT</span></code></a></p></td>
+      <td><p>允许或者禁止DataTables的只能过滤（搜索）功能</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/search"><code class="option" title="DataTables initialisation option">search<span>DT</span></code></a></p></td>
+      <td><p>设置一个全局的过滤条件</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/searchCols"><code class="option" title="DataTables initialisation option">searchCols<span>DT</span></code></a></p></td>
+      <td><p>给每一列定义一个初始的搜索条件</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/searchDelay"><code class="option" title="DataTables initialisation option">searchDelay<span>DT</span></code></a></p></td>
+      <td><p>设定搜索的间隔时间。</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/stateDuration"><code class="option" title="DataTables initialisation option">stateDuration<span>DT</span></code></a></p></td>
+      <td><p>间隔多长时间保存一次状态</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/stripeClasses"><code class="option" title="DataTables initialisation option">stripeClasses<span>DT</span></code></a></p></td>
+      <td><p>设置斑马条（奇偶行）的css class</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/tabIndex"><code class="option" title="DataTables initialisation option">tabIndex<span>DT</span></code></a></p></td>
+      <td><p>用键盘上的Tab键浏览时的顺序</p></td>
+    </tr>
+  </tbody>
+</table>
+<a name="Columns"></a>
+<h2 data-anchor="Columns">列(Columns)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/reference/option/columnDefs.targets.html" target="_blank">
+    <code>columnDefs.targets<span>DT</span></code>
+</a></td>
+      <td><p>为一个或多个列编制定义</p></td>
+    </tr>
+    <tr>
+      <td><a href="/reference/option/columnDefs.html" target="_blank">
+    <code>columnDefs<span>DT</span></code>
+</a></td>
+      <td><p>设置定义列的初始属性</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.cellType"><code class="option" title="DataTables initialisation option">columns.cellType<span>DT</span></code></a></p></td>
+      <td><p>为列指定一个单元格类型</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.className"><code class="option" title="DataTables initialisation option">columns.className<span>DT</span></code></a></p></td>
+      <td><p>为指定的列的每个单元格都指定一个css class</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.contentPadding"><code class="option" title="DataTables initialisation option">columns.contentPadding<span>DT</span></code></a></p></td>
+      <td><p>当计算最佳显示状态时，文字内容部分需要增加的css padding值</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.createdCell"><code class="option" title="DataTables initialisation option">columns.createdCell<span>DT</span></code></a></p></td>
+      <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.data"><code class="option" title="DataTables initialisation option">columns.data<span>DT</span></code></a></p></td>
+      <td><p>设置列的数据源，即如何从整个Table的数据源(object / array)中获得</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.defaultContent"><code class="option" title="DataTables initialisation option">columns.defaultContent<span>DT</span></code></a></p></td>
+      <td><p>设定该列的默认、静态的内容</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.name"><code class="option" title="DataTables initialisation option">columns.name<span>DT</span></code></a></p></td>
+      <td><p>为列设定一个别名（描述性名字）</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderable"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a></p></td>
+      <td><p>在该列上允许或者禁止排序功能</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderData"><code class="option" title="DataTables initialisation option">columns.orderData<span>DT</span></code></a></p></td>
+      <td><p>定义多个列的默认排序条件</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderDataType"><code class="option" title="DataTables initialisation option">columns.orderDataType<span>DT</span></code></a></p></td>
+      <td><p>列的表格的DOM类型，可以用来方便排序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="columns.orderSequence"><code class="option" title="DataTables initialisation option">columns.orderSequence<span>DT</span></code></a></p></td>
+      <td><p>排序的顺序，正序或倒序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="reference/option/columns.render"><code class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a></p></td>
+      <td><p>在列上处理数据的函数，可以再次自定义显示内容</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.searchable"><code class="option" title="DataTables initialisation option">columns.searchable<span>DT</span></code></a></p></td>
+      <td><p>在该列上允许或者禁止过滤搜索记录</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.title"><code class="option" title="DataTables initialisation option">columns.title<span>DT</span></code></a></p></td>
+      <td><p>设定该列的标题</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.type"><code class="option" title="DataTables initialisation option">columns.type<span>DT</span></code></a></p></td>
+      <td><p>设定该列的类型 - 在该列排序或者搜索的时候使用</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.visible"><code class="option" title="DataTables initialisation option">columns.visible<span>DT</span></code></a></p></td>
+      <td><p>显示或隐藏该列</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.width"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a></p></td>
+      <td><p>设定列宽</p></td>
+    </tr>
+    <tr>
+      <td><a href="/reference/option/columns.html" target="_blank">
+    <code>columns<span>DT</span></code>
+</a></td>
+      <td><p>设定列的所有初始属性</p></td>
+    </tr>
+  </tbody>
+</table>
+<a name="Internationalisation"></a>
+<h2 data-anchor="Internationalisation">国际化(Internationalisation)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.aria.sortAscending"><code class="option" title="DataTables initialisation option">language.aria.sortAscending<span>DT</span></code></a></p></td>
+      <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.aria.sortDescending"><code class="option" title="DataTables initialisation option">language.aria.sortDescending<span>DT</span></code></a></p></td>
+      <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.aria"><code class="option" title="DataTables initialisation option">language.aria<span>DT</span></code></a></p></td>
+      <td><p>Language strings used for WAI-ARIA（无障碍网页应用） specific attributes</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.decimal"><code class="option" title="DataTables initialisation option">language.decimal<span>DT</span></code></a></p></td>
+      <td><p>小数点表示字符（有些文化中用"，"表示小数点）</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.emptyTable"><code class="option" title="DataTables initialisation option">language.emptyTable<span>DT</span></code></a></p></td>
+      <td><p>当表格没有数据时，表格所显示的字符串</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.info"><code class="option" title="DataTables initialisation option">language.info<span>DT</span></code></a></p></td>
+      <td><p>表格的page分页所需显示的所有字符串</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.infoEmpty"><code class="option" title="DataTables initialisation option">language.infoEmpty<span>DT</span></code></a></p></td>
+      <td><p>当表格没有数据时，汇总地方显示的字符串</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.infoFiltered"><code class="option" title="DataTables initialisation option">language.infoFiltered<span>DT</span></code></a></p></td>
+      <td><p>当表格搜索后，在汇总字符串上需要增加的内容</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.infoPostFix"><code class="option" title="DataTables initialisation option">language.infoPostFix<span>DT</span></code></a></p></td>
+      <td><p>在汇总字符串上始终增加的字符串</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.lengthMenu"><code class="option" title="DataTables initialisation option">language.lengthMenu<span>DT</span></code></a></p></td>
+      <td><p>'每页显示记录'的下拉框的提示信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.loadingRecords"><code class="option" title="DataTables initialisation option">language.loadingRecords<span>DT</span></code></a></p></td>
+      <td><p>加载数据时的提示信息 - 当 Ajax请求数据时显示</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.paginate.first"><code class="option" title="DataTables initialisation option">language.paginate.first<span>DT</span></code></a></p></td>
+      <td><p>分页信息的 'first' 按钮显示的信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.paginate.last"><code class="option" title="DataTables initialisation option">language.paginate.last<span>DT</span></code></a></p></td>
+      <td><p>分页信息的 'last' 按钮显示的信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.paginate.next"><code class="option" title="DataTables initialisation option">language.paginate.next<span>DT</span></code></a></p></td>
+      <td><p>分页信息的 'next' 按钮显示的信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.paginate.previous"><code class="option" title="DataTables initialisation option">language.paginate.previous<span>DT</span></code></a></p></td>
+      <td><p>分页信息的 'previous' 按钮显示的信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.paginate"><code class="option" title="DataTables initialisation option">language.paginate<span>DT</span></code></a></p></td>
+      <td><p>分页信息显示所需的字符串的所有信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="//datatables.net/reference/option/language.processing"><code class="option" title="DataTables initialisation option">language.processing<span>DT</span></code></a></p></td>
+      <td><p>当table处理用户处理信息时，显示的信息字符串</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.search"><code class="option" title="DataTables initialisation option">language.search<span>DT</span></code></a></p></td>
+      <td><p>搜索框的提示信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.searchPlaceholder"><code class="option" title="DataTables initialisation option">language.searchPlaceholder<span>DT</span></code></a></p></td>
+      <td><p>搜索框(input)的placeholder属性</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.thousands"><code class="option" title="DataTables initialisation option">language.thousands<span>DT</span></code></a></p></td>
+      <td><p>千位的分隔符</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.url"><code class="option" title="DataTables initialisation option">language.url<span>DT</span></code></a></p></td>
+      <td><p>从远程地址中加载语言信息</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language"><code class="option" title="DataTables initialisation option">language<span>DT</span></code></a></p></td>
+      <td><p>所有DataTables的语言配置都在这里</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/language.zeroRecords"><code class="option" title="DataTables initialisation option">language.zeroRecords<span>DT</span></code></a></p></td>
+      <td><p>当搜索结果为空时，显示的信息</p></td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+<blockquote>
+    <p><a href="http://datatables.net/reference/option/" target="_blank">http://datatables.net/reference/option/</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+
+<script>
+    var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
+        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
+        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
+        $(window).trigger("resize")
+    }});
+    $("div.ref_search input").on("keyup", function() {
+        y.search(this.value).draw()
+    });
+</script>
+
+
+            
+				<div id="SOHUCS" sid="/reference/option/index.html"></div>
+<script>
+    (function(){
+        var appid = 'cyr8jjDJ2',
+                conf = 'prod_d596729bcd45c9544aac809c726ea090';
+        var doc = document,
+                s = doc.createElement('script'),
+                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+        h.insertBefore(s,h.firstChild);
+        window.SCS_NO_IFRAME = true;
+    })()
+</script>
+
+	</div><!--/.fluid-container-->
+     <hr>
+     <!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="加入QQ群">238625393</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+</body>
+</html>

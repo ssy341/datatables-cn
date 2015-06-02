@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Datatables | 手册 | 样式 | Bootstrap</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="datatables is jquery-plugin">
+
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+    <!-- Le styles -->
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="../../css/docs.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+    <link rel="shortcut icon" href="../../images/favicon.png">
+</head>
+
+<body>
+
+<style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li class="active"><a href="/manual">手册</a></li>
+                    <li ><a href="/reference">参考</a></li>
+                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
+                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
+                    <li ><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <div class="span9">
+                <h3>Bootstrap</h3>
+                <p>Bootstrap是Twitter推出的一个用于前端开发的开源工具包。它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。
+                    目前，Bootstrap最新版本为3.0 。</p>
+                <p>Datatables已经很好的支持Bootstrap，通过下面的示例展示给大家怎么使用Bootstrap来美化Datatables</p>
+                <p>在早起的版本中应用Bootstrap到Datatables稍微麻烦，但是现在新版已经做了很好的改善，你只需要引入Datatables已经写好的css样式和js即可</p>
+                <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.css</code></p>
+                <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/bootstrap/3/dataTables.bootstrap.js</code></p>
+                <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/bootstrap</code></p>
+                <p>Bootstrap风格的Datatables:<a href="./bootstrap-simple.html" target="_blank">在新的页面查看此示例</a></p>
+                <iframe border="0" frameBorder="0" src="./bootstrap-simple.html" width="100%" height="510"></iframe>
+                <blockquote>
+                    <p><a href="http://datatables.net/manual/styling/bootstrap" title="bootstrap">http://datatables.net/manual/styling/bootstrap</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
+
+                <div id="SOHUCS" sid="/manual/styling/bootstrap.html"></div>
+<script>
+    (function(){
+        var appid = 'cyr8jjDJ2',
+                conf = 'prod_d596729bcd45c9544aac809c726ea090';
+        var doc = document,
+                s = doc.createElement('script'),
+                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+        h.insertBefore(s,h.firstChild);
+        window.SCS_NO_IFRAME = true;
+    })()
+</script>
+
+
+            </div><!--/row-->
+            <div class="span3">
+                <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header"><h3>手册(Manual)</h3></li>
+        <li ><a href="../install.html">安装（Installation）</a></li>
+        <li ><a href="../data.html">数据（Data）</a></li>
+        <li ><a href="../options.html">选项（Options）</a></li>
+        <li ><a href="../api.html">API</a></li>
+        <li class="active"><a href="../styling.html">样式（Styling）</a></li>
+        <li ><a href="http://datatables.net/manual/events">事件（Events）</a></li>
+        <li ><a href="http://datatables.net/manual/orthogonal-data">正文数据（Orthogonal data）</a></li>
+        <li ><a href="http://datatables.net/manual/server-side">服务器支持处理（Server-side processing）</a></li>
+        <li ><a href="../i18n.html">国际化（Internationalisation）</a></li>
+    </ul>
+</div><!--/.well -->
+            </div>
+        </div><!--/row-->
+
+        <hr>
+
+    </div><!--/.fluid-container-->
+</div>
+<!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="加入QQ群">238625393</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>

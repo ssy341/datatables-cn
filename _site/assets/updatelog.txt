@@ -1,0 +1,50 @@
+{
+    "data": [
+        [
+            "<del>已经开始同步更新，为了方便大家解决问题，本站开通了<a target='_blank' href='http://dt.thxopen.com/bbs/forum.php'>论坛</a> ，欢迎使用</del>", 
+            "2014-11-22", 
+            0
+        ], 
+        [
+            "<del>更换服务器，访问速度提升；论坛地址更换<a target='_blank' href='http://dt.thxopen.com/bbs/forum.php'>http://dt.thxopen.com/bbs/forum.php</a></del>", 
+            "2014-12-13", 
+            0
+        ], 
+        [
+            "添加<a target='_blank' href='/upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>", 
+            "2014-12-29", 
+            0
+        ], 
+        [
+            "<a target='_blank' href='http://www.gbtags.com/gb/share/4526.htm'>Datatables新版1.10.4特性讲解征求意见</a>", 
+            "2015-02-05", 
+            0
+        ], 
+        [
+            "<a target='_blank' href='http://dt.thxopen.com/tour.html'>Datatables中文网导航</a>", 
+            "2015-03-02", 
+            1
+        ], 
+        [
+            "<a target='_blank' href='http://dt.thxopen.com/faqs'>Datatables常见问题</a>", 
+            "2015-03-18", 
+            1
+        ], 
+        [
+            "<a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加", 
+            "2015-04-01", 
+            1
+        ], 
+        [
+            "第一期<a target='_blank' href='/example/'>视频教学</a>", 
+            "2015-04-11", 
+            1
+        ], 
+        [
+            "Datatables中文网第一期交流学习活动开始了<a target='_blank' href='/activity/'>传送门</a>",
+            "2015-04-27",
+            1
+        ]
+    ], 
+    "isNote": true
+}

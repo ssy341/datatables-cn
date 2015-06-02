@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>常见问题 Datatables 中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.7
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <!-- Le styles -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+</head>
+<body>
+<style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li ><a href="/manual">手册</a></li>
+                    <li ><a href="/reference">参考</a></li>
+                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
+                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
+                    <li class="active"><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    dl{
+        line-height: 24px;
+        padding: 10px 0;
+        border-bottom: solid 1px #E1E1E1;
+        margin-bottom: 0;
+    }
+    dl>dt{
+        width: 100px;
+        font-weight: bold;
+        text-align: center;
+    }
+    dt>a{
+        display: block;
+        float: left;
+        width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    dd{
+        margin-top: 5px;
+    }
+    dd>a{
+        margin-left: 10px;
+    }
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="container" >
+    <div class="span1"></div>
+    <div class="span10">
+        <h2>常见问题</h2>
+        <p>Datatables在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题，有些问题是已知的，我会列举在下面。</p>
+        <h4>获得帮助</h4>
+        <p>
+        <ul>
+            <li><b>问：我有一个问题，我怎么得到帮助？</b></li>
+            <li>答：目前有Datatables中文网，方便大家查阅，如果英语好点的可以直接查看 <a href="http://www.datatables.net" target="_blank">官网</a> ，不管是官网还是中文网，都有丰富的
+                <a href="../manual" target="_blank">手册</a> , <a href="../reference" target="_blank">参考</a>,<a href="../example" target="_blank">例子</a> 以及下面要说到的常见问题。
+                如果你不能在此页找到你需要的问题，那么你可以在<a href="http://www.gbtags.com/gb/user/111.htm" target="_blank">社区</a>提问
+                或者发布一个<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>
+                (<a href="http://www.gbtags.com/gb/share/4819.htm" target="_blank">怎么调试？</a>)
+            </li>
+            <li>
+                <b>问：如何在群里寻求大家帮助？</b>
+            </li>
+            <li>
+                首先<a class="btn btn-lg btn-primary btn-shadow bs3-link"
+                   href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank" role="button"
+                   title="加入QQ群">加入QQ群 &raquo;</a>
+                ，但是需要注意一下，提问先 <b style="color:red">上效果图片</b> ，<b style="color:red">然后描述问题</b>，<b style="color:red">最后贴代码</b>（不要吝啬，多贴些不会说你刷屏的）。
+                如果有<b style="color:red">报错的贴报错</b>，如果是服务器处理的（加了serverSide属性为true）<b style="color:red">贴上服务器返回数据</b>。
+                问题要明确，给足够的信息，别人才能判断、才能帮助你（注意禁止在上班期间私聊别人请教问题，不管你有多急，请尊重别人的时间，群友如果知道一般会回答）。如果还是不能解决，根据实际情况再远程协助，希望大家快乐学习。
+                注：QQ群加入机器人，有些常见的问题、连接都可以通过关键字获取，方便解决一些常见问题，如果你也有faqs，也可以提交给我，帮助到别人
+            </li>
+            <li>
+                <b>小技巧</b>:把下面的超链接拖到书签栏，当打开<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>后，点击这个即可添加Datatables需要的css和js
+                <br/>
+                <button style="width:200px;height: 50px">
+                <a href="javascript: (function() {
+    var css = $('<a>jquery.dataTables.css</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(css)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+    var jqueryjs = $('<a>jquery.min.js</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.js').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.js').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(jqueryjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+    var dtjs = $('<a>jquery.dataTables.min.js</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js').addClass('resourceitem');
+    $('#sortable').append($('<li></li>').append(dtjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
+})();">Datatables Debug</a></button>
+            </li>
+        </ul>
+        </p>
+        <hr/>
+        <h4>最常见问题</h4>
+        <p>
+            <ul>
+                <li><b>问：控制台报错，提示api方法不可用</b></li>
+                <li>答：1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
+                    <code>$().DataTable()</code> 返回的是Datatables的api实例，  详细参考 <a href="/manual/api.html" target="_blank">api手册</a> </li>
+            </ul>
+
+            <ul>
+                <li><b>问：我现在还在使用1.9.x的版本，去哪里查看文档？</b></li>
+                <li>答：旧版本的文档可以查阅这个 <a href="http://legacy.datatables.net/" target="_blank">网址</a> ，因为考虑到版本升级，新版的Datatables对旧版做了兼容性处理，大部分的
+                    配置选项方法在新版中依然兼容，但还是推荐直接升级到最新版使用。 <a href="/upgrade/1.10-convert.html" target="_blank">1.10.x与1.9.x参数名对照表</a>
+                </li>
+            </ul>
+
+            <ul>
+                <li><b>问：json数据解析错误</b></li>
+                <li>答：这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数</li>
+            </ul>
+
+            <ul>
+                <li><b>问：我在ie中会提示错误，但是chrome、ff这些浏览器却不会</b></li>
+                <li>答：一般可能是缺少逗号，在ie浏览器下会抛出错误，但是chrome这些浏览器会忽略这些错误</li>
+            </ul>
+            <ul>
+                <li><b>问：为什么表头会缩在一起，刷新页面后又正常了</b></li>
+                <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，
+                    获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
+                    还要检查css样式是否引入</li>
+            </ul>
+
+            <ul>
+                <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
+                <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
+                <li>答：1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误。
+                    2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，
+                    3这个错误指出很明确了返回的一个未知的参数，所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
+            </ul>
+
+            <ul>
+                <li><b>问:控制台报错 Cannot read property 'length' of null 是怎么回事</b></li>
+                <li>答：这个一般是返回的数据有问题，比如因该返回data属性，或者 data为空不是[]而是null，dt识别不了所以报此错误</li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
+                <li>答：加上 retrieve:true 和 destroy:true 两个参数即可
+                    另见：<a href="/reference/option/retrieve.html" target="_blank">
+    <code>retrieve<span>DT</span></code>
+</a><a href="/reference/option/destroy.html" target="_blank">
+    <code>destroy<span>DT</span></code>
+</a> </li>
+            </ul>
+
+            <ul>
+                <li><b>问:弹出提示Datatables warning:Non-table node initialisation (DIV)是怎么回事</b></li>
+                <li>答：这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的id-example在其他元素上，而不是table的id</li>
+            </ul>
+        </p>
+
+        <hr/>
+        <h4>一般初始化</h4>
+        <p>
+            <ul>
+                <li><b>问:我觉得Datatables在加载的时候比较慢，有没有让Datatables更快一点</b></li>
+                <li>答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
+                    <ul>
+                        <li>如果你是客户端模式，数据在5000条以内，加上 <a href="http://datatables.net/reference/option/orderClasses" target="_blank">
+    <code>orderClasses<span>DT</span></code>
+</a></li>
+                        <li>如果你是ajax加载数据，数据在50000条以内，加上 <a href="/reference/option/deferRender.html" target="_blank">
+    <code>deferRender<span>DT</span></code>
+</a></li>
+                        <li>如果你数据量很多，那么你需要开启服务器模式 （ <a href="http://datatables.net/reference/option/serverSide" target="_blank">
+    <code>serverSide<span>DT</span></code>
+</a>）</li>
+                    </ul>
+                </li>
+                <li>注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响</li>
+            </ul>
+
+            <ul>
+                <li><b>问:表格不能正常显示</b></li>
+                <li>答：Datatables所需要的table是比较严谨的，table里必须包含thead和tbody标签(1.10.x+好像不需要tbody也行了，大家注意自己多尝试)。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考 <a
+                        href="/manual/install.html" target="_blank">安装手册</a> </li>
+            </ul>
+
+            <ul>
+                <li><b>问:表格显示的样式和例子的不同</b></li>
+                <li>答：检查css样式文件是否引入正确（名称和路径），还有页面上引入的其他css有没有一并引入 </li>
+            </ul>
+
+            <ul>
+                <li><b>问:如何按照自己的喜好摆放Datatables的控件</b></li>
+                <li>答：配置 <a href="http://datatables.net/reference/option/dom" target="_blank">
+    <code>dom<span>DT</span></code>
+</a> 属性来自有摆放， <a href="/example/basic_init/dom.html" target="_blank">示例</a> </li>
+            </ul>
+
+        </p>
+
+        <hr/>
+        <h4>许可</h4>
+        <p>
+            <ul>
+                <li><b>问：Datatables是个很棒的插件，要多少钱呢？</b></li>
+                <li>答：Datatables是免费的、开放源码的，不管出于什么目的你都可以下载和使用，应用到你的网站。它是免费供您使用的 ！Datatables是可用在MIT下,你必须遵守 （要做到这一点，只要保证在软件中的版权声明）。</li>
+            </ul>
+            <ul>
+                <li><b>问：Datatables真的免费么？甚至可以使用在商业网站上么？</b></li>
+                <li>答：是的 ！Datatables有个很棒的社区使它你能到今天，在更多的地方使用到它，我很高兴作为开放源码。很明显，Datatables对你们的帮助是有的，那么任何回报都是欢迎的。 你可以购买一个 <a
+                        href="http://datatables.net/purchase" target="_blank">支持包</a> 或者在 <a href="http://datatables.net/forums" target="_blank"> 论坛</a> 发表文章代码来表示你喜欢使用Datatables。
+                    前面是对官网的支持，如果你觉得Datatables中文网也帮助到你不少，当时也接受任何回报 <a href="/about/" target="_blank">详见&raquo;</a>
+                </li>
+            </ul>
+            <ul>
+                <li><b>问：我们不能用MIT许可软件，怎么办？</b></li>
+                <li>答：在罕见的情况下,你不能使用Datatable中在其可用的许可证,请 <a href="http://datatables.net/contact" target="_blank">取得联系</a>讨论替代许可证协议
+                </li>
+            </ul>
+        </p>
+
+        <hr/>
+        <h4>开发中常见问题</h4>
+        <p>
+        <ul>
+            <li><b>问：我很喜欢这个插件，我该如何贡献呢？</b></li>
+            <li>答：
+                <ul>
+                    <li>在你的blog中宣传Datatables插件的用法或者在项目中实际的应用</li>
+                    <li>告诉你的朋友们你在使用这个插件，告诉他们Datatables和Datatables中文网并传播这两个词</li>
+                    <li>创建 <a href="http://datatables.net/plug-ins/" target="_blank">插件</a>展示在Datatables官网</li>
+                    <li>在论坛积极的帮助其他使用Datatables的朋友</li>
+                    <li>为你找到的bug提供补丁</li>
+                    <li>测试错误</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><b>问：我已经制作了一个插件我要怎么与别人分享？</b></li>
+            <li>答：你可以 <a href="http://datatables.net/contact" target="_blank">寄给我</a>或者发布在论坛上 </a>
+            </li>
+        </ul>
+        <ul>
+            <li><b>问：我想我找到一个错误，我该怎么报告？</b></li>
+            <li>答：把你的错误和完整的测试代码能够错误重现的放到 <a href="http://datatables.net/forums" target="_blank">论坛</a>上 </li>
+        </ul>
+        </p>
+        <blockquote>
+    <p><a href="http://datatables.net/faqs/index" target="_blank">http://datatables.net/faqs/index</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+        <div id="SOHUCS" sid="/faqs/index.html"></div>
+<script>
+    (function(){
+        var appid = 'cyr8jjDJ2',
+                conf = 'prod_d596729bcd45c9544aac809c726ea090';
+        var doc = document,
+                s = doc.createElement('script'),
+                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+        h.insertBefore(s,h.firstChild);
+        window.SCS_NO_IFRAME = true;
+    })()
+</script>
+
+    </div>
+    <div class="span1">
+    </div>
+</div>
+
+<!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="加入QQ群">238625393</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

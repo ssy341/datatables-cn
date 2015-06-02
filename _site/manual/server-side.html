@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>服务器处理(server-side) 手册 Datatables中文网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="datatables is jquery-plugin">
+
+    <!-- 最新 Bootstrap 核心 CSS 文件 -->
+<!-- Le styles -->
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<!--代码高亮-->
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+
+
+<!-- DataTables CSS -->
+<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+<link href="../css/docs.css" rel="stylesheet">
+
+
+
+<style type="text/css">
+    body {
+        padding-top: 60px;
+    }
+    .sidebar-nav {
+        padding: 9px 0;
+    }
+
+    @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+            float: none;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+</style>
+<link rel="shortcut icon" href="../images/favicon.png">
+</head>
+<body>
+<style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li ><a href="/manual">手册</a></li>
+                    <li ><a href="/reference">参考</a></li>
+                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
+                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
+                    <li ><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        <div class="container-fluid">
+    <div class="row-fluid">
+
+        <div class="span9">
+            <h2 data-anchor="DataTables-Manual">服务器处理(Server-side processing)</h2>
+            <p>
+                是不是发现在处理太多dom数据或者ajax一次性把数据获得后，Datatables表现的不是很满意？这是肯定的，因为dt需要渲染，创建tr，td所以数据越多，速度就越慢了。
+                为了解决这个问题Datatables提供了服务器模式，把本来客户端所做的事情交给服务器去处理，比如 排序，分页，过滤。对于客户端来说这些操作都是比较消耗资源的，
+                所以打开服务器模式后有再多的数据也不用怕了
+            </p>
+
+            <p>
+                当你打开服务器模式的时候，每次绘制表格的时候，Datatables会给服务器发送一个请求（包括当前分页，排序，搜索等等）。Datatables会发向
+                服务器发送大量的变量去执行所需要的处理，然后在服务器拼好相应的数据返回给Datatables。
+            </p>
+            <p>
+                开启服务器模式需要使用 <a href="http://datatables.net/reference/option/serverSide" target="_blank">
+    <code>serverSide<span>DT</span></code>
+</a>选项，并且配置 <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a>，进一步的信息，请参考下面的配置选项。
+            </p>
+            <h3>发送参数(Sent parameters)</h3>
+
+            <p>
+                当使用服务器处理时，Datatables会发送如下数据给服务器
+            </p>
+            <div class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td><code>draw</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                请求次数计数器，每次发送给服务器后又原封返回，因为请求是异步的为了确保每次请求能对应到服务器返回的数据，假设你请求的是第一页的数据收到的却是第二页的，这样就乱套了
+                                （这是我对draw的理解，如果有不同理解的可以告知）
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>start</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                第一条数据的起始位置，比如0代表第一条数据
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>length</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                告诉服务器每页显示的条数，这个数字会等于返回的记录数，可能会大于因为服务器可能没有那么多数据。这个也可能是-1，代表需要返回全部数据(尽管这个和服务器处理的理念有点违背)
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>search[value]</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                全局的搜索条件，针对于每一列（ <code>searchable</code>需要设置为 <code>true</code>    ）
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>search[regex]</code></td>
+                        <td><a href="http://datatables.net/reference/type/boolean">
+    <code class="type" title="Javascript parameter type">boolean<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                如果为 <code>true</code>代表全局搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                                注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>order[i][column]</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                <code>i</code>是一个数组索引，对应的是 <code>columns</code>，从0开始，次参数表示那一列需要排序
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>order[i][dir]</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                上面确定了是那一列，这个确定对应的列是什么样的排序方式 <code>desc</code> 是降序 <code>asc</code>升序
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>columns[i][data]</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                columns 绑定的数据源，由<a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
+</a> 定义
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>columns[i][name]</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                <a href="http://datatables.net/reference/option/columns.name" target="_blank">
+    <code>columns.name<span>DT</span></code>
+</a> 里定义的名称
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>columns[i][searchable]</code></td>
+                        <td><a href="http://datatables.net/reference/type/boolean">
+    <code class="type" title="Javascript parameter type">boolean<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                标记列是否能被搜索 为 <code>true</code>代表可以，否则不可以，这个是由    <a href="http://datatables.net/reference/option/columns.searchable" target="_blank">
+    <code>columns.searchable<span>DT</span></code>
+</a> 控制
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>columns[i][orderable]</code></td>
+                        <td><a href="http://datatables.net/reference/type/boolean">
+    <code class="type" title="Javascript parameter type">boolean<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                标记列是否能排序 为 <code>true</code>代表可以，否则不可以，这个是由    <a href="http://datatables.net/reference/option/columns.orderable" target="_blank">
+    <code>columns.orderable<span>DT</span></code>
+</a> 控制
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>columns[i][search][value]</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                特定列的搜索条件
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>columns[i][search][regex]</code></td>
+                        <td><a href="http://datatables.net/reference/type/boolean">
+    <code class="type" title="Javascript parameter type">boolean<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                特定列的搜索条件是否视为正则表达式
+                            </p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <h3>返回的数据(Returned data)</h3>
+             <p>
+                    Datatables发送以上参数后需要按照下面要求的参数返回
+             </p>
+            <div class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td><code>draw</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                上面提到了，Datatables发送的draw是多少那么服务器就返回多少。这里注意，作者出于安全的考虑，强烈要求把这个转换为整数后再返回，而不是纯粹的接受然后返回，这是
+                                为了防止跨站脚本（XSS）攻击。
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>start</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                第一条数据的起始位置，比如0代表第一条数据
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>recordsTotal</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                即没有过滤的记录数（数据库里总共记录数）
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>recordsFiltered</code></td>
+                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
+    <code class="type"  title="">integer<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>data</code></td>
+                        <td><a href="http://datatables.net/reference/type/array">
+    <code class="type"  title="Javascript parameter type">array<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                表中中需要显示的数据。这是一个对象数组，也可以只是数组，区别在于
+                                纯数组前台就不需要用 <code>columns</code>绑定数据，会自动按照顺序去显示
+                                ，而对象数组则需要使用 <code>columns</code>绑定数据才能正常显示。
+                                注意这个 <code>data</code>的名称可以由
+                                <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a>的<a href="/reference/option/ajax.dataSrc.html" target="_blank">
+    <code>ajax.dataSrc<span>DT</span></code>
+</a>控制
+
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>error</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                可选。你可以定义一个错误来描述服务器出了问题后的友好提示
+                            </p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                除了上面的返回参数以外你还可以加入下面的参数，来实现对表格的自动绑定
+            </p>
+            <div class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td><code>DT_RowId</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                自动绑定到 <code>tr</code>节点上
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>DT_RowClass</code></td>
+                        <td><a href="http://datatables.net/reference/type/string">
+    <code class="type"  title="Javascript parameter type">string<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                自动把这个类名添加到 <code>tr</code>
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="odd">
+                        <td><code>DT_RowData</code></td>
+                        <td><a href="http://datatables.net/reference/type/object">
+    <code class="type" title="Javascript parameter type">object<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                使用 <a href="http://api.jquery.com/data/">
+    <code class="type"  title="Javascript parameter type">jQuery.data()</code>
+</a>方法把数据绑定到row中，方便之后用来检索（比如加入一个点击事件）
+                            </p>
+                        </td>
+                    </tr>
+                    <tr role="row" class="even">
+                        <td><code>DT_RowAttr</code></td>
+                        <td><a href="http://datatables.net/reference/type/object">
+    <code class="type" title="Javascript parameter type">object<span>JS</span></code>
+</a>
+                        </td>
+                        <td>
+                            <p>
+                                自动绑定数据到 <code>tr</code>上，使用  <a href="http://api.jquery.com/attr/">
+    <code class="type"  title="Javascript parameter type">jQuery.attr()</code>
+</a>方法，对象的键用作属性，值用作属性的值。注意这个
+                                需要 <code>Datatables 1.10.5+</code>的版本才支持
+                            </p>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <p>如何使用上面的参数，参考下面展示的数据实例</p>
+
+            <h3>配置（Configuration）</h3>
+
+             <p>使用服务器模式需要启用 <a href="http://datatables.net/reference/option/serverSide" target="_blank">
+    <code>serverSide<span>DT</span></code>
+</a>选项 ，设置为 <code>true</code>，并且配置 <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a>设置url，告诉Datatables该
+             从那里获得数据</p>
+            <div class="reference_examples">
+                <div class="reference_example">
+                    <div class="title">
+                        所以最简单的服务器初始化代码如下所示：
+                    </div>
+                      <pre class="brush:js;toolbar:false">
+$(&#39;#example&#39;).DataTable( {
+    serverSide: true,
+    ajax: &#39;/data-source&#39;
+} );
+                      </pre>
+                </div>
+            </div>
+            <p>
+                <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a> 可以直接接受一个字符串也可以作为一个对象使用。作为对象他就像 <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">
+    jQuery.ajax
+</a> 配置一样
+            </p>
+            <div class="reference_examples">
+                <div class="reference_example">
+                    <div class="title">
+                        比如我要Datatables发送的请求为
+                        <code>post</code>代码如下
+                    </div>
+                      <pre class="brush:js;toolbar:false">
+$(&#39;#example&#39;).DataTable( {
+    serverSide: true,
+    ajax: {
+        url: &#39;/data-source&#39;,
+        type: &#39;POST&#39;
+    }
+} );
+                      </pre>
+                </div>
+            </div>
+            <p>在Datatables中的 <code>ajax</code>选项配置详细参考 <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a> </p>
+
+
+            <h3>老版（Legacy）</h3>
+
+            <p>
+                1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
+                旧的是使用 <code>sAjaxSource </code> 而新的是使用 <a href="http://datatables.net/reference/option/ajax" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a>或者通过设置
+                <code>0.fn.dataTable.ext.legacy.ajax = true;</code>
+            </p>
+            <p>
+                1.9版本服务器操作的文档看请 <a href="http://legacy.datatables.net/usage/server-side" target="_blank">参考这里</a>
+            </p>
+
+            <h3>示例数据（Example data）</h3>
+            <div class="reference_examples">
+                <div class="reference_example">
+                    <div class="title">
+                        服务器端处理的例子，返回使用数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
+                    </div>
+                      <pre class="brush:js;toolbar:false">
+{
+    &quot;draw&quot;: 1,
+    &quot;recordsTotal&quot;: 57,
+    &quot;recordsFiltered&quot;: 57,
+    &quot;data&quot;: [
+        [
+            &quot;Angelica&quot;,
+            &quot;Ramos&quot;,
+            &quot;System Architect&quot;,
+            &quot;London&quot;,
+            &quot;9th Oct 09&quot;,
+            &quot;$2,875&quot;
+        ],
+        [
+            &quot;Ashton&quot;,
+            &quot;Cox&quot;,
+            &quot;Technical Author&quot;,
+            &quot;San Francisco&quot;,
+            &quot;12th Jan 09&quot;,
+            &quot;$4,800&quot;
+        ],
+        ...
+    ]
+}                 </pre>
+                </div>
+            </div>
+
+
+            <div class="reference_examples">
+                <div class="reference_example">
+                    <div class="title">
+                        服务器端处理的例子,返回使用对象还包括<code>DT_RowId</code> 和 <code>DT_RowData</code>（<a href="http://datatables.net/examples/server_side/object_data.html" target="_blank">完整例子</a> ）
+                    </div>
+                      <pre class="brush:js;toolbar:false">
+{
+    &quot;draw&quot;: 1,
+    &quot;recordsTotal&quot;: 57,
+    &quot;recordsFiltered&quot;: 57,
+    &quot;data&quot;: [
+        {
+            &quot;DT_RowId&quot;: &quot;row_3&quot;,
+            &quot;DT_RowData&quot;: {
+                &quot;pkey&quot;: 3
+            },
+            &quot;first_name&quot;: &quot;Angelica&quot;,
+            &quot;last_name&quot;: &quot;Ramos&quot;,
+            &quot;position&quot;: &quot;System Architect&quot;,
+            &quot;office&quot;: &quot;London&quot;,
+            &quot;start_date&quot;: &quot;9th Oct 09&quot;,
+            &quot;salary&quot;: &quot;$2,875&quot;
+        },
+        {
+            &quot;DT_RowId&quot;: &quot;row_17&quot;,
+            &quot;DT_RowData&quot;: {
+                &quot;pkey&quot;: 17
+            },
+            &quot;first_name&quot;: &quot;Ashton&quot;,
+            &quot;last_name&quot;: &quot;Cox&quot;,
+            &quot;position&quot;: &quot;Technical Author&quot;,
+            &quot;office&quot;: &quot;San Francisco&quot;,
+            &quot;start_date&quot;: &quot;12th Jan 09&quot;,
+            &quot;salary&quot;: &quot;$4,800&quot;
+        },
+        ...
+    ]
+}    </pre>
+                </div>
+            </div>
+
+            <blockquote>
+    <p><a href="http://datatables.net/manual/server-side" target="_blank">http://datatables.net/manual/server-side</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+
+            <div id="SOHUCS" sid="/manual/server-side.html"></div>
+<script>
+    (function(){
+        var appid = 'cyr8jjDJ2',
+                conf = 'prod_d596729bcd45c9544aac809c726ea090';
+        var doc = document,
+                s = doc.createElement('script'),
+                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+        h.insertBefore(s,h.firstChild);
+        window.SCS_NO_IFRAME = true;
+    })()
+</script>
+
+
+        </div><!--/row-->
+        <div class="span3">
+            <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+        <li class="nav-header"><h3>手册(Manual)</h3></li>
+        <li ><a href="install.html">安装（Installation）</a></li>
+        <li ><a href="data.html">数据（Data）</a></li>
+        <li ><a href="options.html">选项（Options）</a></li>
+        <li ><a href="api.html">API</a></li>
+        <li ><a href="styling.html">样式（Styling）</a></li>
+        <li ><a href="http://datatables.net/manual/events">事件（Events）</a></li>
+        <li ><a href="http://datatables.net/manual/orthogonal-data">正文数据（Orthogonal data）</a></li>
+        <li class="active"><a href="http://datatables.net/manual/server-side">服务器支持处理（Server-side processing）</a></li>
+        <li ><a href="i18n.html">国际化（Internationalisation）</a></li>
+    </ul>
+</div><!--/.well -->
+        </div><!--/span-->
+    </div><!--/row-->
+
+
+</div><!--/.fluid-container-->
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<!--代码高亮-->
+<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
+<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
+<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+
+
+
+    </div>
+    <!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="加入QQ群">238625393</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+</body>
+</html>

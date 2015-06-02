@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>否允许Datatables开启本地搜索(searching) 选项(option) 参考(reference) Datatables 中文网</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="datatables is jquery-plugin">
+
+    <!-- Le styles -->
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+<!--代码高亮-->
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
+<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
+
+<link href="/css/docs.css" rel="stylesheet">
+
+<style type="text/css">
+    body {
+        padding-top: 60px;
+    }
+    .sidebar-nav {
+        padding: 9px 0;
+    }
+
+    @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+            float: none;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+</style>
+<link rel="shortcut icon" href="/images/favicon.png">
+	<style>
+    code.option {
+        color: #D14;
+        background-color: #fcf6f8;
+        border: 1px solid #f7d6df;
+    }
+    code>span {
+        border-left: 1px solid rgba(0,0,0,0.2);
+        margin-left: 4px;
+        padding-left: 4px;
+        opacity: 0.5;
+    }
+    div.ref_type {
+        position: relative;
+        padding: 3.5em 1em 1em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #bbb;
+        margin-bottom: 1em
+    }
+
+    div.ref_type:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_type h3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1em;
+        padding: 0.5em;
+        margin-top: 0;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid #ddd;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px
+    }
+
+    div.ref_type span.type {
+        font-size: 0.8em;
+        color: #777;
+        font-style: italic
+    }
+
+    div.ref_type dl dt {
+        font-size: 1.1em
+    }
+
+    div.ref_type dl dd {
+        margin-left: 3em;
+        margin-bottom: 1em
+    }
+
+    div.ref_type dl:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_search input {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 90%;
+    }
+    </style>
+</head>
+<body>
+     <style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li ><a href="/manual">手册</a></li>
+                    <li class="active"><a href="/reference">参考</a></li>
+                    <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
+                    <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
+                    <li ><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<!--代码高亮-->
+<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
+<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
+<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+
+
+     <div class="container">
+				<h1 class="page_title">是否允许Datatables开启本地搜索(searching)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>是否允许Datatables开启本地搜索</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>此选项用来开启、关闭Datatables的搜索功能</p>
+<p>这个属性赋值可以是CSS unit或者一个数字(这种情况下，这个数字会被认为是像素宽度)，
+    并且会应用于table body (也就是这个高度不会应用于header 或者 footer 的高度)。</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>This option can be given in the following type(s):</p>
+<ul class="markdown">
+  <li><a href="//datatables.net/reference/type/string"><code class="type" title="Javascript parameter type">string<span>JS</span></code></a></li>
+</ul>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>Enable vertical scrolling with pagination disabled:</p>
+    </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;scrollY&quot;: &quot;200px&quot;,
+  &quot;scrollCollapse&quot;: true,
+  &quot;paging&quot;: false
+} );</pre>
+  </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">Options
+  <ul class="markdown">
+    <li><a href="paging.html"><code class="init" title="Initialisation option">paging</code></a></li>
+    <li><a href="scrollX.html"><code class="init" title="Initialisation option">scrollX</code></a></li>
+    <li><a href="scrollCollapse.html"><code class="init" title="Initialisation option">scrollCollapse</code></a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+<blockquote>
+    <p><a href="http://datatables.net/reference/option/searching" target="_blank">http://datatables.net/reference/option/searching</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+
+				<div id="SOHUCS" sid="/reference/option/searching.html"></div>
+<script>
+    (function(){
+        var appid = 'cyr8jjDJ2',
+                conf = 'prod_d596729bcd45c9544aac809c726ea090';
+        var doc = document,
+                s = doc.createElement('script'),
+                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
+        s.type = 'text/javascript';
+        s.charset = 'utf-8';
+        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
+        h.insertBefore(s,h.firstChild);
+        window.SCS_NO_IFRAME = true;
+    })()
+</script>
+
+	</div><!--/.fluid-container-->
+     <hr>
+     <!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="加入QQ群">238625393</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cspan id='cnzz_stat_icon_1000392314'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000392314%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+</body>
+</html>

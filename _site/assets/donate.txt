@@ -1,0 +1,32 @@
+{
+    "data": [
+         {
+            "nickname": "张*",
+            "money": "5",
+            "date": "2015-5-16",
+            "note":"捐赠【Datatables中文网】",
+            "type":1
+        },
+          {
+             "nickname": "张*政",
+             "money": "50",
+             "date": "2015-5-18",
+             "note":"捐赠【Datatables中文网】",
+             "type":1
+         } ,
+         {
+            "nickname": "张*(逆风)",
+            "money": "1",
+            "date": "2015-5-18",
+            "note":"捐赠【Datatables中文网】",
+            "type":1
+        },
+          {
+             "nickname": "邱*铭",
+             "money": "10",
+             "date": "2015-5-18",
+             "note":"捐赠【Datatables中文网】",
+             "type":1
+         }
+    ]
+}
