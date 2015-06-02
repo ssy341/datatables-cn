@@ -1,0 +1,198 @@
+---
+layout: reference_option_detail_layout
+title: 控制Datatables元素的位置(dom)
+relurl: http://datatables.net/reference/option/dom
+---
+<h1 class="page_title">控制Datatables元素的位置(dom)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<p>控制Datatables元素的位置</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+   Datatables会添加一些控制元素在表格的周围，比如默认状态下改变每页显示条数（l）的空间在左上角，即使搜索框（f）在右上角，表格的信息（i）显示在左下角，分页控件（p）显示在右下角。
+    这些控件在给大家带来便利的同时，也可能出现困惑。比如我想把l放在i的后面，我想表格的上下都有p，我想加入自己的控件放在l的后面……这些太多了，那么下面就给大家介绍怎么去使用dom属性配置已经自定义。
+</p>
+<p>
+    上面我已经用了一些英文字母标注在每个控件的后面，开始看肯定会有些疑惑，或者不熟悉，不要着急，我来告诉大家这些到底是什么
+</p>
+<p>
+作者为了适应我们所说的这些情况，已经考虑到了，所以有这么强大的dom属性。那么作者定义了如下字母：
+<ul>
+    <li>l - Length changing 改变每页显示多少条数据的控件</li>
+    <li>f - Filtering input 即时搜索框控件</li>
+    <li>t - The Table 表格本身</li>
+    <li>i - Information 表格相关信息控件</li>
+    <li>p - Pagination 分页控件</li>
+    <li>r - pRocessing 加载等待显示信息</li>
+    <li>< > - div elements 代表一个div元素 <code>&lt;div&gt;&lt;div&gt;</code>  </li>
+    <li><"#id" > - div with an id 指定了id的div元素 <code>&lt;div id='id'&gt;&lt;div&gt;</code></li>
+    <li><"class" > - div with a class 指定了样式名的div元素 <code>&lt;div class='class'&gt;&lt;div&gt;</code></li>
+    <li><"#id.class" > - div with an id and class 指定了id和样式的div元素 <code>&lt;div id='id' class='class'&gt;&lt;div&gt;</code></li>
+</ul>
+这些字母你可以理解为一个标签，dt会自动把这些字母替换成相应的控件，就想模板一样。上面的这些元素 l、f、t、i、p、r除了t只能指定一次，其他的均可多次指定。
+</p>
+<p>
+    下面还有两个字母是应用到jQueryUI上的，不过作者推荐在1.10甚至1.11版本中不去使用他，通过使用 {% include href/option/jQueryUI.dt %}来分离开
+<ul>
+    <li>H - jQueryUI'header'classes (<code>fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr
+        ui-helper-clearfix </code>)</li>
+    <li>F - jQueryUI'footer'classes(<code>fg-toolbar ui-widget-header ui-corner-bl ui-corner-br
+        ui-helper-clearfix</code>)</li>
+</ul>
+</p>
+<p>
+    最后，你也可以添加插件给Datatables，指定新的字母。比如 <a href="http://datatables.net/extras/tabletools" target="_blank">TableTools</a>就是添加了
+    <code>T</code>来表示。在dom里指定之后，相应的按钮就添加到表格上了
+</p>
+<p>
+    注意：dom的用法可能还不是很简单，希望在1.11版本的计划中更加优化这个参数的使用，让表格定位更简单
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+
+<p>这个选项用下列的数据类型赋值。</p>
+<ul class="markdown">
+    <li>
+        {% include href/string.js %}
+    </li>
+</ul>
+
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<ul class="markdown">
+    <li>
+       Value : <code>lfrtip</code>
+    </li>
+</ul>
+<p>
+    注意：当 {% include href/option/jQueryUI.dt %}启用时，默认值是：<code><"H"lfr > t <"F"ip ></code>
+</p>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                不显示即时搜索，不管你是打开过滤还是关闭，这个是从元素上给删除了
+            </p>
+        </div>
+    <pre class="brush:js;toolbar:false">/*
+    &lt;div class=&quot;wrapper&quot;&gt;
+      {length}
+      {processing}
+      {table}
+      {information}
+      {pagination}
+    &lt;/div&gt;
+*/
+$('#example').dataTable( {
+  &quot;dom&quot;: 'lrtip'
+} );</pre>
+    </div>
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/923.htm' %}
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                把Datatables所有的控件放在我自己定义的class的div里
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">/*
+    &lt;div class=&quot;wrapper&quot;&gt;
+      {filter}
+      {length}
+      {information}
+      {pagination}
+      {table}
+    &lt;/div&gt;
+*/
+$('#example').dataTable( {
+  &quot;dom&quot;: '&lt;&quot;wrapper&quot;flipt&gt;'
+} );</pre>
+    </div>
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/924.htm' %}
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                改变长度的和即时搜索在表格上方，信息和分页在表格下方，这里的上下指的是在不同的div里，便于控制
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">/*
+    &lt;div&gt;
+      {length}
+      {filter}
+      &lt;div&gt;
+        {table}
+      &lt;/div&gt;
+      {information}
+      {pagination}
+    &lt;/div&gt;
+*/
+$('#example').dataTable( {
+  &quot;dom&quot;: '&lt;lf&lt;t&gt;ip&gt;'
+} );</pre>
+    </div>
+
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/925.htm' %}
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                信息在顶部，即时过滤、改变长度和分页在底部，以及在后面加一个清除浮动，需要说明的是，这里的top、bottom和clear是需要已经定义的class名
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">/*
+    &lt;div class=&quot;top&quot;&gt;
+      {information}
+    &lt;/div&gt;
+    {processing}
+    {table}
+    &lt;div class=&quot;bottom&quot;&gt;
+      {filter}
+      {length}
+      {pagination}
+    &lt;/div&gt;
+    &lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;
+*/
+$('#example').dataTable( {
+  &quot;dom&quot;: '&lt;&quot;top&quot;i&gt;rt&lt;&quot;bottom&quot;flp&gt;&lt;&quot;clear&quot;&gt;'
+} );</pre>
+    </div>
+
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/926.htm' %}
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                在看了上面这么多示例代码后，你还可以参考   <a href="/example/basic_init/dom.html" target="_blank">DOM定位</a>、
+                <a href="/example/advanced_init/dom_toolbar.html" target="_blank">自定义工具按钮元素</a>和
+                <a href="/example/vedio/season1/dom/" target="_blank">DOM定位视频讲解</a>
+                ，相信在参考这么多例子后，你已经能够灵活的使用dom这个属性了
+            </p>
+
+        </div>
+
+    </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/searching.dt %}</li>
+        <li>{% include href/option/info.dt %}</li>
+        <li>{% include href/option/ordering.dt %}</li>
+        <li>{% include href/option/processing.dt %}</li>
+        <li>{% include href/option/paging.dt %}</li>
+    </ul>
+</div>
+
+<div class="clear"></div>
+{% include quote.html %}
