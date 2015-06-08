@@ -120,7 +120,8 @@ relurl: http://datatables.net/faqs/index
                 <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
                 <li>答：1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误。
                     2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，
-                    3这个错误指出很明确了返回的一个未知的参数，所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
+                    3这个错误指出很明确了返回的一个未知的参数(和columns.data不匹配)，
+                    4tbody里不要写任何内容，除非你是dom数据源。所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
             </ul>
 
             <ul>
