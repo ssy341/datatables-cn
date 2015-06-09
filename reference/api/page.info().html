@@ -1,0 +1,101 @@
+---
+layout: reference_option_detail_layout
+title: 获取表格的分页信息(page.info())
+relurl: http://datatables.net/reference/api/page.info()
+since: 1.10.0
+---
+<h1 class="page_title">page.info()</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>获取表格的分页信息</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    分页信息告诉用户当前的数据信息，第几页或者总共多少条数据等等。  当{% include href/option/paging.dt %}是禁用时，你可以通过 <code>page.info()</code>来获取分页信息
+</p>
+<p>
+    该方法提供表的分页状态，表中的记录数（总记录数和过滤后的记录数）
+</p>
+<p>
+    返回的对象有以下属性：
+<ul>
+    <li>
+        <code>page</code> - 当前页的索引（0代表第一页）
+    </li>
+    <li>
+        <code>pages</code> - 总页数
+    </li>
+    <li><code>start</code> - 起始索引</li>
+    <li><code>end</code> - 结束索引</li>
+    <li><code>length</code> - 每页长度。一般情况下 <code>start+length=end</code>，但是也不是所有情况都是这样，例如你总共数据条数是2，而 <code>length</code>是10</li>
+    <li> <code>recordsTotal</code> - 总条数</li>
+    <li>
+        <code>recordsDisplay</code> - 显示的数据条数，如果你加上了过滤条件这个则是过滤后的记录数
+    </li>
+</ul>
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span>page.info()</h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd>
+            获取表格分页状态。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/table.dt %}来确保操作的是单个表格对象
+        </dd>
+        <dt>返回:</dt>
+        <dd>
+            <div class="returns_type">
+                <p>
+                    {% include href/object.js %}
+                </p>
+            </div>
+            <p>
+                表格的分页信息，    返回对象的样例：
+<pre class="brush:js;toolbar:false">{
+    &quot;page&quot;: 1,
+    &quot;pages&quot;: 6,
+    &quot;start&quot;: 10,
+    &quot;end&quot;: 20,
+    &quot;length&quot;: 10,
+    &quot;recordsTotal&quot;: 57,
+    &quot;recordsDisplay&quot;: 57
+}</pre>
+            </p>
+        </dd>
+    </dl>
+</div>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                获得当前页面和表的记录数:
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">var table = $(&#39;#example&#39;).DataTable();
+var info = table.page.info();
+
+$(&#39;#tableInfo&#39;).html(
+    &#39;Currently showing page &#39;+(info.page+1)+&#39; of &#39;+info.pages+&#39; pages.&#39;
+);</pre>
+    </div>
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/api/page.len.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/paging.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}
