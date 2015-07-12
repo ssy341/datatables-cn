@@ -201,7 +201,7 @@ client.on( 'error', function() {
 
      <div class="container">
 				<h1 class="page_title">排序(ordering)</h1>
-<div style="color: #ac5900;float: right;">起始版本号: 1.10</div>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
 <p>是否允许DataTables排序。</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
@@ -209,7 +209,9 @@ client.on( 'error', function() {
 <p>注意：禁止或者启用单个列的排序功能，可以通过该列的<a href="columns.orderable.html"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a>选项来实现。 现在的这个ordering选项是一个全局的配置- 如果禁止，整个DataTables都会停用排序功能。</p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
-<p>This option can be given in the following type(s):</p>
+<p>
+  这个选项接受以下类型：
+</p>
 <ul class="markdown">
   <li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
 </ul>
@@ -221,7 +223,7 @@ client.on( 'error', function() {
 <div class="reference_examples">
   <div class="reference_example">
     <div class="title">
-      <p>Disable ordering in the table:</p>
+      <p>关闭表格的排序功能:</p>
     </div>
     <pre class="brush:js;toolbar:false">$('#example').dataTable( {
   &quot;ordering&quot;: false
