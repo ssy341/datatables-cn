@@ -1,0 +1,102 @@
+---
+layout: reference_option_detail_layout
+title: Datatables每次重绘后执行的方法(drawCallback)
+relurl: http://datatables.net/reference/option/drawCallback
+since: 1.10.0
+---
+<h1 class="page_title">drawCallback</h1>
+<div style="color: #ac5900;float: right;">起始版本号:{{ page.since }}</div>
+<p> Datatables每次重绘后执行的方法</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    当每次表格重绘的时候触发一个操作，比如更新数据后或者创建新的元素
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span> drawCallback( settings )</h3>
+    <dl>
+        <dt>参数:</dt>
+        <dd>
+            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
+                <table class="parameters basic display dataTable no-footer" id="DataTables_Table_0" role="grid">
+                    <thead>
+                    <tr role="row">
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2px;"></th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">是否可选</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr role="row" class="odd">
+                        <td>1</td>
+                        <td><code>settings</code></td>
+                        <td>{% include href/type/Datatables.Settings.js %}</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            Datatables的设置对象
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </dd>
+    </dl>
+</div>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                当表格重绘的时候弹出提示
+            </p>
+        </div>
+        <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+    &quot;drawCallback&quot;: function( settings ) {
+        alert( &#39;表格重绘了&#39; );
+    }
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                在回调函数里使用api方法输出当前页的数据
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+    &quot;drawCallback&quot;: function( settings ) {
+        var api = this.api();
+        // 输出当前页的数据到浏览器控制台
+        console.log( api.rows( {page:&#39;current&#39;} ).data() );
+    }
+} );</pre>
+    </div>
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/api/draw.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Events
+    <ul class="markdown">
+        <li>{% include href/event/draw.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}
