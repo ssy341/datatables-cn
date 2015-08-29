@@ -1,0 +1,131 @@
+---
+layout: reference_option_detail_layout
+title: tfoot显示回调方法(footerCallback)
+relurl: http://datatables.net/reference/option/columns.render
+since: 1.10.0
+---
+<h1 class="page_title">columns.render</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>渲染(处理)数据显示在表格中</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+    这个属性可以操作从数据源读取到的数据。{% include href/option/columns.render.dt %}和{% include href/option/columns.data.dt %}比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
+</p>
+<p>
+    {% include href/option/columns.render.dt %}可以看做为把请求过来的数据做进一步的处理，比较常见的操作有格式化，等等其他处理数据的方式。
+    Datatables把不同数据的不同操作叫做 {% include href/localTarget/orthogonaldata.local %},并允许不同形式的相同数据做不同的操作（例如，日期字段给用户是以'yyyy-MM-dd hh:mi:ss'格式显示和搜索，但是以long型作为排序）
+</p>
+<p>
+有三种特殊的值可以通过{% include href/option/columns.render.dt %}解决
+<ul class="markdown">
+    <li><code>-type undefined</code> - 当值未定义时，{% include href/option/columns.defaultContent.dt %}将会替换作为默认的值去显示.如果又是undefined又没有定义这个则会得到一个错误</li>
+    <li><code>-type null</code> - 当值为null时，{% include href/option/columns.defaultContent.dt %}将会替换作为默认值去显示.如果没有设置默认值则会以一个空的字符串显示 。 <code>-type null</code> 将会被用作其他所有数据类型</li>
+    <li><code>-type function</code> - 返回函数执行后的值.详细的参考下面给出的示例代码</li>
+</ul>
+
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型（Type）</h2>
+
+<div class="ref_type"><a name="integer"></a>
+    <h3 data-anchor="integer"><span class="type">integer</span></h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd class="description">
+            <p>
+               作为数据源中的数组索引，Datatables默认就是这样使用(每一列递增)
+            </p>
+        </dd>
+    </dl>
+</div>
+
+<div class="ref_type"><a name="string"></a>
+
+    <h3 data-anchor="string"><span class="type">string</span></h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd class="description">
+            <p>
+                从数据源中读取一个对象属性。有是三个特殊的选项可以改变Datatables读取数据源中的对象:</p>
+
+            <ul class="markdown">
+                <li>
+                    <p><code>.</code> - 点，是JavaScript中的符号. 就像你是用 <code>.</code>来获取JavaScript嵌套对象一样，所以你也可以在Datatables中的option
+                    <code>data</code>同样使用，比如 <code>browser.version</code>，如果你的对象属性名中包含 <code>.</code>你可以是用
+                    <code>\\</code>来避开，比如 <code>first\\.name</code>
+                    </p>
+                  </li>
+                <li><p><code>[]</code> - Array notation. DataTables can automatically combine data from an array source,
+                    joining the data with the characters provided between the two brackets. For example: <code>name[,
+                        ]</code> would provide a comma-space separated list from the source array. If no characters are
+                    provided between the brackets, the original array source is returned.</p></li>
+                <li><p><code>()</code> - Function notation. Adding <code>()</code> to the end of a parameter will
+                    execute a function of the name given. For example: <code>browser()</code> for a simple function on
+                    the data source, <code>browser.version()</code> for a function in a nested property or even <code>browser().version</code>
+                    to get an object property if the function called returns an object. Note that function notation is
+                    recommended for use in <a href="//datatables.net/reference/option/columns.render"><code
+                            class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a>
+                    rather than <a href="//datatables.net/reference/option/columns.data"><code class="option"
+                                                                                               title="DataTables initialisation option">columns.data<span>DT</span></code></a>
+                    as it is much simpler to use as a renderer.</p></li>
+            </ul>
+        </dd>
+    </dl>
+</div>
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                修改tfoot里的内容
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+  &quot;footerCallback&quot;: function( tfoot, data, start, end, display ) {
+    $(tfoot).find(&#39;th&#39;).eq(0).html( &quot;Starting index is &quot;+start );
+  }
+} );</pre>
+    </div>
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/690.htm' %}
+</div>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                使用reduce()方法实现合计功能
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+  &quot;footerCallback&quot;: function( tfoot, data, start, end, display ) {
+    var api = this.api();
+    $( api.column( 5 ).footer() ).html(
+        api.column( 5 ).data().reduce( function ( a, b ) {
+            return a + b;
+        } )
+    );
+  }
+} );</pre>
+    </div>
+    {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/692.htm' %}
+</div>
+
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+<div class="reference_related">API
+    <ul class="markdown">
+        <li>{% include href/api/column.footer.dt %}</li>
+        <li>{% include href/api/columns.footer.dt %}</li>
+    </ul>
+</div>
+<div class="reference_related">Options
+    <ul class="markdown">
+        <li>{% include href/option/headerCallback.dt %}</li>
+        <li>{% include href/option/drawCallback.dt %}</li>
+    </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}
