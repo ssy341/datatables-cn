@@ -1,5 +1,5 @@
 <!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
+<script src="{{site.baseurl}}/js/ZeroClipboard.min.js"></script>
 <script>
 $('[data-toggle="tooltip"]').tooltip();
 $('#copyurltoclip').on('show.bs.tooltip', function () {
