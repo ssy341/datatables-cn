@@ -1,0 +1,226 @@
+---
+layout: reference_option_detail_layout
+title: 以csv格式保存表格中的数据（使用Adobe Flash）(csvFlash)
+relurl: http://datatables.net/reference/button/csvFlash
+since: Buttons 1.0.0
+---
+<h1 class="page_title">csvFlash</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>以csv格式保存表格中的数据（使用Adobe Flash）</p>
+<p style="color:red">注意：这个需要使用Bottons扩展</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<p>
+    该按钮创建了一个以逗号分隔的CSV文件，可以应用到电子表格和数据分析应用程序。
+</p>
+<p>
+    注意：这个按钮有很多限制
+    <ul>
+        <li>必须安装Adobe Flash</li>
+        <li> The action for this button cannot be activated using the
+            {% include href/api/button.trigger %}
+            or key combination methods due to the security restrictions of Flash
+            </li>
+    <li>创建文件的对话框必须显示，文件不会自动打开</li>
+    </ul>
+</p>
+
+<p>
+    The {% include href/button/csvHtml5.button %}
+    method provides much greater flexibility and thus button is considered to be sunsetted,
+    but is still provided for use with older browsers that do not support the APIs required for the
+    {% include href/button/csvHtml5.button %}
+    button type.
+</p>
+<p>
+    这个操作需要 <a href="https://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>
+    的支持。如果没有安装flash或者是禁用了，则不会显示此按钮。或者使用
+    {% include href/button/csvHtml5.button %}方式。使用 {% include href/button/csv.button %}
+    按钮，将会自动在{% include href/button/csvHtml5.button %}之间切换，这取决于浏览器的功能
+</p>
+
+
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>text</code></td>
+        <td>CSV</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            按钮上显示的文字，使用 {% include href/option/buttons.buttons.text %} 配置显示的文字内容
+            或者 <code>buttons.copy</code>,关于语言的配置参考 {% include href/option/language.Option %}
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>className</code></td>
+        <td>buttons-csv buttons-flash</td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            按钮的class名称，详情参见 {% include href/option/buttons.buttons.className %}
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>action</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            创建并保存一个cvs文件
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>fieldSeparator</code></td>
+        <td>,</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+           用逗号符来隔开数据复制到剪贴板中
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>fieldBoundary</code></td>
+        <td>"</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            The character(s) used to enclose each field in the plain text representation of the table that is copied to the system's clipboard.
+            This is automatically added at the start and end of each cell's data.
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>exportOptions</code></td>
+        <td>{}</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            选择性的导出数据，包括哪些列，行，排序或者过滤。
+            详细参考 {% include href/api/buttons.exportData %} 方法，这里收集所需要的数据
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>header</code></td>
+        <td>true</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            表头将包含在导出的数据中
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>footer</code></td>
+        <td>false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            表脚将包含在导出的数据中
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>title</code></td>
+        <td>*</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            给创建文件的文件名，*代表替换成系统默认的标题标签。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>extension</code></td>
+        <td>.csv</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            给创建文件的文件名后缀。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>escapeChar</code></td>
+        <td>"</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            Character to use as the escape character for CSV data. 
+            This will be prefixed to any data found in the fields which matches that set by the fieldBoundary option.
+            It is a configurable option as different applications can require different options
+            - however the default matches
+            <a href="https://tools.ietf.org/html/rfc4180" target="_blank">RFC4180</a>.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：试用 flash CSV按钮
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        &#39;csvFlash&#39;
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：使用 {% include href/button/csv.button %}，让浏览器自动选择
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        &#39;csv&#39;
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：使用 <code>exportOptions </code>选项配置导出所有数据，不管过滤
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;csvFlash&#39;,
+            text: &#39;Copy all data&#39;,
+            exportOptions: {
+                modifier: {
+                    search: &#39;none&#39;
+                }
+            }
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="clear"></div>
+{% include quote.html %}

@@ -1,0 +1,117 @@
+---
+layout: reference_option_detail_layout
+title: 一个按钮来控制一个或多个列的可见性(columnVisibility)
+relurl: http://datatables.net/reference/button/columnVisibility
+since: Buttons 1.0.0
+---
+<h1 class="page_title">columnVisibility</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>一个按钮来控制一个或多个列的可见性</p>
+<p style="color:red">注意：这个需要使用Bottons扩展</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<p>
+    这个和 {% include href/button/columnsVisibility.button %}不同的是，这个是
+    控制所有列或者是列的子集，而另一个是把所有列分两组显示出来，进行单独的控制
+</p>
+<p>
+    这个按钮是针对多个列操作，所以你可以使用 {% include href/option/buttons.buttons.text %}
+    来配置按钮的名字
+</p>
+
+
+
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>columns</code></td>
+        <td>undefined</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            Columns selector that defines the columns to include in the column visibility button set.
+            By default this is {% include href/type/undefined %} which results in all columns being selected,
+            but any of the {% include href/type/column-selector %}
+            options can be used to define a custom button set.
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>visibility</code></td>
+        <td>undefined</td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            当你触发按钮的时候控制你选择的列是否显示或者隐藏
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：显示或者隐藏所有列
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;columnVisibility&#39;,
+            text: &#39;Show all&#39;,
+            visibility: true
+        },
+        {
+            extend: &#39;columnVisibility&#39;,
+            text: &#39;Hide all&#39;,
+            visibility: false
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                直接初始化：显示或者隐藏所有包含 <code>secondary</code>类名的列
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">new $.fn.dataTable.Buttons( table, {
+    buttons: [
+        {
+            extend: &#39;columnVisibility&#39;,
+            text: &#39;Show secondary&#39;,
+            visibility: true,
+            columns: &#39;.secondary&#39;
+        },
+        {
+            extend: &#39;columnVisibility&#39;,
+            text: &#39;Hide secondary&#39;,
+            visibility: false,
+            columns: &#39;.secondary&#39;
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+<div class="clear"></div>
+{% include quote.html %}
