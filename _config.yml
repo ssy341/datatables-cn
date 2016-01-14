@@ -1,8 +1,10 @@
-baseurl: /datatables-cn
-#baseurl: /
+#baseurl: /datatables-cn
+baseurl:
+#baseurl: /www
 #port: 341
 url: http://dt.thxopen.com
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea']
 #destination: ./_site
 #destination: C:\code\xampp\htdocs
+dtversion: 1.10.10
