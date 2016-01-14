@@ -60,7 +60,7 @@ title: 活动 Datatables中文网
             ],
             paging: !1,
             dom: "t",
-            ajax:"/assets/activity.txt",
+            ajax:"{{site.baseurl}}/assets/activity.txt",
             columns:[
                 {data:"title",render:function(data,type,row,meta){
                     return '<a href="'+row.url+'" target="_blank">'+data+'</a>'

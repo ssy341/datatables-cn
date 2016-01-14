@@ -169,7 +169,7 @@ title: 关于Datatables中文网
                     },
                     info: " _START_ 到 _END_ (共 _TOTAL_ 条记录)"
                 },
-                ajax: "/assets/donate.txt",
+                ajax: "{{site.baseurl}}/assets/donate.txt",
                 createdRow: function (row, data, dataIndex) {
                     if (data.type) {
                         $(row).addClass("donateType");
