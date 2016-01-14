@@ -1,1 +1,1 @@
-jekyll build --watch --destination C:\code\xampp\htdocs
+jekyll build --watch --destination C:\www
