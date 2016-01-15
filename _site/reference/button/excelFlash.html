@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>以csv格式保存表格中的数据（使用Adobe Flash）(csvFlash) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>以Excel XLSX格式保存表格中的数据(使用Adobe Flash)(excelFlash) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -200,16 +200,16 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">csvFlash</h1>
+				<h1 class="page_title">excelFlash</h1>
 <div style="color: #ac5900;float: right;">起始版本号: Buttons 1.0.0</div>
-<p>以csv格式保存表格中的数据（使用Adobe Flash）</p>
+<p>以Excel XLSX格式保存表格中的数据(使用Adobe Flash)</p>
 <p style="color:red">注意：这个需要使用Bottons扩展</p>
 
 
 <a name="Description"></a>
 <h2 data-anchor="Description">说明(Description)</h2>
 <p>
-    该按钮创建了一个以逗号分隔的CSV文件，可以应用到电子表格和数据分析应用程序。
+    这个按钮可以提供用户把表格数据以Excel方式导出
 </p>
 <p>
     注意：这个按钮有很多限制
@@ -220,32 +220,32 @@ client.on( 'error', function() {
     <code>button().trigger()<span>API</span></code>
 </a>
             or key combination methods due to the security restrictions of Flash
-            </li>
-    <li>创建文件的对话框必须显示，文件不会自动打开</li>
+        </li>
+        <li>创建文件的对话框必须显示，文件不会自动打开</li>
+        <li>这个xlsx文件不包含任何样式，只有表格数据</li>
     </ul>
 </p>
-
 <p>
-    The <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
+    The <a href="excelHtml5.html" target="_blank">
+    <code>excelHtml5<span>Button</span></code>
 </a>
     method provides much greater flexibility and thus button is considered to be sunsetted,
     but is still provided for use with older browsers that do not support the APIs required for the
-    <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
+    <a href="excelHtml5.html" target="_blank">
+    <code>excelHtml5<span>Button</span></code>
 </a>
     button type.
 </p>
 <p>
     这个操作需要 <a href="https://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>
     的支持。如果没有安装flash或者是禁用了，则不会显示此按钮。或者使用
-    <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>方式。使用 <a href="csv.html" target="_blank">
-    <code>csv<span>Button</span></code>
+    <a href="excelHtml5.html" target="_blank">
+    <code>excelHtml5<span>Button</span></code>
+</a>方式。使用 <a href="excel.html" target="_blank">
+    <code>excel<span>Button</span></code>
 </a>
-    按钮，将会自动在<a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
+    按钮，将会自动在<a href="excelHtml5.html" target="_blank">
+    <code>excelHtml5<span>Button</span></code>
 </a>之间切换，这取决于浏览器的功能
 </p>
 
@@ -263,7 +263,7 @@ client.on( 'error', function() {
     <tbody>
     <tr class="odd">
         <td><code>text</code></td>
-        <td>CSV</td>
+        <td>EXCEL</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
@@ -284,7 +284,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="even">
         <td><code>className</code></td>
-        <td>buttons-csv buttons-flash</td>
+        <td>buttons-excel buttons-flash</td>
     </tr>
     <tr class="even continuation">
         <td colspan="2">
@@ -303,7 +303,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="even continuation">
         <td colspan="2">
-            创建并保存一个cvs文件
+            创建并保存一个Excel文件
         </td>
     </tr>
     <tr class="odd">
@@ -312,7 +312,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
-           用逗号符来隔开数据复制到剪贴板中
+            用逗号符来隔开数据复制到剪贴板中
         </td>
     </tr>
     <tr class="odd">
@@ -366,7 +366,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="odd">
         <td><code>extension</code></td>
-        <td>.csv</td>
+        <td>.xlsx</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
@@ -374,16 +374,12 @@ client.on( 'error', function() {
         </td>
     </tr>
     <tr class="odd">
-        <td><code>escapeChar</code></td>
-        <td>"</td>
+        <td><code>sheetName</code></td>
+        <td>Sheet1</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
-            Character to use as the escape character for CSV data. 
-            This will be prefixed to any data found in the fields which matches that set by the fieldBoundary option.
-            It is a configurable option as different applications can require different options
-            - however the default matches
-            <a href="https://tools.ietf.org/html/rfc4180" target="_blank">RFC4180</a>.
+            给sheet指定名称。 [] \ /: *? :这些字符不允许，如果存在将会被删除
         </td>
     </tr>
     </tbody>
@@ -393,34 +389,34 @@ client.on( 'error', function() {
 
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
+
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：试用 flash CSV按钮
+                Datatables初始化：试用 Flash Excel 按钮
             </p>
         </div>
  <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
-        &#39;csvFlash&#39;
+        &#39;excelFlash&#39;
     ]
 } );</pre>
     </div>
 </div>
 
-
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：使用 <a href="csv.html" target="_blank">
-    <code>csv<span>Button</span></code>
+                Datatables初始化：使用 <a href="excel.html" target="_blank">
+    <code>excel<span>Button</span></code>
 </a>，让浏览器自动选择
             </p>
         </div>
-<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
-        &#39;csv&#39;
+        &#39;excel&#39;
     ]
 } );</pre>
     </div>
@@ -431,17 +427,17 @@ client.on( 'error', function() {
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：使用 <code>exportOptions </code>选项配置导出所有数据，不管过滤
+                Datatables初始化：使用 <code>exportOptions </code>选项配置导当前页数据
             </p>
         </div>
 <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
         {
-            extend: &#39;csvFlash&#39;,
-            text: &#39;Copy all data&#39;,
+            extend: &#39;excelFlash&#39;,
+            text: &#39;Save current page&#39;,
             exportOptions: {
                 modifier: {
-                    search: &#39;none&#39;
+                    page: &#39;current&#39;
                 }
             }
         }
@@ -453,7 +449,7 @@ client.on( 'error', function() {
 
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/button/csvFlash" target="_blank">http://datatables.net/reference/button/csvFlash</a></p>
+    <p><a href="http://datatables.net/reference/button/excelFlash" target="_blank">http://datatables.net/reference/button/excelFlash</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
 
@@ -467,7 +463,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/button/csvFlash.html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/excelFlash.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',

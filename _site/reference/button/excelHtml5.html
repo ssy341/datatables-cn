@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>以csv格式保存表格中的数据（使用Adobe Flash）(csvFlash) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>以Excel XLSX格式保存表格中的数据(使用Html5)(excelHtml5) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -200,53 +200,49 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">csvFlash</h1>
+				<h1 class="page_title">excelHtml5</h1>
 <div style="color: #ac5900;float: right;">起始版本号: Buttons 1.0.0</div>
-<p>以csv格式保存表格中的数据（使用Adobe Flash）</p>
+<p>以Excel XLSX格式保存表格中的数据(使用Html5)</p>
 <p style="color:red">注意：这个需要使用Bottons扩展</p>
 
 
 <a name="Description"></a>
 <h2 data-anchor="Description">说明(Description)</h2>
 <p>
-    该按钮创建了一个以逗号分隔的CSV文件，可以应用到电子表格和数据分析应用程序。
+    这个按钮可以提供用户把表格数据以Excel方式导出
 </p>
 <p>
-    注意：这个按钮有很多限制
-    <ul>
-        <li>必须安装Adobe Flash</li>
-        <li> The action for this button cannot be activated using the
-            <a href="http://datatables.net/reference/api/button().trigger()" target="_blank">
-    <code>button().trigger()<span>API</span></code>
-</a>
-            or key combination methods due to the security restrictions of Flash
-            </li>
-    <li>创建文件的对话框必须显示，文件不会自动打开</li>
-    </ul>
-</p>
+    这个文件只保留原始数据，数据格式，颜色等都不会保留。你也可以使用
+    <a href="http://sheetjs.com/" target="_blank">SheetJS</a>库来自定义这个按钮。
 
-<p>
-    The <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>
-    method provides much greater flexibility and thus button is considered to be sunsetted,
-    but is still provided for use with older browsers that do not support the APIs required for the
-    <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>
-    button type.
 </p>
 <p>
-    这个操作需要 <a href="https://get.adobe.com/flashplayer/" target="_blank">Adobe Flash</a>
-    的支持。如果没有安装flash或者是禁用了，则不会显示此按钮。或者使用
-    <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>方式。使用 <a href="csv.html" target="_blank">
-    <code>csv<span>Button</span></code>
+    这个需要比较新的浏览器支持（不支持IE8和9）。对于老版本的浏览器，<a href="excelFlash.html" target="_blank">
+    <code>excelFlash<span>Button</span></code>
 </a>
-    按钮，将会自动在<a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>之间切换，这取决于浏览器的功能
+    使用flash插件提供创建和保存文件的功能。
+    <a href="excel.html" target="_blank">
+    <code>excel<span>Button</span></code>
+</a>可以基于浏览器的功能，
+    自动在和<a href="excelFlash.html" target="_blank">
+    <code>excelFlash<span>Button</span></code>
+</a>按钮之间选择。
+</p>
+<p>
+    此外， <a href="https://stuk.github.io/jszip/" target="_blank">JSZip</a>必须在这个页面上可用。
+    This MIT licensed library provides the ability to create a ZIP file in the browser,
+    which is required to build a valid XLSX file.
+</p>
+<p>
+    <b>注意在Safari上的支持：</b>
+    不会下载生成的文件
+    <a href="https://bugs.webkit.org/show_bug.cgi?id=102914" target="_blank">参考Webkit bug 102914</a>。
+    按钮在Safari上不会显示，建议使用 <a href="excelFlash.html" target="_blank">
+    <code>excelFlash<span>Button</span></code>
+</a>按钮类型或者是使用
+    <a href="excel.html" target="_blank">
+    <code>excel<span>Button</span></code>
+</a>自动选择
 </p>
 
 
@@ -263,7 +259,7 @@ client.on( 'error', function() {
     <tbody>
     <tr class="odd">
         <td><code>text</code></td>
-        <td>CSV</td>
+        <td>EXCEL</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
@@ -284,7 +280,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="even">
         <td><code>className</code></td>
-        <td>buttons-csv buttons-flash</td>
+        <td>buttons-excel buttons-html5</td>
     </tr>
     <tr class="even continuation">
         <td colspan="2">
@@ -303,26 +299,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="even continuation">
         <td colspan="2">
-            创建并保存一个cvs文件
-        </td>
-    </tr>
-    <tr class="odd">
-        <td><code>fieldSeparator</code></td>
-        <td>,</td>
-    </tr>
-    <tr class="odd continuation">
-        <td colspan="2">
-           用逗号符来隔开数据复制到剪贴板中
-        </td>
-    </tr>
-    <tr class="odd">
-        <td><code>fieldBoundary</code></td>
-        <td>"</td>
-    </tr>
-    <tr class="odd continuation">
-        <td colspan="2">
-            The character(s) used to enclose each field in the plain text representation of the table that is copied to the system's clipboard.
-            This is automatically added at the start and end of each cell's data.
+            创建并保存一个Excel文件
         </td>
     </tr>
     <tr class="odd">
@@ -366,7 +343,7 @@ client.on( 'error', function() {
     </tr>
     <tr class="odd">
         <td><code>extension</code></td>
-        <td>.csv</td>
+        <td>.xlsx</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
@@ -374,16 +351,12 @@ client.on( 'error', function() {
         </td>
     </tr>
     <tr class="odd">
-        <td><code>escapeChar</code></td>
-        <td>"</td>
+        <td><code>sheetName</code></td>
+        <td>Sheet1</td>
     </tr>
     <tr class="odd continuation">
         <td colspan="2">
-            Character to use as the escape character for CSV data. 
-            This will be prefixed to any data found in the fields which matches that set by the fieldBoundary option.
-            It is a configurable option as different applications can require different options
-            - however the default matches
-            <a href="https://tools.ietf.org/html/rfc4180" target="_blank">RFC4180</a>.
+            给sheet指定名称。 [] \ /: *? :这些字符不允许，如果存在将会被删除
         </td>
     </tr>
     </tbody>
@@ -393,34 +366,34 @@ client.on( 'error', function() {
 
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
+
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：试用 flash CSV按钮
+                Datatables初始化：试用 Html5 Excel 按钮
             </p>
         </div>
  <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
-        &#39;csvFlash&#39;
+        &#39;excelHtml5&#39;
     ]
 } );</pre>
     </div>
 </div>
 
-
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：使用 <a href="csv.html" target="_blank">
-    <code>csv<span>Button</span></code>
+                Datatables初始化：使用 <a href="excel.html" target="_blank">
+    <code>excel<span>Button</span></code>
 </a>，让浏览器自动选择
             </p>
         </div>
-<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
-        &#39;csv&#39;
+        &#39;excel&#39;
     ]
 } );</pre>
     </div>
@@ -431,17 +404,17 @@ client.on( 'error', function() {
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：使用 <code>exportOptions </code>选项配置导出所有数据，不管过滤
+                Datatables初始化：使用 <code>exportOptions </code>选项配置导当前页数据
             </p>
         </div>
 <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
         {
-            extend: &#39;csvFlash&#39;,
-            text: &#39;Copy all data&#39;,
+            extend: &#39;excelHtml5&#39;,
+            text: &#39;Save current page&#39;,
             exportOptions: {
                 modifier: {
-                    search: &#39;none&#39;
+                    page: &#39;current&#39;
                 }
             }
         }
@@ -453,7 +426,7 @@ client.on( 'error', function() {
 
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/button/csvFlash" target="_blank">http://datatables.net/reference/button/csvFlash</a></p>
+    <p><a href="http://datatables.net/reference/button/excelHtml5" target="_blank">http://datatables.net/reference/button/excelHtml5</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
 
@@ -467,7 +440,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/button/csvFlash.html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/excelHtml5.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
