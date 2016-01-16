@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>获取表格的分页信息(page.info()) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>用来控制表格每页显示条数的按钮(pageLength) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -200,110 +200,172 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">page.info()</h1>
-<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
-<p>获取表格的分页信息</p>
+				<h1 class="page_title">pageLength</h1>
+<div style="color: #ac5900;float: right;">起始版本号: Buttons 1.0.0</div>
+<p>用来控制表格每页显示条数的按钮</p>
+<p style="color:red">注意：这个需要使用Bottons扩展</p>
+
+
 <a name="Description"></a>
-<h2 data-anchor="Description">说明</h2>
+<h2 data-anchor="Description">说明(Description)</h2>
 <p>
-    分页信息告诉用户当前的数据信息，第几页或者总共多少条数据等等。  当<a href="/reference/option/paging.html" target="_blank">
-    <code>paging<span>DT</span></code>
-</a>是禁用时，你可以通过 <code>page.info()</code>来获取分页信息
+   这个按钮比较常见，处于表格的左上角，用来控制表格显示数据的条数。
+    It is quite common to have four table control and information elements around
+    a DataTable - one in each corner. DataTables' default display as a page length control in the top left,
+    which where Buttons are often inserted,
+    resulting in the page length list being dropped to keep the control elements limited to four.
 </p>
 <p>
-    该方法提供表的分页状态，表中的记录数（总记录数和过滤后的记录数）
+    默认显示在左上角，你可以通过<a href="pageLength.html" target="_blank">
+    <code>pageLength<span>Button</span></code>
+</a>来配置位置
 </p>
 <p>
-    返回的对象有以下属性：
-<ul>
-    <li>
-        <code>page</code> - 当前页的索引（0代表第一页）
-    </li>
-    <li>
-        <code>pages</code> - 总页数
-    </li>
-    <li><code>start</code> - 起始索引</li>
-    <li><code>end</code> - 结束索引</li>
-    <li><code>length</code> - 每页长度。一般情况下 <code>start+length=end</code>，但是也不是所有情况都是这样，例如你总共数据条数是2，而 <code>length</code>是10</li>
-    <li> <code>recordsTotal</code> - 总条数</li>
-    <li>
-        <code>recordsDisplay</code> - 显示的数据条数，如果你加上了过滤条件这个则是过滤后的记录数
-    </li>
-</ul>
+    这个按钮将读取<a href="http://datatables.net/reference/option/lengthMenu" target="_blank">
+    <code>lengthChange<span>Option</span></code>
+</a>的配置，所以可以使用相同的配置，
+    以及默认的页面条数
 </p>
-<a name="Type"></a>
-<h2 data-anchor="Type">数据类型</h2>
 
-<div class="ref_type"><a name="function"></a>
 
-    <h3 data-anchor="function"><span class="type">function</span>page.info()</h3>
-    <dl>
-        <dt>描述:</dt>
-        <dd>
-            获取表格分页状态。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 来确保操作的是单个表格对象
-        </dd>
-        <dt>返回:</dt>
-        <dd>
-            <div class="returns_type">
-                <p>
-                    <a href="http://datatables.net/reference/type/object">
-    <code class="type" title="Javascript parameter type">object<span>JS</span></code>
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>text</code></td>
+        <td>{'-1': 'Show all rows', _: 'Show %d rows'}</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+
+            按钮上显示的文字，
+            By default this is a function that uses the object shown, where the
+            <code>%d</code>value is replaced by the result from
+            <a href="/reference/api/page.len().html" target="_blank">
+    <code>page.len()<span>API</span></code>
+</a>(i.e. the current page length).
+
+            使用 <a class="option"
+    title="Buttons initialisation option"
+    href="http://datatables.net/reference/option/buttons.buttons.text"
+    target="_blank">
+    <code>buttons.buttons.text<span>Option</span></code>
 </a>
-                </p>
-            </div>
-            <p>
-                表格的分页信息，    返回对象的样例：
-<pre class="brush:js;toolbar:false">{
-    &quot;page&quot;: 1,
-    &quot;pages&quot;: 6,
-    &quot;start&quot;: 10,
-    &quot;end&quot;: 20,
-    &quot;length&quot;: 10,
-    &quot;recordsTotal&quot;: 57,
-    &quot;recordsDisplay&quot;: 57
-}</pre>
-            </p>
-        </dd>
-    </dl>
-</div>
+ 配置显示的文字内容
+            或者 <code>buttons.pageLength</code>,关于语言的配置参考 <a class="option"
+    title="language"
+    href="http://datatables.net/reference/option/language"
+    target="_blank">
+     <code>language<span>Option</span></code>
+</a>
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>className</code></td>
+        <td>buttons-collection buttons-page-length</td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            按钮的class名称，详情参见 <a class="option"
+    title="Buttons initialisation option"
+    href="http://datatables.net/reference/option/buttons.buttons.className"
+    target="_blank">
+    <code>buttons.buttons.className<span>Option</span></code>
+</a>
+
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>action</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            允许用户改变页面的长度
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                获得当前页面和表的记录数:
+                Datatables初始化：使用默认配置显示 <code>pageLength</code>按钮
             </p>
         </div>
-   <pre class="brush:js;toolbar:false">var table = $(&#39;#example&#39;).DataTable();
-var info = table.page.info();
-
-$(&#39;#tableInfo&#39;).html(
-    &#39;Currently showing page &#39;+(info.page+1)+&#39; of &#39;+info.pages+&#39; pages.&#39;
-);</pre>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    dom: &#39;Bfrtip&#39;,
+    buttons: [ &#39;pageLength&#39; ]
+} );</pre>
     </div>
 </div>
 
-<a name="Related"></a>
-<h2 data-anchor="Related">相关</h2>
-<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-<div class="reference_related">API
-    <ul class="markdown">
-        <li><a href="/reference/api/page.len().html" target="_blank">
-    <code>page.len()<span>API</span></code>
-</a></li>
-    </ul>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                页面长度按钮用 <a href="http://datatables.net/reference/option/lengthMenu" target="_blank">
+    <code>lengthChange<span>Option</span></code>
+</a>指定
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    dom: &#39;Bfrtip&#39;,
+    lengthMenu: [
+        [ 10, 25, 50, -1 ],
+        [ &#39;10 rows&#39;, &#39;25 rows&#39;, &#39;50 rows&#39;, &#39;Show all&#39; ]
+    ],
+    buttons: [
+        &#39;pageLength&#39;
+    ]
+} );</pre>
+    </div>
 </div>
-<div class="reference_related">Options
-    <ul class="markdown">
-        <li><a href="/reference/option/paging.html" target="_blank">
-    <code>paging<span>DT</span></code>
-</a></li>
-    </ul>
+
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+               国际化按钮（注意这里的 <code>-1</code>特殊字符代表显示所有数据）
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    dom: &#39;Bfrtip&#39;,
+    language: {
+        buttons: {
+            pageLength: {
+                _: &quot;显示 %d 项&quot;,
+                -1: &quot;显示所有&quot;
+            }
+        }
+    },
+    buttons: [
+        &#39;pageLength&#39;
+    ]
+} );</pre>
+    </div>
 </div>
+
+
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/api/page.info()" target="_blank">http://datatables.net/reference/api/page.info()</a></p>
+    <p><a href="http://datatables.net/reference/button/pageLength" target="_blank">http://datatables.net/reference/button/pageLength</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
 
@@ -317,7 +379,7 @@ $(&#39;#tableInfo&#39;).html(
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/api/page.info().html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/pageLength.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
