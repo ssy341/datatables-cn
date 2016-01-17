@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>设置列定义初始化属性(columnDefs) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>打印表格数据的按钮(print) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -213,43 +213,199 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">columnDefs</h1>
-<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
-<p>设置列定义初始化属性</p>
+				<h1 class="page_title">print</h1>
+<div style="color: #ac5900;float: right;">起始版本号: Buttons 1.0.0</div>
+<p>打印表格数据的按钮</p>
+<p style="color:red">注意：这个需要使用Bottons扩展</p>
+
+
 <a name="Description"></a>
-<h2 data-anchor="Description">说明</h2>
+<h2 data-anchor="Description">说明(Description)</h2>
+<aside>
+    <a name="Requires"></a><h2 data-anchor="Requires">Requires</h2>
+
+    <p>In order to operate, this button requires the following:</p>
+
+    <ul class="markdown">
+        <li>Buttons' <em>Print</em> plug-in.</li>
+    </ul>
+</aside>
 <p>
-    和<a href="/reference/option/columns.html" target="_blank">
-    <code>columns<span>DT</span></code>
-</a>参数很像，这个参数允许你给指定列设置选项，应用到一个或这多个列。而不像 <a href="/reference/option/columns.html" target="_blank">
-    <code>columns<span>DT</span></code>
-</a>需要每列都要定义
+    这个按钮允许用户打印表格（根据 <code>exportOptions </code>选项配置的数据）。
+    构建一个临时的表格显示在新的窗口，然后调用浏览器的打印命令（尽管可以禁用，参考下面 <code>autoPrint</code>选项）。
+    最终打印窗口取决于用户是否完成打印或者取消了打印。
 </p>
 <p>
-   这个参数是一个列定义对象数组，通过使用 <a href="/reference/option/columnDefs.targets.html" target="_blank">
-    <code>columnDefs.targets<span>DT</span></code>
-</a> 选项，告诉Datatables是定义的是那一列，他可以是下列情况：
-    <ul>
-        <li>0或者正整数-列从左到右是从0开始</li>
-        <li>一个负数-列从右到左的索引(-1代表最后一列)</li>
-        <li>一个字符串-将字符串和类名匹配列</li>
-        <li>字符串"_all"-所有列</li>
-    </ul>
-<br/>
-        另外， <code>targets</code>可以同时指定多列，接受一个数组（比如 <code>targets: [ -1, -2 ]</code> ）
+    构建的临时表可能不包含完成的原始表的样式
+</p>
+<p>
+    可以通过 <code>title</code>，<code>message</code>选项来描述文档信息。
+    或者通过 <code>customize</code>来定制文档（比如添加图片等等）。
 </p>
 
-<a name="Type"></a>
-<h2 data-anchor="Type">数据类型</h2>
-<p><font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-58" rel="58" style="text-decoration: none;">这个选项可以在以下类型:
-</font></p>
-<ul class="markdown">
-    <li>
-        <a href="http://datatables.net/reference/type/array">
-    <code class="type"  title="Javascript parameter type">array<span>JS</span></code>
+
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>text</code></td>
+        <td>Print</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            按钮上显示的文字，使用 <a class="option"
+    title="Buttons initialisation option"
+    href="http://datatables.net/reference/option/buttons.buttons.text"
+    target="_blank">
+    <code>buttons.buttons.text<span>Option</span></code>
 </a>
-    </li>
-</ul>
+ 配置显示的文字内容
+            或者 <code>buttons.print</code>,关于语言的配置参考 <a class="option"
+    title="language"
+    href="http://datatables.net/reference/option/language"
+    target="_blank">
+     <code>language<span>Option</span></code>
+</a>
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>className</code></td>
+        <td>buttons-print</td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            按钮的class名称，详情参见 <a class="option"
+    title="Buttons initialisation option"
+    href="http://datatables.net/reference/option/buttons.buttons.className"
+    target="_blank">
+    <code>buttons.buttons.className<span>Option</span></code>
+</a>
+
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>action</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            显示打印视图
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>exportOptions</code></td>
+        <td>{}</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            选择性的导出数据，包括哪些列，行，排序或者过滤。
+            详细参考 <a href="http://datatables.net/reference/api/buttons.exportData()" target="_blank">
+    <code>buttons.exportData()<span>API</span></code>
+</a> 方法，这里收集所需要的数据
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>title</code></td>
+        <td>*</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            用H1标签显示打印文档标题。如果是 <code>*</code>，那标题则从文档中
+            <code>title<span>Tag</span></code>中提取。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>message</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            描述信息，现在在打印视图上，可以包含html
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>exportOptions</code></td>
+        <td>{}</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            选择性的导出数据，包括哪些列，行，排序或者过滤。
+            详细参考 <a href="http://datatables.net/reference/api/buttons.exportData()" target="_blank">
+    <code>buttons.exportData()<span>API</span></code>
+</a> 方法，这里收集所需要的数据
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>header</code></td>
+        <td>true</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            表头将包含在导出的数据中
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>footer</code></td>
+        <td>false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            表脚将包含在导出的数据中
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>autoPrint</code></td>
+        <td>true</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            当打印视图显示出来的时候调用 <code>window.print()</code>
+            <ul>
+                <li>
+                    <code>true</code> -
+                    <code>window.print()</code>被调用，完成后自动调用
+                    <code>window.close()</code>关闭打印的视图。
+                </li>
+                <li>
+                    <code>false</code> -
+                    没有任何动作，打印视图不会自动关闭。
+                </li>
+
+            </ul>
+
+        </td>
+    </tr>
+
+    <tr class="odd">
+        <td><code>customize</code></td>
+        <td>null</td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            当打印视图显示之后执行这个函数，这个函数接受一个参数：
+            <ul>
+                <li>
+                    1.<a href="http://datatables.net/reference/type/object" target="_blank">
+    <code>Object<span>Type</span></code>
+</a> window - 新窗口的窗口对象。
+                    因此可以使用 <code>window.document.body</code>或者 jQuery / DOM 方法来操作上面的元素。
+                </li>
+            </ul>
+            No return value is expected or acted upon.
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
 
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
@@ -257,92 +413,65 @@ client.on( 'error', function() {
     <div class="reference_example">
         <div class="title">
             <p>
-                禁止第一列参与搜索
+                Datatables初始化：显示打印按钮
             </p>
         </div>
-    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
-  &quot;columnDefs&quot;: [ {
-      &quot;targets&quot;: 0,
-      &quot;searchable&quot;: false
-    } ]
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        &#39;print&#39;
+    ]
 } );</pre>
     </div>
 </div>
 
-<a name="Related"></a>
-<h2 data-anchor="Related">相关</h2>
-<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-<div class="reference_related">API
-    <ul class="markdown">
-        <li><a href="http://datatables.net/reference/api/column()" target="_blank">
-    <code>column()<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/api/columns()" target="_blank">
-    <code>columns()<span>DT</span></code>
-</a></li>
-    </ul>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：禁止自动显示打印对话框
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;print&#39;,
+            text: &#39;Print current page&#39;,
+            autoPrint: false
+        }
+    ]
+} );</pre>
+    </div>
 </div>
-<div class="reference_related">Options
-    <ul class="markdown">
-        <li><a href="/reference/option/columnDefs.targets.html" target="_blank">
-    <code>columnDefs.targets<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/option/columns.html" target="_blank">
-    <code>columns<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.cellType" target="_blank">
-    <code>columns.cellType<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.className" target="_blank">
-    <code>columns.className<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.contentPadding" target="_blank">
-    <code>columns.contentPadding<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.createdCell" target="_blank">
-    <code>columns.createdCell<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.data" target="_blank">
-    <code>columns.data<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
-    <code>columns.defaultContent<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.name" target="_blank">
-    <code>columns.name<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.orderable" target="_blank">
-    <code>columns.orderable<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.orderData" target="_blank">
-    <code>columns.orderData<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.orderDataType" target="_blank">
-    <code>columns.orderDataType<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.render" target="_blank">
-    <code>columns.render<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.searchable" target="_blank">
-    <code>columns.searchable<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.title" target="_blank">
-    <code>columns.title<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.type" target="_blank">
-    <code>columns.type<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.name" target="_blank">
-    <code>columns.name<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.name" target="_blank">
-    <code>columns.name<span>DT</span></code>
-</a></li>
-    </ul>
+
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：使用 <code>exportOptions </code>选项配置打印当前页数据
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;print&#39;,
+            text: &#39;Print current page&#39;,
+            exportOptions: {
+                modifier: {
+                    page: &#39;current&#39;
+                }
+            }
+        }
+    ]
+} );</pre>
+    </div>
 </div>
+
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/option/columnDefs" target="_blank">http://datatables.net/reference/option/columnDefs</a></p>
+    <p><a href="http://datatables.net/reference/button/print" target="_blank">http://datatables.net/reference/button/print</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
 
@@ -356,7 +485,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/option/columnDefs.html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/print.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
