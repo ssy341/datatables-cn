@@ -1,0 +1,204 @@
+---
+layout: reference_option_detail_layout
+title: 使用Editor删除已经存在的一行或者多行(remove)
+relurl: http://datatables.net/reference/button/remove
+since: Editor 1.5.0
+---
+<h1 class="page_title">remove</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>使用Editor删除已经存在的一行或者多行</p>
+<p style="color:red">注意：这个需要使用 <a href="http://editor.datatables.net/" target="_blank">Editor</a>扩展的支持</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<aside>
+    <a name="Requires"></a><h2 data-anchor="Requires">Requires</h2>
+
+    <p>In order to operate, this button requires the following:</p>
+
+    <ul class="markdown">
+        <li>Buttons' <em>Print</em> plug-in.</li>
+    </ul>
+</aside>
+<p>
+    这个按钮允许用户删除已存在的行，调用
+    {% include href/api/remove.api %}方法触发此操作。
+</p>
+<p>
+   使用Select扩展来获取选中的数据，把这些数据提供给 {% include href/api/remove.api %}方法来删除数据
+</p>
+<p>
+    他所可用的配置选项有这些
+    （即  <code>formButtons</code> ，<code>formMessage</code> 和 <code>formTitle</code>）。
+    其实就是弹出一个表单，然后表单里包含需要添加的字段，已经按钮。
+</p>
+<p>
+    这个按钮必须设置 <code>editor</code> 选项，以便按钮触发的时候是操作的那个实例。所以说多个编辑器的
+    实例可以附加到一个Datatables上。
+</p>
+
+
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>editor</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            The Editor instance that this button should operate on when activated.
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>formButtons</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            <p>
+                表单操作的按钮类型（比如 submit 提交，cancel 取消 等等）
+            </p>
+            <p>
+                这个值是通过
+                {% include href/api/buttons.api %}方法指定，请参考 {% include href/type/button-options %}数据类型
+            </p>
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>formMessage</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            <p>
+                显示在弹出表单的消息。可以是一个简单的 <code>string</code>或者一个 <code>function</code>。
+            </p>
+            <p>
+                这个值是通过 {% include href/api/message.api %}方法设置。
+            </p>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>formTitle</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            <p>
+                表单的标题，比如：新建用户。
+            </p>
+            <p>
+                这个值是通过 {% include href/api/title.api %}方法设置。
+            </p>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                一个单独的简单的删除按钮，Editor的实例名为 myEditor
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;remove&#39;,
+            editor: myEditor
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                包含一个创建，编辑，删除三个按钮的操作实例
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        { extend: &#39;create&#39;, editor: myEditor },
+        { extend: &#39;edit&#39;,   editor: myEditor },
+        { extend: &#39;remove&#39;, editor: myEditor }
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                带取消按钮的编辑按钮
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;remove&#39;,
+            editor: myEditor,
+            formButtons: [
+                {
+                    label: &#39;Cancel&#39;,
+                    fn: function () { this.close(); }
+                },
+                &#39;Delete data&#39;
+            ]
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                带自定义信息的删除按钮
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;edit&#39;,
+            editor: myEditor,
+            formMessage: function ( editor, dt ) {
+                var rows = dt.rows( { selected: true } ).data().map( function (rowData) {
+                    return rowData.first_name;
+                } );
+
+                return &#39;你确定想要删除一下数据 &#39;+rows.join(&#39;, &#39;)+&#39;?&#39;;
+            }
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+<div class="clear"></div>
+{% include quote.html %}

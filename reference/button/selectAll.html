@@ -1,0 +1,51 @@
+---
+layout: reference_option_detail_layout
+title: 根据当前选择模式选择表中所有数据(selectAll)
+relurl: http://datatables.net/reference/button/selectAll
+since: Select 1.0.0
+---
+<h1 class="page_title">selectAll</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>根据当前选择模式选择表中所有数据</p>
+<p style="color:red">注意：这个需要使用
+    <a href="http://datatables.net/extensions/select" target="_blank">Select</a>扩展的支持</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<p>
+    根据当前选择模式
+    {% include href/api/select.items.api %}，<code>selectAll</code>按钮选中所有数据
+</p>
+<p>
+    比如，当前的模式是 <code>row</code>，表中所有的行都被高亮显示。
+</p>
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：显示全选和取消全选按钮，按钮的文字可以由 <code>language</code>对象配置：
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        &#39;selectAll&#39;,
+        &#39;selectNone&#39;
+    },
+    language: {
+        buttons: {
+            selectAll: &quot;全选&quot;,
+            selectNone: &quot;全不选&quot;
+        }
+    }
+} );</pre>
+    </div>
+</div>
+
+
+<div class="clear"></div>
+{% include quote.html %}
