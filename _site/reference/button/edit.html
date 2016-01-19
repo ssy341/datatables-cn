@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>Buttons 选项(option) 参考(reference) Datatables 中文网</title>
+<title>使用Editor编辑已经存在的行(edit) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -213,439 +213,220 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h2 class="page_title">Buttons</h2>
-<p>
-    当要处理一个复杂表格的时候，给用户提供一些按钮，会更容易操作。那么Datatables提供了这么一个Buttons扩展的能力。
-</p>
-        
-<p>
-    Datatables扩展提供了按钮，用来访问你的扩展功能。
-    Editor提供了新增，编辑和删除的按钮在表格上。
-    这些按钮在下面的文档中有描述。另外，也可以自定操作，创建属于您的按钮。
-</p>
-<p>
-    按钮可以通过<a href="http://datatables.net/reference/option/buttons" target="_blank">
-    <code>buttons<span>Option</span></code>
-</a>，使用<a href="/reference/option/dom.html" target="_blank">
-    <code>dom<span>Option</span></code>
-</a>指定按钮：
+				<h1 class="page_title">edit</h1>
+<div style="color: #ac5900;float: right;">起始版本号: Editor 1.5.0</div>
+<p>使用Editor编辑已经存在的行</p>
+<p style="color:red">注意：这个需要使用 <a href="http://editor.datatables.net/" target="_blank">Editor</a>扩展的支持</p>
 
-<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable({
-    dom: &#39;Bfrtip&#39;,
-    buttons: [&#39;colvis&#39;, &#39;excel&#39;, &#39;print&#39;]
-});</pre>
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<aside>
+    <a name="Requires"></a><h2 data-anchor="Requires">Requires</h2>
+
+    <p>In order to operate, this button requires the following:</p>
+
+    <ul class="markdown">
+        <li>Buttons' <em>Print</em> plug-in.</li>
+    </ul>
+</aside>
+<p>
+    这个按钮允许用户编辑已存在的行，调用
+    <a href="http://editor.datatables.net/reference/api/edit()" target="_blank">
+    <code>edit()<span>API</span></code>
+</a>方法触发此操作。
 </p>
 <p>
-    有关自定义buttons事件的更多信息，请参考 <a href="http://datatables.net/extensions/buttons" target="_blank">Buttons扩展文档</a>
-    。请注意，Datatables核心并不提供任何按钮，你需要加载Buttons扩展才能使用。
-
+   使用Select扩展来获取选中的数据，把这些数据提供给 <a href="http://editor.datatables.net/reference/api/edit()" target="_blank">
+    <code>edit()<span>API</span></code>
+</a>方法来编辑数据
 </p>
-<div class="ref_search">
-    全局搜索:<input type="text" />
+<p>
+    他所可用的配置选项有这些
+    （即  <code>formButtons</code> ，<code>formMessage</code> 和 <code>formTitle</code>）。
+    其实就是弹出一个表单，然后表单里包含需要添加的字段，已经按钮。
+</p>
+<p>
+    这个按钮必须设置 <code>editor</code> 选项，以便按钮触发的时候是操作的那个实例。所以说多个编辑器的
+    实例可以附加到一个Datatables上。
+</p>
+
+
+<a name="Options"></a>
+<h2 data-anchor="Options">选项(Options)</h2>
+<p>这个按钮有以下选项配置:</p>
+<table class="parameters buttons dataTable stripe row-border no-footer">
+    <thead style="text-align:left">
+    <tr>
+        <th>名称</th>
+        <th>默认</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+        <td><code>editor</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            The Editor instance that this button should operate on when activated.
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>formButtons</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            <p>
+                表单操作的按钮类型（比如 submit 提交，cancel 取消 等等）
+            </p>
+            <p>
+                这个值是通过
+                <a href="http://editor.datatables.net/reference/api/buttons()" target="_blank">
+    <code>buttons()<span>API</span></code>
+</a>方法指定，请参考 <a href="http://editor.datatables.net/reference/type/button-options" target="_blank">
+    <code>button-options<span>Type</span></code>
+</a>数据类型
+            </p>
+        </td>
+    </tr>
+    <tr class="even">
+        <td><code>formMessage</code></td>
+        <td></td>
+    </tr>
+    <tr class="even continuation">
+        <td colspan="2">
+            <p>
+                显示在弹出表单的消息。可以是一个简单的 <code>string</code>或者一个 <code>function</code>。
+            </p>
+            <p>
+                这个值是通过 <a href="http://editor.datatables.net/reference/api/message()" target="_blank">
+    <code>message()<span>API</span></code>
+</a>方法设置。
+            </p>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td><code>formTitle</code></td>
+        <td></td>
+    </tr>
+    <tr class="odd continuation">
+        <td colspan="2">
+            <p>
+                表单的标题，比如：新建用户。
+            </p>
+            <p>
+                这个值是通过 <a href="http://editor.datatables.net/reference/api/title()" target="_blank">
+    <code>title()<span>API</span></code>
+</a>方法设置。
+            </p>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                一个单独的简单的编辑按钮，Editor的实例名为 myEditor
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;edit&#39;,
+            editor: myEditor
+        }
+    ]
+} );</pre>
+    </div>
 </div>
 
-<a name="Core"></a><h2 data-anchor="Core">按钮(Buttons)</h2>
 
-<table class="reference row-border hover">
-    <thead>
-    <tr>
-        <th width="30%">名称</th>
-        <th>说明</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <a href="collection.html" target="_blank">
-    <code>collection<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个按钮触发另一组的下拉按钮
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="columnsToggle.html" target="_blank">
-    <code>columnsToggle<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一组按钮切换单个列的可见性
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="columnsVisibility.html" target="_blank">
-    <code>columnsVisibility<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一组按钮组单个列的可见性
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="columnToggle.html" target="_blank">
-    <code>columnToggle<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个按钮,切换一个或多个列的可见性
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="columnVisibility.html" target="_blank">
-    <code>columnVisibility<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个按钮来控制一个或多个列的可见性
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="colvis.html" target="_blank">
-    <code>colvis<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个按钮集合提供列可见性控制
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="colvisGroup.html" target="_blank">
-    <code>colvisGroup<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            显示和隐藏多列
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="colvisRestore.html" target="_blank">
-    <code>colvisRestore<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            恢复列可见性原来的状态
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="copy.html" target="_blank">
-    <code>copy<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个用来把表格数据复制到剪贴板的按钮
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="copyFlash.html" target="_blank">
-    <code>copyFlash<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个用来把表格数据复制到剪贴板的按钮(使用Adobe Flash)
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="copyHtml5.html" target="_blank">
-    <code>copyHtml5<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个用来把表格数据复制到剪贴板的按钮(使用Html5)
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="csv.html" target="_blank">
-    <code>csv<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以csv格式保存表格中的数据
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="csvFlash.html" target="_blank">
-    <code>csvFlash<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以csv格式保存表格中的数据（使用Adobe Flash）
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="csvHtml5.html" target="_blank">
-    <code>csvHtml5<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以csv格式保存表格中的数据（使用Html5）
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="excel.html" target="_blank">
-    <code>excel<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以Excel CSV格式保存表格中的数据
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="excelFlash.html" target="_blank">
-    <code>excelFlash<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以Excel XLSX格式保存表格中的数据(使用Adobe Flash)
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="excelHtml5.html" target="_blank">
-    <code>excelHtml5<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以Excel XLSX格式保存表格中的数据(使用Html5)
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="pageLength.html" target="_blank">
-    <code>pageLength<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            用来控制表格每页显示条数的按钮
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="pdf.html" target="_blank">
-    <code>pdf<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以pdf格式保存表格中的数据
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="pdfFlash.html" target="_blank">
-    <code>pdfFlash<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以pdf格式保存表格中的数据(使用Adobe Flash)
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="pdfHtml5.html" target="_blank">
-    <code>pdfHtml5<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            以pdf格式保存表格中的数据(使用Html5)
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="print.html" target="_blank">
-    <code>print<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            打印表格数据的按钮
-        </td>
-    </tr>
-
-    </tbody>
-</table>
-
-<a name="Editor"></a><h2 data-anchor="Editor">编辑器(Editor)</h2>
-<table class="reference row-border hover">
-    <thead>
-    <tr>
-        <th width="30%">名称</th>
-        <th>说明</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <a href="create.html" target="_blank">
-    <code>create<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            使用Editor创建新行
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="edit.html" target="_blank">
-    <code>edit<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            使用Editor编辑已经存在的行
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="remove.html" target="_blank">
-    <code>remove<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            使用Editor删除已经存在的一行或者多行
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                包含一个创建，编辑，删除三个按钮的操作实例
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        { extend: &#39;create&#39;, editor: myEditor },
+        { extend: &#39;edit&#39;,   editor: myEditor },
+        { extend: &#39;remove&#39;, editor: myEditor }
+    ]
+} );</pre>
+    </div>
+</div>
 
 
-<a name="Select"></a><h2 data-anchor="Select">选择(Select)</h2>
-<table class="reference row-border hover">
-    <thead>
-    <tr>
-        <th width="30%">名称</th>
-        <th>说明</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <a href="selectAll.html" target="_blank">
-    <code>selectAll<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            根据当前选择模式选择表中所有数据
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selectCells" target="_blank">
-    <code>selectCells<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            改变选择模式为 <code>cell</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selectColumns" target="_blank">
-    <code>selectColumns<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            改变选择模式为 <code>column</code>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selected" target="_blank">
-    <code>selected<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个或者多个项目被选中时需要开启
-        </td>
-    </tr>
 
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selectedSingle" target="_blank">
-    <code>selectedSingle<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            一个项目被选中时需要开启
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selectNone" target="_blank">
-    <code>selectNone<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            取消所选择的项
-        </td>
-    </tr>
-
-    <tr>
-        <td>
-            <a href="http://datatables.net/reference/button/selectRows" target="_blank">
-    <code>selectRows<span>Button</span></code>
-</a>
-        </td>
-        <td>
-            改变选择模式为 <code>row</code>
-        </td>
-    </tr>
-    </tbody>
-</table>
-
-<br/>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                带取消按钮的编辑按钮
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;edit&#39;,
+            editor: myEditor,
+            formButtons: [
+                {
+                    label: &#39;Cancel&#39;,
+                    fn: function () { this.close(); }
+                },
+                &#39;Create new row&#39;
+            ]
+        }
+    ]
+} );</pre>
+    </div>
+</div>
 
 
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                带自定义信息的编辑按钮
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;edit&#39;,
+            editor: myEditor,
+            formTitle: function ( editor, dt ) {
+                // Get the data for the row and use a property from it in the
+                // form title
+                var rowData = dt.row({selected:true}).data();
+
+                return &#39;你确定编辑&#39;+rowData.first_name+&#39;这条数据么？&#39;;
+            }
+        }
+    ]
+} );</pre>
+    </div>
+</div>
+
+<div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/button/" target="_blank">http://datatables.net/reference/button/</a></p>
+    <p><a href="http://datatables.net/reference/button/edit" target="_blank">http://datatables.net/reference/button/edit</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
 
-<script>
-    var y = $("table.reference").DataTable({
-        dom: "t",
-        paging: !1,
-        drawCallback: function() {
-        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
-        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
-        $(window).trigger("resize")
-    }});
-    $("div.ref_search input").on("keyup", function() {
-        y.search(this.value).draw()
-    });
-
-</script>
-
-
-            
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
 <ins class="adsbygoogle"
@@ -656,7 +437,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/button/index.html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/edit.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
