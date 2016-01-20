@@ -23,33 +23,39 @@
         [
             "<a target='_blank' href='http://dt.thxopen.com/tour.html'>Datatables中文网导航</a>", 
             "2015-03-02", 
-            1
+            0
         ], 
         [
             "<a target='_blank' href='http://dt.thxopen.com/faqs'>Datatables常见问题</a>", 
             "2015-03-18", 
-            1
+            0
         ], 
         [
             "<a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加", 
             "2015-04-01", 
-            1
+            0
         ], 
         [
             "第一期<a target='_blank' href='/example/'>视频教学</a>", 
             "2015-04-11", 
-            1
+            0
         ], 
         [
             "Datatables中文网第一期交流学习活动开始了<a target='_blank' href='/activity/'>传送门</a>",
             "2015-04-27",
-            1
+            0
         ],
          [
              "中文网去掉畅言评论，因为需要填写备案信息，正在想办法给大家一个交流平台，也欢迎大家有好的建议，我的邮箱是keith@thxopen.com",
              "2016-1-6",
              1
          ]
+         ,
+          [
+              "TableTools被废弃，建议大家使用Buttons扩展，中文网添加了<a target='_blank' href='../reference/button'>buttons文档</a>",
+              "2016-1-20",
+              1
+          ]
     ], 
     "isNote": true
 }

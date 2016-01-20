@@ -223,13 +223,17 @@ client.on( 'error', function() {
 <a name="Description"></a>
 <h2 data-anchor="Description">说明(Description)</h2>
 <p>
+    Select扩展有三种选择模式，分别是 <code>cell</code>、<code>rows</code>和 <code>columns</code>,
     根据当前选择模式
     <a href="http://datatables.net/reference/api/select.items()" target="_blank">
     <code>select.items()<span>API</span></code>
-</a>，<code>selectAll</code>按钮选中所有数据
+</a>，用户得到最终的数据。
 </p>
 <p>
-    比如，当前的模式是 <code>row</code>，表中所有的行都被高亮显示。
+    如果当前的模式设置为 <code>cell</code>，则这个按钮会被激活，参考
+    <a href="http://datatables.net/reference/api/button().active()" target="_blank">
+    <code>button().active()<span>API</span></code>
+</a>
 </p>
 
 
@@ -239,20 +243,15 @@ client.on( 'error', function() {
     <div class="reference_example">
         <div class="title">
             <p>
-                Datatables初始化：显示全选和取消全选按钮，按钮的文字可以由 <code>language</code>对象配置：
+                Datatables初始化：提供三个按钮来改变选择模式
             </p>
         </div>
  <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
     buttons: [
-        &#39;selectAll&#39;,
-        &#39;selectNone&#39;
-    },
-    language: {
-        buttons: {
-            selectAll: &quot;全选&quot;,
-            selectNone: &quot;全不选&quot;
-        }
-    }
+        &#39;selectRows&#39;,
+        &#39;selectColumns&#39;,
+        &#39;selectCells&#39;
+    ]
 } );</pre>
     </div>
 </div>
@@ -344,6 +343,11 @@ client.on( 'error', function() {
                     <a class="bs3-link"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b6963c391611ebff93e69d5d63bfdcb31f485bbf94575e74fa152d734c9f0501" target="_blank"
                        title="加入QQ群">490289088（super群，注：本群为进阶群，新手勿加）</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>
+                    <a href="#">禁止同时申请加入4个群，如一顿乱加，直接不予理会</a>
                 </li>
             </ul>
             <ul class="footer-links">

@@ -2,50 +2,118 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>Datatables入门上-常用参数讲解15-ajax 视频讲解 Datatables中文网</title>
+<title>改变选择模式为 row(selectRows) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
     <!-- Le styles -->
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
 <!--代码高亮-->
 <link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
 <link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
 
-<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
 <link href="/css/docs.css" rel="stylesheet">
-<style>
+
+<style type="text/css">
     body {
-        font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+        padding-top: 60px;
+    }
+    .sidebar-nav {
+        padding: 9px 0;
     }
 
-    /* example/api/multi_filter.html use*/
-    tfoot input {
-        width: 100%;
-        padding: 3px;
-        box-sizing: border-box;
-    }
-    tfoot select{
-        width: 100%;
-        padding: 3px;
-        box-sizing: border-box;
-    }
-    td.highlight {
-        background-color: whitesmoke !important;
-    }
-    td.details-control {
-        background: url('../resources/details_open.png') no-repeat center center;
-        cursor: pointer;
-    }
-    tr.shown td.details-control {
-        background: url('../resources/details_close.png') no-repeat center center;
+    @media (max-width: 980px) {
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+            float: none;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
     }
 </style>
 <link rel="shortcut icon" href="/images/favicon.png">
+	<style>
+    code.option {
+        color: #D14;
+        background-color: #fcf6f8;
+        border: 1px solid #f7d6df;
+    }
+    code>span {
+        border-left: 1px solid rgba(0,0,0,0.2);
+        margin-left: 4px;
+        padding-left: 4px;
+        opacity: 0.5;
+    }
+    div.ref_type {
+        position: relative;
+        padding: 3.5em 1em 1em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #bbb;
+        margin-bottom: 1em
+    }
+
+    div.ref_type:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_type h3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1em;
+        padding: 0.5em;
+        margin-top: 0;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid #ddd;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px
+    }
+
+    div.ref_type span.type {
+        font-size: 0.8em;
+        color: #777;
+        font-style: italic
+    }
+
+    div.ref_type dl dt {
+        font-size: 1.1em
+    }
+
+    div.ref_type dl dd {
+        margin-left: 3em;
+        margin-bottom: 1em
+    }
+
+    div.ref_type dl:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_search input {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 90%;
+    }
+
+        aside{
+            width: 33%;
+            float: right;
+            font-size: 0.9em;
+            line-height: 1.45em;
+            margin: 0 1em;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            border: 1px solid #CCC;
+            background-color: #F9F9F9;
+            padding: 1em;
+            border-radius: 0.25em;
+        }
+    </style>
 </head>
 <body>
-<style>
+     <style>
     .hot {
         background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
         height: 12px;
@@ -65,9 +133,9 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li ><a href="/index.html">首页</a></li>
-                    <li class="active"><a href="/example">例子</a></li>
+                    <li ><a href="/example">例子</a></li>
                     <li ><a href="/manual">手册</a></li>
-                    <li ><a href="/reference">参考</a></li>
+                    <li class="active"><a href="/reference">参考</a></li>
                     <li ><a href="http://datatables.net/extensions/index">扩展</a></li>
                     <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
                     <li ><a href="/faqs">FAQs</a></li>
@@ -80,16 +148,122 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row-fluid" style="margin-top:20px">
-        <div class="span1"></div>
-        <div class="span10">
-            <h2>Datatables入门上-常用参数讲解15-ajax </h2>
-<embed src="http://www.tudou.com/v/p2rvw5a5o50/&rpid=8476773&resourceId=8476773_04_05_99/v.swf"
-       type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque"
-       width="100%"
-       height="700"></embed>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<!--代码高亮-->
+<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
+<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
+<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
+<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
+<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+
+<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+
+
+     <div class="container">
+				<h1 class="page_title">selectRows</h1>
+<div style="color: #ac5900;float: right;">起始版本号: Select 1.0.0</div>
+<p>改变选择模式为 row</p>
+<p style="color:red">注意：这个需要使用
+    <a href="http://datatables.net/extensions/select" target="_blank">Select</a>扩展的支持</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<p>
+    Select扩展有三种选择模式，分别是 <code>cell</code>、<code>rows</code>和 <code>columns</code>,
+    根据当前选择模式
+    <a href="http://datatables.net/reference/api/select.items()" target="_blank">
+    <code>select.items()<span>API</span></code>
+</a>，用户得到最终的数据。
+</p>
+<p>
+    如果当前的模式设置为 <code>row</code>，则这个按钮会被激活，参考
+    <a href="http://datatables.net/reference/api/button().active()" target="_blank">
+    <code>button().active()<span>API</span></code>
+</a>
+</p>
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：提供三个按钮来改变选择模式
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        &#39;selectRows&#39;,
+        &#39;selectColumns&#39;,
+        &#39;selectCells&#39;
+    ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="clear"></div>
+<blockquote>
+    <p><a href="http://datatables.net/reference/button/selectRows" target="_blank">http://datatables.net/reference/button/selectRows</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -99,7 +273,7 @@
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/example/vedio/season1/ajax/index.html"></div>
+<!--<div id="SOHUCS" sid="/reference/button/selectRows.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
@@ -115,12 +289,9 @@
     })()
 </script>-->
 
-        </div>
-        <div class="span1"></div>
-    </div>
-    <!--/row-->
-</div>
-<!--footer-->
+	</div><!--/.fluid-container-->
+     <hr>
+     <!--footer-->
 <footer class="footer">
     <div class="container">
         <div class="span3">
@@ -204,53 +375,3 @@
 </footer>
 </body>
 </html>
-
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-//判断是否显示更新提示
-$.get("/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
-    });
-</script>
-<!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
-<script>
-$('[data-toggle="tooltip"]').tooltip();
-$('#copyurltoclip').on('show.bs.tooltip', function () {
-
-    var url = window.location.href;
-    var title = $("title").html();
-    var text = title + ":"+url;
-    $(this).attr("data-clipboard-text",text);
-
-});
-
-var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-client.on( "aftercopy", function( event ) {
-    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-} );
-
-client.on( 'error', function() {
-    ZeroClipboard.destroy();
-} );
-</script>
-
-
-
-
-
