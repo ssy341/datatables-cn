@@ -1,12 +1,12 @@
 ---
 layout: reference_option_detail_layout
-title: 根据当前选择模式选择表中所有数据(selectAll)
-relurl: http://datatables.net/reference/button/selectAll
+title: 取消所选择的项(selectNone)
+relurl: http://datatables.net/reference/button/selectNone
 since: Select 1.0.0
 ---
-<h1 class="page_title">selectAll</h1>
+<h1 class="page_title">selectNone</h1>
 <div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
-<p>根据当前选择模式选择表中所有数据</p>
+<p>取消所选择的项</p>
 <p style="color:red">注意：这个需要使用
     <a href="http://datatables.net/extensions/select" target="_blank">Select</a>扩展的支持</p>
 
@@ -14,11 +14,7 @@ since: Select 1.0.0
 <a name="Description"></a>
 <h2 data-anchor="Description">说明(Description)</h2>
 <p>
-    根据当前选择模式
-    {% include href/api/select.items.api %}，<code>selectAll</code>按钮选中所有数据
-</p>
-<p>
-    比如，当前的模式是 <code>row</code>，表中所有的行都被高亮显示。
+    取消所有选择的项目，这个不受当前选择模式的控制，只要是触发了，所有选择的都会被取消选择。
 </p>
 
 

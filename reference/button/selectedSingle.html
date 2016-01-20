@@ -1,0 +1,54 @@
+---
+layout: reference_option_detail_layout
+title: 一个项目被选中时需要开启(selectedSingle)
+relurl: http://datatables.net/reference/button/selectedSingle
+since: Select 1.0.0
+---
+<h1 class="page_title">selectedSingle</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>一个项目被选中时需要开启</p>
+<p style="color:red">注意：这个需要使用
+    <a href="http://datatables.net/extensions/select" target="_blank">Select</a>扩展的支持</p>
+
+
+<a name="Description"></a>
+<h2 data-anchor="Description">说明(Description)</h2>
+<p>
+    这个按钮和 {% include href/button/selected.button %} 有些类似，不同的是这个针对的只是单个的选项。
+</p>
+<p>
+    单项选择是很有用的，当你希望执行很复杂的操作，比如编辑一行中的数据。
+</p>
+<p>
+    通过一个 <code>action</code>的 function提供此功能，
+    参考 则这个按钮会被激活，参考
+    {% include href/option/buttons.buttons.action %}/{% include href/api/button.action.api %}
+</p>
+
+
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                Datatables初始化：在控制台中打印当前选择的数据
+            </p>
+        </div>
+ <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
+    buttons: [
+        {
+            extend: &#39;selectedSingle&#39;,
+            text: &#39;Log selected data&#39;
+            action: function ( e, dt, button, config ) {
+                console.log( dt.row( { selected: true } ).data() );
+            }
+        }
+    }
+} );</pre>
+    </div>
+</div>
+
+
+<div class="clear"></div>
+{% include quote.html %}
