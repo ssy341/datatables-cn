@@ -1,0 +1,57 @@
+{% if include.param == "createdRow" %}
+<a href="/reference/option/createdRow.html" target="_blank">
+    <code>createdRow<span>Option</span></code>
+</a>
+{% elsif include.param == "drawCallback" %}
+<a href="/reference/option/drawCallback.html" target="_blank">
+    <code>drawCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "footerCallback" %}
+<a href="/reference/option/footerCallback.html" target="_blank">
+    <code>footerCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "formatNumber" %}
+<a href="http://datatables.net/reference/option/formatNumber" target="_blank">
+    <code>formatNumber<span>Option</span></code>
+</a>
+{% elsif include.param == "headerCallback" %}
+<a href="http://datatables.net/reference/option/headerCallback" target="_blank">
+    <code>headerCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "infoCallback" %}
+<a href="http://datatables.net/reference/option/infoCallback" target="_blank">
+    <code>infoCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "initComplete" %}
+<a href="/reference/option/initComplete.html" target="_blank">
+    <code>initComplete<span>Option</span></code>
+</a>
+{% elsif include.param == "preDrawCallback" %}
+<a href="http://datatables.net/reference/option/preDrawCallback" target="_blank">
+    <code>preDrawCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "rowCallback" %}
+<a href="http://datatables.net/reference/option/rowCallback" target="_blank">
+    <code>rowCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "stateLoadCallback" %}
+<a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
+    <code>stateLoadCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "stateLoaded" %}
+<a href="http://datatables.net/reference/option/stateLoaded" target="_blank">
+    <code>stateLoaded<span>Option</span></code>
+</a>
+{% elsif include.param == "stateLoadParams" %}
+<a href="http://datatables.net/reference/option/stateLoadParams" target="_blank">
+    <code>stateLoadParams<span>Option</span></code>
+</a>
+{% elsif include.param == "stateSaveCallback" %}
+<a href="http://datatables.net/reference/option/stateSaveCallback" target="_blank">
+    <code>stateSaveCallback<span>Option</span></code>
+</a>
+{% elsif include.param == "stateSaveParams" %}
+<a href="http://datatables.net/reference/option/stateSaveParams" target="_blank">
+    <code>stateSaveParams<span>Option</span></code>
+</a>
+{% endif %}

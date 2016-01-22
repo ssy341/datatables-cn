@@ -1,0 +1,106 @@
+
+<a name="Callbacks"></a><h2 data-anchor="Callbacks">回调函数(Callbacks)</h2>
+<table class="reference row-border hover">
+	<thead>
+		<tr>
+			<th width="30%">名称</th>
+			<th>说明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="createdRow" %}
+            </td>
+			<td>
+				<p>行被创建时回调函数</p>
+			</td>
+			</tr>
+			<tr>
+				<td>
+					{% include href/option/option.callbacks param="drawCallback" %}
+				</td>
+				<td>
+					<p>表格每次重绘回调函数</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p>
+					{% include href/option/option.callbacks param="footerCallback" %}
+                    </p>
+				</td>
+				<td>
+					<p>tfoot的回调函数</p>
+				</td>
+			</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="formatNumber" %}
+            </td>
+			<td>
+				<p>数字格式化时的回调函数</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="headerCallback" %}
+            </td>
+			<td>
+				<p>表格Header显示时的回调函数</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="infoCallback" %}
+            </td>
+			<td><p>表格状态信息改变的回调函数</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="initComplete" %}
+            </td>
+			<td><p>初始化结束后的回调函数</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="preDrawCallback" %}
+            </td>
+			<td><p>表格绘制前的回调函数</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="rowCallback" %}
+            </td>
+			<td><p>表格行(Row)绘制的回调函数</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="stateLoadCallback" %}
+            </td>
+			<td><p>该回调函数定义了从哪里和如何读取保存的状态</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="stateLoaded" %}
+            </td>
+			<td><p>状态加载完成之后的回调函数</p></td>
+		</tr>
+		<tr>
+			<td> {% include href/option/option.callbacks param="stateLoadParams" %}</td>
+			<td><p>状态加载完成之后，对数据处理的回调函数</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="stateSaveCallback" %}
+            </td>
+			<td><p>该回调函数定义了状态该存储在什么地方及如何存储</p></td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/option.callbacks param="stateSaveParams" %}
+            </td>
+			<td><p>对状态进行存储时，对数据处理的回调函数</p></td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,93 @@
+
+<a name="Columns"></a>
+<h2 data-anchor="Columns">列(Columns)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{% include href/option/columnDefs.targets.dt %}</td>
+      <td><p>为一个或多个列编制定义</p></td>
+    </tr>
+    <tr>
+      <td>{% include href/option/columnDefs.dt %}</td>
+      <td><p>设置定义列的初始属性</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.cellType"><code class="option" title="DataTables initialisation option">columns.cellType<span>DT</span></code></a></p></td>
+      <td><p>为列指定一个单元格类型</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.className"><code class="option" title="DataTables initialisation option">columns.className<span>DT</span></code></a></p></td>
+      <td><p>为指定的列的每个单元格都指定一个css class</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.contentPadding"><code class="option" title="DataTables initialisation option">columns.contentPadding<span>DT</span></code></a></p></td>
+      <td><p>当计算最佳显示状态时，文字内容部分需要增加的css padding值</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.createdCell"><code class="option" title="DataTables initialisation option">columns.createdCell<span>DT</span></code></a></p></td>
+      <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.data"><code class="option" title="DataTables initialisation option">columns.data<span>DT</span></code></a></p></td>
+      <td><p>设置列的数据源，即如何从整个Table的数据源(object / array)中获得</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.defaultContent"><code class="option" title="DataTables initialisation option">columns.defaultContent<span>DT</span></code></a></p></td>
+      <td><p>设定该列的默认、静态的内容</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.name"><code class="option" title="DataTables initialisation option">columns.name<span>DT</span></code></a></p></td>
+      <td><p>为列设定一个别名（描述性名字）</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderable"><code class="option" title="DataTables initialisation option">columns.orderable<span>DT</span></code></a></p></td>
+      <td><p>在该列上允许或者禁止排序功能</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderData"><code class="option" title="DataTables initialisation option">columns.orderData<span>DT</span></code></a></p></td>
+      <td><p>定义多个列的默认排序条件</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.orderDataType"><code class="option" title="DataTables initialisation option">columns.orderDataType<span>DT</span></code></a></p></td>
+      <td><p>列的表格的DOM类型，可以用来方便排序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="columns.orderSequence"><code class="option" title="DataTables initialisation option">columns.orderSequence<span>DT</span></code></a></p></td>
+      <td><p>排序的顺序，正序或倒序</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="reference/option/columns.render"><code class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a></p></td>
+      <td><p>在列上处理数据的函数，可以再次自定义显示内容</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.searchable"><code class="option" title="DataTables initialisation option">columns.searchable<span>DT</span></code></a></p></td>
+      <td><p>在该列上允许或者禁止过滤搜索记录</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.title"><code class="option" title="DataTables initialisation option">columns.title<span>DT</span></code></a></p></td>
+      <td><p>设定该列的标题</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.type"><code class="option" title="DataTables initialisation option">columns.type<span>DT</span></code></a></p></td>
+      <td><p>设定该列的类型 - 在该列排序或者搜索的时候使用</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.visible"><code class="option" title="DataTables initialisation option">columns.visible<span>DT</span></code></a></p></td>
+      <td><p>显示或隐藏该列</p></td>
+    </tr>
+    <tr>
+      <td><p><a href="option/columns.width"><code class="option" title="DataTables initialisation option">columns.width<span>DT</span></code></a></p></td>
+      <td><p>设定列宽</p></td>
+    </tr>
+    <tr>
+      <td>{% include href/option/columns.dt %}</td>
+      <td><p>设定列的所有初始属性</p></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,44 @@
+
+<a name="Data"></a><h2 data-anchor="Data">数据(Data)</h2>
+<table class="reference row-border hover">
+	<thead>
+		<tr>
+			<th width="30%">名称</th>
+			<th>说明</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+                {% include href/option/ajax.data.dt %}
+			</td>
+			<td>
+				<p>增加或修改通过Ajax提交到服务端的请求数据</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/ajax.dataSrc.dt %}
+			</td>
+			<td>
+				<p>数据属性或操作表数据的方法</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+                  {% include href/option/ajax.dt %}
+			</td>
+			<td>
+				<p>从一个ajax数据源读取数据给表格内容</p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+                {% include href/option/data.dt %}
+			</td>
+			<td>
+				<p>用来显示表格的数据</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
