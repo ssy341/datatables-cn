@@ -1,0 +1,57 @@
+{% if include.param == "autoFill.alwaysAsk" %}
+<a href="http://datatables.net/reference/option/autoFill.alwaysAsk" target="_blank">
+    <code>autoFill.alwaysAsk<span>Option</span></code>
+</a>
+{% elsif include.param == "autoFill.columns" %}
+<a href="http://datatables.net/reference/option/autoFill.columns" target="_blank">
+    <code>autoFill.columns<span>Option</span></code>
+</a>
+{% elsif include.param == "autoFill.editor" %}
+<a href="http://datatables.net/reference/option/autoFill.editor" target="_blank">
+    <code>autoFill.editor<span>Option</span></code>
+</a>
+{% elsif include.param == "autoFill.focus" %}
+<a href="http://datatables.net/reference/option/autoFill.focus" target="_blank">
+    <code>autoFill.focus<span>Option</span></code>
+</a>
+{% elsif include.param == "autoFill.update" %}
+<a href="http://datatables.net/reference/option/autoFill.update" target="_blank">
+    <code>autoFill.update<span>Option</span></code>
+</a>
+{% elsif include.param == "autoFill" %}
+<a href="http://datatables.net/reference/option/autoFill" target="_blank">
+    <code>autoFill<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.button" %}
+<a href="http://datatables.net/reference/option/language.autoFill.button" target="_blank">
+    <code>language.autoFill.button<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.cancel" %}
+<a href="http://datatables.net/reference/option/language.autoFill.cancel" target="_blank">
+    <code>language.autoFill.cancel<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.fill" %}
+<a href="http://datatables.net/reference/option/language.autoFill.fill" target="_blank">
+    <code>language.autoFill.fill<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.fillHorizontal" %}
+<a href="http://datatables.net/reference/option/language.autoFill.fillHorizontal" target="_blank">
+    <code>language.autoFill.fillHorizontal<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.fillVertical" %}
+<a href="http://datatables.net/reference/option/language.autoFill.fillVertical" target="_blank">
+    <code>language.autoFill.fillVertical<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.increment" %}
+<a href="http://datatables.net/reference/option/language.autoFill.increment" target="_blank">
+    <code>language.autoFill.increment<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill.info" %}
+<a href="http://datatables.net/reference/option/language.autoFill.info" target="_blank">
+    <code>language.autoFill.info<span>Option</span></code>
+</a>
+{% elsif include.param == "language.autoFill" %}
+<a href="http://datatables.net/reference/option/language.autoFill" target="_blank">
+    <code>language.autoFill<span>Option</span></code>
+</a>
+{% endif %}

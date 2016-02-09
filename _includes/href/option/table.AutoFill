@@ -1,0 +1,116 @@
+
+<h2 data-anchor="Options">自动填充(AutoFill)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="autoFill.alwaysAsk" %}
+      </td>
+      <td>
+        总是询问用户操作是否执行
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="autoFill.columns" %}
+      </td>
+      <td>
+        设置选择的列可以自动填充
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="autoFill.editor" %}
+      </td>
+      <td>
+        附加一个Editor实例，以便自动填充数据变更数据后更新到数据库里
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.autoFill param="autoFill.focus" %}</td>
+      <td>
+        设置触发填充动作方式，比如点击、移动到或者是通过键盘字母
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="autoFill.update" %}
+      </td>
+      <td>
+        控制当拖拽完成后，数据是否立马更新显示
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.autoFill param="autoFill" %}</td>
+      <td>
+        启用和配置Datatables的AutoFill扩展功能
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.button" %}
+      </td>
+      <td>
+        弹出提示框中执行填充的按钮文字
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.cancel" %}
+      </td>
+      <td>
+        弹出提示框中取消的文字提示
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.fill" %}
+      </td>
+      <td>
+        弹出提示框提示是否所选中的格子都填充为相同的值
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.fillHorizontal" %}
+      </td>
+      <td>
+        当你选择了不仅仅一列时，弹出提示框提示是否所选中横向也填充同样的值
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.autoFill param="language.autoFill.fillVertical" %}</td>
+      <td>
+        当你选择了不仅仅一列时，弹出提示框提示是否所选中纵向也填充同样的值
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.increment" %}
+      </td>
+      <td>
+        当你选择的填充列是纯数字时，弹出的提示框提示数值是否增量或者是相同值
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.autoFill param="language.autoFill.info" %}
+      </td>
+      <td>
+        现在在弹出提示框的顶部提示信息，用来告诉用户接下来该怎么操作
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.autoFill param="language.autoFill" %}</td>
+      <td>
+        所有autoFill相关的语言文字都在这个属性下配置
+      </td>
+    </tr>
+  </tbody>
+</table>
