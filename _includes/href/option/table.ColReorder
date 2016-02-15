@@ -1,0 +1,50 @@
+
+<h2 data-anchor="Options">拖动列(ColReorder)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          {% include href/option/option.ColReorder param="colReorder.fixedColumnsLeft" %}
+      </td>
+      <td>
+        不允许第X列重新排序（从左往右数）
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.ColReorder param="colReorder.fixedColumnsRight" %}
+      </td>
+      <td>
+        不允许第X列重新排序（从右往左数）
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.ColReorder param="colReorder.order" %}
+      </td>
+      <td>
+        设置一个默认的列顺序
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.ColReorder param="colReorder.realtime" %}</td>
+      <td>
+        启用或者禁止拖动的实时效果
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.ColReorder param="colReorder" %}
+      </td>
+      <td>
+        打开和配置Datatables的ColReorder扩展
+      </td>
+    </tr>
+  </tbody>
+</table>

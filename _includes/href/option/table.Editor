@@ -1,0 +1,20 @@
+
+<h2 data-anchor="Options">编辑器(Editor)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          {% include href/option/option.editor param="columns.editField" %}
+      </td>
+      <td>
+        定义那些字段应该触发编辑
+      </td>
+    </tr>
+  </tbody>
+</table>

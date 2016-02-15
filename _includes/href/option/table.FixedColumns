@@ -1,0 +1,42 @@
+
+<h2 data-anchor="Options">固定列(FixedColumns)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          {% include href/option/option.FixedColumns param="fixedColumns.heightMatch" %}
+      </td>
+      <td>
+        选择行高匹配算法
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.FixedColumns param="fixedColumns.leftColumns" %}
+      </td>
+      <td>
+        设置列的数量固定在表格左边
+      </td>
+    </tr>
+    <tr>
+      <td>
+          {% include href/option/option.FixedColumns param="fixedColumns.rightColumns" %}
+      </td>
+      <td>
+        设置列的数量固定在表格右边
+      </td>
+    </tr>
+    <tr>
+      <td>{% include href/option/option.FixedColumns param="fixedColumns" %}</td>
+      <td>
+        打开和配置Datatables的FixedColumns扩展
+      </td>
+    </tr>
+  </tbody>
+</table>

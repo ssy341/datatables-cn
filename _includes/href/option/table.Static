@@ -1,0 +1,20 @@
+
+<h2 data-anchor="Options">静态方法(Static)</h2>
+<table class="reference row-border hover">
+  <thead>
+    <tr>
+      <th width="30%">名称</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+          {% include href/option/option.static param="$.fn.dataTable.ext.errMode" %}
+      </td>
+      <td>
+        设置Datatables侦查到错误后的报错方式
+      </td>
+    </tr>
+  </tbody>
+</table>

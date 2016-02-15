@@ -1,0 +1,17 @@
+{% if include.param == "fixedColumns.heightMatch" %}
+<a href="http://datatables.net/reference/option/fixedColumns.heightMatch" target="_blank">
+    <code>fixedColumns.heightMatch<span>Option</span></code>
+</a>
+{% elsif include.param == "fixedColumns.leftColumns" %}
+<a href="http://datatables.net/reference/option/fixedColumns.leftColumns" target="_blank">
+    <code>fixedColumns.leftColumns<span>Option</span></code>
+</a>
+{% elsif include.param == "fixedColumns.rightColumns" %}
+<a href="http://datatables.net/reference/option/fixedColumns.rightColumns" target="_blank">
+    <code>fixedColumns.rightColumns<span>Option</span></code>
+</a>
+{% elsif include.param == "fixedColumns" %}
+<a href="http://datatables.net/reference/option/fixedColumns" target="_blank">
+    <code>fixedColumns<span>Option</span></code>
+</a>
+{% endif %}

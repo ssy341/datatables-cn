@@ -1,0 +1,5 @@
+{% if include.param == "$.fn.dataTable.ext.errMode" %}
+<a href="http://datatables.net/reference/option/%24.fn.dataTable.ext.errMode" target="_blank">
+    <code>$.fn.dataTable.ext.errMode<span>Option</span></code>
+</a>
+{% endif %}
