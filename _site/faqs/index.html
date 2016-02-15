@@ -133,7 +133,10 @@
             <ul>
                 <li><b>问：控制台报错，提示api方法不可用</b></li>
                 <li>答：1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
-                    <code>$().DataTable()</code> 返回的是Datatables的api实例，  详细参考 <a href="/manual/api.html" target="_blank">api手册</a> </li>
+                    <code>$().DataTable()</code> 返回的是Datatables的api实例，
+                    如果在使用过程中出现某某方法不存在不支持之类的，一般都是由于是用第一种方法初始化dt，用返回的对象去调用api的方法，所以报错误。
+                    dt的api实例和jquery可以互转 ，jquery转api：dt.api();api转jquery：dt.to$();
+                    详细参考 <a href="/manual/api.html" target="_blank">api手册</a> </li>
             </ul>
 
             <ul>
@@ -190,6 +193,16 @@
             <ul>
                 <li><b>问:弹出提示Datatables warning:Non-table node initialisation (DIV)是怎么回事</b></li>
                 <li>答：这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的id-example在其他元素上，而不是table的id</li>
+            </ul>
+            <ul>
+                <li><b>怎么取消掉Datatables弹出的错误提示？</b></li>
+                <li>
+                    使用 <code>$.fn.dataTable.ext.errMode = function(s,h,m){}</code> 覆盖掉默认的即可
+                </li>
+            </ul>
+            <ul>
+                <li><b>使用bootstrap页码分页问题,在上页被禁用情况下,点击也向服务器请求数据,为什么</b></li>
+                <li>这个是一个bug，问题是因为代码里只是设置了按钮的禁用状态，但是没有把按钮的点击事件屏蔽掉，所以还可以向服务器请求</li>
             </ul>
         </p>
 
