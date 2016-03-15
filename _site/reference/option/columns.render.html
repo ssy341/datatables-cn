@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>tfoot显示回调方法(footerCallback) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>渲染(处理)数据显示在表格中(columns.render) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -215,41 +215,99 @@ client.on( 'error', function() {
      <div class="container">
 				<h1 class="page_title">columns.render</h1>
 <div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
-<p>渲染(处理)数据显示在表格中</p>
+<p>
+    渲染(处理)数据显示在表格中
+</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    这个属性可以操作从数据源读取到的数据。<a href="http://datatables.net/reference/option/columns.render" target="_blank">
-    <code>columns.render<span>DT</span></code>
-</a>和<a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    这个属性可以操作从数据源读取到的数据。<a href="http://datatables.net/reference/option/columns.data" target="_blank">
     <code>columns.data<span>DT</span></code>
+</a>
+    和<a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
 </a>比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
 </p>
 <p>
-    <a href="http://datatables.net/reference/option/columns.render" target="_blank">
-    <code>columns.render<span>DT</span></code>
-</a>可以看做为把请求过来的数据做进一步的处理，比较常见的操作有格式化，等等其他处理数据的方式。
+    <a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
+</a>可以看做为把请求过来的数据做进一步的处理，
+    比较常见的操作有格式化、字符串替换、字符串截取等等其他处理数据的方式。
     Datatables把不同数据的不同操作叫做 <a href="http://datatables.net/manual/orthogonal-data">
 <font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-42" rel="42" style="text-decoration: none;">
 orthogonal-data
 </font>
-</a>,并允许不同形式的相同数据做不同的操作（例如，日期字段给用户是以'yyyy-MM-dd hh:mi:ss'格式显示和搜索，但是以long型作为排序）
+</a>（正交数据）,
+    并允许不同形式的相同数据做不同的操作（例如，日期字段给用户是以'yyyy-MM-dd hh:mi:ss'格式显示和搜索，
+    但是以long型作为排序）
 </p>
 <p>
-有三种特殊的值可以通过<a href="http://datatables.net/reference/option/columns.render" target="_blank">
-    <code>columns.render<span>DT</span></code>
+有三种特殊的值可以通过<a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
 </a>解决
 <ul class="markdown">
-    <li><code>-type undefined</code> - 当值未定义时，<a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
+    <li>
+        <a href="http://datatables.net/reference/type/undefined" target="_blank">
+    <code>undefined<span>Type</span></code>
+</a>
+        - 当值未定义时，
+        <a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code>columns.defaultContent<span>DT</span></code>
-</a>将会替换作为默认的值去显示.如果又是undefined又没有定义这个则会得到一个错误</li>
-    <li><code>-type null</code> - 当值为null时，<a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
+</a>将会替换作为默认的值去显示.
+        如果又是undefined又没有定义这个则会得到一个错误
+    </li>
+    <li><a href="http://datatables.net/reference/type/null" target="_blank">
+    <code>null<span>Type</span></code>
+</a>
+        - 当值为null时，<a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code>columns.defaultContent<span>DT</span></code>
-</a>将会替换作为默认值去显示.如果没有设置默认值则会以一个空的字符串显示 。 <code>-type null</code> 将会被用作其他所有数据类型</li>
-    <li><code>-type function</code> - 返回函数执行后的值.详细的参考下面给出的示例代码</li>
+</a>将会替换作为默认值去显示.
+        如果没有设置默认值则会以一个空的字符串显示 。 <a href="http://datatables.net/reference/type/null" target="_blank">
+    <code>null<span>Type</span></code>
+</a>将会被用作其他所有数据类型
+    </li>
+    <li>
+        <a href="http://datatables.net/reference/type/function" target="_blank">
+    <code>function<span>Type</span></code>
+</a>
+        - 方法将执行，返回函数执行后的值。自Datatables 1.10.1起，这个方法返回的数据将会做为这一行的数据源。
+        详细的参考下面给出的示例代码</li>
+</ul>
+</p>
+
+<a name="Array-access"></a><h3 data-anchor="Array-access">Array access（数组使用）</h3>
+
+<p>
+    当使用如下格式的数据时，该选项可以访问数据中多个和一个元素。你需要理解这两种不同形式之间的区别。
+</p>
+
+<ul class="markdown">
+    <li>使用这个数组里一个或者多个属性 - 使用 <code>[]</code>符号</li>
+    <li>只获得数组里的一个元素 - 使用点符号 - e.g. <code>.0</code>
+        访问数组的第一个元素</li>
 </ul>
 
+<p>看如下结构的数据:</p>
+
+<pre class="brush:js;toolbar:false">&quot;access&quot;: [
+  { &quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;Printer&quot; },
+  { &quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;Desktop&quot; },
+  { &quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;VMs&quot; }
+]</pre>
+
+<p>
+    显示 <code>name</code>
+    属性在单个的 <code>cell</code>中，使用 <code>access[, ].name</code> -
+    将会得到使用 <code>,</code>连接的字符串 - e.g.
+    在这个情况下结果将是  <code>Printer, Desktop, VMs<span>String</span></code>
 </p>
+
+<p>
+    显示单个的属性，使用 <code>.{index}</code>.还是以上面的数据结构，现在要显示数组里的一条数据里的name，
+    使用 <code>access.0.name</code> - e.g. 在这个情况下得到的结果是 <code>Printer</code>
+</p>
+
+
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型（Type）</h2>
 
@@ -259,14 +317,13 @@ orthogonal-data
         <dt>描述:</dt>
         <dd class="description">
             <p>
-               作为数据源中的数组索引，Datatables默认就是这样使用(每一列递增)
+               作为数组索引的数据来源，Datatables默认(每一列递增)
             </p>
         </dd>
     </dl>
 </div>
 
 <div class="ref_type"><a name="string"></a>
-
     <h3 data-anchor="string"><span class="type">string</span></h3>
     <dl>
         <dt>描述:</dt>
@@ -276,28 +333,192 @@ orthogonal-data
 
             <ul class="markdown">
                 <li>
-                    <p><code>.</code> - 点，是JavaScript中的符号. 就像你是用 <code>.</code>来获取JavaScript嵌套对象一样，所以你也可以在Datatables中的option
-                    <code>data</code>同样使用，比如 <code>browser.version</code>，如果你的对象属性名中包含 <code>.</code>你可以是用
+                    <p><code>.</code> - 点，是JavaScript中的符号. 就像你是用 <code>.</code>来获取JavaScript嵌套对象一样，
+                        所以你也可以在Datatables中的option<code>data</code>同样使用，
+                        比如 <code>browser.version</code>或者 <code>browser.name</code>。如果你的对象属性名中包含 <code>.</code>你可以是用
                     <code>\\</code>来避开，比如 <code>first\\.name</code>
                     </p>
                   </li>
-                <li><p><code>[]</code> - Array notation. DataTables can automatically combine data from an array source,
-                    joining the data with the characters provided between the two brackets. For example: <code>name[,
-                        ]</code> would provide a comma-space separated list from the source array. If no characters are
-                    provided between the brackets, the original array source is returned.</p></li>
-                <li><p><code>()</code> - Function notation. Adding <code>()</code> to the end of a parameter will
-                    execute a function of the name given. For example: <code>browser()</code> for a simple function on
-                    the data source, <code>browser.version()</code> for a function in a nested property or even <code>browser().version</code>
-                    to get an object property if the function called returns an object. Note that function notation is
-                    recommended for use in <a href="//datatables.net/reference/option/columns.render"><code
-                            class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a>
-                    rather than <a href="//datatables.net/reference/option/columns.data"><code class="option"
-                                                                                               title="DataTables initialisation option">columns.data<span>DT</span></code></a>
-                    as it is much simpler to use as a renderer.</p></li>
+                <li>
+                    <p><code>[]</code> - 数组符号. Datatables可以自动在数据源中加入 <code>[]</code>中的字符，比如：
+                        <code>name[, ]</code> 将会把数据用逗号空格来隔开数据。
+                        如果 <code>[]</code>中没有字符，就返回原始的数据。参考上面 Access Array的例子 </p>
+                </li>
+                <li>
+                    <p><code>()</code> - 函数符号。 添加 <code>()</code> 到参数的后面，将会执行这个同名函数，
+                        比如: <code>browser()</code> 在数据源中的一个简单的方法,
+                        <code>browser.version()</code> 或者在属性里在嵌套一个方法
+                        <code>browser().version</code>再或者是从一个方法里返回的对象里获取属性。
+                        注意，函数符号推荐使用<a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
+</a>
+                        而不使用<a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
+</a>，前者比后者更容易处理渲染
+                    </p>
+                </li>
             </ul>
         </dd>
     </dl>
 </div>
+
+
+<div class="ref_type"><a name="object"></a>
+    <h3 data-anchor="string"><span class="type">object</span></h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd class="description">
+            <p>
+               Datatables要求使用不同数据给不同的数据类型（
+                <code>filter <span>String</span></code>
+                <code>display <span>String</span></code>
+                <code>type  <span>String</span></code>
+                <code>sort <span>String</span></code>
+                ）。提到属性名称就是对应的属性名，他的值可以被定义为 integer，string或者function，规则就像
+                <a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
+</a>做的一样
+            </p>
+
+           <p>
+               注意， <code>_ <span>String</span></code>选项可以被定义。当你没有指定数据类型时，这个
+               被当做默认值交给Datatables处理。
+               如果 <code>_ <span>String</span></code>选项没有被选择数据类型指定到数据列，那么
+               <a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
+</a>将会被使用。
+           </p>
+            <p>
+                看下面的数据例子：
+                <pre class="brush:js;toolbar:false">&quot;data&quot;: &quot;phone&quot;,
+&quot;render&quot;: {
+    &quot;_&quot;: &quot;plain&quot;,
+    &quot;filter&quot;: &quot;filter&quot;,
+    &quot;display&quot;: &quot;display&quot;
+}</pre>
+            </p>
+        </dd>
+    </dl>
+</div>
+
+
+<div class="ref_type"><a name="function"></a>
+
+    <h3 data-anchor="function"><span class="type">function</span> render( data, type, row, meta )</h3>
+    <dl>
+        <dt>描述:</dt>
+        <dd class="description">
+            <p>
+                如果做为一个function，那么每当Datatables从columns中的cell获取数据时，都需要执行该方法。
+                注意，该方法会被多次调用，根据不同的数据类型，比如sorting（排序）、filtering(过滤)和display(显示)
+            </p>
+        </dd>
+        <dt>参数:</dt>
+        <dd>
+            <table class="parameters dataTable stripe row-border no-footer">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Name（名称）</th>
+                    <th>Type（类型）</th>
+                    <th>Optional（可选）</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="even">
+                    <td>1</td>
+                    <td><code>data</code></td>
+                    <td><p><code>Any</code></p>
+                    </td>
+                    <td>No</td>
+                </tr>
+                <tr class="even continuation">
+                    <td></td>
+                    <td colspan="3">
+                        当前cell的值（基于<a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
+</a>）
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>2</td>
+                    <td><code>type</code></td>
+                    <td>
+                        <a href="http://datatables.net/reference/type/string" target="_blank">
+    <code>string<span>Type</span></code>
+</a>
+                    </td>
+                    <td>No</td>
+                </tr>
+                <tr class="odd continuation">
+                    <td></td>
+                    <td colspan="3">
+                        数据类型 - 有这些值：<code>filter</code>、<code>display</code>、<code>type</code>、<code>sort</code>
+                    </td>
+                </tr>
+                <tr class="even">
+                    <td>3</td>
+                    <td><code>row</code></td>
+                    <td><p><code>Any</code></p>
+                    </td>
+                    <td>No</td>
+                </tr>
+                <tr class="even continuation">
+                    <td></td>
+                    <td colspan="3">
+                        整个row的数据（不基于<a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
+</a>）
+                    </td>
+                </tr>
+                <tr class="odd">
+                    <td>4</td>
+                    <td><code>meta</code></td>
+                    <td>
+                        <a href="http://datatables.net/reference/type/object" target="_blank">
+    <code>Object<span>Type</span></code>
+</a>
+                    </td>
+                    <td>No</td>
+                </tr>
+                <tr class="odd continuation">
+                    <td></td>
+                    <td colspan="3">
+                        <p><strong>从 1.10.1版开始</strong>:
+                            一个对象包含了单元格的附加信息.
+                            对象包含如下属性:</p>
+
+                        <ul class="markdown">
+                            <li>
+                                <code>row</code> - 被请求的单元格行的索引.参考
+                                <a href="http://datatables.net/reference/api/row().index()" target="_blank">
+    <code>row().index()<span>API</span></code>
+</a>
+                            </li>
+                            <li><code>col</code> - 被请求的单元格列的索引.
+                                <a href="http://datatables.net/reference/api/column().index()" target="_blank">
+    <code>column().index()<span>API</span></code>
+</a>
+                            </li>
+                            <li><code>settings</code> -
+                                <a href="http://datatables.net/reference/type/DataTables.Settings" target="_blank">
+    <code>DataTables.Settings<span>Type</span></code>
+</a>
+                                API实例
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </dd>
+        <dt>Returns（返回）:</dt>
+        <dd><p>方法返回的数据被用作Datatables最终使用的数据</p></dd>
+    </dl>
+</div>
+
+
+
 
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
@@ -305,64 +526,173 @@ orthogonal-data
     <div class="reference_example">
         <div class="title">
             <p>
-                修改tfoot里的内容
+                从一个对象数组创建一个逗号分隔的字符串
             </p>
         </div>
-   <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;footerCallback&quot;: function( tfoot, data, start, end, display ) {
-    $(tfoot).find(&#39;th&#39;).eq(0).html( &quot;Starting index is &quot;+start );
-  }
+ <pre class="brush:js;toolbar:false">/*
+{
+&quot;browser&quot;:&quot;chrome&quot;,
+&quot;engine&quot;:&quot;webkiet&quot;,
+&quot;platform&quot;: [
+  { &quot;id&quot;: &quot;1&quot;, &quot;name&quot;: &quot;windows&quot; },
+  { &quot;id&quot;: &quot;3&quot;, &quot;name&quot;: &quot;linux&quot; },
+  { &quot;id&quot;: &quot;4&quot;, &quot;name&quot;: &quot;mac&quot; }
+]
+}
+*/
+$(&#39;#example&#39;).dataTable( {
+  &quot;ajaxSource&quot;: &quot;sources/deep.txt&quot;,
+  &quot;columns&quot;: [
+    { &quot;data&quot;: &quot;engine&quot; },
+    { &quot;data&quot;: &quot;browser&quot; },
+    {
+      &quot;data&quot;: &quot;platform&quot;,
+      &quot;render&quot;: &quot;[, ].name&quot;
+    }
+  ]
 } );</pre>
     </div>
-    <div style="height:600px;margin-top: 10px;margin-bottom: 10px">
-    <button style="margin-bottom: 10px;float: right"><a href="http://www.gbtags.com/gb/rtwidget-replayerpreview/690.htm" target="_blank">在新的页面查看</a></button>
-    <iframe style="margin: 10px 0 20px 0" height=500px width=100% src="http://www.gbtags.com/gb/rtwidget-replayerpreview/690.htm" frameborder=0 allowfullscreen></iframe>
-</div>
 </div>
 <div class="reference_examples">
     <div class="reference_example">
         <div class="title">
             <p>
-                使用reduce()方法实现合计功能
+                作为一个对象,提取不同类型不同的数据
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">// This would be used with a data source such as:
+//   { &quot;phone&quot;: 5552368, &quot;phone_filter&quot;: &quot;5552368 555-2368&quot;, &quot;phone_display&quot;: &quot;555-2368&quot;, ... }
+// Here the `phone` integer is used for sorting and type detection, while `phone_filter`
+// (which has both forms) is used for filtering for if a user inputs either format, while
+// the formatted phone number is the one that is shown in the table.
+$(&#39;#example&#39;).dataTable( {
+  &quot;columnDefs&quot;: [ {
+    &quot;targets&quot;: 0,
+    &quot;data&quot;: null, // Use the full data source object for the renderer&#39;s source
+    &quot;render&quot;: {
+      &quot;_&quot;: &quot;phone&quot;,
+      &quot;filter&quot;: &quot;phone_filter&quot;,
+      &quot;display&quot;: &quot;phone_display&quot;
+    }
+  } ]
+} );</pre>
+    </div>
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                如上， <code>phone</code>是对象的话：
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">// This would be used with a data source such as:
+//   &quot;phone&quot;: { &quot;plain&quot;: 5552368, &quot;filter&quot;: &quot;5552368 555-2368&quot;, &quot;display&quot;: &quot;555-2368&quot; }
+$(&#39;#example&#39;).dataTable( {
+  &quot;columnDefs&quot;: [ {
+    &quot;targets&quot;: 0,
+    &quot;data&quot;: &#39;phone&#39;,
+    &quot;render&quot;: {
+      &quot;_&quot;: &quot;plain&quot;,
+      &quot;filter&quot;: &quot;filter&quot;,
+      &quot;display&quot;: &quot;display&quot;
+    }
+  } ]
+} );</pre>
+    </div>
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                根据数据源的数据替换成超链接
             </p>
         </div>
 <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;footerCallback&quot;: function( tfoot, data, start, end, display ) {
-    var api = this.api();
-    $( api.column( 5 ).footer() ).html(
-        api.column( 5 ).data().reduce( function ( a, b ) {
-            return a + b;
-        } )
-    );
-  }
+  &quot;columnDefs&quot;: [ {
+    &quot;targets&quot;: 0,
+    &quot;data&quot;: &quot;download_link&quot;,
+    &quot;render&quot;: function ( data, type, full, meta ) {
+      return &#39;&lt;a href=&quot;&#39;+data+&#39;&quot;&gt;Download&lt;/a&gt;&#39;;
+    }
+  } ]
 } );</pre>
     </div>
-    <div style="height:600px;margin-top: 10px;margin-bottom: 10px">
-    <button style="margin-bottom: 10px;float: right"><a href="http://www.gbtags.com/gb/rtwidget-replayerpreview/692.htm" target="_blank">在新的页面查看</a></button>
-    <iframe style="margin: 10px 0 20px 0" height=500px width=100% src="http://www.gbtags.com/gb/rtwidget-replayerpreview/692.htm" frameborder=0 allowfullscreen></iframe>
 </div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                当字符串太长的时候显示点点
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+  &quot;columnDefs&quot;: [ {
+    &quot;targets&quot;: 4,
+    &quot;data&quot;: &quot;description&quot;,
+    &quot;render&quot;: function ( data, type, full, meta ) {
+      return type === &#39;display&#39; &amp;&amp; data.length &gt; 40 ?
+        &#39;&lt;span title=&quot;&#39;+data+&#39;&quot;&gt;&#39;+data.substr( 0, 38 )+&#39;...&lt;/span&gt;&#39; :
+        data;
+    }
+  } ]
+} );</pre>
+    </div>
+</div>
+
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                使用一个对象实例作为数据源的行
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">function Person( name, age, position ) {
+    this._name     = name;
+    this._age      = age;
+    this._position = position;
+
+    this.name = function () {
+        return this._name;
+    };
+
+    this.age = function () {
+        return this._age;
+    };
+
+    this.position = function () {
+        return this._position;
+    };
+}
+
+
+$(document).ready(function() {
+    var table = $(&#39;#example&#39;).DataTable({
+        columns: [
+            { data: null, render: &#39;name&#39; },
+            { data: null, render: &#39;age&#39; },
+            { data: null, render: &#39;position&#39; }
+        ]
+    });
+
+    table.row.add( new Person( &#39;Airi Satou&#39;,     33, &#39;Accountant&#39; ) );
+    table.row.add( new Person( &#39;Angelica Ramos&#39;, 47, &#39;Chief Executive Officer (CEO)&#39; ) );
+    table.row.add( new Person( &#39;Ashton Cox&#39;,     66, &#39;Junior Technical Author&#39; ) );
+    table.draw();
+} );</pre>
+    </div>
 </div>
 
 <a name="Related"></a>
 <h2 data-anchor="Related">相关</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-<div class="reference_related">API
-    <ul class="markdown">
-        <li><a href="http://datatables.net/reference/api/column().footer()" target="_blank">
-    <code>column().footer()<span>DT</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/api/columns().footer()" target="_blank">
-    <code>columns().footer()<span>DT</span></code>
-</a></li>
-    </ul>
-</div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li><a href="http://datatables.net/reference/option/headerCallback" target="_blank">
-    <code>headerCallback<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/option/drawCallback.html" target="_blank">
-    <code>drawCallback<span>DT</span></code>
+        <li><a href="http://datatables.net/reference/option/columns.data" target="_blank">
+    <code>columns.data<span>DT</span></code>
 </a></li>
     </ul>
 </div>
