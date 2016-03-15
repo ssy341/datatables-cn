@@ -62,7 +62,7 @@
       <td><p>排序的顺序，正序或倒序</p></td>
     </tr>
     <tr>
-      <td><p><a href="reference/option/columns.render"><code class="option" title="DataTables initialisation option">columns.render<span>DT</span></code></a></p></td>
+      <td>{% include href/option/columns.render.dt %}</td>
       <td><p>在列上处理数据的函数，可以再次自定义显示内容</p></td>
     </tr>
     <tr>
