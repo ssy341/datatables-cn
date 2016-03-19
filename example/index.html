@@ -21,8 +21,12 @@ title: 例子 Datatables中文网
                 <li><a href="#try" data-toggle="tab">别只看，动动手<span class='hot'></span></a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
+                <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>
                 <div class="tab-pane fade in active" id="example">
                     <div class="span12">
+                        <div class="row-fluid">
+                            {% include example/user_share.html %}
+                        </div>
                         <div class="row-fluid">
                             {% include example/basic_init.html %}
                             {% include example/advanced_init.html %}
@@ -35,17 +39,14 @@ title: 例子 Datatables中文网
                             {% include example/ajax.html %}
                             {% include example/plug-ins.html %}
                         </div><!--/row-->
-                        <div class="row-fluid">
-                            {% include example/user_share.html %}
-                        </div>
                     </div><!--/span-->
-
                 </div>
                 <div class="tab-pane fade" id="vedio">
                     <div class="span12">
                         <div class="row-fluid">
                             {% include example/vedio1.html %}
                             {% include example/vedio2.html %}
+                            {% include example/vedio-usershare.html %}
                         </div>
                     </div><!--/span-->
                 </div>
