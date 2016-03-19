@@ -184,6 +184,39 @@ since: 1.10.0
 } );</pre>
     </div>
 </div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                动态传参数
+            </p>
+        </div>
+   <pre class="brush:js;toolbar:false">
+//初始化表格
+var oTable = $(&quot;#example&quot;).DataTable({
+    ajax: {
+        url: &quot;dataList.action&quot;,
+        data: {
+            args1: &quot;我是固定传参的值，在服务器接收参数[args1]&quot;
+        }
+    }
+});
+
+//当你需要多条件查询，你可以调用此方法，动态修改参数传给服务器
+function reloadTable() {
+    var name = $(&quot;#seName&quot;).val();
+    var admin = $(&quot;#seAdmin&quot;).val();
+    var param = {
+        &quot;obj.name&quot;: name,
+        &quot;obj.admin&quot;: admin
+    };
+    oTable.settings()[0].ajax.data = param;
+    oTable.ajax.reload();
+}</pre>
+    </div>
+</div>
+
 <a name="Related"></a>
 <h2 data-anchor="Related">相关</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>

@@ -431,6 +431,80 @@ $(document).ready(function() {
     </div>
 </div>
 
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                字符如果太长，截取显示
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">//初始化表格
+var oTable = $(&quot;#example&quot;).DataTable({
+    ajax: {
+        url: &quot;dataList.action&quot;,
+        data: {
+            args1: &quot;我是固定传参的值，在服务器接收参数[args1]&quot;
+        }
+    },
+    columns: [{
+        data: &quot;content&quot;,
+        render: function(data, type, row, meta) {
+            //type 的值  dispaly sort filter
+            //代表，是显示类型的时候判断值的长度是否超过8，如果是则截取
+            //这里只处理了类型是显示的，过滤和排序返回原始数据
+            if (type === &#39;display&#39;) {
+                if (data.length &gt; 8) {
+                    return &#39;&lt;span title=&quot;&#39; + data + &#39;&quot;&gt;&#39; + data.substr(0, 7) + &#39;...&lt;/span&gt;&#39;;
+                } else {
+                    return &#39;&lt;span title=&quot;&#39; + data + &#39;&gt;&#39; + data + &#39;&lt;/span&gt;&#39;;
+                }
+            }
+            return data;
+        }
+    }]
+});</pre>
+    </div>
+</div>
+
+<div class="reference_examples">
+    <div class="reference_example">
+        <div class="title">
+            <p>
+                字符如果太长，截取显示 （css实现）
+            </p>
+        </div>
+<pre class="brush:js;toolbar:false">/* 单元格连续纯字母数字强制换行显示 */
+.wordwrap{
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+/* 超长文字单元格省略号显示 */
+.ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+//初始化表格
+var oTable = $(&quot;#example&quot;).DataTable({
+    ajax: {
+        url: &quot;dataList.action&quot;,
+        data: {
+            args1: &quot;我是固定传参的值，在服务器接收参数[args1]&quot;
+        }
+    },
+    columns: [
+        {
+            data: &quot;content&quot;, class: &quot;wordwrap ellipsis&quot;
+        }
+    ]
+});</pre>
+    </div>
+</div>
+
+
 <a name="Related"></a>
 <h2 data-anchor="Related">相关</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
