@@ -2,7 +2,7 @@
 layout: default
 title: 网址导航 Datatables 中文网
 ---
-{% include nav.html param="index" %}
+{% include nav.html param="nav" %}
 <style>
     dl{
         line-height: 24px;
@@ -39,11 +39,13 @@ title: 网址导航 Datatables 中文网
 <div class="container" style="margin-top:100px">
     <div class="span3"></div>
     <div class="span6">
-        <form class="form-search" style="margin:0;padding:0" method=get action="http://209.85.229.119/search"
-              target="_blank">
-            <input class="input-medium search-query" type=text name=q style="width:400px">
-            <input class="btn" type=submit name=btnG value="Google搜索">
-        </form>
+        <!--<form class="form-search" style="margin:0;padding:0" method=get action="http://209.85.229.119/search"-->
+              <!--target="_blank">-->
+            <!--<input class="input-medium search-query" type=text name=q style="width:400px">-->
+            <!--<input class="btn" type=submit name=btnG value="Google搜索">-->
+        <!--</form>-->
+
+        <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=9387011596926898338' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
     </div>
     <div class="span3">
     </div>
@@ -105,7 +107,7 @@ title: 网址导航 Datatables 中文网
         </dd>
     </dl>
     <div style="margin-top: 20px">
-        <p>如果你想共享自己的精品网址，欢迎在下面留言</p>
+        <p>如果你想共享自己的精品网址，请发送邮箱至 thxopen@datatables.club</p>
         {% include post.html param= site.url param2 = page.url %}
     </div>
 </div>
