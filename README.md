@@ -14,7 +14,7 @@ jquery 表格插件
 
 中文网访问地址：
 
-[http://dt.thxopen.com](http://dt.thxopen.com)
+[http://datatables.club](http://datatables.club)
 
 [http://ssy341.github.io/datatables-cn/](http://ssy341.github.io/datatables-cn/)
 
