@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>tr元素被创建时候的回调函数(createdRow) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>服务器模式(serverSide) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -214,133 +214,78 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">创建行(createdRow)</h1>
-<div style="color: #ac5900;float: right;">起始版本号:1.10.0</div>
-<p>tr元素被创建时候的回调函数</p>
+				<h1 class="page_title">服务器模式(serverSide)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
+<p>开启Datatables服务器模式</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    当tr元素被创建（所有的td元素已经插入进去），或者给tr绑定事件，该回调函数被执行，允许操作tr元素
+  DataTables有两种基本的工作模式可供选择：
+  <ul>
+  <li>客户端处理模式——此模式下如：过滤、分页、排序的处理都在浏览器中进行。</li>
+  <li>服务器端处理模式——此模式下如：过滤、分页、排序的处理都放在服务器端进行。</li>
+</ul>
 </p>
 <p>
-   这个是非常有用的，当你延迟渲染（<a href="/reference/option/deferRender.html" target="_blank">
-    <code>deferRender<span>DT</span></code>
-</a>）或者开启服务器模式时，你可以在他创建的时候添加事件，类名或者其他的。
+  默认情况下DataTables使用客户端处理模式，但是可以通配置让切换到服务器端处理模式。
+  当处理大量数据的时候（如超过50000条记录）服务器端处理模式就十分有用。这种情况下可以使用数据库来进行排序操作。
+  现代的数据库都针对这样的处理进行了优化，使用这样的方式能够让DataTables轻松应付几万条的记录排序、过滤。
+</p>
+<p>
+  使用服务器端处理模式时，DataTables会向服务器端发送必要的参数以说明所需的数据（如页码、过滤条件等）。
+  同时DataTable也需要从返回的参数中获取显示表格所需的参数。DataTables与服务器端通讯时所使用的协议请参考
+  <a href="/manual/server-side.html" target="_blank">
+<font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-42" rel="42" style="text-decoration: none;">
+ServerSide Document
+</font>
+</a>
 </p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
-<div class="ref_type"><a name="function"></a>
-
-    <h3 data-anchor="function"><span class="type">函数（function）</span> createdRow( row, data, dataIndex )</h3>
-    <dl>
-        <dt>参数:</dt>
-        <dd>
-            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                <table class="parameters basic display dataTable no-footer" id="DataTables_Table_0" role="grid">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2px;"></th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">是否可选</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="odd">
-                        <td>1</td>
-                        <td><code>row</code></td>
-                        <td><a href="http://datatables.net/reference/type/node" target="_blank">
-    <code>node<span>JS</span></code>
-</a></td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="3">
-                            已经被创建的tr元素
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td>2</td>
-                        <td><code>data</code></td>
-                        <td><a href="http://datatables.net/reference/type/array">
-    <code class="type"  title="Javascript parameter type">array<span>JS</span></code>
-</a>,<a href="http://datatables.net/reference/type/object">
-    <code class="type" title="Javascript parameter type">object<span>JS</span></code>
-</a></td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="3">
-                            包含这行的数据对象
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td>3</td>
-                        <td><code>dataIndex</code></td>
-                        <td><a href="http://datatables.net/reference/type/integer" target="_blank" >
-    <code class="type"  title="">integer<span>JS</span></code>
-</a></td>
-                        <td>No</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="3">
-                           Datatables内部存储的数据索引
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </dd>
-    </dl>
-</div>
-
+<p>
+  这个选项接受以下类型：
+</p>
+<ul class="markdown">
+  <li>
+    <a href="http://datatables.net/reference/type/boolean" target="_blank">
+    <code>boolean<span>Type</span></code>
+</a>
+  </li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<p>false</p>
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
 <div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-                给指定字符的数据添加一个样式
-            </p>
-        </div>
-   <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;createdRow&quot;: function( row, data, dataIndex ) {
-    if ( data[4] == &quot;A&quot; ) {
-      $(row).addClass( &#39;important&#39; );
-    }
-  }
-} );</pre>
+  <div class="reference_example">
+    <div class="title">
+      <p>启用服务器端处理模式:</p>
     </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;serverSide&quot;: ture,
+  &quot;ajax&quot;: &quot;xhr.php&quot;
+} );</pre>
+  </div>
 </div>
-
 <a name="Related"></a>
 <h2 data-anchor="Related">相关</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
 <div class="reference_related">Options
-    <ul class="markdown">
-        <li><a href="/reference/option/data.html" target="_blank">
-    <code>data<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/option/deferRender.html" target="_blank">
-    <code>deferRender<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/option/serverSide.html" target="_blank">
-    <code>serverSide<span>Option</span></code>
-</a></li>
-        <li><a href="http://datatables.net/reference/option/columns.createdCell" target="_blank">
-    <code>columns.createdCell<span>DT</span></code>
-</a></li>
-    </ul>
+  <ul class="markdown">
+    <li>
+      <a href="/reference/option/ajax.html" target="_blank">
+    <code>ajax<span>DT</span></code>
+</a>
+    </li>
+  </ul>
 </div>
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/option/createdRow" target="_blank">http://datatables.net/reference/option/createdRow</a></p>
+    <p><a href="http://datatables.net/reference/option/serverSide" target="_blank">http://datatables.net/reference/option/serverSide</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
-
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
 <ins class="adsbygoogle"
@@ -351,7 +296,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/option/createdRow.html"></div>
+<!--<div id="SOHUCS" sid="/reference/option/serverSide.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',

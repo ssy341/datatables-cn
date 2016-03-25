@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-<title>从一个数据源获取数据给表格显示(ajax) 选项(option) 参考(reference) Datatables 中文网</title>
+<title>状态保存(stateSave) 选项(option) 参考(reference) Datatables 中文网</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="datatables is jquery-plugin">
 
@@ -214,350 +214,192 @@ client.on( 'error', function() {
 
 
      <div class="container">
-				<h1 class="page_title">Ajax</h1>
-<div style="color: #ac5900;float: right;">起始版本号:1.10.0</div>
-<p>从一个数据源获取数据给表格显示</p>
+				<h1 class="page_title">状态保存(stateSave)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
+<p>状态保存 - 再次加载页面时还原表格状态</p>
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    使用这个参数可以让Datatables从一个数据源获取数据来显示表格，Datatables接收数组，对象类型的数据，可以参考
-    <a href="/example/data_sources/js_array.html" target="_blank">JavaScript数据数据源</a>、<a href="/example/data_sources/ajax.html" target="_blank">Ajax数据源</a>
+  开启或者禁用状态储存。当你开启了状态储存，Datatables会存储一个状态到浏览器上，
+  包含分页位置，每页显示的长度，过滤后的结果和排序。当用户重新刷新页面，表格的状态将会被设置为之前的设置。
 </p>
 <p>
-    当你使用对象数组作为数据源时，你需要使用<a href="http://datatables.net/reference/option/columns.data" target="_blank">
-    <code>columns.data<span>DT</span></code>
-</a>来读取对象的属性，如果使用的是纯数组则不需要使用，Datatables会默认按照数组的顺序显示每一个行数据
+  数据储存在浏览器上的状态信息是使用 localStorage或者sessionStorage Html5 APLs。
+  Datatable的属性stateDuration 用来设置使用那个api （localStorage:0 或者更高  或者 sessionStorage: -1）
 </p>
 <p>
-    <code>ajax</code>接收三种类型的参数：
-<ul>
-    <li><code>string</code> - 设置获取数据的url</li>
-    <li><code>object</code> - 和 <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">
-    jQuery.ajax
-</a> 定义类似</li>
-    <li><code>function</code> - 自定义获取数据的功能</li>
-</ul>
+  使用table的dom id 和当前页面的路径作为每个表状态数据，信息储存的唯一标示。如果 table dom 的id 或者页面的url改变了，状态信息将丢失。
+</p>
+<p>
+  请注意：这个使用了Html5 api 来存储数据，意味着这个参数的使用在IE6/7下会失效，因为IE6/7不支持这些api。
+  使用cookie或者把状态保存在服务器上，可以通过使用
+  
+<a href="http://datatables.net/reference/option/stateSaveCallback" target="_blank">
+    <code>stateSaveCallback<span>Option</span></code>
+</a>
+和
+  
+<a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
+    <code>stateLoadCallback<span>Option</span></code>
+</a>
+选项。
 </p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
-
-<div class="ref_type">
-    <a name="string"></a>
-
-    <h3 data-anchor="string"><span class="type">string</span></h3>
-    <dl>
-        <dt>描述:</dt>
-        <dd class="description">
-            <p>
-               这个是最简单的应用，<code>ajax</code>指定一个返回数据的url，这个是多个形式的比如json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……
-                <br/>
-                Datatables默认接收的是一个属性为 <code>data</code>，如果你返回的数据不是这样，你需要使用 <a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
-</a>来处理
-            </p>
-            <p>
-                默认的数据（对象）格式如下：
-               <pre class="brush:js;toolbar:false">{
-&quot;data&quot;: [
-{ &quot;name&quot;: &quot;Tiger Nixon&quot;, &quot;position&quot;: &quot;System Architect&quot;, &quot;salary&quot;: &quot;$3,120&quot;, &quot;start_date&quot;: &quot;2011/04/25&quot;, &quot;office&quot;: &quot;Edinburgh&quot;, &quot;extn&quot;: &quot;5421&quot; },
-……
-]
-}</pre>
-            默认的数据（数组）格式如下：
-            <pre class="brush:js;toolbar:false">{
-&quot;data&quot;: [
-[ &quot;Tiger Nixon&quot;, &quot;System Architect&quot;, &quot;Edinburgh&quot;, &quot;5421&quot;, &quot;2011/04/25&quot;, &quot;$3,120&quot; ],
-……
-]
-}</pre>
-            </p>
-            <p>
-                上面的数据该怎么给Datatables显示呢？先看对象的：
-                <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: &quot;data.json&quot;,
-  &quot;columns&quot;:[
-      {&quot;data&quot;:&quot;name&quot;},
-      {&quot;data&quot;:&quot;position&quot;},
-      {&quot;data&quot;:&quot;salary&quot;},
-      {&quot;data&quot;:&quot;start_date&quot;},
-            {&quot;data&quot;:&quot;office&quot;},
-            {&quot;data&quot;:&quot;extn&quot;}
-  ]
-} );</pre>
-数组：
-            <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: &quot;data.json&quot;
-} );</pre>
-            </p>
-        </dd>
-    </dl>
-</div>
-<div class="ref_type"><a name="object"></a>
-
-    <h3 data-anchor="object"><span class="type">object</span> </h3>
-    <dl>
-        <dt>描述:</dt>
-        <dd class="description">
-            <p>
-                接收一个对象，其用法类同于 <a href="http://api.jquery.com/jQuery.ajax/" target="_blank">
-    jQuery.ajax
-</a>，这里只介绍不相同的，没有列出的参考jQuery文档即可，可以同样适用
-            </p>
-            <p>
-            <ul>
-                <li>
-                    <code>data</code>( <a href="/reference/option/ajax.data.html" target="_blank">
-    <code>ajax.data<span>DT</span></code>
-</a>) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收
-                    <code>function</code>，作为function时可以操作请求参数，在实际应用中，可以在此函数里加入自定义的条件传到服务器。这个方法在1.9-版本中为 <code>fnServerParams </code>。
-                </li>
-                <li>
-                    <code>dataSrc</code>（<a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
-</a>） - 如果Datatables是通过ajax或者服务器取数，默认情况下，Datatables会去找返回数据中的 <code>data</code>（或者是
-                    <code>aaData</code>兼容1.9-）去显示表格。这个方法已经取代了1.9-中的 <code>sAjaxDataProp</code>
-                </li>
-                <li>
-                    <code>success</code> - 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用 <a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
-</a> 处理，或者是把
-                    <code>ajax</code>作为一个函数使用（见下面的说明）
-                </li>
-            </ul>
-            一个简单的例子：
-            <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: {
-    &quot;url&quot;: &quot;data.json&quot;,
-    &quot;type&quot;: &quot;POST&quot;
-  }
-} );</pre>
-            </p>
-
-        </dd>
-    </dl>
-</div>
-<div class="ref_type"><a name="function"></a>
-
-    <h3 data-anchor="function"><span class="type">function </span> ajax( data, callback, settings )</h3>
-    <dl>
-        <dt>描述:</dt>
-        <dd class="description">
-            <p>
-               作为一个函数，这个可以完全自己控制Ajax请求，请求参数，返回的数据都可以不受Datatables的影响。事实上你可以使用非Ajax请求，而直接使用本地储存。
-            </p>
-            <p>
-                你可以直接从本地数据库获取数据交给 <code>callback</code>去处理
-            </p>
-            <p>
-                例子如下：
-                <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: function (data, callback, settings) {
-    callback(
-      JSON.parse( localStorage.getItem(&#39;dataTablesData&#39;) )
-    );
-  }
-} );</pre>
-            </p>
-            <p>
-           注意：在1.10.6+， 当使用了 <code>ajax</code> 属性后，    <a href="http://datatables.net/reference/event/xhr" target="_blank">
-    <code style="color: #2a839e;background-color: #f5fafb;border: 1px solid #a8ddec;">xhr</code>
-</a>事件会被触发（即使没有ajax请求）
-            </p>
-
-        </dd>
-        <dt>参数:</dt>
-        <dd>
-            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper no-footer">
-                <table class="parameters basic display dataTable no-footer" id="DataTables_Table_0" role="grid">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 2px;"></th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">是否可选</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="even">
-                        <td>1</td>
-                        <td><code>data</code></td>
-                        <td><p><a href="http://datatables.net/reference/type/object">
-    <code class="type" title="Javascript parameter type">object<span>JS</span></code>
+<p>
+  这个选项接受以下类型：
+</p>
+<ul class="markdown">
+  <li>
+    <a href="http://datatables.net/reference/type/boolean" target="_blank">
+    <code>boolean<span>Type</span></code>
 </a>
-                        </p>
-                        </td>
-                        <td>No</td>
-                    </tr>
-                    <tr class="even continuation">
-                        <td></td>
-                        <td colspan="3"><p>发送给服务器的数据</p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td>2</td>
-                        <td><code>callback</code></td>
-                        <td><p><a href="http://datatables.net/reference/type/function">
-    <code class="type" title="Javascript parameter type">function<span>JS</span></code>
-</a>
-                        </p>
-                        </td>
-                        <td>No</td>
-                    </tr>
-                    <tr class="odd continuation">
-                        <td></td>
-                        <td colspan="3"><p>必须被执行，Datatables才能获取到数据</p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td>3</td>
-                        <td><code>settings</code></td>
-                        <td><p><a href="http://datatables.net/reference/type/DataTables.Settings" target="_blank">
-    <code>Datatables.Settings<span>JS</span></code>
-</a>
-                        </p>
-                        </td>
-                        <td>No</td>
-                    </tr>
-                    <tr class="even continuation">
-                        <td></td>
-                        <td colspan="3"><p>Datatables的设置对象</p>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-        </dd>
-    </dl>
-</div>
-
+  </li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<p>false</p>
 <a name="Example"></a>
 <h2 data-anchor="Example">示例</h2>
 <div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-                更改Ajax的请求方式
-            </p>
-        </div>
-    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: {
-    &quot;url&quot;: &quot;data.json&quot;,
-    &quot;type&quot;: &quot;POST&quot;
-  }
-} );</pre>
+  <div class="reference_example">
+    <div class="title">
+      <p>打开状态保存:</p>
     </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;stateSave&quot;: ture
+} );</pre>
+  </div>
 </div>
 <div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-                添加额外的参数发送到服务器
-            </p>
-        </div>
-  <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: {
-    &quot;url&quot;: &quot;data.json&quot;,
-    &quot;data&quot;: function ( d ) {
-      return $.extend( {}, d, {
-        &quot;extra_search&quot;: $(&#39;#extra&#39;).val()
-      } );
-    }
-  }
-} );</pre>
+  <div class="reference_example">
+    <div class="title">
+      <p>根据Datatables的实例id来读取和储存页面上保存的状态:</p>
     </div>
-</div>
-<div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-                添加额外的参数发送到服务器
-            </p>
-        </div>
    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: {
-    &quot;url&quot;: &quot;data.json&quot;,
-    &quot;data&quot;: function ( d ) {
-        d.extra_search = $(&#39;#extra&#39;).val();
+  stateSave: true,
+  stateSaveCallback: function(settings,data) {
+      localStorage.setItem( &#39;DataTables_&#39; + settings.sInstance, JSON.stringify(data) )
+    },
+  stateLoadCallback: function(settings) {
+    return JSON.parse( localStorage.getItem( &#39;DataTables_&#39; + settings.sInstance ) )
     }
-  }
 } );</pre>
-    </div>
-</div>
-<div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-               操作服务器返回的数据添加链接，这个使用  <a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>也可以达到效果，这里只是演示怎么操作返回的数据
-            </p>
-        </div>
-   <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: {
-    &quot;url&quot;: &quot;data.json&quot;,
-    &quot;dataSrc&quot;: function ( json ) {
-      for ( var i=0, ien=json.length ; i&lt;ien ; i++ ) {
-        json[i][0] = &#39;&lt;a href=&quot;/message/&#39;+json[i][0]+&#39;&gt;View message&lt;/a&gt;&#39;;
-      }
-      return json;
-    }
-  }
-} );</pre>
-    </div>
-</div>
-<div class="reference_examples">
-    <div class="reference_example">
-        <div class="title">
-            <p>
-                获取本地的数据
-            </p>
-        </div>
-  <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
-  &quot;ajax&quot;: function (data, callback, settings) {
-    callback(
-      JSON.parse( localStorage.getItem(&#39;dataTablesData&#39;) )
-    );
-  }
-} );</pre>
-    </div>
+  </div>
 </div>
 <a name="Related"></a>
 <h2 data-anchor="Related">相关</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
 <div class="reference_related">API
-    <ul class="markdown">
-        <li><a href="http://datatables.net/reference/api/ajax.json()" target="_blank">
-    <code>ajax.json()<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/api/ajax.reload().html" target="_blank">
-    <code>ajax.reload()<span>DT</span></code>
-</a></li>
-        <li><a href="/reference/api/ajax.url().html" target="_blank">
-    <code>ajax.url()<span>DT</span></code>
-</a></li>
-    </ul>
+  <ul class="markdown">
+    <li>
+      
+<a href="http://datatables.net/reference/api/state()" target="_blank">
+    <code>state()<span>API</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/api/state.clear()" target="_blank">
+    <code>state.clear()<span>API</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/api/state.loaded()" target="_blank">
+    <code>state.loaded()<span>API</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/api/state.save()" target="_blank">
+    <code>state.save()<span>API</span></code>
+</a>
+
+    </li>
+  </ul>
+</div>
+
+<div class="reference_related">Events
+  <ul class="markdown">
+    <li>
+      
+<a href="http://datatables.net/reference/event/stateLoaded" target="_blank">
+    <code>stateLoaded<span>Event</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/event/stateLoadParams" target="_blank">
+    <code>stateLoadParams<span>Event</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/event/stateSaveParams" target="_blank">
+    <code>stateSaveParams<span>Event</span></code>
+</a>
+
+    </li>
+  </ul>
 </div>
 <div class="reference_related">Options
-    <ul class="markdown">
-        <li><a href="/reference/option/serverSide.html" target="_blank">
-    <code>serverSide<span>Option</span></code>
-</a></li>
+  <ul class="markdown">
+    <li>
+      
+<a href="http://datatables.net/reference/option/stateSaveCallback" target="_blank">
+    <code>stateSaveCallback<span>Option</span></code>
+</a>
 
-        <li><a href="/reference/option/ajax.data.html" target="_blank">
-    <code>ajax.data<span>DT</span></code>
-</a></li>
+    </li>
+    <li>
+      
+    <a href="http://datatables.net/reference/option/stateDuration" target="_blank">
+        <code>stateDuration<span>Option</span></code>
+    </a>
 
-        <li><a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
-</a></li>
-    </ul>
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
+    <code>stateLoadCallback<span>Option</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/option/stateLoadParams" target="_blank">
+    <code>stateLoadParams<span>Option</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/option/stateLoaded" target="_blank">
+    <code>stateLoaded<span>Option</span></code>
+</a>
+
+    </li>
+    <li>
+      
+<a href="http://datatables.net/reference/option/stateSaveParams" target="_blank">
+    <code>stateSaveParams<span>Option</span></code>
+</a>
+
+    </li>
+  </ul>
 </div>
 <div class="clear"></div>
 <blockquote>
-    <p><a href="http://datatables.net/reference/option/ajax" target="_blank">http://datatables.net/reference/option/ajax</a></p>
+    <p><a href="http://datatables.net/reference/option/stateSave" target="_blank">http://datatables.net/reference/option/stateSave</a></p>
     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
 </blockquote>
-
 				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
 <ins class="adsbygoogle"
@@ -568,7 +410,7 @@ client.on( 'error', function() {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/option/ajax.html"></div>
+<!--<div id="SOHUCS" sid="/reference/option/stateSave.html"></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
