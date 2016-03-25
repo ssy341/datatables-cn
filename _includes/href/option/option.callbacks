@@ -54,4 +54,8 @@
 <a href="http://datatables.net/reference/option/stateSaveParams" target="_blank">
     <code>stateSaveParams<span>Option</span></code>
 </a>
+{% elsif include.param == "stateDuration" %}
+    <a href="http://datatables.net/reference/option/stateDuration" target="_blank">
+        <code>stateDuration<span>Option</span></code>
+    </a>
 {% endif %}

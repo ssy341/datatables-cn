@@ -1,0 +1,17 @@
+{% if include.param == "state" %}
+<a href="http://datatables.net/reference/api/state()" target="_blank">
+    <code>state()<span>API</span></code>
+</a>
+{% elsif include.param == "state.clear" %}
+<a href="http://datatables.net/reference/api/state.clear()" target="_blank">
+    <code>state.clear()<span>API</span></code>
+</a>
+{% elsif include.param == "state.loaded" %}
+<a href="http://datatables.net/reference/api/state.loaded()" target="_blank">
+    <code>state.loaded()<span>API</span></code>
+</a>
+{% elsif include.param == "state.save" %}
+<a href="http://datatables.net/reference/api/state.save()" target="_blank">
+    <code>state.save()<span>API</span></code>
+</a>
+{% endif %}

@@ -1,0 +1,127 @@
+---
+layout: reference_option_detail_layout
+title: 状态保存(stateSave)
+relurl: http://datatables.net/reference/option/stateSave
+since: 1.10.0
+---
+<h1 class="page_title">状态保存(stateSave)</h1>
+<div style="color: #ac5900;float: right;">起始版本号: {{ page.since }}</div>
+<p>状态保存 - 再次加载页面时还原表格状态</p>
+<a name="Description"></a>
+<h2 data-anchor="Description">说明</h2>
+<p>
+  开启或者禁用状态储存。当你开启了状态储存，Datatables会存储一个状态到浏览器上，
+  包含分页位置，每页显示的长度，过滤后的结果和排序。当用户重新刷新页面，表格的状态将会被设置为之前的设置。
+</p>
+<p>
+  数据储存在浏览器上的状态信息是使用 localStorage或者sessionStorage Html5 APLs。
+  Datatable的属性stateDuration 用来设置使用那个api （localStorage:0 或者更高  或者 sessionStorage: -1）
+</p>
+<p>
+  使用table的dom id 和当前页面的路径作为每个表状态数据，信息储存的唯一标示。如果 table dom 的id 或者页面的url改变了，状态信息将丢失。
+</p>
+<p>
+  请注意：这个使用了Html5 api 来存储数据，意味着这个参数的使用在IE6/7下会失效，因为IE6/7不支持这些api。
+  使用cookie或者把状态保存在服务器上，可以通过使用
+  {% include href/option/option.callbacks param="stateSaveCallback" %}和
+  {% include href/option/option.callbacks param="stateLoadCallback" %}选项。
+</p>
+<a name="Type"></a>
+<h2 data-anchor="Type">数据类型</h2>
+<p>
+  这个选项接受以下类型：
+</p>
+<ul class="markdown">
+  <li>
+    {% include href/type/boolean %}
+  </li>
+</ul>
+<a name="Default"></a>
+<h2 data-anchor="Default">默认值</h2>
+<p>false</p>
+<a name="Example"></a>
+<h2 data-anchor="Example">示例</h2>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>打开状态保存:</p>
+    </div>
+    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
+  &quot;stateSave&quot;: ture
+} );</pre>
+  </div>
+</div>
+<div class="reference_examples">
+  <div class="reference_example">
+    <div class="title">
+      <p>根据Datatables的实例id来读取和储存页面上保存的状态:</p>
+    </div>
+   <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
+  stateSave: true,
+  stateSaveCallback: function(settings,data) {
+      localStorage.setItem( &#39;DataTables_&#39; + settings.sInstance, JSON.stringify(data) )
+    },
+  stateLoadCallback: function(settings) {
+    return JSON.parse( localStorage.getItem( &#39;DataTables_&#39; + settings.sInstance ) )
+    }
+} );</pre>
+  </div>
+</div>
+<a name="Related"></a>
+<h2 data-anchor="Related">相关</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<div class="reference_related">API
+  <ul class="markdown">
+    <li>
+      {% include href/api/api.Core param="state" %}
+    </li>
+    <li>
+      {% include href/api/api.Core param="state.clear" %}
+    </li>
+    <li>
+      {% include href/api/api.Core param="state.loaded" %}
+    </li>
+    <li>
+      {% include href/api/api.Core param="state.save" %}
+    </li>
+  </ul>
+</div>
+
+<div class="reference_related">Events
+  <ul class="markdown">
+    <li>
+      {% include href/event/events.DataTables param="stateLoaded" %}
+    </li>
+    <li>
+      {% include href/event/events.DataTables param="stateLoadParams" %}
+    </li>
+    <li>
+      {% include href/event/events.DataTables param="stateSaveParams" %}
+    </li>
+  </ul>
+</div>
+<div class="reference_related">Options
+  <ul class="markdown">
+    <li>
+      {% include href/option/option.callbacks param="stateSaveCallback" %}
+    </li>
+    <li>
+      {% include href/option/option.callbacks param="stateDuration" %}
+    </li>
+    <li>
+      {% include href/option/option.callbacks param="stateLoadCallback" %}
+    </li>
+    <li>
+      {% include href/option/option.callbacks param="stateLoadParams" %}
+    </li>
+    <li>
+      {% include href/option/option.callbacks param="stateLoaded" %}
+    </li>
+    <li>
+      {% include href/option/option.callbacks param="stateSaveParams" %}
+    </li>
+  </ul>
+</div>
+<div class="clear"></div>
+{% include quote.html %}
