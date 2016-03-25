@@ -1126,6 +1126,101 @@
 </div>
 <div class="span1"></div>
 </div><!--/row-->
+
+<style>
+.right-ad{
+	box-sizing: content-box;
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+	z-index: 2147483647;
+	position: fixed;
+	top: 35%;
+	right: 20px;
+	display:none;
+}
+
+.right-ad div{
+	box-sizing: content-box;
+	width:300px;
+	height:600px;
+	padding:4px;
+	<!-- border:#acacac 1px solid; -->
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:25px;
+}
+
+.left-ad{
+	box-sizing: content-box;
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+	z-index: 2147483647;
+	position: fixed;
+	top: 35%;
+	left: 20px;
+	display:none;
+}
+.left-ad div{
+	box-sizing: content-box;
+	width:300px;
+	height:600px;
+	padding:4px;
+	<!--border:#acacac 1px solid; -->
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:25px;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="left-ad"  id="adLeft">
+  <div>
+
+	 <ins class="adsbygoogle"
+		 style="display:inline-block;width:300px;height:600px"
+		 data-ad-client="ca-pub-2101546703939638"
+		 data-ad-slot="3989488700"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+ </div>
+</div>
+
+<div class="right-ad" id="adRight">
+  <div>
+		 <ins class="adsbygoogle"
+			 style="display:inline-block;width:300px;height:600px"
+			 data-ad-client="ca-pub-2101546703939638"
+			 data-ad-slot="3989488700"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+ </div>
+</div>
+
+<script>
+          // 屏幕分辨率的高：
+        var h = window.screen.height;
+         // 屏幕分辨率的宽：
+         var w = window.screen.width;
+         if(w>1366){
+         	var href = window.location.href;
+         	if(!document.getElementById("noad")){
+         		var adLeft = document.getElementById("adLeft").style.display = "block";
+            	var adRight = document.getElementById("adRight").style.display = "block";
+         	}else{
+         		console.log("index no ad");
+         	}
+         	console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
+         	console.log("非常期待您的反馈，这样中文网才能越做越好");
+         	console.log("Thank for your support!If you have any suggestion ,please contact thxopen@datatables.club");
+         	console.log("I'm looking forward your feedback,make the website more and more good");
+         	console.log(":)");
+         }
+</script>
 <!--footer-->
 <footer class="footer">
     <div class="container">
