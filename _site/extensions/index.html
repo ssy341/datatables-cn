@@ -1,38 +1,24 @@
 <!DOCTYPE html>
-<html lang="utf-8">
+<html lang="zh-CN">
 <head>
-    <!--meta-->
-    <title>关于Datatables中文网</title>
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
-    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <title>扩展（Extensions） Datatables中文网</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.10
-    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+
+    <!-- Le styles -->
     <!-- Le styles -->
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="/css/docs.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/favicon.png">
+    <link href="../css/docs.css" rel="stylesheet">
     <style>
-        .hot {
-            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
-            height: 12px;
-            width: 21px;
-            position: absolute;
-        }
-
-        .donateType {
-            color: red;
-        }
-
-        .earnType {
-            color: green;
+        body {
+            font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
         }
     </style>
+
+    <link rel="shortcut icon" href="../images/favicon.png">
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 <style>
     .hot {
         background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
@@ -56,12 +42,12 @@
                     <li ><a href="/example">例子</a></li>
                     <li ><a href="/manual">手册</a></li>
                     <li ><a href="/reference">参考</a></li>
-                    <li ><a href="/extensions">扩展</a></li>
+                    <li class="active"><a href="/extensions">扩展</a></li>
                     <li ><a href="http://datatables.net/plug-ins/index">插件</a></li>
                     <li ><a href="/faqs">FAQs</a></li>
                     <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
                     <li ><a href="/activity/">活动</a></li>
-                    <li class="active"><a href="/about/">关于</a></li>
+                    <li ><a href="/about/">关于</a></li>
                     <li ><a href="/tour/">导航</a></li>
                 </ul>
             </div>
@@ -71,173 +57,185 @@
 
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h1>关于Datatables中文网</h1>
-
-        <p style="font-size: 21px;  font-weight: 200;">
-            All for one,one for all
-        </p>
-
+        <h1>扩展(Extensions)</h1>
+        <p class="lead">Datatables提供的特性可以极大地增强了这个页面上可用的插件的使用,提供给用户交互和配置选项</p>
     </div>
 </header>
 
 <div class="container">
-    <div class="row-fluid" style="margin-top:20px">
+
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
-                <li><a href="#about"><i class="icon-chevron-right"></i>关于我们</a></li>
-                <li><a href="#joinus"><i class="icon-chevron-right"></i>加入我们</a></li>
-                <li><a href="#donate"><i class="icon-chevron-right"></i>赞助我们</a></li>
+                <li><a href="#AutoFill"><i class="icon-chevron-right"></i>自动填充(AutoFill)</a></li>
+                <li><a href="#Buttons"><i class="icon-chevron-right"></i> 按钮(Buttons)</a></li>
+                <li><a href="#ColReorder"><i class="icon-chevron-right"></i>列排列(ColReorder)</a></li>
+                <li><a href="#Editor"><i class="icon-chevron-right"></i>编辑器(Editor)</a></li>
+                <li><a href="#FixedColumns"><i class="icon-chevron-right"></i> 列固定(FixedColumns)</a></li>
+                <li><a href="#FixedHeader"><i class="icon-chevron-right"></i> 表头固定(FixedHeader)</a></li>
+                <li><a href="#KeyTable"><i class="icon-chevron-right"></i> KeyTable</a></li>
+                <li><a href="#Responsive"><i class="icon-chevron-right"></i> 自适应(Responsive)</a></li>
+                <li><a href="#RowReorder"><i class="icon-chevron-right"></i> 行排列(RowReorder)</a></li>
+                <li><a href="#Scroller"><i class="icon-chevron-right"></i> 滚动渲染器(Scroller)</a></li>
+                <li><a href="#Select"><i class="icon-chevron-right"></i> 选择(Select)</a></li>
+                <li><a href="#ColVis"><i class="icon-chevron-right"></i> <del>列隐藏显示(ColVis)</del>（废弃）</a></li>
+                <li><a href="#TableTools"><i class="icon-chevron-right"></i> <del>表格工具按钮(TableTools)</del>（废弃）</a></li>
             </ul>
         </div>
         <div class="span9">
-
-            <section id="about">
-                <div class="page-header">
-                    <h2>关于我们</h2>
-                </div>
-                <p class="lead" style="text-indent: 2em">
-                    Datatables中文网是结合官网给大家一个完整的、易懂的手册。 本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
-                    让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
-
-                    同时非常感谢大家对网站的支持，希望能够给大家提供一个好的学习资料，和学习环境</p>
-            </section>
-            <section id="joinus">
-                <div class="page-header">
-                    <h2>加入我们</h2>
-                </div>
-                <p class="lead" style="text-indent: 2em">
-                    本站为jekyll搭建，源码托管在
-                    <a href="https://github.com/ssy341/datatables-cn/" target="_blank">github</a>上,
-                    如果你也想加入到翻译中来，请联系QQ:1282262270标注[dt翻译]。
-                    <a href="http://note.youdao.com/share/?id=113154720749f9c4552d179dcc4b7963&type=note" target="_blank">怎么贡献翻译？</a>
-                    如果你有任何意见或建议，或者网站上的错误、目前尚未提供的内容，欢迎发邮件到thxopen@datatables.club，我会真诚的采纳您的意见。
+            <div class="page-header">
+                <p class="lead">
+                    Datatables提供了一些扩展，使表格变的更强大，使用下面的扩展可以很容易实现更复杂的功能，看看下面有哪些高级功能
                 </p>
-            </section>
-            <section id="donate">
-                <div class="page-header">
-                    <h2>赞助我们</h2>
-                </div>
-                <p class="lead" style="text-indent: 2em">
-                    Datatables中文网由个人开发和维护着，随着用户量的增加，服务器、维护等成本均在上升。为了更好地服务大家，不断地开发、维护、完善它，需要持续投入大量的精力和一定的财力，需要您的支持和赞助。
-                    收到的赞助款项将完全用于Datatables中文网，我们也会公布赞助的情况。
-                </p>
-
-                <p>
-                <dl>
-                    <dt>
-                    <div style="float: left;padding-top:7px;margin-right: 5px">1、支付宝收款赞助</div>
-                    <div>
-    <form accept-charset="GBK" target="_blank" method="POST" action="https://shenghuo.alipay.com/send/payment/fill.htm"
-          style="float: left;margin-right:10px">
-        <!-- 接受捐赠的支付宝账号 -->
-        <input value="datatables@thxopen.com" name="optEmail" type="hidden"/>
-
-        <!-- 金额 -->
-        <input value="1" name="payAmount" type="hidden"/>
-
-        <!-- 付款说明 -->
-        <input value="捐赠【Datatables中文网】" name="title" type="hidden"/>
-
-        <!-- 备注 -->
-        <input value="【Datatables中文网】dt.thxopen.com" name="memo" type="hidden"/>
-
-        <!-- 按钮图片 -->
-        <input src="/images/alipay.png" value="转账" name="pay" type="image"/>
-    </form>
-    <form accept-charset="GBK" target="_blank" method="POST" action="https://shenghuo.alipay.com/send/payment/fill.htm"
-            >
-        <!-- 接受捐赠的支付宝账号 -->
-        <input value="datatables@thxopen.com" name="optEmail" type="hidden"/>
-
-        <!-- 金额 -->
-        <input value="1" name="payAmount" type="hidden"/>
-
-        <!-- 付款说明 -->
-        <input value="付款【Datatables中文网】" name="title" type="hidden"/>
-
-        <!-- 备注 -->
-        <input value="【Datatables中文网】dt.thxopen.com" name="memo" type="hidden"/>
-
-        <!-- 按钮图片 -->
-        <input src="/images/btn-index.png" value="转账" name="pay" type="image"/>
-    </form>
-</div>
-                    </dt>
-                    <dt> 2、手机支付宝扫码 <img src="/images/donate.jpg" alt="扫一扫二维码，可以向我付款哦。"/></dt>
-                    <dt> 3、通过支付宝账号汇 帐号： <code>datatables@thxopen.com</code> 姓名：单思义</dt>
-                </dl>
-
-                <dl>
-                    <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"
-                       href="" target="_blank" role="button"
-                       title="查看捐赠情况">查看捐赠情况 &raquo;</a>
-                </dl>
-
-                </p>
-            </section>
-        </div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!--<div id="SOHUCS" sid="/about/index.html"></div>
-<script>
-    (function(){
-        var appid = 'cyr8jjDJ2',
-                conf = 'prod_d596729bcd45c9544aac809c726ea090';
-        var doc = document,
-                s = doc.createElement('script'),
-                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-        s.type = 'text/javascript';
-        s.charset = 'utf-8';
-        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-        h.insertBefore(s,h.firstChild);
-        window.SCS_NO_IFRAME = true;
-    })()
-</script>-->
-
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                        aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">捐赠情况</h4>
             </div>
-            <div class="modal-body">
-                <!-- 表格开始 -->
-                <table id="example" class="display" cellspacing="0" width="100%">
-                    <thead>
-                    <tr>
-                        <th>昵称</th>
-                        <th>金额</th>
-                        <th>时间</th>
-                        <th>备注</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                    <th colspan="4"></th>
-                    </tfoot>
-                </table>
+            <!-- Options
+            ================================================== -->
+            <section id="AutoFill">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/autofill">自动填充(AutoFill)</a></h1>
+                </div>
+                <p class="lead">
+                    自动填充添加了类似Excel那样，通过拖拽覆盖到的单元格被填充或者自增的功能
+                    <a  target="_blank" href="http://datatables.net/extensions/autofill">更多 &raquo;</a></p>
+            </section>
+
+            <section id="Buttons">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/buttons">按钮(Buttons)</a></h1>
+                </div>
+                <p class="lead">
+                    Datatables的按钮扩展提供了一组常用的选项。包含了导出，打印和列的显示控制。
+                    <a  target="_blank" href="http://datatables.net/extensions/buttons">更多 »</a>
+                </p>
+            </section>
+
+            <section id="ColReorder">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/colreorder">列排列(ColReorder)</a></h1>
+                </div>
+                <p class="lead">
+                    ColReorder 允许用户通过下拉或者拖拽列头修改列的排列顺序
+                    <a  target="_blank" href="http://datatables.net/extensions/colreorder">更多 &raquo;</a>
+                </p>
+            </section>
+
+            <section id="Editor">
+                <div class="page-header">
+                    <h1><a target="_blank" href="http://datatables.net/extensions/editor">编辑器(Editor)</a></h1>
+                </div>
+                <p class="lead">
+                    Editor 给你的表格提供一个完整的编辑能力，包括多行很行内编辑。使用Editor 创建一个完全自定义的表格，让用户修改表格中的信息，这个并不简单。
+                    <a  target="_blank" href="http://datatables.net/extensions/editor">更多»</a>
+                </p>
+            </section>
+
+            <section  id="FixedColumns">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/fixedcolumns">列固定(FixedColumns)</a></h1>
+                </div>
+                <p class="lead">
+                    FixedColumns 提供列冻结的功能，比如用户始终能看到索引列，而右边的表格通过滚动条横向拖动。
+                    <a  target="_blank" href="http://datatables.net/extensions/fixedcolumns">更多»</a>
+                </p>
+            </section>
+
+            <section  id="FixedHeader">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/fixedheader">表头固定(FixedHeader)</a></h1>
+                </div>
+                <p class="lead">
+                    FixedHeader 提供冻结header，footer和大多数左边或者右边的列，确保标题信息永远都是可见的。
+                    <a  target="_blank" href="http://datatables.net/extensions/fixedheader">更多»</a>
+                </p>
+            </section>
+
+            <section  id="KeyTable">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/keytable">KeyTable</a></h1>
+                </div>
+                <p class="lead">
+                    KeyTable 提供类似Excel 单元格导航。事件（获得焦点 focus，失去焦点 blur，动作 action 等等）可以分配指定到 单元格、列、行或者所有的单元格中。
+                    <a  target="_blank" href="http://datatables.net/extensions/keytable">更多»</a>
+                </p>
+            </section>
+
+            <section  id="Responsive">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/responsive">自适应(Responsive)</a></h1>
+                </div>
+                <p class="lead">
+                    Responsive 将提供自动适应屏幕的功能，让你的表格在不同的设备上都能够显示。
+                    <a  target="_blank" href="http://datatables.net/extensions/responsive">更多»</a>
+                </p>
+            </section>
+
+            <section  id="RowReorder">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/rowreorder">行排列(RowReorder)</a></h1>
+                </div>
+                <p class="lead">
+                    RowReorder 提供给用户能够重新排列行的功能（点击拖动/鼠标接触拖动）。与Editor集成，可以多行编辑后直接保存更新后的数据。
+                    <a  target="_blank" href="http://datatables.net/extensions/rowreorder">更多»</a>
+                </p>
+            </section>
+
+            <section  id="Scroller">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/scroller">滚动渲染器(Scroller)</a></h1>
+                </div>
+                <p class="lead">
+                    scroller是一个虚拟的渲染器。允许表格看起来是有滚动条在拖动整个数据，实际上只有显示的部分的数据被拖出来，可以更快的操作。
+                    <a  target="_blank" href="http://datatables.net/extensions/scroller">更多»</a>
+                </p>
+            </section>
+
+            <section  id="Select">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/select">选择(Select)</a></h1>
+                </div>
+                <p class="lead">
+                    Select 提供选择行的能力，被选中的可以是行，列，或者单元格，可以是一起的也可以是独立的。这些被选中的，都可以使用api来直接操作。
+                    <a  target="_blank" href="http://datatables.net/extensions/select">更多»</a>
+                </p>
+            </section>
+
+            <section  id="ColVis">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/colvis">
+                        <del>列隐藏显示(ColVis)</del>废弃</a></h1>
+                </div>
+                <p class="lead">
+                    ColVis 已经废弃了，请使用Buttons扩展。ColVis 允许用户操作列的隐藏和显示。
+                    <a  target="_blank" href="http://datatables.net/extensions/colvis">更多»</a>
+                </p>
+            </section>
+
+            <section  id="TableTools">
+                <div class="page-header">
+                    <h1><a  target="_blank" href="http://datatables.net/extensions/tabletools">
+                        <del>表格工具按钮(TableTools)</del>废弃</a></h1>
+                </div>
+                <p class="lead">
+                    TableTools 已经废弃了，请使用Buttons扩展和Select扩展。TableTools 功能提供 打印，保存文件，复制到剪贴板。还有行的选择能力。
+                    <a  target="_blank" href="http://datatables.net/extensions/tabletools">更多»</a>
+                </p>
+            </section>
+            <div class="page-footer">
+                <p class="lead">
+                    ColVis 和Buttons 已经废弃了，取而代之的是Buttons和Select扩展。强烈建议不再使用这两个废弃的扩展。
+                </p>
             </div>
+            <blockquote>
+    <p><a href="http://datatables.net/extensions/index" target="_blank">http://datatables.net/extensions/index</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
         </div>
     </div>
-</div>
-<!--/row-->
 
-<!--footer-->
+</div>
+
 
 <style>
 .right-ad{
@@ -430,8 +428,23 @@
        </div>
     </div>
 </footer>
+</body>
+</html>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
 <script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
 <script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<script src="/js/application.js"></script>
 <script type="text/javascript">
 //判断是否显示更新提示
 $.get("/assets/updatelog.txt", function (data) {
@@ -475,66 +488,3 @@ client.on( 'error', function() {
 } );
 </script>
 
-
-
-
-
-<script  type="text/javascript" charset="utf8" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#myModal').on('show.bs.modal', function (e) {
-            $('#example').dataTable({
-                order: [
-                    [ 2, "desc" ]
-                ],
-                pageLength: 10,
-                dom: "<'row'<'col-xs-6'f>r>" +
-                        "t" +
-                        "<'row'<'span3'i><p>>",
-                lengthChange: !1,
-                columns: [
-                    {data: "nickname"},
-                    {data: "money"},
-                    {data: "date"},
-                    {data: "note"}
-                ],
-                destroy: true,
-                retrieve: false,
-                language: {
-                    search: "过滤：",
-                    paginate: {
-                        first: "首页",
-                        next: "下一页",
-                        last: "最后一页",
-                        previous: "上一页"
-                    },
-                    info: " _START_ 到 _END_ (共 _TOTAL_ 条记录)"
-                },
-                ajax: "/assets/donate.txt",
-                createdRow: function (row, data, dataIndex) {
-                    if (data.type) {
-                        $(row).addClass("donateType");
-                    } else {
-                        $(row).addClass("earnType");
-                    }
-                },
-                initComplete:function(){
-                    var api = this.api();
-                    var dtData = api.column(1).data();
-                    var fda = api.column(1).data().reduce(function (a, b) {
-                        return parseInt(a) + parseInt(b);
-                    });
-                    $(api.column(0).footer()).html("捐赠总额："+fda);
-                }
-            });
-
-            $('#myModal').on('hidden.bs.modal', function (e) {
-
-            });
-        });
-    });
-</script>
-
-</body>
-</html>
