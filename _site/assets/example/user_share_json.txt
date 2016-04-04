@@ -1,0 +1,67 @@
+{
+    "data":[
+        {
+            "name":"基本增删改查（php）- 1.9.*",
+            "en":"",
+            "url":"./user_share/basic_curd.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"基本增删改查（java） - 1.10.* ",
+            "en":"",
+            "url":"./user_share/basic_curd_java.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"行内编辑（php）",
+            "en":"inline edit(php)",
+            "url":"./user_share/inline_edit.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"行详细内容的展开与折叠",
+            "en":"row details",
+            "url":"./user_share/row_details.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"行内编辑(不使用第三方插件php）",
+            "en":"inline edit without plugin",
+            "url":"./user_share/inline_edit_no_plugin.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"带参数查询（php）",
+            "en":"send extra param",
+            "url":"./user_share/send_extra_param.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"动态显示/隐藏列，自定义过滤",
+            "en":"super table",
+            "url":"./user_share/custom_hide_filter_column.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"裕ui",
+            "en":"",
+            "url":"./user_share/yuui.html",
+            "enurl":"",
+            "content":""
+        },
+       {
+            "name":"自行封装请求和返回数据的零耦合服务端分页(java)",
+            "en":"",
+            "url":"./user_share/mir/",
+            "enurl":"",
+            "content":""
+        }
+    ]
+}

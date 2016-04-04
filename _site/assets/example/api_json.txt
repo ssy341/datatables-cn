@@ -1,0 +1,95 @@
+{
+    "data":[
+        {
+            "name":"添加行",
+            "en":"Add rows",
+            "url":"./api/add_row.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"给每一列添加搜索框",
+            "en":"Individual column searching (text inputs)",
+            "url":"./api/multi_filter.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"给每一列添加下拉框搜索",
+            "en":"Individual column searching (select inputs)",
+            "url":"./api/multi_filter_select.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"高亮鼠标停留的行和列",
+            "en":"Highlighting rows and columns",
+            "url":"./api/highlight.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"显示行的附加信息",
+            "en":"Child rows (show extra / detailed information)",
+            "url":"./api/row_details.html",
+            "enurl":"",
+            "content":"本页采用的例子"
+        },
+        {
+            "name":"选择行(多行)",
+            "en":"Row selection (multiple rows)",
+            "url":"./api/select_row.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"选择行并删除（单行）",
+            "en":"Row selection and deletion (single row)",
+            "url":"./api/select_single_row.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"表单输入框",
+            "en":"Form inputs",
+            "url":"./api/form.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"索引列",
+            "en":"Index column",
+            "url":"./api/counter_columns.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"动态显示/隐藏列",
+            "en":"Show / hide columns dynamically",
+            "url":"./api/show_hide.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"在回调方法中使用api",
+            "en":"Using API in callbacks",
+            "url":"./api/api_in_init.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"带垂直滚动条和Bootstrap tabs控件",
+            "en":"Scrolling and Bootstrap tabs",
+            "url":"",
+            "enurl":"http://datatables.net/examples/api/tabs_and_scrolling.html",
+            "content":"在使用bootstrap tab控件或者模态框，表头会缩到一起，看这个例子或许能解决问题"
+        },
+        {
+            "name":"搜索API（正则表达式）",
+            "en":"Search API (regular expressions)",
+            "url":"./api/regex.html",
+            "enurl":"",
+            "content":""
+        }
+    ]
+}

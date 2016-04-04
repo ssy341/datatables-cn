@@ -1,0 +1,39 @@
+{
+    "data":[
+        {
+            "name":"API插件方法",
+            "en":"API plug-in methods",
+            "url":"./plug-ins/api.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"排序插件（类型检测）",
+            "en":"Ordering plug-ins (with type detection)",
+            "url":"./plug-ins/sorting_auto.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"排序插件（无类型检测）",
+            "en":"Ordering plug-ins (no type detection)",
+            "url":"./plug-ins/sorting_manual.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"自定义过滤 - 范围搜索",
+            "en":"Custom filtering - range search",
+            "url":"./plug-ins/range_filtering.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"dom对象排序",
+            "en":"Live DOM ordering",
+            "url":"./plug-ins/dom_sort.html",
+            "enurl":"",
+            "content":""
+        }
+    ]
+}

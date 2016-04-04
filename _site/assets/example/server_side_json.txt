@@ -1,0 +1,74 @@
+{
+    "data":[
+        {
+            "name":"服务器处理",
+            "en":"Server-side processing",
+            "url":"./server_side/simple.html",
+            "enurl":"http://datatables.net/examples/server_side/simple.html",
+            "content":""
+        },
+        {
+            "name":"自定义http变量",
+            "en":"Custom HTTP variables",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/custom_vars.html",
+            "content":""
+        },
+        {
+            "name":"以post方式传输数据",
+            "en":"POST data",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/post.html",
+            "content":""
+        },
+        {
+            "name":"自动给行添加id属性",
+            "en":"Automatic addition of row ID attributes",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/ids.html",
+            "content":""
+        },
+        {
+            "name":"对象数据源",
+            "en":"Object data source",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/object_data.html",
+            "content":""
+        },
+        {
+            "name":"行详情（服务器模式）",
+            "en":"Row details",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/row_details.html",
+            "content":""
+        },
+        {
+            "name":"行选中（服务器模式保留选择的行）",
+            "en":"Row selection",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/select_rows.html",
+            "content":""
+        },
+        {
+            "name":"JSONP数据源，跨域",
+            "en":"JSONP data source for remote domains",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/jsonp.html",
+            "content":""
+        },
+        {
+            "name":"延迟加载数据",
+            "en":"Deferred loading of data",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/defer_loading.html",
+            "content":""
+        },
+        {
+            "name":"管道式分页加载数据，减少ajax请求",
+            "en":"Pipelining data to reduce Ajax calls for paging",
+            "url":"",
+            "enurl":"http://datatables.net/examples/server_side/pipeline.html",
+            "content":""
+        }
+    ]
+}
