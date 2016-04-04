@@ -18,27 +18,61 @@ title: 例子 Datatables中文网
             <ul id="myTab" class="nav nav-tabs">
                 <li class="active"><a href="#example" data-toggle="tab">示例</a></li>
                 <li><a href="#vedio" data-toggle="tab">视频<span class='hot'></span></a></li>
-                <li><a href="#try" data-toggle="tab">别只看，动动手<span class='hot'></span></a></li>
             </ul>
             <div id="myTabContent" class="tab-content">
-                <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>
                 <div class="tab-pane fade in active" id="example">
                     <div class="span12">
-                        <div class="row-fluid">
-                            {% include example/user_share.html %}
+                        <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>。
+                        下面的例子、视频什么的都看完了，怎么办？那还不简单，动手开搞啊！（下面展示了一个简单的例子，可以编辑代码达到你想要的效果，代码改乱了，刷新下就复原了）
+                        {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/928.htm' %}
+                    </div><!--/span-->
+                    <div class="span12">
+                        <div id="user_share">
+                            <table id="user_share_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>网友共享（User Share）</h2></caption>
+                            </table>
                         </div>
-                        <div class="row-fluid">
-                            {% include example/basic_init.html %}
-                            {% include example/advanced_init.html %}
-                            {% include example/api.html %}
-                            {% include example/server_side.html %}
+                        <div id="basic_init">
+                            <table id="basic_init_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>基本初始化(Basic initialisation)</h2></caption>
+                            </table>
                         </div>
-                        <div class="row-fluid">
-                            {% include example/styling.html %}
-                            {% include example/data_sources.html %}
-                            {% include example/ajax.html %}
-                            {% include example/plug-ins.html %}
-                        </div><!--/row-->
+                        <div id="advanced_init">
+                            <table id="advanced_init_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>高级初始化(Advanced initialisation)</h2></caption>
+                            </table>
+                        </div>
+                        <div id="styling">
+                            <table id="styling_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>样式(Styling)</h2></caption>
+                            </table>
+                        </div>
+                        <div id="data_sources">
+                            <table id="data_sources_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>数据源(Data sources)</h2></caption>
+                            </table>
+                        </div>
+                        <div id="api">
+                            <table id="api_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>API</h2></caption>
+                            </table>
+                        </div>
+                        <div id="ajax">
+                            <table id="ajax_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>AJAX</h2></caption>
+                            </table>
+                        </div>
+                        <div id="server_side">
+                            <table id="server_side_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>服务器处理（Server-side）</h2></caption>
+                            </table>
+                        </div>
+                        <div id="plug_ins">
+                            <table id="plug_ins_table" class="display custom" cellspacing="0" width="100%">
+                                <caption><h2>Plug-ins</h2></caption>
+                            </table>
+                        </div>
+
                     </div><!--/span-->
                 </div>
                 <div class="tab-pane fade" id="vedio">
@@ -48,12 +82,6 @@ title: 例子 Datatables中文网
                             {% include example/vedio2.html %}
                             {% include example/vedio-usershare.html %}
                         </div>
-                    </div><!--/span-->
-                </div>
-                <div class="tab-pane fade" id="try">
-                    <div class="span12">
-                        例子、视频什么的都看完了，怎么办？那还不简单，动手开搞啊！（下面展示了一个简单的例子，可以编辑代码达到你想要的效果，代码改乱了，刷新下就复原了）
-                        {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/928.htm' %}
                     </div><!--/span-->
                 </div>
 
@@ -66,10 +94,55 @@ title: 例子 Datatables中文网
 
 {% include copyright.html %}
 {% include script.html %}
+{% include libs/laytpl.html %}
 
-<script>
-    $('#myTab a').click(function (e) {
-        e.preventDefault();
-        $(this).tab('show');
-    })
+
+<!--表格公共模板-->
+<script type="text/html" id="exampleTableHtml">
+    <table id="{{ d.tableId }}" class="display" cellspacing="0" width="100%">
+        <caption>{{ d.title }}</caption>
+        <thead>
+        <tr>
+            <th></th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+        <tr>
+            <th></th>
+            <th>名称</th>
+            <th>操作</th>
+        </tr>
+        </tfoot>
+    </table>
 </script>
+
+<!-- 详情模板 -->
+<script type="text/html" id="detailHtml">
+    <table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">
+        <tr>
+            <td>
+                {{ d.detail }}
+            </td>
+        </tr>
+    </table>
+</script>
+
+<script type="text/html" id="buttonHtml">
+
+</script>
+{% include libs/datatables_js.html %}
+{% include example.js %}
+<script>
+    $(document).ready(function(){
+        $('#myTab a').click(function (e) {
+            e.preventDefault();
+            $(this).tab('show');
+        });
+        example.init();
+    });
+
+</script>
+

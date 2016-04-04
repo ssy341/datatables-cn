@@ -4,8 +4,26 @@
     {% include head.html %}
     <!-- Le styles -->
     {% include libs/bootstrap_css.html %}
-    <link href="../css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/dataTables.bootstrap.css" rel="stylesheet">
     <link rel="shortcut icon" href="../images/favicon.png">
+    <style>
+        td.details-control {
+            background: url('{{site.baseurl}}/css/img/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+        tr.shown td.details-control {
+            background: url('{{site.baseurl}}/css/img/details_close.png') no-repeat center center;
+        }
+        tbody>tr:nth-child(odd)>td {
+            background-color: #f9f9f9;
+        }
+        .custom tr td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+    </style>
 </head>
 <body>
 {{content}}

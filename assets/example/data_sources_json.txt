@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "name":"Html（Dom）数据源",
+            "en":"HTML (DOM) sourced data",
+            "url":"./data_sources/dom.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"Ajax数据源",
+            "en":"Ajax sourced data",
+            "url":"./data_sources/ajax.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"Javascript数据源",
+            "en":"Javascript sourced data",
+            "url":"./data_sources/js_array.html",
+            "enurl":"",
+            "content":""
+        },
+        {
+            "name":"服务器处理",
+            "en":"Server-side processing",
+            "url":"./data_sources/server_side.html",
+            "enurl":"",
+            "content":""
+        }
+    ]
+}
