@@ -15,77 +15,89 @@ title: 例子 Datatables中文网
 <div class="container">
     <div class="row-fluid" style="margin-top: 10px">
 
-            <ul id="myTab" class="nav nav-tabs">
-                <li class="active"><a href="#example" data-toggle="tab">示例</a></li>
-                <li><a href="#vedio" data-toggle="tab">视频<span class='hot'></span></a></li>
+        <div class="span3 bs-docs-sidebar">
+            <ul class="nav nav-list bs-docs-sidenav">
+                <li><a href="#user_share"><i class="icon-chevron-right"></i>用户共享</a></li>
+                <li><a href="#vedio2"><i class="icon-chevron-right"></i>网友共享视频</a></li>
+                <li><a href="#basic_init"><i class="icon-chevron-right"></i>基本初始化</a></li>
+                <li><a href="#advanced_init"><i class="icon-chevron-right"></i>高级初始化</a></li>
+                <li><a href="#styling"><i class="icon-chevron-right"></i>Datatables各种样式</a></li>
+                <li><a href="#data_sources"><i class="icon-chevron-right"></i>数据源</a></li>
+                <li><a href="#api"><i class="icon-chevron-right"></i>API</a></li>
+                <li><a href="#ajax"><i class="icon-chevron-right"></i>Ajax</a></li>
+                <li><a href="#server_side"><i class="icon-chevron-right"></i>服务器模式</a></li>
+                <li><a href="#plug_ins"><i class="icon-chevron-right"></i>插件</a></li>
+                <li><a href="#vedio1"><i class="icon-chevron-right"></i>Datatables入门视频-第一季</a></li>
             </ul>
-            <div id="myTabContent" class="tab-content">
-                <div class="tab-pane fade in active" id="example">
-                    <div class="span12">
-                        <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>。
-                        下面的例子、视频什么的都看完了，怎么办？那还不简单，动手开搞啊！（下面展示了一个简单的例子，可以编辑代码达到你想要的效果，代码改乱了，刷新下就复原了）
-                        {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/928.htm' %}
-                    </div><!--/span-->
-                    <div class="span12">
-                        <div id="user_share">
-                            <table id="user_share_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>网友共享（User Share）</h2></caption>
-                            </table>
-                        </div>
-                        <div id="basic_init">
-                            <table id="basic_init_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>基本初始化(Basic initialisation)</h2></caption>
-                            </table>
-                        </div>
-                        <div id="advanced_init">
-                            <table id="advanced_init_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>高级初始化(Advanced initialisation)</h2></caption>
-                            </table>
-                        </div>
-                        <div id="styling">
-                            <table id="styling_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>样式(Styling)</h2></caption>
-                            </table>
-                        </div>
-                        <div id="data_sources">
-                            <table id="data_sources_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>数据源(Data sources)</h2></caption>
-                            </table>
-                        </div>
-                        <div id="api">
-                            <table id="api_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>API</h2></caption>
-                            </table>
-                        </div>
-                        <div id="ajax">
-                            <table id="ajax_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>AJAX</h2></caption>
-                            </table>
-                        </div>
-                        <div id="server_side">
-                            <table id="server_side_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>服务器处理（Server-side）</h2></caption>
-                            </table>
-                        </div>
-                        <div id="plug_ins">
-                            <table id="plug_ins_table" class="display custom" cellspacing="0" width="100%">
-                                <caption><h2>Plug-ins</h2></caption>
-                            </table>
-                        </div>
+        </div>
+        <div class="span9">
 
-                    </div><!--/span-->
-                </div>
-                <div class="tab-pane fade" id="vedio">
-                    <div class="span12">
-                        <div class="row-fluid">
-                            {% include example/vedio1.html %}
-                            {% include example/vedio2.html %}
-                            {% include example/vedio-usershare.html %}
-                        </div>
-                    </div><!--/span-->
-                </div>
+            <div class="span12">
+                <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>。
+                下面的例子、视频什么的都看完了，怎么办？那还不简单，动手开搞啊！（下面展示了一个简单的例子，可以编辑代码达到你想要的效果，代码改乱了，刷新下就复原了）
+                {% include codedebug.html param='http://www.gbtags.com/gb/rtwidget-replayerpreview/928.htm' %}
+            </div><!--/span-->
+            <div class="span12">
+                <section id="user_share">
+                    <table id="user_share_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>网友共享（User Share）</h2></caption>
+                    </table>
+                </section>
+                <section id="basic_init">
+                    <table id="basic_init_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>基本初始化(Basic initialisation)</h2></caption>
+                    </table>
+                </section>
+                <section id="advanced_init">
+                    <table id="advanced_init_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>高级初始化(Advanced initialisation)</h2></caption>
+                    </table>
+                </section>
+                <section id="styling">
+                    <table id="styling_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>样式(Styling)</h2></caption>
+                    </table>
+                </section>
+                <section id="data_sources">
+                    <table id="data_sources_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>数据源(Data sources)</h2></caption>
+                    </table>
+                </section>
+                <section id="api">
+                    <table id="api_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>API</h2></caption>
+                    </table>
+                </section>
+                <section id="ajax">
+                    <table id="ajax_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>AJAX</h2></caption>
+                    </table>
+                </section>
+                <section id="server_side">
+                    <table id="server_side_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>服务器处理（Server-side）</h2></caption>
+                    </table>
+                </section>
+                <section id="plug_ins">
+                    <table id="plug_ins_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>Plug-ins</h2></caption>
+                    </table>
+                </section>
+                <section id="vedio1">
+                    <table id="vedio1_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>Datatables入门视频-第一季</h2></caption>
+                    </table>
+                </section>
+                <section id="vedio2">
+                    <table id="vedio2_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>网友共享视频</h2></caption>
+                    </table>
+                </section>
 
-            </div>
+            </div><!--/span-->
+
+        </div>
+
 
         {% include post.html param= site.url param2 = '/example.html' %}
     </div><!--/row-->
@@ -135,12 +147,9 @@ title: 例子 Datatables中文网
 </script>
 {% include libs/datatables_js.html %}
 {% include example.js %}
+<script src="{{site.baseurl}}/js/application.js"></script>
 <script>
     $(document).ready(function(){
-        $('#myTab a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show');
-        });
         example.init();
     });
 

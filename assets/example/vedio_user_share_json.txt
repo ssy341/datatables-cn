@@ -1,0 +1,11 @@
+{
+    "data":[
+        {
+            "name":"男孩的天职datatables入门实战语音视频教程",
+            "en":"",
+            "url":"/example/vedio/usershare/gaozhanyuanzhu123",
+            "enurl":"",
+            "content":"<p> 后台数据使用java，可用Eclipse打开项目文件查看源码。或者将WebRoot下的文件解压到tomcat下直接运行。  简要说明：  <ul> <li> 使用DataTable默认的ajax交互功能，对传给后台和从后台获取的数据都有命名格式要求，这样一来耦合度较高，不利于后期扩展，不能直接适用于需要跟多种不同前端或其他业务交互的项目。本例子主要展示了自行封装请求参数和返回数据的用法，对后台的交互没有任何格式和命名限制。</li><li> 基于Bootstrap 2.3.2,相关的其他插件包括图标控件FontAwesome、等待提示控件Spinjs(修改版)、弹窗控件lhgdialog(修改版)</li><li> 主要展现:</li> <li>封装请求参数（查询、排序、分页,不再需要data和dataSrc）</li><li>封装返回数据</li> <li>自定义查询参数</li><li>服务器分页</li> <li>自行控制和自定义遮罩效果</li> <li>生成自定义效果的单元格（在线离线）</li><li>生成复选框单元格</li><li>响应复选框选择事件</li><li>生成操作按钮单元格</li><li>响应操作栏按钮点击事件</li><li>响应行点击事件</li><li>渲染回调事件（默认选中第一行）</li><li>分页栏增加跳页功能（直接修改了dataTables.bootstrap.js和dataTables.bootstrap.css）</li> </ul> </p>"
+        }
+    ]
+}

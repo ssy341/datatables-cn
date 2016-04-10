@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% include reference/reference_option_meta.html %}
+    {% include reference/reference_option_detail_link.html %}
+	<style>
+    code.option {
+        color: #D14;
+        background-color: #fcf6f8;
+        border: 1px solid #f7d6df;
+    }
+    code>span {
+        border-left: 1px solid rgba(0,0,0,0.2);
+        margin-left: 4px;
+        padding-left: 4px;
+        opacity: 0.5;
+    }
+    div.ref_type {
+        position: relative;
+        padding: 3.5em 1em 1em 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 3px #bbb;
+        margin-bottom: 1em
+    }
+
+    div.ref_type:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_type h3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1em;
+        padding: 0.5em;
+        margin-top: 0;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid #ddd;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px
+    }
+
+    div.ref_type span.type {
+        font-size: 0.8em;
+        color: #777;
+        font-style: italic
+    }
+
+    div.ref_type dl dt {
+        font-size: 1.1em
+    }
+
+    div.ref_type dl dd {
+        margin-left: 3em;
+        margin-bottom: 1em
+    }
+
+    div.ref_type dl:last-child {
+        margin-bottom: 0
+    }
+
+    div.ref_search input {
+        padding: 0.5em;
+        border-radius: 0.5em;
+        width: 90%;
+    }
+
+        aside{
+            width: 33%;
+            float: right;
+            font-size: 0.9em;
+            line-height: 1.45em;
+            margin: 0 1em;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            border: 1px solid #CCC;
+            background-color: #F9F9F9;
+            padding: 1em;
+            border-radius: 0.25em;
+        }
+    </style>
+</head>
+<body>
+     {% include nav.html param='extensions' %}
+     {% include example_script.html %}
+     <div class="container">
+        {{content}}
+        {% include post.html %}
+	</div><!--/.fluid-container-->
+     <hr>
+     {% include copyright.html %}
+</body>
+</html>

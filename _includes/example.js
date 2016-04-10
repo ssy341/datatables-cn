@@ -183,6 +183,23 @@ var example = {
         example.eventListen(plug_ins_sources.tableId, example.createTable(plug_ins_sources));
 
 
+        var vedio1_sources = {
+            tableId: "vedio1_table",
+            title: "Datatables入门视频",
+            url: "{{site.baseurl}}/assets/example/vedio_json.txt",
+            divId: "vedio1"
+        };
+        example.eventListen(vedio1_sources.tableId, example.createTable(vedio1_sources));
+
+        var vedio2_sources = {
+            tableId: "vedio2_table",
+            title: "",
+            url: "{{site.baseurl}}/assets/example/vedio_user_share_json.txt",
+            divId: "vedio2"
+        };
+        example.eventListen(vedio2_sources.tableId, example.createTable(vedio2_sources));
+
+
 
 
 
