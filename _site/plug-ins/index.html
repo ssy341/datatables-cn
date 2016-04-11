@@ -1,119 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-<title>延迟渲染(deferRender) 选项(option) 参考(reference) Datatables 中文网</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="datatables is jquery-plugin">
+    <title>插件（Plug-ins） Datatables中文网</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Le styles -->
     <!-- Le styles -->
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-<!--代码高亮-->
-<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
-<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
-
-<link href="/css/docs.css" rel="stylesheet">
-
-<style type="text/css">
-    body {
-        padding-top: 60px;
-    }
-    .sidebar-nav {
-        padding: 9px 0;
-    }
-
-    @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-            float: none;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-    }
-</style>
-<link rel="shortcut icon" href="/images/favicon.png">
-	<style>
-    code.option {
-        color: #D14;
-        background-color: #fcf6f8;
-        border: 1px solid #f7d6df;
-    }
-    code>span {
-        border-left: 1px solid rgba(0,0,0,0.2);
-        margin-left: 4px;
-        padding-left: 4px;
-        opacity: 0.5;
-    }
-    div.ref_type {
-        position: relative;
-        padding: 3.5em 1em 1em 1em;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 3px #bbb;
-        margin-bottom: 1em
-    }
-
-    div.ref_type:last-child {
-        margin-bottom: 0
-    }
-
-    div.ref_type h3 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1em;
-        padding: 0.5em;
-        margin-top: 0;
-        background-color: #f6f6f6;
-        border-bottom: 1px solid #ddd;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px
-    }
-
-    div.ref_type span.type {
-        font-size: 0.8em;
-        color: #777;
-        font-style: italic
-    }
-
-    div.ref_type dl dt {
-        font-size: 1.1em
-    }
-
-    div.ref_type dl dd {
-        margin-left: 3em;
-        margin-bottom: 1em
-    }
-
-    div.ref_type dl:last-child {
-        margin-bottom: 0
-    }
-
-    div.ref_search input {
-        padding: 0.5em;
-        border-radius: 0.5em;
-        width: 90%;
-    }
-
-        aside{
-            width: 33%;
-            float: right;
-            font-size: 0.9em;
-            line-height: 1.45em;
-            margin: 0 1em;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-            border: 1px solid #CCC;
-            background-color: #F9F9F9;
-            padding: 1em;
-            border-radius: 0.25em;
+    <link href="../css/docs.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
         }
     </style>
+
+    <link rel="shortcut icon" href="../images/favicon.png">
 </head>
-<body>
-     <style>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+<style>
     .hot {
         background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
         height: 12px;
@@ -135,9 +41,9 @@
                     <li ><a href="/index.html">首页</a></li>
                     <li ><a href="/example">例子</a></li>
                     <li ><a href="/manual">手册</a></li>
-                    <li class="active"><a href="/reference">参考</a></li>
+                    <li ><a href="/reference">参考</a></li>
                     <li ><a href="/extensions">扩展</a></li>
-                    <li ><a href="/plug-ins">插件</a></li>
+                    <li class="active"><a href="/plug-ins">插件</a></li>
                     <li ><a href="/faqs">FAQs</a></li>
                     <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
                     <li ><a href="/activity/">活动</a></li>
@@ -149,130 +55,18 @@
     </div>
 </div>
 
-     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<header class="jumbotron subhead" id="overview">
+    <div class="container">
+        <h1>插件(Plug-ins)</h1>
+    </div>
+</header>
 
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<div class="container">
 
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-
-<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-
-<!--代码高亮-->
-<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
-<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
-<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
-<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
-<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
-
-<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
-
-<script type="text/javascript">
-//判断是否显示更新提示
-$.get("/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
-    });
-</script>
-<!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
-<script>
-$('[data-toggle="tooltip"]').tooltip();
-$('#copyurltoclip').on('show.bs.tooltip', function () {
-
-    var url = window.location.href;
-    var title = $("title").html();
-    var text = title + ":"+url;
-    $(this).attr("data-clipboard-text",text);
-
-});
-
-var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-client.on( "aftercopy", function( event ) {
-    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-} );
-
-client.on( 'error', function() {
-    ZeroClipboard.destroy();
-} );
-</script>
-
-
-
-     <div class="container">
-				<h1 class="page_title">延迟渲染(deferRender)</h1>
-
-<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div><p>控制表格的延迟渲染，可以提高初始化的速度。</p>
-<a name="Description"></a><h2 data-anchor="Description">说明</h2>
-<p>默认情况下，当DataTables加载Ajax数据或者Javascript数据
-    (<a href="ajax.html"><code class="option" title="DataTables initialisation option">ajax<span>DT</span></code></a>
-    和 <a href="data.html"><code class="option" title="DataTables initialisation option">data<span>DT</span></code></a> )时，
-    它会提前创建所需的所有HTML元素。当加载大量的数据集时，这个操作所耗费的时间就不能忽视，特别是在旧的浏览器例如IE6-8中运行时。
-    这个选项允许DataTables在需要的时候，才会创建节点(rows and cells in the table body)。
-</p>
-<p>举个例子来说明，如果你加载一个拥有10,000条记录的数据集到表格，每页显示10条记录，
-    如果这个选项(deferred rendering)开启，DataTables就不会一次创建10,000行，而是只是创建10行。
-    如果用户使用了排序，分页或者搜索结果会在下一次显示的时候，才根据需要自动创建行元素。
-    这实际上是根据分页页面的生命周期来分步的进行创建行。
-</p>
-<p>需要注意的是，如果这个选项打开，正如大家都知道的，不是所有的行Node是可以被访问的，
-    所以当你使用API的方法时，例如<a href="../api/columns().nodes()">
-        <code class="api" title="DataTables API method">columns().nodes()<span>DT</span></code></a> ，
-    你就必须考虑到这个情况。下面展示了一个例子，演示在这种情况下如何使用jQuery的代理事件。
-</p>
-<a name="Type"></a><h2 data-anchor="Type">数据类型</h2><p>这个选项用下列的数据类型赋值:</p>
-<ul class="markdown">
-<li><a href="//datatables.net/reference/type/boolean"><code class="type" title="Javascript parameter type">boolean<span>JS</span></code></a></li>
-</ul>
-<a name="Default"></a><h2 data-anchor="Default">默认值</h2><ul class="markdown"><li>Value: <code>false</code></li></ul>
-<a name="Examples"></a><h2 data-anchor="Examples">示例</h2>
-<div class="reference_examples"><div class="reference_example"><div class="title"><p>打开 deferred rendering:</p>
-</div><pre class="brush:js;toolbar:false">$('#example').dataTable( {
-  &quot;ajax&quot;: &quot;sources/arrays.txt&quot;,
-  &quot;deferRender&quot;: true
-} );</pre></div><div class="reference_example"><div class="title"><p>jquery事件配合deferred rendering使用:</p>
-</div><pre class="brush:js;toolbar:false">$('#example tbody').on( 'click', 'td', function () {
-	alert( 'Clicked on: '+this.innerHTML );
-} );
-$('#example').dataTable( {
-  &quot;ajax&quot;: &quot;sources/arrays.txt&quot;,
-  &quot;deferRender&quot;: true
-} );</pre></div></div><a name="Related"></a><h2 data-anchor="Related">相关</h2>
-<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-<div class="reference_related">Options
-    <ul class="markdown">
-        <li>
-            <a href="//datatables.net/reference/option/ajax">
-                <code class="init" title="Initialisation option">ajax</code>
-            </a>
-        </li>
-        <li>
-            <a href="//datatables.net/reference/option/data">
-                <code class="init" title="Initialisation option">data</code>
-            </a>
-        </li>
-    </ul>
-</div>
-<div class="clear"></div>
-<blockquote>
-    <p><a href="http://datatables.net/reference/option/deferRender" target="_blank">http://datatables.net/reference/option/deferRender</a></p>
-    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-</blockquote>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Docs nav
+    ================================================== -->
+    <div class="row">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
 <ins class="adsbygoogle"
      style="display:block"
@@ -282,7 +76,7 @@ $('#example').dataTable( {
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-<!--<div id="SOHUCS" sid="/reference/option/deferRender.html"></div>
+<!--<div id="SOHUCS" sid=""></div>
 <script>
     (function(){
         var appid = 'cyr8jjDJ2',
@@ -298,9 +92,55 @@ $('#example').dataTable( {
     })()
 </script>-->
 
-	</div><!--/.fluid-container-->
-     <hr>
-     
+        <a name="plug_ins"></a>
+        <h2 data-anchor="plug_ins">插件（Plug-ins）</h2>
+        <p>
+            虽然Datatables内置了许多灵活的功能，但在某些时候还是希望添加自己的特性。Datatables给开发人员提供了一个插件的框架。
+            本部分讲的是Datatables提供的一些插件。如果你也想贡献你写的插件，请<a href="http://datatables.net/contact" target="_blank">
+联系我
+</a>
+            或者 发送<a href="https://github.com/DataTables/Plugins/" target="_blank">
+Github-pull-request
+</a>
+            <ul>
+        <li><a href="https://datatables.net/plug-ins/api" target="_blank">
+API
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/sorting" target="_blank">
+Sorting（排序插件）
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/filtering" target="_blank">
+Filtering（过滤插件）
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/pagination" target="_blank">
+Pagination（分页插件）
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/internationalisation" target="_blank">
+Internationalisation（国际化插件）
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/type-detection" target="_blank">
+Type detection（类型检测插件）
+</a></li>
+        <li><a href="https://datatables.net/plug-ins/data-renderer" target="_blank">
+Data renderer（数据渲染插件）
+</a></li>
+    </ul>
+        </p>
+        <a name="Extensions"></a>
+        <h3 data-anchor="Extensions">扩展 - 特性增强插件（Extensions-feature enhancing plug-ins）</h3>
+        <p>
+            Extensions和这个部分提到的插件类似，只是它更强大，Extensions有一些，比如重新排序列，添加工具栏等等。具体参考
+            <a href="/extensions" target="_blank">
+Extensions
+</a>
+        </p>
+        <blockquote>
+    <p><a href="http://datatables.net/Plug-ins/index" target="_blank">http://datatables.net/Plug-ins/index</a></p>
+    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+</blockquote>
+    </div>
+</div>
+
 <style>
 .right-ad{
 	box-sizing: content-box;
@@ -497,3 +337,61 @@ $('#example').dataTable( {
 </footer>
 </body>
 </html>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
