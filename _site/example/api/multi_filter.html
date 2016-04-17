@@ -1144,7 +1144,7 @@
 	position: fixed;
 	top: 35%;
 	right: 20px;
-	display:none;
+	display:block;
 }
 
 .right-ad div{
@@ -1168,7 +1168,7 @@
 	position: fixed;
 	top: 35%;
 	left: 20px;
-	display:none;
+	display:block;
 }
 .left-ad div{
 	box-sizing: content-box;
@@ -1217,19 +1217,20 @@
         var h = window.screen.height;
          // 屏幕分辨率的宽：
          var w = window.screen.width;
-         if(w>1500){
-         	var href = window.location.href;
-         	if(!document.getElementById("noad")){
-         		var adLeft = document.getElementById("adLeft").style.display = "block";
-            	var adRight = document.getElementById("adRight").style.display = "block";
-         	}else{
-         		console.log("index no ad");
-         	}
-         	console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
-         	console.log("非常期待您的反馈，这样中文网才能越做越好");
-         	console.log("Thank for your support!If you have any suggestion ,please contact thxopen@datatables.club");
-         	console.log("I'm looking forward your feedback,make the website more and more good");
-         	console.log(":)");
+         if(w<1500){
+            var adLeft = document.getElementById("adLeft").style.display = "none";
+            var adRight = document.getElementById("adRight").style.display = "none";
+         }else{
+            console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
+            console.log("非常期待您的反馈，这样中文网才能越做越好");
+            console.log("Thank for your support!If you have any suggestion ,please contact thxopen@datatables.club");
+            console.log("I'm looking forward your feedback,make the website more and more good");
+            console.log(":)");
+            if(document.getElementById("noad")){
+                var adLeft = document.getElementById("adLeft").style.display = "none";
+                var adRight = document.getElementById("adRight").style.display = "none";
+                console.log("index no ad of side");
+            }
          }
 </script>
 <script>
