@@ -49,7 +49,10 @@ download: serverSide-custom-args.zip
        </div>
 </header>
 <div class="container" style="margin-top:20px">
-    <iframe style="margin: 10px 0 20px 0" height=500px width=100% src="demo/index.htm" frameborder=0 allowfullscreen></iframe>
+    <div style="margin: 10px auto;">
+        {% include xad %}
+    </div>
+    <iframe style="margin: 10px 0 20px 0" height=1000px width=100% src="demo/index.htm" frameborder=0 allowfullscreen></iframe>
        代码片段(java部分)：
        <section>
               User.java
@@ -990,9 +993,6 @@ var userManage = {
 	}
 };</pre>
        </section>
-
-    {% include post.html param= site.url param2 = page.url %}
-
 
 </div>
 
