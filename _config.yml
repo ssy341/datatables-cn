@@ -2,9 +2,16 @@
 baseurl:
 #baseurl: /www
 #port: 341
-url: http://dt.thxopen.com
+url: http://datatables.club
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea']
 #destination: ./_site
 #destination: C:\code\xampp\htdocs
 dtversion: 1.10.11
+
+# Build settings
+markdown: kramdown
+
+description: > # this means to ignore newlines until "baseurl:"
+  Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+      Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件
