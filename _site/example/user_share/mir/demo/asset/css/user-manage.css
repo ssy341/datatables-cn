@@ -1,0 +1,191 @@
+/* 单元格连续纯字母数字强制换行显示 */
+.wordwrap{
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden; 
+}
+/* 超长文字单元格省略号显示 */
+.ellipsis{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+}
+
+#breadcrumb{
+	margin:10px 0 0 0;
+}
+.breadcrumb {
+	margin: 0 0 0px;
+	padding: 10px 0px;
+	background-color: transparent;
+}
+
+.block {
+	border: 1px solid #ccc;
+	background: white;
+	margin: 10px 0 0 0;
+	border-top: none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.block-content {
+	padding: 5px;
+	min-height: .25em;
+	border-top: 1px solid #ccc;
+}
+
+.block-header {
+	margin-bottom: 0px;
+	border-right: none;
+	border-left: none;
+	border-bottom:none;
+	-webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+	        border-radius: 4px;
+}
+
+.block-header div {
+	padding-top: 10px;
+}
+
+.block-header .block-title {
+	padding-top: 10px;
+	color:#999;
+	float:left;
+}
+
+.block-header .header-buttons {
+	padding-top: 0;
+	float:right;
+}
+
+/* spin遮罩层 */
+.overlay{
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    position: absolute;
+    z-index: 1;
+	background: white;
+	filter: alpha(opacity = 60);
+	opacity: .6;
+}
+
+/* block中的表格取消下边距 */
+.block-content table {
+  margin-bottom:0;
+}
+
+/*红色星号*/
+.red-asterisk{
+	color:red;
+}
+
+/* form边距调整 */
+form {
+	margin: 5px 5px 0 0;
+}
+
+/* fixed的表格才可以使单元格显示省略号*/
+.table{ 
+	table-layout:fixed; 
+} 
+
+/* 表格复选框单元格居中显示 */
+.table .td-checkbox{
+	text-align:center;
+}
+.table .td-checkbox input{
+	margin:0;
+}
+
+/* 表格操作栏按钮居中 */
+.table .td-operation {
+	text-align : center;
+}
+/* 表格操作栏按钮间隔 */
+.table .td-operation .btn + .btn {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+/* 表单信息栏系列样式定义 */
+.info-content .prop-name {
+	float: left;
+	padding:5px 0 0 0;
+	width: 80px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.info-content .prop-value {
+	padding-top:5px;
+	margin-left:90px;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.info-content .control-group {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	margin-bottom:0;
+}
+
+.info-content .control-group .control-label{
+	float: left;
+	padding:5px 0 0 0;
+	width: 80px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.info-content .control-group .controls {
+	margin-left:90px;
+}
+
+.info-content .control-group .controls input,.info-content .control-group .controls textarea{
+	width:186px;
+}
+.info-content .control-group .controls select{
+	width:200px;
+}
+.info-content .control-group .controls input.xlarge{
+	width:480px;
+	*width:476px;
+}
+.info-content .control-group .controls input.xxlarge{
+	width:774px;
+	*width:766px;
+}
+.info-content .control-group .controls input.xxxlarge{
+	width:1068px;
+	*width:1056px;
+}
+.info-content .control-group .controls .jq-dropdown-panel{
+	width:178px;
+	overflow:auto;
+	max-height:300px;
+}
+
+
+
+#toggle-advanced-search{
+	padding:4px 8px;
+}
+
+#div-advanced-search .well{
+	margin-bottom : 10px;
+}
+
+#div-table-container{
+	position:relative;
+}
+
+.info-block{
+	margin:0 0 10px 0;
+}

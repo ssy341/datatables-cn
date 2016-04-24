@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>今天讲的参数是ajax，相信大家不陌生，用过jQuery的人对这个应该很熟悉。dt是基于jquery做的表格插件，所以dt在读取数据时也用了jquery的ajax，虽然是类似，但是有加强，下面看ajax的用法吧。
+基本语法：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="na">ajax</span><span class="p">:</span><span class="s2">"dada.json"</span><span class="p">,</span>
+    <span class="na">colunms</span><span class="p">:[</span>
+        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"name"</span><span class="p">},</span>
+        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"age"</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>data.json - 是一个url或者资源文件，数据格式是这样的</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatable中文网"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
+        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatable中文网2"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>你还可以使用数组格式，如下</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">[</span><span class="s2">"datatable中文网"</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s2">"datatable中文网2"</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>如果数据格式为上面的，那么初始化代码可以简化下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="na">ajax</span><span class="p">:</span><span class="s2">"dada.json"</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>之所以能不写columns是因为dt默认可以处理数组格式的数据,按照数组的顺序0,1，2……对应第一列，第二列</p>
+
+</div>
+</body>
+</html>

@@ -57,7 +57,7 @@
                     <li ><a href="/index.html">首页</a></li>
                     <li class="active"><a href="/example">例子</a></li>
                     <li ><a href="/manual">手册</a></li>
-                    <li ><a href="/reference">参考</a></li>
+                    <li ><a href="/reference">文档(Options&API)</a></li>
                     <li ><a href="/extensions">扩展</a></li>
                     <li ><a href="/plug-ins">插件</a></li>
                     <li ><a href="/faqs">FAQs</a></li>
@@ -338,43 +338,38 @@
             <ul class="footer-links" id="qqgroup">
                 <li>QQ群：</li>
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
-                       title="加入QQ群">238625393（1群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>
                 </li>
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=7f7f5e203e7d3118292cb7ace0adb6ec8502fc08944aa2abf106a407e725281d" target="_blank"
-                       title="加入QQ群">521024580（2群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">521024580（2群）</a>
                 </li>
             </ul>
             <ul class="footer-links">
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"
-                       title="加入QQ群">20779435（3群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>
                 </li>
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b6963c391611ebff93e69d5d63bfdcb31f485bbf94575e74fa152d734c9f0501" target="_blank"
-                       title="加入QQ群">490289088（4群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（4群）</a>
                 </li>
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
-                       title="加入QQ群">547691991（5群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（5群）</a>
                 </li>
                 <li>
-                    <a class="bs3-link"
+                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"
-                       title="加入QQ群">180188326（进阶群，注：本群为进阶群，新手勿加）</a>
-                </li>
-            </ul>
-            <ul class="footer-links">
-                <li>
-                    <a href="#" style="color:red">禁止同时申请加入多个群</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>
                 </li>
             </ul>
             <ul class="footer-links">
@@ -400,6 +395,12 @@
        </div>
     </div>
 </footer>
+<script type="text/javascript">
+    function noteTitle(obj){
+        var note = $(obj).attr("title");
+        alert(note);
+    }
+</script>
 <script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -520,65 +521,153 @@ var example = {
     createTable: function (data) {
         //var tableHtml = example.renderFun("exampleTableHtml", data);
         //$("#" + data.divId).html(tableHtml);
-        return example.config(data.tableId, data.url);
+        var columns = [
+            {
+                "class": 'details-control',
+                "orderable": false,
+                "data": null,
+                "defaultContent": ''
+            },
+            {"data": null},
+            {"data": null}
+        ];
+        var columnDefs = [
+            {
+                "targets": 2,
+                "render": function (data, type, row, meta) {
+                    var url = "";
+                    if (row.url) {
+                        url += '<a href="' + row.url + '" target="_blank">中文</a>';
+                    }
+                    if(row.url && row.enurl){
+                        url += " | ";
+                    }
+                    if (row.enurl) {
+                        url += '<a href="' + row.enurl + '" target="_blank">English</a>';
+                    }
+                    return url;
+                }
+            },
+            {
+                "targets": 1,
+                "render": function (data, type, row, meta) {
+                    if(row.url){
+                        return "<a href="+row.url+" target='_blank'>"+row.name + "(" + row.en + ")</a>";
+                    }
+                    if(row.en){
+                        return row.name + "(" + row.en + ")";
+                    }
+                    return row.name;
+                }
+            }
+        ];
+
+        var order = [[1, 'asc']];
+        return example.config(data.tableId, data.url,columns,columnDefs,order);
+    },
+    createDailyTable:function(data){
+        var columns = [
+            {
+                "class": 'details-control',
+                "orderable": false,
+                "data": null,
+                "defaultContent": ''
+            },
+            {"data": null},
+            {"data": null},
+            {"data": null}
+        ];
+        var columnDefs = [
+            {
+                "targets": 3,
+                "render": function (data, type, row, meta) {
+                    var name = "";
+                    var names = row.name.en.split(" ");
+                    for(var n = 0,nlen =names.length ;n<nlen;n++){
+                        name += names[n];
+                        if(n != nlen -1 ){
+                            name += "-";
+                        }
+                    }
+                    var date = "";
+                    var dates = row.date.split(" ");
+                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
+                        date += dates[d];
+                        if(d != dlen -1 ){
+                            date += "/";
+                        }
+                    }
+                    return "<a href='"+date+"/"+name+"' target='_blank'>学习此技能</a>";
+                }
+            },
+            {
+                "targets":2,
+                "render":function(data,type,row,meta){
+                    var date = "";
+                    var dates = row.date.split(" ");
+                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
+                        date += dates[d];
+                        if(d != dlen -1 ){
+                            date += "-";
+                        }
+                    }
+                    return date;
+                }
+            },
+            {
+                "targets":1,
+                "render":function(data,type,row,meta){
+                    return row.name.cn || row.name.en;
+                }
+            }
+        ];
+
+        var order = [[2, 'asc']];
+        return example.config(data.tableId, data.url,columns,columnDefs,order);
     },
     /**
      * datatable 初始化
      * @param id
-     * @param url
+     * @param url 数据源
+     * @param columns 列属性绑定
+     * @param columnDefs 列渲染
+     * @returns {jQuery}
      */
-    config: function (id, url) {
+    config: function (id, url, columns, columnDefs,order) {
         return $("#" + id).DataTable({
             "ajax": url,
             "lengthChange": false,
             "paging": false,
             "searching": false,
-            "columns": [
-                {
-                    "class": 'details-control',
-                    "orderable": false,
-                    "data": null,
-                    "defaultContent": ''
-                },
-                {"data": null},
-                {"data": null}
-            ],
-            "order": [[1, 'asc']],
-            "columnDefs": [
-                {
-                    "targets": 2,
-                    "render": function (data, type, row, meta) {
-                        var url = "";
-                        if (row.url) {
-                            url += '<a href="' + row.url + '" target="_blank">中文</a>';
-                        }
-                        if(row.url && row.enurl){
-                            url += " | ";
-                        }
-                        if (row.enurl) {
-                            url += '<a href="' + row.enurl + '" target="_blank">English</a>';
-                        }
-                        return url;
-                    }
-                },
-                {
-                    "targets": 1,
-                    "render": function (data, type, row, meta) {
-                        if(row.url){
-                            return "<a href="+row.url+" target='_blank'>"+row.name + "(" + row.en + ")</a>";
-                        }
-                        if(row.en){
-                            return row.name + "(" + row.en + ")";
-                        }
-                        return row.name;
-                    }
-                }
-            ]
+            "columns": columns,
+            "order": order,
+            "columnDefs": columnDefs
         });
     },
     format: function (d) {
         // `d` is the original data object for the row
         return '<p>'+(d.content||"暂无")+'</p>';
+    },
+    formatiframe: function (d) {
+        var url = "";
+        var name = "";
+        var names = d.name.en.split(" ");
+        for(var n = 0,nlen =names.length ;n<nlen;n++){
+            name += names[n];
+            if(n != nlen -1 ){
+                name += "-";
+            }
+        }
+        var date = "";
+        var dates = d.date.split(" ");
+        for(var d = 0,dlen =dates.length ;d<dlen;d++){
+            date += dates[d];
+            if(d != dlen -1 ){
+                date += "/";
+            }
+        }
+        url = date +"/"+name+"-detail";
+        return  '<iframe style="margin: 10px 0 20px 0" height=500px width=100% src="'+url+'" frameborder=0 allowfullscreen></iframe>';
     },
     /**
      * detail事件监听
@@ -595,6 +684,22 @@ var example = {
             else {
                 // Open this row
                 row.child(example.format(row.data())).show();
+                tr.addClass('shown');
+            }
+        });
+    },
+    dailyEventListen: function (tableid,oTable) {
+        $('#'+tableid+' tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = oTable.row(tr);
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            }
+            else {
+                // Open this row
+                row.child(example.formatiframe(row.data())).show();
                 tr.addClass('shown');
             }
         });
@@ -691,9 +796,15 @@ var example = {
         };
         example.eventListen(vedio2_sources.tableId, example.createTable(vedio2_sources));
 
-
-
-
+    },
+    "dailyInit":function(){
+        var daily_sources = {
+            tableId: "2016-04_table",
+            title: "",
+            url: "/assets/daily/2016-04_json.txt",
+            divId: ""
+        };
+        example.dailyEventListen(daily_sources.tableId, example.createDailyTable(daily_sources));
 
     }
 };
