@@ -28,65 +28,153 @@ var example = {
     createTable: function (data) {
         //var tableHtml = example.renderFun("exampleTableHtml", data);
         //$("#" + data.divId).html(tableHtml);
-        return example.config(data.tableId, data.url);
+        var columns = [
+            {
+                "class": 'details-control',
+                "orderable": false,
+                "data": null,
+                "defaultContent": ''
+            },
+            {"data": null},
+            {"data": null}
+        ];
+        var columnDefs = [
+            {
+                "targets": 2,
+                "render": function (data, type, row, meta) {
+                    var url = "";
+                    if (row.url) {
+                        url += '<a href="' + row.url + '" target="_blank">中文</a>';
+                    }
+                    if(row.url && row.enurl){
+                        url += " | ";
+                    }
+                    if (row.enurl) {
+                        url += '<a href="' + row.enurl + '" target="_blank">English</a>';
+                    }
+                    return url;
+                }
+            },
+            {
+                "targets": 1,
+                "render": function (data, type, row, meta) {
+                    if(row.url){
+                        return "<a href="+row.url+" target='_blank'>"+row.name + "(" + row.en + ")</a>";
+                    }
+                    if(row.en){
+                        return row.name + "(" + row.en + ")";
+                    }
+                    return row.name;
+                }
+            }
+        ];
+
+        var order = [[1, 'asc']];
+        return example.config(data.tableId, data.url,columns,columnDefs,order);
+    },
+    createDailyTable:function(data){
+        var columns = [
+            {
+                "class": 'details-control',
+                "orderable": false,
+                "data": null,
+                "defaultContent": ''
+            },
+            {"data": null},
+            {"data": null},
+            {"data": null}
+        ];
+        var columnDefs = [
+            {
+                "targets": 3,
+                "render": function (data, type, row, meta) {
+                    var name = "";
+                    var names = row.name.en.split(" ");
+                    for(var n = 0,nlen =names.length ;n<nlen;n++){
+                        name += names[n];
+                        if(n != nlen -1 ){
+                            name += "-";
+                        }
+                    }
+                    var date = "";
+                    var dates = row.date.split(" ");
+                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
+                        date += dates[d];
+                        if(d != dlen -1 ){
+                            date += "/";
+                        }
+                    }
+                    return "<a href='"+date+"/"+name+"' target='_blank'>学习此技能</a>";
+                }
+            },
+            {
+                "targets":2,
+                "render":function(data,type,row,meta){
+                    var date = "";
+                    var dates = row.date.split(" ");
+                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
+                        date += dates[d];
+                        if(d != dlen -1 ){
+                            date += "-";
+                        }
+                    }
+                    return date;
+                }
+            },
+            {
+                "targets":1,
+                "render":function(data,type,row,meta){
+                    return row.name.cn || row.name.en;
+                }
+            }
+        ];
+
+        var order = [[2, 'asc']];
+        return example.config(data.tableId, data.url,columns,columnDefs,order);
     },
     /**
      * datatable 初始化
      * @param id
-     * @param url
+     * @param url 数据源
+     * @param columns 列属性绑定
+     * @param columnDefs 列渲染
+     * @returns {jQuery}
      */
-    config: function (id, url) {
+    config: function (id, url, columns, columnDefs,order) {
         return $("#" + id).DataTable({
             "ajax": url,
             "lengthChange": false,
             "paging": false,
             "searching": false,
-            "columns": [
-                {
-                    "class": 'details-control',
-                    "orderable": false,
-                    "data": null,
-                    "defaultContent": ''
-                },
-                {"data": null},
-                {"data": null}
-            ],
-            "order": [[1, 'asc']],
-            "columnDefs": [
-                {
-                    "targets": 2,
-                    "render": function (data, type, row, meta) {
-                        var url = "";
-                        if (row.url) {
-                            url += '<a href="' + row.url + '" target="_blank">中文</a>';
-                        }
-                        if(row.url && row.enurl){
-                            url += " | ";
-                        }
-                        if (row.enurl) {
-                            url += '<a href="' + row.enurl + '" target="_blank">English</a>';
-                        }
-                        return url;
-                    }
-                },
-                {
-                    "targets": 1,
-                    "render": function (data, type, row, meta) {
-                        if(row.url){
-                            return "<a href="+row.url+" target='_blank'>"+row.name + "(" + row.en + ")</a>";
-                        }
-                        if(row.en){
-                            return row.name + "(" + row.en + ")";
-                        }
-                        return row.name;
-                    }
-                }
-            ]
+            "columns": columns,
+            "order": order,
+            "columnDefs": columnDefs
         });
     },
     format: function (d) {
         // `d` is the original data object for the row
         return '<p>'+(d.content||"暂无")+'</p>';
+    },
+    formatiframe: function (d) {
+        var url = "";
+        var name = "";
+        var names = d.name.en.split(" ");
+        for(var n = 0,nlen =names.length ;n<nlen;n++){
+            name += names[n];
+            if(n != nlen -1 ){
+                name += "-";
+            }
+        }
+        var date = "";
+        var dates = d.date.split(" ");
+        for(var d = 0,dlen =dates.length ;d<dlen;d++){
+            date += dates[d];
+            if(d != dlen -1 ){
+                date += "/";
+            }
+        }
+        url = date +"/"+name+"-detail";
+        return  '<iframe style="margin: 10px 0 20px 0" height=500px width=100% src="'+url+'" frameborder=0 allowfullscreen></iframe>';
     },
     /**
      * detail事件监听
@@ -103,6 +191,22 @@ var example = {
             else {
                 // Open this row
                 row.child(example.format(row.data())).show();
+                tr.addClass('shown');
+            }
+        });
+    },
+    dailyEventListen: function (tableid,oTable) {
+        $('#'+tableid+' tbody').on('click', 'td.details-control', function () {
+            var tr = $(this).closest('tr');
+            var row = oTable.row(tr);
+            if (row.child.isShown()) {
+                // This row is already open - close it
+                row.child.hide();
+                tr.removeClass('shown');
+            }
+            else {
+                // Open this row
+                row.child(example.formatiframe(row.data())).show();
                 tr.addClass('shown');
             }
         });
@@ -199,9 +303,15 @@ var example = {
         };
         example.eventListen(vedio2_sources.tableId, example.createTable(vedio2_sources));
 
-
-
-
+    },
+    "dailyInit":function(){
+        var daily_sources = {
+            tableId: "2016-04_table",
+            title: "",
+            url: "{{site.baseurl}}/assets/daily/2016-04_json.txt",
+            divId: ""
+        };
+        example.dailyEventListen(daily_sources.tableId, example.createDailyTable(daily_sources));
 
     }
 };

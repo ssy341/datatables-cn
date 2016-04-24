@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    {% include head.html %}
+    {% include link.html %}
+    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
+</head>
+<body>
+{% include nav.html param='manual' %}
+
+<div class="container">
+    <h2>{{ page.short }}</h2><span>{{page.date | date: "%-d %B %Y"}} | {{page.author}}</span>
+    <div style="margin:10px auto">
+        {% include xad %}
+    </div>
+    {{content}}
+</div>
+{% include libs/jquery_js.html %}
+{% include libs/bootstrap_js.html %}
+{% include note.js %}
+{% include copy.js %}
+{% include copyright.html %}
+</body>
+</html>
