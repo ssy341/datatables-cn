@@ -6,6 +6,8 @@ date: 2016-4-18
 categories: manual daily
 author: DataTable中文网
 ---
+参数详解连接{% include href/option/ajax.dt %}
+
 今天讲的参数是ajax，相信大家不陌生，用过jQuery的人对这个应该很熟悉。dt是基于jquery做的表格插件，所以dt在读取数据时也用了jquery的ajax，虽然是类似，但是有加强，下面看ajax的用法吧。
 基本语法：
 {% highlight javascript linenos %}

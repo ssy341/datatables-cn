@@ -6,6 +6,9 @@ date: 2016-4-19
 categories: manual daily
 author: DataTable中文网
 ---
+
+参数详解连接{% include href/option/ajax.dataSrc.dt %}
+
 今天讲的参数dataSrc是属于ajax下的一个属性，他类似于jQuery ajax的success方法，废话少说看下面的代码
 基本用法：
 {% highlight javascript linenos %}

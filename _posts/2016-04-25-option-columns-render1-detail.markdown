@@ -6,6 +6,8 @@ date: 2016-4-25
 categories: manual daily
 author: DataTable中文网
 ---
+参数详解连接{% include href/option/columns.render.dt %}
+
 说到这个参数，可以说是明星参数了，他几乎能解决群友们问到的问题，几乎啊！废话不说我先简单介绍下这个参数到底能解决那些常见问题。
 
 1. 在第一列添加checkbox，radio

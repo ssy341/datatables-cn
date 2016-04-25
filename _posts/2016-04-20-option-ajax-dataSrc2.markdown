@@ -6,6 +6,8 @@ date: 2016-4-20
 categories: manual daily
 author: DataTable中文网
 ---
+参数详解连接{% include href/option/ajax.dataSrc.dt %}
+
 接着昨天的dataSrc作为function时能处理什么复杂的情况呢？
 在这里可以把dataSrc和jQuery的ajax的success方法一起看，或者对于Datatables来说dataSrc是success的扩展、加强
 {% highlight javascript linenos %}

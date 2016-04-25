@@ -6,6 +6,8 @@ date: 2016-4-21
 categories: manual daily
 author: DataTable中文网
 ---
+参数详解连接{% include href/option/ajax.data.dt %}
+
 这连续几天讲的都是关于dt怎么取数，今天讲讲怎么传参数给服务器。平时我们都有这样的应用场景，比如根据时间，或者input框的值作为查询条件显示表格数据
 基本用法：
 {% highlight javascript linenos %}
