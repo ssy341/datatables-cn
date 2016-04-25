@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>说到这个参数，可以说是明星参数了，他几乎能解决群友们问到的问题，几乎啊！废话不说我先简单介绍下这个参数到底能解决那些常见问题。</p>
+
+<ol>
+  <li>
+    <p>在第一列添加checkbox，radio</p>
+  </li>
+  <li>
+    <p>在最后一列添加操作按钮</p>
+  </li>
+  <li>
+    <p>把url变成超链接、把图片路径显示为图片</p>
+  </li>
+  <li>
+    <p>时间格式化</p>
+  </li>
+  <li>
+    <p>内容太多用。。。。表示、内容不换行，鼠标移上去显示详情</p>
+  </li>
+  <li>
+    <p>替换字符，1显示是，0显示否</p>
+  </li>
+  <li>
+    <p>同时显示多个列的内容</p>
+  </li>
+  <li>
+    <p>……</p>
+  </li>
+</ol>
+
+<p>太多了，我一下子列不玩了，欢迎大家补充说明，下面我就一个一个的讲解，这些常见的问题怎么解决</p>
+
+<p>有如下格式的数据（注：以下数据均以最简单的格式来解释说明）：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"datatable中文网"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"datatable中文网2"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="err">"</span><span class="na">id</span><span class="p">::</span><span class="mi">2</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>首先解决第一个问题，<strong>怎么在首列添加checkbox</strong></p>
+
+<p>js部分代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">url</span><span class="p">:</span> <span class="s2">"data.json"</span><span class="p">,</span>
+        <span class="na">type</span><span class="p">:</span> <span class="s2">"POST"</span>
+    <span class="p">},</span>
+    <span class="na">columns</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="na">data</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"&lt;input type='checkbox' name='checklist' id='checkall' /&gt;"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="na">data</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"名称"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="na">data</span><span class="p">:</span> <span class="s2">"age"</span><span class="p">,</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"年龄"</span>
+    <span class="p">}],</span>
+    <span class="na">columnDefs</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="c1">//   指定第一列，从0开始，0表示第一列，1表示第二列……</span>
+        <span class="na">targets</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">'&lt;input type="checkbox" name="checklist" value="'</span> <span class="o">+</span> <span class="nx">row</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'" /&gt;'</span>
+        <span class="p">}</span>
+    <span class="p">}]</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这里同时使用了columns和columnDefs，可以说后者是前者的补充说明，两个属性的用法也比较多，这里不再进一步说明，以后的讲解中会一一讲到</p>
+
+<p>render方法有四个参数</p>
+
+<ul>
+  <li>data表示的是，就本例来说 由于columns里第一列data指定的为null，所以render里data也是null，这个是相对应的</li>
+  <li>type，表示数据类型，与如下值：display，filter，sort，type这一节先不讲具体意思，先提一下</li>
+  <li>row，包含了整行的数据，所以在return里可以使用row.id 获取数据集里每条数据的id数据</li>
+  <li>meta，这个目前自己用的比较少，感觉暂时没有什么用处，先不说，如果有知道的欢迎补充</li>
+</ul>
+
+<p>render从单词的意思上讲 就是渲染，所以这里 retrun 一个 checkbox的字符串就替换了最终表格显示，那么这样就实现我们需要的效果了，在第一列加上了复选框</p>
+
+<p>html部分代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="o">&lt;</span><span class="nx">table</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"tableid"</span><span class="o">&gt;</span>
+        <span class="c">&lt;!--</span> <span class="err">由于我在</span><span class="nx">dt</span><span class="err">初始化代码里配置了</span><span class="nx">columns</span><span class="p">.</span><span class="nx">title</span><span class="err">属性，所以在</span><span class="nx">html</span><span class="err">里不用再书写</span><span class="nx">th</span><span class="err">标签</span><span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="sr">/table&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>今天关于columns.render 就讲到这里，明天接着讲其他的</p>
+
+</div>
+</body>
+</html>
