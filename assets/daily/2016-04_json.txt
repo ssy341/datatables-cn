@@ -38,11 +38,18 @@
       }
       ,
      {
-        "name":{"en":"option columns render1","cn":"columns.render 渲染列 一"},
+        "name":{"en":"option columns render1","cn":"columns.render 渲染列(1) 添加checkbox"},
         "caption":"《不定时一讲》",
         "url":"",
         "content":"",
         "date":"2016 04 25"
-    }
+    } ,
+      {
+         "name":{"en":"option columns render2","cn":"columns.render 渲染列(2) 添加自定义按钮"},
+         "caption":"《不定时一讲》",
+         "url":"",
+         "content":"",
+         "date":"2016 04 26"
+     }
     ]
 }

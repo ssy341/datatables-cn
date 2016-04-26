@@ -79,7 +79,7 @@ render方法有四个参数
 render从单词的意思上讲 就是渲染，所以这里 retrun 一个 checkbox的字符串就替换了最终表格显示，那么这样就实现我们需要的效果了，在第一列加上了复选框
 
 html部分代码：
-{% highlight javascript linenos %}
+{% highlight HTML linenos %}
 <table id="tableid">
         <!-- 由于我在dt初始化代码里配置了columns.title属性，所以在html里不用再书写th标签-->
 </table>
