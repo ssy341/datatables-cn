@@ -80,51 +80,15 @@ var example = {
                 "data": null,
                 "defaultContent": ''
             },
-            {"data": null},
-            {"data": null},
+            {"data": "name"},
+            {"data": "date"},
             {"data": null}
         ];
         var columnDefs = [
             {
                 "targets": 3,
                 "render": function (data, type, row, meta) {
-                    var name = "";
-                    var names = row.name.en.split(" ");
-                    for(var n = 0,nlen =names.length ;n<nlen;n++){
-                        name += names[n];
-                        if(n != nlen -1 ){
-                            name += "-";
-                        }
-                    }
-                    var date = "";
-                    var dates = row.date.split(" ");
-                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
-                        date += dates[d];
-                        if(d != dlen -1 ){
-                            date += "/";
-                        }
-                    }
-                    return "<a href='"+date+"/"+name+"' target='_blank'>学习此技能</a>";
-                }
-            },
-            {
-                "targets":2,
-                "render":function(data,type,row,meta){
-                    var date = "";
-                    var dates = row.date.split(" ");
-                    for(var d = 0,dlen =dates.length ;d<dlen;d++){
-                        date += dates[d];
-                        if(d != dlen -1 ){
-                            date += "-";
-                        }
-                    }
-                    return date;
-                }
-            },
-            {
-                "targets":1,
-                "render":function(data,type,row,meta){
-                    return row.name.cn || row.name.en;
+                    return "<a href='"+row.url+"' target='_blank'>学习此技能</a>";
                 }
             }
         ];
@@ -156,25 +120,10 @@ var example = {
         return '<p>'+(d.content||"暂无")+'</p>';
     },
     formatiframe: function (d) {
-        var url = "";
-        var name = "";
-        var names = d.name.en.split(" ");
-        for(var n = 0,nlen =names.length ;n<nlen;n++){
-            name += names[n];
-            if(n != nlen -1 ){
-                name += "-";
-            }
-        }
-        var date = "";
-        var dates = d.date.split(" ");
-        for(var d = 0,dlen =dates.length ;d<dlen;d++){
-            date += dates[d];
-            if(d != dlen -1 ){
-                date += "/";
-            }
-        }
-        url = date +"/"+name+"-detail";
-        return  '<iframe style="margin: 10px 0 20px 0" height=500px width=100% src="'+url+'" frameborder=0 allowfullscreen></iframe>';
+        var url = d.url;
+        url = url.substr(0, url.length - 5);
+        url = url + "-detail";
+        return '<iframe style="margin: 10px 0 20px 0" height=500px width=100% src="' + url + '" frameborder=0 allowfullscreen></iframe>';
     },
     /**
      * detail事件监听

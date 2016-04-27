@@ -1,8 +1,9 @@
 ---
 layout: daily_detail
 title: option ajax dataSrc （下） 《不定时一讲》 DataTable中文网
-short: 《不定时一讲》 option ajax dataSrc （下）
+short: option ajax dataSrc （下）
 date: 2016-4-20
+caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
 ---

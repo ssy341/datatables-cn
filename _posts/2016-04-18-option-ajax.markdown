@@ -1,8 +1,9 @@
 ---
 layout: daily
 title: option ajax 《不定时一讲》 DataTable中文网
-short: 《不定时一讲》 option ajax
+short: option ajax
 date: 2016-4-18
+caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
 ---

@@ -1,11 +1,13 @@
 ---
 layout: daily_detail
 title: option ajax dataSrc （上） 《不定时一讲》 DataTable中文网
-short: 《不定时一讲》 option ajax dataSrc （上）
+short: option ajax dataSrc （上）
 date: 2016-4-19
+caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
 ---
+
 参数详解连接{% include href/option/ajax.dataSrc.dt %}
 
 今天讲的参数dataSrc是属于ajax下的一个属性，他类似于jQuery ajax的success方法，废话少说看下面的代码
