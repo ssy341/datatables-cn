@@ -1,55 +1,61 @@
+
 {
     "data":[
-        {
-            "name":{"en":"option ajax","cn":""},
+          {
             "caption":"《不定时一讲》",
-            "url":"",
-            "content":"",
-            "date":"2016 04 18"
-        },
-         {
-            "name":{"en":"option ajax dataSrc1","cn":""},
+            "url":"/manual/daily/2016/04/27/option-columns-render3.html",
+            "name":"option columns.render url变超链接或者图片显示",
+            "date":"2016-04-27"
+          },
+         
+          {
             "caption":"《不定时一讲》",
-            "url":"",
-            "content":"",
-            "date":"2016 04 19"
-        },
-      {
-         "name":{"en":"option ajax dataSrc2","cn":""},
-         "caption":"《不定时一讲》",
-         "url":"",
-         "content":"",
-         "date":"2016 04 20"
-     },
-        {
-           "name":{"en":"option ajax data","cn":""},
-           "caption":"《不定时一讲》",
-           "url":"",
-           "content":"",
-           "date":"2016 04 21"
-       }
-       ,
-       {
-          "name":{"en":"how to find the questions basic debug skill of javascript","cn":"如何定位问题（js调试基本技能）"},
-          "caption":"《不定时一讲》",
-          "url":"",
-          "content":"",
-          "date":"2016 04 22"
-      }
-      ,
-     {
-        "name":{"en":"option columns render1","cn":"columns.render 渲染列(1) 添加checkbox"},
-        "caption":"《不定时一讲》",
-        "url":"",
-        "content":"",
-        "date":"2016 04 25"
-    } ,
-      {
-         "name":{"en":"option columns render2","cn":"columns.render 渲染列(2) 添加自定义按钮"},
-         "caption":"《不定时一讲》",
-         "url":"",
-         "content":"",
-         "date":"2016 04 26"
-     }
+            "url":"/manual/daily/2016/04/26/option-columns-render2.html",
+            "name":"option columns.render 添加自定义按钮",
+            "date":"2016-04-26"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/25/option-columns-render1.html",
+            "name":"option columns.render 渲染列(1) 添加checkbox",
+            "date":"2016-04-25"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html",
+            "name":"如何定位问题（js调试基本技能）",
+            "date":"2016-04-22"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/21/option-ajax-data.html",
+            "name":"option ajax data",
+            "date":"2016-04-21"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/20/option-ajax-dataSrc2.html",
+            "name":"option ajax dataSrc （下）",
+            "date":"2016-04-20"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/19/option-ajax-dataSrc1.html",
+            "name":"option ajax dataSrc （上）",
+            "date":"2016-04-19"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/18/option-ajax.html",
+            "name":"option ajax",
+            "date":"2016-04-18"
+          }
+         
     ]
 }

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>参数详解连接<a href="/reference/option/columns.render.html" target="_blank">
+    <code>columns.render<span>Option</span></code>
+</a></p>
+
+<p>今天由4群的小伙伴- <strong>雨吴</strong>  给大家讲解<code class="highlighter-rouge">columns.render</code> 的用法，先看个代码片段：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td class="code"><pre><span class="nx">render</span><span class="err">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">//若下面有异议，可以提出</span>
+    <span class="c1">//个人理解  --以及参数的应用场景</span>
+    <span class="c1">//data:当前cell的值  --主要是操作这个参数来做渲染</span>
+    <span class="c1">//type:数据类型,枚举类型dt内置定义的  --用处不大</span>
+    <span class="c1">//row:当前行的所有数据  --可以做来用级联(没办法更改其他cell的渲染)</span>
+    <span class="c1">//meta:它下面有三个参数</span>
+    <span class="c1">//   //row,col 是当前cell的横纵坐标(相对于左上角) --可以结合上个参数row做更加复杂的级联</span>
+    <span class="c1">//   //settings:dt的api实例,动态所有的参数信息都在里面  --这个很强大,获取参数信息就好,新手不要随便更改里面的参数信息</span>
+    <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="s2">"&lt;label "</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"男"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:red;'"</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"女"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:green;'"</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:#000;'"</span>
+    <span class="p">}</span>
+    <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"&gt;"</span> <span class="o">+</span> <span class="p">(</span><span class="nx">data</span> <span class="p">?</span> <span class="s2">""</span><span class="p">:</span> <span class="nx">data</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"&lt;/label&gt;"</span>
+    <span class="k">return</span> <span class="nx">node</span><span class="p">;</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>上面这段代码的效果就是把对应的值加上不同的颜色予以区分开来</p>
+
+<p>提一点 <code class="highlighter-rouge">columns.render()</code> 是在row里面的cell渲染时触发的，它的执行也是相对于cell，所以每个cell的渲染都会触发一次render</p>
+
+<p>渲染和创建还是有区别，有兴趣的可以看看 <code class="highlighter-rouge">cereatedCell</code> 回调方法 ，可以达到同样的效果</p>
+
+<p>大家在看DataTable的API时要注意看对应api的return和options里面的方法需要return的东西，对应的<code class="highlighter-rouge">columns.render()</code>需要的return是</p>
+
+<blockquote>
+  <p>Returns:
+  The return value from the function is what will be used for the data requested.</p>
+</blockquote>
+
+<p>看不懂的可以去看中文网的翻译</p>
+
+<blockquote>
+  <p>返回：方法返回的数据被用作Datatables最终使用的数据</p>
+</blockquote>
+
+<p>DataTable会直接把大家return的内容解析成对应的html标签或者文本</p>
+
+<p>DataTable里面的下拉框、文本框、按钮、图片、超链接、文本等，大家进行逻辑判断，把最后的内容return</p>
+
+<p>大家使用<code class="highlighter-rouge">column.render</code>可能也会需要自己传参数进去：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre>  <span class="nx">render</span><span class="err">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//render 里面想引入自定义参数信息,两种方式:</span>
+        <span class="c1">//一、让自定义参数的作用域大于render的作用域(全局变量、缓存等);</span>
+        <span class="c1">//二、修改源码( ** 慎用 **,一般不做考虑)</span>
+        <span class="c1">//级联问题后面几期再讲,没有找到很好的素材</span>
+        <span class="kd">var</span> <span class="nx">custom</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"custom"</span><span class="p">);</span><span class="c1">//这里就可以获取到提前存在缓存的数据</span>
+        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+    <span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>明天会给大家讲解一些具体的应用场景，大家可以把一些和<code class="highlighter-rouge">columns.render</code>有关的有特点的问题发给群主(thxopen@datatables.club)</p>
+
+<p>下面是全部代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89</pre></td><td class="code"><pre><span class="o">&lt;!</span><span class="nx">DOCTYPE</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">"http://www.w3.org/1999/xhtml"</span><span class="o">&gt;</span>
+ <span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">http</span><span class="o">-</span><span class="nx">equiv</span><span class="o">=</span><span class="s2">"Content-Type"</span> <span class="nx">content</span><span class="o">=</span><span class="s2">"text/html; charset=utf-8"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">DataTable</span><span class="err">中文网</span> <span class="err">不定时一讲</span> <span class="nx">columns</span><span class="p">.</span><span class="nx">render</span> <span class="nx">url</span><span class="err">变超链接或者图片显示</span><span class="o">&lt;</span><span class="sr">/title</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">link</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"DataTables/css/jquery.dataTables.min.css"</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span> <span class="o">/&gt;</span>
+ <span class="o">&lt;</span><span class="sr">/head</span><span class="err">&gt;
+</span> <span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"DataTables/js/jquery.dataTables.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">table</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"example"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="sr">/table</span><span class="err">&gt;
+</span>  <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+        <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">oTable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+            <span class="s2">"serverSide"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//分页，取数据等等的都放到服务端去</span>
+            <span class="s2">"deferRender"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span><span class="c1">//当处理大数据时，延迟渲染数据，有效提高Datatables处理能力</span>
+            <span class="s2">"destory"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"dataType"</span><span class="p">:</span> <span class="s1">'json'</span><span class="p">,</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+                <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/GridSheet/dataGridData"</span><span class="p">,</span>
+                <span class="s2">"data"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">d</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">;</span>
+                <span class="p">},</span>
+                <span class="s2">"async"</span><span class="p">:</span> <span class="kc">false</span>
+            <span class="p">},</span>
+            <span class="s2">"columns"</span><span class="err">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"id"</span><span class="p">,</span>
+                    <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"100px"</span><span class="p">,</span>
+                    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"id"</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
+                    <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"150px"</span><span class="p">,</span>
+                    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"姓名"</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"sex"</span><span class="p">,</span>
+                    <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"100px"</span><span class="p">,</span>
+                    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"性别"</span><span class="p">,</span>
+                    <span class="na">render</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">//个人理解  --以及参数的应用场景</span>
+                        <span class="c1">//data:当前cell的值  --主要是操作这个参数来做渲染</span>
+                        <span class="c1">//type:数据类型,枚举类型dt内置定义的  --用处不大</span>
+                        <span class="c1">//row:当前行的所有数据  --可以做来用级联(没办法更改其他cell的渲染)</span>
+                        <span class="c1">//meta:它下面有三个参数</span>
+                        <span class="c1">//   //row,col 是当前cell的横纵坐标(相对于左上角)</span>
+                        <span class="c1">//         --可以结合上个参数row做更加复杂的级联</span>
+                        <span class="c1">//   //settings:dt的api实例,动态所有的参数信息都在里面</span>
+                           <span class="c1">//  --这个很强大,获取参数信息就好,新手不要随便更改里面的参数信息</span>
+                        <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="s2">"&lt;label "</span><span class="p">;</span>
+                        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"男"</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:red;'"</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">data</span> <span class="o">==</span> <span class="s2">"女"</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:green;'"</span>
+                        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                            <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"style='color:#000;'"</span>
+                        <span class="p">}</span>
+                        <span class="nx">node</span> <span class="o">+=</span> <span class="s2">"&gt;"</span> <span class="o">+</span> <span class="nx">data</span> <span class="p">?</span> <span class="s2">""</span> <span class="p">:</span> <span class="nx">data</span> <span class="o">+</span> <span class="s2">"&lt;/label&gt;"</span>
+                        <span class="k">return</span> <span class="nx">node</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"img"</span><span class="p">,</span>
+                    <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"200px"</span><span class="p">,</span>
+                    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"头像"</span><span class="p">,</span>
+                    <span class="na">render</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+                         <span class="c1">//这里是主题  把url变成超链接、把图片路径显示为图片</span>
+                        <span class="c1">//return "&lt;a href='" + data + "'&gt;" + data + "&lt;/a&gt;";</span>
+                        <span class="k">return</span> <span class="s2">"&lt;img src='"</span> <span class="o">+</span> <span class="nx">data</span> <span class="o">+</span> <span class="s2">"' /&gt;"</span><span class="p">;</span>
+
+                    <span class="p">}</span>
+                <span class="p">},</span> <span class="p">{</span>
+                    <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"mark"</span><span class="p">,</span>
+                    <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"300px"</span><span class="p">,</span>
+                    <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"备注"</span><span class="p">,</span>
+                    <span class="na">render</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">//render 里面想引入自定义参数信息,两种方式:</span>
+                        <span class="c1">//一、让自定义参数的作用域大于render的作用域(全局变量、缓存等);</span>
+                        <span class="c1">//二、修改源码(慎用)</span>
+                        <span class="c1">//级联问题后面几期再讲,没有找到很好的素材</span>
+                        <span class="kd">var</span> <span class="nx">custom</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"custom"</span><span class="p">);</span><span class="c1">//这里就可以获取到提前存在缓存的数据</span>
+                        <span class="k">return</span> <span class="nx">data</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">});</span>
+
+    <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span> <span class="o">&lt;</span><span class="sr">/body</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/html&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="thxopendatatablesclub">最后感谢 雨吴 的贡献，如果大家也有小的技巧，欢迎给我发邮件 thxopen@datatables.club</h3>
+
+</div>
+</body>
+</html>
