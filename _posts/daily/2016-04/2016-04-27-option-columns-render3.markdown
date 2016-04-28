@@ -1,7 +1,7 @@
 ---
-layout: daily_detail
-title: option columns.render url变超链接或者图片显示 《不定时一讲》 DataTable中文网
-short: option columns.render url变超链接或者图片显示
+layout: daily
+title: option columns.render url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTable中文网
+short: option columns.render url变超链接、图片显示、值替换(加样式)
 date: 2016-4-27
 caption: 《不定时一讲》
 categories: manual daily
@@ -75,6 +75,7 @@ DataTable里面的下拉框、文本框、按钮、图片、超链接、文本�
   <link href="DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
  </head>
  <body>
+  <script src="DataTables/js/jquery.js"></script>
   <script src="DataTables/js/jquery.dataTables.min.js"></script>
   <table id="example">
   </table>

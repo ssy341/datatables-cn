@@ -1,0 +1,23 @@
+code.option {
+    color: #D14;
+    background-color: #fcf6f8;
+    border: 1px solid #f7d6df;
+}
+code>span {
+    border-left: 1px solid rgba(0,0,0,0.2);
+    margin-left: 4px;
+    padding-left: 4px;
+    opacity: 0.5;
+}
+code.tag {
+    color: #c29f00;
+    background-color: #fff9d7;
+    border: 1px solid #ffe700;
+    white-space: nowrap;
+}
+code.type {
+    color: #d119cf;
+    background-color: #faebfa;
+    border: 1px solid #f3aef2;
+    white-space: nowrap;
+}
