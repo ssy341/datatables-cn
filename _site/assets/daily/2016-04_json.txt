@@ -3,8 +3,15 @@
     "data":[
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/04/28/option-columns-render4.html",
+            "name":"option columns.render 时间格式化、内容太多优化显示、一列显示多列值",
+            "date":"2016-04-28"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/04/27/option-columns-render3.html",
-            "name":"option columns.render url变超链接或者图片显示",
+            "name":"option columns.render url变超链接、图片显示、值替换(加样式)",
             "date":"2016-04-27"
           },
          
