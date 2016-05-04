@@ -1,6 +1,6 @@
 ---
 ---
-{% assign dailylist = site.categories.daily | where: 'layout', 'daily' | where: 'group','2016-4' %}
+{% assign dailylist = site.categories.daily | where: 'layout', 'daily' | where: 'group','2016-5' %}
 {
     "data":[{% for post in dailylist %}
           {
