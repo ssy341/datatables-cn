@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
+    {% include head.html %}
     <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
@@ -9,6 +10,7 @@
 <body>
 <div class="container">
     {{content}}
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>{{ site.email }}</code></h3>
 </div>
 </body>
 </html>
