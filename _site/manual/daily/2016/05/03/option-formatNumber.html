@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option ajax 《不定时一讲》 DataTable中文网</title>
+    <title>option formatNumber 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="dcl4KCseZ0" />
     <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
@@ -57,7 +57,7 @@
 
 
 <div class="container">
-    <h2>option ajax 异步取数</h2><span>18 April 2016 | DataTable中文网</span>
+    <h2>option formatNumber 数字格式化</h2><span>3 May 2016 | DataTable中文网</span>
     <div style="margin:10px auto">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
@@ -70,66 +70,37 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
     </div>
-    <p>参数详解连接<a href="/reference/option/ajax.html" target="_blank">
-    <code>ajax<span>DT</span></code>
+    <p>参数详解连接<a href="http://datatables.net/reference/option/formatNumber" target="_blank">
+    <code class="option">formatNumber<span>Option</span></code>
 </a></p>
 
-<p>今天讲的参数是ajax，相信大家不陌生，用过jQuery的人对这个应该很熟悉。dt是基于jquery做的表格插件，所以dt在读取数据时也用了jquery的ajax，虽然是类似，但是有加强，下面看ajax的用法吧。
-基本语法：</p>
+<p>在实际使用过程中，可能遇到需要显示大数据的情况，比如： <em>9874029144</em></p>
+
+<p>但是这个不直观，一下子不能识别这个数是多大</p>
+
+<p>DataTable提供一个回调函数<a href="http://datatables.net/reference/option/formatNumber" target="_blank">
+    <code class="option">formatNumber<span>Option</span></code>
+</a>来渲染这些数字</p>
+
+<p>假设用千分符来分隔，看起来就不一样了，如 <em>9’874’029’144</em></p>
+
+<p>下面看个基本的用法：</p>
+
+<p>如果是大数字，使用 <code class="highlighter-rouge">'</code> 分隔</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
 5
-6
-7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="na">ajax</span><span class="p">:</span><span class="s2">"dada.json"</span><span class="p">,</span>
-    <span class="na">colunms</span><span class="p">:[</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"name"</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"age"</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span><span class="w">
+6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"formatNumber"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">toFormat</span> <span class="p">)</span> <span class="p">{</span>
+     <span class="c1">//使用正则表达式匹配，替换数字</span>
+    <span class="k">return</span> <span class="nx">toFormat</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\B(?=(\d{3})</span><span class="sr">+</span><span class="se">(?!\d))</span><span class="sr">/g</span><span class="p">,</span> <span class="s2">"'"</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>data.json - 是一个url或者资源文件，数据格式是这样的</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="nl">data</span><span class="p">:[</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatable中文网"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatable中文网2"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>你还可以使用数组格式，如下</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="nl">data</span><span class="p">:[</span>
-        <span class="p">[</span><span class="s2">"datatable中文网"</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s2">"datatable中文网2"</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-    <span class="p">]</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>如果数据格式为上面的，那么初始化代码可以简化下：</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="na">ajax</span><span class="p">:</span><span class="s2">"dada.json"</span>
-<span class="p">});</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>之所以能不写columns是因为dt默认可以处理数组格式的数据,按照数组的顺序0,1，2……对应第一列，第二列</p>
 
     <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
 </div>

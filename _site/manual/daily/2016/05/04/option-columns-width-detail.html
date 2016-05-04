@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>option columns.width 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>参数详解连接<a href="http://datatables.net/reference/option/columns.width" target="_blank">
+    <code class="option">columns.width<span>Option</span></code>
+</a></p>
+
+<p>DataTable会根据列内容自动计算列宽，通过设置<a href="/reference/option/autoWidth.html" target="_blank">
+    <code class="option">autoWidth<span>Option</span></code>
+</a>属性控制是否开启这个功能</p>
+
+<p>同样我们也可以自定义列宽，看下面代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td class="code"><pre><span class="c1">//使用 columnDefs 给列设置宽度</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="c1">//给第一列指定宽度为表格整个宽度的20%</span>
+    <span class="p">{</span> <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"20%"</span><span class="p">,</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span> <span class="p">);</span>
+
+<span class="c1">//使用 columns 给列设置宽度</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
+  <span class="c1">//给第一列指定宽度为表格整个宽度的20%</span>
+    <span class="p">{</span> <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"20%"</span> <span class="p">},</span>
+    <span class="kc">null</span><span class="p">,</span>
+    <span class="kc">null</span><span class="p">,</span>
+    <span class="kc">null</span><span class="p">,</span>
+    <span class="kc">null</span>
+  <span class="p">]</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>除了百分比，<a href="http://datatables.net/reference/option/columns.width" target="_blank">
+    <code class="option">columns.width<span>Option</span></code>
+</a>还接受任何 css 值，比如 3em, 20px 等等</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="c1">//给第一列指定宽度为表格整个宽度的 10px</span>
+    <span class="p">{</span> <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"10px"</span><span class="p">,</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span> <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>由于table本身还有样式，比如td有margin，或者padding这些样式，以及td里本身的内容的限制</p>
+
+<p>最终的宽度值和设置的值会有不匹配，设置的是 10px  实际要大于10px ，大家注意下</p>
+
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+</body>
+</html>
