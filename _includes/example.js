@@ -262,6 +262,14 @@ var example = {
         };
         example.dailyEventListen(daily_sources.tableId, example.createDailyTable(daily_sources));
 
+        var daily_05_sources = {
+            tableId: "2016-05_table",
+            title: "",
+            url: "{{site.baseurl}}/assets/daily/2016-05_json.txt",
+            divId: ""
+        };
+        example.dailyEventListen(daily_05_sources.tableId, example.createDailyTable(daily_05_sources));
+
     }
 };
 
