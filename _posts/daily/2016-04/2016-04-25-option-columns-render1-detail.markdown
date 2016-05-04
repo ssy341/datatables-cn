@@ -3,6 +3,7 @@ layout: daily_detail
 title: option columns.render 添加checkbox 《不定时一讲》 DataTable中文网
 short: option columns.render 渲染列(1) 添加checkbox
 date: 2016-4-25
+group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网

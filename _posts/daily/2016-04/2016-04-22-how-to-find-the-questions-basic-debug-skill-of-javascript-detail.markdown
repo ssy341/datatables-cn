@@ -3,6 +3,7 @@ layout: daily_detail
 title: 如何定位问题（js调试基本技能） 《不定时一讲》 DataTable中文网
 short: 如何定位问题（js调试基本技能）
 date: 2016-4-22
+group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网

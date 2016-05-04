@@ -3,9 +3,10 @@ layout: daily
 title: option columns.render url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTable中文网
 short: option columns.render url变超链接、图片显示、值替换(加样式)
 date: 2016-4-27
+group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
-author: DataTable中文网
+author: 雨吴
 ---
 参数详解连接{% include href/option/columns.render.dt %}
 
@@ -159,4 +160,4 @@ DataTable里面的下拉框、文本框、按钮、图片、超链接、文本�
 </html>
 {% endhighlight %}
 
-### 最后感谢 雨吴 的贡献，如果大家也有小的技巧，欢迎给我发邮件 thxopen@datatables.club
+### 最后感谢 雨吴 的贡献

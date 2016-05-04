@@ -3,6 +3,7 @@ layout: daily_detail
 title: option columns.render 时间格式化、内容太多优化显示、一列显示多列值 《不定时一讲》 DataTable中文网
 short: option columns.render 时间格式化、内容太多优化显示、一列显示多列值
 date: 2016-4-28
+group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: 雨吴
