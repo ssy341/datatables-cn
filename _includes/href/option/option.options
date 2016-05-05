@@ -1,105 +1,105 @@
 {% if include.param == "deferLoading" %}
 <a href="http://datatables.net/reference/option/deferLoading" target="_blank">
-    <code>deferLoading<span>Option</span></code>
+    <code class="option">deferLoading<span>Option</span></code>
 </a>
 {% elsif include.param == "destroy" %}
 <a href="/reference/option/destroy.html" target="_blank">
-    <code>destroy<span>Option</span></code>
+    <code class="option">destroy<span>Option</span></code>
 </a>
 {% elsif include.param == "displayStart" %}
 <a href="http://datatables.net/reference/option/displayStart" target="_blank">
-    <code>displayStart<span>Option</span></code>
+    <code class="option">displayStart<span>Option</span></code>
 </a>
 {% elsif include.param == "dom" %}
 <a href="/reference/option/dom.html" target="_blank">
-    <code>dom<span>Option</span></code>
+    <code class="option">dom<span>Option</span></code>
 </a>
 {% elsif include.param == "lengthMenu" %}
 <a href="http://datatables.net/reference/option/lengthMenu" target="_blank">
-    <code>lengthMenu<span>Option</span></code>
+    <code class="option">lengthMenu<span>Option</span></code>
 </a>
 {% elsif include.param == "order" %}
 <a href="http://datatables.net/reference/option/order" target="_blank">
-    <code>order<span>Option</span></code>
+    <code class="option">order<span>Option</span></code>
 </a>
 {% elsif include.param == "orderCellsTop" %}
 <a href="http://datatables.net/reference/option/orderCellsTop" target="_blank">
-    <code>orderCellsTop<span>Option</span></code>
+    <code class="option">orderCellsTop<span>Option</span></code>
 </a>
 {% elsif include.param == "orderClasses" %}
 <a href="http://datatables.net/reference/option/orderClasses" target="_blank">
-    <code>orderClasses<span>Option</span></code>
+    <code class="option">orderClasses<span>Option</span></code>
 </a>
 {% elsif include.param == "orderFixed" %}
 <a href="http://datatables.net/reference/option/orderFixed" target="_blank">
-    <code>orderFixed<span>Option</span></code>
+    <code class="option">orderFixed<span>Option</span></code>
 </a>
 {% elsif include.param == "orderMulti" %}
 <a href="http://datatables.net/reference/option/orderMulti" target="_blank">
-    <code>orderMulti<span>Option</span></code>
+    <code class="option">orderMulti<span>Option</span></code>
 </a>
 {% elsif include.param == "pageLength" %}
 <a href="http://datatables.net/reference/option/pageLength" target="_blank">
-    <code>pageLength<span>Option</span></code>
+    <code class="option">pageLength<span>Option</span></code>
 </a>
 {% elsif include.param == "pagingType" %}
 <a href="http://datatables.net/reference/option/pagingType" target="_blank">
-    <code>pagingType<span>Option</span></code>
+    <code class="option">pagingType<span>Option</span></code>
 </a>
 {% elsif include.param == "renderer" %}
 <a href="http://datatables.net/reference/option/renderer" target="_blank">
-    <code>renderer<span>Option</span></code>
+    <code class="option">renderer<span>Option</span></code>
 </a>
 {% elsif include.param == "retrieve" %}
 <a href="/reference/option/retrieve.html" target="_blank">
-    <code>retrieve<span>Option</span></code>
+    <code class="option">retrieve<span>Option</span></code>
 </a>
 {% elsif include.param == "rowId" %}
 <a href="http://datatables.net/reference/option/rowId" target="_blank">
-    <code>rowId<span>Option</span></code>
+    <code class="option">rowId<span>Option</span></code>
 </a>
 {% elsif include.param == "scrollCollapse" %}
 <a href="http://datatables.net/reference/option/scrollCollapse" target="_blank">
-    <code>scrollCollapse<span>Option</span></code>
+    <code class="option">scrollCollapse<span>Option</span></code>
 </a>
 {% elsif include.param == "search.caseInsensitive" %}
 <a href="http://datatables.net/reference/option/search.caseInsensitive" target="_blank">
-    <code>search.caseInsensitive<span>Option</span></code>
+    <code class="option">search.caseInsensitive<span>Option</span></code>
 </a>
 {% elsif include.param == "search.regex" %}
 <a href="http://datatables.net/reference/option/search.regex" target="_blank">
-    <code>search.regex<span>Option</span></code>
+    <code class="option">search.regex<span>Option</span></code>
 </a>
 {% elsif include.param == "search.search" %}
 <a href="http://datatables.net/reference/option/search.search" target="_blank">
-    <code>search.search<span>Option</span></code>
+    <code class="option">search.search<span>Option</span></code>
 </a>
 {% elsif include.param == "search.smart" %}
 <a href="http://datatables.net/reference/option/search.smart" target="_blank">
-    <code>search.smart<span>Option</span></code>
+    <code class="option">search.smart<span>Option</span></code>
 </a>
 {% elsif include.param == "search" %}
 <a href="http://datatables.net/reference/option/search" target="_blank">
-    <code>search<span>Option</span></code>
+    <code class="option">search<span>Option</span></code>
 </a>
 {% elsif include.param == "searchCols" %}
 <a href="http://datatables.net/reference/option/searchCols" target="_blank">
-    <code>searchCols<span>Option</span></code>
+    <code class="option">searchCols<span>Option</span></code>
 </a>
 {% elsif include.param == "searchDelay" %}
 <a href="http://datatables.net/reference/option/searchDelay" target="_blank">
-    <code>searchDelay<span>Option</span></code>
+    <code class="option">searchDelay<span>Option</span></code>
 </a>
 {% elsif include.param == "stateDuration" %}
 <a href="http://datatables.net/reference/option/stateDuration" target="_blank">
-    <code>stateDuration<span>Option</span></code>
+    <code class="option">stateDuration<span>Option</span></code>
 </a>
 {% elsif include.param == "stripeClasses" %}
 <a href="http://datatables.net/reference/option/stripeClasses" target="_blank">
-    <code>stripeClasses<span>Option</span></code>
+    <code class="option">stripeClasses<span>Option</span></code>
 </a>
 {% elsif include.param == "tabIndex" %}
 <a href="http://datatables.net/reference/option/tabIndex" target="_blank">
-    <code>tabIndex<span>Option</span></code>
+    <code class="option">tabIndex<span>Option</span></code>
 </a>
 {% endif %}
