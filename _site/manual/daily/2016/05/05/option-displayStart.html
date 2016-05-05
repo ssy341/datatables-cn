@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option scrollCollapse 《不定时一讲》 DataTable中文网</title>
+    <title>option displayStart 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="dcl4KCseZ0" />
     <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
@@ -57,7 +57,7 @@
 
 
 <div class="container">
-    <h2>option scrollCollapse 当显示更少的记录时，是否允许表格减少高度</h2><span>5 May 2016 | DataTable中文网</span>
+    <h2>option displayStart 初始化起始页</h2><span>5 May 2016 | DataTable中文网</span>
     <div style="margin:10px auto">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
@@ -71,27 +71,23 @@
 </script>
     </div>
     <p>参数详解连接
-<a href="http://datatables.net/reference/option/scrollCollapse" target="_blank">
-    <code class="option">scrollCollapse<span>Option</span></code>
+<a href="http://datatables.net/reference/option/displayStart" target="_blank">
+    <code class="option">displayStart<span>Option</span></code>
 </a></p>
 
-<p>每个插件都不是完美的，但是作者也是尽可能考虑到使用者的感受，对于表格的高度，一些人希望随着数据的变化而变化，
-另一些人则希望固定高度，这个参数正是这个用处</p>
+<p>定义表格初始化时显示的页数，使用这个参数的前提是得开启分页特性 <code class="highlighter-rouge">paging:true</code>，默认情况下是打开分页了，但是如果你把
+<a href="/reference/option/paging.html" target="_blank">
+    <code class="option">paging<span>Option</span></code>
+</a>属性置为 <code class="highlighter-rouge">false</code> 那肯定就没用了哦！</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3
-4
-5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-    <span class="c1">//不管表格中有没有数据都固定300的高度，具体是啥单位，大家自己试试啊 ：）</span>
-  <span class="na">scrollY</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
-  <span class="na">scrollCollapse</span><span class="p">:</span> <span class="kc">true</span>
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"displayStart"</span><span class="p">:</span> <span class="mi">20</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>如果没有使用<a href="/reference/option/scrollY.html" target="_blank">
-    <code class="option">scrollY<span>Option</span></code>
-</a>属性，表示和表格数据同步，表格数据减少时，表格的高度也跟着减少</p>
+<p>上面的示例表示，如果你是每页显示10条数据，希望表格初始化的时候显示的是第三页的数据，你应该设置为 20</p>
 
     <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
 </div>

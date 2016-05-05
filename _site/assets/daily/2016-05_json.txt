@@ -10,6 +10,13 @@
          
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/05/option-displayStart.html",
+            "name":"option displayStart 初始化起始页",
+            "date":"2016-05-05"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/04/option-columns-width.html",
             "name":"option columns.width 定义列宽",
             "date":"2016-05-04"
