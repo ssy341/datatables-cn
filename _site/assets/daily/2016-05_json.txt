@@ -10,6 +10,13 @@
          
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/05/option-order.html",
+            "name":"option order 设置排序列(去掉第一列的排序和小图标)",
+            "date":"2016-05-05"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/05/option-displayStart.html",
             "name":"option displayStart 初始化起始页",
             "date":"2016-05-05"
