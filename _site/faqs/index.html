@@ -202,8 +202,20 @@
             </ul>
 
             <ul>
-                <li><b>问:控制台报错 Cannot read property 'length' of null 是怎么回事</b></li>
-                <li>答：这个一般是返回的数据有问题，比如因该返回data属性，或者 data为空不是[]而是null，dt识别不了所以报此错误</li>
+                <li><b>问:控制台报错 Cannot read property 'length' of null 或者
+                    Cannot read property 'length' of undefined 是怎么回事</b></li>
+                <li>答：这个一般是返回的数据有问题，比如因该返回<code>{data:[……]}</code>而不是<code>{tabledata:[……]}</code>，或者 <code>{data:[]}</code>
+                    而不是<code>{data:null}</code>，dt识别不了所以报此错误
+                    正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+                </li>
+            </ul>
+
+            <ul>
+                <li><b>问:控制台报错 Cannot set property 'nTf' of undefined 是怎么回事</b></li>
+                <li>
+                    答：th 和 columns.data的数量不匹配,html里定义的th数量和 columns:[{data:"name"}]里的数量不匹配，
+                    有多少th，columns里就有多少个对象
+                </li>
             </ul>
 
             <ul>

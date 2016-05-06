@@ -1,110 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="utf-8">
 <head>
+    <!--meta-->
+    <title>option rowId 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
-<title>服务器模式(serverSide) 选项(option) 参考(reference) Datatables 中文网</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
-
     <!-- Le styles -->
-<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-<link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-<link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-<!--代码高亮-->
-<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shCore.css" rel="stylesheet" type="text/css"/>
-<link href="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
-
-<link href="/css/docs.css" rel="stylesheet">
-
-<style type="text/css">
-    body {
-        padding-top: 60px;
-    }
-    .sidebar-nav {
-        padding: 9px 0;
-    }
-
-    @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-            float: none;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-    }
-</style>
-<link rel="shortcut icon" href="/images/favicon.png">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
     <link href="/css/site.css" rel="stylesheet">
-	<style>
-    div.ref_type {
-        position: relative;
-        padding: 3.5em 1em 1em 1em;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 3px #bbb;
-        margin-bottom: 1em
-    }
-
-    div.ref_type:last-child {
-        margin-bottom: 0
-    }
-
-    div.ref_type h3 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 1em;
-        padding: 0.5em;
-        margin-top: 0;
-        background-color: #f6f6f6;
-        border-bottom: 1px solid #ddd;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px
-    }
-
-    div.ref_type span.type {
-        font-size: 0.8em;
-        color: #777;
-        font-style: italic
-    }
-
-    div.ref_type dl dt {
-        font-size: 1.1em
-    }
-
-    div.ref_type dl dd {
-        margin-left: 3em;
-        margin-bottom: 1em
-    }
-
-    div.ref_type dl:last-child {
-        margin-bottom: 0
-    }
-
-    div.ref_search input {
-        padding: 0.5em;
-        border-radius: 0.5em;
-        width: 90%;
-    }
-
-        aside{
-            width: 33%;
-            float: right;
-            font-size: 0.9em;
-            line-height: 1.45em;
-            margin: 0 1em;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
-            border: 1px solid #CCC;
-            background-color: #F9F9F9;
-            padding: 1em;
-            border-radius: 0.25em;
-        }
-    </style>
+    <link href="/css/highlighting.css" rel="stylesheet">
 </head>
 <body>
-     <style>
+<style>
     .hot {
         background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
         height: 12px;
@@ -125,8 +40,8 @@
                 <ul class="nav">
                     <li ><a href="/index.html">首页</a></li>
                     <li ><a href="/example">例子</a></li>
-                    <li ><a href="/manual">手册</a></li>
-                    <li class="active"><a href="/reference">文档(Options&API)</a></li>
+                    <li class="active"><a href="/manual">手册</a></li>
+                    <li ><a href="/reference">文档(Options&API)</a></li>
                     <li ><a href="/extensions">扩展</a></li>
                     <li ><a href="/plug-ins">插件</a></li>
                     <li ><a href="/faqs">FAQs</a></li>
@@ -140,7 +55,160 @@
     </div>
 </div>
 
-     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<div class="container">
+    <h2>option rowId 给每行（tr）自动绑定上唯一id</h2><span>6 May 2016 | DataTable中文网</span>
+    <div style="margin:10px auto">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <p>参数详解连接
+<a href="http://datatables.net/reference/option/rowId" target="_blank">
+    <code class="option">rowId<span>Option</span></code>
+</a></p>
+
+<p><strong>注意：需使用 1.10.8 版本以上才可以</strong></p>
+
+<p>大部分的表格都会带出id，用来做唯一标示，修改，删除都会用到id</p>
+
+<p>Datatables给大家提供一个内部实现，让绑定id不需要再写其他代码，配置上属性即可</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre><span class="c1">//数据示例</span>
+<span class="c1">//这里id只要是唯一的，都是可以的，不管是数字还是字母</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"DT_RowId"</span><span class="p">:</span><span class="mi">341</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"不定时一讲"</span><span class="p">,</span><span class="s2">"DT_RowId"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>只要是上面的数据格式，Datatables就会默认给处理，在每个tr上加上id</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"341"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>341<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Datatables中文网<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"a"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>a<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>不定时一讲<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>按照他规定的属性名 <code class="highlighter-rouge">DT_RowId</code> 组装好返回，Datatables就自动处理，那如果不是这样的，就不行了么？</p>
+
+<p>作者还是考虑到了，这就是 
+<a href="http://datatables.net/reference/option/rowId" target="_blank">
+    <code class="option">rowId<span>Option</span></code>
+</a>
+ 的作用</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></td><td class="code"><pre><span class="c1">//数据示例</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"info"</span><span class="p">:{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"341"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">2</span><span class="p">}}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+    <span class="na">rowId</span><span class="p">:</span> <span class="s1">'info.id'</span>
+<span class="p">}</span> <span class="p">);</span>
+
+<span class="c1">//数据示例</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"341"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+    <span class="na">rowId</span><span class="p">:</span> <span class="s1">'id'</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>最后的表格是下面的样子</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"341"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>341<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Datatables中文网<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这样还不够，作者还提供取数的方法，看下面代码</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'tr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">row</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">id</span><span class="p">();</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'被点击行的id是 '</span><span class="o">+</span><span class="nx">id</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
 
 <script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
 
@@ -148,16 +216,6 @@
 
 <script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
-
-<!--代码高亮-->
-<script id="shCore" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shCore.js"></script>
-<script id="shBrushJScript" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJScript.js"></script>
-<script id="shBrushXml" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushXml.js"></script>
-<script id="shBrushPhp" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushPhp.js"></script>
-<script id="shBrushJava" src="http://www.zhuhaihengxin.com/libs/syntaxhighlighter/3.0.83/scripts/shBrushJava.js"></script>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
-
-<script type="text/javascript" charset="utf8" src="http://www.zhuhaihengxin.com/libs/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
 //判断是否显示更新提示
@@ -202,108 +260,6 @@ client.on( 'error', function() {
 } );
 </script>
 
-
-
-     <div class="container">
-				<h1 class="page_title">服务器模式(serverSide)</h1>
-<div style="color: #ac5900;float: right;">起始版本号: 1.10.0</div>
-<p>开启Datatables服务器模式</p>
-<a name="Description"></a>
-<h2 data-anchor="Description">说明</h2>
-<p>
-  DataTables有两种基本的工作模式可供选择：
-  <ul>
-  <li>客户端处理模式——此模式下如：过滤、分页、排序的处理都在浏览器中进行。</li>
-  <li>服务器端处理模式——此模式下如：过滤、分页、排序的处理都放在服务器端进行。</li>
-</ul>
-</p>
-<p>
-  默认情况下DataTables使用客户端处理模式，但是可以通配置让切换到服务器端处理模式。
-  当处理大量数据的时候（如超过50000条记录）服务器端处理模式就十分有用。这种情况下可以使用数据库来进行排序操作。
-  现代的数据库都针对这样的处理进行了优化，使用这样的方式能够让DataTables轻松应付几万条的记录排序、过滤。
-</p>
-<p>
-  使用服务器端处理模式时，DataTables会向服务器端发送必要的参数以说明所需的数据（如页码、过滤条件等）。
-  同时DataTable也需要从返回的参数中获取显示表格所需的参数。DataTables与服务器端通讯时所使用的协议请参考
-  <a href="/manual/server-side.html" target="_blank">
-ServerSide Document
-</a>
-</p>
-<a name="Type"></a>
-<h2 data-anchor="Type">数据类型</h2>
-<p>
-  这个选项接受以下类型：
-</p>
-<ul class="markdown">
-  <li>
-    <a href="http://datatables.net/reference/type/boolean" target="_blank">
-    <code>boolean<span>Type</span></code>
-</a>
-  </li>
-</ul>
-<a name="Default"></a>
-<h2 data-anchor="Default">默认值</h2>
-<p>false</p>
-<a name="Example"></a>
-<h2 data-anchor="Example">示例</h2>
-<div class="reference_examples">
-  <div class="reference_example">
-    <div class="title">
-      <p>启用服务器端处理模式:</p>
-    </div>
-    <pre class="brush:js;toolbar:false">$('#example').dataTable( {
-  &quot;serverSide&quot;: true,
-  &quot;ajax&quot;: &quot;xhr.php&quot;
-} );</pre>
-  </div>
-</div>
-<a name="Related"></a>
-<h2 data-anchor="Related">相关</h2>
-<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-
-<div class="reference_related">Options
-  <ul class="markdown">
-    <li>
-      <a href="/reference/option/ajax.html" target="_blank">
-    <code>ajax<span>DT</span></code>
-</a>
-    </li>
-  </ul>
-</div>
-<div class="clear"></div>
-<blockquote>
-    <p><a href="http://datatables.net/reference/option/serverSide" target="_blank">http://datatables.net/reference/option/serverSide</a></p>
-    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
-</blockquote>
-				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-<!--<div id="SOHUCS" sid="/reference/option/serverSide.html"></div>
-<script>
-    (function(){
-        var appid = 'cyr8jjDJ2',
-                conf = 'prod_d596729bcd45c9544aac809c726ea090';
-        var doc = document,
-                s = doc.createElement('script'),
-                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-        s.type = 'text/javascript';
-        s.charset = 'utf-8';
-        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-        h.insertBefore(s,h.firstChild);
-        window.SCS_NO_IFRAME = true;
-    })()
-</script>-->
-
-	</div><!--/.fluid-container-->
-     <hr>
-     
 <style>
 .right-ad{
 	box-sizing: content-box;

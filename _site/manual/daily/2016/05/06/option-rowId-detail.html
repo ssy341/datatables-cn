@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>option rowId 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>参数详解连接
+<a href="http://datatables.net/reference/option/rowId" target="_blank">
+    <code class="option">rowId<span>Option</span></code>
+</a></p>
+
+<p><strong>注意：需使用 1.10.8 版本以上才可以</strong></p>
+
+<p>大部分的表格都会带出id，用来做唯一标示，修改，删除都会用到id</p>
+
+<p>Datatables给大家提供一个内部实现，让绑定id不需要再写其他代码，配置上属性即可</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre><span class="c1">//数据示例</span>
+<span class="c1">//这里id只要是唯一的，都是可以的，不管是数字还是字母</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"DT_RowId"</span><span class="p">:</span><span class="mi">341</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"不定时一讲"</span><span class="p">,</span><span class="s2">"DT_RowId"</span><span class="p">:</span><span class="s2">"a"</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>只要是上面的数据格式，Datatables就会默认给处理，在每个tr上加上id</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"341"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>341<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Datatables中文网<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"a"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>a<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>不定时一讲<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>按照他规定的属性名 <code class="highlighter-rouge">DT_RowId</code> 组装好返回，Datatables就自动处理，那如果不是这样的，就不行了么？</p>
+
+<p>作者还是考虑到了，这就是 
+<a href="http://datatables.net/reference/option/rowId" target="_blank">
+    <code class="option">rowId<span>Option</span></code>
+</a>
+ 的作用</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></td><td class="code"><pre><span class="c1">//数据示例</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"info"</span><span class="p">:{</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"341"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">2</span><span class="p">}}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+    <span class="na">rowId</span><span class="p">:</span> <span class="s1">'info.id'</span>
+<span class="p">}</span> <span class="p">);</span>
+
+<span class="c1">//数据示例</span>
+<span class="p">{</span>
+    <span class="nl">data</span><span class="p">:[</span>
+        <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"341"</span><span class="p">,</span><span class="s2">"age"</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s1">'/api/staff'</span>
+    <span class="na">rowId</span><span class="p">:</span> <span class="s1">'id'</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>最后的表格是下面的样子</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="nt">&lt;tr</span> <span class="na">id=</span><span class="s">"341"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;td&gt;</span>341<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>Datatables中文网<span class="nt">&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这样还不够，作者还提供取数的方法，看下面代码</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'tr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">row</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">id</span><span class="p">();</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'被点击行的id是 '</span><span class="o">+</span><span class="nx">id</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+</body>
+</html>
