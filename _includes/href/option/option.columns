@@ -1,0 +1,71 @@
+{% if include.param == "columns.cellType" %}
+<a href="https://datatables.net/reference/option/columns.cellType" target="_blank">
+    <code class="option">columns.cellType<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.className" %}
+<a href="https://datatables.net/reference/option/columns.className" target="_blank">
+    <code class="option">columns.className<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.contentPadding" %}
+<a href="https://datatables.net/reference/option/columns.contentPadding" target="_blank">
+    <code class="option">columns.contentPadding<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.createdCell" %}
+<a href="https://datatables.net/reference/option/columns.createdCell" target="_blank">
+    <code class="option">columns.createdCell<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.data" %}
+<a href="https://datatables.net/reference/option/columns.data" target="_blank">
+    <code class="option">columns.data<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.defaultContent" %}
+<a href="https://datatables.net/reference/option/columns.defaultContent" target="_blank">
+    <code class="option">columns.defaultContent<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-04-option-columns-defaultContent %}" target="_blank">
+    <code class="option">columns.defaultContent<span>不定时一讲</span></code>
+</a>
+{% elsif include.param == "columns.name" %}
+<a href="https://datatables.net/reference/option/columns.name" target="_blank">
+    <code class="option">columns.name<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.orderable" %}
+<a href="https://datatables.net/reference/option/columns.orderable" target="_blank">
+    <code class="option">columns.orderable<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.orderData" %}
+<a href="https://datatables.net/reference/option/columns.orderData" target="_blank">
+    <code class="option">columns.orderData<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.orderDataType" %}
+<a href="https://datatables.net/reference/option/columns.orderDataType" target="_blank">
+    <code class="option">columns.orderDataType<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.orderSequence" %}
+<a href="https://datatables.net/reference/option/columns.orderSequence" target="_blank">
+    <code class="option">columns.orderSequence<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.searchable" %}
+<a href="https://datatables.net/reference/option/columns.searchable" target="_blank">
+    <code class="option">columns.searchable<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.title" %}
+<a href="https://datatables.net/reference/option/columns.title" target="_blank">
+    <code class="option">columns.title<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.type" %}
+<a href="https://datatables.net/reference/option/columns.type" target="_blank">
+    <code class="option">columns.type<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.visible" %}
+<a href="https://datatables.net/reference/option/columns.type" target="_blank">
+    <code class="option">columns.visible<span>Option</span></code>
+</a>
+{% elsif include.param == "columns.width" %}
+<a href="https://datatables.net/reference/option/columns.width" target="_blank">
+    <code class="option">columns.width<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-04-option-columns-width %}" target="_blank">
+    <code class="option">columns.width<span>不定时一讲</span></code>
+</a>
+{% endif %}

@@ -1,5 +1,5 @@
 ---
-layout: daily
+layout: daily_detail
 title: option columns.defaultContent 《不定时一讲》 DataTable中文网
 short: option columns.defaultContent 给单元格默认内容
 date: 2016-5-4
@@ -8,7 +8,7 @@ caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
 ---
-参数详解连接{% include href/option/columns.defaultContent.dt %}
+参数详解连接{% include href/option/option.columns param="columns.defaultContent" %}
 
 给单元格设置静态默认内容，这个属性不得不说是非常有用的，提到这个大家还可以看看
 {% include href/option/columns.render.dt %}属性，想要弄得更复杂点，全靠它了

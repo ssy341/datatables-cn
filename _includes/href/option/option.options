@@ -10,6 +10,9 @@
 <a href="http://datatables.net/reference/option/displayStart" target="_blank">
     <code class="option">displayStart<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-05-option-displayStart %}" target="_blank">
+    <code class="option">displayStart<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "dom" %}
 <a href="/reference/option/dom.html" target="_blank">
     <code class="option">dom<span>Option</span></code>
@@ -18,9 +21,15 @@
 <a href="http://datatables.net/reference/option/lengthMenu" target="_blank">
     <code class="option">lengthMenu<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-06-option-lengthMenu %}" target="_blank">
+    <code class="option">lengthMenu<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "order" %}
 <a href="http://datatables.net/reference/option/order" target="_blank">
     <code class="option">order<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-05-option-order %}" target="_blank">
+    <code class="option">order<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "orderCellsTop" %}
 <a href="http://datatables.net/reference/option/orderCellsTop" target="_blank">
@@ -58,9 +67,15 @@
 <a href="http://datatables.net/reference/option/rowId" target="_blank">
     <code class="option">rowId<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-06-option-rowId %}" target="_blank">
+    <code class="option">rowId<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "scrollCollapse" %}
 <a href="http://datatables.net/reference/option/scrollCollapse" target="_blank">
     <code class="option">scrollCollapse<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-05-option-scrollCollapse %}" target="_blank">
+    <code class="option">scrollCollapse<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.caseInsensitive" %}
 <a href="http://datatables.net/reference/option/search.caseInsensitive" target="_blank">
