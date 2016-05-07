@@ -1,6 +1,6 @@
 ---
 layout: daily
-title: option columns.width 《不定时一讲》 DataTable中文网
+title: option columns.width 定义列宽 《不定时一讲》 DataTable中文网
 short: option columns.width 定义列宽
 date: 2016-5-4
 group: 2016-5

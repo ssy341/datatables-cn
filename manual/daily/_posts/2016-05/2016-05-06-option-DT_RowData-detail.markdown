@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option DT_RowData 《不定时一讲》 DataTable中文网
+title: option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据 《不定时一讲》 DataTable中文网
 short: option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据
 date: 2016-5-6
 group: 2016-5

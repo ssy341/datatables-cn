@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: option columns.render url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTable中文网
-short: option columns.render url变超链接、图片显示、值替换(加样式)
+title: option columns.render 渲染列(3) url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTable中文网
+short: option columns.render 渲染列(3) url变超链接、图片显示、值替换(加样式)
 date: 2016-4-27
 group: 2016-4
 caption: 《不定时一讲》

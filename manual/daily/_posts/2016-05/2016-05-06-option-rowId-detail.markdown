@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option rowId 《不定时一讲》 DataTable中文网
+title: option rowId 给每行（tr）自动绑定上唯一id 《不定时一讲》 DataTable中文网
 short: option rowId 给每行（tr）自动绑定上唯一id
 date: 2016-5-6
 group: 2016-5

@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option ajax dataSrc （下） 《不定时一讲》 DataTable中文网
+title: option ajax dataSrc （下）对返回数据进行处理 《不定时一讲》 DataTable中文网
 short: option ajax dataSrc （下）对返回数据进行处理
 date: 2016-4-20
 group: 2016-4

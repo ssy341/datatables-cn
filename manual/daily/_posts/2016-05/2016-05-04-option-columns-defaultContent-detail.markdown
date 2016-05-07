@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option columns.defaultContent 《不定时一讲》 DataTable中文网
+title: option columns.defaultContent 给单元格默认内容 《不定时一讲》 DataTable中文网
 short: option columns.defaultContent 给单元格默认内容
 date: 2016-5-4
 group: 2016-5

@@ -1,6 +1,6 @@
 ---
 layout: daily
-title: option order 《不定时一讲》 DataTable中文网
+title: option order 设置排序列(去掉第一列的排序和小图标) 《不定时一讲》 DataTable中文网
 short: option order 设置排序列(去掉第一列的排序和小图标)
 date: 2016-5-5
 group: 2016-5

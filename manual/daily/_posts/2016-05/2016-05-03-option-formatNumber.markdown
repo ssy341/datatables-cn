@@ -1,6 +1,6 @@
 ---
 layout: daily
-title: option formatNumber 《不定时一讲》 DataTable中文网
+title: option formatNumber 数字格式化 《不定时一讲》 DataTable中文网
 short: option formatNumber 数字格式化
 date: 2016-5-3
 group: 2016-5

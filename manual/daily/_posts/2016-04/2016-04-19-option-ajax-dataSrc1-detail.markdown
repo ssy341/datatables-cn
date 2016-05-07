@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option ajax dataSrc （上） 《不定时一讲》 DataTable中文网
+title: option ajax dataSrc （上）改变默认的data属性取值 《不定时一讲》 DataTable中文网
 short: option ajax dataSrc （上）改变默认的data属性取值
 date: 2016-4-19
 group: 2016-4

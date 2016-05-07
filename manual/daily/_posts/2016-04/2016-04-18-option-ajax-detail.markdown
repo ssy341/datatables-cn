@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option ajax 《不定时一讲》 DataTable中文网
+title: option ajax 异步取数 《不定时一讲》 DataTable中文网
 short: option ajax 异步取数
 date: 2016-4-18
 group: 2016-4

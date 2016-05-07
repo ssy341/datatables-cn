@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option lengthMenu 《不定时一讲》 DataTable中文网
+title: option lengthMenu 改变每页显示数据的条数 《不定时一讲》 DataTable中文网
 short: option lengthMenu 改变每页显示数据的条数
 date: 2016-5-6
 group: 2016-5

@@ -1,6 +1,6 @@
 ---
 layout: daily_detail
-title: option displayStart 《不定时一讲》 DataTable中文网
+title: option displayStart 初始化起始页 《不定时一讲》 DataTable中文网
 short: option displayStart 初始化起始页
 date: 2016-5-5
 group: 2016-5

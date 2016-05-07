@@ -1,6 +1,6 @@
 ---
 layout: daily
-title: option scrollCollapse 《不定时一讲》 DataTable中文网
+title: option scrollCollapse 当显示更少的记录时，是否允许表格减少高度 《不定时一讲》 DataTable中文网
 short: option scrollCollapse 当显示更少的记录时，是否允许表格减少高度
 date: 2016-5-5
 group: 2016-5

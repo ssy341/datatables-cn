@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: option columns.render 添加自定义按钮 《不定时一讲》 DataTable中文网
-short: option columns.render 添加自定义按钮
+title: option columns.render 渲染列(2) 添加自定义按钮 《不定时一讲》 DataTable中文网
+short: option columns.render 渲染列(2) 添加自定义按钮
 date: 2016-4-26
 group: 2016-4
 caption: 《不定时一讲》
