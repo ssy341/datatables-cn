@@ -243,7 +243,13 @@ client.on( 'error', function() {
                这个是最简单的应用，<code>ajax</code>指定一个返回数据的url，这个是多个形式的比如json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……
                 <br/>
                 Datatables默认接收的是一个属性为 <code>data</code>，如果你返回的数据不是这样，你需要使用 <a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
+    <code>ajax.dataSrc<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
+    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
+    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
 </a>来处理
             </p>
             <p>
@@ -298,19 +304,34 @@ client.on( 'error', function() {
             <ul>
                 <li>
                     <code>data</code>( <a href="/reference/option/ajax.data.html" target="_blank">
-    <code>ajax.data<span>DT</span></code>
+    <code>ajax.data<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/21/option-ajax-data.html" target="_blank">
+    <code class="option">ajax.data<span>不定时一讲</span></code>
 </a>) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收
                     <code>function</code>，作为function时可以操作请求参数，在实际应用中，可以在此函数里加入自定义的条件传到服务器。这个方法在1.9-版本中为 <code>fnServerParams </code>。
                 </li>
                 <li>
                     <code>dataSrc</code>（<a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
+    <code>ajax.dataSrc<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
+    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
+    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
 </a>） - 如果Datatables是通过ajax或者服务器取数，默认情况下，Datatables会去找返回数据中的 <code>data</code>（或者是
                     <code>aaData</code>兼容1.9-）去显示表格。这个方法已经取代了1.9-中的 <code>sAjaxDataProp</code>
                 </li>
                 <li>
                     <code>success</code> - 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用 <a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
+    <code>ajax.dataSrc<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
+    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
+    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
 </a> 处理，或者是把
                     <code>ajax</code>作为一个函数使用（见下面的说明）
                 </li>
@@ -479,8 +500,21 @@ client.on( 'error', function() {
         <div class="title">
             <p>
                操作服务器返回的数据添加链接，这个使用  <a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>也可以达到效果，这里只是演示怎么操作返回的数据
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+也可以达到效果，这里只是演示怎么操作返回的数据
             </p>
         </div>
    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
@@ -535,11 +569,20 @@ client.on( 'error', function() {
 </a></li>
 
         <li><a href="/reference/option/ajax.data.html" target="_blank">
-    <code>ajax.data<span>DT</span></code>
+    <code>ajax.data<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/21/option-ajax-data.html" target="_blank">
+    <code class="option">ajax.data<span>不定时一讲</span></code>
 </a></li>
 
         <li><a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code>ajax.dataSrc<span>DT</span></code>
+    <code>ajax.dataSrc<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
+    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
+    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
 </a></li>
     </ul>
 </div>

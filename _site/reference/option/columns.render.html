@@ -217,13 +217,39 @@ client.on( 'error', function() {
     <code>columns.data<span>DT</span></code>
 </a>
     和<a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
 </p>
 <p>
     <a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>可以看做为把请求过来的数据做进一步的处理，
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+可以看做为把请求过来的数据做进一步的处理，
     比较常见的操作有格式化、字符串替换、字符串截取等等其他处理数据的方式。
     Datatables把不同数据的不同操作叫做 <a href="http://datatables.net/manual/orthogonal-data">
 <font class="OUTFOX_JTR_TRANS_NODE" id="OUTFOX_JTR_TRANS_NODE-42" rel="42" style="text-decoration: none;">
@@ -235,25 +261,48 @@ orthogonal-data
 </p>
 <p>
 有三种特殊的值可以通过<a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>解决
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+解决
 <ul class="markdown">
     <li>
         <a href="http://datatables.net/reference/type/undefined" target="_blank">
     <code>undefined<span>Type</span></code>
 </a>
         - 当值未定义时，
-        <a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
+        
+<a href="https://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code class="option">columns.defaultContent<span>Option</span></code>
-</a>将会替换作为默认的值去显示.
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/04/option-columns-defaultContent.html" target="_blank">
+    <code class="option">columns.defaultContent<span>不定时一讲</span></code>
+</a>
+将会替换作为默认的值去显示.
         如果又是undefined又没有定义这个则会得到一个错误
     </li>
     <li><a href="http://datatables.net/reference/type/null" target="_blank">
     <code>null<span>Type</span></code>
 </a>
-        - 当值为null时，<a href="http://datatables.net/reference/option/columns.defaultContent" target="_blank">
+        - 当值为null时，
+<a href="https://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code class="option">columns.defaultContent<span>Option</span></code>
-</a>将会替换作为默认值去显示.
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/04/option-columns-defaultContent.html" target="_blank">
+    <code class="option">columns.defaultContent<span>不定时一讲</span></code>
+</a>
+将会替换作为默认值去显示.
         如果没有设置默认值则会以一个空的字符串显示 。 <a href="http://datatables.net/reference/type/null" target="_blank">
     <code>null<span>Type</span></code>
 </a>将会被用作其他所有数据类型
@@ -342,8 +391,21 @@ orthogonal-data
                         <code>browser.version()</code> 或者在属性里在嵌套一个方法
                         <code>browser().version</code>再或者是从一个方法里返回的对象里获取属性。
                         注意，函数符号推荐使用<a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
+    <code class="option">columns.render<span>Option</span></code>
 </a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+
                         而不使用<a href="http://datatables.net/reference/option/columns.data" target="_blank">
     <code>columns.data<span>DT</span></code>
 </a>，前者比后者更容易处理渲染
@@ -368,8 +430,21 @@ orthogonal-data
                 <code>sort <span>String</span></code>
                 ）。提到属性名称就是对应的属性名，他的值可以被定义为 integer，string或者function，规则就像
                 <a href="/reference/option/columns.render.html" target="_blank">
-    <code>columns.render<span>Option</span></code>
-</a>做的一样
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+做的一样
             </p>
 
            <p>
