@@ -33,6 +33,11 @@ jquery: 1.10.2
 
 定义变量 {% capture sid %}{{ site.url }}{{ page.url }}{% endcapture %}
 
+自定义路径
+permalink: activity/2
+
+列出文件路劲
+dir c:\workspace\datatables-cn\reference /b /s >> c:\workspace\datatables-cn\reference.xml
 
 
 
