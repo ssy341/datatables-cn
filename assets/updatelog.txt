@@ -1,12 +1,12 @@
 {
     "data": [
         {
-            "content":"<del>已经开始同步更新，为了方便大家解决问题，本站开通了<a target='_blank' href='http://dt.thxopen.com/bbs/forum.php'>论坛</a> ，欢迎使用</del>",
+            "content":"<del>已经开始同步更新，为了方便大家解决问题，本站开通了<a target='_blank' href='http://datatables.club'>论坛</a> ，欢迎使用</del>",
             "date":"2014-11-22",
             "isHot":0
         },
         {
-            "content":"<del>更换服务器，访问速度提升；论坛地址更换<a target='_blank' href='http://dt.thxopen.com/bbs/forum.php'>http://dt.thxopen.com/bbs/forum.php</a></del>",
+            "content":"<del>更换服务器，访问速度提升；论坛地址更换<a target='_blank' href='http://datatables.club'>http://dt.thxopen.com/bbs/forum.php</a></del>",
             "date":"2014-12-13",
             "isHot":0
         },
@@ -28,7 +28,7 @@
         {
             "content":"<a target='_blank' href='http://datatables.club/faqs'>Datatables常见问题</a>",
             "date":"2015-03-18",
-            "isHot":0
+            "isHot":1
         },
         {
             "content":"<a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加",
