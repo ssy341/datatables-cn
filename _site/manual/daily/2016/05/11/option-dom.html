@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>option dom 自定义布局表格 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <!-- Le styles -->
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+</head>
+<body>
+<style>
+    .hot {
+        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+        height: 12px;
+        width: 21px;
+        position: absolute;
+    }
+</style>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li ><a href="/index.html">首页</a></li>
+                    <li ><a href="/example">例子</a></li>
+                    <li class="active"><a href="/manual">手册</a></li>
+                    <li ><a href="/reference">文档(Options&API)</a></li>
+                    <li ><a href="/extensions">扩展</a></li>
+                    <li ><a href="/plug-ins">插件</a></li>
+                    <li ><a href="/faqs">FAQs</a></li>
+                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <li ><a href="/activity/">活动</a></li>
+                    <li ><a href="/about/">关于</a></li>
+                    <li ><a href="/tour/">导航</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <h2>option dom 自定义布局表格</h2><span>11 May 2016 | DataTable中文网</span>
+    <div style="margin:10px auto">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    </div>
+    <p>参数详解连接
+<a href="/reference/option/dom.html" target="_blank">
+    <code class="option">dom<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-dom.html" target="_blank">
+    <code class="option">dom<span>不定时一讲</span></code>
+</a></p>
+
+<p>相关例子 <a href="http://datatables.club/example/vedio/season1/dom/">视频讲解</a>，
+<a href="http://datatables.club/example/basic_init/dom.html">示例讲解1</a> 和
+<a href="http://datatables.club/example/advanced_init/dom_toolbar.html">示例讲解2</a></p>
+
+<p>前几天在搬家，所以没时间去更新了，今天搬完了，终于解放了。搬一次家感觉一辈子都不想再搬了……</p>
+
+<p>说到搬家，我联想到布局，这也是今天所要讲的主题，关键字 <strong>DOM</strong>，总有些东西放在哪里不是你期望的，也总有些东西你不希望看到。
+我们弄清楚下面几个问题，你基本可以任意妄为了。</p>
+
+<ul>
+  <li>
+    <p>首先，什么是 DOM( Document Object Model )？</p>
+
+    <p>DOM 是 W3C（万维网联盟）的标准。
+  DOM 定义了访问 HTML 和 XML 文档的标准：
+  “W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。”</p>
+
+    <p>W3C DOM 标准被分为 3 个不同的部分：</p>
+
+    <ol>
+      <li>核心 DOM - 针对任何结构化文档的标准模型</li>
+      <li>XML DOM - 针对 XML 文档的标准模型</li>
+      <li>HTML DOM - 针对 HTML 文档的标准模型</li>
+    </ol>
+  </li>
+</ul>
+
+<p>我们需要了解的是 HTML DOM，什么是 HTML DOM？</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>HTML DOM 是：
+
+1. HTML 的标准对象模型
+2. HTML 的标准编程接口
+3. W3C 标准
+</code></pre>
+</div>
+
+<p>HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的方法。
+换言之，HTML DOM 是关于如何获取、修改、添加或删除 HTML 元素的标准。</p>
+
+<ul>
+  <li>其次，Datatables里所谓的DOM是什么？</li>
+</ul>
+
+<p><a href="/reference/option/dom.html" target="_blank">
+    <code class="option">dom<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-dom.html" target="_blank">
+    <code class="option">dom<span>不定时一讲</span></code>
+</a>
+也是指 html 元素。</p>
+
+<p>用过Datatables的朋友应该都知道，默认情况下，表格都会有左上角的 <em>改变每页显示条数</em>、右上角的 <em>搜索框</em>、
+左下角的 <em>表格信息</em> ，右下角的 <em>分页信息</em> 、表格中部 <em>数据加载等待框</em> 以及 <em>表格</em> 本身，这都是Datatables所谓的
+DOM。它们实际上就是一个 <code class="highlighter-rouge">div</code> 包裹起来的 <code class="highlighter-rouge">select</code>、<code class="highlighter-rouge">input</code>或者其他 HTML 标签。</p>
+
+<p>那么Datatables有以下的定义：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. `l` 代表 length，左上角的改变每页显示条数控件
+2. `f` 代表 filtering，右上角的过滤搜索框控件
+3. `t` 代表 table，表格本身
+4. `i` 代表 info，左下角的表格信息显示控件
+5. `p` 代表 pagination，右下角的分页控件
+6. `r` 代表 processing，表格中间的数据加载等待提示框控件
+7. `B` 代表 button，Datatables可以提供的按钮控件，默认显示在左上角
+</code></pre>
+</div>
+
+<p>既然都是 html 元素，那么他们的位置，是否显示这些都是可以控制的，我们管这个叫 <strong>DOM定位</strong></p>
+
+<ul>
+  <li>最后，我们怎么摆放这些控件的位置，或者我不想看到她？</li>
+</ul>
+
+<p>因为
+<a href="/reference/option/dom.html" target="_blank">
+    <code class="option">dom<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-dom.html" target="_blank">
+    <code class="option">dom<span>不定时一讲</span></code>
+</a>
+的默认值是 <code class="highlighter-rouge">lfrtip</code> ,所以表格初始化后都是
+左上角是长度控制，右上角是过滤框，中间是表格和数据加载等待，左下角是表格信息展示，右下角是分页控件。</p>
+
+<p>上面的 <code class="highlighter-rouge">lfrtip</code> 被Datatables处理后的代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></td><td class="code"><pre><span class="c">&lt;!-- 我是显示在左上角的，控制每页显示数据的条数 --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;select&gt;</span>
+        <span class="nt">&lt;option&gt;</span>10<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 我是显示在右上角的，可以过滤数据的输入框 --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 我是等待加载提示，默认是不可以看到的哦 --&gt;</span>
+<span class="nt">&lt;div&gt;&lt;span&gt;</span>加载中...<span class="nt">&lt;/span&gt;&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 我就是表格啊，在中间，最重要的位置 --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;table&gt;&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 我显示在左下角，用来告诉大家表格的信息 --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    显示第 1 至 9 项结果，共 9 项
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- 我显示在右下角，用来控制表格的分页 --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;a&gt;</span>首页<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a&gt;</span>1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a&gt;</span>2<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a&gt;</span>...<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;a&gt;</span>尾页<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>当然上面的标签，和实际的可能会有些不一样，但是大致的布局就是这样，我想大家应该能够看明白了。</p>
+
+<p>下面再介绍三个标签，是Datatables自己定义的，通过这三个标签，Datatables就可以任你摆布了</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. &lt; &gt; - 这个尖括号就代表 html标签里的  &lt;div&gt;&lt;/div&gt;
+2. &lt;"className" &gt; - 代表添加了class的div  &lt;div class="className"&gt;&lt;/div&gt;
+3. &lt;"#id" &gt; - 代表添加了id的div &lt;div id="id"&gt;&lt;/div&gt;
+</code></pre>
+</div>
+
+<p>认识了上面三个标签后，我们看看下面的代码（以Bootstrap css框架为例）：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>    <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+        <span class="s2">"dom"</span><span class="p">:</span> <span class="s2">"&lt;'row'&lt;'col-sm-6'l&gt;&lt;'col-sm-6'f&gt;&gt;"</span> <span class="o">+</span>
+                  <span class="s2">"&lt;'row'&lt;'col-sm-12'tr&gt;&gt;"</span> <span class="o">+</span>
+                  <span class="s2">"&lt;'row'&lt;'col-sm-5'i&gt;&lt;'col-sm-7'p&gt;&gt;"</span>
+    <span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>下面是最终的 html 代码：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre></td><td class="code"><pre> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"example_wrapper"</span> <span class="na">class=</span><span class="s">"dataTables_wrapper form-inline"</span><span class="nt">&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>
+             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dataTables_length"</span> <span class="na">id=</span><span class="s">"example_length"</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;label&gt;&lt;select</span> <span class="na">name=</span><span class="s">"example_length"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">class=</span><span class="s">"form-control input-sm"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"10"</span><span class="nt">&gt;</span>10<span class="nt">&lt;/option&gt;</span>
+                     <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"25"</span><span class="nt">&gt;</span>25<span class="nt">&lt;/option&gt;</span>
+                     <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"50"</span><span class="nt">&gt;</span>50<span class="nt">&lt;/option&gt;</span>
+                     <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"100"</span><span class="nt">&gt;</span>100<span class="nt">&lt;/option&gt;</span>
+                 <span class="nt">&lt;/select&gt;</span> records per page<span class="nt">&lt;/label&gt;</span>
+             <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-6"</span><span class="nt">&gt;</span>
+             <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"example_filter"</span> <span class="na">class=</span><span class="s">"dataTables_filter"</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;label&gt;</span>Search:<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"search"</span> <span class="na">class=</span><span class="s">"form-control input-sm"</span> <span class="na">placeholder=</span><span class="s">""</span>
+                                      <span class="na">aria-controls=</span><span class="s">"example"</span><span class="nt">/&gt;&lt;/label&gt;</span>
+             <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+     <span class="nt">&lt;/div&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-12"</span><span class="nt">&gt;</span>
+             <span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">"example"</span> <span class="na">class=</span><span class="s">"table table-striped table-bordered dataTable"</span> <span class="na">role=</span><span class="s">"grid"</span>
+                    <span class="na">aria-describedby=</span><span class="s">"example_info"</span> <span class="na">style=</span><span class="s">"width: 1304px;"</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;thead&gt;</span>
+                 <span class="nt">&lt;tr</span> <span class="na">role=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"sorting_asc"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span>
+                         <span class="na">aria-label=</span><span class="s">": activate to sort column descending"</span> <span class="na">aria-sort=</span><span class="s">"ascending"</span>
+                         <span class="na">style=</span><span class="s">"width: 27px;"</span><span class="nt">&gt;&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"sorting"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span>
+                         <span class="na">aria-label=</span><span class="s">"序号: activate to sort column ascending"</span> <span class="na">style=</span><span class="s">"width: 77px;"</span><span class="nt">&gt;</span>序号
+                     <span class="nt">&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"sorting"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span>
+                         <span class="na">aria-label=</span><span class="s">"标题: activate to sort column ascending"</span> <span class="na">style=</span><span class="s">"width: 570px;"</span><span class="nt">&gt;</span>标题
+                     <span class="nt">&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"sorting"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span>
+                         <span class="na">aria-label=</span><span class="s">"连接: activate to sort column ascending"</span> <span class="na">style=</span><span class="s">"width: 481px;"</span><span class="nt">&gt;</span>连接
+                     <span class="nt">&lt;/th&gt;</span>
+                 <span class="nt">&lt;/tr&gt;</span>
+                 <span class="nt">&lt;/thead&gt;</span>
+                 <span class="nt">&lt;tbody&gt;</span>
+                 <span class="nt">&lt;tr</span> <span class="na">role=</span><span class="s">"row"</span> <span class="na">class=</span><span class="s">"odd"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"sorting_1"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"Online Program knowledge share and study platform"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Online Program
+                         knowledge share and study platform<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>http://www.gbtags.com/gb/index.htm<span class="nt">&lt;/td&gt;</span>
+                 <span class="nt">&lt;/tr&gt;</span>
+                 <span class="nt">&lt;tr</span> <span class="na">role=</span><span class="s">"row"</span> <span class="na">class=</span><span class="s">"even"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"sorting_1"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"Share Code Gbtags"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Share Code Gbtags<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>http://www.gbtags.com/gb/listcodereplay.htm<span class="nt">&lt;/td&gt;</span>
+                 <span class="nt">&lt;/tr&gt;</span>
+                 <span class="nt">&lt;tr</span> <span class="na">role=</span><span class="s">"row"</span> <span class="na">class=</span><span class="s">"odd"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"sorting_1"</span><span class="nt">&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;&lt;a</span> <span class="na">href=</span><span class="s">"Online live Gbtags"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Online live Gbtags<span class="nt">&lt;/a&gt;&lt;/td&gt;</span>
+                     <span class="nt">&lt;td&gt;</span>http://www.gbtags.com/gb/gbliveclass.htm<span class="nt">&lt;/td&gt;</span>
+                 <span class="nt">&lt;/tr&gt;</span>
+                 <span class="nt">&lt;/tbody&gt;</span>
+                 <span class="nt">&lt;tfoot&gt;</span>
+                 <span class="nt">&lt;tr&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span><span class="nt">&gt;&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span><span class="nt">&gt;</span>序号<span class="nt">&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span><span class="nt">&gt;</span>标题<span class="nt">&lt;/th&gt;</span>
+                     <span class="nt">&lt;th</span> <span class="na">rowspan=</span><span class="s">"1"</span> <span class="na">colspan=</span><span class="s">"1"</span><span class="nt">&gt;</span>连接<span class="nt">&lt;/th&gt;</span>
+                 <span class="nt">&lt;/tr&gt;</span>
+                 <span class="nt">&lt;/tfoot&gt;</span>
+             <span class="nt">&lt;/table&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+     <span class="nt">&lt;/div&gt;</span>
+     <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-5"</span><span class="nt">&gt;</span>
+             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dataTables_info"</span> <span class="na">id=</span><span class="s">"example_info"</span> <span class="na">role=</span><span class="s">"status"</span> <span class="na">aria-live=</span><span class="s">"polite"</span><span class="nt">&gt;</span>
+                 Showing 1 to 3 of 4 entries
+             <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-7"</span><span class="nt">&gt;</span>
+             <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dataTables_paginate paging_simple_numbers"</span> <span class="na">id=</span><span class="s">"example_paginate"</span><span class="nt">&gt;</span>
+                 <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"pagination"</span><span class="nt">&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"paginate_button previous disabled"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">tabindex=</span><span class="s">"0"</span>
+                         <span class="na">id=</span><span class="s">"example_previous"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"paginate_button active"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">tabindex=</span><span class="s">"0"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"paginate_button "</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">tabindex=</span><span class="s">"0"</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                     <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"paginate_button next"</span> <span class="na">aria-controls=</span><span class="s">"example"</span> <span class="na">tabindex=</span><span class="s">"0"</span> <span class="na">id=</span><span class="s">"example_next"</span><span class="nt">&gt;&lt;a</span>
+                             <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+                 <span class="nt">&lt;/ul&gt;</span>
+             <span class="nt">&lt;/div&gt;</span>
+         <span class="nt">&lt;/div&gt;</span>
+     <span class="nt">&lt;/div&gt;</span>
+ <span class="nt">&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>哎呀，懵逼了，这么多，tm看不懂~~
+我能理解，下面讲个简单点的。说之前需要让大家知道的是，不要想的很复杂，这真是一个简单的问题。</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>   <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+     <span class="s2">"dom"</span><span class="p">:</span> <span class="s1">'&lt;"wrapper"flipt&gt;'</span>
+   <span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这个因该很简单，起码 dom 指定的值只有一行，上面那个居然有三个，看着就晕，那么这个初始化代码被Datatables处理后是这样的：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"wrapper"</span><span class="nt">&gt;</span>
+      {filter}
+      {length}
+      {information}
+      {pagination}
+      {table}
+    <span class="nt">&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这里就没有把具体的 html 都贴出了 ，<code class="highlighter-rouge"><span class="p">{</span><span class="err">filter</span><span class="p">}</span></code> 就是指的 具体的 html 代码 ，为了直观的演示，用这个代替表示</p>
+
+<p>再看几个：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>   <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+     <span class="s2">"dom"</span><span class="p">:</span> <span class="s1">'&lt;lf&lt;t&gt;ip&gt;'</span>
+   <span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>处理后是这样的：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre> <span class="nt">&lt;div&gt;</span>
+      {length}
+      {filter}
+      <span class="nt">&lt;div&gt;</span>
+        {table}
+      <span class="nt">&lt;/div&gt;</span>
+      {information}
+      {pagination}
+ <span class="nt">&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>再来一个：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>    <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+      <span class="s2">"dom"</span><span class="p">:</span> <span class="s1">'&lt;"top"i&gt;rt&lt;"bottom"flp&gt;&lt;"clear"&gt;'</span>
+    <span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>结果如下：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre>  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"top"</span><span class="nt">&gt;</span>
+      {information}
+    <span class="nt">&lt;/div&gt;</span>
+    {processing}
+    {table}
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"bottom"</span><span class="nt">&gt;</span>
+      {filter}
+      {length}
+      {pagination}
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clear"</span><span class="nt">&gt;&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>看完这么多，我觉得因该是明白了，如果还不明白，我就只能回去重修语文课了（看不明白的一定要给我发邮件，不能眼睁睁看我的语文如此之差啊）</p>
+
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+
+<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+//判断是否显示更新提示
+$.get("/assets/updatelog.txt", function (data) {
+    var json = JSON.parse(data);
+    if (json.isNote) {
+    var cache = localStorage['dt.thxopen.com.note'];
+    if (typeof cache == 'undefined') {
+    $("#updateFlag").addClass("hot");
+    } else {
+    var current = new Date().getTime();
+    var bl = current - cache;
+    var s = 24 * 60 * 60 * 1000;
+    if (bl > s) {
+    $("#updateFlag").addClass("hot");
+    }
+    }
+    }
+    });
+</script>
+<!--复制本页url到剪贴板-->
+<script src="/js/ZeroClipboard.min.js"></script>
+<script>
+$('[data-toggle="tooltip"]').tooltip();
+$('#copyurltoclip').on('show.bs.tooltip', function () {
+
+    var url = window.location.href;
+    var title = $("title").html();
+    var text = title + ":"+url;
+    $(this).attr("data-clipboard-text",text);
+
+});
+
+var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+client.on( "aftercopy", function( event ) {
+    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+} );
+
+client.on( 'error', function() {
+    ZeroClipboard.destroy();
+} );
+</script>
+
+<style>
+.right-ad{
+	box-sizing: content-box;
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+	z-index: 2147483647;
+	position: fixed;
+	top: 35%;
+	right: 20px;
+	display:block;
+}
+
+.right-ad div{
+	box-sizing: content-box;
+	width:150px;
+	height:600px;
+	padding:4px;
+	<!-- border:#acacac 1px solid; -->
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:25px;
+}
+
+.left-ad{
+	box-sizing: content-box;
+	width: 150px;
+	height: 600px;
+	overflow: hidden;
+	z-index: 2147483647;
+	position: fixed;
+	top: 35%;
+	left: 20px;
+	display:block;
+}
+.left-ad div{
+	box-sizing: content-box;
+	width:150px;
+	height:600px;
+	padding:4px;
+	<!--border:#acacac 1px solid; -->
+	overflow:hidden;
+	position:absolute;
+	left:0;
+	top:25px;
+}
+</style>
+<div class="left-ad"  id="adLeft">
+  <div>
+   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <!-- yad-left -->
+   <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2101546703939638"
+        data-ad-slot="1953170309"
+        data-ad-format="auto"></ins>
+   <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+ </div>
+</div>
+
+<div class="right-ad" id="adRight">
+  <div>
+   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <!-- yad-right -->
+   <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2101546703939638"
+        data-ad-slot="7999703903"
+        data-ad-format="auto"></ins>
+   <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+ </div>
+</div>
+
+<script>
+          // 屏幕分辨率的高：
+        var h = window.screen.height;
+         // 屏幕分辨率的宽：
+         var w = window.screen.width;
+         if(w<1500){
+            var adLeft = document.getElementById("adLeft").style.display = "none";
+            var adRight = document.getElementById("adRight").style.display = "none";
+         }else{
+            console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
+            console.log("非常期待您的反馈，这样中文网才能越做越好");
+            console.log("Thank for your support!If you have any suggestion ,please contact thxopen@datatables.club");
+            console.log("I'm looking forward your feedback,make the website more and more good");
+            console.log(":)");
+            if(document.getElementById("noad")){
+                var adLeft = document.getElementById("adLeft").style.display = "none";
+                var adRight = document.getElementById("adRight").style.display = "none";
+                console.log("index no ad of side");
+            }
+         }
+</script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<!--footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="span3">
+            <img src="/assets/logo-fade.png" alt=""/>
+        </div>
+        <div class="span6" style="margin: 0">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+            </ul>
+            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
+
+            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
+                &
+                <a href="http://jekyllrb.com/" target="_blank"
+                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
+            <ul class="footer-links" id="qqgroup">
+                <li>QQ群：</li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=7f7f5e203e7d3118292cb7ace0adb6ec8502fc08944aa2abf106a407e725281d" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">521024580（2群）</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b6963c391611ebff93e69d5d63bfdcb31f485bbf94575e74fa152d734c9f0501" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（4群）</a>
+                </li>
+            </ul>
+            <ul  class="footer-links">
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（5群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>
+                </li>
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257121472'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257121472%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+       <div class="span3">
+           <p style="font-size:15px;text-indent: 2em;">
+               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
+               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
+               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
+           </p>
+           <p style="font-size:15px;text-indent: 2em;">
+             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
+               <ul class="footer-links">
+                   <li>技术支持：</li>
+                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
+                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
+               </ul>
+           </p>
+       </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    function noteTitle(obj){
+        var note = $(obj).attr("title");
+        alert(note);
+    }
+</script>
+</body>
+</html>
