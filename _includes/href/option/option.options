@@ -17,6 +17,9 @@
 <a href="/reference/option/dom.html" target="_blank">
     <code class="option">dom<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-dom %}" target="_blank">
+    <code class="option">dom<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "lengthMenu" %}
 <a href="http://datatables.net/reference/option/lengthMenu" target="_blank">
     <code class="option">lengthMenu<span>Option</span></code>
