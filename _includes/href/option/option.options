@@ -84,17 +84,29 @@
 <a href="http://datatables.net/reference/option/search.caseInsensitive" target="_blank">
     <code class="option">search.caseInsensitive<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-search-caseInsensitive %}" target="_blank">
+    <code class="option">search.caseInsensitive<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "search.regex" %}
 <a href="http://datatables.net/reference/option/search.regex" target="_blank">
     <code class="option">search.regex<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-search-regex %}" target="_blank">
+    <code class="option">search.regex<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.search" %}
 <a href="http://datatables.net/reference/option/search.search" target="_blank">
     <code class="option">search.search<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-search-search %}" target="_blank">
+    <code class="option">search.search<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "search.smart" %}
 <a href="http://datatables.net/reference/option/search.smart" target="_blank">
     <code class="option">search.smart<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-search-smart %}" target="_blank">
+    <code class="option">search.smart<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search" %}
 <a href="http://datatables.net/reference/option/search" target="_blank">
@@ -104,9 +116,15 @@
 <a href="http://datatables.net/reference/option/searchCols" target="_blank">
     <code class="option">searchCols<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-searchCols %}" target="_blank">
+    <code class="option">searchCols<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "searchDelay" %}
 <a href="http://datatables.net/reference/option/searchDelay" target="_blank">
     <code class="option">searchDelay<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-searchDelay %}" target="_blank">
+    <code class="option">searchDelay<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateDuration" %}
 <a href="http://datatables.net/reference/option/stateDuration" target="_blank">

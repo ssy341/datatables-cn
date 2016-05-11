@@ -21,3 +21,24 @@ code.type {
     border: 1px solid #f3aef2;
     white-space: nowrap;
 }
+code.api {
+    color: #0c199c;
+    background-color: #f4f5fc;
+    border: 1px solid #c6cbe9;
+    white-space: nowrap;
+}
+a code {
+    text-decoration: underline;
+}
+
+code {
+    font-family: "Source Code Pro", Consolas, Menlo, Monaco, "Courier New", monospace;
+    padding: 1px 4px;
+    font-size: 0.8em;
+    color: #444;
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
