@@ -112,6 +112,9 @@
 <a href="http://datatables.net/reference/option/search" target="_blank">
     <code class="option">search<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-search %}" target="_blank">
+    <code class="option">search<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "searchCols" %}
 <a href="http://datatables.net/reference/option/searchCols" target="_blank">
     <code class="option">searchCols<span>Option</span></code>
@@ -133,6 +136,9 @@
 {% elsif include.param == "stripeClasses" %}
 <a href="http://datatables.net/reference/option/stripeClasses" target="_blank">
     <code class="option">stripeClasses<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-11-option-stripeClasses %}" target="_blank">
+    <code class="option">stripeClasses<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "tabIndex" %}
 <a href="http://datatables.net/reference/option/tabIndex" target="_blank">
