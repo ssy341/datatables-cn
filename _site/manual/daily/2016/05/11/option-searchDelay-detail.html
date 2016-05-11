@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>option searchDelay 设置搜索延迟时间 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>参数详解连接
+<a href="http://datatables.net/reference/option/searchDelay" target="_blank">
+    <code class="option">searchDelay<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
+    <code class="option">searchDelay<span>不定时一讲</span></code>
+</a></p>
+
+<p>Datatables的客户端搜索和服务器搜索默认的延迟时间是400ms，所以当按下键后就立马开始搜索，
+这样处理只是符合大多数情况，但是有些时候这样处理太消耗资源，降低了用户体验：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. 电脑比较旧了，性能更不上，那么需要调整下这个延迟时间
+2. 服务器端数据太多了，减少请求次数，这是优化服务器性能
+3. 减少重绘次数
+4. 当然，你还可以设置为0，来获得更快的速度，只要你愿意
+</code></pre>
+</div>
+
+<p><a href="http://datatables.net/reference/option/searchDelay" target="_blank">
+    <code class="option">searchDelay<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
+    <code class="option">searchDelay<span>不定时一讲</span></code>
+</a>
+接受的参数是以 <code class="highlighter-rouge">ms</code> 为单位</p>
+
+<p>提一点，这个延迟参数只针对全局搜索有效，如果是
+<a href="http://datatables.net/reference/api/search()" target="_blank">
+    <code class="api">search()<span>API</span></code>
+</a>,<a href="http://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
+</a> 方法则此参数不会生效，需要使用
+<a href="/reference/api/%24.fn.dataTable.util.throttle().html" target="_blank">
+    <code class="api">$.fn.dataTable.util.throttle()<span>API</span></code>
+</a>来处理</p>
+
+<p><a href="http://datatables.net/reference/option/searchDelay" target="_blank">
+    <code class="option">searchDelay<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
+    <code class="option">searchDelay<span>不定时一讲</span></code>
+</a>
+默认值为 <code class="highlighter-rouge">null</code> ，
+他会自己判断如果是客户端模式，值为 <code class="highlighter-rouge">Instant</code> （及时），如果是服务器模式，值为 <code class="highlighter-rouge">400ms</code></p>
+
+<p>设置延时时间为350ms</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="na">searchDelay</span><span class="p">:</span> <span class="mi">350</span>
+ <span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+</body>
+</html>

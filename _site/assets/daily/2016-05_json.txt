@@ -3,6 +3,48 @@
     "data":[
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-searchDelay.html",
+            "name":"option searchDelay 设置搜索延迟时间",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-searchCols.html",
+            "name":"option searchCols 给单独的列定义初始化过滤条件",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-search-smart.html",
+            "name":"option search.smart 关于Datatables的智能搜索",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-search-search.html",
+            "name":"option search.search 设置一个初始化过滤条件",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-search-regex.html",
+            "name":"option search.regex 支持正则表达式搜索",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/11/option-search-caseInsensitive.html",
+            "name":"option search.caseInsensitive 过滤框是否区分大小写",
+            "date":"2016-05-11"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/11/option-dom.html",
             "name":"option dom 自定义布局表格",
             "date":"2016-05-11"
