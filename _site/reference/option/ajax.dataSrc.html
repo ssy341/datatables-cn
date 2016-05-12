@@ -376,7 +376,7 @@ client.on( 'error', function() {
     &quot;url&quot;: &quot;data.json&quot;,
     &quot;dataSrc&quot;: function ( json ) {
       for ( var i=0, ien=json.data.length ; i&lt;ien ; i++ ) {
-        json.data[i][0] = &#39;&lt;a href=&quot;/message/&#39;+json.data[i][0]+&#39;&gt;View message&lt;/a&gt;&#39;;
+        json.data[i][0] = &#39;&lt;a href=&quot;/message/&#39;+json.data[i][0]+&#39;&quot;&gt;View message&lt;/a&gt;&#39;;
       }
       return json.data;
     }
