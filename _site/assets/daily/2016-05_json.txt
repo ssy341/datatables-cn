@@ -10,6 +10,13 @@
          
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/12/all-options-of-data.html",
+            "name":"DataTables初始化对照模板2（全部option - Data 数据）",
+            "date":"2016-05-12"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/11/option-stripeClasses.html",
             "name":"option stripeClasses 给表格行设置条纹样式",
             "date":"2016-05-11"
