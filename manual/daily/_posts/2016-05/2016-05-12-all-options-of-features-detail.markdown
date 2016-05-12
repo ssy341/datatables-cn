@@ -14,6 +14,9 @@ author: DataTable中文网
 
 [Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
 [Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
+[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
+[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
+[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 
 PS：以下所谓的老版指的是1.9，新版指的是1.10

@@ -14,6 +14,9 @@ author: DataTable中文网
 
 [Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
 [Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
+[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
+[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
+[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 Callbacks - 回调函数部分
 

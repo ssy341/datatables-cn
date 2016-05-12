@@ -14,6 +14,9 @@ author: DataTable中文网
 
 [Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
 [Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
+[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
+[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
+[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 Data - 数据部分
 

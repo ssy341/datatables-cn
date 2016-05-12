@@ -15,6 +15,8 @@ author: DataTable中文网
 [Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
 [Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
 [Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
+[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
+[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 Options - 配置选项部分
 
