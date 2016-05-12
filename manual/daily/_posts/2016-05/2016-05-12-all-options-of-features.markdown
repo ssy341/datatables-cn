@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: DataTables初始化对照模板（全部option - Features 特性） 《不定时一讲》 DataTable中文网
-short: DataTables初始化对照模板（全部option - Features 特性）
+title: DataTables初始化对照模板1（全部option - Features 特性） 《不定时一讲》 DataTable中文网
+short: DataTables初始化对照模板1（全部option - Features 特性）
 date: 2016-5-12
 group: 2016-5
 caption: 《不定时一讲》
