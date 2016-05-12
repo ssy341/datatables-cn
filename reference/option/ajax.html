@@ -263,7 +263,7 @@ since: 1.10.0
     &quot;url&quot;: &quot;data.json&quot;,
     &quot;dataSrc&quot;: function ( json ) {
       for ( var i=0, ien=json.length ; i&lt;ien ; i++ ) {
-        json[i][0] = &#39;&lt;a href=&quot;/message/&#39;+json[i][0]+&#39;&gt;View message&lt;/a&gt;&#39;;
+        json[i][0] = &#39;&lt;a href=&quot;/message/&#39;+json[i][0]+&#39;&quot;&gt;View message&lt;/a&gt;&#39;;
       }
       return json;
     }
