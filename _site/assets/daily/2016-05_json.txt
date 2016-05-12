@@ -10,6 +10,13 @@
          
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/12/all-options-of-internationalisation.html",
+            "name":"DataTables初始化对照模板6（全部option - Internationalisation 国际化）",
+            "date":"2016-05-12"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/12/all-options-of-features.html",
             "name":"DataTables初始化对照模板1（全部option - Features 特性）",
             "date":"2016-05-12"
@@ -19,6 +26,13 @@
             "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/12/all-options-of-data.html",
             "name":"DataTables初始化对照模板2（全部option - Data 数据）",
+            "date":"2016-05-12"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/12/all-options-of-columns.html",
+            "name":"DataTables初始化对照模板5（全部option - Columns 列配置）",
             "date":"2016-05-12"
           },
          

@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>DataTables初始化对照模板2（全部option - Data 数据） 《不定时一讲》 DataTable中文网</title>
+    <title>DataTables初始化对照模板5（全部option - Columns 列配置） 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="dcl4KCseZ0" />
     <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
@@ -57,7 +57,7 @@
 
 
 <div class="container">
-    <h2>DataTables初始化对照模板2（全部option - Data 数据）</h2><span>12 May 2016 | DataTable中文网</span>
+    <h2>DataTables初始化对照模板5（全部option - Columns 列配置）</h2><span>12 May 2016 | DataTable中文网</span>
     <div style="margin:10px auto">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
@@ -75,12 +75,12 @@
 <p>相关连接</p>
 
 <p><a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">Features</a>
+<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html">Data</a>
 <a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html">Callbacks</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-columns.html">Columns</a>
 <a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html">Options</a>
 <a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html">Internationalisation</a></p>
 
-<p>Data - 数据部分</p>
+<p>Columns - 列配置部分</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -119,44 +119,80 @@
 35
 36
 37
-38</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"data.json"</span><span class="p">,</span>
-    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-    <span class="s2">"dataSrc"</span><span class="p">:</span> <span class="s2">"data"</span><span class="p">,</span>
-    <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"user_id"</span><span class="p">:</span> <span class="mi">451</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="s2">"data"</span><span class="err">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-          <span class="s2">"name"</span><span class="p">:</span>       <span class="s2">"Tiger Nixon"</span><span class="p">,</span>
-          <span class="s2">"position"</span><span class="p">:</span>   <span class="s2">"System Architect"</span><span class="p">,</span>
-          <span class="s2">"salary"</span><span class="p">:</span>     <span class="s2">"$3,120"</span><span class="p">,</span>
-          <span class="s2">"start_date"</span><span class="p">:</span> <span class="s2">"2011/04/25"</span><span class="p">,</span>
-          <span class="s2">"office"</span><span class="p">:</span>     <span class="s2">"Edinburgh"</span><span class="p">,</span>
-          <span class="s2">"extn"</span><span class="p">:</span>       <span class="mi">5421</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-          <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Garrett Winters"</span><span class="p">,</span>
-          <span class="s2">"position"</span><span class="p">:</span> <span class="s2">"Director"</span><span class="p">,</span>
-          <span class="s2">"salary"</span><span class="p">:</span> <span class="s2">"5300"</span><span class="p">,</span>
-          <span class="s2">"start_date"</span><span class="p">:</span> <span class="s2">"2011/07/25"</span><span class="p">,</span>
-          <span class="s2">"office"</span><span class="p">:</span> <span class="s2">"Edinburgh"</span><span class="p">,</span>
-          <span class="s2">"extn"</span><span class="p">:</span> <span class="s2">"8422"</span>
-      <span class="p">},</span>
-      <span class="c1">// ...</span>
-  <span class="p">],</span>
-  <span class="c1">//这里是为了配合上面的data，所以要写出了，之后会有对 columns 更详细的结构</span>
-  <span class="s2">"columns"</span><span class="err">:</span> <span class="p">[</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"position"</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"office"</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"extn"</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"start_date"</span> <span class="p">},</span>
-      <span class="p">{</span> <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"salary"</span> <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span> <span class="p">);</span><span class="w">
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">"cellType"</span><span class="p">:</span> <span class="s2">"td"</span><span class="p">,</span>
+        <span class="s2">"className"</span><span class="p">:</span> <span class="s2">"my_class"</span><span class="p">,</span>
+        <span class="s2">"contentPadding"</span><span class="p">:</span> <span class="s2">"mmm"</span><span class="p">,</span>
+        <span class="s2">"createdCell"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">td</span><span class="p">,</span> <span class="nx">cellData</span><span class="p">,</span> <span class="nx">rowData</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">cellData</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="nx">td</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'color'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"engine"</span><span class="p">,</span>
+        <span class="s2">"defaultContent"</span><span class="p">:</span> <span class="s2">"&lt;i&gt;Not set&lt;/i&gt;"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"engine"</span><span class="p">,</span>
+        <span class="s2">"orderable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s2">"orderDataType"</span><span class="p">:</span> <span class="s2">"dom-text"</span><span class="p">,</span>
+        <span class="s2">"orderSequence"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"asc"</span><span class="p">],</span>
+        <span class="s2">"render"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">full</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">'&lt;a href="'</span> <span class="o">+</span> <span class="nx">data</span> <span class="o">+</span> <span class="s1">'"&gt;Download&lt;/a&gt;'</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="s2">"searchable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"My column title"</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"html"</span><span class="p">,</span>
+        <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"20%"</span><span class="p">,</span>
+    <span class="p">}]</span>
+<span class="p">});</span>
+
+<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"cellType"</span><span class="p">:</span> <span class="s2">"td"</span><span class="p">,</span>
+        <span class="s2">"className"</span><span class="p">:</span> <span class="s2">"my_class"</span><span class="p">,</span>
+        <span class="s2">"contentPadding"</span><span class="p">:</span> <span class="s2">"mmm"</span><span class="p">,</span>
+        <span class="s2">"createdCell"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">td</span><span class="p">,</span> <span class="nx">cellData</span><span class="p">,</span> <span class="nx">rowData</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">cellData</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="nx">td</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'color'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"engine"</span><span class="p">,</span>
+        <span class="s2">"defaultContent"</span><span class="p">:</span> <span class="s2">"&lt;i&gt;Not set&lt;/i&gt;"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"engine"</span><span class="p">,</span>
+        <span class="s2">"orderable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="s2">"orderDataType"</span><span class="p">:</span> <span class="s2">"dom-text"</span><span class="p">,</span>
+        <span class="s2">"orderSequence"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"asc"</span><span class="p">],</span>
+        <span class="s2">"render"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">full</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="s1">'&lt;a href="'</span> <span class="o">+</span> <span class="nx">data</span> <span class="o">+</span> <span class="s1">'"&gt;Download&lt;/a&gt;'</span><span class="p">;</span>
+        <span class="p">},</span>
+        <span class="s2">"searchable"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"My column title"</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"html"</span><span class="p">,</span>
+        <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"width"</span><span class="p">:</span> <span class="s2">"20%"</span><span class="p">,</span>
+    <span class="p">}]</span>
+<span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <p>PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法</p>
