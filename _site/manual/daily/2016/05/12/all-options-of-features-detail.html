@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>DataTables初始化对照模板1（全部option - Features 特性） 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p><a href="http://datatables.club/reference/option/">所有option连接</a></p>
+
+<p>PS：以下所谓的老版指的是1.9，新版指的是1.10</p>
+
+<p>这里要说明下，到目前为止，DataTables的最新版为1.10.11，但是大部分的朋友在网络上搜索到的还是1.9版本的写法</p>
+
+<p>为了防止新老混用造成不必要的麻烦，我在这里列出新版参数的列表，大家对照参考</p>
+
+<p>虽然作者在1.10版中给出了兼容，为了规范起见，用新版的就写新版的写法，自己看着舒服，用着也放心</p>
+
+<p>新版和老版很容易区分 <a href="http://datatables.club/upgrade/1.10-convert.html">详见</a></p>
+
+<p>Features - 特性部分</p>
+
+<p>下面每个属性的值为DataTables的默认值，对应的中文解释，请参考<a href="http://datatables.club/reference/option/">options</a></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"autoWidth"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"deferRender"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"info"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"jQueryUI"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"lengthChange"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"ordering"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"paging"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"processing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"scrollX"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"scrollY"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"searching"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"serverSide"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"stateSave"</span><span class="p">:</span><span class="kc">false</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这里提醒一点，代码可copy，但是最好弄懂意思，不懂的话，不要贴上就用，注意以下几点</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. 默认为true的功能，不用再写了，这不是写作文，你不需要凑字数
+2. 需要什么写什么，有些小伙伴贴出的代码看着很累，看起来以为在翻译每个参数的意思，这里不需要撑场面，壮胆
+3. 先简单，后复杂，先出效果，再去想着封装
+4. 欢迎大家补充……
+</code></pre>
+</div>
+
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+</body>
+</html>
