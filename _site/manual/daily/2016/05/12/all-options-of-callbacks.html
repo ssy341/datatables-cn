@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>DataTables初始化对照模板1（全部option - Features 特性） 《不定时一讲》 DataTable中文网</title>
+    <title>DataTables初始化对照模板3（全部option - Callbacks 回调函数） 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="baidu-site-verification" content="dcl4KCseZ0" />
     <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
@@ -57,7 +57,7 @@
 
 
 <div class="container">
-    <h2>DataTables初始化对照模板1（全部option - Features 特性）</h2><span>12 May 2016 | DataTable中文网</span>
+    <h2>DataTables初始化对照模板3（全部option - Callbacks 回调函数）</h2><span>12 May 2016 | DataTable中文网</span>
     <div style="margin:10px auto">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- test -->
@@ -74,22 +74,10 @@
 
 <p>相关连接</p>
 
-<p><a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html">Data</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html">Callbacks</a></p>
+<p><a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">Features</a>
+<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html">Data</a></p>
 
-<p>PS：以下所谓的老版指的是1.9，新版指的是1.10</p>
-
-<p>这里要说明下，到目前为止，DataTables的最新版为1.10.11，但是大部分的朋友在网络上搜索到的还是1.9版本的写法</p>
-
-<p>为了防止新老混用造成不必要的麻烦，我在这里列出新版参数的列表，大家对照参考</p>
-
-<p>虽然作者在1.10版中给出了兼容，为了规范起见，用新版的就写新版的写法，自己看着舒服，用着也放心</p>
-
-<p>新版和老版很容易区分 <a href="http://datatables.club/upgrade/1.10-convert.html">详见</a></p>
-
-<p>Features - 特性部分</p>
-
-<p>下面每个属性的值为DataTables的默认值，对应的中文解释，请参考<a href="http://datatables.club/reference/option/">options</a></p>
+<p>Callbacks - 回调函数部分</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -105,32 +93,128 @@
 12
 13
 14
-15</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"autoWidth"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"deferRender"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"info"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"jQueryUI"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"lengthChange"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"ordering"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"paging"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"processing"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"scrollX"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"scrollY"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"searching"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"serverSide"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"stateSave"</span><span class="p">:</span><span class="kc">false</span>
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"createdRow"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">dataIndex</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">row</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'important'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"drawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'DataTables has redrawn the table'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"footerCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tfoot</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">display</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">tfoot</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'th'</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">"Starting index is "</span> <span class="o">+</span> <span class="nx">start</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"formatNumber"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">toFormat</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">toFormat</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\B(?=(\d{3})</span><span class="sr">+</span><span class="se">(?!\d))</span><span class="sr">/g</span><span class="p">,</span> <span class="s2">"'"</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"headerCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">thead</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">display</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">thead</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'th'</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'Displaying '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' records'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"infoCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">total</span><span class="p">,</span> <span class="nx">pre</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">start</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">end</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="s2">"initComplete"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'DataTables has finished its initialisation.'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">grade</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'td:eq(4)'</span><span class="p">,</span> <span class="nx">row</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'&lt;b&gt;A&lt;/b&gt;'</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">o</span><span class="p">;</span>
+        <span class="c1">// Send an Ajax request to the server to get the data. Note that</span>
+        <span class="c1">// this is a synchronous request since the data is expected back from the</span>
+        <span class="c1">// function</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_load"</span><span class="p">,</span>
+            <span class="s2">"async"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
+            <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">o</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="s2">"stateLoaded"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">alert</span><span class="p">(</span><span class="s1">'Saved filter was: '</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">},</span>
+    <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Send an Ajax request to the server with the state object</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+            <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_save"</span><span class="p">,</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
+            <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
+            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+            <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+        <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="s2">"stateSaveParams"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+    <span class="p">}</span>
 <span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>这里提醒一点，代码可copy，但是最好弄懂意思，不懂的话，不要贴上就用，注意以下几点</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>1. 默认为true的功能，不用再写了，这不是写作文，你不需要凑字数
-2. 需要什么写什么，有些小伙伴贴出的代码看着很累，看起来以为在翻译每个参数的意思，这里不需要撑场面，壮胆
-3. 先简单，后复杂，先出效果，再去想着封装
-4. 欢迎大家补充……
-</code></pre>
-</div>
-
+<p>PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法</p>
 
     <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
 </div>

@@ -4,7 +4,7 @@
           {
             "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/12/all-options-of-features.html",
-            "name":"DataTables初始化对照模板（全部option - Features 特性）",
+            "name":"DataTables初始化对照模板1（全部option - Features 特性）",
             "date":"2016-05-12"
           },
          
@@ -12,6 +12,13 @@
             "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/12/all-options-of-data.html",
             "name":"DataTables初始化对照模板2（全部option - Data 数据）",
+            "date":"2016-05-12"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/12/all-options-of-callbacks.html",
+            "name":"DataTables初始化对照模板3（全部option - Callbacks 回调函数）",
             "date":"2016-05-12"
           },
          
