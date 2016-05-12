@@ -13,6 +13,7 @@ author: DataTable中文网
 相关连接
 
 [Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
+[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
 
 Data - 数据部分
 
