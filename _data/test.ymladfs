@@ -1,0 +1,54 @@
+description: >
+  This is a callback function that is executed whenever a cell is created (Ajax source, etc) or read from a DOM source.
+  It can be used as a complement to `dt-init columns.render` allowing modification of the cell's DOM element (add background colour for example)
+  when the element is created (cells may not be immediately created on table initialisation if `dt-init deferRender` is enabled,
+  or if rows are dynamically added using the API (`dt-api rows.add()`).
+
+  This is the counterpart callback for rows, which use the `dt-init createdRow` option.
+- type:
+    type: function
+    signature: createdCell( cell, cellData, rowData, rowIndex, colIndex )
+    - parameter:
+        name: cell
+        type: node
+        content: The `tag TD` node that has been created
+    - parameter:
+        name: cellData
+        type: *
+        content: >
+            Cell data. If you use `dt-init columns.render` to modify the data,
+            use `$(cell).html()` to get and modify the rendered data.
+            The information given here is the original and unmodified data from
+            the data source.
+    - parameter:
+        name: rowData
+        type: *
+        content: Data source object / array for the whole row
+    - parameter:
+        name: rowIndex
+        type: integer
+        content: DataTables' internal index for the row
+    - parameter:
+        name: colIndex
+        type: integer
+        content: DataTables' internal index for the column
+example:
+  title: Using `createdCell` manipulate the DOM with `dt-init columnDefs`
+  code: >
+    $('#example').dataTable( {
+      "columnDefs": [ {
+        "targets": 3,
+        "createdCell": function (td, cellData, rowData, row, col) {
+          if ( cellData < 1 ) {
+            $(td).css('color', 'red')
+          }
+        }
+      } ]
+    } );
+- related:
+    type: option
+    name: createdRow
+- related:
+    type: option
+    name: deferRender
+

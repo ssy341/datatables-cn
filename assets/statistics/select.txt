@@ -1,0 +1,11 @@
+---
+---
+{% assign list = site.data.statistics %}
+ {
+     "data":[{% for item in list %}
+              {
+                "name":"{{item[0]}}"
+              }{% if forloop.last == false %},{% endif %}
+             {% endfor %}
+     ]
+}
