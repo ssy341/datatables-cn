@@ -2,131 +2,144 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>番茄工作法</title>
+    <title>:)</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/jquery.dataTables.min.css">
     <script src="./js/jquery-2.0.0.js"></script>
     <script src="./js/jquery.dataTables.min.js"></script>
 </head>
 <body>
+<a href="#" id="addRow" class="btn btn-green btn-xs add-row">添加一行</a>
 <table  class="table table-datatable table-custom" id="inlineEditDataTable">
-    <thead>
-    <tr>
-        <th class="sort-alpha">Rendering engine</th>
-        <th class="sort-alpha">Browser</th>
-        <th class="sort-amount">Platform(s)</th>
-        <th class="sort-numeric">Engine version</th>
-        <th>CSS grade</th>
-        <th class="no-sort">Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd gradeX">
-        <td>Trident</td>
-        <td>Internet Explorer 4.0</td>
-        <td>Win 95+</td>
-        <td class="text-center"> 4</td>
-        <td class="text-center">X</td>
-        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
-    </tr>
-    <tr class="even gradeC">
-        <td>Trident</td>
-        <td>Internet Explorer 5.0</td>
-        <td>Win 95+</td>
-        <td class="text-center">5</td>
-        <td class="text-center">C</td>
-        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
-    </tr>
-    <tr class="odd gradeA">
-        <td>Trident</td>
-        <td>Internet Explorer 5.5</td>
-        <td>Win 95+</td>
-        <td class="text-center">5.5</td>
-        <td class="text-center">A</td>
-        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
-    </tr>
-    <tr class="even gradeA">
-        <td>Trident</td>
-        <td>Internet Explorer 6</td>
-        <td>Win 98+</td>
-        <td class="text-center">6</td>
-        <td class="text-center">A</td>
-        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
-    </tr>
-    <tr class="odd gradeA">
-        <td>Trident</td>
-        <td>Internet Explorer 7</td>
-        <td>Win XP SP2+</td>
-        <td class="text-center">7</td>
-        <td class="text-center">A</td>
-        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
-    </tr>
-    </tbody>
 </table>
 
 </body>
 <script>
 
-    /*******************************************************/
-    /**************** INLINE EDIT DATATABLE ****************/
-    /*******************************************************/
+    if(!window.localStorage){
+        alert('不支持 localStorage,会影响使用功能');
+    }
 
     function restoreRow(oTable02, nRow) {
         var aData = oTable02.row(nRow).data();
         var jqTds = $('>td', nRow);
-
-        oTable02.row(nRow).data([
-            aData[0],
-            aData[1],
-            aData[2],
-            aData[3],
-            aData[4],
-            aData[5]
-        ]).draw();
-    };
+        var arr = createRowObj(aData.id,aData.name,aData.action);
+        oTable02.row(nRow).data(arr).draw();
+    }
 
     function editRow(oTable02, nRow) {
-        console.log($(nRow));
         var aData = oTable02.row(nRow).data();
-        console.log(aData);
         var jqTds = $('>td', nRow);
-        console.log(jqTds);
-        $(jqTds[0]).html('<input type="text" value="' + aData[0] + '" class="form-control">');
-        $(jqTds[1]).html('<input type="text" value="' + aData[1] + '" class="form-control">');
-        $(jqTds[2]).html('<input type="text" value="' + aData[2] + '" class="form-control">');
-        $(jqTds[3]).html('<input type="text" value="' + aData[3] + '" class="form-control">');
-        $(jqTds[4]).html('<input type="text" value="' + aData[4] + '" class="form-control">');
-        $(jqTds[5]).html('<a class="edit save" href="#">保存</a><a class="delete" href="#">删除</a>');
+        $(jqTds[0]).html(createInput(aData.name));
+        $(jqTds[1]).html(createButton("save"));
         oTable02.draw();
+        updateData(oTable02.data());
     }
-    ;
+
+    function dealwithData(tmpData){
+        var arrTmp = [];
+        for(var i = 0;i<tmpData.length;i++){
+            arrTmp.push(tmpData[i]);
+        }
+        return arrTmp;
+    }
+
+    function createButton(type){
+        if(type === 'save'){
+            return '<a class="edit save" href="#">保存</a>|<a class="delete" href="#">删除</a>';
+        }else{
+            return '<a class="edit" href="#">编辑</a>|<a class="delete" href="#">删除</a>';
+        }
+    }
+    function createInput(val){
+        return '<input type="text" value="' + val + '" class="form-control">';
+    }
 
     function saveRow(oTable02, nRow) {
         var jqInputs = $('input', nRow);
-        oTable02.row(nRow).data([
-            $(jqInputs[0]).val(),
-            $(jqInputs[1]).val(),
-            $(jqInputs[2]).val(),
-            $(jqInputs[3]).val(),
-            $(jqInputs[4]).val(),
-            '<a class="edit" href="#">编辑</a><a class="delete" href="#">删除</a>'
-        ]).draw();
+        var rowObj = oTable02.row(nRow);
+        var id = rowObj.data().id;
+        var tmpobj = createRowObj(id, $(jqInputs[0]).val(), createButton());
+        rowObj.data(tmpobj).draw();
+        updateData(oTable02.data());
     }
-    ;
 
+    function getInfo(){
+       /* 属性	描述	IE	F	O
+        appCodeName	返回浏览器的代码名。	4	1	9
+        appMinorVersion	返回浏览器的次级版本。	4	No	No
+        appName	返回浏览器的名称。	4	1	9
+        appVersion	返回浏览器的平台和版本信息。	4	1	9
+        browserLanguage	返回当前浏览器的语言。	4	No	9
+        cookieEnabled	返回指明浏览器中是否启用 cookie 的布尔值。	4	1	9
+        cpuClass	返回浏览器系统的 CPU 等级。	4	No	No
+        onLine	返回指明系统是否处于脱机模式的布尔值。	4	No	No
+        platform	返回运行浏览器的操作系统平台。	4	1	9
+        systemLanguage	返回 OS 使用的默认语言。	4	No	No
+        userAgent	返回由客户机发送服务器的 user-agent 头部的值。	4	1	9
+        userLanguage	返回 OS 的自然语言设置。*/
+        var infos = [];
+        infos.push(createRowObj(null,"appCodeName: "+navigator.appCodeName,null));
+        infos.push(createRowObj(null,"appName: "+navigator.appName,null));
+        infos.push(createRowObj(null,"appVersion: "+navigator.appVersion,null));
+        infos.push(createRowObj(null,"javaEnabled: "+navigator.javaEnabled(),null));
+        infos.push(createRowObj(null,"cookieEnabled: "+navigator.cookieEnabled,null));
+        infos.push(createRowObj(null,"onLine: "+navigator.onLine,null));
+        infos.push(createRowObj(null,"platform: "+navigator.platform,null));
+        infos.push(createRowObj(null,"systemLanguage: "+navigator.systemLanguage,null));
+        infos.push(createRowObj(null,"userAgent: "+navigator.userAgent,null));
+        infos.push(createRowObj(null,"userLanguage: "+navigator.userLanguage,null));
+        return infos;
+    }
+
+    function getData(){
+        var loaclData = localStorage.getItem("datatables-cn-data");
+        if(!loaclData){
+            loaclData = {
+                "data":{
+                    "data":getInfo()
+                }
+            };
+            loaclData =  JSON.stringify(loaclData);
+            localStorage.setItem("datatables-cn-data",loaclData);
+        }
+        return JSON.parse(loaclData);
+    }
+
+    function setData(data){
+        var parseData =  JSON.stringify(data);
+        localStorage.setItem("datatables-cn-data",parseData);
+    }
+
+    function updateData(data){
+        var loaclData = getData();
+        loaclData.data.data = dealwithData(data);
+        setData(loaclData);
+    }
+
+    function createRowObj(id, name, action) {
+        var actionTem = createButton();
+        return {"id": id || new Date().getTime(), "name": name || "default", "action": action || actionTem};
+    }
 
     var oTable02 = $('#inlineEditDataTable').DataTable({
         "dom": "R<'row'<'col-md-6'l><'col-md-6'f>r>" +
         "t" +
         "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
         "columnDefs": [
-            {'sortable': false, 'targets': ["no-sort"]}
-        ]
+            {'title': "name", 'targets': 0},
+            {'title': "操作", 'targets': 1}
+        ],
+        "columns": [
+            {"data": "name"},
+            {"data": "action"}
+        ],
+        "data": getData().data.data,
+        "language": {
+            "url": "/assets/Chinese.txt"
+        }
     });
 
-    // Append add row button to table
-    var addRowLink = '<a href="#" id="addRow" class="btn btn-green btn-xs add-row">添加一个代办事项</a>'
-    $('#inlineEditDataTable_wrapper').append(addRowLink);
 
     var nEditing = null;
 
@@ -139,7 +152,7 @@
             return;
         }
 
-        var aiNew = oTable02.row.add(['', '', '', '', '', '<a class="edit" href="">编辑</a><a class="delete" href="">删除</a>']);
+        var aiNew = oTable02.row.add(createRowObj());
         var nRow = oTable02.row(aiNew[0]).node();
         editRow(oTable02, nRow);
         nEditing = nRow;
@@ -150,9 +163,14 @@
     // Delete row initialize
     $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
         e.preventDefault();
-
         var nRow = $(this).parents('tr')[0];
+        var id = oTable02.row(nRow).data().id;
+        var dtData = dealwithData(oTable02.data());
+        var finalData = $.grep(dtData, function( n, i ) {
+            return n.id != id;
+        });
         oTable02.row(nRow).remove().draw();
+        updateData(finalData);
     });
 
     // Edit row initialize
