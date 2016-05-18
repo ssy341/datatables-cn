@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>番茄工作法</title>
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/jquery.dataTables.min.css">
+    <script src="./js/jquery-2.0.0.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+<table  class="table table-datatable table-custom" id="inlineEditDataTable">
+    <thead>
+    <tr>
+        <th class="sort-alpha">Rendering engine</th>
+        <th class="sort-alpha">Browser</th>
+        <th class="sort-amount">Platform(s)</th>
+        <th class="sort-numeric">Engine version</th>
+        <th>CSS grade</th>
+        <th class="no-sort">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd gradeX">
+        <td>Trident</td>
+        <td>Internet Explorer 4.0</td>
+        <td>Win 95+</td>
+        <td class="text-center"> 4</td>
+        <td class="text-center">X</td>
+        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+    </tr>
+    <tr class="even gradeC">
+        <td>Trident</td>
+        <td>Internet Explorer 5.0</td>
+        <td>Win 95+</td>
+        <td class="text-center">5</td>
+        <td class="text-center">C</td>
+        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+    </tr>
+    <tr class="odd gradeA">
+        <td>Trident</td>
+        <td>Internet Explorer 5.5</td>
+        <td>Win 95+</td>
+        <td class="text-center">5.5</td>
+        <td class="text-center">A</td>
+        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+    </tr>
+    <tr class="even gradeA">
+        <td>Trident</td>
+        <td>Internet Explorer 6</td>
+        <td>Win 98+</td>
+        <td class="text-center">6</td>
+        <td class="text-center">A</td>
+        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+    </tr>
+    <tr class="odd gradeA">
+        <td>Trident</td>
+        <td>Internet Explorer 7</td>
+        <td>Win XP SP2+</td>
+        <td class="text-center">7</td>
+        <td class="text-center">A</td>
+        <td class="actions text-center"><a class="edit" href="#">Edit</a><a class="delete" href="#">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+<script>
+
+    /*******************************************************/
+    /**************** INLINE EDIT DATATABLE ****************/
+    /*******************************************************/
+
+    function restoreRow(oTable02, nRow) {
+        var aData = oTable02.row(nRow).data();
+        var jqTds = $('>td', nRow);
+
+        oTable02.row(nRow).data([
+            aData[0],
+            aData[1],
+            aData[2],
+            aData[3],
+            aData[4],
+            aData[5]
+        ]).draw();
+    };
+
+    function editRow(oTable02, nRow) {
+        console.log($(nRow));
+        var aData = oTable02.row(nRow).data();
+        console.log(aData);
+        var jqTds = $('>td', nRow);
+        console.log(jqTds);
+        $(jqTds[0]).html('<input type="text" value="' + aData[0] + '" class="form-control">');
+        $(jqTds[1]).html('<input type="text" value="' + aData[1] + '" class="form-control">');
+        $(jqTds[2]).html('<input type="text" value="' + aData[2] + '" class="form-control">');
+        $(jqTds[3]).html('<input type="text" value="' + aData[3] + '" class="form-control">');
+        $(jqTds[4]).html('<input type="text" value="' + aData[4] + '" class="form-control">');
+        $(jqTds[5]).html('<a class="edit save" href="#">保存</a><a class="delete" href="#">删除</a>');
+        oTable02.draw();
+    }
+    ;
+
+    function saveRow(oTable02, nRow) {
+        var jqInputs = $('input', nRow);
+        oTable02.row(nRow).data([
+            $(jqInputs[0]).val(),
+            $(jqInputs[1]).val(),
+            $(jqInputs[2]).val(),
+            $(jqInputs[3]).val(),
+            $(jqInputs[4]).val(),
+            '<a class="edit" href="#">编辑</a><a class="delete" href="#">删除</a>'
+        ]).draw();
+    }
+    ;
+
+
+    var oTable02 = $('#inlineEditDataTable').DataTable({
+        "dom": "R<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "t" +
+        "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
+        "columnDefs": [
+            {'sortable': false, 'targets': ["no-sort"]}
+        ]
+    });
+
+    // Append add row button to table
+    var addRowLink = '<a href="#" id="addRow" class="btn btn-green btn-xs add-row">添加一个代办事项</a>'
+    $('#inlineEditDataTable_wrapper').append(addRowLink);
+
+    var nEditing = null;
+
+    // Add row initialize
+    $('#addRow').click(function (e) {
+        e.preventDefault();
+
+        // Only allow a new row when not currently editing
+        if (nEditing !== null) {
+            return;
+        }
+
+        var aiNew = oTable02.row.add(['', '', '', '', '', '<a class="edit" href="">编辑</a><a class="delete" href="">删除</a>']);
+        var nRow = oTable02.row(aiNew[0]).node();
+        editRow(oTable02, nRow);
+        nEditing = nRow;
+
+        $(aiNew).find('td:last-child').addClass('actions text-center');
+    });
+
+    // Delete row initialize
+    $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
+        e.preventDefault();
+
+        var nRow = $(this).parents('tr')[0];
+        oTable02.row(nRow).remove().draw();
+    });
+
+    // Edit row initialize
+    $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
+        e.preventDefault();
+
+        /* Get the row as a parent of the link that was clicked on */
+        var nRow = $(this).parents('tr')[0];
+
+        if (nEditing !== null && nEditing != nRow) {
+            /* A different row is being edited - the edit should be cancelled and this row edited */
+            restoreRow(oTable02, nEditing);
+            editRow(oTable02, nRow);
+            nEditing = nRow;
+        }
+        else if (nEditing == nRow && this.innerHTML == "保存") {
+            /* This row is being edited and should be saved */
+            saveRow(oTable02, nEditing);
+            nEditing = null;
+        }
+        else {
+            /* No row currently being edited */
+            editRow(oTable02, nRow);
+            nEditing = nRow;
+        }
+    });
+
+</script>
+</html>
