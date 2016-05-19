@@ -5,11 +5,18 @@
     <title>:)</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="./css/buttons.dataTables.min.css">
     <script src="./js/jquery-2.0.0.js"></script>
     <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/dataTables.buttons.min.js"></script>
+    <script src="./js/jszip.min.js"></script>
+    <script src="./js/pdfmake.min.js"></script>
+    <script src="./js/vfs_fonts.js"></script>
+    <script src="./js/buttons.html5.min.js"></script>
+    <script src="./js/buttons.print.min.js"></script>
+    <script src="./js/buttons.flash.min.js"></script>
 </head>
 <body>
-<a href="#" id="addRow" class="btn btn-green btn-xs add-row">添加一行</a>
 <table  class="table table-datatable table-custom" id="inlineEditDataTable">
 </table>
 
@@ -123,7 +130,7 @@
     }
 
     var oTable02 = $('#inlineEditDataTable').DataTable({
-        "dom": "R<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "dom": "BR<'row'<'col-md-6'l><'col-md-6'f>r>" +
         "t" +
         "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
         "columnDefs": [
@@ -137,28 +144,45 @@
         "data": getData().data.data,
         "language": {
             "url": "/assets/Chinese.txt"
-        }
-    });
+        },
+        "buttons": [
+            {
+                extend: 'copy',
+                text: '复制到剪贴板'
+            },{
+                extend: 'csv',
+                text: '导出cvs'
+            },{
+                extend: 'excel',
+                text: '导出excel'
+            },{
+                extend: 'pdf',
+                text: '导出pdf'
+            },{
+                extend: 'print',
+                text: '打印'
+            } ,{
+                text: '添加一行',
+                action: function ( e, dt, node, config ) {
+                    e.preventDefault();
 
+                    // Only allow a new row when not currently editing
+                    if (nEditing !== null) {
+                        return;
+                    }
+
+                    var aiNew = oTable02.row.add(createRowObj());
+                    var nRow = oTable02.row(aiNew[0]).node();
+                    editRow(oTable02, nRow);
+                    nEditing = nRow;
+
+                    $(aiNew).find('td:last-child').addClass('actions text-center');
+                }
+            }
+        ]
+    });
 
     var nEditing = null;
-
-    // Add row initialize
-    $('#addRow').click(function (e) {
-        e.preventDefault();
-
-        // Only allow a new row when not currently editing
-        if (nEditing !== null) {
-            return;
-        }
-
-        var aiNew = oTable02.row.add(createRowObj());
-        var nRow = oTable02.row(aiNew[0]).node();
-        editRow(oTable02, nRow);
-        nEditing = nRow;
-
-        $(aiNew).find('td:last-child').addClass('actions text-center');
-    });
 
     // Delete row initialize
     $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
