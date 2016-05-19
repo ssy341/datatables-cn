@@ -126,8 +126,8 @@
                         </td>
                         <td>
                             <p>
-                                请求次数计数器，每次发送给服务器后又原封返回，因为请求是异步的为了确保每次请求能对应到服务器返回的数据，假设你请求的是第一页的数据收到的却是第二页的，这样就乱套了
-                                （这是我对draw的理解，如果有不同理解的可以告知）
+                                绘制计数器。这个是用来确保Ajax从服务器返回的是对应的（Ajax是异步的，因此返回的顺序是不确定的）。
+                                要求在服务器接收到此参数后再返回（具体看下面）
                             </p>
                         </td>
                     </tr>
@@ -151,7 +151,7 @@
                         </td>
                         <td>
                             <p>
-                                告诉服务器每页显示的条数，这个数字会等于返回的记录数，可能会大于因为服务器可能没有那么多数据。这个也可能是-1，代表需要返回全部数据(尽管这个和服务器处理的理念有点违背)
+                                告诉服务器每页显示的条数，这个数字会等于返回的 <code>data</code>集合的记录数，可能会大于因为服务器可能没有那么多数据。这个也可能是-1，代表需要返回全部数据(尽管这个和服务器处理的理念有点违背)
                             </p>
                         </td>
                     </tr>
@@ -163,7 +163,7 @@
                         </td>
                         <td>
                             <p>
-                                全局的搜索条件，针对于每一列（ <code>searchable</code>需要设置为 <code>true</code>    ）
+                                全局的搜索条件，条件会应用到每一列（ <code>searchable</code>需要设置为 <code>true</code> ）
                             </p>
                         </td>
                     </tr>
@@ -188,7 +188,8 @@
                         </td>
                         <td>
                             <p>
-                                <code>i</code>是一个数组索引，对应的是 <code>columns</code>，从0开始，次参数表示那一列需要排序
+                                告诉后台那些列是需要排序的。
+                                <code>i</code>是一个数组索引，对应的是 <code>columns</code>数组，从0开始
                             </p>
                         </td>
                     </tr>
@@ -200,7 +201,7 @@
                         </td>
                         <td>
                             <p>
-                                上面确定了是那一列，这个确定对应的列是什么样的排序方式 <code>desc</code> 是降序 <code>asc</code>升序
+                                告诉后台列排序的方式， <code>desc</code> 是降序 <code>asc</code>升序
                             </p>
                         </td>
                     </tr>
@@ -213,8 +214,8 @@
                         <td>
                             <p>
                                 columns 绑定的数据源，由<a href="http://datatables.net/reference/option/columns.data" target="_blank">
-    <code>columns.data<span>DT</span></code>
-</a> 定义
+    <code class="option">columns.data<span>Option</span></code>
+</a> 定义。
                             </p>
                         </td>
                     </tr>
@@ -226,9 +227,11 @@
                         </td>
                         <td>
                             <p>
-                                <a href="http://datatables.net/reference/option/columns.name" target="_blank">
-    <code>columns.name<span>DT</span></code>
-</a> 里定义的名称
+                                columns 的名字，由
+<a href="https://datatables.net/reference/option/columns.name" target="_blank">
+    <code class="option">columns.name<span>Option</span></code>
+</a>
+定义。
                             </p>
                         </td>
                     </tr>
@@ -240,9 +243,12 @@
                         </td>
                         <td>
                             <p>
-                                标记列是否能被搜索 为 <code>true</code>代表可以，否则不可以，这个是由    <a href="http://datatables.net/reference/option/columns.searchable" target="_blank">
-    <code>columns.searchable<span>DT</span></code>
-</a> 控制
+                                标记列是否能被搜索,为<code>true</code>代表可以，否则不可以，这个是由
+                                
+<a href="https://datatables.net/reference/option/columns.searchable" target="_blank">
+    <code class="option">columns.searchable<span>Option</span></code>
+</a>
+ 控制
                             </p>
                         </td>
                     </tr>
@@ -254,9 +260,12 @@
                         </td>
                         <td>
                             <p>
-                                标记列是否能排序 为 <code>true</code>代表可以，否则不可以，这个是由    <a href="http://datatables.net/reference/option/columns.orderable" target="_blank">
-    <code>columns.orderable<span>DT</span></code>
-</a> 控制
+                                标记列是否能排序,为 <code>true</code>代表可以，否则不可以，这个是由
+                                
+<a href="https://datatables.net/reference/option/columns.orderable" target="_blank">
+    <code class="option">columns.orderable<span>Option</span></code>
+</a>
+ 控制
                             </p>
                         </td>
                     </tr>
@@ -268,7 +277,7 @@
                         </td>
                         <td>
                             <p>
-                                特定列的搜索条件
+                                标记具体列的搜索条件
                             </p>
                         </td>
                     </tr>
@@ -280,20 +289,36 @@
                         </td>
                         <td>
                             <p>
-                                特定列的搜索条件是否视为正则表达式
+                                特定列的搜索条件是否视为正则表达式，
+                                如果为 <code>true</code>代表搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                                注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
                             </p>
                         </td>
                     </tr>
 
                     </tbody>
                 </table>
+                <p>
+                    <code>order[i]</code>和 <code>columns[i]</code>参数发送到服务器是数组信息：
+                    <ul>
+                <li>
+                    <code>order[i]</code> -  是一个数组，定义了多少列要被排序。比如，数组长度为1，那么就
+                    只有一个列被排序，否则就是多个列被排序
+                </li>
+                <li>
+                    <code>columns[i]</code> - 是一个数组，定了这个表格里所有的列
+                </li>
+            </ul>
+                在这两个情况下， <code>i</code>is an integer which will change to indicate the array value.
+                In most modern server-side scripting environments this data will automatically be available to you as an array.
+                </p>
             </div>
 
 
 
             <h3>返回的数据(Returned data)</h3>
              <p>
-                    Datatables发送以上参数后需要按照下面要求的参数返回
+                    一旦DataTables发送了请求，上面的参数就会传送给服务器，那么你需要按照下面的格式讲组装好的JSON数据返回
              </p>
             <div class="dataTables_wrapper no-footer">
                 <table class="parameters basic display dataTable no-footer" role="grid">
@@ -313,7 +338,8 @@
                         </td>
                         <td>
                             <p>
-                                上面提到了，Datatables发送的draw是多少那么服务器就返回多少。这里注意，作者出于安全的考虑，强烈要求把这个转换为整数后再返回，而不是纯粹的接受然后返回，这是
+                                <b>必要</b>。上面提到了，Datatables发送的draw是多少那么服务器就返回多少。
+                                这里注意，作者出于安全的考虑，强烈要求把这个转换为整形，即数字后再返回，而不是纯粹的接受然后返回，这是
                                 为了防止跨站脚本（XSS）攻击。
                             </p>
                         </td>
@@ -326,7 +352,7 @@
                         </td>
                         <td>
                             <p>
-                                即没有过滤的记录数（数据库里总共记录数）
+                                <b>必要</b>。即没有过滤的记录数（数据库里总共记录数）
                             </p>
                         </td>
                     </tr>
@@ -338,7 +364,7 @@
                         </td>
                         <td>
                             <p>
-                                过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
+                                <b>必要</b>。过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
                             </p>
                         </td>
                     </tr>
@@ -350,7 +376,7 @@
                         </td>
                         <td>
                             <p>
-                                表中中需要显示的数据。这是一个对象数组，也可以只是数组，区别在于
+                                <b>必要</b>。表中中需要显示的数据。这是一个对象数组，也可以只是数组，区别在于
                                 纯数组前台就不需要用 <code>columns</code>绑定数据，会自动按照顺序去显示
                                 ，而对象数组则需要使用 <code>columns</code>绑定数据才能正常显示。
                                 注意这个 <code>data</code>的名称可以由
@@ -380,7 +406,7 @@
                         </td>
                         <td>
                             <p>
-                                可选。你可以定义一个错误来描述服务器出了问题后的友好提示
+                                <b>可选</b>。你可以定义一个错误来描述服务器出了问题后的友好提示
                             </p>
                         </td>
                     </tr>
@@ -389,7 +415,7 @@
             </div>
 
             <p>
-                除了上面的返回参数以外你还可以加入下面的参数，来实现对表格的自动绑定
+                除了上面的返回参数以外你还可以加入下面的参数，来实现对表格数据的自动绑定
             </p>
             <div class="dataTables_wrapper no-footer">
                 <table class="parameters basic display dataTable no-footer" role="grid">
@@ -464,7 +490,8 @@
 
              <p>使用服务器模式需要启用 <a href="/reference/option/serverSide.html" target="_blank">
     <code>serverSide<span>Option</span></code>
-</a>选项 ，设置为 <code>true</code>，并且配置 <a href="/reference/option/ajax.html" target="_blank">
+</a>选项 ，
+                 设置为 <code>true</code>，并且配置 <a href="/reference/option/ajax.html" target="_blank">
     <code class="option">ajax<span>Option</span></code>
 </a>
 <a href="http://datatables.club/manual/daily/2016/04/18/option-ajax.html" target="_blank">
@@ -522,7 +549,8 @@ $(&#39;#example&#39;).DataTable( {
             <h3>老版（Legacy）</h3>
 
             <p>
-                1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
+                1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，
+                你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
                 旧的是使用 <code>sAjaxSource </code> 而新的是使用 <a href="/reference/option/ajax.html" target="_blank">
     <code class="option">ajax<span>Option</span></code>
 </a>
@@ -563,6 +591,39 @@ $(&#39;#example&#39;).DataTable( {
             &quot;12th Jan 09&quot;,
             &quot;$4,800&quot;
         ],
+        ...
+    ]
+}                 </pre>
+                </div>
+            </div>
+
+            <div class="reference_examples">
+                <div class="reference_example">
+                    <div class="title">
+                        服务器端处理的例子，返回使用数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
+                    </div>
+                      <pre class="brush:js;toolbar:false">
+{
+    &quot;draw&quot;: 1,
+    &quot;recordsTotal&quot;: 57,
+    &quot;recordsFiltered&quot;: 57,
+    &quot;data&quot;: [
+        {
+            &quot;name&quot;:&quot;Angelica&quot;,
+            &quot;age&quot;:&quot;Ramos&quot;,
+            &quot;office&quot;:&quot;System Architect&quot;,
+            &quot;address&quot;:&quot;London&quot;,
+            &quot;date&quot;:&quot;9th Oct 09&quot;,
+            &quot;salary&quot;:&quot;$2,875&quot;
+        },
+        {
+            &quot;name&quot;:&quot;Ashton&quot;,
+            &quot;age&quot;:&quot;Cox&quot;,
+            &quot;office&quot;:&quot;Technical Author&quot;,
+            &quot;address&quot;:&quot;San Francisco&quot;,
+            &quot;date&quot;:&quot;12th Jan 09&quot;,
+            &quot;salary&quot;:&quot;$4,800&quot;
+        },
         ...
     ]
 }                 </pre>
