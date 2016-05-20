@@ -22,15 +22,24 @@
 
 </body>
 <script>
-
-    if(!window.localStorage){
+    localStorage.setItem("datatables-cn-noteflag",1);
+    var addCount = 0,editCount = 0,delCount = 0;
+    var NOTEFLAG = localStorage.getItem("datatables-cn-noteflag");
+    NOTEFLAG = parseInt(NOTEFLAG);
+    if (!window.localStorage) {
         alert('不支持 localStorage,会影响使用功能');
     }
 
     function restoreRow(oTable02, nRow) {
         var aData = oTable02.row(nRow).data();
         var jqTds = $('>td', nRow);
-        var arr = createRowObj(aData.id,aData.name,aData.action);
+        var json = {
+            id: aData.id,
+            name: aData.name,
+            type: aData.type,
+            action: aData.action
+        };
+        var arr = createRowObj(json);
         oTable02.row(nRow).data(arr).draw();
     }
 
@@ -38,95 +47,242 @@
         var aData = oTable02.row(nRow).data();
         var jqTds = $('>td', nRow);
         $(jqTds[0]).html(createInput(aData.name));
-        $(jqTds[1]).html(createButton("save"));
+        $(jqTds[1]).html(createSelect(aData.type));
+        $(jqTds[2]).html(createButton("save"));
         oTable02.draw();
         updateData(oTable02.data());
+        if(NOTEFLAG==1){
+            editCount++;
+            if(editCount%3 ==0){
+                var f = confirm("觉得这个例子怎么样？加群给个建议呗？");
+                alert(f);
+                if(!f){
+                    localStorage.setItem("datatables-cn-noteflag",0);
+                    NOTEFLAG = 0;
+                }
+            }
+        }
     }
 
-    function dealwithData(tmpData){
+    function addRow(){
+        // Only allow a new row when not currently editing
+        if (nEditing !== null) {
+            return;
+        }
+
+        var aiNew = oTable02.row.add(createRowObj());
+        console.log(aiNew);
+        var nRow = oTable02.row(aiNew[0]).node();
+        console.log(nRow);
+        editRow(oTable02, nRow);
+        nEditing = nRow;
+
+        $(aiNew).find('td:last-child').addClass('actions text-center');
+
+        if(NOTEFLAG==1){
+            addCount++;
+            if(addCount%3 ==0){
+                var f = confirm("觉得这个例子怎么样？加群给个建议呗？");
+                if(!f){
+                    localStorage.setItem("datatables-cn-noteflag",0);
+                    NOTEFLAG = 0;
+                }
+            }
+        }
+    }
+
+    function dealwithData(tmpData) {
         var arrTmp = [];
-        for(var i = 0;i<tmpData.length;i++){
+        for (var i = 0; i < tmpData.length; i++) {
             arrTmp.push(tmpData[i]);
         }
         return arrTmp;
     }
 
-    function createButton(type){
-        if(type === 'save'){
+    function createButton(type) {
+        if (type === 'save') {
             return '<a class="edit save" href="#">保存</a>|<a class="delete" href="#">删除</a>';
-        }else{
+        } else {
             return '<a class="edit" href="#">编辑</a>|<a class="delete" href="#">删除</a>';
         }
     }
-    function createInput(val){
+
+    function createInput(val) {
         return '<input type="text" value="' + val + '" class="form-control">';
+    }
+
+    /**
+     * 创建select
+     */
+    function createSelect(val) {
+        var select = $("<select></select>");
+        select.append("<option value=''>请选择</option>");
+        select.append("<option value='0'>"+replaceValue(0)+"</option>");
+        select.append("<option value='1'>"+replaceValue(1)+"</option>");
+        select.append("<option value='-1'>"+replaceValue(-1)+"</option>");
+        select.val(val);
+        return select;
     }
 
     function saveRow(oTable02, nRow) {
         var jqInputs = $('input', nRow);
+        var jqSelects = $('select', nRow);
         var rowObj = oTable02.row(nRow);
         var id = rowObj.data().id;
-        var tmpobj = createRowObj(id, $(jqInputs[0]).val(), createButton());
+        var json = {
+            id: id,
+            name: $(jqInputs[0]).val(),
+            type: $(jqSelects[0]).val(),
+            action: createButton()
+        };
+        var tmpobj = createRowObj(json);
         rowObj.data(tmpobj).draw();
         updateData(oTable02.data());
     }
 
-    function getInfo(){
-       /* 属性	描述	IE	F	O
-        appCodeName	返回浏览器的代码名。	4	1	9
-        appMinorVersion	返回浏览器的次级版本。	4	No	No
-        appName	返回浏览器的名称。	4	1	9
-        appVersion	返回浏览器的平台和版本信息。	4	1	9
-        browserLanguage	返回当前浏览器的语言。	4	No	9
-        cookieEnabled	返回指明浏览器中是否启用 cookie 的布尔值。	4	1	9
-        cpuClass	返回浏览器系统的 CPU 等级。	4	No	No
-        onLine	返回指明系统是否处于脱机模式的布尔值。	4	No	No
-        platform	返回运行浏览器的操作系统平台。	4	1	9
-        systemLanguage	返回 OS 使用的默认语言。	4	No	No
-        userAgent	返回由客户机发送服务器的 user-agent 头部的值。	4	1	9
-        userLanguage	返回 OS 的自然语言设置。*/
+    function getInfo() {
+        /* 属性	描述	IE	F	O
+         appCodeName	返回浏览器的代码名。	4	1	9
+         appMinorVersion	返回浏览器的次级版本。	4	No	No
+         appName	返回浏览器的名称。	4	1	9
+         appVersion	返回浏览器的平台和版本信息。	4	1	9
+         browserLanguage	返回当前浏览器的语言。	4	No	9
+         cookieEnabled	返回指明浏览器中是否启用 cookie 的布尔值。	4	1	9
+         cpuClass	返回浏览器系统的 CPU 等级。	4	No	No
+         onLine	返回指明系统是否处于脱机模式的布尔值。	4	No	No
+         platform	返回运行浏览器的操作系统平台。	4	1	9
+         systemLanguage	返回 OS 使用的默认语言。	4	No	No
+         userAgent	返回由客户机发送服务器的 user-agent 头部的值。	4	1	9
+         userLanguage	返回 OS 的自然语言设置。*/
+        var appCodeName = {};
+        appCodeName.id = null;
+        appCodeName.type = null;
+        appCodeName.action = null;
+        appCodeName.name = "appCodeName: " + navigator.appCodeName;
         var infos = [];
-        infos.push(createRowObj(null,"appCodeName: "+navigator.appCodeName,null));
-        infos.push(createRowObj(null,"appName: "+navigator.appName,null));
-        infos.push(createRowObj(null,"appVersion: "+navigator.appVersion,null));
-        infos.push(createRowObj(null,"javaEnabled: "+navigator.javaEnabled(),null));
-        infos.push(createRowObj(null,"cookieEnabled: "+navigator.cookieEnabled,null));
-        infos.push(createRowObj(null,"onLine: "+navigator.onLine,null));
-        infos.push(createRowObj(null,"platform: "+navigator.platform,null));
-        infos.push(createRowObj(null,"systemLanguage: "+navigator.systemLanguage,null));
-        infos.push(createRowObj(null,"userAgent: "+navigator.userAgent,null));
-        infos.push(createRowObj(null,"userLanguage: "+navigator.userLanguage,null));
+        infos.push(createRowObj(appCodeName));
+
+        var appName = {};
+        appName.id = null;
+        appName.type = null;
+        appName.action = null;
+        appName.name = "appName: " + navigator.appName;
+        infos.push(createRowObj(appName));
+
+        var appVersion = {};
+        appVersion.id = null;
+        appVersion.type = null;
+        appVersion.action = null;
+        appVersion.name = "appVersion: " + navigator.appVersion;
+        infos.push(createRowObj(appVersion));
+
+        var javaEnabled = {};
+        javaEnabled.id = null;
+        javaEnabled.type = null;
+        javaEnabled.action = null;
+        javaEnabled.name = "javaEnabled: " + navigator.javaEnabled();
+        infos.push(createRowObj(javaEnabled));
+
+        var cookieEnabled = {};
+        cookieEnabled.id = null;
+        cookieEnabled.type = null;
+        cookieEnabled.action = null;
+        cookieEnabled.name = "cookieEnabled: " + navigator.cookieEnabled;
+        infos.push(createRowObj(cookieEnabled));
+
+        var onLine = {};
+        onLine.id = null;
+        onLine.type = null;
+        onLine.action = null;
+        onLine.name = "onLine: " + navigator.onLine;
+        infos.push(createRowObj(onLine));
+
+        var platform = {};
+        platform.id = null;
+        platform.type = null;
+        platform.action = null;
+        platform.name = "platform: " + navigator.platform;
+        infos.push(createRowObj(platform));
+
+        var systemLanguage = {};
+        systemLanguage.id = null;
+        systemLanguage.type = null;
+        systemLanguage.action = null;
+        systemLanguage.name = "systemLanguage: " + navigator.systemLanguage;
+        infos.push(createRowObj(systemLanguage));
+
+        var userAgent = {};
+        userAgent.id = null;
+        userAgent.type = null;
+        userAgent.action = null;
+        userAgent.name = "userAgent: " + navigator.userAgent;
+        infos.push(createRowObj(userAgent));
+
+        var userLanguage = {};
+        userLanguage.id = null;
+        userLanguage.type = null;
+        userLanguage.action = null;
+        userLanguage.name = "userLanguage: " + navigator.userLanguage;
+        infos.push(createRowObj(userLanguage));
         return infos;
     }
 
-    function getData(){
+    function reInitData(){
+        localStorage.removeItem("datatables-cn-data");
+        getData();
+        alert("请按F5");
+    }
+
+    function getData() {
         var loaclData = localStorage.getItem("datatables-cn-data");
-        if(!loaclData){
+        if (!loaclData) {
             loaclData = {
-                "data":{
-                    "data":getInfo()
+                "data": {
+                    "data": getInfo()
                 }
             };
-            loaclData =  JSON.stringify(loaclData);
-            localStorage.setItem("datatables-cn-data",loaclData);
+            loaclData = JSON.stringify(loaclData);
+            localStorage.setItem("datatables-cn-data", loaclData);
         }
         return JSON.parse(loaclData);
     }
 
-    function setData(data){
-        var parseData =  JSON.stringify(data);
-        localStorage.setItem("datatables-cn-data",parseData);
+    function setData(data) {
+        var parseData = JSON.stringify(data);
+        localStorage.setItem("datatables-cn-data", parseData);
     }
 
-    function updateData(data){
+    function updateData(data) {
         var loaclData = getData();
         loaclData.data.data = dealwithData(data);
         setData(loaclData);
     }
 
-    function createRowObj(id, name, action) {
+    function createRowObj(json) {
         var actionTem = createButton();
-        return {"id": id || new Date().getTime(), "name": name || "default", "action": action || actionTem};
+        var id = json ? json.id || new Date().getTime() : new Date().getTime();
+        var name = json ? json.name || "DataTable 中文网" : "DataTable 中文网";
+        var type = json ? json.type || "1" : "1";
+        var action = json ? json.action || actionTem : actionTem;
+        return {
+            "id": id,
+            "name": name,
+            "type": type,
+            "action": action
+        };
+    }
+
+    function replaceValue(i) {
+        switch (parseInt(i)) {
+            case 0:
+                return "List";
+            case 1:
+                return "None";
+            case -1:
+                return "Today";
+            default:
+                return "None";
+        }
     }
 
     var oTable02 = $('#inlineEditDataTable').DataTable({
@@ -134,11 +290,25 @@
         "t" +
         "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
         "columnDefs": [
-            {'title': "name", 'targets': 0},
-            {'title': "操作", 'targets': 1}
+            {'title': "名称", 'targets': 0},
+            {'title': "类型", 'targets': 1},
+            {'title': "操作", 'targets': 2}
         ],
+        "order":[[1,"asc"]],
         "columns": [
             {"data": "name"},
+            {
+                "data": "type",
+                "render": function (data, type, row, meta) {
+                    if (type == "display"){
+                        return replaceValue(data);
+                    }
+                    if (type == "sort") {
+                        return data;
+                    }
+                    return data;
+                }
+            },
             {"data": "action"}
         ],
         "data": getData().data.data,
@@ -149,34 +319,29 @@
             {
                 extend: 'copy',
                 text: '复制到剪贴板'
-            },{
+            }, {
                 extend: 'csv',
                 text: '导出cvs'
-            },{
+            }, {
                 extend: 'excel',
                 text: '导出excel'
-            },{
+            }, {
                 extend: 'pdf',
                 text: '导出pdf'
-            },{
+            }, {
                 extend: 'print',
                 text: '打印'
-            } ,{
+            }, {
                 text: '添加一行',
-                action: function ( e, dt, node, config ) {
+                action: function (e, dt, node, config) {
                     e.preventDefault();
-
-                    // Only allow a new row when not currently editing
-                    if (nEditing !== null) {
-                        return;
-                    }
-
-                    var aiNew = oTable02.row.add(createRowObj());
-                    var nRow = oTable02.row(aiNew[0]).node();
-                    editRow(oTable02, nRow);
-                    nEditing = nRow;
-
-                    $(aiNew).find('td:last-child').addClass('actions text-center');
+                    addRow();
+                }
+            },{
+                text:"重新初始化数据",
+                action:function(e, dt, node, config){
+                    e.preventDefault();
+                    reInitData();
                 }
             }
         ]
@@ -184,20 +349,30 @@
 
     var nEditing = null;
 
-    // Delete row initialize
+    // 删除行初始化
     $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
         e.preventDefault();
         var nRow = $(this).parents('tr')[0];
         var id = oTable02.row(nRow).data().id;
         var dtData = dealwithData(oTable02.data());
-        var finalData = $.grep(dtData, function( n, i ) {
+        var finalData = $.grep(dtData, function (n, i) {
             return n.id != id;
         });
-        oTable02.row(nRow).remove().draw();
+        oTable02.row(nRow).remove().draw(false);
         updateData(finalData);
+        if(NOTEFLAG==1){
+            delCount++;
+            if(delCount%3 ==0){
+                var f = confirm("觉得这个例子怎么样？加群给个建议呗？");
+                if(!f){
+                    localStorage.setItem("datatables-cn-noteflag",0);
+                    NOTEFLAG = 0;
+                }
+            }
+        }
     });
 
-    // Edit row initialize
+    // 编辑行初始化
     $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
         e.preventDefault();
 
