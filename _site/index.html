@@ -137,6 +137,7 @@
             <h2>热门连接</h2>
             <div id="hotUrl">
                 <table id="hottable" class="display" cellspacing="0" width="100%">
+                    <caption></caption>
                     <thead>
                     <tr>
                         <th></th>
@@ -461,7 +462,7 @@ client.on( 'error', function() {
             "order": [],
             "dom": "<'#toolbar'f>rtip",
             "pageLength": 5,
-            "ajax": baseurl + "/assets/statistics/2016-05-19.txt",
+            "ajax": baseurl + "/assets/statistics/2016-05-20.txt",
             "columns": [
                 {data: null},
                 {
@@ -471,6 +472,10 @@ client.on( 'error', function() {
                 },
                 {data: "num", width: "10%"}
             ],
+            "drawCallback":function(){
+                var api = this.api();
+                $("#hottable caption").html("当前数据源为："+api.ajax.url());
+            },
             "footerCallback": function ( row, data, start, end, display ) {
                 var api = this.api(), data;
 
