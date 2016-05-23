@@ -42,3 +42,7 @@ code {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
+p{
+    text-indent: 2em;
+}
