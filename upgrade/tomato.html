@@ -131,11 +131,11 @@
 
     function createColorSelect(val){
         var select = $("<select></select>");
-        select.append("<option value=''>请选择背景</option>");
+        select.append("<option value=''>"+replaceColor()+"</option>");
         select.append("<option value='0' style='background-color: "+replaceColor(0)+"'></option>");
         select.append("<option value='1' style='background-color: "+replaceColor(1)+"'></option>");
         select.append("<option value='-1' style='background-color: "+replaceColor(-1)+"'></option>");
-        select.val(val);
+        select.val(val).css("background-color",replaceColor(val));
         return select;
     }
 
