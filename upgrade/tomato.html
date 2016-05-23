@@ -22,6 +22,11 @@
 
 </body>
 <script>
+
+    var initFlag = localStorage.getItem("datatables-cn-data");
+    if(initFlag){
+        localStorage.removeItem("datatables-cn-data");
+    }
     localStorage.setItem("datatables-cn-noteflag",1);
     var addCount = 0,editCount = 0,delCount = 0;
     var NOTEFLAG = localStorage.getItem("datatables-cn-noteflag");
@@ -37,6 +42,7 @@
             id: aData.id,
             name: aData.name,
             type: aData.type,
+            color:aData.color,
             action: aData.action
         };
         var arr = createRowObj(json);
@@ -48,7 +54,8 @@
         var jqTds = $('>td', nRow);
         $(jqTds[0]).html(createInput(aData.name));
         $(jqTds[1]).html(createSelect(aData.type));
-        $(jqTds[2]).html(createButton("save"));
+        $(jqTds[2]).html(createColorSelect(aData.color));
+        $(jqTds[3]).html(createButton("save"));
         oTable02.draw();
         updateData(oTable02.data());
         if(NOTEFLAG==1){
@@ -71,9 +78,7 @@
         }
 
         var aiNew = oTable02.row.add(createRowObj());
-        console.log(aiNew);
         var nRow = oTable02.row(aiNew[0]).node();
-        console.log(nRow);
         editRow(oTable02, nRow);
         nEditing = nRow;
 
@@ -124,6 +129,16 @@
         return select;
     }
 
+    function createColorSelect(val){
+        var select = $("<select></select>");
+        select.append("<option value=''>请选择背景</option>");
+        select.append("<option value='0' style='background-color: "+replaceColor(0)+"'></option>");
+        select.append("<option value='1' style='background-color: "+replaceColor(1)+"'></option>");
+        select.append("<option value='-1' style='background-color: "+replaceColor(-1)+"'></option>");
+        select.val(val);
+        return select;
+    }
+
     function saveRow(oTable02, nRow) {
         var jqInputs = $('input', nRow);
         var jqSelects = $('select', nRow);
@@ -133,6 +148,7 @@
             id: id,
             name: $(jqInputs[0]).val(),
             type: $(jqSelects[0]).val(),
+            color: $(jqSelects[1]).val(),
             action: createButton()
         };
         var tmpobj = createRowObj(json);
@@ -157,6 +173,7 @@
         var appCodeName = {};
         appCodeName.id = null;
         appCodeName.type = null;
+        appCodeName.color = null;
         appCodeName.action = null;
         appCodeName.name = "appCodeName: " + navigator.appCodeName;
         var infos = [];
@@ -165,6 +182,7 @@
         var appName = {};
         appName.id = null;
         appName.type = null;
+        appName.color = null;
         appName.action = null;
         appName.name = "appName: " + navigator.appName;
         infos.push(createRowObj(appName));
@@ -172,6 +190,7 @@
         var appVersion = {};
         appVersion.id = null;
         appVersion.type = null;
+        appVersion.color = null;
         appVersion.action = null;
         appVersion.name = "appVersion: " + navigator.appVersion;
         infos.push(createRowObj(appVersion));
@@ -179,6 +198,7 @@
         var javaEnabled = {};
         javaEnabled.id = null;
         javaEnabled.type = null;
+        javaEnabled.color = null;
         javaEnabled.action = null;
         javaEnabled.name = "javaEnabled: " + navigator.javaEnabled();
         infos.push(createRowObj(javaEnabled));
@@ -186,6 +206,7 @@
         var cookieEnabled = {};
         cookieEnabled.id = null;
         cookieEnabled.type = null;
+        cookieEnabled.color = null;
         cookieEnabled.action = null;
         cookieEnabled.name = "cookieEnabled: " + navigator.cookieEnabled;
         infos.push(createRowObj(cookieEnabled));
@@ -193,6 +214,7 @@
         var onLine = {};
         onLine.id = null;
         onLine.type = null;
+        onLine.color = null;
         onLine.action = null;
         onLine.name = "onLine: " + navigator.onLine;
         infos.push(createRowObj(onLine));
@@ -200,6 +222,7 @@
         var platform = {};
         platform.id = null;
         platform.type = null;
+        platform.color = null;
         platform.action = null;
         platform.name = "platform: " + navigator.platform;
         infos.push(createRowObj(platform));
@@ -207,6 +230,7 @@
         var systemLanguage = {};
         systemLanguage.id = null;
         systemLanguage.type = null;
+        systemLanguage.color = null;
         systemLanguage.action = null;
         systemLanguage.name = "systemLanguage: " + navigator.systemLanguage;
         infos.push(createRowObj(systemLanguage));
@@ -214,6 +238,7 @@
         var userAgent = {};
         userAgent.id = null;
         userAgent.type = null;
+        userAgent.color = null;
         userAgent.action = null;
         userAgent.name = "userAgent: " + navigator.userAgent;
         infos.push(createRowObj(userAgent));
@@ -221,6 +246,7 @@
         var userLanguage = {};
         userLanguage.id = null;
         userLanguage.type = null;
+        userLanguage.color = null;
         userLanguage.action = null;
         userLanguage.name = "userLanguage: " + navigator.userLanguage;
         infos.push(createRowObj(userLanguage));
@@ -263,13 +289,28 @@
         var id = json ? json.id || new Date().getTime() : new Date().getTime();
         var name = json ? json.name || "DataTable 中文网" : "DataTable 中文网";
         var type = json ? json.type || "1" : "1";
+        var color = json ? json.color || replaceColor() : replaceColor();
         var action = json ? json.action || actionTem : actionTem;
         return {
             "id": id,
             "name": name,
             "type": type,
+            "color": color,
             "action": action
         };
+    }
+
+    function replaceColor(i){
+        switch (parseInt(i)) {
+            case 0:
+                return "yellow";
+            case 1:
+                return "blue";
+            case -1:
+                return "green";
+            default:
+                return "white";
+        }
     }
 
     function replaceValue(i) {
@@ -292,7 +333,8 @@
         "columnDefs": [
             {'title': "名称", 'targets': 0},
             {'title': "类型", 'targets': 1},
-            {'title': "操作", 'targets': 2}
+            {'title': "颜色", 'targets': 2},
+            {'title': "操作", 'targets': 3}
         ],
         "order":[[1,"asc"]],
         "columns": [
@@ -309,11 +351,29 @@
                     return data;
                 }
             },
+            {
+                "data": "color",
+                "render": function (data, type, row, meta) {
+                    if (type == "display"){
+                        return replaceColor(data);
+                    }
+                    if (type == "sort") {
+                        return data;
+                    }
+                    return data;
+                }
+            },
             {"data": "action"}
         ],
         "data": getData().data.data,
         "language": {
             "url": "/assets/Chinese.txt"
+        },
+        "createdRow":function(row, data, dataIndex ){
+            $(row).css( 'background-color',replaceColor(data.color) );
+        },
+        "rowCallback": function( row, data, index ) {
+            $(row).css( 'background-color',replaceColor(data.color) );
         },
         "buttons": [
             {
