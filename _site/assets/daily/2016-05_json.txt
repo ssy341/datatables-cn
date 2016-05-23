@@ -3,6 +3,13 @@
     "data":[
           {
             "caption":"《不定时一讲》",
+            "url":"/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html",
+            "name":"Markdown语法介绍（针对DataTables中文网）",
+            "date":"2016-05-23"
+          },
+         
+          {
+            "caption":"《不定时一讲》",
             "url":"/manual/daily/2016/05/12/all-options-of-options.html",
             "name":"DataTables初始化对照模板4（全部option - Options 配置选项）",
             "date":"2016-05-12"
