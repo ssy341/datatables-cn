@@ -23,18 +23,23 @@
 </body>
 <script>
 
+    //因为功能还没有全部写完，避免弹出错误提示，每次数据都清空
     var initFlag = localStorage.getItem("datatables-cn-data");
     if(initFlag){
         localStorage.removeItem("datatables-cn-data");
     }
+    //彩蛋
     localStorage.setItem("datatables-cn-noteflag",1);
     var addCount = 0,editCount = 0,delCount = 0;
     var NOTEFLAG = localStorage.getItem("datatables-cn-noteflag");
     NOTEFLAG = parseInt(NOTEFLAG);
+
+
     if (!window.localStorage) {
         alert('不支持 localStorage,会影响使用功能');
     }
 
+    //重置正在编辑的行
     function restoreRow(oTable02, nRow) {
         var aData = oTable02.row(nRow).data();
         var jqTds = $('>td', nRow);
@@ -49,6 +54,7 @@
         oTable02.row(nRow).data(arr).draw();
     }
 
+    //把当前行变为可编辑状态
     function editRow(oTable02, nRow) {
         var aData = oTable02.row(nRow).data();
         var jqTds = $('>td', nRow);
@@ -71,6 +77,7 @@
         }
     }
 
+    //添加一行
     function addRow(){
         // Only allow a new row when not currently editing
         if (nEditing !== null) {
@@ -96,6 +103,7 @@
         }
     }
 
+    //处理dt的内部数据，得到最简单的数据数组
     function dealwithData(tmpData) {
         var arrTmp = [];
         for (var i = 0; i < tmpData.length; i++) {
@@ -104,6 +112,7 @@
         return arrTmp;
     }
 
+    //操作列的按钮创建
     function createButton(type) {
         if (type === 'save') {
             return '<a class="edit save" href="#">保存</a>|<a class="delete" href="#">删除</a>';
@@ -112,6 +121,7 @@
         }
     }
 
+    //input生成
     function createInput(val) {
         return '<input type="text" value="' + val + '" class="form-control">';
     }
@@ -129,6 +139,7 @@
         return select;
     }
 
+    //创建背景颜色选择select
     function createColorSelect(val){
         var select = $("<select></select>");
         select.append("<option value=''>"+replaceColor()+"</option>");
@@ -139,6 +150,7 @@
         return select;
     }
 
+    //保存行，把数据写入dt的内部数据对象，并重绘表格
     function saveRow(oTable02, nRow) {
         var jqInputs = $('input', nRow);
         var jqSelects = $('select', nRow);
@@ -156,6 +168,7 @@
         updateData(oTable02.data());
     }
 
+    //初始化数据，展示例子
     function getInfo() {
         /* 属性	描述	IE	F	O
          appCodeName	返回浏览器的代码名。	4	1	9
@@ -253,12 +266,14 @@
         return infos;
     }
 
+    //重新初始化数据
     function reInitData(){
         localStorage.removeItem("datatables-cn-data");
         getData();
         alert("请按F5");
     }
 
+    //从浏览器本地缓存获取dt的所有相关数据
     function getData() {
         var loaclData = localStorage.getItem("datatables-cn-data");
         if (!loaclData) {
@@ -273,17 +288,20 @@
         return JSON.parse(loaclData);
     }
 
+    //把dt的相关数据设置到浏览器本地缓存
     function setData(data) {
         var parseData = JSON.stringify(data);
         localStorage.setItem("datatables-cn-data", parseData);
     }
 
+    //更新浏览器本地缓存里dt的相关数据
     function updateData(data) {
         var loaclData = getData();
         loaclData.data.data = dealwithData(data);
         setData(loaclData);
     }
 
+    //生成一个行对象
     function createRowObj(json) {
         var actionTem = createButton();
         var id = json ? json.id || new Date().getTime() : new Date().getTime();
@@ -300,6 +318,7 @@
         };
     }
 
+    //颜色替换
     function replaceColor(i){
         switch (parseInt(i)) {
             case 0:
@@ -313,6 +332,7 @@
         }
     }
 
+    //类型替换
     function replaceValue(i) {
         switch (parseInt(i)) {
             case 0:
@@ -326,7 +346,19 @@
         }
     }
 
-    var oTable02 = $('#inlineEditDataTable').DataTable({
+    //表格初始化
+    //包含以下功能：
+    /**
+     * dom的应用
+     * render的应用
+     * 是用本地静态数据，而非ajax取数
+     * 国际化
+     * buttons的应用
+     * 行内编辑保存
+     * 表格的增删改查
+     *
+    */
+     var oTable02 = $('#inlineEditDataTable').DataTable({
         "dom": "BR<'row'<'col-md-6'l><'col-md-6'f>r>" +
         "t" +
         "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
@@ -381,7 +413,7 @@
                 text: '复制到剪贴板'
             }, {
                 extend: 'csv',
-                text: '导出cvs'
+                text: '导出csv'
             }, {
                 extend: 'excel',
                 text: '导出excel'
