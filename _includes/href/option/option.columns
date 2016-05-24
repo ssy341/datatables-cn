@@ -22,7 +22,7 @@
 <a href="https://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code class="option">columns.defaultContent<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-04-option-columns-defaultContent %}" target="_blank">
+<a href="{{ site.url }}{% post_url 2016-05-04-option-columns-defaultContent %}" target="_blank">
     <code class="option">columns.defaultContent<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "columns.name" %}
@@ -65,7 +65,7 @@
 <a href="https://datatables.net/reference/option/columns.width" target="_blank">
     <code class="option">columns.width<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-04-option-columns-width %}" target="_blank">
+<a href="{{ site.url }}{% post_url 2016-05-04-option-columns-width %}" target="_blank">
     <code class="option">columns.width<span>不定时一讲</span></code>
 </a>
 {% endif %}

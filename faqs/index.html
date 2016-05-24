@@ -161,8 +161,17 @@ relurl: http://datatables.net/faqs/index
                 </li>
             </ul>
             <ul>
-                <li><b>使用bootstrap页码分页问题,在上页被禁用情况下,点击也向服务器请求数据,为什么</b></li>
+                <li><b>问：使用bootstrap页码分页问题,在上页被禁用情况下,点击也向服务器请求数据,为什么</b></li>
                 <li>这个是一个bug，问题是因为代码里只是设置了按钮的禁用状态，但是没有把按钮的点击事件屏蔽掉，所以还可以向服务器请求</li>
+            </ul>
+            <ul>
+                <li><b>问：弹出提示 Invalid JSON response 是什么意思？</b></li>
+                <li>
+                    根据提示翻译，无效的json返回。那么只需要看请求返回的数据即可知道问题所在。
+                    正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+                    <a href="{{site.baseurl}}{% post_url 2016-04-22-how-to-find-the-questions-basic-debug-skill-of-javascript %}"
+                    target="_blank">如何查看返回数据？</a>
+                </li>
             </ul>
         </p>
 

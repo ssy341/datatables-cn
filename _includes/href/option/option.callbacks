@@ -14,7 +14,7 @@
 <a href="http://datatables.net/reference/option/formatNumber" target="_blank">
     <code>formatNumber<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url /daily/2016-05/2016-05-03-option-formatNumber %}" target="_blank">
+<a href="{{ site.url }}{% post_url 2016-05-03-option-formatNumber %}" target="_blank">
     <code class="option">formatNumber<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "headerCallback" %}
