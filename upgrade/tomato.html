@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>:)</title>
     <link href="./bootstrap/3.3.5/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./datatables/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="./datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="./datatables/buttons.dataTables.min.css">
     <script src="./js/jquery-2.0.0.js"></script>
     <script src="./bootstrap/3.3.5/bootstrap.min.js"></script>
@@ -25,8 +25,27 @@
     <script src="./datatables/buttons.colVis.min.js"></script>
 </head>
 <body>
-<table  class="table table-datatable table-custom" id="inlineEditDataTable">
+<table  class="table table-striped table-bordered dataTable no-footer" id="inlineEditDataTable">
 </table>
+
+<div class="modal fade" id="oftenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="often">表格2</h4>
+            </div>
+            <div class="modal-body">
+                <table  class="table table-striped table-bordered dataTable no-footer" style="width:100%" id="oftenDataTable">
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">我啥也不做</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -55,6 +74,7 @@
                     <li>填充行的背景色</li>
                     <li>值替换</li>
                     <li>行内生成select,input</li>
+                    <li>数据从a表到b表</li>
                 </ul>
                 已知bug:
                 <ul>
@@ -409,6 +429,109 @@
         return year + "-" + month + "-" + date + "   " + hour + ":" + minute + ":" + second;
     }
 
+    //设置DataTable全局默认值
+    $.extend(true, $.fn.dataTable.defaults, {
+        "language": {
+            "url": "/assets/Chinese.txt"
+        },
+        "dom": "BR<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "t" +
+        "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>"
+    });
+
+    //是用bootstrap渲染dt
+    $.fn.dataTable.defaults.renderer = 'bootstrap';
+    $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx, buttons, page, pages) {
+        var api = new $.fn.dataTable.Api(settings);
+        var classes = settings.oClasses;
+        var lang = settings.oLanguage.oPaginate;
+        var btnDisplay, btnClass;
+
+        var attach = function (container, buttons) {
+            var i, ien, node, button;
+            var clickHandler = function (e) {
+                e.preventDefault();
+                if (e.data.action !== 'ellipsis') {
+                    api.page(e.data.action).draw(false);
+                }
+            };
+
+            for (i = 0, ien = buttons.length; i < ien; i++) {
+                button = buttons[i];
+
+                if ($.isArray(button)) {
+                    attach(container, button);
+                }
+                else {
+                    btnDisplay = '';
+                    btnClass = '';
+
+                    switch (button) {
+                        case 'ellipsis':
+                            btnDisplay = '&hellip;';
+                            btnClass = 'disabled';
+                            break;
+
+                        case 'first':
+                            btnDisplay = lang.sFirst;
+                            btnClass = button + (page > 0 ?
+                                            '' : ' disabled');
+                            break;
+
+                        case 'previous':
+                            btnDisplay = lang.sPrevious;
+                            btnClass = button + (page > 0 ?
+                                            '' : ' disabled');
+                            break;
+
+                        case 'next':
+                            btnDisplay = lang.sNext;
+                            btnClass = button + (page < pages - 1 ?
+                                            '' : ' disabled');
+                            break;
+
+                        case 'last':
+                            btnDisplay = lang.sLast;
+                            btnClass = button + (page < pages - 1 ?
+                                            '' : ' disabled');
+                            break;
+
+                        default:
+                            btnDisplay = button + 1;
+                            btnClass = page === button ?
+                                    'active' : '';
+                            break;
+                    }
+
+                    if (btnDisplay) {
+                        node = $('<li>', {
+                            'class': classes.sPageButton + ' ' + btnClass,
+                            'aria-controls': settings.sTableId,
+                            'tabindex': settings.iTabIndex,
+                            'id': idx === 0 && typeof button === 'string' ?
+                            settings.sTableId + '_' + button :
+                                    null
+                        })
+                                .append($('<a>', {
+                                            'href': '#'
+                                        })
+                                                .html(btnDisplay)
+                                )
+                                .appendTo(container);
+
+                        settings.oApi._fnBindAction(
+                                node, {action: button}, clickHandler
+                        );
+                    }
+                }
+            }
+        };
+        attach(
+                $(host).empty().html('<ul class="pagination"/>').children('ul'),
+                buttons
+        );
+    };
+
     //表格初始化
     //包含以下功能：
     /**
@@ -422,9 +545,6 @@
      *
      */
     var oTable02 = $('#inlineEditDataTable').DataTable({
-        "dom": "BR<'row'<'col-md-6'l><'col-md-6'f>r>" +
-        "t" +
-        "<'row'<'col-md-4 sm-center'i><'col-md-4'><'col-md-4 text-right sm-center'p>>",
         "columnDefs": [
             {'title': "名称", 'targets': 0},
             {'title': "类型", 'targets': 1},
@@ -468,9 +588,6 @@
             {"data": "action"}
         ],
         "data": getData().data.data,
-        "language": {
-            "url": "/assets/Chinese.txt"
-        },
         "createdRow": function (row, data, dataIndex) {
             $(row).css('background-color', replaceColor(data.color));
         },
@@ -481,40 +598,113 @@
             {
                 extend: 'copy',
                 text: '复制到剪贴板'
-            }, {
+            },
+            {
                 extend: 'csv',
                 text: '导出csv'
-            }, {
+            },
+            {
                 extend: 'excel',
                 text: '导出excel'
-            }, {
+            },
+            {
                 extend: 'pdf',
                 text: '导出pdf'
-            }, {
+            },
+            {
                 extend: 'print',
                 text: '打印'
-            }, {
+            },
+            {
                 text: "选择需要隐藏的列",
                 extend: "colvis"
-            }, {
+            },
+            {
                 text: '添加一行',
                 action: function (e, dt, node, config) {
                     e.preventDefault();
                     addRow();
                 }
-            }, {
+            },
+            {
+                text: '从表格中添加一行',
+                action: function (e, dt, node, config) {
+                    e.preventDefault();
+                    $('#oftenModal').modal("show");
+                }
+            },
+            {
                 text: "重新初始化数据",
                 action: function (e, dt, node, config) {
                     e.preventDefault();
                     reInitData();
                 }
-            }, {
+            },
+            {
                 text: "本例子说明",
-                action: function () {
+                action: function (e, dt, node, config) {
+                    e.preventDefault();
                     $('#myModal').modal("show");
                 }
             }
         ]
+    });
+
+    var oftenData = [
+        {
+            "name": "吃饭",
+            "DT_RowAttr": {
+                "id": new Date().getTime(),
+                "name": "吃饭"
+            }
+        }, {
+            "name": "睡觉",
+            "DT_RowAttr": {
+                "id": new Date().getTime(),
+                "name": "睡觉"
+            }
+        }, {
+            "name": "打豆豆",
+            "DT_RowAttr": {
+                "id": new Date().getTime(),
+                "name": "打豆豆"
+            }
+        }
+    ];
+
+    //表格二
+    var oftenTable = $("#oftenDataTable").DataTable({
+        "dom": "r<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "t" +
+        "<'row'<'col-md-6 sm-center'i><'col-md-6 text-right sm-center'p>>",
+        "data":oftenData,
+        "columns":[
+            {"data":"name","title":"名称"},
+            {
+                "data":null,"title":"操作",
+                "defaultContent":'<a href="javascript:void(0)" class="view-detail">添加到表格中</a>'
+            }
+        ]
+    });
+
+    $('#oftenDataTable').on('click', 'a', function () {
+        //如果有多个按钮，根据class名称区分
+        if ($(this).hasClass("view-detail")) {
+            // a标签在td，td 在tr
+            // 这里要获取tr的对象，所以是 a标签的父级的父级
+            var trObjData = $(this).parent().parent();
+            var name = trObjData.attr("name");
+            // Only allow a new row when not currently editing
+            if (nEditing !== null) {
+                return;
+            }
+            var json = {
+                "name": name,
+                "type":-1
+            };
+            oTable02.row.add(createRowObj(json)).draw();
+            nEditing = null;
+        }
     });
 
     var nEditing = null;
