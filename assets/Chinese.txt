@@ -28,6 +28,5 @@
         "sortAscending": "以升序排列此列",
         "sortDescending": "以降序排列此列"
     },
-    "decimal": "-",
     "thousands": "."
 }
