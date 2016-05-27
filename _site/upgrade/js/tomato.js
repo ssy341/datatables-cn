@@ -1,7 +1,7 @@
 /**
  * Created by datatables.club on 2016/5/26.
  */
-
+var debug = false;
 
 if (!window.localStorage) {
     alert('不支持 localStorage,会影响使用功能');
@@ -9,7 +9,7 @@ if (!window.localStorage) {
 
 //因为功能还没有全部写完，避免弹出错误提示，每次数据都清空
 var initFlag = localStorage.getItem("datatables-cn-data");
-if (initFlag) {
+if (initFlag && debug) {
     localStorage.removeItem("datatables-cn-data");
 }
 //彩蛋
@@ -27,9 +27,11 @@ function restoreRow(oTable02, nRow) {
         name: aData.name,
         type: aData.type,
         color: aData.color,
+        priority: aData.priority,
+        done: aData.done,
         action: aData.action
     };
-    var arr = createRowObj(json);
+    var arr = creater.createRowObj(json);
     oTable02.row(nRow).data(arr).draw();
 }
 
@@ -37,13 +39,14 @@ function restoreRow(oTable02, nRow) {
 function editRow(oTable02, nRow) {
     var aData = oTable02.row(nRow).data();
     var jqTds = $('>td', nRow);
-    $(jqTds[0]).html(createInput(aData.name));
-    $(jqTds[1]).html(createSelect(aData.type));
-    $(jqTds[2]).html(createColorSelect(aData.color));
-    $(jqTds[3]).html(formatDate(aData.id));
-    $(jqTds[4]).html(createButton("save"));
+    $(jqTds[0]).html(creater.createPrioritySelect(aData.priority));
+    $(jqTds[1]).html(creater.createInput(aData.name));
+    $(jqTds[2]).html(creater.createSelect(aData.type));
+    $(jqTds[3]).html(creater.createColorSelect(aData.color));
+    $(jqTds[4]).html(formatDate(aData.id));
+    $(jqTds[5]).html(creater.createButton("save"));
     oTable02.draw();
-    updateData(oTable02.data());
+    dataManager.updateData(oTable02.data());
     if (NOTEFLAG == 1) {
         editCount++;
         if (editCount % 3 == 0) {
@@ -63,7 +66,7 @@ function addRow() {
         return;
     }
 
-    var aiNew = oTable02.row.add(createRowObj());
+    var aiNew = oTable02.row.add(creater.createRowObj());
     var nRow = oTable02.row(aiNew[0]).node();
     editRow(oTable02, nRow);
     nEditing = nRow;
@@ -91,43 +94,73 @@ function dealwithData(tmpData) {
     return arrTmp;
 }
 
-//操作列的按钮创建
-function createButton(type) {
-    if (type === 'save') {
-        return '<a class="edit save" href="#">保存</a>|<a class="delete" href="#">删除</a>';
-    } else {
-        return '<a class="edit" href="#">编辑</a>|<a class="delete" href="#">删除</a>';
+//我是女娲后人
+var creater = {
+    //操作列的按钮创建
+    "createButton": function (type) {
+        if (type === 'save') {
+            return '<a class="edit save" href="#">保存</a>|<a class="done" href="#">Done</a>|<a class="delete" href="#">删除</a>';
+        } else {
+            return '<a class="edit" href="#">编辑</a>|<a class="done" href="#">Done</a>|<a class="delete" href="#">删除</a>';
+        }
+    },
+    //input生成
+    "createInput": function (val) {
+        return '<input type="text" value="' + val + '" class="form-control">';
+    },
+    /**
+     * 创建select
+     */
+    "createSelect": function (val) {
+        var select = $("<select></select>");
+        select.append("<option value=''>请选择</option>");
+        select.append("<option value='0'>" + replaceValue(0) + "</option>");
+        select.append("<option value='1'>" + replaceValue(1) + "</option>");
+        select.append("<option value='-1'>" + replaceValue(-1) + "</option>");
+        select.val(val);
+        return select;
+    },
+    //创建背景颜色选择select
+    "createColorSelect": function (val) {
+        var select = $("<select></select>");
+        select.append("<option value=''>" + replaceColor() + "</option>");
+        select.append("<option value='0' style='background-color: " + replaceColor(0) + "'></option>");
+        select.append("<option value='1' style='background-color: " + replaceColor(1) + "'></option>");
+        select.append("<option value='-1' style='background-color: " + replaceColor(-1) + "'></option>");
+        select.val(val).css("background-color", replaceColor(val));
+        return select;
+    },
+    //创建优先级下拉框
+    "createPrioritySelect": function (val) {
+        var select = $("<select></select>");
+        select.append("<option value=''>" + replacePriority() + "</option>");
+        select.append("<option value='1'>" + replacePriority(1) + "</option>");
+        select.append("<option value='2'>" + replacePriority(2) + "</option>");
+        select.append("<option value='3'>" + replacePriority(3) + "</option>");
+        select.val(val);
+        return select;
+    },
+    //生成一个行对象
+    "createRowObj": function (json) {
+        var actionTem = creater.createButton();
+        var id = json ? json.id || new Date().getTime() : new Date().getTime();
+        var name = json ? json.name || "DataTable 中文网" : "DataTable 中文网";
+        var type = json ? json.type || "1" : "1";
+        var color = json ? json.color || replaceColor() : replaceColor();
+        var priority = json ? json.priority || 0 : 0;
+        var action = json ? json.action || actionTem : actionTem;
+        return {
+            "id": id,
+            "name": name,
+            "type": type,
+            "color": color,
+            "priority": priority,
+            "done": 0,
+            "action": action
+        };
     }
-}
+};
 
-//input生成
-function createInput(val) {
-    return '<input type="text" value="' + val + '" class="form-control">';
-}
-
-/**
- * 创建select
- */
-function createSelect(val) {
-    var select = $("<select></select>");
-    select.append("<option value=''>请选择</option>");
-    select.append("<option value='0'>" + replaceValue(0) + "</option>");
-    select.append("<option value='1'>" + replaceValue(1) + "</option>");
-    select.append("<option value='-1'>" + replaceValue(-1) + "</option>");
-    select.val(val);
-    return select;
-}
-
-//创建背景颜色选择select
-function createColorSelect(val) {
-    var select = $("<select></select>");
-    select.append("<option value=''>" + replaceColor() + "</option>");
-    select.append("<option value='0' style='background-color: " + replaceColor(0) + "'></option>");
-    select.append("<option value='1' style='background-color: " + replaceColor(1) + "'></option>");
-    select.append("<option value='-1' style='background-color: " + replaceColor(-1) + "'></option>");
-    select.val(val).css("background-color", replaceColor(val));
-    return select;
-}
 
 //保存行，把数据写入dt的内部数据对象，并重绘表格
 function saveRow(oTable02, nRow) {
@@ -135,16 +168,19 @@ function saveRow(oTable02, nRow) {
     var jqSelects = $('select', nRow);
     var rowObj = oTable02.row(nRow);
     var id = rowObj.data().id;
+    var done = rowObj.data().done;
     var json = {
         id: id,
         name: $(jqInputs[0]).val(),
-        type: $(jqSelects[0]).val(),
-        color: $(jqSelects[1]).val(),
-        action: createButton()
+        priority: $(jqSelects[0]).val(),
+        type: $(jqSelects[1]).val(),
+        color: $(jqSelects[2]).val(),
+        done: done,
+        action: creater.createButton()
     };
-    var tmpobj = createRowObj(json);
+    var tmpobj = creater.createRowObj(json);
     rowObj.data(tmpobj).draw();
-    updateData(oTable02.data());
+    dataManager.updateData(oTable02.data());
 }
 
 //初始化数据，展示例子
@@ -162,140 +198,81 @@ function getInfo() {
      systemLanguage	返回 OS 使用的默认语言。	4	No	No
      userAgent	返回由客户机发送服务器的 user-agent 头部的值。	4	1	9
      userLanguage	返回 OS 的自然语言设置。*/
-    var appCodeName = {};
-    appCodeName.id = null;
-    appCodeName.type = null;
-    appCodeName.color = null;
-    appCodeName.action = null;
-    appCodeName.name = "appCodeName: " + navigator.appCodeName;
     var infos = [];
-    infos.push(createRowObj(appCodeName));
-
-    var appName = {};
-    appName.id = null;
-    appName.type = null;
-    appName.color = null;
-    appName.action = null;
-    appName.name = "appName: " + navigator.appName;
-    infos.push(createRowObj(appName));
-
-    var appVersion = {};
-    appVersion.id = null;
-    appVersion.type = null;
-    appVersion.color = null;
-    appVersion.action = null;
-    appVersion.name = "appVersion: " + navigator.appVersion;
-    infos.push(createRowObj(appVersion));
-
-    var javaEnabled = {};
-    javaEnabled.id = null;
-    javaEnabled.type = null;
-    javaEnabled.color = null;
-    javaEnabled.action = null;
-    javaEnabled.name = "javaEnabled: " + navigator.javaEnabled();
-    infos.push(createRowObj(javaEnabled));
-
-    var cookieEnabled = {};
-    cookieEnabled.id = null;
-    cookieEnabled.type = null;
-    cookieEnabled.color = null;
-    cookieEnabled.action = null;
-    cookieEnabled.name = "cookieEnabled: " + navigator.cookieEnabled;
-    infos.push(createRowObj(cookieEnabled));
-
-    var onLine = {};
-    onLine.id = null;
-    onLine.type = null;
-    onLine.color = null;
-    onLine.action = null;
-    onLine.name = "onLine: " + navigator.onLine;
-    infos.push(createRowObj(onLine));
-
-    var platform = {};
-    platform.id = null;
-    platform.type = null;
-    platform.color = null;
-    platform.action = null;
-    platform.name = "platform: " + navigator.platform;
-    infos.push(createRowObj(platform));
-
-    var systemLanguage = {};
-    systemLanguage.id = null;
-    systemLanguage.type = null;
-    systemLanguage.color = null;
-    systemLanguage.action = null;
-    systemLanguage.name = "systemLanguage: " + navigator.systemLanguage;
-    infos.push(createRowObj(systemLanguage));
-
-    var userAgent = {};
-    userAgent.id = null;
-    userAgent.type = null;
-    userAgent.color = null;
-    userAgent.action = null;
-    userAgent.name = "userAgent: " + navigator.userAgent;
-    infos.push(createRowObj(userAgent));
-
-    var userLanguage = {};
-    userLanguage.id = null;
-    userLanguage.type = null;
-    userLanguage.color = null;
-    userLanguage.action = null;
-    userLanguage.name = "userLanguage: " + navigator.userLanguage;
-    infos.push(createRowObj(userLanguage));
+    createDemoData("appCodeName: " + navigator.appCodeName, infos);
+    createDemoData("appName: " + navigator.appName, infos);
+    createDemoData("appVersion: " + navigator.appVersion, infos);
+    createDemoData("javaEnabled: " + navigator.javaEnabled(), infos);
+    createDemoData("cookieEnabled: " + navigator.cookieEnabled, infos);
+    createDemoData("onLine: " + navigator.onLine, infos);
+    createDemoData("platform: " + navigator.platform, infos);
+    createDemoData("systemLanguage: " + navigator.systemLanguage, infos);
+    createDemoData("userAgent: " + navigator.userAgent, infos);
+    createDemoData("userLanguage: " + navigator.userLanguage, infos);
     return infos;
 }
 
-//重新初始化数据
-function reInitData() {
-    localStorage.removeItem("datatables-cn-data");
-    getData();
-    alert("请按F5");
+function createDemoData(value, array) {
+    var json = {};
+    json.id = null;
+    json.type = null;
+    json.color = null;
+    json.action = null;
+    json.priority = null;
+    json.done = null;
+    json.name = value;
+    array.push(creater.createRowObj(json));
 }
 
-//从浏览器本地缓存获取dt的所有相关数据
-function getData() {
-    var loaclData = localStorage.getItem("datatables-cn-data");
-    if (!loaclData) {
-        loaclData = {
-            "data": {
-                "data": getInfo()
-            }
-        };
-        loaclData = JSON.stringify(loaclData);
-        localStorage.setItem("datatables-cn-data", loaclData);
+//数据管理
+var dataManager = {
+    //把dt的相关数据设置到浏览器本地缓存
+    "setData": function (data) {
+        var parseData = JSON.stringify(data);
+        localStorage.setItem("datatables-cn-data", parseData);
+        return parseData;
+    },
+    //更新浏览器本地缓存里dt的相关数据
+    "updateData": function (data) {
+        var loaclData = this.getData();
+        // loaclData = JSON.parse(loaclData);
+        loaclData.data.data = dealwithData(data);
+        this.setData(loaclData);
+    },
+    //从浏览器本地缓存获取dt的所有相关数据
+    "getData": function () {
+        var loaclData = localStorage.getItem("datatables-cn-data");
+        if (!loaclData) {
+            loaclData = {
+                "data": {
+                    "data": getInfo(),
+                    "rowVisibleFlag": false
+                }
+            };
+            loaclData = this.setData(loaclData);
+        }
+        // console.log(loaclData);
+        return JSON.parse(loaclData);
+        // return loaclData;
+    },
+    //重新初始化数据
+    "reInitData": function () {
+        localStorage.removeItem("datatables-cn-data");
+        this.getData();
+        alert("请按F5");
+    },
+    "setVisibleForRow": function (flag) {
+        var data = this.getData();
+        // data = JSON.parse(data);
+        data.data.rowVisibleFlag = flag;
+        this.setData(data);
+    },
+    "getVisibleForRow": function () {
+        var data = this.getData();
+        // data = JSON.parse(data);
+        return data.data.rowVisibleFlag;
     }
-    return JSON.parse(loaclData);
-}
-
-//把dt的相关数据设置到浏览器本地缓存
-function setData(data) {
-    var parseData = JSON.stringify(data);
-    localStorage.setItem("datatables-cn-data", parseData);
-}
-
-//更新浏览器本地缓存里dt的相关数据
-function updateData(data) {
-    var loaclData = getData();
-    loaclData.data.data = dealwithData(data);
-    setData(loaclData);
-}
-
-//生成一个行对象
-function createRowObj(json) {
-    var actionTem = createButton();
-    var id = json ? json.id || new Date().getTime() : new Date().getTime();
-    var name = json ? json.name || "DataTable 中文网" : "DataTable 中文网";
-    var type = json ? json.type || "1" : "1";
-    var color = json ? json.color || replaceColor() : replaceColor();
-    var action = json ? json.action || actionTem : actionTem;
-    return {
-        "id": id,
-        "name": name,
-        "type": type,
-        "color": color,
-        "action": action
-    };
-}
+};
 
 //颜色替换
 function replaceColor(i) {
@@ -325,6 +302,22 @@ function replaceValue(i) {
     }
 }
 
+//重要程度
+function replacePriority(i) {
+    switch (parseInt(i)) {
+        case 0:
+            return "None";
+        case 1:
+            return "<span style='color:red'>!</span>";
+        case 2:
+            return "<span style='color:red'>!!</span>";
+        case 3:
+            return "<span style='color:red'>!!!</span>";
+        default:
+            return "None";
+    }
+}
+
 //格式化时间显示
 function formatDate(now) {
     now = new Date(now);
@@ -340,7 +333,7 @@ function formatDate(now) {
 //设置DataTable全局默认值
 $.extend(true, $.fn.dataTable.defaults, {
     "language": {
-        "url": "/assets/Chinese.txt"
+        "url": "../assets/Chinese.txt"
     },
     "dom": "BR<'row'<'col-md-6'l><'col-md-6'f>r>" +
     "t" +
@@ -452,16 +445,33 @@ $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx
  * 表格的增删改查
  *
  */
+var oTable02Data = dataManager.getData();
+// oTable02Data = JSON.parse(oTable02Data);
+oTable02Data = oTable02Data.data.data;
+
 var oTable02 = $('#inlineEditDataTable').DataTable({
     "columnDefs": [
-        {'title': "名称", 'targets': 0},
-        {'title': "类型", 'targets': 1},
-        {'title': "颜色", 'targets': 2},
-        {'title': "创建时间", 'targets': 3},
-        {'title': "操作", 'targets': 4}
+        {'title': "Priority", 'targets': 0},
+        {'title': "Item", 'targets': 1},
+        {'title': "Type", 'targets': 2},
+        {'title': "Background-color", 'targets': 3},
+        {'title': "Create-Date", 'targets': 4},
+        {'title': "Action", 'targets': 5}
     ],
-    "order": [[1, "asc"]],
+    "order": [[2, "asc"], [0, "des"]],
     "columns": [
+        {
+            "data": "priority",
+            "render": function (data, type, row, meta) {
+                if (type == "display") {
+                    return replacePriority(data);
+                }
+                if (type == "sort") {
+                    return data;
+                }
+                return data;
+            }
+        },
         {"data": "name"},
         {
             "data": "type",
@@ -495,13 +505,10 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
         },
         {"data": "action"}
     ],
-    "data": getData().data.data,
-    "createdRow": function (row, data, dataIndex) {
-        $(row).css('background-color', replaceColor(data.color));
-    },
-    "rowCallback": function (row, data, index) {
-        $(row).css('background-color', replaceColor(data.color));
-    },
+    "data": oTable02Data,
+    "createdRow": rowCallback,
+    "rowCallback": rowCallback,
+    "infoCallback": infoCallback,
     "buttons": [
         {
             extend: 'copy',
@@ -542,10 +549,26 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
             }
         },
         {
+            text: '隐藏行',
+            action: function (e, dt, node, config) {
+                e.preventDefault();
+                dataManager.setVisibleForRow(false);
+                oTable02.draw();
+            }
+        },
+        {
+            text: '显示行',
+            action: function (e, dt, node, config) {
+                e.preventDefault();
+                dataManager.setVisibleForRow(true);
+                oTable02.draw();
+            }
+        },
+        {
             text: "重新初始化数据",
             action: function (e, dt, node, config) {
                 e.preventDefault();
-                reInitData();
+                dataManager.reInitData();
             }
         },
         {
@@ -557,6 +580,34 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
         }
     ]
 });
+
+function rowCallback(row, data, index) {
+    $(row).css('background-color', replaceColor(data.color));
+    var flag = dataManager.getVisibleForRow();
+    if (data.done && !flag) {
+        $(row).css("display", "none");
+    } else {
+        $(row).css("display", "");
+    }
+}
+
+function infoCallback(settings, start, end, max, total, pre) {
+    var api = this.api();
+    var pageInfo = api.page.info();
+    var data = api.data();
+    var doneCount = 0;
+    $(data).each(function (index, object) {
+        if (object.done) {
+            doneCount++;
+        }
+    });
+    var info = '显示第 ' + (pageInfo.start + 1) + ' 至 ' + pageInfo.end +
+        ' 项结果，共 ' + pageInfo.recordsTotal + ' 项';
+    if (doneCount > 0) {
+        info += '( ' + doneCount + ' 项已隐藏 )';
+    }
+    return info;
+}
 
 var oftenData = [
     {
@@ -610,7 +661,8 @@ $('#oftenDataTable').on('click', 'a', function () {
             "name": name,
             "type": -1
         };
-        oTable02.row.add(createRowObj(json)).draw();
+        oTable02.row.add(creater.createRowObj(json)).draw();
+        dataManager.updateData(oTable02.data());
         nEditing = null;
     }
 });
@@ -627,7 +679,7 @@ $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
         return n.id != id;
     });
     oTable02.row(nRow).remove().draw(false);
-    updateData(finalData);
+    dataManager.updateData(finalData);
     if (NOTEFLAG == 1) {
         delCount++;
         if (delCount % 3 == 0) {
@@ -663,5 +715,19 @@ $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
         editRow(oTable02, nRow);
         nEditing = nRow;
     }
+});
+
+
+// 隐藏行初始化
+$(document).on("click", "#inlineEditDataTable a.done", function (e) {
+    e.preventDefault();
+
+    /* Get the row as a parent of the link that was clicked on */
+    var nRow = $(this).parents('tr')[0];
+    var singleData = oTable02.row(nRow).data();
+    singleData.done = 1;
+    oTable02.row(nRow).data(singleData).draw();
+    dataManager.updateData(oTable02.data());
+
 });
 

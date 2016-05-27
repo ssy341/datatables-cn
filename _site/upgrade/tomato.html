@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>:)</title>
-    <link href="./bootstrap/3.3.5/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bootstrap/3.3.5/bootstrap.min.css">
     <link rel="stylesheet" href="./datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="./datatables/buttons.dataTables.min.css">
 </head>
 <body>
-<table  class="table table-striped table-bordered dataTable no-footer" id="inlineEditDataTable">
+<!-- 主表 -->
+<table class="table table-striped table-bordered dataTable no-footer" id="inlineEditDataTable">
 </table>
 
+<!-- 常用数据表格 modal-->
 <div class="modal fade" id="oftenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="often">表格2</h4>
             </div>
             <div class="modal-body">
-                <table  class="table table-striped table-bordered dataTable no-footer" style="width:100%" id="oftenDataTable">
+                <table class="table table-striped table-bordered dataTable no-footer" style="width:100%"
+                       id="oftenDataTable">
                 </table>
             </div>
             <div class="modal-footer">
@@ -30,16 +34,17 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- 功能说明 Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">本例子说明</h4>
             </div>
             <div class="modal-body">
-               本例子有如下功能：
+                本例子有如下功能：
                 <ul>
                     <li>dom的应用</li>
                     <li>render的应用</li>
@@ -47,8 +52,8 @@
                     <li>国际化</li>
                     <li>buttons的应用（自带按钮，自定义按钮【非dom添加】）</li>
                     <li>打印表格</li>
-                    <li>导出表格为 csv/excel/pdf </li>
-                    <li>复制表格数据到内存剪贴板 </li>
+                    <li>导出表格为 csv/excel/pdf</li>
+                    <li>复制表格数据到内存剪贴板</li>
                     <li>行内编辑保存</li>
                     <li>表格的增删改查</li>
                     <li>列显示隐藏</li>
@@ -58,6 +63,7 @@
                     <li>值替换</li>
                     <li>行内生成select,input</li>
                     <li>数据从a表到b表</li>
+                    <li>根据数据判断行是否显示或者隐藏</li>
                 </ul>
                 已知bug:
                 <ul>
