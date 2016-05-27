@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:)</title>
+    <link rel="stylesheet" href="./bootstrap/3.3.5/bootstrap.min.css">
+    <link rel="stylesheet" href="./datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="./datatables/buttons.dataTables.min.css">
+</head>
+<body>
+<!-- 主表 -->
+<table class="table table-striped table-bordered dataTable no-footer" id="inlineEditDataTable">
+</table>
+
+<!-- 常用数据表格 modal-->
+<div class="modal fade" id="oftenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="often">表格2</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped table-bordered dataTable no-footer" style="width:100%"
+                       id="oftenDataTable">
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">我啥也不做</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 功能说明 Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">本例子说明</h4>
+            </div>
+            <div class="modal-body">
+                本例子有如下功能：
+                <ul>
+                    <li>dom的应用</li>
+                    <li>render的应用</li>
+                    <li>是用本地静态数据（浏览器本地缓存），而非ajax取数</li>
+                    <li>国际化</li>
+                    <li>buttons的应用（自带按钮，自定义按钮【非dom添加】）</li>
+                    <li>打印表格</li>
+                    <li>导出表格为 csv/excel/pdf</li>
+                    <li>复制表格数据到内存剪贴板</li>
+                    <li>行内编辑保存</li>
+                    <li>表格的增删改查</li>
+                    <li>列显示隐藏</li>
+                    <li>弹出模态框</li>
+                    <li>时间格式化</li>
+                    <li>填充行的背景色</li>
+                    <li>值替换</li>
+                    <li>行内生成select,input</li>
+                    <li>数据从a表到b表</li>
+                    <li>根据数据判断行是否显示或者隐藏</li>
+                </ul>
+                已知bug:
+                <ul>
+                    <li>不能在隐藏列的情况下编辑，添加新行</li>
+                    <li>导出pdf不支持中文，原因在于字体文件</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" onclick="alert('加群连接在底部哦:)')">加群给点意见吧！</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="./js/jquery-2.0.0.js"></script>
+<script src="./bootstrap/3.3.5/bootstrap.min.js"></script>
+<script src="./datatables/jquery.dataTables.min.js"></script>
+<!--是用buttons的基本js-->
+<script src="./datatables/dataTables.buttons.min.js"></script>
+<!--支持库-->
+<script src="./datatables/jszip.min.js"></script>
+<!--生成pdf需要的js-->
+<script src="./datatables/pdfmake.min.js"></script>
+<!--字体文件-->
+<script src="./datatables/vfs_fonts.js"></script>
+<script src="./datatables/buttons.html5.min.js"></script>
+<!--打印支持-->
+<script src="./datatables/buttons.print.min.js"></script>
+<script src="./datatables/buttons.flash.min.js"></script>
+<!--列显示隐藏js-->
+<script src="./datatables/buttons.colVis.min.js"></script>
+<!--tomato js-->
+<script src="./js/tomato.js"></script>
+</html>
