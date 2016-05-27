@@ -58,7 +58,7 @@
     <code class="option">columns.type<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.visible" %}
-<a href="https://datatables.net/reference/option/columns.type" target="_blank">
+<a href="https://datatables.net/reference/option/columns.visible" target="_blank">
     <code class="option">columns.visible<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.width" %}
