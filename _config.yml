@@ -7,7 +7,7 @@ encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom']
 #destination: ./_site
 #destination: C:\code\xampp\htdocs
-dtversion: 1.10.11
+dtversion: 1.10.12
 email: thxopen@datatables.club
 
 # Build settings
