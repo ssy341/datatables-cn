@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>如何添加新行到表格的最上面（困扰了许多人的一个梗） 《不定时一讲》 DataTable中文网</title>
+    <meta charset="utf-8">
+    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
+    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <p>这个还要从很久很久之前说起……</p>
+
+<p>首先要说的是 Datatables 提供了两个 api 来添加新的行，一个是
+<a href="https://datatables.net/reference/api/row.add()" target="_blank">
+    <code class="api">row.add()<span>API</span></code>
+</a>
+,一个是
+<a href="https://datatables.net/reference/api/rows.add()" target="_blank">
+    <code class="api">rows.add()<span>API</span></code>
+</a></p>
+
+<p>前者是单行添加，后者是多行添加，那么先看下面的代码，看看我们是怎么添加一行到表格中的</p>
+
+<p>下面是表格初始化代码</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">oTable02</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#inlineEditDataTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Priority"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Item"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Type"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Background-color"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"order"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"des"</span><span class="p">]],</span>
+    <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"priority"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"type"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"color"</span><span class="p">}</span>
+    <span class="p">],</span>
+     <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"json.json"</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>往表格里添加一行或者多行</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre></td><td class="code"><pre><span class="c1">//单独添加一行</span>
+<span class="kd">var</span> <span class="nx">singlerow</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"DataTables 中文网"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
+    <span class="s2">"priority"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+<span class="nx">oTable02</span><span class="p">.</span><span class="nx">row</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">singlerow</span><span class="p">);</span>
+
+<span class="c1">//同时添加多行</span>
+<span class="kd">var</span> <span class="nx">rows</span> <span class="o">=</span> <span class="p">[{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"DataTables 中文网 api"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
+    <span class="s2">"priority"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"DataTables 中文网 不定时一讲"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
+    <span class="s2">"priority"</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}];</span>
+<span class="nx">oTable02</span><span class="p">.</span><span class="nx">rows</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">rows</span><span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这个时候大家遇到的问题就是，怎么都往后面追加了，要是有2页的话，不翻页还不知道这行已经添加进去了</p>
+
+<p>先别急，我们先看看这个例子 <a href="/example/api/add_row.html">添加行 API 示例 Datatables中文网</a></p>
+
+<p>不用怀疑，如果你操作了这个例子，你心中肯定想的是，添加新行就是往后追加的</p>
+
+<p>不！我一开始也是这么认为的，直到我写首页的例子后，发现有时候添加的新行居然在表格中间，我暗自笑了笑，“哈哈居然还有bug”</p>
+
+<p>但是后面我发现不对，于是我开始查询资料，皇天不负有心人，终于让我知道是怎么回事了。</p>
+
+<p>作者在论坛里说到</p>
+
+<blockquote>
+  <p>Datatables 的数据位置是由 sort 控制的，如果你希望新加入的行在表格最上面，那么你的数据排序（升序）就必须要在最上面</p>
+</blockquote>
+
+<p>看到这句话的时候，我大概明白了，我马上去用代码做了实验证明自己的想法。</p>
+
+<p>“实践是检验真理的唯一标准”这话一点都不假，如果光有想法不实践，只做而又不去思考都是不行的，咦？不对，我是不是跑题了？
+好我们说正事，那么根据我上面说的屁话，可以知道如果要想新加入的行在表格的最上方，只要在数据上稍作处理即可。</p>
+
+<p>看下面代码</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">oTable02</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#inlineEditDataTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Priority"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Item"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Type"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
+        <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Background-color"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="c1">//这里之所以写出来，是大家需要注意的，因为dt的的默认值为[[0, 'asc']]</span>
+    <span class="c1">//所以上面提到的 添加行的例子 操作的结果是在后面追加</span>
+    <span class="c1">//因为默认第一列升序排列，所以根据代码，新加的行第一列是累加的，那么越来越大，升序的话当然往后面排啊</span>
+    <span class="s2">"order"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"des"</span><span class="p">]],</span>
+    <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"priority"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"type"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"color"</span><span class="p">}</span>
+    <span class="p">],</span>
+     <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"json.json"</span>
+<span class="p">});</span>
+
+<span class="c1">//针对这个代码示例，先假设表格中已经有一行数据【  0  中文网  1  white 】，我新加的行要在他上面，代码这样写</span>
+<span class="kd">var</span> <span class="nx">singlerow</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"我在最上面"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"color"</span><span class="p">:</span> <span class="s2">"white"</span><span class="p">,</span>
+    <span class="s2">"priority"</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">};</span>
+<span class="nx">oTable02</span><span class="p">.</span><span class="nx">row</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">singlerow</span><span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这里需要注意的地方就是，我给出的代码示例设置了第一列降序排列，第一列是 <code class="highlighter-rouge">priority</code>， 那么只要新加行  <code class="highlighter-rouge">priority</code> 比已有行  <code class="highlighter-rouge">priority</code> 要大 即可。</p>
+
+<h3 id="section">总结：添加的新行的位置是根据某列的排序位置来确定的，大家明白了么？</h3>
+
+    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+</div>
+</body>
+</html>

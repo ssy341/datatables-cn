@@ -85,8 +85,8 @@
 
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
-                <li><a href="#2016-04"><i class="icon-chevron-right"></i>April 2016</a></li>
                 <li><a href="#2016-05"><i class="icon-chevron-right"></i>May 2016</a></li>
+                <li><a href="#2016-04"><i class="icon-chevron-right"></i>April 2016</a></li>
             </ul>
         </div>
         <div class="span9">
@@ -101,18 +101,17 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
             <div class="span12">
-                <section id="2016-04">
-                    <table id="2016-04_table" class="display custom" cellspacing="0" width="100%">
-                        <caption><h2>April 2016</h2></caption>
-                    </table>
-                </section>
-
                 <section id="2016-05">
                     <table id="2016-05_table" class="display custom" cellspacing="0" width="100%">
                         <caption><h2>May 2016</h2></caption>
                     </table>
                 </section>
 
+                <section id="2016-04">
+                    <table id="2016-04_table" class="display custom" cellspacing="0" width="100%">
+                        <caption><h2>April 2016</h2></caption>
+                    </table>
+                </section>
 
             </div><!--/span-->
 
@@ -471,7 +470,7 @@ var example = {
             }
         ];
 
-        var order = [[2, 'asc']];
+        var order = [[2, 'desc']];
         return example.config(data.tableId, data.url,columns,columnDefs,order);
     },
     /**
