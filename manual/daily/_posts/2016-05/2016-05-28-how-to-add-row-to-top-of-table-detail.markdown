@@ -1,5 +1,5 @@
 ---
-layout: daily
+layout: daily_detail
 title: 如何添加新行到表格的最上面（困扰了许多人的一个梗） 《不定时一讲》 DataTable中文网
 short: 如何添加新行到表格的最上面（困扰了许多人的一个梗）
 date: 2016-5-28

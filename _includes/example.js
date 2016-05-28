@@ -93,7 +93,7 @@ var example = {
             }
         ];
 
-        var order = [[2, 'asc']];
+        var order = [[2, 'desc']];
         return example.config(data.tableId, data.url,columns,columnDefs,order);
     },
     /**
