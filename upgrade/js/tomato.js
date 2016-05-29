@@ -673,13 +673,18 @@ var nEditing = null;
 $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
     e.preventDefault();
     var nRow = $(this).parents('tr')[0];
-    var id = oTable02.row(nRow).data().id;
+    var rowData = oTable02.row(nRow).data();
+    var id = rowData.id;
+    var itemName = rowData.name;
     var dtData = dealwithData(oTable02.data());
-    var finalData = $.grep(dtData, function (n, i) {
-        return n.id != id;
-    });
-    oTable02.row(nRow).remove().draw(false);
-    dataManager.updateData(finalData);
+    var delFlag = confirm("确定删除此项"+itemName);
+    if(delFlag){
+        var finalData = $.grep(dtData, function (n, i) {
+            return n.id != id;
+        });
+        oTable02.row(nRow).remove().draw(false);
+        dataManager.updateData(finalData);
+    }
     if (NOTEFLAG == 1) {
         delCount++;
         if (delCount % 3 == 0) {
