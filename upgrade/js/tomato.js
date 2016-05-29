@@ -112,8 +112,8 @@ var creater = {
      * 创建类型 select
      */
     "createTypeSelect": function (val) {
-        var typeArr = [0,1,-1];
-        return this.createSelect(typeArr,val,replaceValue);
+        var typeArr = [0, 1, -1];
+        return this.createSelect(typeArr, val, replaceValue);
     },
     /**
      * 创建select下拉框
@@ -122,11 +122,11 @@ var creater = {
      * @param render 显示渲染
      * @returns {*|jQuery|HTMLElement}
      */
-    "createSelect":function(arr,val,render){
+    "createSelect": function (arr, val, render) {
         var select = $("<select></select>");
         select.append("<option value=''>请选择</option>");
-        for(var i = 0;i<arr.length;i++){
-            select.append("<option value='"+arr[i]+"'>"+render(arr[i])+"</option>")
+        for (var i = 0; i < arr.length; i++) {
+            select.append("<option value='" + arr[i] + "'>" + render(arr[i]) + "</option>")
         }
         select.val(val);
         return select;
@@ -143,8 +143,8 @@ var creater = {
     },
     //创建优先级下拉框
     "createPrioritySelect": function (val) {
-        var PriorityArr = ["",1,2,3];
-        return this.createSelect(PriorityArr,val,replacePriority);
+        var PriorityArr = ["", 1, 2, 3];
+        return this.createSelect(PriorityArr, val, replacePriority);
     },
     //生成一个行对象
     "createRowObj": function (json) {
@@ -683,8 +683,8 @@ $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
     var id = rowData.id;
     var itemName = rowData.name;
     var dtData = dealwithData(oTable02.data());
-    var delFlag = confirm("确定删除此项"+itemName);
-    if(delFlag){
+    var delFlag = confirm("确定删除此项" + itemName);
+    if (delFlag) {
         var finalData = $.grep(dtData, function (n, i) {
             return n.id != id;
         });
