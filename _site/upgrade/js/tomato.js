@@ -41,7 +41,7 @@ function editRow(oTable02, nRow) {
     var jqTds = $('>td', nRow);
     $(jqTds[0]).html(creater.createPrioritySelect(aData.priority));
     $(jqTds[1]).html(creater.createInput(aData.name));
-    $(jqTds[2]).html(creater.createSelect(aData.type));
+    $(jqTds[2]).html(creater.createTypeSelect(aData.type));
     $(jqTds[3]).html(creater.createColorSelect(aData.color));
     $(jqTds[4]).html(formatDate(aData.id));
     $(jqTds[5]).html(creater.createButton("save"));
@@ -109,14 +109,25 @@ var creater = {
         return '<input type="text" value="' + val + '" class="form-control">';
     },
     /**
-     * 创建select
+     * 创建类型 select
      */
-    "createSelect": function (val) {
+    "createTypeSelect": function (val) {
+        var typeArr = [0, 1, -1];
+        return this.createSelect(typeArr, val, replaceValue);
+    },
+    /**
+     * 创建select下拉框
+     * @param arr 数组  [1,2,3,4]
+     * @param val 默认选中的值
+     * @param render 显示渲染
+     * @returns {*|jQuery|HTMLElement}
+     */
+    "createSelect": function (arr, val, render) {
         var select = $("<select></select>");
         select.append("<option value=''>请选择</option>");
-        select.append("<option value='0'>" + replaceValue(0) + "</option>");
-        select.append("<option value='1'>" + replaceValue(1) + "</option>");
-        select.append("<option value='-1'>" + replaceValue(-1) + "</option>");
+        for (var i = 0; i < arr.length; i++) {
+            select.append("<option value='" + arr[i] + "'>" + render(arr[i]) + "</option>")
+        }
         select.val(val);
         return select;
     },
@@ -132,13 +143,8 @@ var creater = {
     },
     //创建优先级下拉框
     "createPrioritySelect": function (val) {
-        var select = $("<select></select>");
-        select.append("<option value=''>" + replacePriority() + "</option>");
-        select.append("<option value='1'>" + replacePriority(1) + "</option>");
-        select.append("<option value='2'>" + replacePriority(2) + "</option>");
-        select.append("<option value='3'>" + replacePriority(3) + "</option>");
-        select.val(val);
-        return select;
+        var PriorityArr = ["", 1, 2, 3];
+        return this.createSelect(PriorityArr, val, replacePriority);
     },
     //生成一个行对象
     "createRowObj": function (json) {
@@ -673,13 +679,18 @@ var nEditing = null;
 $(document).on("click", "#inlineEditDataTable a.delete", function (e) {
     e.preventDefault();
     var nRow = $(this).parents('tr')[0];
-    var id = oTable02.row(nRow).data().id;
+    var rowData = oTable02.row(nRow).data();
+    var id = rowData.id;
+    var itemName = rowData.name;
     var dtData = dealwithData(oTable02.data());
-    var finalData = $.grep(dtData, function (n, i) {
-        return n.id != id;
-    });
-    oTable02.row(nRow).remove().draw(false);
-    dataManager.updateData(finalData);
+    var delFlag = confirm("确定删除此项" + itemName);
+    if (delFlag) {
+        var finalData = $.grep(dtData, function (n, i) {
+            return n.id != id;
+        });
+        oTable02.row(nRow).remove().draw(false);
+        dataManager.updateData(finalData);
+    }
     if (NOTEFLAG == 1) {
         delCount++;
         if (delCount % 3 == 0) {
