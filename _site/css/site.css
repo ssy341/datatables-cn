@@ -46,3 +46,10 @@ code {
 p{
     text-indent: 2em;
 }
+
+.hot {
+    background-image: url(/images/hot.gif);
+    height: 12px;
+    width: 21px;
+    position: absolute;
+}

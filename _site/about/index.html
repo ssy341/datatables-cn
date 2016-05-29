@@ -14,15 +14,9 @@
 <link href="http://www.zhuhaihengxin.com/libs/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/favicon.png">
+    <link href="/css/site.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/favicon.png">
     <style>
-        .hot {
-            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
-            height: 12px;
-            width: 21px;
-            position: absolute;
-        }
-
         .donateType {
             color: red;
         }
@@ -32,7 +26,7 @@
         }
     </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 <style>
     .hot {
         background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
@@ -81,21 +75,33 @@
 </header>
 
 <div class="container">
-    <div class="row-fluid" style="margin-top:20px">
+    <div class="row" style="margin-top:20px">
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
                 <li><a href="#about"><i class="icon-chevron-right"></i>关于我们</a></li>
                 <li><a href="#joinus"><i class="icon-chevron-right"></i>加入我们</a></li>
                 <li><a href="#donate"><i class="icon-chevron-right"></i>赞助我们</a></li>
+                <li><a href="#feedback"><i class="icon-chevron-right"></i>留言板<span class="hot"></span></a></li>
             </ul>
         </div>
         <div class="span9">
-
+            <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
             <section id="about">
                 <div class="page-header">
                     <h2>关于我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     Datatables中文网是结合官网给大家一个完整的、易懂的手册。 本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
                     让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
 
@@ -105,7 +111,7 @@
                 <div class="page-header">
                     <h2>加入我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     本站为jekyll搭建，源码托管在
                     <a href="https://github.com/ssy341/datatables-cn/" target="_blank">github</a>上,
                     如果你也想加入到翻译中来，请联系QQ:1282262270标注[dt翻译]。
@@ -117,7 +123,7 @@
                 <div class="page-header">
                     <h2>赞助我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     Datatables中文网由个人开发和维护着，随着用户量的增加，服务器、维护等成本均在上升。为了更好地服务大家，不断地开发、维护、完善它，需要持续投入大量的精力和一定的财力，需要您的支持和赞助。
                     收到的赞助款项将完全用于Datatables中文网，我们也会公布赞助的情况。
                 </p>
@@ -175,32 +181,42 @@
 
                 </p>
             </section>
-        </div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
+            <section id="feedback">
+                <div class="page-header">
+                    <h2>留言板</h2>
+                </div>
+                <p class="lead">
+                    有什么想对我们说的？在这里尽情的畅聊吧……
+                </p>
+                <div id="disqus_thread"></div>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+     var disqus_config = function () {
+     this.page.url = '/about/'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/about/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     };
+     */
+    var disqus_config = function () {
+        this.page.url = 'http://datatables.club/about/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/about/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//datatables.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
-<!--<div id="SOHUCS" sid="/about/"></div>
-<script>
-    (function(){
-        var appid = 'cyr8jjDJ2',
-                conf = 'prod_d596729bcd45c9544aac809c726ea090';
-        var doc = document,
-                s = doc.createElement('script'),
-                h = doc.getElementsByTagName('head')[0] || doc.head || doc.documentElement;
-        s.type = 'text/javascript';
-        s.charset = 'utf-8';
-        s.src =  'http://assets.changyan.sohu.com/upload/changyan.js?conf='+ conf +'&appid=' + appid;
-        h.insertBefore(s,h.firstChild);
-        window.SCS_NO_IFRAME = true;
-    })()
-</script>-->
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </section>
+        </div>
 
     </div>
 </div>
@@ -488,7 +504,7 @@ client.on( 'error', function() {
 
 
 
-
+<scrip src="/js/application.js"></scrip>
 
 <script  type="text/javascript" charset="utf8" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
 
