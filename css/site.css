@@ -1,3 +1,5 @@
+---
+---
 code.option {
     color: #D14;
     background-color: #fcf6f8;
@@ -45,4 +47,11 @@ code {
 
 p{
     text-indent: 2em;
+}
+
+.hot {
+    background-image: url({{site.baseurl}}/images/hot.gif);
+    height: 12px;
+    width: 21px;
+    position: absolute;
 }

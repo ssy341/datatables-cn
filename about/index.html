@@ -7,16 +7,10 @@ title: 关于Datatables中文网
     {% include head.html %}
     {% include libs/bootstrap_css.html %}
     {% include libs/datatables_css.html %}
-    <link href="/css/docs.css" rel="stylesheet">
-    <link rel="shortcut icon" href="../images/favicon.png">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.png">
     <style>
-        .hot {
-            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
-            height: 12px;
-            width: 21px;
-            position: absolute;
-        }
-
         .donateType {
             color: red;
         }
@@ -26,7 +20,7 @@ title: 关于Datatables中文网
         }
     </style>
 </head>
-<body>
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
 {% include nav.html param="about" %}
 <header class="jumbotron subhead" id="overview">
     <div class="container">
@@ -40,21 +34,22 @@ title: 关于Datatables中文网
 </header>
 
 <div class="container">
-    <div class="row-fluid" style="margin-top:20px">
+    <div class="row" style="margin-top:20px">
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
                 <li><a href="#about"><i class="icon-chevron-right"></i>关于我们</a></li>
                 <li><a href="#joinus"><i class="icon-chevron-right"></i>加入我们</a></li>
                 <li><a href="#donate"><i class="icon-chevron-right"></i>赞助我们</a></li>
+                <li><a href="#feedback"><i class="icon-chevron-right"></i>留言板<span class="hot"></span></a></li>
             </ul>
         </div>
         <div class="span9">
-
+            {% include xad %}
             <section id="about">
                 <div class="page-header">
                     <h2>关于我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     Datatables中文网是结合官网给大家一个完整的、易懂的手册。 本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
                     让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
 
@@ -64,7 +59,7 @@ title: 关于Datatables中文网
                 <div class="page-header">
                     <h2>加入我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     本站为jekyll搭建，源码托管在
                     <a href="https://github.com/ssy341/datatables-cn/" target="_blank">github</a>上,
                     如果你也想加入到翻译中来，请联系QQ:1282262270标注[dt翻译]。
@@ -76,7 +71,7 @@ title: 关于Datatables中文网
                 <div class="page-header">
                     <h2>赞助我们</h2>
                 </div>
-                <p class="lead" style="text-indent: 2em">
+                <p class="lead">
                     Datatables中文网由个人开发和维护着，随着用户量的增加，服务器、维护等成本均在上升。为了更好地服务大家，不断地开发、维护、完善它，需要持续投入大量的精力和一定的财力，需要您的支持和赞助。
                     收到的赞助款项将完全用于Datatables中文网，我们也会公布赞助的情况。
                 </p>
@@ -99,8 +94,17 @@ title: 关于Datatables中文网
 
                 </p>
             </section>
+            <section id="feedback">
+                <div class="page-header">
+                    <h2>留言板</h2>
+                </div>
+                <p class="lead">
+                    有什么想对我们说的？在这里尽情的畅聊吧……
+                </p>
+                {% include disqus.html %}
+            </section>
         </div>
-        {% include post.html param= site.url param2 = page.url %}
+
     </div>
 </div>
 
@@ -139,7 +143,7 @@ title: 关于Datatables中文网
 <!--footer-->
 {% include copyright.html %}
 {% include script.html %}
-
+<scrip src="{{site.baseurl}}/js/application.js"></scrip>
 {% include libs/datatables_js.html param='1.10.5' %}
 <script type="text/javascript">
     $(document).ready(function () {
