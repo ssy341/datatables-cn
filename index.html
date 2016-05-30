@@ -147,13 +147,19 @@ title: Datatables 中文网
                 cell.innerHTML = i + 1;
             });
         }).draw();
-
         //热门页面 表格
+        {% assign list = site.data.statistics %}
+        {% for item in list %}
+            {% if forloop.last == false %}
+                {% assign today = item[0] %}
+            {% endif %}
+        {% endfor %}
+
         var hottable = $('#hottable').DataTable({
             "order": [],
             "dom": "<'#toolbar'f>rtip",
             "pageLength": 5,
-            "ajax": baseurl + "/assets/statistics/2016-05-26.txt",
+            "ajax": baseurl + "/assets/statistics/{{today}}.txt",
             "columns": [
                 {data: null},
                 {
