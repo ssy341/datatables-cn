@@ -1,80 +1,14 @@
+---
+---
 {
-    "data": [
-        {
-            "content":"<del>已经开始同步更新，为了方便大家解决问题，本站开通了<a target='_blank' href='http://datatables.club'>论坛</a> ，欢迎使用</del>",
-            "date":"2014-11-22",
-            "isHot":0
-        },
-        {
-            "content":"<del>更换服务器，访问速度提升；论坛地址更换<a target='_blank' href='http://datatables.club'>http://dt.thxopen.com/bbs/forum.php</a></del>",
-            "date":"2014-12-13",
-            "isHot":0
-        },
-        {
-            "content":"DataTable更新至【1.10.+】，【1.9.-】在本站定义为老版本，部分参数和方法名变动，具体参考<a target='_blank' href='/upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>",
-            "date":"2014-12-29",
-            "isHot":1
-        },
-       {
-            "content":"<a target='_blank' href='http://www.gbtags.com/gb/share/4526.htm'>Datatables新版1.10.4特性讲解征求意见</a>",
-            "date":"2015-02-05",
-            "isHot":0
-        },
-        {
-            "content":"<a target='_blank' href='http://datatables.club/tour'>Datatables中文网导航</a>",
-            "date":"2015-03-02",
-            "isHot":0
-        },
-        {
-            "content":"<a target='_blank' href='http://datatables.club/faqs'>Datatables常见问题</a>",
-            "date":"2015-03-18",
-            "isHot":1
-        },
-        {
-            "content":"<a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加",
-            "date":"2015-04-01",
-            "isHot":0
-        },
-        {
-            "content":"第一期<a target='_blank' href='/example/'>视频教学</a>",
-            "date":"2015-04-11",
-            "isHot":0
-        },
-        {
-            "content":"Datatables中文网第一期交流学习活动开始了<a target='_blank' href='/activity/'>传送门</a>",
-            "date":"2015-04-27",
-            "isHot":0
-        },
-         {
-             "content":"中文网去掉畅言评论，因为需要填写备案信息，正在想办法给大家一个交流平台，也欢迎大家有好的建议，我的邮箱是thxopen@datatables.club",
-             "date":"2016-1-6",
-             "isHot":1
-         },
-          {
-              "content":"TableTools被废弃，建议大家使用Buttons扩展，中文网添加了<a target='_blank' href='../reference/button'>buttons文档</a>",
-              "date":"2016-1-20",
-              "isHot":1
-          },
-          {
-             "content": "添加了<a target='_blank' href='/extensions/'>Extensions文档</a>",
-              "date":"2016-4-1",
-              "isHot":1
-          },
-           {
-                "content":"添加了<a target='_blank' href='/plug-ins/'>Plug-ins文档</a>",
-                "date":"2016-4-7",
-                "isHot":1
-          },
-         {
-             "content":"添加了<a target='_blank' href='/manual/daily/'>《不定时一讲》</a>",
-             "date":"2016-4-18",
-             "isHot":1
-         },
-           {
-               "content":"对《不定时一讲》的看法<a target='_blank' href='https://www.wenjuan.com/s/z2Q3Ez/'>投票</a>",
-               "date":"2016-4-22",
-               "isHot":1
-          }
-    ], 
-    "isNote": true
+  {% assign updatelogList = site.data.updatelog %}
+   "data":[{% for item in updatelogList %}
+            {
+              "content":"{{item.content}}",
+              "date":"{{item.date}}",
+              "isHot":"{{item.isHot}}"
+            }{% if forloop.last == false %},{% endif %}
+           {% endfor %}
+   ],
+  "isNote": true
 }
