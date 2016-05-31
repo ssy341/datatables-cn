@@ -150,7 +150,7 @@ title: Datatables 中文网
         //热门页面 表格
         {% assign list = site.data.statistics %}
         {% for item in list %}
-            {% if forloop.last == false %}
+            {% if forloop.last %}
                 {% assign today = item[0] %}
             {% endif %}
         {% endfor %}
