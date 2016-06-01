@@ -17,6 +17,8 @@ relurl: http://datatables.net/examples/advanced_init/defaults.html
     </div>
 </header>
 <div class="container">
+
+    {% include xad %}
 <div class="row-fluid" style="margin-top:20px">
 
 <!-- 表格开始 -->
@@ -465,8 +467,7 @@ $(document).ready(function() {
         </div>
     </div>
 </div>
-{% include quote.html param='http://datatables.net/examples/advanced_init/defaults.html'%}
-{% include post.html param= site.url param2 = page.url %}
+{% include quote.html %}
 </div>
 
 </div><!--/row-->

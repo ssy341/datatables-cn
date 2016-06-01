@@ -75,8 +75,9 @@
 		<div class="row-fluid">
             <div class="span2"></div>
 			<div class="span8">
+                {% include xad %}
 				{{content}}
-				{% include post.html param= site.url param2 = page.url %}
+                {% include disqus.html %}
 			</div><!--/row-->
             <div class="span2"></div>
 		</div><!--/row-->
