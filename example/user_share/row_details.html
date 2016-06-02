@@ -28,6 +28,7 @@ title: 行详细内容的展开与折叠 网友共享 示例 Datatables中文网
     </div>
 </header>
 <div class="container" style="margin-top:20px">
+    {% include xad %}
     <div class="span12">
         <!-- 表格开始 -->
 
@@ -406,7 +407,7 @@ if ( $.fn.DataTable.TableTools ) {
 
 </div>
 </div>
-{% include post.html param= site.url param2 = page.url %}
+{% include disqus.html %}
     </div>
 </div><!--/row-->
 {% include copyright.html %}
