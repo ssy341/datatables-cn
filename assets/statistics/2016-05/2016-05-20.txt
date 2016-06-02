@@ -1,0 +1,12 @@
+---
+---
+{% assign list = site.data.statistics.2016-05.2016-05-20 %}
+ {
+     "data":[{% for item in list %}
+              {
+                "url":"{{item['url']}}",
+                "num":"{{item['num']}}"
+              }{% if forloop.last == false %},{% endif %}
+             {% endfor %}
+     ]
+}

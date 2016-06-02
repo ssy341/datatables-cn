@@ -148,7 +148,8 @@ title: Datatables 中文网
             });
         }).draw();
         //热门页面 表格
-        {% assign list = site.data.statistics %}
+        {% assign date = "2016-06" %}
+        {% assign list = site.data.statistics[date] %}
         {% for item in list %}
             {% if forloop.last %}
                 {% assign today = item[0] %}
@@ -159,7 +160,7 @@ title: Datatables 中文网
             "order": [],
             "dom": "<'#toolbar'f>rtip",
             "pageLength": 5,
-            "ajax": baseurl + "/assets/statistics/{{today}}.txt",
+            "ajax": baseurl + "/assets/statistics/{{date}}/{{today}}.txt",
             "columns": [
                 {data: null},
                 {
