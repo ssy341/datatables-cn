@@ -15,6 +15,7 @@ author: DataTable中文网
 它接受一维数组或者是二维数组，根据自己的需要可以自行设置
 
 * 一维数组
+<!--more-->
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

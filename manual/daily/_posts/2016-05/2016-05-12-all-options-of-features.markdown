@@ -19,6 +19,7 @@ author: DataTable中文网
 [Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 PS：以下所谓的老版指的是1.9，新版指的是1.10
+<!--more-->
 
 这里要说明下，到目前为止，DataTables的最新版为1.10.11，但是大部分的朋友在网络上搜索到的还是1.9版本的写法
 

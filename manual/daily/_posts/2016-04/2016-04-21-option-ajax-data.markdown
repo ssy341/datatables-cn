@@ -7,10 +7,12 @@ group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.M2d0ec5e902de7ef879d89fff83d8e512o0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/ajax.data.dt %}
 
 这连续几天讲的都是关于dt怎么取数，今天讲讲怎么传参数给服务器。平时我们都有这样的应用场景，比如根据时间，或者input框的值作为查询条件显示表格数据
+<!--more-->
 基本用法：
 {% highlight javascript linenos %}
 var table = $("#tableid").DataTable({

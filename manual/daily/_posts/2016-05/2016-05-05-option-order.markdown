@@ -13,6 +13,7 @@ author: DataTable中文网
 第一列的排序去不掉，这个问题在群里出现的频率很高，这里讲下为什么去不掉
 
 * 禁用排序
+<!--more-->
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

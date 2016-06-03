@@ -11,6 +11,7 @@ author: 雨吴
 参数详解连接{% include href/option/columns.render.dt %}{% include href/option/columnDefs.targets.dt %}
 
 今天继续由4群的小伙伴- **雨吴**  给大家讲解`columns.render` 的用法
+<!--more-->
 
 ### 第一个问题：时间格式化这个问题主要是代表一类需要自己写额外的js的问题：
 {% highlight javascript linenos %}

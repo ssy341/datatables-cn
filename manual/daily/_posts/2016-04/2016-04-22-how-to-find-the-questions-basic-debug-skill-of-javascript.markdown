@@ -7,9 +7,11 @@ group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.M58ee49940fd49d3b076345d5b1321c64o0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
 今天不讲参数，也不讲使用方法，讲讲我们该如果去找到问题，解决问题。谁都有犯错的时候，但是我们要吸取教训，在以后的学习道路中少走弯路。 作为前端开发人员几个基本的知识是一定要知道的。
 F12- 人称万能的f12，现在主流的浏览器都有，俗称开发者工具，只要浏览器开着，这个就一定开着.
+<!--more-->
 
 chrome有两个方式调出开发者工具 ，ctrl+shift+i 和 F12，在开发者工具里首先要提到的两个功能是console和network
 

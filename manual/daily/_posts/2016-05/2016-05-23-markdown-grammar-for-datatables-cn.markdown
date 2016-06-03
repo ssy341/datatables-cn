@@ -24,6 +24,7 @@ author: DataTable中文网
 - 标题
 - 引用
 - 代码块
+<!--more-->
 
 ## 超链接
 

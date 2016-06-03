@@ -11,6 +11,7 @@ author: DataTable中文网
 参数详解连接{% include href/option/option.options param="search.search" %}
 
 Datatables 在初始化的时候可以设置一个默认的条件进行过滤，这在某些应用场景是可以用到的
+<!--more-->
 
 表格初始化时，默认搜索包含 `Fred` 的数据
 {% highlight javascript linenos %}

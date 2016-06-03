@@ -7,14 +7,17 @@ group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.M39bd88a4b8b35a051591e14753dd434dH0&w=300&h=165&c=0&pid=1.9&rs=0&p=0
 ---
+
+![Alt text](http://tse1.mm.bing.net/th?&id=OIP.M39bd88a4b8b35a051591e14753dd434dH0&w=300&h=165&c=0&pid=1.9&rs=0&p=0)
 
 这个还要从很久很久之前说起……
 
 首先要说的是 Datatables 提供了两个 api 来添加新的行，一个是{% include href/api/api.rows param="row.add()" %},一个是{% include href/api/api.rows param="rows.add()" %}
 
 前者是单行添加，后者是多行添加，那么先看下面的代码，看看我们是怎么添加一行到表格中的
-
+<!--more-->
 下面是表格初始化代码
 {% highlight javascript linenos %}
 var oTable02 = $('#inlineEditDataTable').DataTable({

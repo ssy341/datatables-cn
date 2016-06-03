@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="utf-8">
 <head>
-    {% include head.html %}
-    {% include link.html %}
+    <!--meta-->
+    <title>{{ page.title }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.sitename }}">
+    <!-- Le styles -->
+    <link href="{{site.baseurl}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{site.baseurl}}/css/blog-home.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
 </head>
 <body>
-{% include nav.html param='manual' %}
+    <!--nav-->
+    {% include blog/nav.html %}
+    <!-- Page Content -->
+    <div class="container">
 
-<div class="container">
-    <h2>{{ page.short }}</h2><span>{{page.date | date: "%-d %B %Y"}} | {{page.author}}</span>
-    <div style="margin:10px auto">
-        {% include xad %}
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="{{ page.url }}">{{ page.short }}</a>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-user"></span> {{page.author}}
+                    <span class="glyphicon glyphicon-time"></span> {{page.date | date: "%-d %B %Y"}}
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+                </p>
+                <hr>
+
+                <img class="img-responsive" src="{{ post.banner }}" alt="">
+                <div class="content">
+                    <!--正文-->
+                    {{content}}
+                </div>
+                <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>{{ site.email }}</code></h3>
+
+                <hr>
+                {% include xad %}
+                <!--评论-->
+                {% include disqus.html %}
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            {% include blog/right.html %}
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        {% include blog/footer.html %}
+
     </div>
-    {{content}}
-    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>{{ site.email }}</code></h3>
-    {% include disqus.html %}
-</div>
-{% include libs/jquery_js.html %}
-{% include libs/bootstrap_js.html %}
-{% include note.js %}
-{% include copy.js %}
-{% include copyright.html %}
+    <!-- /.container -->
+<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 </body>
+
 </html>

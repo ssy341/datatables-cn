@@ -17,6 +17,7 @@ author: DataTable中文网
 DataTable提供一个回调函数{% include href/option/formatNumber.option %}来渲染这些数字
 
 假设用千分符来分隔，看起来就不一样了，如 **9'874'029'144**
+<!--more-->
 
 下面看个基本的用法：
 

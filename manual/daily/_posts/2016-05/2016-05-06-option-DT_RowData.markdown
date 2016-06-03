@@ -15,6 +15,7 @@ author: DataTable中文网
 我们通常使用`columns.render`来添加自定义的按钮，比如修改，删除或者其他的操作，这里就会涉及到取数的问题
 
 先看看 `columns.render` 是怎么处理的
+<!--more-->
 
 {% highlight javascript linenos %}
 //数据实例

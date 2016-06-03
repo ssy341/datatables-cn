@@ -13,6 +13,7 @@ author: DataTable中文网
 Datatables是支持正则表达式搜索的，这个对于高级点的应用来说还是能派上用场
 
 不过默认是关闭的，如果要打开支持正则搜索，参考如下代码：
+<!--more-->
 
 {% highlight javascript linenos %}
     var table = $('#example').DataTable( {

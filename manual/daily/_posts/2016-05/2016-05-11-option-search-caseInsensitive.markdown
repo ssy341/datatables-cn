@@ -13,6 +13,7 @@ author: DataTable中文网
 这个参数很简单，在只有英文的情况下使用这个参数可以设置这个参数，Datatables过滤的时候是否区分大小写
 
 默认是区分大小写的，所以如果你不想区分大小写，参考如下代码：
+<!--more-->
 
 {% highlight javascript linenos %}
     var table = $('#example').DataTable( {

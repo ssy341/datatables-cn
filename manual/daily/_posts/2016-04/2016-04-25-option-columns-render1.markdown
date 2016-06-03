@@ -7,10 +7,12 @@ group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.M25b97f9c434807d2eb5d42885873bdb9o0&w=300&h=266&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/columns.render.dt %}
 
 说到这个参数，可以说是明星参数了，他几乎能解决群友们问到的问题，几乎啊！废话不说我先简单介绍下这个参数到底能解决那些常见问题。
+<!--more-->
 
 1. 在第一列添加checkbox，radio
 

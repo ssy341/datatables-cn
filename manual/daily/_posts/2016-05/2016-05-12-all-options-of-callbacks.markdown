@@ -19,6 +19,7 @@ author: DataTable中文网
 [Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
 
 Callbacks - 回调函数部分
+<!--more-->
 
 {% highlight javascript linenos %}
 var table = $('#example').DataTable({

@@ -19,6 +19,7 @@ Datatables的客户端搜索和服务器搜索默认的延迟时间是400ms，�
     4. 当然，你还可以设置为0，来获得更快的速度，只要你愿意
 
 {% include href/option/option.options param="searchDelay" %}接受的参数是以 `ms` 为单位
+<!--more-->
 
 提一点，这个延迟参数只针对全局搜索有效，如果是
 {% include href/api/search.dt %},{% include href/api/column.search.dt %} 方法则此参数不会生效，需要使用

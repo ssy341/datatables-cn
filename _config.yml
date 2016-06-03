@@ -10,6 +10,13 @@ exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom']
 dtversion: 1.10.12
 email: thxopen@datatables.club
 
+# page config
+gems: [jekyll-paginate]
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+excerpt_separator: <!--more-->
+
 # Build settings
 markdown: kramdown
 sitename: Datatables 中文网

@@ -7,11 +7,13 @@ group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.Mbb35cd39733e156411ba906317a9d44ao0&w=300&h=187&c=0&pid=1.9&rs=0&p=0
 ---
 
 参数详解连接{% include href/option/ajax.dataSrc.dt %}
 
 今天讲的参数dataSrc是属于ajax下的一个属性，他类似于jQuery ajax的success方法，废话少说看下面的代码
+<!--more-->
 基本用法：
 {% highlight javascript linenos %}
 $("#tableid").DataTable({

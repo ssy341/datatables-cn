@@ -12,6 +12,7 @@ author: DataTable中文网
 
 定义表格初始化时显示的页数，使用这个参数的前提是得开启分页特性 `paging:true`，默认情况下是打开分页了，但是如果你把
 {% include href/option/paging.dt %}属性置为 `false` 那肯定就没用了哦！
+<!--more-->
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

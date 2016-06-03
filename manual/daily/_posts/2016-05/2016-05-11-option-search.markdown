@@ -19,6 +19,7 @@ author: DataTable中文网
 {% include href/option/option.options param="search.smart" %}、
 {% include href/option/option.options param="search.regex" %}和
 {% include href/option/option.options param="search.caseInsensitive" %}
+<!--more-->
 
 看下面两段代码是一样的效果，给全局设置初始化过滤选项
 {% highlight javascript linenos %}

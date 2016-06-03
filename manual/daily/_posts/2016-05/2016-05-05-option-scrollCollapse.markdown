@@ -12,6 +12,7 @@ author: DataTable中文网
 
 每个插件都不是完美的，但是作者也是尽可能考虑到使用者的感受，对于表格的高度，一些人希望随着数据的变化而变化，
 另一些人则希望固定高度，这个参数正是这个用处
+<!--more-->
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

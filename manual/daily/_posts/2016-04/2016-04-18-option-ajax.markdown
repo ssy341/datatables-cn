@@ -7,10 +7,12 @@ group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.M701d17ad701dacc0ec3e8455a9e96c11o0&w=299&h=231&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/ajax.dt %}
 
 今天讲的参数是ajax，相信大家不陌生，用过jQuery的人对这个应该很熟悉。dt是基于jquery做的表格插件，所以dt在读取数据时也用了jquery的ajax，虽然是类似，但是有加强，下面看ajax的用法吧。
+<!--more-->
 基本语法：
 {% highlight javascript linenos %}
 $("#tableid").DataTable({

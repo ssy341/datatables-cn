@@ -13,6 +13,7 @@ author: DataTable中文网
 默认情况下，Datatables就已经把行和行区分开了，使用的是 `$.fn.dataTable.ext.classes.stripe*` 选项，值为 `odd` 和 `even`
 
 {% include href/option/option.options param="stripeClasses" %}接受的是一个数组
+<!--more-->
 
 定义三个不同的样式
 {% highlight javascript linenos %}

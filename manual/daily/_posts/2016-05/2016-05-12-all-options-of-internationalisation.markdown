@@ -19,6 +19,7 @@ author: DataTable中文网
 [Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
 
 Internationalisation - 国际化部分
+<!--more-->
 
 {% highlight javascript linenos %}
 var table = $('#example').DataTable({

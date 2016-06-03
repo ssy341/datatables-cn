@@ -1,0 +1,31 @@
+---
+layout: blog
+title: DataTables 中文网博客
+---
+
+<!-- This loops through the paginated posts -->
+{% assign postlist = paginator.posts | where_exp: 'layout', 'layout == "daily" and layout == "post" ' %}
+{% for post in postlist %}
+<!-- First Blog Post -->
+<h2>
+    <a href="{{ post.url }}" target="_blank">{{ post.short }}</a>
+</h2>
+<p>
+    <span class="glyphicon glyphicon-user"></span>
+    {{ post.author }}
+    <span class="glyphicon glyphicon-time"></span>
+    {{ post.date | date: "%-d %B %Y" }}
+    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+</p>
+<hr>
+<img class="img-responsive" src="{{ post.banner }}" alt="">
+<p>
+    {{ post.excerpt | strip_html }}
+</p>
+<a class="btn btn-primary" href="{{ post.url }}" target="_blank">
+    阅读更多<span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+
+<hr>
+
+{% endfor %}

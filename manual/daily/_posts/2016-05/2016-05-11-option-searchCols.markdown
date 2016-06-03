@@ -15,6 +15,7 @@ author: DataTable中文网
 `search ` 代表过滤的条件，`escapeRegex` 代表是否支持正则，这个参数是可选的。
 
 需要注意的是，这个对象数组需要和列数匹配。
+<!--more-->
 
 总共4列的表格，给第二列和第四列设置初始化过滤条件
 {% highlight javascript linenos %}

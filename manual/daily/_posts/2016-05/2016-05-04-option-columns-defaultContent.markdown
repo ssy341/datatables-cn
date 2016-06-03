@@ -14,6 +14,7 @@ author: DataTable中文网
 {% include href/option/columns.render.dt %}属性，想要弄得更复杂点，全靠它了
 
 我们返回的数据不能保证都是正常的，可能包含 `null` ，显然这个对于最终用户来说是不友好的，那么我们可以这么处理
+<!--more-->
 
 先有如下数据格式：
 {% highlight javascript linenos %}

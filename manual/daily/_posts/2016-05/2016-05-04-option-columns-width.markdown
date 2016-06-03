@@ -11,6 +11,7 @@ author: DataTable中文网
 参数详解连接{% include href/option/columns.width.dt %}
 
 DataTable会根据列内容自动计算列宽，通过设置{% include href/option/autoWidth.dt %}属性控制是否开启这个功能
+<!--more-->
 
 同样我们也可以自定义列宽，看下面代码：
 {% highlight javascript linenos %}

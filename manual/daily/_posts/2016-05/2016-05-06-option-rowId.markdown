@@ -15,6 +15,7 @@ author: DataTable中文网
 大部分的表格都会带出id，用来做唯一标示，修改，删除都会用到id
 
 Datatables给大家提供一个内部实现，让绑定id不需要再写其他代码，配置上属性即可
+<!--more-->
 
 {% highlight javascript linenos %}
 //数据示例
