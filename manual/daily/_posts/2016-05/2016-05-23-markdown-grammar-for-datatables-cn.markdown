@@ -6,7 +6,9 @@ date: 2016-5-23
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
+tags: [不定时一讲]
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.Md519df722f842d287e83ca969015b48fo0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
 
 > [Markdown语法说明](http://wowubuntu.com/markdown/)

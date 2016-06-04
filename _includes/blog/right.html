@@ -4,14 +4,9 @@
     </div>
     <!-- Blog Search Well -->
     <div class="well">
-        <h4>放百度搜索 站内搜索</h4>
+        <h4>站内搜索</h4>
         <div class="input-group">
-            <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
+            <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
         </div>
         <!-- /.input-group -->
     </div>
@@ -20,25 +15,24 @@
     <div class="well">
         <h4>博客分类</h4>
         <div class="row">
-            <div class="col-lg-6">
-                <ul class="list-unstyled">
-                    <li><a href="#">所有文章</a>
-                    </li>
-                    <li><a href="#">中文网blog</a>
-                    </li>
-                </ul>
+            <div id="tagcloud" style="padding:10px">
+
+                {% for tag in site.tags %}
+                <a href="{{site.baseurl}}/blog/listall.html#{{ tag | first }}" title="{{ tag | first }}" rel="{{ tag | last | size }}">
+                    {{ tag | first }} ({{ tag | last | size }})
+                </a>
+                {% endfor %}
+                <a href="{{site.baseurl}}/blog/listall.html" title="all" rel="{{site.tags | size}}">
+                    所有
+                </a>
+
             </div>
-            <!-- /.col-lg-6 -->
-            <div class="col-lg-6">
-                <ul class="list-unstyled">
-                    <li><a href="#">不定时一讲</a>
-                    </li>
-                    <li><a href="#">官方blog</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.col-lg-6 -->
+
         </div>
+
+        <script type="text/javascript" src="{{ site.baseurl }}/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="{{ site.baseurl }}/js/jquery.tagcloud.js"></script>
+        <script type="text/javascript" src="{{ site.baseurl }}/js/cloud.js"></script>
         <!-- /.row -->
     </div>
 

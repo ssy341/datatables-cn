@@ -6,7 +6,9 @@ date: 2016-5-12
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
+tags: [不定时一讲]
 author: DataTable中文网
+banner: http://tse1.mm.bing.net/th?&id=OIP.Mb8cb79bda0141f372b6b59c0ea9c8cf9o0&w=264&h=159&c=0&pid=1.9&rs=0&p=0
 ---
 [所有option连接]({{site.url}}/reference/option/)
 

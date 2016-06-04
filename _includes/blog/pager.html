@@ -6,7 +6,7 @@
         <span class="previous">上一页</span>
         {% endif %}
     </li>
-    <li><span class="page_number ">当前第{{ paginator.page }} 页（共 {{ paginator.total_pages }}）</span></li>
+    <li><span class="page_number ">当前第{{ paginator.page }} 页（每页{{paginator.per_page}}条，共 {{ paginator.total_pages }}页）</span></li>
     <li class="next">
         {% if paginator.next_page %}
         <a href="{{ paginator.next_page_path }}">下一页 &rarr;</a>

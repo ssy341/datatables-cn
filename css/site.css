@@ -47,6 +47,13 @@ code {
 
 .content p{
     text-indent: 2em;
+    font-size: medium;
+    margin-bottom: 30px;
+    font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans";
+}
+.content li{
+    font-size: medium;
+    font-family: 'Microsoft YaHei',Verdana,"BitStream vera Sans";
 }
 
 .hot {

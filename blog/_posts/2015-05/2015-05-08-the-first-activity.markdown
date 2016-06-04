@@ -1,11 +1,12 @@
 ---
 layout: daily
-title: Datatables中文网第一期交流学习活动开始了 中文网博客 DataTable中文网
+title: Datatables中文网第一期交流学习活动开始了 博客 DataTables中文网
 short: Datatables中文网第一期交流学习活动开始了
 date: 2015-5-08
 group: 2015-5
 caption: DataTables 中文网博客
 categories: blog
+tags: [活动,博客]
 author: DataTable中文网
 banner: /images/activity/ibm.jpg
 ---
