@@ -29,6 +29,9 @@ function restoreRow(oTable02, nRow) {
         color: aData.color,
         priority: aData.priority,
         done: aData.done,
+        first: aData.first,
+        second: aData.second,
+        third: aData.third,
         action: aData.action
     };
     var arr = creater.createRowObj(json);
@@ -41,10 +44,11 @@ function editRow(oTable02, nRow) {
     var jqTds = $('>td', nRow);
     $(jqTds[0]).html(creater.createPrioritySelect(aData.priority));
     $(jqTds[1]).html(creater.createInput(aData.name));
-    $(jqTds[2]).html(creater.createTypeSelect(aData.type));
-    $(jqTds[3]).html(creater.createColorSelect(aData.color));
-    $(jqTds[4]).html(formatDate(aData.id));
-    $(jqTds[5]).html(creater.createButton("save"));
+    $(jqTds[2]).html(creater.createInput(aData.first));
+    $(jqTds[3]).html(creater.createTypeSelect(aData.type));
+    $(jqTds[4]).html(creater.createColorSelect(aData.color));
+    $(jqTds[5]).html(formatDate(aData.id));
+    $(jqTds[6]).html(creater.createButton("save"));
     oTable02.draw();
     dataManager.updateData(oTable02.data());
     if (NOTEFLAG == 1) {
@@ -155,6 +159,9 @@ var creater = {
         var color = json ? json.color || replaceColor() : replaceColor();
         var priority = json ? json.priority || 0 : 0;
         var action = json ? json.action || actionTem : actionTem;
+        var first = json ? json.first || "" : "";
+        var second = json ? json.second || "" : "";
+        var third = json ? json.third || "" : "";
         return {
             "id": id,
             "name": name,
@@ -162,10 +169,22 @@ var creater = {
             "color": color,
             "priority": priority,
             "done": 0,
+            "first": first,
+            "second": second,
+            "third": third,
             "action": action
         };
     }
 };
+
+function toTime(val) {
+    val = parseInt(val);
+    var str = '';
+    for (var i = 0; i < val; i++) {
+        str += '0';
+    }
+    return str;
+}
 
 
 //保存行，把数据写入dt的内部数据对象，并重绘表格
@@ -175,12 +194,14 @@ function saveRow(oTable02, nRow) {
     var rowObj = oTable02.row(nRow);
     var id = rowObj.data().id;
     var done = rowObj.data().done;
+    var first = toTime($(jqInputs[1]).val());
     var json = {
         id: id,
         name: $(jqInputs[0]).val(),
         priority: $(jqSelects[0]).val(),
         type: $(jqSelects[1]).val(),
         color: $(jqSelects[2]).val(),
+        first: first,
         done: done,
         action: creater.createButton()
     };
@@ -226,6 +247,9 @@ function createDemoData(value, array) {
     json.action = null;
     json.priority = null;
     json.done = null;
+    json.first = null;
+    json.second = null;
+    json.third = null;
     json.name = value;
     array.push(creater.createRowObj(json));
 }
@@ -459,12 +483,13 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
     "columnDefs": [
         {'title': "Priority", 'targets': 0},
         {'title': "Item", 'targets': 1},
-        {'title': "Type", 'targets': 2},
-        {'title': "Background-color", 'targets': 3},
-        {'title': "Create-Date", 'targets': 4},
-        {'title': "Action", 'targets': 5}
+        {'title': "Time", 'targets': 2},
+        {'title': "Type", 'targets': 3},
+        {'title': "Background-color", 'targets': 4},
+        {'title': "Create-Date", 'targets': 5},
+        {'title': "Action", 'targets': 6}
     ],
-    "order": [[2, "asc"], [0, "des"]],
+    "order": [[3, "asc"], [0, "des"]],
     "columns": [
         {
             "data": "priority",
@@ -479,6 +504,13 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
             }
         },
         {"data": "name"},
+        {
+            "data": "first",
+            "render":function(data, type, row, meta){
+                console.log(row.first + row.second + row.third)
+                return row.first + row.second + row.third;
+            }
+        },
         {
             "data": "type",
             "render": function (data, type, row, meta) {
@@ -741,4 +773,9 @@ $(document).on("click", "#inlineEditDataTable a.done", function (e) {
     dataManager.updateData(oTable02.data());
 
 });
+
+//行多选
+$(document).on('click', '#inlineEditDataTable tbody tr', function () {
+    $(this).toggleClass("selected");
+} );
 

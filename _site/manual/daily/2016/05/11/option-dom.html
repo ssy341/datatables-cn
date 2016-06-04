@@ -4,75 +4,97 @@
     <!--meta-->
     <title>option dom 自定义布局表格 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
-    <meta name="baidu-site-verification" content="dcl4KCseZ0" />
-    <meta name="google-site-verification" content="aLPryaYhH4oXkloIrOOwl8F9nIJy8x3Eq_k86lMxuXc" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <meta name="author" content="Datatables 中文网">
     <!-- Le styles -->
-    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <!-- Custom CSS -->
+    <link href="/css/blog-home.css" rel="stylesheet">
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/images/favicon.png" rel="shortcut icon">
 </head>
 <body>
-<style>
-    .hot {
-        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
-        height: 12px;
-        width: 21px;
-        position: absolute;
-    }
-</style>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+    <!--nav-->
+    
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li ><a href="/index.html">首页</a></li>
-                    <li ><a href="/example">例子</a></li>
-                    <li class="active"><a href="/manual">手册</a></li>
-                    <li ><a href="/reference">文档(Options&API)</a></li>
-                    <li ><a href="/extensions">扩展</a></li>
-                    <li ><a href="/plug-ins">插件</a></li>
-                    <li ><a href="/faqs">FAQs</a></li>
-                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
-                    <li ><a href="/activity/">活动</a></li>
-                    <li ><a href="/about/">关于</a></li>
-                    <li ><a href="/tour/">导航</a></li>
-                </ul>
-            </div>
+            <a class="navbar-brand" href="http://datatables.club">DataTables 中文网</a>
         </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/blog">博客</a>
+                </li>
+                <li>
+                    <a href="/example">例子</a>
+                </li>
+                <li>
+                    <a href="/manual">手册</a>
+                </li>
+                <li>
+                    <a href="/reference">文档</a>
+                </li>
+                <li>
+                    <a href="/extensions">扩展</a>
+                </li>
+                <li>
+                    <a href="/plug-ins">插件</a>
+                </li>
+                <li>
+                    <a href="/faqs">FAQS</a>
+                </li>
+                <li>
+                    <a href="/upgrade">更新</a>
+                </li>
+                <li>
+                    <a href="/about">关于</a>
+                </li>
+                <li>
+                    <a href="/tour">导航</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-</div>
+    <!-- /.container -->
+</nav>
 
+    <!-- Page Content -->
+    <div class="container">
 
-<div class="container">
-    <h2>option dom 自定义布局表格</h2><span>11 May 2016 | DataTable中文网</span>
-    <div style="margin:10px auto">
-        <div style="margin:10px 0">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-    </div>
-    <p>参数详解连接
+        <div class="row">
+
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="/manual/daily/2016/05/11/option-dom.html">option dom 自定义布局表格</a>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-user"></span> DataTable中文网
+                    <span class="glyphicon glyphicon-time"></span> 11 May 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-dom.html"></span>
+                </p>
+                <hr>
+
+                <img class="img-responsive" src="" alt="">
+                <div class="content">
+                    <!--正文-->
+                    <p>参数详解连接
 <a href="/reference/option/dom.html" target="_blank">
     <code class="option">dom<span>Option</span></code>
 </a>
@@ -84,7 +106,8 @@
 <a href="http://datatables.club/example/basic_init/dom.html">示例讲解1</a> 和
 <a href="http://datatables.club/example/advanced_init/dom_toolbar.html">示例讲解2</a></p>
 
-<p>前几天在搬家，所以没时间去更新了，今天搬完了，终于解放了。搬一次家感觉一辈子都不想再搬了……</p>
+<p>前几天在搬家，所以没时间去更新了，今天搬完了，终于解放了。搬一次家感觉一辈子都不想再搬了……
+<!--more--></p>
 
 <p>说到搬家，我联想到布局，这也是今天所要讲的主题，关键字 <strong>DOM</strong>，总有些东西放在哪里不是你期望的，也总有些东西你不希望看到。
 我们弄清楚下面几个问题，你基本可以任意妄为了。</p>
@@ -537,8 +560,24 @@ DOM。它们实际上就是一个 <code class="highlighter-rouge">div</code> 包
 <p>看完这么多，我觉得应该是明白了，如果还不明白，我就只能回去重修语文课了（看不明白的一定要给我发邮件，不能眼睁睁看我的语文如此之差啊）</p>
 
 
-    <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
-    <div id="disqus_thread"></div>
+                </div>
+                <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <hr>
+                <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+                <!--评论-->
+                <div id="disqus_thread"></div>
 <script>
     /**
      * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -565,173 +604,94 @@ DOM。它们实际上就是一个 <code class="highlighter-rouge">div</code> 包
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
-</div>
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+            </div>
 
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
-
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-
-<script src="http://www.zhuhaihengxin.com/libs/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-
-<script type="text/javascript">
-//判断是否显示更新提示
-$.get("/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
-    });
-</script>
-<!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+    <div>
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
 <script>
-$('[data-toggle="tooltip"]').tooltip();
-$('#copyurltoclip').on('show.bs.tooltip', function () {
-
-    var url = window.location.href;
-    var title = $("title").html();
-    var text = title + ":"+url;
-    $(this).attr("data-clipboard-text",text);
-
-});
-
-var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-client.on( "aftercopy", function( event ) {
-    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-} );
-
-client.on( 'error', function() {
-    ZeroClipboard.destroy();
-} );
+(adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-<style>
-.right-ad{
-	box-sizing: content-box;
-	width: 150px;
-	height: 600px;
-	overflow: hidden;
-	z-index: 2147483647;
-	position: fixed;
-	top: 35%;
-	right: 20px;
-	display:block;
-}
-
-.right-ad div{
-	box-sizing: content-box;
-	width:150px;
-	height:600px;
-	padding:4px;
-	<!-- border:#acacac 1px solid; -->
-	overflow:hidden;
-	position:absolute;
-	left:0;
-	top:25px;
-}
-
-.left-ad{
-	box-sizing: content-box;
-	width: 150px;
-	height: 600px;
-	overflow: hidden;
-	z-index: 2147483647;
-	position: fixed;
-	top: 35%;
-	left: 20px;
-	display:block;
-}
-.left-ad div{
-	box-sizing: content-box;
-	width:150px;
-	height:600px;
-	padding:4px;
-	<!--border:#acacac 1px solid; -->
-	overflow:hidden;
-	position:absolute;
-	left:0;
-	top:25px;
-}
-</style>
-<div class="left-ad"  id="adLeft">
-  <div>
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   <!-- yad-left -->
-   <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2101546703939638"
-        data-ad-slot="1953170309"
-        data-ad-format="auto"></ins>
-   <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
- </div>
 </div>
-
-<div class="right-ad" id="adRight">
-  <div>
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   <!-- yad-right -->
-   <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2101546703939638"
-        data-ad-slot="7999703903"
-        data-ad-format="auto"></ins>
-   <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
- </div>
-</div>
-
-<script>
-          // 屏幕分辨率的高：
-        var h = window.screen.height;
-         // 屏幕分辨率的宽：
-         var w = window.screen.width;
-         if(w<1500){
-            var adLeft = document.getElementById("adLeft").style.display = "none";
-            var adRight = document.getElementById("adRight").style.display = "none";
-         }else{
-            console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
-            console.log("非常期待您的反馈，这样中文网才能越做越好");
-            console.log("Thank you for your support! If you have any suggestions, please contact thxopen@datatables.club");
-            console.log("I'm looking forward your feedback. Make the website better and better.");
-            console.log(":)");
-            if(document.getElementById("noad")){
-                var adLeft = document.getElementById("adLeft").style.display = "none";
-                var adRight = document.getElementById("adRight").style.display = "none";
-                console.log("index no ad of side");
-            }
-         }
-</script>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<!--footer-->
-<footer class="footer">
-    <div class="container">
-        <div class="span3">
-            <img src="/assets/logo-fade.png" alt=""/>
+    </div>
+    <!-- Blog Search Well -->
+    <div class="well">
+        <h4>站内搜索</h4>
+        <div class="input-group">
+            <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
         </div>
-        <div class="span6" style="margin: 0">
+        <!-- /.input-group -->
+    </div>
+
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>博客分类</h4>
+        <div class="row">
+            <div id="tagcloud" style="padding:10px">
+
+                
+                <a href="/blog/listall.html#活动" title="活动" rel="1">
+                    活动 (1)
+                </a>
+                
+                <a href="/blog/listall.html#博客" title="博客" rel="2">
+                    博客 (2)
+                </a>
+                
+                <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="35">
+                    不定时一讲 (35)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="3">
+                    所有
+                </a>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="/js/jquery.tagcloud.js"></script>
+        <script type="text/javascript" src="/js/cloud.js"></script>
+        <!-- /.row -->
+    </div>
+
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4>这里写点什么呢？</h4>
+        <p>
+            这里写点什么呢？你来告诉我
+        </p>
+    </div>
+
+</div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+    <div class="row">
+        <div class="col-lg-6">
+            <p>Themes and templates licensed under the <a
+                    href="https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE">MIT
+                License</a>.
+                <br>Based on <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+            <p>Copyright &copy; 2014 - 2016 datatables.club. Powered by
+                <a href="http://jekyllrb.com/"> Jekyll</a> .</p>
+            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257121472'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257121472%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+        </div>
+        <div class="col-lg-6">
             <ul class="footer-links">
                 <li>
                     <iframe style="border: 0;overflow: hidden"
@@ -748,12 +708,6 @@ client.on( 'error', function() {
                             src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
                 </li>
             </ul>
-            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
-
-            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
-                &
-                <a href="http://jekyllrb.com/" target="_blank"
-                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
             <ul class="footer-links" id="qqgroup">
                 <li>QQ群：</li>
                 <li>
@@ -795,30 +749,30 @@ client.on( 'error', function() {
                 <li>相关插件：</li>
                 <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
             </ul>
-            <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257121472'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1257121472%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
         </div>
-       <div class="span3">
-           <p style="font-size:15px;text-indent: 2em;">
-               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
-               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
-               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
-           </p>
-           <p style="font-size:15px;text-indent: 2em;">
-             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
-               <ul class="footer-links">
-                   <li>技术支持：</li>
-                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
-                   <li><a href="http://www.kinginf.com" target="_blank">KingInf</a></li>
-               </ul>
-           </p>
-       </div>
+
+        <!-- /.col-lg-12 -->
     </div>
+    <!-- /.row -->
 </footer>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 <script type="text/javascript">
     function noteTitle(obj){
         var note = $(obj).attr("title");
         alert(note);
     }
 </script>
+
+    </div>
+    <!-- /.container -->
+<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 </body>
+
 </html>
