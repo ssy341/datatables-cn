@@ -29,6 +29,7 @@ function restoreRow(oTable02, nRow) {
         color: aData.color,
         priority: aData.priority,
         done: aData.done,
+        tiem: aData.time,
         action: aData.action
     };
     var arr = creater.createRowObj(json);
@@ -41,10 +42,11 @@ function editRow(oTable02, nRow) {
     var jqTds = $('>td', nRow);
     $(jqTds[0]).html(creater.createPrioritySelect(aData.priority));
     $(jqTds[1]).html(creater.createInput(aData.name));
-    $(jqTds[2]).html(creater.createTypeSelect(aData.type));
-    $(jqTds[3]).html(creater.createColorSelect(aData.color));
-    $(jqTds[4]).html(formatDate(aData.id));
-    $(jqTds[5]).html(creater.createButton("save"));
+    $(jqTds[2]).html(creater.createInput(replaceSign(aData.time)));
+    $(jqTds[3]).html(creater.createTypeSelect(aData.type));
+    $(jqTds[4]).html(creater.createColorSelect(aData.color));
+    $(jqTds[5]).html(formatDate(aData.id));
+    $(jqTds[6]).html(creater.createButton("save"));
     oTable02.draw();
     dataManager.updateData(oTable02.data());
     if (NOTEFLAG == 1) {
@@ -99,9 +101,9 @@ var creater = {
     //操作列的按钮创建
     "createButton": function (type) {
         if (type === 'save') {
-            return '<a class="edit save" href="#">保存</a>|<a class="done" href="#">Done</a>|<a class="delete" href="#">删除</a>';
+            return '<a class="edit save" href="#">保存</a>|<a class="delete" href="#">删除</a>';
         } else {
-            return '<a class="edit" href="#">编辑</a>|<a class="done" href="#">Done</a>|<a class="delete" href="#">删除</a>';
+            return '<a class="edit" href="#">编辑</a>|<a class="tomato" href="#">Tomato</a>|<a class="addtomato" href="#">addTomato</a>|<a class="done" href="#">Done</a>|<a class="delete" href="#">删除</a>';
         }
     },
     //input生成
@@ -155,6 +157,8 @@ var creater = {
         var color = json ? json.color || replaceColor() : replaceColor();
         var priority = json ? json.priority || 0 : 0;
         var action = json ? json.action || actionTem : actionTem;
+        var tiemArr = {"first": [], "second": [], "third": []};
+        var time = json ? json.time || tiemArr : tiemArr;
         return {
             "id": id,
             "name": name,
@@ -162,6 +166,7 @@ var creater = {
             "color": color,
             "priority": priority,
             "done": 0,
+            "time": time,
             "action": action
         };
     }
@@ -175,12 +180,15 @@ function saveRow(oTable02, nRow) {
     var rowObj = oTable02.row(nRow);
     var id = rowObj.data().id;
     var done = rowObj.data().done;
+    var timeData = rowObj.data().time;
+    var time = toTime($(jqInputs[1]).val(), "first", timeData);
     var json = {
         id: id,
         name: $(jqInputs[0]).val(),
         priority: $(jqSelects[0]).val(),
         type: $(jqSelects[1]).val(),
         color: $(jqSelects[2]).val(),
+        time: time,
         done: done,
         action: creater.createButton()
     };
@@ -226,6 +234,7 @@ function createDemoData(value, array) {
     json.action = null;
     json.priority = null;
     json.done = null;
+    json.time = null;
     json.name = value;
     array.push(creater.createRowObj(json));
 }
@@ -322,6 +331,31 @@ function replacePriority(i) {
         default:
             return "None";
     }
+}
+//△▲○●□■
+function replaceSign(time) {
+    var firstSign0 = "□", firstSing1 = "■";
+    var secondSign0 = "○", secondSing1 = "●";
+    var thirdSign0 = "△", thirdSign1 = "▲";
+    var firstTime = time.first;
+    var secondTime = time.second;
+    var thirdTime = time.third;
+    var str = "";
+    str = appendTime(str, firstTime, firstSign0, firstSing1);
+    str = appendTime(str, secondTime, secondSign0, secondSing1);
+    str = appendTime(str, thirdTime, thirdSign0, thirdSign1);
+    return str;
+}
+
+function appendTime(str, arr, sign0, sign1) {
+    for (var i = 0; i < arr.length; i++) {
+        if (!arr[i]) {
+            str += sign0;
+        } else {
+            str += sign1;
+        }
+    }
+    return str;
 }
 
 //格式化时间显示
@@ -422,7 +456,7 @@ $.fn.dataTable.ext.renderer.pageButton.bootstrap = function (settings, host, idx
                         .append($('<a>', {
                                 'href': '#'
                             })
-                                .html(btnDisplay)
+                            .html(btnDisplay)
                         )
                         .appendTo(container);
 
@@ -459,12 +493,13 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
     "columnDefs": [
         {'title': "Priority", 'targets': 0},
         {'title': "Item", 'targets': 1},
-        {'title': "Type", 'targets': 2},
-        {'title': "Background-color", 'targets': 3},
-        {'title': "Create-Date", 'targets': 4},
-        {'title': "Action", 'targets': 5}
+        {'title': "Time", 'targets': 2},
+        {'title': "Type", 'targets': 3},
+        {'title': "Background-color", 'targets': 4},
+        {'title': "Create-Date", 'targets': 5},
+        {'title': "Action", 'targets': 6}
     ],
-    "order": [[2, "asc"], [0, "des"]],
+    "order": [[3, "asc"], [0, "des"]],
     "columns": [
         {
             "data": "priority",
@@ -479,6 +514,12 @@ var oTable02 = $('#inlineEditDataTable').DataTable({
             }
         },
         {"data": "name"},
+        {
+            "data": "time",
+            "render": function (data, type, row, meta) {
+                return replaceSign(data);
+            }
+        },
         {
             "data": "type",
             "render": function (data, type, row, meta) {
@@ -729,7 +770,7 @@ $(document).on("click", "#inlineEditDataTable a.edit", function (e) {
 });
 
 
-// 隐藏行初始化
+// 完成按钮初始化
 $(document).on("click", "#inlineEditDataTable a.done", function (e) {
     e.preventDefault();
 
@@ -741,4 +782,198 @@ $(document).on("click", "#inlineEditDataTable a.done", function (e) {
     dataManager.updateData(oTable02.data());
 
 });
+
+// 开启一个番茄
+$(document).on("click", "#inlineEditDataTable a.tomato", function (e) {
+    e.preventDefault();
+
+    /* Get the row as a parent of the link that was clicked on */
+    var nRow = $(this).parents('tr')[0];
+    var singleData = oTable02.row(nRow).data();
+
+    if (checkIsNext(singleData.time.first) &&
+        checkIsNext(singleData.time.second) &&
+        checkIsNext(singleData.time.third)) {
+        alert("你需要重新分解任务");
+        return;
+    }
+    countTime();
+    setTimeout(function () {
+        tomato(singleData.time);
+        oTable02.row(nRow).data(singleData).draw();
+        dataManager.updateData(oTable02.data());
+    }, GLOBELTIME * 1000);
+});
+
+// 增加一个番茄
+$(document).on("click", "#inlineEditDataTable a.addtomato", function (e) {
+    e.preventDefault();
+
+    /* Get the row as a parent of the link that was clicked on */
+    var nRow = $(this).parents('tr')[0];
+    var singleData = oTable02.row(nRow).data();
+
+    if (checkIsNext(singleData.time.first) &&
+        checkIsNext(singleData.time.second) &&
+        checkIsNext(singleData.time.third)) {
+        alert("你需要重新分解任务");
+    } else {
+        $("#timeModal").modal("show").data("currentRowData", singleData).data("nRow", nRow);
+    }
+});
+
+/**
+ * 完成一个tomato
+ * @param time
+ * @returns {*}
+ */
+function tomato(time) {
+    var firstObj = changeArrVal(time.first);
+    time.first = firstObj.arr;
+    var firstFlag = firstObj.flag;
+
+    if (firstFlag) {
+        var secondObj = changeArrVal(time.second);
+        time.second = secondObj.arr;
+        var secondFlag = secondObj.flag;
+
+        if (secondFlag) {
+            var thirdObj = changeArrVal(time.third);
+            time.third = thirdObj.arr;
+            var thirdFlag = thirdObj.flag;
+        }
+    }
+}
+
+/**
+ * 添加番茄钟
+ */
+function addTomato() {
+    var time = $("#timeInput").val();
+    var currentData = $("#timeModal").data("currentRowData");
+    var nRow = $("#timeModal").data("nRow");
+    var timeObj = currentData.time;
+    if (!checkIsNext(timeObj.second)) {
+        currentData.time = toTime(time, "second", timeObj);
+        oTable02.row(nRow).data(currentData).draw();
+        dataManager.updateData(oTable02.data());
+    }
+    if (checkIsNext(timeObj.second) && !checkIsNext(timeObj.third)) {
+        currentData.time = toTime(time, "third", timeObj);
+        oTable02.row(nRow).data(currentData).draw();
+        dataManager.updateData(oTable02.data());
+    }
+}
+
+/**
+ * 消耗一个tomato
+ * @param arr
+ * @returns {{arr: *, flag: boolean}} 返回次预估是否已经用完
+ */
+function changeArrVal(arr) {
+    var flag = false;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
+            arr[i] = 1;
+            flag = false;
+            break;
+        } else {
+            flag = true;
+        }
+    }
+    return {"arr": arr, "flag": flag};
+}
+
+/**
+ * 判断时间有没有用完
+ * @param arr
+ * @returns {*}
+ */
+function checkIsNext(arr) {
+    //表示用完了
+    var over;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == 0) {
+            over = false;
+            break;
+        } else {
+            over = true;
+        }
+    }
+    return over;
+}
+
+/**
+ * 改变番茄钟（重新做预估）
+ * @param val
+ * @param timeGroup
+ * @param time
+ * @returns {{first: *, second: *, third: *}}
+ */
+function toTime(val, timeGroup, time) {
+    var firstTime = time.first;
+    var secondTime = time.second;
+    var thirdTime = time.third;
+    val = parseInt(val);
+    //太多表示需要分解
+    if (val > 4) val = 4;
+    for (var i = 0; i < val; i++) {
+        if (timeGroup === "first")
+            firstTime.push(0);
+        if (timeGroup === "second")
+            secondTime.push(0);
+        if (timeGroup === "third")
+            thirdTime.push(0);
+    }
+    return {"first": firstTime, "second": secondTime, "third": thirdTime};
+}
+
+/**
+ * 倒计时
+ * @type {number}
+ */
+var GLOBELTIME = 10;
+var intervalid;
+function countTime(){
+    intervalid = setInterval("funTime()", 1000);
+    alert("你已经开启了一个番茄钟……");
+}
+function funTime() {
+    if (GLOBELTIME == 0) {
+        notifyMe();
+        clearInterval(intervalid);
+    }
+    document.getElementById("countTime").innerHTML = GLOBELTIME;
+    GLOBELTIME--;
+}
+
+
+
+// 加载本页面时，提示用户桌面提示的权限
+document.addEventListener('DOMContentLoaded', function () {
+    if (Notification.permission !== "granted")
+        Notification.requestPermission();
+});
+
+function notifyMe() {
+    if (!Notification) {
+        alert('你的浏览器不支持桌面提示，请使用chrome浏览器');
+        return;
+    }
+
+    if (Notification.permission !== "granted")
+        Notification.requestPermission();
+    else {
+        var notification = new Notification('时间到', {
+            icon: 'http://datatables.club/images/favicon.png',
+            body: "恭喜你完成一个番茄钟，接下来你可以放松5分钟，起来运动运动"
+        });
+
+        notification.onclick = function () {
+            alert("你可以放松5分钟，起来运动运动");
+        };
+
+    }
+
+}
 

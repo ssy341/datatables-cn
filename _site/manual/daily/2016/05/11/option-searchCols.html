@@ -16,6 +16,7 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    
 </head>
 <body>
     <!--nav-->
@@ -88,6 +89,18 @@
                     <span class="glyphicon glyphicon-user"></span> DataTable中文网
                     <span class="glyphicon glyphicon-time"></span> 11 May 2016
                     <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-searchCols.html"></span>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="option searchCols 给单独的列定义初始化过滤条件:http://datatables.club/manual/daily/2016/05/11/option-searchCols.html"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <p>
+                    Tags: 
+                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
+                        
                 </p>
                 <hr>
 
@@ -218,19 +231,27 @@
             <div id="tagcloud" style="padding:10px">
 
                 
+                <a href="/blog/listall.html#官方博客" title="官方博客" rel="2">
+                    官方博客 (2)
+                </a>
+                
                 <a href="/blog/listall.html#活动" title="活动" rel="1">
                     活动 (1)
                 </a>
                 
-                <a href="/blog/listall.html#博客" title="博客" rel="2">
-                    博客 (2)
+                <a href="/blog/listall.html#博客" title="博客" rel="3">
+                    博客 (3)
                 </a>
                 
                 <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="35">
                     不定时一讲 (35)
                 </a>
                 
-                <a href="/blog/listall.html" title="all" rel="3">
+                <a href="/blog/listall.html#番茄工作法" title="番茄工作法" rel="1">
+                    番茄工作法 (1)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="5">
                     所有
                 </a>
 
@@ -351,8 +372,24 @@
 </script>
 
     </div>
+    
     <!-- /.container -->
-<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <script src="/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
+
 </body>
 
 </html>
