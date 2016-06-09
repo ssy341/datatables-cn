@@ -15,6 +15,7 @@
     <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
     <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
+    {{ page.style }}
 </head>
 <body>
     <!--nav-->
@@ -74,6 +75,7 @@
         {% include blog/footer.html %}
 
     </div>
+    {{ page.script }}
     <!-- /.container -->
     <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
@@ -90,6 +92,7 @@
             ZeroClipboard.destroy();
         } );
     </script>
+
 </body>
 
 </html>
