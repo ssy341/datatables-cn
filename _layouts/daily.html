@@ -34,6 +34,18 @@
                     <span class="glyphicon glyphicon-user"></span> {{page.author}}
                     <span class="glyphicon glyphicon-time"></span> {{page.date | date: "%-d %B %Y"}}
                     <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="{{ site.url }}{{ page.url }}"></span>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="{{ page.short }}:{{ site.url }}{{ page.url }}"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <p>
+                    Tags: {% for tag in page.tags %}
+                    <a href="{{site.baseurl}}/blog/listall.html#{{tag}}" class="btn btn-primary btn-xs">{{tag}}</a>
+                        {% endfor %}
                 </p>
                 <hr>
 
@@ -63,7 +75,21 @@
 
     </div>
     <!-- /.container -->
-<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="{{site.baseurl}}/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
 </body>
 
 </html>
