@@ -1,0 +1,17 @@
+{% if include.param == "filter()" %}
+<a href="https://datatables.net/reference/api/filter()" target="_blank">
+    <code class="api">filter()<span>API</span></code>
+</a>
+{% elsif include.param == "row.add()" %}
+<a href="https://datatables.net/reference/api/row.add()" target="_blank">
+    <code class="api">row.add()<span>API</span></code>
+</a>
+{% elsif include.param == "rows.add()" %}
+<a href="https://datatables.net/reference/api/rows.add()" target="_blank">
+    <code class="api">rows.add()<span>API</span></code>
+</a>
+{% elsif include.param == "row().child().hide()" %}
+<a href="https://datatables.net/reference/api/row().child().hide()" target="_blank">
+    <code class="api">row().child().hide()<span>API</span></code>
+</a>
+{% endif %}

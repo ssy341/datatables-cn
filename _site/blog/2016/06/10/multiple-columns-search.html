@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>Datatables中文网第一期交流学习活动开始了 博客 DataTables中文网</title>
+    <title>DataTables 多条件查询、多列搜索 博客 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.11
@@ -83,25 +83,25 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/blog/2015/05/08/the-first-activity.html">Datatables中文网第一期交流学习活动开始了</a>
+                    <a href="/blog/2016/06/10/multiple-columns-search.html">DataTables 多条件查询、多列搜索</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTable中文网
-                    <span class="glyphicon glyphicon-time"></span> 8 May 2015
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2015/05/08/the-first-activity.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 10 June 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/06/10/multiple-columns-search.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="Datatables中文网第一期交流学习活动开始了:http://datatables.club/blog/2015/05/08/the-first-activity.html"
+                            data-clipboard-text="DataTables 多条件查询、多列搜索:http://datatables.club/blog/2016/06/10/multiple-columns-search.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
                 <p>
                     Tags: 
-                    <a href="/blog/listall.html#活动" class="btn btn-primary btn-xs">活动</a>
-                        
                     <a href="/blog/listall.html#博客" class="btn btn-primary btn-xs">博客</a>
+                        
+                    <a href="/blog/listall.html#DataTables使用经验" class="btn btn-primary btn-xs">DataTables使用经验</a>
                         
                 </p>
                 <hr>
@@ -109,36 +109,188 @@
                 <img class="img-responsive" src="" alt="">
                 <div class="content">
                     <!--正文-->
-                    <ul>
-  <li>活动类容:本周举办一个征集demo的活动（限五个），不限语言，不需要很复杂。然后我放在网上，大家投票</li>
-  <li>参与方式:加群找群主，提交demo</li>
-  <li>时间:本周5之前（2015年5月8日）</li>
-  <li>注意:如果是本站已经有的类似的demo，需要扩展</li>
-</ul>
-
-<!--more-->
+                    <p>在使用DataTables展示数据，通常有两种</p>
 
 <ul>
-  <li>奖品展示： <a href="http://s.taobao.com/search?q=ibm+%E9%99%8D%E5%99%AA%E8%80%B3%E6%9C%BA&amp;commend=all&amp;ssid=s5-e&amp;search_type=item&amp;sourceId=tb.index&amp;spm=1.7274553.1997520841.1&amp;initiative_id=tbindexz_20150427,&quot;IBM降噪耳机2个&quot;">ibm降噪耳机</a></li>
-  <li><img src="/images/activity/ibm.jpg" alt="ibm降噪耳机" /></li>
+  <li>根据条件获取最终的数据显示</li>
+  <li>在已经显示的数据中过滤</li>
 </ul>
 
-<p>Demo连接：</p>
+<p>第一种，可以参考<a href="/manual/daily/2016/04/21/option-ajax-data.html">根据参数查询表格数据</a></p>
 
-<p><a href="/example/user_share/inline_edit_no_plugin.html">Amazing Grace - 行内编辑(不使用第三方插件php）</a></p>
+<p>第二种，DataTables 本身提供了过滤插件，默认条件下，在表格的右上角会有一个搜索框，可以对表格中的数据进行过滤，这个是针对全局（所有列）的搜索
+<!--more--></p>
 
-<p><a href="/example/user_share/send_extra_param.html">飘絮 - 带参数查询</a></p>
+<p>如果你想排除某列不参与搜索只需要按下面的配置：</p>
 
-<p><a href="/example/user_share/custom_hide_filter_column.html">逆风 - 动态显示/隐藏列，自定义过滤</a></p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"columnDefs"</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="c1">//设置第一列不参与搜索</span>
+            <span class="s2">"targets"</span><span class="p">:[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="s2">"serchable"</span><span class="p">:</span><span class="kc">false</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p><a href="/example/user_share/yuui.html">飞易腾-付裕 - 裕ui </a></p>
+<p>ps：第一列是索引列，那我们是不希望他被搜索到，因为没有意义，所以我们设置第一列不参与搜索，注意<strong>这里是不参与，只是说针对于全局搜索时，
+会把这个值排除在外再搜索，并不是这一列禁用了搜索</strong>，我们依然可以使用 
+<a href="https://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
+</a>
+ 方法，具体往下看</p>
 
-<!-- div标签放在页面需要展示的位置  -->
-<div id="cyPoll" role="cylabs" data-use="poll" sid="/activity/1.html"></div>
-<!-- 如果页面已有畅言的评论框，以下代码放在评论框代码的后面，来读取评论框的配置，否则需在div标签或代码中配置sid、cid(分类id) -->
-<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
-<!-- 如需修改默认配置，请到changyan.sohu.com后台进行配置 -->
-<script type="text/javascript" charset="utf-8" src="http://changyan.itc.cn/js/??lib/jquery.js,changyan.labs.js?appid=cyr8jjDJ2"></script>
+<p>当然如果你不想用这个全局搜索，你还可以关掉他，毕竟他是<code class="highlighter-rouge">keyup</code>事件，对于有些情况来说不是那么好用</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="c1">//关闭DT的本地搜索</span>
+    <span class="s2">"searching"</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>但是这样做会影响到 DT 提供的搜索API -
+<a href="https://datatables.net/reference/api/search()" target="_blank">
+    <code class="api">search()<span>API</span></code>
+</a>
+ 方法,实际上DT自带的搜索框也是调用了这个方法，
+<code class="highlighter-rouge">"searching": false</code>相当于把搜索功能关闭了，
+<a href="https://datatables.net/reference/api/search()" target="_blank">
+    <code class="api">search()<span>API</span></code>
+</a>
+ 就不能用了，这样当然不行，
+所以<strong>如果你想用自己的搜索框，那么建议你设置 <code class="highlighter-rouge">dom</code> 来把默认的搜索框隐藏</strong>（详见 <a href="/manual/daily/2016/05/11/option-dom.html">DataTables 之 DOM</a>）</p>
+
+<p>我们可以自己写一个或者多个<code class="highlighter-rouge">input</code>框，点击按钮触发这个方法，这个方法接收的值用空格隔开，就类似于多条件搜索</p>
+
+<p>ps：你还可以传正则表达式 参考 <a href="/manual/daily/2016/05/11/option-search-regex.html">正则表达式搜索</a></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="c1">//给搜索按钮绑定点击事件</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="s2">"#example button.search"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">//自己定义的搜索框，可以是时间控件，或者checkbox 等等</span>
+    <span class="kd">var</span> <span class="nx">args1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#input1"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">args2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#input2"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+    <span class="c1">//用空格隔开，达到多条件搜索的效果，相当于两个关键字</span>
+    <span class="nx">table</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">args1</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">args2</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="c1">//table.search(args1+" "+args2).draw(false);//保留分页，排序状态</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>再回到 
+<a href="https://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
+</a>
+ 这个，先看看下面两个例子:</p>
+
+<ul>
+  <li><a href="/example/api/multi_filter.html">给每一列添加搜索框</a></li>
+  <li><a href="/example/api/multi_filter_select.html">给每一列添加下拉框搜索</a></li>
+</ul>
+
+<p>例子中代码看起来可能有点难理解，不要紧，我把关键代码拿出来，如下：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre> <span class="nx">table</span>
+    <span class="p">.</span><span class="nx">column</span><span class="p">(</span> <span class="nx">colIdx</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">search</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">draw</span><span class="p">();</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p><code class="highlighter-rouge">colIdx</code> 表示第几列，这里可以接受单个的数字，<code class="highlighter-rouge">0</code>,<code class="highlighter-rouge">1</code>,<code class="highlighter-rouge">2</code>,<code class="highlighter-rouge">3</code> 或者是一个数组 <code class="highlighter-rouge">[0,1,2,3]</code></p>
+
+<p><code class="highlighter-rouge">this.value</code> 表示搜索条件，可以支持正则，不过我实践后发现，使用了 <code class="highlighter-rouge">column</code> 后，就不能用空格隔开条件查询</p>
+
+<p>如果要针对单个的或者多列去处理，比如第二列搜索条件为 <code class="highlighter-rouge">keith</code>，第三列搜索条件为 <code class="highlighter-rouge">男</code>：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre> <span class="nx">table</span>
+    <span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">"keith"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="s2">"男"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">draw</span><span class="p">();</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>当然大家还可以自己实践，对代码进行优化，DT 1.10版之后支持链式写法，可以一直点下去</p>
+
+<p><a href="https://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
+</a>
+ 这个方法他不能得到按条件搜索过后的最终结果，
+如果你想获取搜索后的数据集，需要使用
+<a href="https://datatables.net/reference/api/filter()" target="_blank">
+    <code class="api">filter()<span>API</span></code>
+</a></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+
+ <span class="kd">var</span> <span class="nx">filteredData</span> <span class="o">=</span> <span class="nx">table</span>
+     <span class="p">.</span><span class="nx">column</span><span class="p">(</span> <span class="mi">2</span> <span class="p">)</span>
+     <span class="p">.</span><span class="nx">data</span><span class="p">()</span>
+     <span class="p">.</span><span class="nx">filter</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">index</span> <span class="p">)</span> <span class="p">{</span>
+         <span class="k">return</span> <span class="nx">value</span> <span class="o">==</span> <span class="s1">'keith'</span> <span class="p">?</span> <span class="kc">true</span> <span class="p">:</span> <span class="kc">false</span><span class="p">;</span>
+     <span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>这里大家或许强迫症就犯了，TMD要弄两次才能获取到数据，第一次为了显示，第二次为了获取到数据，哈哈哈，我也是这么认为的，为什么呢？</p>
+
+<p>我想作者应该是考虑了的，这样做肯定有他的道理，我们这么普通的人都想得到的，作者这么聪明的不会想不到呢？</p>
+
+<p>总的来说
+<a href="https://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
+</a>
+配合全局的搜索，应该是能满足绝大部分的需求，好好发挥
+自己的想象力吧</p>
+
+<p>最后总结：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">"searching": false</code> 这样配置了，DT的搜索功能关闭，相关的方法也失效</li>
+  <li>搜索功能开启的前提下，全局搜索时可以配置某列不参与搜索</li>
+  <li>你还可以使用 
+<a href="https://datatables.net/reference/api/column().search()" target="_blank">
+  <code class="api">column().search()<span>API</span></code>
+</a>
+ 方法匹配的具体某列进行过滤搜索</li>
+  <li>如果你想获取搜索后的结果集，你得需要使用
+<a href="https://datatables.net/reference/api/filter()" target="_blank">
+  <code class="api">filter()<span>API</span></code>
+</a>
+方法</li>
+</ul>
 
 
                 </div>
@@ -166,13 +318,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/blog/2015/05/08/the-first-activity.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/blog/2015/05/08/the-first-activity.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/blog/2016/06/10/multiple-columns-search.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/blog/2016/06/10/multiple-columns-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/blog/2015/05/08/the-first-activity.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/blog/2015/05/08/the-first-activity.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/blog/2016/06/10/multiple-columns-search.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/blog/2016/06/10/multiple-columns-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');

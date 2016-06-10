@@ -6,7 +6,7 @@ date: 2016-4-22
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
-tags: [不定时一讲]
+tags: [博客,技能]
 author: DataTable中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M58ee49940fd49d3b076345d5b1321c64o0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
