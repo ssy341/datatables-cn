@@ -1,0 +1,73 @@
+jquery:
+  - url: https://code.jquery.com/jquery-3.0.0.min.js
+    version: 3.0
+    name: jquery
+    id: 341
+  - url: http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js
+    version: 1.9.0
+    name: jquery
+    id: 342
+  - url: http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.js
+    version: 2.0.0
+    name: jquery
+    id: 343
+
+datatables_js:
+  - url: https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js
+    version: 1.10.12
+    name: dataTables core
+    id: 344
+  - url: https://cdn.datatables.net/autofill/2.1.2/js/dataTables.autoFill.min.js
+    version: 2.1.2
+    name: dataTables autoFill
+    id: 345
+  - url: https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js
+    version: 1.2.1
+    name: dataTables buttons
+    id: 346
+  - url: https://cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js
+    version: 1.2.1
+    name: dataTables buttons colVis
+    id: 347
+  - url: https://cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js
+    version: 1.2.1
+    name: dataTables buttons flash
+    id: 348
+  - url: https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js
+    version: 1.2.1
+    name: dataTables buttons html5
+    id: 349
+  - url: https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js
+    version: 1.2.1
+    name: dataTables buttons print
+    id: 350
+
+datatables_css:
+  - url: https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css
+    version: 1.10.12
+    name: dataTables core
+    id: 351
+  - url: https://cdn.datatables.net/autofill/2.1.2/css/autoFill.dataTables.min.css
+    version: 2.1.2
+    name: dataTables autoFill
+    id: 352
+  - url: https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css
+    version: 1.2.1
+    name: dataTables buttons
+    id: 353
+
+bootstrap_js:
+  - url: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
+    version: 3.3.6
+    name: bootstrap
+    id: 354
+
+bootstrap_css:
+  - url: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+    version: 3.3.6
+    name: bootstrap
+    id: 355
+  - url: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css
+    version: 3.3.6
+    name: bootstrap-theme
+    id: 356

@@ -55,31 +55,31 @@
             <div class="form-group">
                 <label for="jquerylist">jQuery</label>
                 <select multiple class="form-control" ID="jquerylist">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+
                 </select>
             </div>
             <div class="form-group">
                 <label for="dtlist">Datatables-js</label>
                 <select multiple class="form-control" ID="dtlist">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+
                 </select>
             </div>
             <div class="form-group">
                 <label for="dtlist">Datatables-css</label>
                 <select multiple class="form-control" ID="dtcsslist">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">bootstrap-js</label>
+                <select multiple class="form-control" ID="btlist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">bootstrap-css</label>
+                <select multiple class="form-control" ID="btcsslist">
+
                 </select>
             </div>
             <div class="form-group">
@@ -102,7 +102,7 @@
             </div>
             <div class="form-group">
                 <label for="dtlist">资源列表</label>
-                <textarea class="form-control" name="" id="" rows="10"></textarea>
+                <textarea class="form-control" name="" id="resourselist" rows="10"></textarea>
             </div>
         </form>
     </div>
@@ -134,7 +134,7 @@
             </textarea>
             </div>
             <div role="tabpanel" class="tab-pane" id="result">
-                <iframe class="result_output" id="view" width="100%" height="100%" name="view" src="javascript:''" style="frameborder:0;"></iframe>
+                <iframe class="result_output" id="view" width="100%" height="500px" name="view" src="javascript:''" style="frameborder:0;"></iframe>
             </div>
         </div>
     </div>
@@ -220,25 +220,60 @@
         autoCloseTags: true
     });
 
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
         var targtText = $(e.target).attr("aria-controls");
 //        e.target // newly activated tab
 //        e.relatedTarget // previous active tab
-
-        $result_html_tmpl = $(result_html_tmpl);
-
-
         if (targtText == "result") {
-            view.document.open(), view.document.write($result_html_tmpl.html()), view.document.close();
-
-            creater_doc.init(view.document);
-            creater_doc.createStyle(css_code.getValue());
-            creater_doc.createScriptContent(js_code.getValue());
-            var divElement =creater_doc.createElement("div",html_code.getValue());
-            creater_doc.doc.body.appendChild(divElement);
-
+            runit();
         }
     });
+
+    function runit(){
+        $result_html_tmpl = $(result_html_tmpl);
+        view.document.open();
+        view.document.write($result_html_tmpl.html());
+
+        creater_doc.init(view.document);
+
+
+        var jquerylist_data = $("#jquerylist");
+        var dtlist_data = $("#dtlist");
+        var dtcsslist_data = $("#dtcsslist");
+        var btlist_data = $("#btlist");
+        var btcsslist_data = $("#btcsslist");
+
+        resultcombine(jquerylist_data,false);
+        resultcombine(btcsslist_data,true);
+        resultcombine(dtcsslist_data,true);
+        resultcombine(btlist_data,false);
+        resultcombine(dtlist_data,false);
+
+        creater_doc.createStyle(css_code.getValue());
+
+        var divElement =creater_doc.createElement("div",html_code.getValue());
+        creater_doc.doc.body.appendChild(divElement);
+        creater_doc.createScriptContent(js_code.getValue());
+        view.document.close();
+
+        function resultcombine(data,type){
+            var selectDom = data.data(data.attr("id")+"-data");
+            var selectval = data.val();
+            $(selectDom).each(function(index,obj){
+                if(selectval){
+                    for(var i = 0;i<selectval.length;i++){
+                        if(selectval[i] == obj.id){
+                            if(type){
+                                creater_doc.createLink(obj.url);
+                            }else{
+                                creater_doc.createScript(obj.url)
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    }
 
     var creater_doc = {
         doc:null,
@@ -255,7 +290,8 @@
             var fileElement = this.doc.createElement("script");
             fileElement.type = "text/javascript";
             fileElement.innerHTML = code;
-            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+//            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+            this.doc.body.appendChild(fileElement);
         },
         createStyle: function (code) {
             var fileElement = this.doc.createElement("style");
@@ -273,15 +309,71 @@
             fileElement.innerHTML = content;
             return fileElement;
         }
+    };
+
+    function code_ajax(url,callback){
+        $.ajax({
+            url:url,
+            success:function(data){
+                callback(data);
+            }
+        });
     }
 
+    selectCreate("jquery","jquerylist");
+    selectCreate("datatables-js","dtlist");
+    selectCreate("datatables-css","dtcsslist");
+    selectCreate("bootstrap-js","btlist");
+    selectCreate("bootstrap-css","btcsslist");
 
+    function selectCreate(name,id){
+        code_ajax("./assets/"+name+".txt",function(data){
+            data = JSON.parse(data);
+            var select = $("#"+id);
+            select.data(id+"-data",data);
+            $(data).each(function(index,obj){
+                select.append("<option value='"+obj.id+"'>"+obj.name+" "+obj.version+"</option>");
+            });
+        });
+    }
 
+    $(document).on("change","select",function(){
+        combineResourseList();
+    });
 
+    function combineResourseList(){
+        var resourselist = "";
+        var jquerylist_data = $("#jquerylist");
+        var dtlist_data = $("#dtlist");
+        var dtcsslist_data = $("#dtcsslist");
+        var btlist_data = $("#btlist");
+        var btcsslist_data = $("#btcsslist");
 
+        resourselist = combine(resourselist,jquerylist_data);
+        resourselist = combine(resourselist,btcsslist_data);
+        resourselist = combine(resourselist,dtcsslist_data);
+        resourselist = combine(resourselist,btlist_data);
+        resourselist = combine(resourselist,dtlist_data);
 
+        $("#resourselist").val(resourselist);
 
-
+        function combine(resourselist,data){
+            var selectDom = data.data(data.attr("id")+"-data");
+            var selectval = data.val();
+            $(selectDom).each(function(index,obj){
+                if(selectval){
+                    for(var i = 0;i<selectval.length;i++){
+                        if(selectval[i] == obj.id){
+                            resourselist += obj.url+"\n";
+                        }
+                    }
+                }else{
+                    return resourselist;
+                }
+            });
+            return resourselist;
+        }
+    }
 
 
 </script>

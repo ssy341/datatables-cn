@@ -1,0 +1,12 @@
+---
+---
+{% assign resources = site.data.code.resources %}
+[{% for bootstrap_css in resources.bootstrap_css %}
+  {
+    "id":"{{bootstrap_css.id}}",
+    "url":"{{bootstrap_css.url}}",
+    "name":"{{bootstrap_css.name}}",
+    "version":"{{bootstrap_css.version}}"
+  }{% if forloop.last == false %},{% endif %}
+ {% endfor %}
+]

@@ -1,0 +1,12 @@
+---
+---
+{% assign resources = site.data.code.resources %}
+[{% for datatables_js in resources.datatables_js %}
+  {
+    "id":"{{datatables_js.id}}",
+    "url":"{{datatables_js.url}}",
+    "name":"{{datatables_js.name}}",
+    "version":"{{datatables_js.version}}"
+  }{% if forloop.last == false %},{% endif %}
+ {% endfor %}
+]
