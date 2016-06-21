@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Starter Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="codemirror/codemirror.css" rel="stylesheet"/>
+    <link href="codemirror/eclipse.css" rel="stylesheet"/>
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">DT-Code</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">DT-Code</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">保存</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+
+</nav>
+
+<div class="row">
+
+    <div class="col-lg-2">
+        <form style="padding:3px">
+            <div class="form-group">
+                <label for="jquerylist">jQuery</label>
+                <select multiple class="form-control" ID="jquerylist">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">Datatables-js</label>
+                <select multiple class="form-control" ID="dtlist">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">Datatables-css</label>
+                <select multiple class="form-control" ID="dtcsslist">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">js外链</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="js外链">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">添加</button>
+                      </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="form-group">
+                <label for="dtlist">css外链</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="css外链">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">添加</button>
+                      </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="form-group">
+                <label for="dtlist">资源列表</label>
+                <textarea class="form-control" name="" id="" rows="10"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-10">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a></li>
+            <li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+            <li role="presentation"><a href="#javascript" aria-controls="javascript" role="tab" data-toggle="tab">JAVASCRIPT</a></li>
+            <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab">RESULT</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="html">
+            <textarea class="code_input" cols="40" id="html_code" rows="21">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="css">
+            <textarea class="code_input" cols="40" id="css_code" rows="21">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="javascript">
+            <textarea class="code_input" cols="40" id="js_code" rows="21">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="result">
+                <iframe class="result_output" id="view" width="100%" height="100%" name="view" src="javascript:''" style="frameborder:0;"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script id="result_html_tmpl" type="text/html">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DT-code</title>
+    </head>
+    <body>
+        <p>Welcome</p>
+    </body>
+    </html>
+</script>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+
+
+
+<script src="codemirror/codemirror.js" type="text/javascript"></script>
+<script src="codemirror/closetag.js" type="text/javascript"></script>
+<script src="codemirror/searchcursor.js" type="text/javascript"></script>
+<script src="codemirror/match-highlighter.js" type="text/javascript"></script>
+<script src="codemirror/xml.js" type="text/javascript"></script>
+<script src="codemirror/css.js" type="text/javascript"></script>
+<script src="codemirror/javascript.js" type="text/javascript"></script>
+<script src="codemirror/htmlmixed.js" type="text/javascript"></script>
+
+
+
+
+<script>
+    var html_code, css_code, js_code;
+    var result_str;
+
+    var result_html_tmpl = $("#result_html_tmpl").html();
+
+
+    document.getElementById("html_code").value = '<table id="example"></table>';
+    document.getElementById("css_code").value = 'body{ \n font-size:20px \n }';
+    document.getElementById("js_code").value = 'console.log("welcome to use dt-code")';
+
+    html_code = CodeMirror.fromTextArea(document.getElementById("html_code"), {
+        lineNumbers: !0,
+        matchBrackets: !0,
+        lineWrapping: !0,
+        mode: "text/html",
+        tabSize: 2,
+        wordWrap: true,
+        autoCloseTags: true
+    });
+
+    css_code = CodeMirror.fromTextArea(document.getElementById("css_code"), {
+        lineNumbers: !0,
+        matchBrackets: !0,
+        lineWrapping: !0,
+        mode: "css",
+        tabSize: 2,
+        wordWrap: true,
+        autoCloseTags: true
+    });
+
+    js_code = CodeMirror.fromTextArea(document.getElementById("js_code"), {
+        lineNumbers: !0,
+        matchBrackets: !0,
+        lineWrapping: !0,
+        mode: "javascript",
+        tabSize: 2,
+        wordWrap: true,
+        autoCloseTags: true
+    });
+
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        var targtText = $(e.target).attr("aria-controls");
+//        e.target // newly activated tab
+//        e.relatedTarget // previous active tab
+
+        $result_html_tmpl = $(result_html_tmpl);
+
+
+        if (targtText == "result") {
+            view.document.open(), view.document.write($result_html_tmpl.html()), view.document.close();
+
+            creater_doc.init(view.document);
+            creater_doc.createStyle(css_code.getValue());
+            creater_doc.createScriptContent(js_code.getValue());
+            var divElement =creater_doc.createElement("div",html_code.getValue());
+            creater_doc.doc.body.appendChild(divElement);
+
+        }
+    });
+
+    var creater_doc = {
+        doc:null,
+        init: function (odoc) {
+            this.doc = odoc;
+        },
+        createScript: function (src) {
+            var fileElement = this.doc.createElement("script");
+            fileElement.type = "text/javascript";
+            fileElement.src = src;
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createScriptContent: function (code) {
+            var fileElement = this.doc.createElement("script");
+            fileElement.type = "text/javascript";
+            fileElement.innerHTML = code;
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createStyle: function (code) {
+            var fileElement = this.doc.createElement("style");
+            fileElement.innerHTML = code;
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createLink: function (src) {
+            var fileElement = this.doc.createElement("link");
+            fileElement.href = src;
+            fileElement.rel = "stylesheet";
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createElement:function(ele,content){
+            var fileElement = this.doc.createElement(ele);
+            fileElement.innerHTML = content;
+            return fileElement;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

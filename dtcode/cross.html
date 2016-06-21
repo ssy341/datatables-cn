@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- build:js({app,.tmp}) scripts/xdLocalStorage.min.js -->
+    <script src="xd-utils.js"></script>
+    <script src="xdLocalStorage.js"></script>
+    <!-- endbuild -->
+
+    <script src="xdLocalStoragePostMessageApi.js"></script>
+    <!-- endbuild -->
+
+	
+	
+	 <script type="text/javascript">
+        xdLocalStorage.init(
+                {
+                    iframeUrl:'http://datatables.club/corss-serverSide.html',
+                    initCallback: function () {
+                        console.log('Got iframe ready');
+                        xdLocalStorage.setItem('check', 'no callback');
+                    }
+                }
+        );
+        function setValue () {
+            document.getElementById('result').innerHTML ='';
+            var key = document.getElementById("keyInput").value;
+            if(key) {
+                var value = document.getElementById("valueInput").value;
+                xdLocalStorage.setItem(key, value, function (data) {
+                    if(data.success) {
+                        document.getElementById('result').innerHTML = 'Your data has been successfully stored.';
+                    } else {
+                        document.getElementById('result').innerHTML = 'Ops, could not store your data.';
+                    }
+                });
+            } else {
+                alert('You must enter a key.');
+            }
+        }
+        function getItem () {
+            document.getElementById('result').innerHTML ='';
+            var key = document.getElementById("getInput").value;
+            if(key) {
+                xdLocalStorage.getItem(key, function (data) {
+                    document.getElementById('result').innerHTML = 'got value: "' + data.value + '" for key: "' + data.key + '"';
+                });
+            } else {
+                alert('You must enter a key to get.');
+            }
+        }
+        function removeItem () {
+            document.getElementById('result').innerHTML ='';
+            var key = document.getElementById("removeInput").value;
+            if(key) {
+                xdLocalStorage.removeItem(key, function (data) {
+                    document.getElementById('result').innerHTML = 'Key was removed';
+                });
+            } else {
+                alert('You must enter a key to remove.');
+            }
+        }
+        function keyName () {
+            document.getElementById('result').innerHTML ='';
+            var index = document.getElementById("keyNameInput").value;
+            if(index) {
+                xdLocalStorage.key(index, function (data) {
+                    document.getElementById('result').innerHTML = 'Key name for index ' + index + ' is: '+data.key;
+                });
+            } else {
+                alert('You must enter a key index.');
+            }
+        }
+        function clearAll () {
+            document.getElementById('result').innerHTML ='';
+            xdLocalStorage.clear(function (data) {
+                document.getElementById('result').innerHTML = 'LocalStorage was cleared.';
+            });
+        }
+    </script>
+</head>
+</head>
+<body>
+   
+<h1 class="header">Cross Domain Local Storage</h1>
+<div class="content">
+    <div><div class="label">Enter key name: </div><input id="keyInput" type="text" /></div>
+    <div><div class="label">Enter value: </div><input id="valueInput" type="text" /></div>
+    <button onclick="setValue()">Set Value</button>
+    <div><div class="label">Enter key to get: </div><input id="getInput" type="text" /></div>
+    <button onclick="getItem()">Get Key</button>
+    <div><div class="label">Enter key to remove: </div><input id="removeInput" type="text" /></div>
+    <button onclick="removeItem()">Remove Key</button>
+    <div><div class="label">Enter key index: </div><input id="keyNameInput" type="text" /></div>
+    <button onclick="keyName()">Key</button>
+    <div><button onclick="clearAll()">Clear all</button></div>
+    <div><div class="label">Result:</div><div id="result"></div></div>
+</div>
+</body>
+</html>
