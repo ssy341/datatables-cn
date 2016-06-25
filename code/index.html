@@ -1,64 +1,648 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="utf-8">
+<html lang="en">
 <head>
-    <title>DT-CODE by Tryit Editor v1.7</title>
-    <link href="scripts/tryit.css" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>DT-code {beta 0.341}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="codemirror/codemirror.css" rel="stylesheet"/>
     <link href="codemirror/eclipse.css" rel="stylesheet"/>
 
+    <style>
+        body {
+            padding-top: 50px;
+        }
 
-    <script type="text/javascript" src="scripts/version.js"></script>
-    <script src="scripts/72918594.js" type="text/javascript" async></script>
-    <script type="text/javascript" src="scripts/manifest.js"></script>
-    <script src="scripts/autoupdatr/update.js" type="text/javascript"></script>
-    <script type="text/javascript" src="scripts/util/md5.js"></script>
-    <script type="text/javascript" src="scripts/autoupdatr/integrity.js"></script>
-    <script src="scripts/autoupdatr/evalresources.js" type="text/javascript"></script>
-    <script src="scripts/filesaver.js" type="text/javascript"></script>
-
-
-
-    <script src="codemirror/codemirror.js" type="text/javascript"></script>
-    <script src="codemirror/closetag.js" type="text/javascript"></script>
-    <script src="codemirror/searchcursor.js" type="text/javascript"></script>
-    <script src="codemirror/match-highlighter.js" type="text/javascript"></script>
-    <script src="codemirror/xml.js" type="text/javascript"></script>
-    <script src="codemirror/css.js" type="text/javascript"></script>
-    <script src="codemirror/javascript.js" type="text/javascript"></script>
-    <script src="codemirror/htmlmixed.js" type="text/javascript"></script>
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
-<table class="maintable" summary="UI">
-    <tr>
-        <td style="width:50%;">
-            <button accesskey="x" id="submit" onclick="startit()" style="margin-bottom:5px;">Edit and Click Me&gt;&gt;</button>
-			<textarea class="code_input" cols="40" id="code1" rows="21">
-Loading... If this message does not disappear, these things may have happened: 1. You are not connected to the internet 2. Your browser is not supported 3. Tryit Editor has encountered a problem If this happens, try pressing on the Edit and Click Me&gt;&gt;
-						button. If that doesn't work, please report it using the send feedback button
-</textarea></td>
+<nav class="navbar navbar-inverse navbar-fixed-top">
 
-        <td style="width:50%;">
-            <div class="centered">
-                <span id="titletext">(Title should appear here)</span>
-            </div><iframe class="result_output" id="view" name="view" src="javascript:''" style="frameborder:0;">Sorry, you need iframes to use Tryit Editor.</iframe>
-        </td>
-    </tr>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">DT-Code {beta 0.341}</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">DT-Code</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#" id="saveToFile">保存</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
 
-    <tr class="bottomtext">
-        <td style="text-align:left;">Edit the code above and click the button (or press alt+x) to see the result.</td>
+</nav>
 
-        <td style="text-align:right;">status: <span id="statusline">loading...</span></td>
-    </tr>
-</table><br />
+<div class="row">
 
-<div id="everythingElse" style="font-family: calibri, verdana, ms sans serif">
-    <span id="unlockBG"><button accesskey="l" id="unlock" onclick="lock();">Lock code pane</button></span>
-    <span id="saveBG"><button accesskey="s" id="save" onclick="save(codeMirror.getValue());">Save code to local disk</button></span>
-    <span id="feedback"><a class="start end" href="https://docs.google.com/spreadsheet/viewform?formkey=dEJwWEZON0RlOGlEMXpKTzdHaWlQVmc6MA#gid=0" onclick="alert('PLEASE, remember that this is regular downloadable version and select the appropriate option when asked what version you are using.');" rel="help" target="_blank" title="Send feedback">Send feedback</a></span>
-    <span id="disableTitleBG"><input accesskey="t" id="disunable" onclick="disenable();" style="display:none;" type="checkbox" /><label class="start end" for="disunable" id="titleLabel">Disable title</label></span>
-    <span id="syntaxHiliteBG"><input accesskey="m" id="syntaxHilite" onclick="toggleCodeMirror()" style="display:none;" type="checkbox" /><label class="start end" for="syntaxHilite" id="editorLabel">Disable syntax highlighting</label></span>
+    <div class="col-lg-2">
+        <form style="padding:15px">
+            <div class="form-group">
+                <label for="jquerylist">jQuery</label>
+                <select multiple class="form-control" ID="jquerylist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">Datatables-js</label>
+                <select multiple class="form-control" ID="dtlist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">Datatables-css</label>
+                <select multiple class="form-control" ID="dtcsslist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">bootstrap-js</label>
+                <select multiple class="form-control" ID="btlist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">bootstrap-css</label>
+                <select multiple class="form-control" ID="btcsslist">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dtlist">js外链</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="js外链">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">添加</button>
+                      </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="form-group">
+                <label for="dtlist">css外链</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="css外链">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">添加</button>
+                      </span>
+                </div><!-- /input-group -->
+            </div>
+            <div class="form-group">
+                <label for="dtlist">资源列表</label>
+                <textarea class="form-control" name="" id="resourselist" rows="10"></textarea>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-lg-10">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a>
+            </li>
+            <li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+            <li role="presentation"><a href="#javascript" aria-controls="javascript" role="tab" data-toggle="tab">JAVASCRIPT</a>
+            </li>
+            <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab">RESULT</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="html">
+            <textarea class="code_input" id="html_code" rows="34">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="css">
+            <textarea class="code_input" id="css_code" rows="34">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="javascript">
+            <textarea class="code_input" id="js_code" rows="34">
+
+            </textarea>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="result"></div>
+        </div>
+    </div>
+
+
 </div>
+
+
+<script id="init_html_tpl" type="text/html">
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>排名</th>
+            <th>语言</th>
+            <th>描述</th>
+        </tr>
+        </thead>
+        <tfoot>
+        <tr>
+            <th>排名</th>
+            <th>语言</th>
+            <th>描述</th>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>Java</td>
+            <td>
+                Java是一门面向对象编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>C</td>
+            <td>
+                C语言是一门通用计算机编程语言，应用广泛。C语言的设计目标是提供一种能以简易的方式编译、处理低级存储器、产生少量的机器码以及不需要任何运行环境支持便能运行的编程语言。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>C++</td>
+            <td>
+                C++是在C语言的基础上开发的一种面向对象编程语言，应用广泛；C++支持多种编程范式 －－面向对象编程、泛型编程和过程化编程。最新正式标准C++于2014年8月18日公布。[1]  其编程领域众广，常用于系统开发，引擎开发等应用领域，是至今为止最受广大程序员受用的最强大编程语言之一,支持类：封装、继承、多态等特性!
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>C#</td>
+            <td>
+                C#是微软公司发布的一种面向对象的、运行于.NET Framework之上的高级程序设计语言。并定于在微软职业开发者论坛(PDC)上登台亮相。C#是微软公司研究员Anders Hejlsberg的最新成果。C#看起来与Java有着惊人的相似；它包括了诸如单一继承、接口、与Java几乎同样的语法和编译成中间代码再运行的过程。但是C#与Java有着明显的不同，它借鉴了Delphi的一个特点，与COM（组件对象模型）是直接集成的，而且它是微软公司 .NET windows网络框架的主角。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Python</td>
+            <td>
+                Python（英国发音：/ˈpaɪθən/ 美国发音：/ˈpaɪθɑːn/）, 是一种面向对象、解释型计算机程序设计语言，由Guido van Rossum于1989年发明，第一个公开发行版发行于1991年。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>PHP</td>
+            <td>
+                PHP（外文名:PHP: Hypertext Preprocessor，中文名：“超文本预处理器”）是一种通用开源脚本语言。语法吸收了C语言、Java和Perl的特点，利于学习，使用广泛，主要适用于Web开发领域。PHP 独特的语法混合了C、Java、Perl以及PHP自创的语法。它可以比CGI或者Perl更快速地执行动态网页。用PHP做出的动态页面与其他的编程语言相比，PHP是将程序嵌入到HTML（标准通用标记语言下的一个应用）文档中去执行，执行效率比完全生成HTML标记的CGI要高许多；PHP还可以执行编译后代码，编译可以达到加密和优化代码运行，使代码运行更快。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>VisualBasic.NET</td>
+            <td>
+                Visual Basic.NET是基于微软.NET Framework之上的面向对象的编程语言。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>JavaScript</td>
+            <td>
+                JavaScript一种直译式脚本语言，是一种动态类型、弱类型、基于原型的语言，内置支持类型。它的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Assembly Language</td>
+            <td>
+                汇编语言（assembly language）是一种用于电子计算机、微处理器、微控制器或其他可编程器件的低级语言，亦称为符号语言。在汇编语言中，用助记符（Mnemonics）代替机器指令的操作码，用地址符号（Symbol）或标号（Label）代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过汇编过程转换成机器指令。普遍地说，特定的汇编语言和特定的机器语言指令集是一一对应的,不同平台之间不可直接移植。[1]
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Ruby</td>
+            <td>
+                Ruby，一种简单快捷的面向对象（面向对象程序设计）脚本语言，在20世纪90年代由日本人松本行弘(Yukihiro Matsumoto)开发，遵守GPL协议和Ruby License。它的灵感与特性来自于 Perl、Smalltalk、Eiffel、Ada以及 Lisp 语言。由 Ruby 语言本身还发展出了JRuby（Java平台）、IronRuby（.NET平台）等其他平台的 Ruby 语言替代品。Ruby的作者于1993年2月24日开始编写Ruby，直至1995年12月才正式公开发布于fj（新闻组）。因为Perl发音与6月诞生石pearl（珍珠）相同，因此Ruby以7月诞生石ruby（红宝石）命名。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Perl</td>
+            <td>
+                Perl，一种功能丰富的计算机程序语言，运行在超过100种计算机平台上，适用广泛，从大型机到便携设备，从快速原型创建到大规模可扩展开发。[1]
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Delphi</td>
+            <td>
+                Delphi，是Windows平台下著名的快速应用程序开发工具(Rapid Application Development，简称RAD)。它的前身，即是DOS时代盛行一时的“BorlandTurbo Pascal”，最早的版本由美国Borland（宝兰）公司于1995年开发。主创者为Anders Hejlsberg。经过数年的发展，此产品也转移至Embarcadero公司旗下。Delphi是一个集成开发环境（IDE），使用的核心是由传统Pascal语言发展而来的Object Pascal，以图形用户界面为开发环境，透过IDE、VCL工具与编译器，配合连结数据库的功能，构成一个以面向对象程序设计为中心的应用程序开发工具。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>VisualBasic</td>
+            <td>
+                Visual Basic是一种由 微软公司开发的结构化的、模块化的、面向对象的、包含协助开发环境的事件驱动为机制的可视化程序设计语言。这是一种可用于微软自家产品开发的语言。它源自于BASIC编程语言。VB拥有图形用户界面（GUI）和快速应用程序开发（RAD）系统，可以轻易的使用DAO、RDO、ADO连接数据库，或者轻松的创建Active X控件。程序员可以轻松的使用VB提供的组件快速建立一个应用程序。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Swift</td>
+            <td>
+                Swift，苹果于2014年WWDC（苹果开发者大会）发布的新开发语言，可与Objective-C*共同运行于Mac OS和iOS平台，用于搭建基于苹果平台的应用程序。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>MATLAB</td>
+            <td>
+                MATLAB[1]  是美国MathWorks公司出品的商业数学软件，用于算法开发、数据可视化、数据分析以及数值计算的高级技术计算语言和交互式环境，主要包括MATLAB和Simulink两大部分。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Pascal</td>
+            <td>
+                Pascal的名称是为了纪念十七世纪法国著名哲学家和数学家Blaise Pascal而来的，它由瑞士Niklaus Wirth教授于六十年代末设计并创立的。
+                Pascal语言语法严谨，层次分明，程序易写，可读性强，是第一个结构化编程语言。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Groovy</td>
+            <td>
+                Groovy是一种基于JVM（Java虚拟机）的敏捷开发语言，它结合了Python、Ruby和Smalltalk的许多强大的特性，Groovy 代码能够与 Java 代码很好地结合，也能用于扩展现有代码。由于其运行在 JVM 上的特性，Groovy 可以使用其他 Java 语言编写的库。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Objective-C</td>
+            <td>
+                Objective-C，通常写作ObjC或OC和较少用的Objective C或Obj-C，是扩充C的面向对象编程语言。它主要使用于Mac OS X和GNUstep这两个使用OpenStep标准的系统，而在NeXTSTEP和OpenStep中它更是基本语言。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>R</td>
+            <td>
+                R是一种用于统计计算的编程语言，由奥克兰大学的Ross Ihaka 和 Robert Gentleman发明。如今被广泛地使用于统计分析、数据挖掘等方向。
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>PL/SQL</td>
+            <td>
+                PL/SQL也是一种程序语言，叫做过程化SQL语言（Procedural Language/SQL）。PL/SQL是Oracle数据库对SQL语句的扩展。在普通SQL语句的使用上增加了编程语言的特点，所以PL/SQL就是把数据操作和查询语句组织在PL/SQL代码的过程性单元中，通过逻辑判断、循环等操作实现复杂的功能或者计算的程序语言。
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</script>
+
+<script id="init_css_tpl" type="text/css">
+    body {
+        font-size: medium;
+        font-family: "Microsoft YaHei", Arial, Helvetical, sans-serif, "宋体";
+    }
+</script>
+<!--https://www.sitepoint.com/whats-best-programming-language-learn-2016/-->
+<script id="init_js_tpl" type="text/html">
+    $(document).ready(function(){
+    console.log("欢迎使用DataTables在线代码编辑，这是测试版本，功能还没有全部开发完，如果你发现错误或者有好的建议，欢迎发送到邮箱 thxopen@datatables.club");
+    console.log("Welcome to use DT-code ,this is test version. The whole functions are not complete. If you find any problems or some advices,please send to my e-mail: thxopen@datatables.club");
+    var t = $('#example').DataTable( {
+    "dom":"plfrtip",
+    "columnDefs": [ {
+    "searchable": false,
+    "orderable": false,
+    "targets": 0
+    } ]
+    } );
+
+    t.on( 'order.dt search.dt', function () {
+    t.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+    cell.innerHTML = i+1;
+    } );
+    } ).draw();
+    });
+</script>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="jquery.min.js"></script>
+<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+
+<script src="codemirror/codemirror.js" type="text/javascript"></script>
+<script src="codemirror/formatting.js" type="text/javascript"></script>
+<script src="codemirror/closetag.js" type="text/javascript"></script>
+<script src="codemirror/searchcursor.js" type="text/javascript"></script>
+<script src="codemirror/match-highlighter.js" type="text/javascript"></script>
+<script src="codemirror/xml.js" type="text/javascript"></script>
+<script src="codemirror/css.js" type="text/javascript"></script>
+<script src="codemirror/javascript.js" type="text/javascript"></script>
+<script src="codemirror/htmlmixed.js" type="text/javascript"></script>
+
+<script src="scripts/filesaver.js" type="text/javascript"></script>
+
+
+
+<script>
+    //codemirror对象
+    var html_code, css_code, js_code;
+
+    var htmlcontent = "";
+
+    $(document).ready(function(){
+        //初始化代码
+        $("#html_code").val($("#init_html_tpl").html());
+        $("#css_code").val($("#init_css_tpl").html());
+        $("#js_code").val($("#init_js_tpl").html());
+
+
+
+        html_code = initCodeMirror("html_code", "text/html", html_code);
+
+
+        $('a[href="#result"]').on('shown.bs.tab click', function (e) {
+            runit();
+        });
+
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            var targtText = $(e.target).attr("aria-controls");
+
+            if (targtText == "css") {
+                css_code = initCodeMirror("css_code", "text/css", css_code);
+            }
+            if (targtText == "javascript") {
+                js_code = initCodeMirror("js_code", "text/javascript", js_code);
+            }
+            console.log(targtText);
+        });
+
+        $('a[data-toggle="tab"]').on("dblclick",function (e) {
+        e.preventDefault();
+        var targtText = $(e.target).attr("aria-controls");
+
+        if (targtText == "css") {
+            formatCode(css_code);
+        }
+        if (targtText == "javascript") {
+            formatCode(js_code);
+        }
+        if (targtText == "html") {
+            formatCode(html_code);
+        }
+    });
+
+        selectCreate("jquery", "jquerylist",['343']);
+        selectCreate("datatables-js", "dtlist",['344']);
+        selectCreate("datatables-css", "dtcsslist",['351']);
+        selectCreate("bootstrap-js", "btlist");
+        selectCreate("bootstrap-css", "btcsslist");
+
+
+        $("#saveToFile").click(function(){
+            //baidu 真垃圾啊
+//            var htmlFile = $("#view").contents().find("html").html();
+            if(htmlcontent){
+                saveToFile(htmlcontent);
+            }else{
+                alert("请先预览结果后再保存文件")
+            }
+        })
+    });
+
+
+
+    function initCodeMirror(id, mode, obj) {
+        return obj || CodeMirror.fromTextArea(document.getElementById(id), {
+                    lineNumbers: !0,
+                    matchBrackets: !0,
+                    lineWrapping: !0,
+                    mode: mode,
+                    tabSize: 2,
+                    wordWrap: true,
+                    autoCloseTags: true
+                });
+    }
+
+    function formatCode(editor){
+        var range = getSelectedRange(editor);
+        if(range.from.ch){
+            editor.autoFormatRange(range.from, range.to);
+        }else{
+            CodeMirror.commands["selectAll"](editor);
+            range = getSelectedRange(editor);
+            editor.autoFormatRange(range.from, range.to);
+        }
+
+    }
+
+    function getSelectedRange(editor) {
+        return { from: editor.getCursor(true), to: editor.getCursor(false) };
+    }
+
+    function runit() {
+        css_code = initCodeMirror("css_code", "text/css", css_code);
+        js_code = initCodeMirror("js_code", "text/javascript", js_code);
+
+        creater_doc.createiframe(function () {
+            var h = "", b = "";
+            var dtcsslist_data = $("#dtcsslist");
+            var btlist_data = $("#btlist");
+            var jquerylist_data = $("#jquerylist");
+            var dtlist_data = $("#dtlist");
+            var btcsslist_data = $("#btcsslist");
+
+            h += resultcombine(btcsslist_data, true) + '\n';
+            h += resultcombine(dtcsslist_data, true) + '\n';
+            h += creater_doc.createStyleContentHtml(css_code.getValue()) + '\n';
+
+            b += html_code.getValue() + '\n';
+            b += resultcombine(jquerylist_data, false) + '\n';
+            b += resultcombine(btlist_data, false) + '\n';
+            b += resultcombine(dtlist_data, false) + '\n';
+            b += creater_doc.createSriptContentHtml(js_code.getValue()) + '\n';
+
+            var sb = '<html>\n<head>\n' + h + '</head>\n<body>\n' + b + '</body>\n</html>';
+
+            return sb;
+        });
+
+        function resultcombine(data, type) {
+            var sb = "";
+            var selectDom = data.data(data.attr("id") + "-data");
+            var selectval = data.val();
+            $(selectDom).each(function (index, obj) {
+                if (selectval) {
+                    for (var i = 0; i < selectval.length; i++) {
+                        if (selectval[i] == obj.id) {
+                            if (type) {
+                                sb += creater_doc.createLinkHtml(obj.url) + '\n';
+                            } else {
+                                sb += creater_doc.createScriptHtml(obj.url) + '\n'
+                            }
+                        }
+                    }
+                }
+            });
+            return sb;
+        }
+    }
+
+    var creater_doc = {
+        doc: null,
+        createiframe: function (appendfun) {
+            $("#result").html($("<iframe />", {
+                id: "view",
+                width: "100%",
+                height: "550px",
+                frameBorder: "0"
+            }));
+            var m = $("#view")[0];
+            if (m.contentDocument) {
+                this.doc = m.contentDocument
+            } else {
+                if (m.contentWindow) {
+                    this.doc = m.contentWindow.document
+                } else {
+                    this.doc = m.document
+                }
+            }
+            htmlcontent = appendfun();
+            this.doc.open();
+            this.doc.writeln(htmlcontent);
+            this.doc.close();
+        },
+        init: function (odoc) {
+            this.doc = odoc;
+        },
+        createDomHtml: function () {
+            var domHtml = $("#result_html_tmpl").html();
+            domHtml = $(domHtml);
+            return domHtml;
+        },
+        createScriptHtml: function (src) {
+            var scriptHtml = "<script src='" + src + "' type='text/javascript' ><\/script>";
+            return scriptHtml;
+        },
+        createScript: function (src) {
+            var fileElement = this.doc.createElement("script");
+            fileElement.type = "text/javascript";
+            fileElement.src = src;
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createSriptContentHtml: function (code) {
+            var scriptHtml = "<script type='text/javascript' >" + code + "<\/script>";
+            return scriptHtml;
+        },
+        createScriptContent: function (code) {
+            var fileElement = this.doc.createElement("script");
+            fileElement.type = "text/javascript";
+            fileElement.innerHTML = code;
+//            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+            this.doc.body.appendChild(fileElement);
+        },
+        createLinkHtml: function (src) {
+            var scriptHtml = "<link href='" + src + "' rel='stylesheet' />";
+            return scriptHtml;
+        },
+        createStyleContentHtml: function (code) {
+            var scriptHtml = "<style>" + code + "<\/style>";
+            return scriptHtml;
+        },
+        createStyle: function (code) {
+            var fileElement = this.doc.createElement("style");
+            fileElement.innerHTML = code;
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createLink: function (src) {
+            var fileElement = this.doc.createElement("link");
+            fileElement.href = src;
+            fileElement.rel = "stylesheet";
+            this.doc.getElementsByTagName("head")[0].appendChild(fileElement);
+        },
+        createElement: function (ele, content) {
+            var fileElement = this.doc.createElement(ele);
+            fileElement.innerHTML = content;
+            return fileElement;
+        }
+    };
+
+    function code_ajax(url, callback) {
+        $.ajax({
+            url: url,
+            success: function (data) {
+                callback(data);
+            }
+        });
+    }
+
+    function selectCreate(name, id, val) {
+        code_ajax("./assets/" + name + ".txt", function (data) {
+            data = JSON.parse(data);
+            var select = $("#" + id);
+            select.data(id + "-data", data);
+            $(data).each(function (index, obj) {
+                select.append("<option value='" + obj.id + "'>" + obj.name + " " + obj.version + "</option>");
+            });
+            select.val(val);
+        });
+    }
+
+    $(document).on("change", "select", function () {
+        combineResourseList();
+    });
+
+    function combineResourseList() {
+        var resourselist = "";
+        var jquerylist_data = $("#jquerylist");
+        var dtlist_data = $("#dtlist");
+        var dtcsslist_data = $("#dtcsslist");
+        var btlist_data = $("#btlist");
+        var btcsslist_data = $("#btcsslist");
+
+        resourselist = combine(resourselist, jquerylist_data);
+        resourselist = combine(resourselist, btcsslist_data);
+        resourselist = combine(resourselist, dtcsslist_data);
+        resourselist = combine(resourselist, btlist_data);
+        resourselist = combine(resourselist, dtlist_data);
+
+        $("#resourselist").val(resourselist);
+
+        function combine(resourselist, data) {
+            var selectDom = data.data(data.attr("id") + "-data");
+            var selectval = data.val();
+            $(selectDom).each(function (index, obj) {
+                if (selectval) {
+                    for (var i = 0; i < selectval.length; i++) {
+                        if (selectval[i] == obj.id) {
+                            resourselist += obj.url + "\n";
+                        }
+                    }
+                } else {
+                    return resourselist;
+                }
+            });
+            return resourselist;
+        }
+    }
+
+    function saveToFile(code) {
+        var b = new Blob([code]);
+        saveAs(b, "datatables.club.html");
+    }
+
+
+</script>
 </body>
 </html>
