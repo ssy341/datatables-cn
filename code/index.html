@@ -81,14 +81,14 @@
 
                 </select>
             </div>
-            <div class="form-group">
+          <!--  <div class="form-group">
                 <label for="dtlist">js外链</label>
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="js外链">
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button">添加</button>
                       </span>
-                </div><!-- /input-group -->
+                </div>&lt;!&ndash; /input-group &ndash;&gt;
             </div>
             <div class="form-group">
                 <label for="dtlist">css外链</label>
@@ -97,50 +97,84 @@
                       <span class="input-group-btn">
                         <button class="btn btn-default" type="button">添加</button>
                       </span>
-                </div><!-- /input-group -->
-            </div>
+                </div>&lt;!&ndash; /input-group &ndash;&gt;
+            </div>-->
             <div class="form-group">
-                <label for="dtlist">资源列表</label>
+                <label for="dtlist">引入的资源列表</label>
                 <textarea class="form-control" name="" id="resourselist" rows="10"></textarea>
             </div>
         </form>
     </div>
 
     <div class="col-lg-10">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a>
-            </li>
-            <li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
-            <li role="presentation"><a href="#javascript" aria-controls="javascript" role="tab" data-toggle="tab">JAVASCRIPT</a>
-            </li>
-            <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab">RESULT</a>
-            </li>
-        </ul>
+        <div class="row">
+            <label>本地保存的代码</label>
+            <div style="margin-top:20px;max-height:200px;overflow-y:auto">
+                <ul class="list-group" id="codelist">
 
-        <!-- Tab panes -->
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="html">
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#html" aria-controls="html" role="tab" data-toggle="tab">HTML</a>
+                </li>
+                <li role="presentation"><a href="#css" aria-controls="css" role="tab" data-toggle="tab">CSS</a></li>
+                <li role="presentation"><a href="#javascript" aria-controls="javascript" role="tab" data-toggle="tab">JAVASCRIPT</a>
+                </li>
+                <li role="presentation"><a href="#result" aria-controls="result" role="tab" data-toggle="tab">RESULT</a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="html">
             <textarea class="code_input" id="html_code" rows="34">
 
             </textarea>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="css">
+                </div>
+                <div role="tabpanel" class="tab-pane" id="css">
             <textarea class="code_input" id="css_code" rows="34">
 
             </textarea>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="javascript">
+                </div>
+                <div role="tabpanel" class="tab-pane" id="javascript">
             <textarea class="code_input" id="js_code" rows="34">
 
             </textarea>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="result"></div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="result"></div>
         </div>
+
     </div>
 
 
 </div>
+
+<script id="codelistlitpl" type="text/html">
+    <li class="list-group-item">
+        <div>
+            <span>{{d.name}}</span>
+            <!-- Split button -->
+            <div class="btn-group right">
+                <button type="button" class="btn btn-primary" onclick="loadLocalCode('{{d.key}}')">加载</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a href="#" title="生成HTML" onclick="saveToFile('{{d.key}}')">生成</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#" onclick="delLocalCode('{{d.key}}')">删除</a></li>
+                </ul>
+            </div>
+        </div>
+    </li>
+</script>
 
 
 <script id="init_html_tpl" type="text/html">
@@ -337,7 +371,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="jquery.min.js"></script>
+<script src="../js/jquery-2.0.0.js"></script>
+<script src="../js/jquery.storageapi.js"></script>
+<script src="../js/laytpl.js"></script>
 <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
 
@@ -361,16 +397,14 @@
 
     var htmlcontent = "";
 
-    $(document).ready(function(){
+    $(document).ready(function () {
+
         //初始化代码
-        $("#html_code").val($("#init_html_tpl").html());
-        $("#css_code").val($("#init_css_tpl").html());
-        $("#js_code").val($("#init_js_tpl").html());
-
-
+        initDTCodeFirst();
 
         html_code = initCodeMirror("html_code", "text/html", html_code);
-
+        css_code = initCodeMirror("css_code", "text/css", css_code);
+        js_code = initCodeMirror("js_code", "text/javascript", js_code);
 
         $('a[href="#result"]').on('shown.bs.tab click', function (e) {
             runit();
@@ -385,44 +419,221 @@
             if (targtText == "javascript") {
                 js_code = initCodeMirror("js_code", "text/javascript", js_code);
             }
-            console.log(targtText);
         });
 
-        $('a[data-toggle="tab"]').on("dblclick",function (e) {
-        e.preventDefault();
-        var targtText = $(e.target).attr("aria-controls");
+        $('a[data-toggle="tab"]').on("dblclick", function (e) {
+            e.preventDefault();
+            var targtText = $(e.target).attr("aria-controls");
 
-        if (targtText == "css") {
-            formatCode(css_code);
-        }
-        if (targtText == "javascript") {
-            formatCode(js_code);
-        }
-        if (targtText == "html") {
-            formatCode(html_code);
-        }
-    });
+            if (targtText == "css") {
+                formatCode(css_code);
+            }
+            if (targtText == "javascript") {
+                formatCode(js_code);
+            }
+            if (targtText == "html") {
+                formatCode(html_code);
+            }
+        });
 
-        selectCreate("jquery", "jquerylist",['343']);
-        selectCreate("datatables-js", "dtlist",['344']);
-        selectCreate("datatables-css", "dtcsslist",['351']);
+        selectCreate("jquery", "jquerylist");
+        selectCreate("datatables-js", "dtlist");
+        selectCreate("datatables-css", "dtcsslist");
         selectCreate("bootstrap-js", "btlist");
         selectCreate("bootstrap-css", "btcsslist");
 
 
-        $("#saveToFile").click(function(){
+        //保存当前代码到本地
+        $("#saveToFile").click(function () {
             //baidu 真垃圾啊
 //            var htmlFile = $("#view").contents().find("html").html();
-            if(htmlcontent){
-                saveToFile(htmlcontent);
-            }else{
-                alert("请先预览结果后再保存文件")
-            }
-        })
+            save_load.init();
+            save_load.setCode(save_load.codeObj);
+            save_load.createCodeList();
+        });
+        //生成代码列表
+        save_load.createCodeList();
     });
 
+    function initDTCodeFirst(){
+        save_load.init();
+        save_load.codeObj.csscode = $("#init_css_tpl").html();
+        save_load.codeObj.htmlcode = $("#init_html_tpl").html();
+        save_load.codeObj.jscode = $("#init_js_tpl").html();
+        save_load.codeObj.resourse.jquerylist = ['343'];
+        save_load.codeObj.resourse.dtlist = ['344'];
+        save_load.codeObj.resourse.dtcsslist = ['351'];
+        save_load.codeObj.key = "code_datatables_club_341";
+        save_load.codeObj.name = "入门指导例子";
+        save_load.setCode(save_load.codeObj);
+        save_load.createCodeList();
+    }
+
+    /**
+     * 读取代码到编辑区域
+     * @param key
+     */
+    function loadLocalCode(key){
+        var code = save_load.getCode(key);
+        js_code.setValue(code.jscode);
+        css_code.setValue(code.csscode);
+        html_code.setValue(code.htmlcode);
+
+        $("#jquerylist").val(code.resourse.jquerylist);
+        $("#dtlist").val(code.resourse.dtlist);
+        $("#dtcsslist").val(code.resourse.dtcsslist);
+        $("#btlist").val(code.resourse.btlist);
+        $("#btcsslist").val(code.resourse.btcsslist);
+
+    }
+
+    /**
+     * 删除本地代码
+     * @param key
+     */
+    function delLocalCode(key){
+        save_load.remove(key);
+        save_load.createCodeList();
+    }
+
+    var save_load = {
+        /**
+         * 本地储存对象
+         * 使用jquery 插件
+         */
+        loacl: $.localStorage,
+        /**
+         * 代码对象初始化
+         * 使用前必须调用
+         */
+        init: function () {
+            this.codeObj = this.createCodeObj();
+        },
+        /**
+         * 返回一个代码对象
+         * @returns {{key: string, name: null, jscode: null, csscode: null, htmlcode: null, resourse: {jquerylist: null, dtlist: null, dtcsslist: null, btlist: null, btcsslist: null}, type: null}}
+         */
+        createCodeObj: function () {
+            return {
+                "key": null,
+                "name": null,
+                "jscode": null,
+                "csscode": null,
+                "htmlcode": null,
+                "resourse": {
+                    "jquerylist": null,
+                    "dtlist": null,
+                    "dtcsslist": null,
+                    "btlist": null,
+                    "btcsslist": null
+                },
+                "type": null
+            }
+        },
+        /**
+         * 代码对象存放
+         */
+        codeObj: null,
+        /**
+         * 移除本地储存
+         * @param key
+         */
+        remove: function (key) {
+            this.loacl.remove(key);
+        },
+        /**
+         * 列出本地代码
+         * @returns {Array}
+         */
+        listCode: function () {
+            var codes = this.loacl.keys();
+            var codearry = [];
+            for (var i = 0; i < codes.length; i++) {
+                var c = codes[i];
+                if (c.indexOf("code_datatables_club") != -1) {
+                    codearry.push(c);
+                }
+            }
+            return codearry;
+        },
+        /**
+         * 创建本地代码list
+         */
+        createCodeList: function () {
+            this.empty();
+            this.createLI();
+        },
+        /**
+         * 创建本地代码li
+         */
+        createLI: function () {
+            var codelis = this.listCode();
+            var codelisttplobj = $("#codelistlitpl").html();
+            for (var c = 0; c < codelis.length; c++) {
+                var key = codelis[c];
+                var codecontent = save_load.getCode(key);
+                var cusName = codecontent.key.split("_")[3];
+                cusName = parseInt(cusName);
+                var date = new Date(cusName);
+                codecontent.name = codecontent.name || date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "代码保存";
+                var lihtml = laytpl(codelisttplobj).render(codecontent);
+                $("#codelist").append(lihtml);
+            }
+        },
+        /**
+         * 清空代码列表
+         */
+        empty: function () {
+            $("#codelist").empty();
+        },
+        /**
+         * 得到代码
+         * @param key
+         * @returns {*}
+         */
+        getCode: function (key) {
+            return this.loacl.get(key);
+        },
+        /**
+         * 保存代码到本地储存
+         * @param json
+         */
+        setCode: function (json) {
+            var jscode = json.jscode || js_code.getValue();
+            var csscode = json.csscode || css_code.getValue();
+            var htmlcode = json.htmlcode || html_code.getValue();
+
+            var jquerylist = json.resourse.jquerylist || $("#jquerylist").val();
+            var dtlist = json.resourse.dtlist || $("#dtlist").val();
+            var dtcsslist = json.resourse.dtcsslist || $("#dtcsslist").val();
+            var btlist = json.resourse.btlist || $("#btlist").val();
+            var btcsslist = json.resourse.btcsslist || $("#btcsslist").val();
+
+            this.init();
+            this.codeObj.key = json.key || "code_datatables_club_" + new Date().getTime();
+            this.codeObj.jscode = jscode;
+            this.codeObj.csscode = csscode;
+            this.codeObj.htmlcode = htmlcode;
+            this.codeObj.name = json.name;
+            this.codeObj.type = json.type;
+            this.codeObj.resourse.jquerylist = jquerylist;
+            this.codeObj.resourse.dtlist = dtlist;
+            this.codeObj.resourse.dtcsslist = dtcsslist;
+            this.codeObj.resourse.btlist = btlist;
+            this.codeObj.resourse.btcsslist = btcsslist;
+
+            this.loacl.set(this.codeObj.key, this.codeObj);
+        }
+    };
 
 
+    /**
+     * 初始化codemirror
+     * @param id
+     * @param mode
+     * @param obj
+     * @returns {*}
+     */
     function initCodeMirror(id, mode, obj) {
         return obj || CodeMirror.fromTextArea(document.getElementById(id), {
                     lineNumbers: !0,
@@ -435,6 +646,10 @@
                 });
     }
 
+    /**
+     * 格式化编辑器里的代码
+     * @param editor
+     */
     function formatCode(editor){
         var range = getSelectedRange(editor);
         if(range.from.ch){
@@ -447,56 +662,68 @@
 
     }
 
+    /**
+     * 选择被格式的代码范围
+     * @param editor
+     * @returns {{from: *, to: *}}
+     */
     function getSelectedRange(editor) {
         return { from: editor.getCursor(true), to: editor.getCursor(false) };
     }
 
-    function runit() {
-        css_code = initCodeMirror("css_code", "text/css", css_code);
-        js_code = initCodeMirror("js_code", "text/javascript", js_code);
+    function createHtmlContent(json){
+        var h = "", b = "";
+        h += resultcombine("btcsslist",json.btcsslist, true) + '\n';
+        h += resultcombine("dtcsslist",json.dtcsslist ,true) + '\n';
+        h += creater_doc.createStyleContentHtml(json.csscode) + '\n';
+        b += json.htmlcode + '\n';
+        b += resultcombine("jquerylist",json.jquerylist,  false) + '\n';
+        b += resultcombine("btlist",json.btlist,  false) + '\n';
+        b += resultcombine("dtlist", json.dtlist, false) + '\n';
+        b += creater_doc.createSriptContentHtml(json.jscode) + '\n';
+        return  '<html>\n<head>\n' + h + '</head>\n<body>\n' + b + '</body>\n</html>';
+    }
 
-        creater_doc.createiframe(function () {
-            var h = "", b = "";
-            var dtcsslist_data = $("#dtcsslist");
-            var btlist_data = $("#btlist");
-            var jquerylist_data = $("#jquerylist");
-            var dtlist_data = $("#dtlist");
-            var btcsslist_data = $("#btcsslist");
-
-            h += resultcombine(btcsslist_data, true) + '\n';
-            h += resultcombine(dtcsslist_data, true) + '\n';
-            h += creater_doc.createStyleContentHtml(css_code.getValue()) + '\n';
-
-            b += html_code.getValue() + '\n';
-            b += resultcombine(jquerylist_data, false) + '\n';
-            b += resultcombine(btlist_data, false) + '\n';
-            b += resultcombine(dtlist_data, false) + '\n';
-            b += creater_doc.createSriptContentHtml(js_code.getValue()) + '\n';
-
-            var sb = '<html>\n<head>\n' + h + '</head>\n<body>\n' + b + '</body>\n</html>';
-
-            return sb;
-        });
-
-        function resultcombine(data, type) {
-            var sb = "";
-            var selectDom = data.data(data.attr("id") + "-data");
-            var selectval = data.val();
-            $(selectDom).each(function (index, obj) {
-                if (selectval) {
-                    for (var i = 0; i < selectval.length; i++) {
-                        if (selectval[i] == obj.id) {
-                            if (type) {
-                                sb += creater_doc.createLinkHtml(obj.url) + '\n';
-                            } else {
-                                sb += creater_doc.createScriptHtml(obj.url) + '\n'
-                            }
+    function resultcombine(id, data, type) {
+        var sb = "";
+        var selectObj = $("#" + id);
+        var selectDom = selectObj.data(selectObj.attr("id") + "-data");
+        var selectval = data;
+        $(selectDom).each(function (index, obj) {
+            if (selectval) {
+                for (var i = 0; i < selectval.length; i++) {
+                    if (selectval[i] == obj.id) {
+                        if (type) {
+                            sb += creater_doc.createLinkHtml(obj.url) + '\n';
+                        } else {
+                            sb += creater_doc.createScriptHtml(obj.url) + '\n'
                         }
                     }
                 }
-            });
-            return sb;
-        }
+            }
+        });
+        return sb;
+    }
+
+    /**
+     * 运行代码
+     */
+    function runit() {
+//        css_code = initCodeMirror("css_code", "text/css", css_code);
+//        js_code = initCodeMirror("js_code", "text/javascript", js_code);
+        creater_doc.createiframe(function () {
+            var json = {
+                "jscode": js_code.getValue(),
+                "csscode": css_code.getValue(),
+                "htmlcode": html_code.getValue(),
+                "dtcsslist": $("#dtcsslist").val(),
+                "btlist": $("#btlist").val(),
+                "jquerylist": $("#jquerylist").val(),
+                "dtlist": $("#dtlist").val(),
+                "btcsslist": $("#btcsslist").val()
+            };
+            return createHtmlContent(json);
+        });
     }
 
     var creater_doc = {
@@ -603,6 +830,9 @@
         combineResourseList();
     });
 
+    /**
+     * 列出被使用的资源文件
+     */
     function combineResourseList() {
         var resourselist = "";
         var jquerylist_data = $("#jquerylist");
@@ -637,7 +867,23 @@
         }
     }
 
-    function saveToFile(code) {
+    /**
+     * 保存代码为html文件
+     * @param code
+     */
+    function saveToFile(key) {
+        var codeObj = save_load.getCode(key);
+        var json = {
+            "jscode": codeObj.jscode,
+            "csscode": codeObj.csscode,
+            "htmlcode": codeObj.htmlcode,
+            "dtcsslist": codeObj.resourse.dtcsslist,
+            "btlist": codeObj.resourse.btlist,
+            "jquerylist": codeObj.resourse.jquerylist,
+            "dtlist": codeObj.resourse.dtlist,
+            "btcsslist": codeObj.resourse.btcsslist
+        };
+        var code = createHtmlContent(json);
         var b = new Blob([code]);
         saveAs(b, "datatables.club.html");
     }
