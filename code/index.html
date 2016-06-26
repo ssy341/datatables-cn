@@ -371,9 +371,9 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../js/jquery-2.0.0.js"></script>
-<script src="../js/jquery.storageapi.js"></script>
-<script src="../js/laytpl.js"></script>
+<script src="scripts/jquery-2.0.0.js"></script>
+<script src="scripts/jquery.storageapi.js"></script>
+<script src="scripts/laytpl.js"></script>
 <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 
 
@@ -681,7 +681,7 @@
         b += resultcombine("btlist",json.btlist,  false) + '\n';
         b += resultcombine("dtlist", json.dtlist, false) + '\n';
         b += creater_doc.createSriptContentHtml(json.jscode) + '\n';
-        return  '<html>\n<head>\n' + h + '</head>\n<body>\n' + b + '</body>\n</html>';
+        return  '<html>\n<head><meta charset="utf-8">\n' + h + '</head>\n<body>\n' + b + '</body>\n</html>';
     }
 
     function resultcombine(id, data, type) {
