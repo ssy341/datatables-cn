@@ -1,0 +1,38 @@
+{
+    "jquery":[
+        {
+            "version":"",
+            "url":"",
+            "order":""
+        }
+    ],
+    "datatables_js":[
+        {
+                "version":"",
+                "url":"",
+                "order":""
+            }
+
+    ],
+    "datatables_css":[
+         {
+                    "version":"",
+                    "url":"",
+                    "order":""
+                }
+    ],
+    "bootstrap_js":[
+ {
+            "version":"",
+            "url":"",
+            "order":""
+        }
+    ],
+    "bootstrap_css":[
+ {
+            "version":"",
+            "url":"",
+            "order":""
+        }
+    ]
+}

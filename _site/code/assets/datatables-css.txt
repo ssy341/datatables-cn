@@ -1,0 +1,24 @@
+
+[
+  {
+    "id":"351",
+    "url":"https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css",
+    "name":"dataTables core",
+    "version":"1.10.12"
+  },
+ 
+  {
+    "id":"352",
+    "url":"https://cdn.datatables.net/autofill/2.1.2/css/autoFill.dataTables.min.css",
+    "name":"dataTables autoFill",
+    "version":"2.1.2"
+  },
+ 
+  {
+    "id":"353",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/css/buttons.dataTables.min.css",
+    "name":"dataTables buttons",
+    "version":"1.2.1"
+  }
+ 
+]
