@@ -94,7 +94,7 @@ title: Datatables 中文网
                     <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
                     <div class="news-title">
                         <a href="{{ post.url }}">{{ post.short }}</a>
-                        <span class='icon-comment disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+                        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
                     </div>
                 </article>
                 {% endfor %}
