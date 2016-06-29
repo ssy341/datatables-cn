@@ -6,7 +6,7 @@ date: 2014-10-22
 group: 2014-10
 caption: DataTables 中文网博客
 categories: blog
-tags: [官方博客]
+tags: [博客,官方博客]
 author: DataTable中文网
 banner: /assets/blog/2014-10/2014-10-22-search-result-highlighting.png
 ---
