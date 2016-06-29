@@ -6,31 +6,31 @@
   date: 2014-12-13
   isHot: 0
 
-- content: DataTable更新至【1.10.+】，【1.9.-】在本站定义为老版本，部分参数和方法名变动，具体参考<a target='_blank' href='/upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>
+- content: DataTables 更新至【1.10.+】，【1.9.-】在本站定义为老版本，部分参数和方法名变动，具体参考<a target='_blank' href='/upgrade/1.10-convert.html'>新版本与老版本参数对照表</a>
   date: 2014-12-29
   isHot: 1
 
-- content: <a target='_blank' href='http://www.gbtags.com/gb/share/4526.htm'>Datatables新版1.10.4特性讲解征求意见</a>
+- content: <a target='_blank' href='http://www.gbtags.com/gb/share/4526.htm'> Datatables 新版 1.10.4 特性讲解征求意见</a>
   date: 2015-02-05
   isHot: 0
 
-- content: <a target='_blank' href='http://datatables.club/tour'>Datatables中文网导航</a>
+- content: <a target='_blank' href='http://datatables.club/tour'> Datatables 中文网导航</a>
   date: 2015-03-02
   isHot: 0
 
-- content: <a target='_blank' href='http://datatables.club/faqs'>Datatables常见问题</a>
+- content: <a target='_blank' href='http://datatables.club/faqs'>使用 Datatables 常见问题</a>
   date: 2015-03-18
   isHot: 1
 
-- content: <a target='_blank' href='/reference/api/'>api</a>和<a target='_blank' href='/reference/option/'>option</a>中文参考，详细内容在慢慢增加
+- content: <a target='_blank' href='/reference/api/'>API</a>和<a target='_blank' href='/reference/option/'>Option</a>中文参考，详细内容在慢慢增加
   date: 2015-04-01
   isHot: 0
 
-- content: 第一期<a target='_blank' href='/example/'>视频教学</a>
+- content: 第一期 DataTables 入门<a target='_blank' href='/example/'>视频教学</a>
   date: 2015-04-11
   isHot: 0
 
-- content: Datatables中文网第一期交流学习活动开始了<a target='_blank' href='/activity/'>传送门</a>
+- content: Datatables 中文网第一期在线交流学习活动开始了<a target='_blank' href='/activity/'>传送门</a>
   date: 2015-04-27
   isHot: 0
 
@@ -38,15 +38,15 @@
   date: 2016-1-6
   isHot: 0
 
-- content: TableTools被废弃，建议大家使用Buttons扩展，中文网添加了<a target='_blank' href='../reference/button'>buttons文档</a>
+- content: TableTools 被废弃，建议大家使用 Buttons 扩展，中文网添加了<a target='_blank' href='../reference/button'>buttons文档</a>
   date: 2016-1-20
   isHot: 1
 
-- content: 添加了<a target='_blank' href='/extensions/'>Extensions文档</a>
+- content: 添加了<a target='_blank' href='/extensions/'> Extensions 文档</a>
   date: 2016-4-1
   isHot: 1
 
-- content: 添加了<a target='_blank' href='/plug-ins/'>Plug-ins文档</a>
+- content: 添加了<a target='_blank' href='/plug-ins/'> Plug-ins 文档</a>
   date: 2016-4-7
   isHot: 1
 
@@ -62,6 +62,10 @@
   date: 2016-5-28
   isHot: 1
 
-- content: 活动栏目改名为 DataTables中文网博客，<a target='_blank' href='/blog'>传送门</a>
+- content: 活动栏目改名为 DataTables 中文网博客，<a target='_blank' href='/blog'>传送门</a>
   date: 2016-6-3
+  isHot: 1
+
+- content: DT-CODE 代码在线编辑运行保存 ，<a target='_blank' href='http://code.datatables.club'>传送门</a>
+  date: 2016-6-26
   isHot: 1
