@@ -41,6 +41,38 @@ datatables_js:
     version: 1.2.1
     name: dataTables buttons print
     id: 350
+  - url: http://datatables.club/js/datatables/dataTables.buttons.min.js
+    version: 3.3.6
+    name: buttons
+    id: 358
+  - url: http://datatables.club/js/datatables/jszip.min.js
+    version: 3.3.6
+    name: jszip
+    id: 359
+  - url: http://datatables.club/js/datatables/pdfmake.min.js
+    version: 3.3.6
+    name: pdfmake
+    id: 360
+  - url: http://datatables.club/js/datatables/vfs_fonts.js
+    version: 3.3.6
+    name: vfs_fonts
+    id: 361
+  - url: http://datatables.club/js/datatables/buttons.html5.min.js
+    version: 3.3.6
+    name: buttons.html5
+    id: 362
+  - url: http://datatables.club/js/datatables/buttons.print.min.js
+    version: 3.3.6
+    name: buttons.print
+    id: 363
+  - url: http://datatables.club/js/datatables/buttons.flash.min.js
+    version: 3.3.6
+    name: buttons.flash
+    id: 364
+  - url: http://datatables.club/js/datatables/buttons.colVis.min.js
+    version: 3.3.6
+    name: buttons.colVis
+    id: 365
 
 datatables_css:
   - url: https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css
@@ -55,6 +87,14 @@ datatables_css:
     version: 1.2.1
     name: dataTables buttons
     id: 353
+  - url: http://datatables.club/js/datatables/buttons.dataTables.min.css
+    version: 1.2.1
+    name: buttons.dataTables
+    id: 357
+  - url: http://datatables.club/js/datatables/dataTables.bootstrap.css
+    version: 1.2.1
+    name: dataTables.bootstrap
+    id: 366
 
 bootstrap_js:
   - url: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
