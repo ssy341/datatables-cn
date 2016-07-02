@@ -114,8 +114,37 @@ $(document).on("click","#example button.search",function(){
 
 最后总结：
 
-- `"searching": false` 这样配置了，DT的搜索功能关闭，相关的方法也失效
+- `"searching": false` 这样配置了，DT的搜索功能关闭，相关的方法也失效（服务器模式下不影响）
 - 搜索功能开启的前提下，全局搜索时可以配置某列不参与搜索
 - 你还可以使用 {% include href/api/api.columns param="column().search()" %} 方法匹配的具体某列进行过滤搜索
 - 如果你想获取搜索后的结果集，你得需要使用{% include href/api/api.utility param="filter()" %}方法
 
+2016年7月2日补充：
+
+---
+
+小伙伴 **Smail** 提供如下代码：
+{% highlight javascript linenos %}
+var t = $('#example').DataTable({
+    //在 dom 里面不配置 f ，可以隐藏掉默认的搜索框
+	"dom": '<"datatable-header"<"dataTables_filter">l><"datatable-scroll"t><"datatable-footer"ip>',
+	//"searchable": false,//不能加，不然会影响search方法
+	initComplete: function(settings) {
+		var searchHTML = '<label><span>搜索:</span> <input type="search" class="" placeholder="需求名称模糊搜索..." aria-controls="datatable1"></label>';
+		$('.dataTables_filter').append(searchHTML); //快捷操作的HTML DOM
+		/**
+		    * 重写搜索事件
+		    */
+		$('.dataTables_filter input').bind('keyup',
+		function(e) {
+		    //监听回车键
+			if (e.keyCode == 13) {
+				t.search(this.value).draw();
+			}
+		});
+	}
+});
+{% endhighlight %}
+重写datatables搜索事件，这样就能做到按下回车时搜索了，还不破坏 DataTables 原有的样式结构
+
+---
