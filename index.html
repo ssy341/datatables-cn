@@ -50,204 +50,90 @@ title: Datatables 中文网
         </div>
     </div>
 </header>
+<style>
+    .news-title {
+        font-weight: 700;
+    }
 
+    .news-date {
+        color: #acaaaf;
+        font-weight: 500;
+    }
+
+    .news {
+        margin-top: 1.25rem;
+    }
+
+    .news-list h2 {
+        margin-top: 25px;
+        text-transform: uppercase;
+        color: #333;
+        font-size: 22px;
+    }
+
+    .more-news {
+        margin-top: 2.5rem;
+        display: inline-block;
+    }
+
+    .highlights {
+        margin-top: 2rem;
+    }
+</style>
 <div class="container"  style="margin-top:20px">
-    {% include xad %}
-    <div class="row">
-       <!-- <table id="example" class="display" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-                <th></th>
-                <th>更新内容</th>
-                <th>时间</th>
-            </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>-->
-        <iframe src="/upgrade/tomato.html" frameborder="0" width="100%" style="margin-top: 30px" height="550px"></iframe>
-    </div>
-    <div class="row" style="margin-top:20px">
-        <div class="span4">
-            <h2>DataTables 官方博客</h2>
-            <div id="blogDiv">
-                <table id="blogtable" class="display" cellspacing="0" width="100%"></table>
+
+        <div class="row highlights">
+
+            <div class="span4 news-list">
+                <h2>最新动态</h2>
+
+                {% assign postlist = site.tags %}
+                {% for post in postlist['博客'] limit:10 %}
+                <!-- First Blog Post -->
+                <article class="news">
+                    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
+                    <div class="news-title">
+                        <a href="{{ post.url }}">{{ post.short }}</a>
+                        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+                    </div>
+                </article>
+                {% endfor %}
+                <a class="more-news" href="/blog">更多 »</a>
             </div>
-        </div>
-        <div class="span8">
-            <h2>热门连接</h2>
-            <div id="hotUrl">
-                <table id="hottable" class="display" cellspacing="0" width="100%">
-                    <caption></caption>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>连接</th>
-                        <th>浏览次数</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <th colspan="3" style="text-align:right"></th>
-                    </tr>
-                    </tfoot>
-                </table>
+
+            <div class="span4 news-list">
+                <h2>不定时一讲</h2>
+
+                {% assign dailylist = site.tags %}
+                {% for post in dailylist['不定时一讲'] limit:10 %}
+                <!-- First Blog Post -->
+                <article class="news">
+                    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
+                    <div class="news-title">
+                        <a href="{{ post.url }}">{{ post.short }}</a>
+                        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+                    </div>
+                </article>
+                {% endfor %}
+                <a class="more-news" href="/blog">更多 »</a>
             </div>
+
+            <div class="span4 intro">
+                {% include xad %}
+                    <div class="flex-center">
+                        <a href="/about/index.html#donate">
+                            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-polaroid">
+                            </a>
+                    </div>
+                    <h3>赞助</h3>
+                    <p>
+                        您的支持，将是我们前进的最大动力……
+                    </p>
+                    <a class="button button-success" href="/about/index.html#donate">去赞助 &gt;&gt;</a>
+                </div>
         </div>
-    </div>
+
 </div>
 {% include copyright.html %}
 {% include script.html %}
-{% include libs/datatables_js.html param='1.10.11' %}
-<script type="text/javascript">
-    $(document).ready(function () {
-        var baseurl = "{{ site.baseurl }}";
-        //设置DataTable全局默认值
-        $.extend(true, $.fn.dataTable.defaults, {
-            "language": {
-                "url": baseurl + "/assets/Chinese.txt"
-            }
-        });
-
-
-        //中文网更新历史 表格
-        var table = $('#example').DataTable({
-            "order": [
-                [2, "desc"]
-            ],
-            "ajax": baseurl + "/assets/updatelog.txt",
-            "columnDefs": [{
-                "targets": 1,
-                "render": function (data, type, row, meta) {
-                    if (row.isHot) {
-                        return data + "<span class='hot'></span>";
-                    } else {
-                        return data;
-                    }
-                }
-            }, {
-                "searchable": false,
-                "orderable": false,
-                "targets": 0
-            }],
-            columns: [
-                {data: null},
-                {data: "content"},
-                {data: "date"}
-            ]
-        });
-
-        table.on('order.dt search.dt draw.dt', function () {
-            table.column(0, {
-                search: 'applied',
-                order: 'applied'
-            }).nodes().each(function (cell, i) {
-                cell.innerHTML = i + 1;
-            });
-        }).draw();
-        //热门页面 表格
-        {% assign date = "2016-06" %}
-        {% assign list = site.data.statistics[date] %}
-        {% for item in list %}
-            {% if forloop.last %}
-                {% assign today = item[0] %}
-            {% endif %}
-        {% endfor %}
-
-        var hottable = $('#hottable').DataTable({
-            "order": [],
-            "dom": "<'#toolbar'f>rtip",
-            "pageLength": 5,
-            "ajax": baseurl + "/assets/statistics/{{date}}/{{today}}.txt",
-            "columns": [
-                {data: null},
-                {
-                    data: "url", render: function (data, type, row, meta) {
-                    return "<a href='" + data + "' target='_blank' title='" + data + "'>" + data + "</a>";
-                }
-                },
-                {data: "num", width: "10%"}
-            ],
-            "drawCallback":function(){
-                var api = this.api();
-                $("#hottable caption").html("当前数据源为："+api.ajax.url());
-            },
-            "footerCallback": function ( row, data, start, end, display ) {
-                var api = this.api(), data;
-
-                // Remove the formatting to get integer data for summation
-                var intVal = function ( i ) {
-                    return typeof i === 'string' ?
-                    i.replace(/[\$,]/g, '')*1 :
-                            typeof i === 'number' ?
-                                    i : 0;
-                };
-
-                // Total over all pages
-                total = api
-                        .column( 2 )
-                        .data()
-                        .reduce( function (a, b) {
-                            return intVal(a) + intVal(b);
-                        },0 );
-
-                // Update footer
-                $( api.column( 2 ).footer() ).html(
-                        '总访问量：'+total
-                );
-            },
-            "initComplete": function () {
-                $.ajax({
-                    url: baseurl + "/assets/statistics/select.txt",
-                    success: function (data) {
-                        data = JSON.parse(data);
-                        $("#toolbar").append("<select></select>");
-                        var selectobj = $("#toolbar").find("select");
-                        selectobj.append("<option value=''>查看其它时间</option>");
-                        for (var i = 0; i < data.data.length; i++) {
-                            var item = data.data[i];
-                            selectobj.append("<option>" + item.name + "</option>");
-                        }
-                        //给下拉框绑定改变事件
-                        selectobj.on("change", function () {
-                            var _this = $(this).find(":checked");
-                            if (_this.val()) {
-                                var url = _this.text() + ".txt";
-                                hottable.ajax.url(baseurl + "/assets/statistics/" + url).load();
-                            }
-                        });
-                    }
-                });
-            }
-        });
-
-        hottable.on('order.dt search.dt draw.dt', function () {
-            hottable.column(0, {
-                search: 'applied',
-                order: 'applied'
-            }).nodes().each(function (cell, i) {
-                cell.innerHTML = i + 1;
-            });
-        }).draw();
-
-        //datatable 官方博客 表格
-        $('#blogtable').DataTable({
-            "ordering": false,
-            "order": [],
-            "paging": false,
-            "dom": "t",
-            "pageLength": 10,
-            "ajax": baseurl + "/assets/blog.txt",
-            "columns": [
-                {
-                    data: null,
-                    render: function (data, type, row, meta) {
-                        return "<a href='" + row.url + "' target='_blank' title='" + row.english + "'>" + row.name + "</a>";
-                    }
-                }
-            ]
-        });
-    });
-</script>
+<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>

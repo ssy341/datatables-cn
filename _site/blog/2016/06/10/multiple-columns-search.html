@@ -282,7 +282,7 @@
 <p>最后总结：</p>
 
 <ul>
-  <li><code class="highlighter-rouge">"searching": false</code> 这样配置了，DT的搜索功能关闭，相关的方法也失效</li>
+  <li><code class="highlighter-rouge">"searching": false</code> 这样配置了，DT的搜索功能关闭，相关的方法也失效（服务器模式下不影响）</li>
   <li>搜索功能开启的前提下，全局搜索时可以配置某列不参与搜索</li>
   <li>你还可以使用 
 <a href="https://datatables.net/reference/api/column().search()" target="_blank">
@@ -296,6 +296,54 @@
 方法</li>
 </ul>
 
+<p>2016年7月2日补充：</p>
+
+<hr />
+
+<p>小伙伴 <strong>Smail</strong> 提供如下代码：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="c1">//在 dom 里面不配置 f ，可以隐藏掉默认的搜索框</span>
+	<span class="s2">"dom"</span><span class="p">:</span> <span class="s1">'&lt;"datatable-header"&lt;"dataTables_filter"&gt;l&gt;&lt;"datatable-scroll"t&gt;&lt;"datatable-footer"ip&gt;'</span><span class="p">,</span>
+	<span class="c1">//"searchable": false,//不能加，不然会影响search方法</span>
+	<span class="na">initComplete</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">searchHTML</span> <span class="o">=</span> <span class="s1">'&lt;label&gt;&lt;span&gt;搜索:&lt;/span&gt; &lt;input type="search" class="" placeholder="需求名称模糊搜索..." aria-controls="datatable1"&gt;&lt;/label&gt;'</span><span class="p">;</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s1">'.dataTables_filter'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">searchHTML</span><span class="p">);</span> <span class="c1">//快捷操作的HTML DOM</span>
+		<span class="cm">/**
+		    * 重写搜索事件
+		    */</span>
+		<span class="nx">$</span><span class="p">(</span><span class="s1">'.dataTables_filter input'</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span>
+		<span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+		    <span class="c1">//监听回车键</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">13</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">t</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+			<span class="p">}</span>
+		<span class="p">});</span>
+	<span class="p">}</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>重写datatables搜索事件，这样就能做到按下回车时搜索了，还不破坏 DataTables 原有的样式结构</p>
+
+<hr />
 
                 </div>
                 <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
@@ -375,16 +423,16 @@
             <div id="tagcloud" style="padding:10px">
 
                 
+                <a href="/blog/listall.html#博客" title="博客" rel="10">
+                    博客 (10)
+                </a>
+                
                 <a href="/blog/listall.html#官方博客" title="官方博客" rel="2">
                     官方博客 (2)
                 </a>
                 
                 <a href="/blog/listall.html#活动" title="活动" rel="1">
                     活动 (1)
-                </a>
-                
-                <a href="/blog/listall.html#博客" title="博客" rel="7">
-                    博客 (7)
                 </a>
                 
                 <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="32">
@@ -407,7 +455,11 @@
                     番茄工作法 (1)
                 </a>
                 
-                <a href="/blog/listall.html" title="all" rel="8">
+                <a href="/blog/listall.html#DTCODE" title="DTCODE" rel="1">
+                    DTCODE (1)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="9">
                     所有
                 </a>
 
@@ -478,27 +530,15 @@
                 </li>
                 <li>
                     <a class="bs3-link" onclick="noteTitle(this)"
-                       href="http://shang.qq.com/wpa/qunwpa?idkey=7f7f5e203e7d3118292cb7ace0adb6ec8502fc08944aa2abf106a407e725281d" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">521024580（2群）</a>
-                </li>
-            </ul>
-            <ul class="footer-links">
-                <li>
-                    <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"
                        title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>
-                </li>
-                <li>
-                    <a class="bs3-link" onclick="noteTitle(this)"
-                       href="http://shang.qq.com/wpa/qunwpa?idkey=b6963c391611ebff93e69d5d63bfdcb31f485bbf94575e74fa152d734c9f0501" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（4群）</a>
                 </li>
             </ul>
             <ul  class="footer-links">
                 <li>
                     <a class="bs3-link" onclick="noteTitle(this)"
                        href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（5群）</a>
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（中文网交流群）</a>
                 </li>
                 <li>
                     <a class="bs3-link" onclick="noteTitle(this)"

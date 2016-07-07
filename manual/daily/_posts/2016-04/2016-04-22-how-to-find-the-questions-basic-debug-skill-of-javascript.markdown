@@ -21,7 +21,7 @@ chrome有两个方式调出开发者工具 ，ctrl+shift+i 和 F12，在开发�
 当你打开了开发者工具，那么你的关注点就要放在控制台（console）上，比如我现在打开
 [DataTable中文网](http://datatables.club/) 地址，控制台就会有错误提示，如图一
 
-![图一]({{site.baseurl}}/images/daily/2016-04-22/1.png "图一")
+{% include blog/imghtml.html src='/images/daily/2016-04-22/1.png' alt='图一' %}
 
 被标记处是重点需要关注的，对于红色的错误提示，是绝对不容忍了，但是看到这里，可以判断出没有关系，不影响Datatables的显示。
 一般在使用Datatables的时候，如果没出效果或者方法执行没效果之类的，首先看控制台有没有报错，提示等等，
@@ -31,9 +31,9 @@ chrome有两个方式调出开发者工具 ，ctrl+shift+i 和 F12，在开发�
 
 第二类问题出现在开启了服务器模式了，数据加载异常，这个问题怎么去找，大部分网友不知道怎么查看，不会的请看看下图
 
-![图二]({{site.baseurl}}/images/daily/2016-04-22/2.png "图二")
 
-![图三]({{site.baseurl}}/images/daily/2016-04-22/3.png "图三")
+{% include blog/imghtml.html src='/images/daily/2016-04-22/2.png' alt='图二' %}
+{% include blog/imghtml.html src='/images/daily/2016-04-22/3.png' alt='图三' %}
 
 切换到network功能，在这里可以看到所有的资源请求，那么这里我们根据代码里定义的数据url **arrays.txt** 关键字在搜索框里过滤后找到我们的请求。
 从上两个图可以在**headers**部分看到请求的url，请求的参数，在**preview**部分可以看到返回的数据，那么当你遇到问题后不知道怎么解决的时候，

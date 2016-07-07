@@ -1,0 +1,108 @@
+
+[
+  {
+    "id":"344",
+    "url":"https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js",
+    "name":"dataTables core",
+    "version":"1.10.12"
+  },
+ 
+  {
+    "id":"345",
+    "url":"https://cdn.datatables.net/autofill/2.1.2/js/dataTables.autoFill.min.js",
+    "name":"dataTables autoFill",
+    "version":"2.1.2"
+  },
+ 
+  {
+    "id":"346",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/js/dataTables.buttons.min.js",
+    "name":"dataTables buttons",
+    "version":"1.2.1"
+  },
+ 
+  {
+    "id":"347",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/js/buttons.colVis.min.js",
+    "name":"dataTables buttons colVis",
+    "version":"1.2.1"
+  },
+ 
+  {
+    "id":"348",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/js/buttons.flash.min.js",
+    "name":"dataTables buttons flash",
+    "version":"1.2.1"
+  },
+ 
+  {
+    "id":"349",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/js/buttons.html5.min.js",
+    "name":"dataTables buttons html5",
+    "version":"1.2.1"
+  },
+ 
+  {
+    "id":"350",
+    "url":"https://cdn.datatables.net/buttons/1.2.1/js/buttons.print.min.js",
+    "name":"dataTables buttons print",
+    "version":"1.2.1"
+  },
+ 
+  {
+    "id":"358",
+    "url":"http://datatables.club/js/datatables/dataTables.buttons.min.js",
+    "name":"buttons",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"359",
+    "url":"http://datatables.club/js/datatables/jszip.min.js",
+    "name":"jszip",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"360",
+    "url":"http://datatables.club/js/datatables/pdfmake.min.js",
+    "name":"pdfmake",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"361",
+    "url":"http://datatables.club/js/datatables/vfs_fonts.js",
+    "name":"vfs_fonts",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"362",
+    "url":"http://datatables.club/js/datatables/buttons.html5.min.js",
+    "name":"buttons.html5",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"363",
+    "url":"http://datatables.club/js/datatables/buttons.print.min.js",
+    "name":"buttons.print",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"364",
+    "url":"http://datatables.club/js/datatables/buttons.flash.min.js",
+    "name":"buttons.flash",
+    "version":"3.3.6"
+  },
+ 
+  {
+    "id":"365",
+    "url":"http://datatables.club/js/datatables/buttons.colVis.min.js",
+    "name":"buttons.colVis",
+    "version":"3.3.6"
+  }
+ 
+]
