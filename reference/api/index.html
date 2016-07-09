@@ -1102,19 +1102,3 @@ relurl: http://datatables.net/reference/api/
     </tr>
     </tbody>
 </table>
-<br/>
-{% include quote.html param='http://datatables.net/reference/api/'%}
-
-<script>
-    var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
-        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
-        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
-        $(window).trigger("resize")
-    }});
-    $("div.ref_search input").on("keyup", function() {
-        y.search(this.value).draw()
-    });
-</script>
-
-
-            
