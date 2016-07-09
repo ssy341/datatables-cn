@@ -1,0 +1,22 @@
+- des: javascript <code>Array</code> 类型
+  key: array
+- des: javascript <code>Boolean</code> 类型
+  key: boolean
+- des: javascript <code>Function</code> 类型
+  key: function
+- des: javascript  <code>Number</code> 类型子集，只使用整形
+  key: integer
+- des: jQuery 对象实例
+  key: jQuery
+- des: DOM 元素
+  key: node
+- des: javascript <code>null</code> 类型
+  key: nullstr
+- des: javascript <code>Number</code> 类型
+  key: number
+- des: javascript <code>Object</code> 类型
+  key: object
+- des: javascript <code>String</code> 类型
+  key: string
+- des: javascript <code>undefined</code> 类型
+  key: undefined

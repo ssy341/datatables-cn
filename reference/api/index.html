@@ -1,5 +1,5 @@
 ---
-layout: reference_option_detail_layout
+layout: reference_new
 title: API
 relurl: http://datatables.net/reference/api/
 ---
@@ -17,13 +17,17 @@ relurl: http://datatables.net/reference/api/
     <li><code>new $.fn.dataTable.Api( selector );</code></li>
 </ul>
 <br/>
-        上面三种方式均可返回一个api实例，注意区别 <b><code>$( selector ).DataTable()</code></b>  <b><code>$( selector ).dataTable()</code></b>
+        上面三种方式均可返回一个api实例，注意区别 <code>$( selector ).DataTable()</code> 和 <code>$( selector ).dataTable()</code>
         前者直接返回API实例，后者返回的是jQuery实例（如果是这个方式初始化Datatables，那么返回的对象不能使用api方法，不然会报方法未定义）
 <br/>
         关于api的说明，你可以可以参考 <a href="/manual/api.html" target="_blank">api手册</a>
 </p>
+
 <div class="ref_search">
-    全局搜索:<input type="text" />
+    <div class="ref_field">
+        <div class="ref_label">搜索:</div>
+        <div class="ref_input"><input type="text"></div>
+    </div>
 </div>
 
 <a name="Core"></a><h2 data-anchor="Core">核心(Core)</h2>

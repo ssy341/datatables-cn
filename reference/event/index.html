@@ -1,6 +1,6 @@
 ---
-layout: reference_option_detail_layout
-title: API
+layout: reference_new
+title: Events
 relurl: http://datatables.net/reference/event/
 ---
 <h2 class="page_title">事件(Events)</h2>
@@ -11,13 +11,18 @@ relurl: http://datatables.net/reference/event/
 <p>
    Datatables的事件监听使用 {% include href/api/on.dt %} 方法或者   {% include href/jQuery.on %}  ,事件的命名都用dt结尾，
     保证和其他的命名不冲突，下面的例子显示了如何监听 {% include href/event/draw.dt %}事件
-    <pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).on(&#39;draw.dt&#39;,
-    function() {
-        alert(&#39;Table redrawn&#39;);
-    });</pre>
+    <pre>
+        $(&#39;#myTable&#39;).on(&#39;draw.dt&#39;,function() {
+            alert(&#39;Table redrawn&#39;);
+        });
+    </pre>
 </p>
+
 <div class="ref_search">
-    全局搜索:<input type="text" />
+    <div class="ref_field">
+        <div class="ref_label">搜索:</div>
+        <div class="ref_input"><input type="text"></div>
+    </div>
 </div>
 
 <a name="Core"></a><h2 data-anchor="Core">事件(Events)</h2>

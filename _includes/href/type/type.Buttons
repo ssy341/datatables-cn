@@ -1,0 +1,9 @@
+{% if include.param == "button-group-selector" %}
+<a href="https://datatables.net/reference/type/button-group-selector" target="_blank">
+    <code class="type">button-group-selector<span>Type</span></code>
+</a>
+{% elsif include.param == "button-selector" %}
+<a href="https://datatables.net/reference/type/button-selector" target="_blank">
+    <code class="type">button-selector<span>Type</span></code>
+</a>
+{% endif %}

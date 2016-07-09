@@ -1,0 +1,23 @@
+<a name="Buttons"></a><h2 data-anchor="Buttons">Buttons</h2>
+<table class="reference row-border hover">
+    <thead>
+    <tr>
+        <th width="30%">名称</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% assign Buttons = site.data.reference.types.Buttons %}
+    {% for item in Buttons %}
+    <tr>
+        <td>
+            {% assign key = {{item.key}} %}
+            {% include href/type/type.Buttons param=key %}
+        </td>
+        <td>
+            <p>{{item.des}}</p>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

@@ -1,0 +1,29 @@
+{% if include.param == "cell-selector" %}
+<a href="https://datatables.net/reference/type/cell-selector" target="_blank">
+    <code class="type">cell-selector<span>Type</span></code>
+</a>
+{% elsif include.param == "column-selector" %}
+<a href="https://datatables.net/reference/type/column-selector" target="_blank">
+    <code class="type">column-selector<span>Type</span></code>
+</a>
+{% elsif include.param == "DataTables.Api" %}
+<a href="https://datatables.net/reference/type/DataTables.Apir" target="_blank">
+    <code class="type">DataTables.Api<span>Type</span></code>
+</a>
+{% elsif include.param == "DataTables.Settings" %}
+<a href="https://datatables.net/reference/type/DataTables.Settings" target="_blank">
+    <code class="type">DataTables.Settings<span>Type</span></code>
+</a>
+{% elsif include.param == "row-selector" %}
+<a href="https://datatables.net/reference/type/row-selector" target="_blank">
+    <code class="type">row-selector<span>Type</span></code>
+</a>
+{% elsif include.param == "selector-modifier" %}
+<a href="https://datatables.net/reference/type/selector-modifier" target="_blank">
+    <code class="type">selector-modifier<span>Type</span></code>
+</a>
+{% elsif include.param == "table-selector" %}
+<a href="https://datatables.net/reference/type/table-selector" target="_blank">
+    <code class="type">table-selector<span>Type</span></code>
+</a>
+{% endif %}

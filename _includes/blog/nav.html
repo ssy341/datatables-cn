@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li {% if include.param == "blog" %}class="active"{% endif %}>
                     <a href="{{site.baseurl}}/blog">博客</a>
                 </li>
                 <li>
@@ -24,8 +24,8 @@
                 <li>
                     <a href="{{site.baseurl}}/manual">手册</a>
                 </li>
-                <li>
-                    <a href="{{site.baseurl}}/reference">文档</a>
+                <li {% if include.param == "reference" %}class="active"{% endif %}>
+                    <a href="{{site.baseurl}}/reference">文档(Options&API)</a>
                 </li>
                 <li>
                     <a href="{{site.baseurl}}/extensions">扩展</a>

@@ -1,0 +1,23 @@
+<a name="DataTables"></a><h2 data-anchor="DataTables">DataTables</h2>
+<table class="reference row-border hover">
+    <thead>
+    <tr>
+        <th width="30%">名称</th>
+        <th>说明</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% assign DataTables = site.data.reference.types.DataTables %}
+    {% for item in DataTables %}
+    <tr>
+        <td>
+            {% assign key = {{item.key}} %}
+            {% include href/type/type.DataTables param=key %}
+        </td>
+        <td>
+            <p>{{item.des}}</p>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

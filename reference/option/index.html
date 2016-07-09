@@ -1,5 +1,5 @@
 ---
-layout: reference_option_detail_layout
+layout: reference_new
 title: Options
 relurl: http://datatables.net/reference/option/
 ---
@@ -8,21 +8,28 @@ relurl: http://datatables.net/reference/option/
 	DataTables是一个可高度配置化的类库，可以在生成HTML tables过程中的所有方面实现定制。所有特性可以通过打开、关闭或者定制来满足你对表格所有的要求。
     定制要先定义一个options，然后传入<code>$().DataTable()</code>构造函数，通过定制options的内容来实现定制。
 	- 例如下面的代码
-    <a href="scrollY.html"><code class="option" title="DataTables initialisation option">scrollY<span>DT</span></code></a>
-    和 <a href="paging.html"><code class="option" title="DataTables initialisation option">paging<span>DT</span></code></a>
+    {% include href/option/scrollY.dt %}和
+    {% include href/option/paging.dt %}
     选项用来允许滚动和禁止分页：
 </p>
-<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable( {
-    scrollY: 300,
-    paging: false
-} );</pre>
+<pre>
+    $(&#39;#myTable&#39;).DataTable( {
+        scrollY: 300,
+        paging: false
+    } );
+</pre>
+
 <p>
     有非常多的配置项可以用来定制你的表格，在下面的文档中都有说明。
     如果需要从整体上感知DataTables的初始化选项使用，可以阅读
     <a href="../../manual/options.html">手册中的配置项</a>。
 </p>
+
 <div class="ref_search">
-    全局搜索:<input type="text" />
+    <div class="ref_field">
+        <div class="ref_label">搜索:</div>
+        <div class="ref_input"><input type="text"></div>
+    </div>
 </div>
 
 <!--特性-->
@@ -49,22 +56,5 @@ relurl: http://datatables.net/reference/option/
 {% include href/option/table.Editor %}
 <!--固定列-->
 {% include href/option/table.FixedColumns %}
-
-
-
-<br/>
-{% include quote.html %}
-
-<script>
-    var y = $("table.reference").DataTable({dom: "t",paging: !1,drawCallback: function() {
-        var d = this.api(), i = $(d.table().node().parentNode), l = $(i).prevUntil("h2").add($(i).prevAll("h2").first());
-        0 === d.page.info().recordsDisplay ? (i.css("display", "none"), l.css("display", "none")) : (i.css("display", "block"), l.css("display", "block"));
-        $(window).trigger("resize")
-    }});
-    $("div.ref_search input").on("keyup", function() {
-        y.search(this.value).draw()
-    });
-</script>
-
 
             

@@ -1,5 +1,5 @@
 ---
-layout: reference_option_detail_layout
+layout: reference_new
 title: Buttons
 relurl: http://datatables.net/reference/button/
 ---
@@ -15,19 +15,24 @@ relurl: http://datatables.net/reference/button/
 </p>
 <p>
     按钮可以通过{% include href/option/buttons.dt %}，使用{% include href/option/dom.dt %}指定按钮：
-
-<pre class="brush:js;toolbar:false">$(&#39;#myTable&#39;).DataTable({
-    dom: &#39;Bfrtip&#39;,
-    buttons: [&#39;colvis&#39;, &#39;excel&#39;, &#39;print&#39;]
-});</pre>
+    <pre>
+        $(&#39;#myTable&#39;).DataTable({
+            dom: &#39;Bfrtip&#39;,
+            buttons: [&#39;colvis&#39;, &#39;excel&#39;, &#39;print&#39;]
+        });
+    </pre>
 </p>
 <p>
     有关自定义buttons事件的更多信息，请参考 <a href="http://datatables.net/extensions/buttons" target="_blank">Buttons扩展文档</a>
     。请注意，Datatables核心并不提供任何按钮，你需要加载Buttons扩展才能使用。
 
 </p>
+
 <div class="ref_search">
-    全局搜索:<input type="text" />
+    <div class="ref_field">
+        <div class="ref_label">搜索:</div>
+        <div class="ref_input"><input type="text"></div>
+    </div>
 </div>
 
 <a name="Core"></a><h2 data-anchor="Core">按钮(Buttons)</h2>
