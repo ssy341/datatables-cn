@@ -18,4 +18,8 @@
 <a href="https://datatables.net/reference/api/search()" target="_blank">
     <code class="api">search()<span>API</span></code>
 </a>
+{% elsif include.param == "page.info()" %}
+<a href="{{site.url}}/reference/api/page.info().html" target="_blank">
+    <code class="api">page.info()<span>API</span></code>
+</a>
 {% endif %}

@@ -22,6 +22,9 @@
 <a href="https://datatables.net/reference/type/selector-modifier" target="_blank">
     <code class="type">selector-modifier<span>Type</span></code>
 </a>
+<a href="{{ site.url }}{% post_url 2016-07-10-add-index-for-table %}" target="_blank">
+    <code class="type">selector-modifier<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "table-selector" %}
 <a href="https://datatables.net/reference/type/table-selector" target="_blank">
     <code class="type">table-selector<span>Type</span></code>
