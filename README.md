@@ -2,9 +2,7 @@ Datatables中文网
 =============
 基于 jQuery 的表格插件，灵活，强大
 
-[官网](http://datatables.net/)
-
-[官方论坛](http://datatables.net/forums/)
+[官网](http://datatables.net/) | [官方论坛](http://datatables.net/forums/)
 
 [DataTables中文网](http://datatables.club)
 
