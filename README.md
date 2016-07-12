@@ -1,26 +1,18 @@
-Datatables-CN
+Datatables中文网
 =============
-jquery 表格插件
+基于 jQuery 的表格插件，灵活，强大
 
+[官网](http://datatables.net/)
 
-官网
+[官方论坛](http://datatables.net/forums/)
 
-[http://datatables.net/](http://datatables.net/)
+[DataTables中文网](http://datatables.club)
 
-官方论坛：
+[DataTables中文网博客](http://datatables.club/blog)
 
-[http://datatables.net/forums/](http://datatables.net/forums/)
+[DataTables中文网在线代码编辑](http://code.datatables.club)
 
-
-中文网访问地址：
-
-[http://datatables.club](http://datatables.club)
-
-[http://ssy341.github.io/datatables-cn/](http://ssy341.github.io/datatables-cn/)
-
-中文讨论社区：
-
-[http://www.gbtags.com/gb/user/111.htm](http://www.gbtags.com/gb/user/111.htm)
+[DataTables中文网讨论社区](https://github.com/ssy341/datatables-cn/issues)
 
 
 
