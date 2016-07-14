@@ -107,6 +107,12 @@
               "content":"DT-CODE 代码在线编辑运行保存 ，<a target='_blank' href='http://code.datatables.club'>传送门</a>",
               "date":"2016-6-26",
               "isHot":"1"
+            },
+           
+            {
+              "content":"讨论问题前往<a target='_blank' href='https://github.com/ssy341/datatables-cn/issues'>Github Issues</a>",
+              "date":"2016-7-12",
+              "isHot":"1"
             }
            
    ],
