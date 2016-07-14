@@ -94,7 +94,8 @@ title: Datatables 中文网
                     <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
                     <div class="news-title">
                         <a href="{{ post.url }}">{{ post.short }}</a>
-                        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+                        <i class="icon-comment "></i><span class='disqus-comment-count'
+                                                           data-disqus-url="{{ site.url }}{{ post.url }}"></span>
                     </div>
                 </article>
                 {% endfor %}
@@ -108,20 +109,88 @@ title: Datatables 中文网
 
             <div class="span4 intro">
                 {% include xad %}
-                    <div class="flex-center">
-                        <a href="/about/index.html#donate">
-                            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-polaroid">
-                            </a>
-                    </div>
-                    <h3>赞助</h3>
-                    <p>
-                        您的支持，将是我们前进的最大动力……
-                    </p>
-                    <a class="button button-success" href="/about/index.html#donate">去赞助 &gt;&gt;</a>
+                <h3>赞助</h3>
+                <div class="flex-center">
+                    <a href="/about/index.html#donate">
+                        <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-polaroid">
+                    </a>
                 </div>
+
+                <span>
+                    您的支持，将是我们前进的最大动力……
+                </span>
+
+                <div>
+                    <!-- 表格开始 -->
+                    <table id="example" class="display" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th>昵称</th>
+                            <th>金额</th>
+                            <th>时间</th>
+                            <!--<th>备注</th>-->
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                        <th colspan="3"></th>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+
         </div>
 
 </div>
 {% include copyright.html %}
 {% include script.html %}
 <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+
+
+{% include libs/datatables_js.html param='1.10.5' %}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example').dataTable({
+            order: [
+                [2, "desc"]
+            ],
+            pageLength: 3,
+            dom: "it" +
+            "<'row'p>",
+            lengthChange: !1,
+            columns: [
+                {data: "nickname"},
+                {data: "money"},
+                {data: "date"}
+            ],
+            language: {
+                search: "",
+                paginate: {
+                    next: ">",
+                    previous: "<"
+                },
+                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
+            },
+            ajax: "{{site.baseurl}}/assets/donate.txt",
+            createdRow: function (row, data, dataIndex) {
+                $(row).attr("title",data.note)
+                if (data.type) {
+                    $(row).addClass("donateType");
+                } else {
+                    $(row).addClass("earnType");
+                }
+            },
+            initComplete: function () {
+                var api = this.api();
+                var fda = api.column(1).data().reduce(function (a, b) {
+                    return parseInt(a) + parseInt(b);
+                });
+                $(api.column(0).footer()).html("总额：" + fda);
+            }
+        });
+
+
+    });
+</script>
