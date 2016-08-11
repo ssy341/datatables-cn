@@ -23,6 +23,18 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>http://datatables.club/example/diy.html</loc>
+        <priority>0.9</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>http://datatables.club/example/god.html</loc>
+        <priority>0.9</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>http://datatables.club/example/advanced_init/column_render.html</loc>
         <priority>0.9</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>

@@ -1,0 +1,39 @@
+- title: 服务器处理模式
+  url: /example/server_side/simple.html
+  en:
+
+- title: 自定义http变量
+  url: https://datatables.net/examples/server_side/custom_vars.html
+  en:
+
+- title: POST传递数据
+  url: https://datatables.net/examples/server_side/post.html
+  en:
+
+- title: 自动给row绑定id属性
+  url: https://datatables.net/examples/server_side/ids.html
+  en:
+
+- title: 对象数据源
+  url: https://datatables.net/examples/server_side/object_data.html
+  en:
+
+- title: 行详情
+  url: https://datatables.net/examples/server_side/row_details.html
+  en:
+
+- title: 行选择
+  url: https://datatables.net/examples/server_side/select_rows.html
+  en:
+
+- title: JSONP数据源（跨域）
+  url: https://datatables.net/examples/server_side/jsonp.html
+  en:
+
+- title: 延迟加载数据
+  url: https://datatables.net/examples/server_side/defer_loading.html
+  en:
+
+- title: 减少ajax请求次数（管道分页）
+  url: https://datatables.net/examples/server_side/pipeline.html
+  en:
