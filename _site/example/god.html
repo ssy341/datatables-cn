@@ -1,0 +1,125 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="/js/datatables/buttons.dataTables.min.css">
+    <style>
+        .page-container {
+            padding: 20px;
+        }
+
+        .footer {
+            border-top: 1px solid #e8e8e8;
+            padding: 15px 0;
+            font-family: tahoma, Arial;
+            font-size: 12px;
+            color: #999;
+            line-height: 22px;
+            text-align: center;
+        }
+
+        .mt-20 {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Do it yourself</title>
+</head>
+<body>
+<div class="page-container">
+    <table class="table table-striped table-bordered dataTable no-footer" id="issueTable">
+    </table>
+</div>
+<footer class="footer mt-20">
+    <div class="container">
+        <p>
+            感谢jQuery、layer、laypage、Validform、UEditor、My97DatePicker、iconfont、Datatables、WebUploaded、icheck、highcharts、bootstrap-Switch<br>
+            Copyright ©2015 H-ui.admin v2.3 All Rights Reserved.<br>
+            本后台系统由<a href="http://www.h-ui.net/" target="_blank" title="H-ui前端框架">H-ui前端框架</a>提供前端技术支持</p>
+    </div>
+</footer>
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script src="/js/datatables/jquery.dataTables.min.js"></script>
+<script src="/js/datatables/bootstrap.datatables.js"></script>
+<script>
+
+    $.extend(true, $.fn.dataTable.defaults, {
+        "language": {
+            "url": "/assets/Chinese.txt"
+        },
+        "dom": "B<'#countTime'>R<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "t" +
+        "<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>"
+    });
+
+    $("#issueTable").DataTable({
+        ajax: {
+            url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
+            dataSrc: ""
+        },
+        columnDefs:[
+            {
+                targets: 1,
+                data: "updated_at",
+                title: "最后更新时间",
+                render:function(data, type, row, meta){
+//                    console.log();
+                    return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
+                }
+            },
+            {
+                targets: 0,
+                data: "title", title: "问题",
+                render: function (data, type, row, meta) {
+                    var labels = "";
+                    if (row.labels.length) {
+                        labels += "(";
+                        for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
+                            labels += "<span style='color:#" + row.labels[j].color + "' >" + row.labels[j].name + "</span>";
+                            if (j != labelslen - 1) {
+                                labels += ",";
+                            }
+                        }
+                        labels += ")";
+                    }
+                    return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels;
+                }
+            }
+        ]
+    });
+
+    Date.prototype.Format = function(fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1,
+            //月份
+            "d+": this.getDate(),
+            //日
+            "h+": this.getHours(),
+            //小时
+            "m+": this.getMinutes(),
+            //分
+            "s+": this.getSeconds(),
+            //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    }
+</script>
+</body>
+</html>
