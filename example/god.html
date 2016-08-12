@@ -170,10 +170,36 @@
             margin-bottom: 5px;
             *width: 180px;
         }
+
+        .hot {
+            background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
+            height: 12px;
+            width: 21px;
+            position: absolute;
+        }
     </style>
     <title>Do it yourself</title>
 </head>
 <body>
+<div class="container" style="padding-top:20px">
+    <div class="col-md-6">
+        <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+    </div>
+    <div class="col-md-6">
+        <script>
+            (function() {
+                var cx = '001171264216576386016:xim4af2d2ik';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+        <gcse:searchbox-only></gcse:searchbox-only>
+    </div>
+</div>
 <div class="page-container">
     <div class="bs-docs-example">
         <table class="table table-striped table-bordered dataTable no-footer" id="issueTable">
@@ -248,8 +274,12 @@
                         }
                         labels += "】";
                     }
+                    var hot = "";
+                    if(labels.indexOf("置顶")>0){
+                        hot = "<span class='hot'></span>"
+                    }
                     return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels +
-                            "<i class='icon Hui-iconfont'>&#xe622;</i>"+row.comments;
+                            "<i class='icon Hui-iconfont'>&#xe622;</i>"+row.comments +hot;
                 }
             }
         ],
