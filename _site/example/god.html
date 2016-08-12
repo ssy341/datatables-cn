@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="/js/datatables/buttons.dataTables.min.css">
     <link rel="stylesheet" href="/css/prettify.css">
+    <link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.7/iconfont.css" />
     <style>
         .page-container {
             padding: 20px;
@@ -211,13 +212,23 @@
             url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
             dataSrc: ""
         },
+        //默认最后一列（最后更新时间）降序排列
+        order: [[ 2, "desc" ]],
         columnDefs: [
             {
-                targets: 1,
+                targets: 2,
                 data: "updated_at",
                 title: "最后更新时间",
                 render: function (data, type, row, meta) {
                     return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
+                }
+            },
+            {
+                targets: 1,
+                data: null,
+                title: "发表人",
+                render: function (data, type, row, meta) {
+                    return "<a href='" + row.user.html_url + "' target='_blank'>" + row.user.login + "</a>"
                 }
             },
             {
@@ -227,7 +238,7 @@
                 render: function (data, type, row, meta) {
                     var labels = "";
                     if (row.labels.length) {
-                        labels += "(";
+                        labels += "【";
                         for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
                             labels += "<span style='color:#" + row.labels[j].color + "' >" +
                                     row.labels[j].name + "</span>";
@@ -235,9 +246,10 @@
                                 labels += ",";
                             }
                         }
-                        labels += ")";
+                        labels += "】";
                     }
-                    return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels;
+                    return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels +
+                            "<i class='icon Hui-iconfont'>&#xe622;</i>"+row.comments;
                 }
             }
         ],
