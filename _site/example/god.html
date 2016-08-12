@@ -10,6 +10,7 @@
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="/js/datatables/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="/css/prettify.css">
     <style>
         .page-container {
             padding: 20px;
@@ -28,13 +29,158 @@
         .mt-20 {
             margin-top: 20px;
         }
+
+
+        /* Bootstrap code examples
+        -------------------------------------------------- */
+
+        /* Base class */
+        .bs-docs-example {
+            position: relative;
+            margin: 15px 0;
+            padding: 39px 19px 14px;
+            *padding-top: 19px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+
+        /* Echo out a label for the example */
+        .bs-docs-example:after {
+            content: "Github Issue";
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: bold;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            color: #9da0a4;
+            -webkit-border-radius: 4px 0 4px 0;
+            -moz-border-radius: 4px 0 4px 0;
+            border-radius: 4px 0 4px 0;
+        }
+
+        /* Remove spacing between an example and it's code */
+        .bs-docs-example + .prettyprint {
+            margin-top: -20px;
+            padding-top: 15px;
+        }
+
+        /* Tweak examples
+        ------------------------- */
+        .bs-docs-example > p:last-child {
+            margin-bottom: 0;
+        }
+        .bs-docs-example .table,
+        .bs-docs-example .progress,
+        .bs-docs-example .well,
+        .bs-docs-example .alert,
+        .bs-docs-example .hero-unit,
+        .bs-docs-example .pagination,
+        .bs-docs-example .navbar,
+        .bs-docs-example > .nav,
+        .bs-docs-example blockquote {
+            margin-bottom: 5px;
+        }
+        .bs-docs-example .pagination {
+            margin-top: 0;
+        }
+        .bs-navbar-top-example,
+        .bs-navbar-bottom-example {
+            z-index: 1;
+            padding: 0;
+            height: 90px;
+            overflow: hidden; /* cut the drop shadows off */
+        }
+        .bs-navbar-top-example .navbar-fixed-top,
+        .bs-navbar-bottom-example .navbar-fixed-bottom {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .bs-navbar-top-example {
+            -webkit-border-radius: 0 0 4px 4px;
+            -moz-border-radius: 0 0 4px 4px;
+            border-radius: 0 0 4px 4px;
+        }
+        .bs-navbar-top-example:after {
+            top: auto;
+            bottom: -1px;
+            -webkit-border-radius: 0 4px 0 4px;
+            -moz-border-radius: 0 4px 0 4px;
+            border-radius: 0 4px 0 4px;
+        }
+        .bs-navbar-bottom-example {
+            -webkit-border-radius: 4px 4px 0 0;
+            -moz-border-radius: 4px 4px 0 0;
+            border-radius: 4px 4px 0 0;
+        }
+        .bs-navbar-bottom-example .navbar {
+            margin-bottom: 0;
+        }
+        form.bs-docs-example {
+            padding-bottom: 19px;
+        }
+
+        /* Images */
+        .bs-docs-example-images img {
+            margin: 10px;
+            display: inline-block;
+        }
+
+        /* Tooltips */
+        .bs-docs-tooltip-examples {
+            text-align: center;
+            margin: 0 0 10px;
+            list-style: none;
+        }
+        .bs-docs-tooltip-examples li {
+            display: inline;
+            padding: 0 10px;
+        }
+
+        /* Popovers */
+        .bs-docs-example-popover {
+            padding-bottom: 24px;
+            background-color: #f9f9f9;
+        }
+        .bs-docs-example-popover .popover {
+            position: relative;
+            display: block;
+            float: left;
+            width: 260px;
+            margin: 20px;
+        }
+
+        /* Dropdowns */
+        .bs-docs-example-submenus {
+            min-height: 180px;
+        }
+        .bs-docs-example-submenus > .pull-left + .pull-left {
+            margin-left: 20px;
+        }
+        .bs-docs-example-submenus .dropup > .dropdown-menu,
+        .bs-docs-example-submenus .dropdown > .dropdown-menu {
+            display: block;
+            position: static;
+            margin-bottom: 5px;
+            *width: 180px;
+        }
     </style>
     <title>Do it yourself</title>
 </head>
 <body>
 <div class="page-container">
-    <table class="table table-striped table-bordered dataTable no-footer" id="issueTable">
-    </table>
+    <div class="bs-docs-example">
+        <table class="table table-striped table-bordered dataTable no-footer" id="issueTable">
+        </table>
+    </div>
+    <pre class="prettyprint linenums" id="scriptPre">
+
+    </pre>
 </div>
 <footer class="footer mt-20">
     <div class="container">
@@ -47,41 +193,44 @@
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
 <script src="/js/datatables/jquery.dataTables.min.js"></script>
 <script src="/js/datatables/bootstrap.datatables.js"></script>
-<script>
-
+<script src="/js/prettify.js"></script>
+<script id="tableScript">
+    //配置DataTables默认参数
     $.extend(true, $.fn.dataTable.defaults, {
         "language": {
             "url": "/assets/Chinese.txt"
         },
-        "dom": "B<'#countTime'>R<'row'<'col-md-6'l><'col-md-6'f>r>" +
+        "dom": "<'row'<'col-md-6'l<'#toolbar'>><'col-md-6'f>r>" +
         "t" +
         "<'row'<'col-md-5 sm-center'i><'col-md-7 text-right sm-center'p>>"
     });
 
+    //DataTables初始化
     $("#issueTable").DataTable({
         ajax: {
             url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
             dataSrc: ""
         },
-        columnDefs:[
+        columnDefs: [
             {
                 targets: 1,
                 data: "updated_at",
                 title: "最后更新时间",
-                render:function(data, type, row, meta){
-//                    console.log();
+                render: function (data, type, row, meta) {
                     return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
                 }
             },
             {
                 targets: 0,
-                data: "title", title: "问题",
+                data: "title",
+                title: "问题",
                 render: function (data, type, row, meta) {
                     var labels = "";
                     if (row.labels.length) {
                         labels += "(";
                         for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
-                            labels += "<span style='color:#" + row.labels[j].color + "' >" + row.labels[j].name + "</span>";
+                            labels += "<span style='color:#" + row.labels[j].color + "' >" +
+                                    row.labels[j].name + "</span>";
                             if (j != labelslen - 1) {
                                 labels += ",";
                             }
@@ -91,10 +240,14 @@
                     return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels;
                 }
             }
-        ]
+        ],
+        initComplete:function(){
+            $("#toolbar").append("<a href='https://github.com/ssy341/datatables-cn/issues/new' " +
+                    "class='btn btn-primary btn-sm'>我也要提问</a>");
+        }
     });
 
-    Date.prototype.Format = function(fmt) { //author: meizz
+    Date.prototype.Format = function (fmt) { //author: meizz
         var o = {
             "M+": this.getMonth() + 1,
             //月份
@@ -119,7 +272,19 @@
             }
         }
         return fmt;
-    }
+    };
+</script>
+<script>
+
+    !function ($) {
+        $(function() {
+            var $window = $(window)
+            // make code pretty
+            window.prettyPrint && prettyPrint()
+        });
+    }(window.jQuery)
+
+    $("#scriptPre").text($("#tableScript").html());
 </script>
 </body>
 </html>
