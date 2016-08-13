@@ -86,25 +86,12 @@ title: Datatables 中文网
 
             <div class="span4 news-list">
                 <h2>最新动态</h2>
-
-                {% assign postlist = site.tags %}
-                {% for post in postlist['博客'] limit:10 %}
-                <!-- First Blog Post -->
-                <article class="news">
-                    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
-                    <div class="news-title">
-                        <a href="{{ post.url }}">{{ post.short }}</a>
-                        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                                           data-disqus-url="{{ site.url }}{{ post.url }}"></span>
-                    </div>
-                </article>
-                {% endfor %}
-                <a class="more-news" href="/blog">更多 »</a>
+                {% include bloglimit10andmore.html param=15 %}
             </div>
 
             <div class="span4 news-list">
                 <h2>不定时一讲</h2>
-                {% include dailylimit10andmore.html %}
+                {% include dailylimit10andmore.html param=15 %}
             </div>
 
             <div class="span4 intro">

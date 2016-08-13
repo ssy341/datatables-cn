@@ -1,12 +1,13 @@
-{% assign dailylist = site.tags %}
 {% assign pagelen = include.param %}
-{% for post in dailylist['不定时一讲'] limit:pagelen %}
+{% assign postlist = site.tags %}
+{% for post in postlist['博客'] limit:pagelen %}
 <!-- First Blog Post -->
 <article class="news">
     <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
     <div class="news-title">
         <a href="{{ post.url }}">{{ post.short }}</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="{{ site.url }}{{ post.url }}"></span>
+        <i class="icon-comment "></i><span class='disqus-comment-count'
+                                           data-disqus-url="{{ site.url }}{{ post.url }}"></span>
     </div>
 </article>
 {% endfor %}
