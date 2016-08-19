@@ -18,7 +18,7 @@
 <!-- DataTables CSS -->
 <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
 <link href="../css/docs.css" rel="stylesheet">
-
+<link rel="stylesheet" href="/css/prettify.css">
 
 
 <style type="text/css">
@@ -993,5 +993,19 @@ client.on( 'error', function() {
         alert(note);
     }
 </script>
+
+
+<script src="/js/prettify.js"></script>
+
+<script>
+    !function ($) {
+        $(function() {
+            var $window = $(window)
+            // make code pretty
+            window.prettyPrint && prettyPrint()
+        });
+    }(window.jQuery)
+</script>
+
 </body>
 </html>
