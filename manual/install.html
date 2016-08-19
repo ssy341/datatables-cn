@@ -9,7 +9,7 @@ title: 安装 手册 Datatables中文网
             {% include xad %}
             <h2 data-anchor="DataTables-Manual">安装</h2>
             <p>
-                在你的项目中使用datatables，只需要引入两个文件即可，一个js文件和一个css文件，看下面html代码</p>
+                在你的项目中使用 DataTables，只需要引入三个文件即可，jQuery库，一个DT的核心js文件和一个DT的css文件，首先有如下 HTML 代码</p>
        <pre class="brush:xml;">
         &lt;table id="table_id" class="display"&gt;
             &lt;thead&gt;
@@ -31,33 +31,32 @@ title: 安装 手册 Datatables中文网
         &lt;/table&gt;
 
        </pre>
-            <p>注意：tbody是必须的</p>
             <h3>引入Javascript / CSS</h3>
             <h4>CDN</h4>
        <pre class="brush:js">
 &lt;!-- DataTables CSS --&gt;
-&lt;link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/{{ site.dtversion }}/css/jquery.dataTables.css"&gt;
 
 &lt;!-- jQuery --&gt;
 &lt;script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"&gt;&lt;/script&gt;
 
 &lt;!-- DataTables --&gt;
-&lt;script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/{{ site.dtversion }}/js/jquery.dataTables.js"&gt;&lt;/script&gt;
        </pre>
             <h4>本地</h4>
-            <p>请下载datatables最新版<a href="http://datatables.net/releases/DataTables-1.10.7.zip">
-                DataTables v1.10.7
+            <p>请下载 DataTables 最新版<a href="http://datatables.net/releases/DataTables-{{ site.dtversion }}.zip">
+                DataTables v{{ site.dtversion }}
             </a></p>
 
      <pre class="brush:js">
 &lt;!-- DataTables CSS --&gt;
-&lt;link rel="stylesheet" type="text/css" href="/DataTables-1.10.7/css/jquery.dataTables.css"&gt;
+&lt;link rel="stylesheet" type="text/css" href="/DataTables-{{ site.dtversion }}/css/jquery.dataTables.css"&gt;
 
 &lt;!-- jQuery --&gt;
 &lt;script type="text/javascript" charset="utf8" src="/DataTables-1.10.0/js/jquery.js"&gt;&lt;/script&gt;
 
 &lt;!-- DataTables --&gt;
-&lt;script type="text/javascript" charset="utf8" src="/DataTables-1.10.7/js/jquery.dataTables.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8" src="/DataTables-{{ site.dtversion }}/js/jquery.dataTables.js"&gt;&lt;/script&gt;
        </pre>
             <h3>初始化Datatables</h3>
          <pre class="brush:js">
@@ -91,14 +90,14 @@ title: 安装 手册 Datatables中文网
 
             <h3>下一步</h3>
             <p>
-                简单的使用datatables可能无法达到你的要求，这就需要你查找更多的选项来加强你的table：
+                简单的使用 DataTables 可能无法达到你的要求，这就需要你查找更多的选项来加强你的table：
                 <br>
             <ul>
-                <li>定制你需要的datatables<a href="/reference/option">选项</a></li>
-                <li>使用datatables提供的<a href="/reference/api">api</a>来控制你的表格</li>
-                <li>定制适合自己网站的<a href="http://datatables.net/manual/styling/theme-creator">样式</a>给datatables</li>
-                <li>查看datatables的<a href="/example">示例</a></li>
-                <li><a href="http://www.gbtags.com/gb/tag/usertag/733.htm" target="_blanck" title="datatables学习交流">加入datatable标签</a>提问、回答问题或者给正在使用Datatables的朋友打招呼</li>
+                <li>定制你需要的 DataTables <a href="/reference/option">选项</a></li>
+                <li>使用 DataTables 提供的<a href="/reference/api"> API </a>来控制你的表格</li>
+                <li>定制适合自己网站的<a href="http://datatables.net/manual/styling/theme-creator">样式</a>给 DataTables </li>
+                <li>查看 DataTables 的<a href="/example">示例</a>（<span style="color: red;font-weight: bold"> 这个是最重要的</span>）</li>
+                <li><a href="https://github.com/ssy341/datatables-cn/issues" target="_blanck" title="GitHub">加入 GitHub </a>提问、回答问题或者给正在使用 DataTables 的朋友打招呼</li>
             </ul>
 
             </p>

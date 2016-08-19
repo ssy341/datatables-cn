@@ -10,5 +10,19 @@
         {{content}}
     </div>
     {% include copyright.html %}
+
+
+<script src="/js/prettify.js"></script>
+
+<script>
+    !function ($) {
+        $(function() {
+            var $window = $(window)
+            // make code pretty
+            window.prettyPrint && prettyPrint()
+        });
+    }(window.jQuery)
+</script>
+
 </body>
 </html>
