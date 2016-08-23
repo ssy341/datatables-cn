@@ -33,3 +33,16 @@
 - title: 拖动列宽
   url: /example/user_share/yuui.html
   en:
+
+- title: 表格树（treegrid）
+  url: http://jsfiddle.net/hcke44hy/8/
+  en:
+
+- title: 怎样给DT的一列加上Checkbox
+  url: http://www.gyrocode.com/articles/jquery-datatables-how-to-add-a-checkbox-column
+  en:
+
+- title: 给DT添加Checkbox和行选中效果
+  url: http://www.gyrocode.com/articles/jquery-datatables-row-selection-using-checkboxes-and-select-extension/
+  en:
+
