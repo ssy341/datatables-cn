@@ -19,7 +19,10 @@
 </a>
 {% elsif include.param == "headerCallback" %}
 <a href="http://datatables.net/reference/option/headerCallback" target="_blank">
-    <code>headerCallback<span>Option</span></code>
+    <code class="option">headerCallback<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url 2016-08-29-option-headerCallback %}" target="_blank">
+    <code class="option">headerCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "infoCallback" %}
 <a href="http://datatables.net/reference/option/infoCallback" target="_blank">

@@ -1,3 +1,3 @@
 <a href="{{site.baseurl}}/reference/option/serverSide.html" target="_blank">
-    <code>serverSide<span>Option</span></code>
+    <code class="option">serverSide<span>Option</span></code>
 </a>
