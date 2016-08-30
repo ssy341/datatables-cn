@@ -54,7 +54,7 @@
 			<td>
                 {% include href/option/option.callbacks param="infoCallback" %}
             </td>
-			<td><p>表格状态信息改变的回调函数</p></td>
+			<td>改变表格状态信息的回调函数</td>
 		</tr>
 		<tr>
 			<td>

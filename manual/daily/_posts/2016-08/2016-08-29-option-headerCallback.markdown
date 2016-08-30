@@ -2,7 +2,7 @@
 layout: daily
 title: option headerCallback 表头回调函数 《不定时一讲》 DataTable中文网
 short: option headerCallback 表头回调函数
-date: 2016-8-28
+date: 2016-8-29
 group: 2016-8
 caption: 《不定时一讲》
 categories: manual daily

@@ -183,8 +183,8 @@ title: Datatables 中文网
                 paginate: {
                     next: ">",
                     previous: "<"
-                },
-                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
+                }
+//                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
             },
             ajax: "{{site.baseurl}}/assets/donate.txt",
             createdRow: function (row, data, dataIndex) {
@@ -195,10 +195,13 @@ title: Datatables 中文网
                     $(row).addClass("earnType");
                 }
             },
+            infoCallback: function( settings, start, end, max, total, pre ) {
+                return start +"-"+ end+"(共"+total+"个热心网友 )<a class='button button-success' href='/about/index.html#donate'>我也要赞一个 &gt;&gt;</a>";
+            },
             initComplete: function () {
                 var api = this.api();
                 var fda = api.column(1).data().reduce(function (a, b) {
-                    return parseInt(a) + parseInt(b);
+                    return parseFloat(a) + parseFloat(b);
                 });
                 $(api.column(0).footer()).html("总额：" + fda);
             }
