@@ -258,10 +258,19 @@
 
 <!-- First Blog Post -->
 <article class="news">
-    <div class="news-date">2016年08月28日</div>
+    <div class="news-date">2016年08月30日</div>
     <div class="news-title">
-        <a href="/manual/daily/2016/08/28/option-headerCallback.html">option headerCallback 表头回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/28/option-headerCallback.html"></span>
+        <a href="/manual/daily/2016/08/30/option-infoCallback.html">option infoCallback 表格概要信息显示回调</a>
+        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/30/option-infoCallback.html"></span>
+    </div>
+</article>
+
+<!-- First Blog Post -->
+<article class="news">
+    <div class="news-date">2016年08月29日</div>
+    <div class="news-title">
+        <a href="/manual/daily/2016/08/29/option-headerCallback.html">option headerCallback 表头回调函数</a>
+        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/29/option-headerCallback.html"></span>
     </div>
 </article>
 
@@ -379,15 +388,6 @@
     <div class="news-title">
         <a href="/manual/daily/2016/05/11/option-search-search.html">option search.search 设置一个初始化过滤条件</a>
         <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-search-search.html"></span>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月11日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/11/option-search-regex.html">option search.regex 支持正则表达式搜索</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-search-regex.html"></span>
     </div>
 </article>
 
@@ -741,8 +741,8 @@ client.on( 'error', function() {
                 paginate: {
                     next: ">",
                     previous: "<"
-                },
-                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
+                }
+//                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
             },
             ajax: "/assets/donate.txt",
             createdRow: function (row, data, dataIndex) {
@@ -753,10 +753,13 @@ client.on( 'error', function() {
                     $(row).addClass("earnType");
                 }
             },
+            infoCallback: function( settings, start, end, max, total, pre ) {
+                return start +"-"+ end+"(共"+total+"个热心网友 )<a class='button button-success' href='/about/index.html#donate'>我也要赞一个 &gt;&gt;</a>";
+            },
             initComplete: function () {
                 var api = this.api();
                 var fda = api.column(1).data().reduce(function (a, b) {
-                    return parseInt(a) + parseInt(b);
+                    return parseFloat(a) + parseFloat(b);
                 });
                 $(api.column(0).footer()).html("总额：" + fda);
             }
