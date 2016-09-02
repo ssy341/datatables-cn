@@ -39,6 +39,9 @@
 <a href="http://datatables.net/reference/option/preDrawCallback" target="_blank">
     <code class="option">preDrawCallback<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url 2016-09-02-option-preDrawCallback %}" target="_blank">
+    <code class="option">preDrawCallback<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "rowCallback" %}
 <a href="http://datatables.net/reference/option/rowCallback" target="_blank">
     <code class="option">rowCallback<span>Option</span></code>
