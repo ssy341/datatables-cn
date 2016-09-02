@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据 《不定时一讲》 DataTable中文网</title>
+    <title>option preDrawCallback 重绘前回调函数 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/06/option-DT_RowData.html">option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据</a>
+                    <a href="/manual/daily/2016/09/02/option-preDrawCallback.html">option preDrawCallback 重绘前回调函数</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTable中文网
-                    <span class="glyphicon glyphicon-time"></span> 6 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/06/option-DT_RowData.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 2 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据:http://datatables.club/manual/daily/2016/05/06/option-DT_RowData.html"
+                            data-clipboard-text="option preDrawCallback 重绘前回调函数:http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -111,98 +111,24 @@
                 <img class="img-responsive" src="" alt="">
                 <div class="content">
                     <!--正文-->
-                    <p>详解连接<a href="/manual/server-side.html" target="_blank">
-ServerSide Document
+                    <p>参数详解连接
+<a href="http://datatables.net/reference/option/preDrawCallback" target="_blank">
+    <code class="option">preDrawCallback<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html" target="_blank">
+    <code class="option">preDrawCallback<span>不定时一讲</span></code>
 </a></p>
 
-<p>说到 <code class="highlighter-rouge">DT_RowData</code> 不得不再提起 <code class="highlighter-rouge">columns.render</code>， 在前面几期有专门讲到 <code class="highlighter-rouge">columns.render</code>。</p>
-
-<p>我们通常使用<code class="highlighter-rouge">columns.render</code>来添加自定义的按钮，比如修改，删除或者其他的操作，这里就会涉及到取数的问题</p>
-
-<p>先看看 <code class="highlighter-rouge">columns.render</code> 是怎么处理的
+<p>与这个回调类似的还有
+<a href="/reference/option/drawCallback.html" target="_blank">
+    <code class="option">drawCallback<span>Option</span></code>
+</a>
+回调，他们俩区别在于执行的先后顺序不同
 <!--more--></p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre></td><td class="code"><pre><span class="c1">//数据实例</span>
-<span class="p">{</span>
-    <span class="s2">"data"</span><span class="err">:</span><span class="p">[</span>
-        <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"content"</span><span class="p">:</span><span class="s2">"Datatables是一个基于jQuery的表格插件"</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<p><code class="highlighter-rouge">preDrawCallback</code>在重绘表格前执行，你可以用来显示之前做更新或者清除操作，比如移除事件。这个回调函数还可以用来取消重绘操作，当方法返回 <code class="highlighter-rouge">false</code> 时</p>
 
-<span class="c1">//初始化代码</span>
-<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-    <span class="s2">"columns"</span><span class="p">:[</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"name"</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"姓名"</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"content"</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"描述"</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"操作"</span><span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">"columnDefs"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="s2">"targets"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="s2">"render"</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="nx">type</span><span class="p">,</span><span class="nx">row</span><span class="p">,</span><span class="nx">meta</span><span class="p">){</span>
-                <span class="k">return</span> <span class="s1">'&lt;a href="javascript:void(0)" '</span><span class="o">+</span>
-                    <span class="s1">'onclick="show("'</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">name</span><span class="o">+</span><span class="s1">'","'</span><span class="o">+</span><span class="nx">row</span><span class="p">.</span><span class="nx">content</span><span class="o">+</span><span class="s1">'")" &gt;查看详情&lt;/a&gt;'</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">},{</span>
-            <span class="s2">"targets"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"render"</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="nx">type</span><span class="p">,</span><span class="nx">row</span><span class="p">,</span><span class="nx">meta</span><span class="p">){</span>
-                <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">?</span> <span class="nx">data</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="s2">"..."</span> <span class="p">:</span> <span class="nx">data</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span>
-
-<span class="c1">//显示行详情</span>
-<span class="kd">function</span> <span class="nx">show</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">content</span><span class="p">){</span>
-    <span class="c1">//用alert模拟弹框的效果</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">content</span><span class="p">);</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>上面的代码 show 方法的处理，如果你想多传几个参数，那是想想都脑壳痛，确实不优雅</p>
-
-<p>如果只是一个id，或许还可以接受，或者使用js模板的方式也可以优雅的解决</p>
-
-<p>但是这下要讲的是Datatables提供的解决办法，使用 <code class="highlighter-rouge">DT_RowData</code>  ，他不是一个配置项也不是方法，只是在返回数据的时候
-稍稍改动下，上面的效果就可以简单的实现</p>
-
-<p>需要稍微改动返回的数据</p>
+<p>基本语法：</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -218,109 +144,23 @@ ServerSide Document
 12
 13
 14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56</pre></td><td class="code"><pre><span class="c1">//数据实例</span>
-<span class="p">{</span>
-    <span class="s2">"data"</span><span class="err">:</span><span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span>
-            <span class="s2">"content"</span><span class="p">:</span><span class="s2">"Datatables是一个基于jQuery的表格插件"</span><span class="p">,</span>
-            <span class="s2">"DT_RowData"</span><span class="p">:{</span>
-                <span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span>
-                <span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span>
-                <span class="s2">"content"</span><span class="p">:</span><span class="s2">"Datatables是一个基于jQuery的表格插件"</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-
-
-<span class="c1">//初始化代码</span>
-<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-    <span class="s2">"columns"</span><span class="p">:[</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"name"</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"姓名"</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"content"</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"描述"</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="na">title</span><span class="p">:</span><span class="s2">"操作"</span><span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">"columnDefs"</span><span class="p">:[</span>
-        <span class="p">{</span>
-            <span class="s2">"targets"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="s2">"defaultContent"</span><span class="p">:</span><span class="s1">'&lt;a href="javascript:void(0)" class="view-detail"&gt;查看详情&lt;/a&gt;'</span>
-        <span class="p">},{</span>
-            <span class="s2">"targets"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-            <span class="s2">"render"</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="nx">type</span><span class="p">,</span><span class="nx">row</span><span class="p">,</span><span class="nx">meta</span><span class="p">){</span>
-                <span class="k">return</span> <span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="p">?</span> <span class="nx">data</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">+</span><span class="s2">"..."</span> <span class="p">:</span> <span class="nx">data</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span>
-
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//如果有多个按钮，根据class名称区分</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">"view-detail"</span><span class="p">)){</span>
-        <span class="c1">// a标签在td，td 在tr</span>
-        <span class="c1">// 这里要获取tr的对象，所以是 a标签的父级的父级</span>
-        <span class="kd">var</span> <span class="nx">trObjData</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">parent</span><span class="p">().</span><span class="nx">data</span><span class="p">(</span><span class="s2">"DT_RowData"</span><span class="p">);</span>
-        <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">trObjData</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">trObjData</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">content</span> <span class="o">=</span> <span class="nx">trObjData</span><span class="p">.</span><span class="nx">content</span><span class="p">;</span>
-        <span class="nx">show</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">content</span><span class="p">);</span>
-    <span class="p">}</span>
+15</pre></td><td class="code"><pre><span class="c1">//重绘前移除每个单元格的点击事件</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span> <span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span>
 
-<span class="c1">//显示行详情</span>
-<span class="kd">function</span> <span class="nx">show</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">content</span><span class="p">){</span>
-    <span class="c1">//用alert模拟弹框的效果</span>
-    <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">content</span><span class="p">);</span>
-<span class="p">}</span><span class="w">
+<span class="c1">//当#test的值为1的时候，取消重绘操作</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>这种处理是Datatables在内部自己实现，所以在返回的数据里加上 <code class="highlighter-rouge">DT_RowData</code> Datatables会使用jQuery.data自动处理</p>
-
-<p>关于 jQuery.data 的用法相见
-<a href="http://www.w3school.com.cn/jquery/data_jquery_data.asp">jQuery.data()</a></p>
 
                 </div>
                 <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
@@ -347,13 +187,13 @@ ServerSide Document
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/06/option-DT_RowData.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/06/option-DT_RowData.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/06/option-DT_RowData.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/06/option-DT_RowData.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -522,7 +362,7 @@ ServerSide Document
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-06-option-DT_RowData.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-02-option-preDrawCallback.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
