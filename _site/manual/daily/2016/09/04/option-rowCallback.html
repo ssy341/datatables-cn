@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option displayStart 初始化起始页 《不定时一讲》 DataTable中文网</title>
+    <title>option rowCallback 行绘制回调函数 《不定时一讲》 DataTable中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/05/option-displayStart.html">option displayStart 初始化起始页</a>
+                    <a href="/manual/daily/2016/09/04/option-rowCallback.html">option rowCallback 行绘制回调函数</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTable中文网
-                    <span class="glyphicon glyphicon-time"></span> 5 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/05/option-displayStart.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 4 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option displayStart 初始化起始页:http://datatables.club/manual/daily/2016/05/05/option-displayStart.html"
+                            data-clipboard-text="option rowCallback 行绘制回调函数:http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -112,27 +112,57 @@
                 <div class="content">
                     <!--正文-->
                     <p>参数详解连接
-<a href="http://datatables.net/reference/option/displayStart" target="_blank">
-    <code class="option">displayStart<span>Option</span></code>
+<a href="https://datatables.net/reference/option/rowCallback" target="_blank">
+    <code class="option">rowCallback<span>Option</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/05/option-displayStart.html" target="_blank">
-    <code class="option">displayStart<span>不定时一讲</span></code>
+<a href="http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html" target="_blank">
+    <code class="option">rowCallback<span>不定时一讲</span></code>
 </a></p>
 
-<p>定义表格初始化时显示的页数，使用这个参数的前提是得开启分页特性 <code class="highlighter-rouge">paging:true</code>，默认情况下是打开分页了，但是如果你把
-<a href="/reference/option/paging.html" target="_blank">
-    <code class="option">paging<span>Option</span></code>
-</a>属性置为 <code class="highlighter-rouge">false</code> 那肯定就没用了哦！
+<p>这个回调一般用来给行添加 class 名称，或者直接操作 <code class="highlighter-rouge">TR</code> 元素，但请注意，初始化操作中，
+<a href="/reference/option/createdRow.html" target="_blank">
+    <code class="option">createdRow<span>Option</span></code>
+</a>
+操作行的效率要更高
 <!--more--></p>
+
+<p>基本语法：</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"displayStart"</span><span class="p">:</span> <span class="mi">20</span>
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td><td class="code"><pre><span class="c1">//高亮显示单元格值为A的（对象类型数据源）</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">grade</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">'td:eq(4)'</span><span class="p">,</span> <span class="nx">row</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="s1">'&lt;b&gt;A&lt;/b&gt;'</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span>
+
+<span class="c1">//高亮显示单元格值为A的（数组类型数据源）</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s1">'td:eq(4)'</span><span class="p">,</span> <span class="nx">row</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="s1">'&lt;b&gt;A&lt;/b&gt;'</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>上面的示例表示，如果你是每页显示10条数据，希望表格初始化的时候显示的是第三页的数据，你应该设置为 20</p>
 
                 </div>
                 <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
@@ -159,13 +189,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/05/option-displayStart.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/05/option-displayStart.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/04/option-rowCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/04/option-rowCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/05/option-displayStart.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/05/option-displayStart.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -334,7 +364,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-05-option-displayStart.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-04-option-rowCallback.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
