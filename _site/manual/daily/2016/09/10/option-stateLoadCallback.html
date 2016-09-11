@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>DataTables初始化对照模板4（全部option - Options 配置选项） 《不定时一讲》 DataTables中文网</title>
+    <title>option stateLoadCallback 状态读取回调函数 《不定时一讲》 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/12/all-options-of-options.html">DataTables初始化对照模板4（全部option - Options 配置选项）</a>
+                    <a href="/manual/daily/2016/09/10/option-stateLoadCallback.html">option stateLoadCallback 状态读取回调函数</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 12 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 10 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="DataTables初始化对照模板4（全部option - Options 配置选项）:http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"
+                            data-clipboard-text="option stateLoadCallback 状态读取回调函数:http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -111,18 +111,25 @@
                 <img class="img-responsive" src="" alt="">
                 <div class="content">
                     <!--正文-->
-                    <p><a href="http://datatables.club/reference/option/">所有option连接</a></p>
+                    <p>参数详解连接
+<a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
+    <code class="option">stateLoadCallback<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html" target="_blank">
+    <code class="option">stateLoadCallback<span>不定时一讲</span></code>
+</a></p>
 
-<p>相关连接</p>
-
-<p><a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">Features</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html">Data</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html">Callbacks</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-columns.html">Columns</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html">Internationalisation</a></p>
-
-<p>Options - 配置选项部分
+<p>这个回调函数定义了保存状态应该怎样、从哪里被读取。默认情况下 DT 从<code class="highlighter-rouge">localStorage</code>读取，但是也许你也会从服务器或者<code class="highlighter-rouge">cookies</code>中获取这些状态。
 <!--more--></p>
+
+<p>关于储存的个数据格式，参考 
+<a href="http://datatables.net/reference/option/stateSaveCallback" target="_blank">
+    <code class="option">stateSaveCallback<span>Option</span></code>
+</a></p>
+
+<p>注意，这个回调函数需要和 <code class="highlighter-rouge">stateSaveCallback</code> 配合使用。一个是如何读取，一个是如何存储。</p>
+
+<p>基本语法：</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -147,61 +154,32 @@
 21
 22
 23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"deferLoading"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"destroy"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"displayStart"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"dom"</span><span class="p">:</span> <span class="s2">"lfrtip"</span><span class="p">,</span>
-    <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
-    <span class="s2">"order"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'asc'</span><span class="p">]],</span>
-    <span class="s2">"orderCellsTop"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"orderClasses"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"orderFixed"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'asc'</span><span class="p">],</span>
-    <span class="s2">"orderMulti"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"pageLength"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"pagingType"</span><span class="p">:</span> <span class="s2">"simple_numbers"</span><span class="p">,</span>
-    <span class="s2">"renderer"</span><span class="p">:</span> <span class="s2">"bootstrap"</span><span class="p">,</span>
-    <span class="s2">"retrieve"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"rowId"</span><span class="p">:</span> <span class="s2">"DT_RowId"</span><span class="p">,</span>
-    <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"Fred"</span><span class="p">,</span>
-        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="s2">"searchCols"</span><span class="err">:</span> <span class="p">[</span>
-        <span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"My filter"</span>
-        <span class="p">},</span>
-        <span class="kc">null</span><span class="p">,</span>
-        <span class="p">{</span>
-            <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"^[0-9]"</span><span class="p">,</span>
-            <span class="s2">"escapeRegex"</span><span class="p">:</span> <span class="kc">false</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">"searchDelay"</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"stateDuration"</span><span class="err">:</span> <span class="mi">7200</span><span class="p">,</span>
-    <span class="s2">"stripeClasses"</span><span class="err">:</span> <span class="p">[</span><span class="s1">'odd'</span><span class="p">,</span> <span class="s1">'even'</span><span class="p">],</span>
-    <span class="s2">"tabIndex"</span><span class="err">:</span> <span class="mi">0</span>
-<span class="p">});</span><span class="w">
+24</pre></td><td class="code"><pre><span class="c1">//从服务器读取状态</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">o</span><span class="p">;</span>
+ 
+    <span class="c1">// Send an Ajax request to the server to get the data. Note that</span>
+    <span class="c1">// 发送一个ajax请求到服务器获取数据，注意</span>
+    <span class="c1">// this is a synchronous request since the data is expected back from the</span>
+    <span class="c1">// 这是一个同步的请求，直到数据返回</span>
+    <span class="c1">// function</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span> <span class="p">{</span>
+      <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_load"</span><span class="p">,</span>
+      <span class="c1">//同步</span>
+      <span class="s2">"async"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
+      <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">o</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span> <span class="p">);</span>
+ 
+    <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法</p>
 
                 </div>
                 <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
@@ -228,13 +206,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/10/option-stateLoadCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/10/option-stateLoadCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -403,7 +381,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-12-all-options-of-options.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-10-option-stateLoadCallback.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>

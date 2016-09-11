@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>DataTables初始化对照模板4（全部option - Options 配置选项） 《不定时一讲》 DataTables中文网</title>
+    <title>option stateLoaded 状态读取回调函数 《不定时一讲》 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/12/all-options-of-options.html">DataTables初始化对照模板4（全部option - Options 配置选项）</a>
+                    <a href="/manual/daily/2016/09/11/option-stateLoaded.html">option stateLoaded 状态读取回调函数</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 12 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 11 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="DataTables初始化对照模板4（全部option - Options 配置选项）:http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"
+                            data-clipboard-text="option stateLoaded 状态读取回调函数:http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -111,18 +111,26 @@
                 <img class="img-responsive" src="" alt="">
                 <div class="content">
                     <!--正文-->
-                    <p><a href="http://datatables.club/reference/option/">所有option连接</a></p>
+                    <p>参数详解连接
+<a href="http://datatables.net/reference/option/stateLoaded" target="_blank">
+    <code class="option">stateLoaded<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html" target="_blank">
+    <code class="option">stateLoaded<span>不定时一讲</span></code>
+</a></p>
 
-<p>相关连接</p>
+<p>当
+<a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
+    <code class="option">stateLoadCallback<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html" target="_blank">
+    <code class="option">stateLoadCallback<span>不定时一讲</span></code>
+</a>
+执行完毕后或者保存的数据被操作即触发这个回调函数。
+<!--more-->
+这个回调函数用来了解到数据是否已经存储或者保存了。比如，你可以用它来填充过滤框实现自定义过滤</p>
 
-<p><a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">Features</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html">Data</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html">Callbacks</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-columns.html">Columns</a>
-<a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html">Internationalisation</a></p>
-
-<p>Options - 配置选项部分
-<!--more--></p>
+<p>基本语法：</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -130,78 +138,15 @@
 4
 5
 6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"deferLoading"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"destroy"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"displayStart"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s2">"dom"</span><span class="p">:</span> <span class="s2">"lfrtip"</span><span class="p">,</span>
-    <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
-    <span class="s2">"order"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'asc'</span><span class="p">]],</span>
-    <span class="s2">"orderCellsTop"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"orderClasses"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"orderFixed"</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'asc'</span><span class="p">],</span>
-    <span class="s2">"orderMulti"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"pageLength"</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">"pagingType"</span><span class="p">:</span> <span class="s2">"simple_numbers"</span><span class="p">,</span>
-    <span class="s2">"renderer"</span><span class="p">:</span> <span class="s2">"bootstrap"</span><span class="p">,</span>
-    <span class="s2">"retrieve"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"rowId"</span><span class="p">:</span> <span class="s2">"DT_RowId"</span><span class="p">,</span>
-    <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"Fred"</span><span class="p">,</span>
-        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">},</span>
-    <span class="s2">"searchCols"</span><span class="err">:</span> <span class="p">[</span>
-        <span class="kc">null</span><span class="p">,</span> <span class="p">{</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"My filter"</span>
-        <span class="p">},</span>
-        <span class="kc">null</span><span class="p">,</span>
-        <span class="p">{</span>
-            <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"^[0-9]"</span><span class="p">,</span>
-            <span class="s2">"escapeRegex"</span><span class="p">:</span> <span class="kc">false</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="s2">"searchDelay"</span><span class="err">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="s2">"stateDuration"</span><span class="err">:</span> <span class="mi">7200</span><span class="p">,</span>
-    <span class="s2">"stripeClasses"</span><span class="err">:</span> <span class="p">[</span><span class="s1">'odd'</span><span class="p">,</span> <span class="s1">'even'</span><span class="p">],</span>
-    <span class="s2">"tabIndex"</span><span class="err">:</span> <span class="mi">0</span>
-<span class="p">});</span><span class="w">
+7</pre></td><td class="code"><pre><span class="c1">//弹出全局的过滤条件</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"stateLoaded"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'Saved filter was: '</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法</p>
 
                 </div>
                 <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
@@ -228,13 +173,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/11/option-stateLoaded.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/11/option-stateLoaded.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -403,7 +348,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-12-all-options-of-options.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-11-option-stateLoaded.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
