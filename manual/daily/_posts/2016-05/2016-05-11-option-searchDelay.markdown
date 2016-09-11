@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option searchDelay 设置搜索延迟时间 《不定时一讲》 DataTable中文网
+title: option searchDelay 设置搜索延迟时间 《不定时一讲》 DataTables中文网
 short: option searchDelay 设置搜索延迟时间
 date: 2016-5-11
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?id=OIP.Mac9f5885beecadf31d6405478c6681a0o0&w=185&h=143&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
 参数详解连接{% include href/option/option.options param="searchDelay" %}

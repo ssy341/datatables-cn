@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option preDrawCallback 重绘前回调函数 《不定时一讲》 DataTable中文网
+title: option preDrawCallback 重绘前回调函数 《不定时一讲》 DataTables中文网
 short: option preDrawCallback 重绘前回调函数
 date: 2016-9-2
 group: 2016-9
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://www.chipandco.com/wp-content/uploads/2015/05/tomorrowland-movie-poster-2015-space-mountain-wallpaper.jpg
 ---
 参数详解连接{% include href/option/option.callbacks param="preDrawCallback" %}

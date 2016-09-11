@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option order 设置排序列(去掉第一列的排序和小图标) 《不定时一讲》 DataTable中文网
+title: option order 设置排序列(去掉第一列的排序和小图标) 《不定时一讲》 DataTables中文网
 short: option order 设置排序列(去掉第一列的排序和小图标)
 date: 2016-5-5
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Md9b66d537f4d2cacc02f932117056a9bo0&w=300&h=168&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/option.options param="order" %}

@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option search.regex 支持正则表达式搜索 《不定时一讲》 DataTable中文网
+title: option search.regex 支持正则表达式搜索 《不定时一讲》 DataTables中文网
 short: option search.regex 支持正则表达式搜索
 date: 2016-5-11
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M6684c25bb904a6493b47fde5ee19822co0&w=300&h=203&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/option.options param="search.regex" %}

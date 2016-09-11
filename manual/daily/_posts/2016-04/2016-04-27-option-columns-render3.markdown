@@ -1,6 +1,6 @@
 ---
 layout: daily
-title: option columns.render 渲染列(3) url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTable中文网
+title: option columns.render 渲染列(3) url变超链接、图片显示、值替换(加样式) 《不定时一讲》 DataTables中文网
 short: option columns.render 渲染列(3) url变超链接、图片显示、值替换(加样式)
 date: 2016-4-27
 group: 2016-4
@@ -75,7 +75,7 @@ DataTable里面的下拉框、文本框、按钮、图片、超链接、文本�
 <html xmlns="http://www.w3.org/1999/xhtml">
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>DataTable中文网 不定时一讲 columns.render url变超链接或者图片显示</title>
+  <title>DataTables中文网 不定时一讲 columns.render url变超链接或者图片显示</title>
   <link href="DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
  </head>
  <body>

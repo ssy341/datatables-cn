@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据 《不定时一讲》 DataTable中文网
+title: option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据 《不定时一讲》 DataTables中文网
 short: option DT_RowData 使用jQuery.data()方法给每行（tr）绑定数据
 date: 2016-5-6
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse4.mm.bing.net/th?id=OIP.M8b026165c50b6f164a68b13fde9d2449o0&w=177&h=145&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
 详解连接{% include href/localTarget/serverSide.local %}

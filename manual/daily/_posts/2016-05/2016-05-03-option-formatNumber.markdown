@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option formatNumber 数字格式化 《不定时一讲》 DataTable中文网
+title: option formatNumber 数字格式化 《不定时一讲》 DataTables中文网
 short: option formatNumber 数字格式化
 date: 2016-5-3
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Ma8e0402f19ad466dc7f99293b249fe44o0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/formatNumber.option %}

@@ -201,7 +201,7 @@ title: Datatables 中文网
             initComplete: function () {
                 var api = this.api();
                 var fda = api.column(1).data().reduce(function (a, b) {
-                    return parseFloat(a) + parseFloat(b);
+                    return (parseFloat(a) + parseFloat(b)).toFixed(2);
                 });
                 $(api.column(0).footer()).html("总额：" + fda);
             }

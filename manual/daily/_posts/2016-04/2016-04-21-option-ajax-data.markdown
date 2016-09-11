@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option ajax data 根据参数查询表格数据 《不定时一讲》 DataTable中文网
+title: option ajax data 根据参数查询表格数据 《不定时一讲》 DataTables中文网
 short: option ajax data 根据参数查询表格数据
 date: 2016-4-21
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M2d0ec5e902de7ef879d89fff83d8e512o0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/ajax.data.dt %}

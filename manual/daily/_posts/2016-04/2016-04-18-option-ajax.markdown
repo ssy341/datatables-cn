@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option ajax 异步取数 《不定时一讲》 DataTable中文网
+title: option ajax 异步取数 《不定时一讲》 DataTables中文网
 short: option ajax 异步取数
 date: 2016-4-18
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mcd6f269812716d3748a8eebb96ff94bao0&w=256&h=199&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/ajax.dt %}
@@ -28,8 +28,8 @@ data.json - 是一个url或者资源文件，数据格式是这样的
 {% highlight javascript linenos %}
 {
     data:[
-        {name:"datatable中文网",age:2},
-        {name:"datatable中文网2",age:3}
+        {name:"DataTables中文网",age:2},
+        {name:"DataTables中文网2",age:3}
     ]
 }
 {% endhighlight %}
@@ -37,7 +37,7 @@ data.json - 是一个url或者资源文件，数据格式是这样的
 {% highlight javascript linenos %}
 {
     data:[
-        ["datatable中文网",2],["datatable中文网2",3]
+        ["DataTables中文网",2],["DataTables中文网2",3]
     ]
 }
 {% endhighlight %}

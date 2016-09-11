@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option columns.render 渲染列(1) 添加checkbox 《不定时一讲》 DataTable中文网
+title: option columns.render 渲染列(1) 添加checkbox 《不定时一讲》 DataTables中文网
 short: option columns.render 渲染列(1) 添加checkbox
 date: 2016-4-25
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M25b97f9c434807d2eb5d42885873bdb9o0&w=300&h=266&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/columns.render.dt %}
@@ -37,8 +37,8 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.M25b97f9c434807d2eb5d42885873bdb9o0&w
 {% highlight javascript linenos %}
 {
     data:[
-        {"name":"datatable中文网","age":2,"id":1},
-        {"name":"datatable中文网2","age":3,"id":2}
+        {"name":"DataTables中文网","age":2,"id":1},
+        {"name":"DataTables中文网2","age":3,"id":2}
     ]
 }
 {% endhighlight %}

@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option searchCols 给单独的列定义初始化过滤条件 《不定时一讲》 DataTable中文网
+title: option searchCols 给单独的列定义初始化过滤条件 《不定时一讲》 DataTables中文网
 short: option searchCols 给单独的列定义初始化过滤条件
 date: 2016-5-11
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Ma08abb39d625d6aaab71002dd3ddf653o0&w=278&h=300&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/option.options param="searchCols" %}

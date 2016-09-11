@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option ajax dataSrc （上） 改变默认的data属性取值 《不定时一讲》 DataTable中文网
+title: option ajax dataSrc （上） 改变默认的data属性取值 《不定时一讲》 DataTables中文网
 short: option ajax dataSrc （上） 改变默认的data属性取值
 date: 2016-4-19
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mbb35cd39733e156411ba906317a9d44ao0&w=300&h=187&c=0&pid=1.9&rs=0&p=0
 ---
 

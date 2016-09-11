@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option dom 自定义布局表格 《不定时一讲》 DataTable中文网
+title: option dom 自定义布局表格 《不定时一讲》 DataTables中文网
 short: option dom 自定义布局表格
 date: 2016-5-11
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse4.mm.bing.net/th?id=OIP.M5ba0bc29fe755dec3d3ba5bbb35380f0o0&w=179&h=141&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
 参数详解连接{% include href/option/option.options param="dom" %}

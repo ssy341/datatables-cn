@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option search.caseInsensitive 过滤框是否区分大小写 《不定时一讲》 DataTable中文网
+title: option search.caseInsensitive 过滤框是否区分大小写 《不定时一讲》 DataTables中文网
 short: option search.caseInsensitive 过滤框是否区分大小写
 date: 2016-5-11
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse4.mm.bing.net/th?id=OIP.M34f91e39cb7ee45c2708ac9a3a7b7beao0&w=218&h=139&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
 参数详解连接{% include href/option/option.options param="search.caseInsensitive" %}

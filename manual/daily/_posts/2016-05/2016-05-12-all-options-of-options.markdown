@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: DataTables初始化对照模板4（全部option - Options 配置选项） 《不定时一讲》 DataTable中文网
+title: DataTables初始化对照模板4（全部option - Options 配置选项） 《不定时一讲》 DataTables中文网
 short: DataTables初始化对照模板4（全部option - Options 配置选项）
 date: 2016-5-12
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M1718b8740052ff69960b05b27286ab1fo0&w=297&h=222&c=0&pid=1.9&rs=0&p=0
 ---
 [所有option连接]({{site.url}}/reference/option/)

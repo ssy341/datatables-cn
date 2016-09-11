@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option ajax dataSrc （下） 对返回数据进行处理 《不定时一讲》 DataTable中文网
+title: option ajax dataSrc （下） 对返回数据进行处理 《不定时一讲》 DataTables中文网
 short: option ajax dataSrc （下） 对返回数据进行处理
 date: 2016-4-20
 group: 2016-4
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M16b9391ab8e64299ca3efcc57ae5f0fco0&w=283&h=300&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/ajax.dataSrc.dt %}

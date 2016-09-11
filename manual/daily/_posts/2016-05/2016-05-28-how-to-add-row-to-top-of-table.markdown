@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: 如何添加新行到表格的最上面（困扰了许多人的一个梗） 《不定时一讲》 DataTable中文网
+title: 如何添加新行到表格的最上面（困扰了许多人的一个梗） 《不定时一讲》 DataTables中文网
 short: 如何添加新行到表格的最上面（困扰了许多人的一个梗）
 date: 2016-5-28
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [博客,DataTables使用经验]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M39bd88a4b8b35a051591e14753dd434dH0&w=300&h=165&c=0&pid=1.9&rs=0&p=0
 ---
 

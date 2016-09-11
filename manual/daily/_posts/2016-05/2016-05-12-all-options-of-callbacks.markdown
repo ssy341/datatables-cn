@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: DataTables初始化对照模板3（全部option - Callbacks 回调函数） 《不定时一讲》 DataTable中文网
+title: DataTables初始化对照模板3（全部option - Callbacks 回调函数） 《不定时一讲》 DataTables中文网
 short: DataTables初始化对照模板3（全部option - Callbacks 回调函数）
 date: 2016-5-12
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mb88413ca9cb8fce53091421589436f74o0&w=300&h=224&c=0&pid=1.9&rs=0&p=0
 ---
 [所有option连接]({{site.url}}/reference/option/)

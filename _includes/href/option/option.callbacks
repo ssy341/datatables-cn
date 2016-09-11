@@ -53,9 +53,15 @@
 <a href="http://datatables.net/reference/option/stateLoadCallback" target="_blank">
     <code class="option">stateLoadCallback<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url 2016-09-10-option-stateLoadCallback %}" target="_blank">
+    <code class="option">stateLoadCallback<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "stateLoaded" %}
 <a href="http://datatables.net/reference/option/stateLoaded" target="_blank">
     <code class="option">stateLoaded<span>Option</span></code>
+</a>
+<a href="{{ site.url }}{% post_url 2016-09-11-option-stateLoaded %}" target="_blank">
+    <code class="option">stateLoaded<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateLoadParams" %}
 <a href="http://datatables.net/reference/option/stateLoadParams" target="_blank">

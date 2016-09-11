@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option headerCallback 表头回调函数 《不定时一讲》 DataTable中文网
+title: option headerCallback 表头回调函数 《不定时一讲》 DataTables中文网
 short: option headerCallback 表头回调函数
 date: 2016-8-29
 group: 2016-8
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://img.goldposter.com/2015/12/Ice-Age-5_poster_goldposter_com_4.jpg
 ---
 参数详解连接{% include href/option/option.callbacks param="headerCallback" %}

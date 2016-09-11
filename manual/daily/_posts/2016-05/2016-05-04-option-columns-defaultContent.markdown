@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option columns.defaultContent 给单元格默认内容 《不定时一讲》 DataTable中文网
+title: option columns.defaultContent 给单元格默认内容 《不定时一讲》 DataTables中文网
 short: option columns.defaultContent 给单元格默认内容
 date: 2016-5-4
 group: 2016-5
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M7eca6f0b9c77bd207d13b5eb4fec49e3o0&w=299&h=224&c=0&pid=1.9&rs=0&p=0
 ---
 参数详解连接{% include href/option/option.columns param="columns.defaultContent" %}

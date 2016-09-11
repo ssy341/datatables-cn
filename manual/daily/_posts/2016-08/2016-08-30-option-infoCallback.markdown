@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: option infoCallback 表格概要信息显示回调 《不定时一讲》 DataTable中文网
+title: option infoCallback 表格概要信息显示回调 《不定时一讲》 DataTables中文网
 short: option infoCallback 表格概要信息显示回调
 date: 2016-8-30
 group: 2016-8
 caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://cdn-static.denofgeek.com/sites/denofgeek/files/2016/05/x-men-apocalypse-launch-quad-poster.jpg
 ---
 参数详解连接{% include href/option/option.callbacks param="infoCallback" %}
