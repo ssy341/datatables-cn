@@ -113,7 +113,7 @@ table.on('draw.dt',function() {
                 var columnIndex = (i+pageno*length);
                 cell.innerHTML = columnIndex;
             });
-        }).draw();
+        });
 {% endhighlight %}
 {% include href/api/api.Core param='page.info()' %}打印出来如下：
 {% highlight javascript linenos %}

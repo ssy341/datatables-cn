@@ -125,26 +125,33 @@ $(document).on("click","#example button.search",function(){
 
 小伙伴 **Smail** 提供如下代码：
 {% highlight javascript linenos %}
-var t = $('#example').DataTable({
+//扩展DT的默认配置
+$.extend($.fn.dataTable.defaults, {
     //在 dom 里面不配置 f ，可以隐藏掉默认的搜索框
-	"dom": '<"datatable-header"<"dataTables_filter">l><"datatable-scroll"t><"datatable-footer"ip>',
-	//"searchable": false,//不能加，不然会影响search方法
-	initComplete: function(settings) {
-		var searchHTML = '<label><span>搜索:</span> <input type="search" class="" placeholder="需求名称模糊搜索..." aria-controls="datatable1"></label>';
-		$('.dataTables_filter').append(searchHTML); //快捷操作的HTML DOM
-		/**
-		    * 重写搜索事件
-		    */
-		$('.dataTables_filter input').bind('keyup',
-		function(e) {
-		    //监听回车键
-			if (e.keyCode == 13) {
-				t.search(this.value).draw();
-			}
-		});
-	}
+    dom: '<"datatable-header"<"dataTables_filter">l><"datatable-scroll"t><"datatable-footer"ip>',
+    //DT初始化完毕回调函数
+    initComplete: function(settings) {
+        var _$this = this;
+        var searchHTML = '<label><span>搜索:</span> <input type="search" placeholder="请输入搜索内容" aria-controls="datatable1"></label>';
+        //快捷操作的HTML DOM
+        $(_$this.selector + '_wrapper .dataTables_filter').append(searchHTML);
+
+        //重写搜索事件
+        $(_$this.selector + '_wrapper .dataTables_filter input').bind('keyup',
+        function(e) {
+            if (e.keyCode == 13 || (e.keyCode == 8 && (this.value.length == 0))) {
+                _$this.api().search(this.value).draw();
+            }
+        });
+    }
+});
+
+//初始化DT
+var t = $('#example').DataTable({
+    //......
+    //自己需要的其他属性
 });
 {% endhighlight %}
-重写datatables搜索事件，这样就能做到按下回车时搜索了，还不破坏 DataTables 原有的样式结构
+重写datatables搜索事件，这样就能做到按下回车时搜索了，还不破坏 DataTables 原有的样式结构。
 
 ---

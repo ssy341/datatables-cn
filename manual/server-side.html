@@ -8,355 +8,390 @@ relurl: http://datatables.net/manual/server-side
 
         <div class="span9">
             <h2 data-anchor="DataTables-Manual">服务器处理(Server-side processing)</h2>
-            <p>
-                是不是发现在处理太多dom数据或者ajax一次性把数据获得后，Datatables表现的不是很满意？这是肯定的，因为dt需要渲染，创建tr，td所以数据越多，速度就越慢了。
-                为了解决这个问题Datatables提供了服务器模式，把本来客户端所做的事情交给服务器去处理，比如 排序，分页，过滤。对于客户端来说这些操作都是比较消耗资源的，
-                所以打开服务器模式后有再多的数据也不用怕了
-            </p>
-
-            <p>
-                当你打开服务器模式的时候，每次绘制表格的时候，Datatables会给服务器发送一个请求（包括当前分页，排序，搜索等等）。Datatables会发向
-                服务器发送大量的变量去执行所需要的处理，然后在服务器拼好相应的数据返回给Datatables。
-            </p>
-            <p>
-                开启服务器模式需要使用 {% include href/option/serverSide.dt %}选项，并且配置 {% include href/option/ajax.dt %}，进一步的信息，请参考下面的配置选项。
-            </p>
-            <h3>发送参数(Sent parameters)</h3>
-
-            <p>
-                当使用服务器处理时，Datatables会发送如下数据给服务器
-            </p>
-            <div class="dataTables_wrapper no-footer">
-                <table class="parameters basic display dataTable no-footer" role="grid">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="odd">
-                        <td><code>draw</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                绘制计数器。这个是用来确保Ajax从服务器返回的是对应的（Ajax是异步的，因此返回的顺序是不确定的）。
-                                要求在服务器接收到此参数后再返回（具体看下面）
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>start</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                第一条数据的起始位置，比如0代表第一条数据
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>length</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                告诉服务器每页显示的条数，这个数字会等于返回的 <code>data</code>集合的记录数，可能会大于因为服务器可能没有那么多数据。这个也可能是-1，代表需要返回全部数据(尽管这个和服务器处理的理念有点违背)
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>search[value]</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                全局的搜索条件，条件会应用到每一列（ <code>searchable</code>需要设置为 <code>true</code> ）
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>search[regex]</code></td>
-                        <td>{% include href/boolean.js %}
-                        </td>
-                        <td>
-                            <p>
-                                如果为 <code>true</code>代表全局搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
-                                注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>order[i][column]</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                告诉后台那些列是需要排序的。
-                                <code>i</code>是一个数组索引，对应的是 <code>columns</code>数组，从0开始
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>order[i][dir]</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                告诉后台列排序的方式， <code>desc</code> 是降序 <code>asc</code>升序
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>columns[i][data]</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                columns 绑定的数据源，由{% include href/option/columns.data.dt %} 定义。
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>columns[i][name]</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                columns 的名字，由{% include href/option/option.columns param="columns.name" %}定义。
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>columns[i][searchable]</code></td>
-                        <td>{% include href/boolean.js %}
-                        </td>
-                        <td>
-                            <p>
-                                标记列是否能被搜索,为<code>true</code>代表可以，否则不可以，这个是由
-                                {% include href/option/option.columns param="columns.searchable" %} 控制
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>columns[i][orderable]</code></td>
-                        <td>{% include href/boolean.js %}
-                        </td>
-                        <td>
-                            <p>
-                                标记列是否能排序,为 <code>true</code>代表可以，否则不可以，这个是由
-                                {% include href/option/option.columns param="columns.orderable" %} 控制
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>columns[i][search][value]</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                标记具体列的搜索条件
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>columns[i][search][regex]</code></td>
-                        <td>{% include href/boolean.js %}
-                        </td>
-                        <td>
-                            <p>
-                                特定列的搜索条件是否视为正则表达式，
-                                如果为 <code>true</code>代表搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
-                                注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
-                            </p>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-                <p>
-                    <code>order[i]</code>和 <code>columns[i]</code>参数发送到服务器是数组信息：
-                    <ul>
-                <li>
-                    <code>order[i]</code> -  是一个数组，定义了多少列要被排序。比如，数组长度为1，那么就
-                    只有一个列被排序，否则就是多个列被排序
-                </li>
-                <li>
-                    <code>columns[i]</code> - 是一个数组，定了这个表格里所有的列
-                </li>
+            <ul>
+                <li><a href="#what">什么是服务器模式？</a></li>
+                <li><a href="#sentargs">DT自动请求的参数</a></li>
+                <li><a href="#returndata">服务器需要返回的数据</a></li>
+                <li><a href="#initdt">如何开启服务器模式？</a></li>
+                <li><a href="#demodata">服务器模式示例数据格式</a></li>
             </ul>
-                在这两个情况下， <code>i</code>is an integer which will change to indicate the array value.
-                In most modern server-side scripting environments this data will automatically be available to you as an array.
+
+            <section id="what">
+                <h3>什么是服务器模式？</h3>
+                <p>
+                    是不是发现在处理太多 DOM 数据或者 AJAX 一次性把数据获得后，DataTables 表现的不是很满意？这是肯定的，
+                    因为 DT 需要渲染，创建 tr/td ,所以数据越多，速度就越慢。
+                    为了解决这个问题 DataTables 提供了 <b>服务器模式</b>，把本来客户端所做的事情交给服务器去处理，
+                    比如排序（order）、分页（paging）、过滤（filter）。对于客户端来说这些操作都是比较消耗资源的，
+                    所以打开服务器模式后不用担心这些操作会影响到用户体验。
                 </p>
-            </div>
+
+                <p>
+                    当你打开服务器模式的时候，每次绘制表格的时候，DataTables 会给服务器发送一个请求（包括当前分页，排序，搜索参数等等）。DataTables 会向
+                    服务器发送 <a href="#sentargs">一些参数</a>
+                    去执行所需要的处理，然后在服务器组装好
+                    <a href="#returndata">相应的数据</a>
+                    返回给 DataTables。
+                </p>
+                <p>
+                    开启服务器模式需要使用 {% include href/option/serverSide.dt %}和{% include href/option/ajax.dt %}选项，进一步的信息，请参考下面的
+                    <a href="#initdt">配置选项</a>。
+                </p>
+            </section>
+
+
+            <section id="sentargs">
+                <h3>DT自动请求的参数(Sent parameters)</h3>
+
+                <p>
+                    当开启了 <b>服务器模式</b>时，DataTables 会发送如下参数到服务器
+                </p>
+                <p>
+                    ps:需要说明的是
+                <ul>
+                    <li>如果你是 Java 开发者，那么使用struts2的需要注意，会有错误抛出，因为处理不了类似 <code>columns[i][search][regex]</code>的变量</li>
+                    <li>如果是你 .net 开发者，那么可能会遇到 maxQueryStringLength 的错误</li>
+                    <li>如果是你 php 开发者，那么恭喜你，php天生支持以上参数的解析，自动转为数组，好不公平啊</li>
+                </ul>
+                </p>
+                <div class="dataTables_wrapper no-footer">
+                    <table class="parameters basic display dataTable no-footer" role="grid">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr role="row" class="odd">
+                            <td><code>draw</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    绘制计数器。这个是用来确保Ajax从服务器返回的是对应的（Ajax是异步的，因此返回的顺序是不确定的）。
+                                    要求在服务器接收到此参数后再返回（具体看 <a href="#returndata">下面</a>）
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>start</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    第一条数据的起始位置，比如0代表第一条数据
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>length</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    告诉服务器每页显示的条数，这个数字会等于返回的 <code>data</code>集合的记录数，可能会大于因为服务器可能没有那么多数据。这个也可能是-1，代表需要返回全部数据(尽管这个和服务器处理的理念有点违背)
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>search[value]</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    全局的搜索条件，条件会应用到每一列（ <code>searchable</code>需要设置为 <code>true</code> ）
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>search[regex]</code></td>
+                            <td>{% include href/boolean.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    如果为 <code>true</code>代表全局搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                                    注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>order[i][column]</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    告诉后台那些列是需要排序的。
+                                    <code>i</code>是一个数组索引，对应的是 <code>columns</code>配置的数组，从0开始
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>order[i][dir]</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    告诉后台列排序的方式， <code>desc</code> 降序 <code>asc</code>升序
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>columns[i][data]</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    columns 绑定的数据源，由{% include href/option/columns.data.dt %} 定义。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>columns[i][name]</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    columns 的名字，由{% include href/option/option.columns param="columns.name" %}定义。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>columns[i][searchable]</code></td>
+                            <td>{% include href/boolean.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    标记列是否能被搜索,为<code>true</code>代表可以，否则不可以，这个是由
+                                    {% include href/option/option.columns param="columns.searchable" %} 控制
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>columns[i][orderable]</code></td>
+                            <td>{% include href/boolean.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    标记列是否能排序,为 <code>true</code>代表可以，否则不可以，这个是由
+                                    {% include href/option/option.columns param="columns.orderable" %} 控制
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>columns[i][search][value]</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    标记具体列的搜索条件
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>columns[i][search][regex]</code></td>
+                            <td>{% include href/boolean.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    特定列的搜索条件是否视为正则表达式，
+                                    如果为 <code>true</code>代表搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                                    注意：通常在服务器模式下对于大数据不执行这样的正则表达式，但这都是自己决定的
+                                </p>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <p>
+                        <code>order[i]</code>和 <code>columns[i]</code>参数发送到服务器是数组信息：
+                    <ul>
+                        <li>
+                            <code>order[i]</code> -  是一个数组，定义了多少列要被排序。比如，数组长度为1，那么就
+                            只有一个列被排序，否则就是多个列被排序
+                        </li>
+                        <li>
+                            <code>columns[i]</code> - 是一个数组，定了这个表格里所有的列
+                        </li>
+                    </ul>
+                    在这两个情况下， <code>i</code>is an integer which will change to indicate the array value.
+                    In most modern server-side scripting environments this data will automatically be available to you as an array.
+                    </p>
+                </div>
+            </section>
+
+
+            <section id="returndata">
+                <h3>服务器需要返回的数据(Returned data)</h3>
+                <p>
+                    一旦 DataTables 发送了请求，上面的参数就会传送给服务器，那么你需要接受到这些参数并做相应的逻辑处理然后按照下面的格式讲组装好的JSON数据返回
+                    （不是每个参数都需要接受处理，根据自己的业务需要）
+                </p>
+                <div class="dataTables_wrapper no-footer">
+                    <table class="parameters basic display dataTable no-footer" role="grid">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr role="row" class="odd">
+                            <td><code>draw</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    <b>必要</b>。上面提到了，Datatables发送的draw是多少那么服务器就返回多少。
+                                    这里注意，作者出于安全的考虑，强烈要求把这个转换为整形，即数字后再返回，而不是纯粹的接受然后返回，这是
+                                    为了防止跨站脚本（XSS）攻击。
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>recordsTotal</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    <b>必要</b>。即没有过滤的记录数（数据库里总共记录数）
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>recordsFiltered</code></td>
+                            <td>{% include href/integer.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    <b>必要</b>。过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>data</code></td>
+                            <td>{% include href/array.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    <b>必要</b>。表中中需要显示的数据。这是一个对象数组，也可以只是数组，区别在于
+                                    纯数组前台就不需要用 <code>columns</code>绑定数据，会自动按照顺序去显示
+                                    ，而对象数组则需要使用 <code>columns</code>绑定数据才能正常显示。
+                                    注意这个 <code>data</code>的名称可以由
+                                    {% include href/option/ajax.dt %}的{% include href/option/ajax.dataSrc.dt %}控制
+
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>error</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    <b>可选</b>。你可以定义一个错误来描述服务器出了问题后的友好提示
+                                </p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    除了上面的返回参数以外你还可以加入下面的参数，来实现对表格数据的自动绑定
+                </p>
+                <div class="dataTables_wrapper no-footer">
+                    <table class="parameters basic display dataTable no-footer" role="grid">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
+                            <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr role="row" class="odd">
+                            <td><code>DT_RowId</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    自动绑定到 <code>tr</code>节点上
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>DT_RowClass</code></td>
+                            <td>{% include href/string.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    自动把这个类名添加到 <code>tr</code>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="odd">
+                            <td><code>DT_RowData</code></td>
+                            <td>{% include href/object.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    使用 {% include href/jQuery.data.js %}方法把数据绑定到row中，方便之后用来检索（比如加入一个点击事件）
+                                </p>
+                            </td>
+                        </tr>
+                        <tr role="row" class="even">
+                            <td><code>DT_RowAttr</code></td>
+                            <td>{% include href/object.js %}
+                            </td>
+                            <td>
+                                <p>
+                                    自动绑定数据到 <code>tr</code>上，使用  {% include href/jQuery.attr.js %}方法，对象的键用作属性，值用作属性的值。注意这个
+                                    需要 <code>Datatables 1.10.5+</code>的版本才支持
+                                </p>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <p>如何使用上面的参数，参考下面展示的 <a href="#demodata">数据示例</a></p>
+            </section>
 
 
 
-            <h3>返回的数据(Returned data)</h3>
-             <p>
-                    一旦DataTables发送了请求，上面的参数就会传送给服务器，那么你需要按照下面的格式讲组装好的JSON数据返回
-             </p>
-            <div class="dataTables_wrapper no-footer">
-                <table class="parameters basic display dataTable no-footer" role="grid">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="odd">
-                        <td><code>draw</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                <b>必要</b>。上面提到了，Datatables发送的draw是多少那么服务器就返回多少。
-                                这里注意，作者出于安全的考虑，强烈要求把这个转换为整形，即数字后再返回，而不是纯粹的接受然后返回，这是
-                                为了防止跨站脚本（XSS）攻击。
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>recordsTotal</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                <b>必要</b>。即没有过滤的记录数（数据库里总共记录数）
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>recordsFiltered</code></td>
-                        <td>{% include href/integer.js %}
-                        </td>
-                        <td>
-                            <p>
-                                <b>必要</b>。过滤后的记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数）
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>data</code></td>
-                        <td>{% include href/array.js %}
-                        </td>
-                        <td>
-                            <p>
-                                <b>必要</b>。表中中需要显示的数据。这是一个对象数组，也可以只是数组，区别在于
-                                纯数组前台就不需要用 <code>columns</code>绑定数据，会自动按照顺序去显示
-                                ，而对象数组则需要使用 <code>columns</code>绑定数据才能正常显示。
-                                注意这个 <code>data</code>的名称可以由
-                                {% include href/option/ajax.dt %}的{% include href/option/ajax.dataSrc.dt %}控制
+            <section id="initdt">
+                <h3>如何开启服务器模式（Configuration）</h3>
 
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>error</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                <b>可选</b>。你可以定义一个错误来描述服务器出了问题后的友好提示
-                            </p>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <p>
-                除了上面的返回参数以外你还可以加入下面的参数，来实现对表格数据的自动绑定
-            </p>
-            <div class="dataTables_wrapper no-footer">
-                <table class="parameters basic display dataTable no-footer" role="grid">
-                    <thead>
-                    <tr role="row">
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 39px;">名称</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 59px;">类型</th>
-                        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 244px;">描述</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr role="row" class="odd">
-                        <td><code>DT_RowId</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                自动绑定到 <code>tr</code>节点上
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>DT_RowClass</code></td>
-                        <td>{% include href/string.js %}
-                        </td>
-                        <td>
-                            <p>
-                                自动把这个类名添加到 <code>tr</code>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="odd">
-                        <td><code>DT_RowData</code></td>
-                        <td>{% include href/object.js %}
-                        </td>
-                        <td>
-                            <p>
-                                使用 {% include href/jQuery.data.js %}方法把数据绑定到row中，方便之后用来检索（比如加入一个点击事件）
-                            </p>
-                        </td>
-                    </tr>
-                    <tr role="row" class="even">
-                        <td><code>DT_RowAttr</code></td>
-                        <td>{% include href/object.js %}
-                        </td>
-                        <td>
-                            <p>
-                                自动绑定数据到 <code>tr</code>上，使用  {% include href/jQuery.attr.js %}方法，对象的键用作属性，值用作属性的值。注意这个
-                                需要 <code>Datatables 1.10.5+</code>的版本才支持
-                            </p>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-            </div>
-            <p>如何使用上面的参数，参考下面展示的数据实例</p>
-
-            <h3>配置（Configuration）</h3>
-
-             <p>使用服务器模式需要启用 {% include href/option/serverSide.dt %}选项 ，
-                 设置为 <code>true</code>，并且配置 {% include href/option/ajax.dt %}设置url，告诉Datatables该
-             从那里获得数据</p>
-            <div class="reference_examples">
-                <div class="reference_example">
-                    <div class="title">
-                        所以最简单的服务器初始化代码如下所示：
-                    </div>
-                      <pre class="brush:js;toolbar:false">
+                <p>使用服务器模式需要启用 {% include href/option/serverSide.dt %}选项 ，
+                    设置为 <code>true</code>，并且配置 {% include href/option/ajax.dt %}设置url，告诉 DataTables 该
+                    从那里获得数据</p>
+                <div class="reference_examples">
+                    <div class="reference_example">
+                        <div class="title">
+                            所以最简单的服务器模式DT初始化代码如下所示：
+                        </div>
+                        <pre class="brush:js;toolbar:false">
 $(&#39;#example&#39;).DataTable( {
+   //开启服务器模式
     serverSide: true,
+   //数据来源（包括处理分页，排序，过滤） ，即url，action，接口，等等
     ajax: &#39;/data-source&#39;
 } );
                       </pre>
-                </div>
-            </div>
-            <p>
-                {% include href/option/ajax.dt %} 可以直接接受一个字符串也可以作为一个对象使用。作为对象他就像 {% include href/jQuery.ajax  %} 配置一样
-            </p>
-            <div class="reference_examples">
-                <div class="reference_example">
-                    <div class="title">
-                        比如我要Datatables发送的请求为
-                        <code>post</code>代码如下
                     </div>
-                      <pre class="brush:js;toolbar:false">
+                </div>
+                <p>
+                    {% include href/option/ajax.dt %} 可以直接接受一个字符串也可以作为一个对象使用。作为对象他就像 {% include href/jQuery.ajax  %} 配置一样
+                </p>
+                <div class="reference_examples">
+                    <div class="reference_example">
+                        <div class="title">
+                            比如我要 DataTables 以<code>post</code>方式发送的请求，代码如下
+                        </div>
+                        <pre class="brush:js;toolbar:false">
 $(&#39;#example&#39;).DataTable( {
     serverSide: true,
     ajax: {
@@ -365,30 +400,32 @@ $(&#39;#example&#39;).DataTable( {
     }
 } );
                       </pre>
-                </div>
-            </div>
-            <p>在Datatables中的 <code>ajax</code>选项配置详细参考 {% include href/option/ajax.dt %} </p>
-
-
-            <h3>老版（Legacy）</h3>
-
-            <p>
-                1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，
-                你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
-                旧的是使用 <code>sAjaxSource </code> 而新的是使用 {% include href/option/ajax.dt %}或者通过设置
-                <code>0.fn.dataTable.ext.legacy.ajax = true;</code>
-            </p>
-            <p>
-                1.9版本服务器操作的文档看请 <a href="http://legacy.datatables.net/usage/server-side" target="_blank">参考这里</a>
-            </p>
-
-            <h3>示例数据（Example data）</h3>
-            <div class="reference_examples">
-                <div class="reference_example">
-                    <div class="title">
-                        服务器端处理的例子，返回使用数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
                     </div>
-                      <pre class="brush:js;toolbar:false">
+                </div>
+                <p>在 DataTables 中的 <code>ajax</code>选项配置详细参考 {% include href/option/ajax.dt %} </p>
+
+
+                <h3>老版（Legacy）</h3>
+
+                <p>
+                    1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，
+                    你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
+                    旧的是使用 <code>sAjaxSource </code> 而新的是使用 {% include href/option/ajax.dt %}或者通过设置
+                    <code>0.fn.dataTable.ext.legacy.ajax = true;</code>
+                </p>
+                <p>
+                    1.9版本服务器操作的文档看请 <a href="http://legacy.datatables.net/usage/server-side" target="_blank">参考这里</a>
+                </p>
+            </section>
+
+            <section id="demodata">
+                <h3>服务器模式示例数据格式（Example data）</h3>
+                <div class="reference_examples">
+                    <div class="reference_example">
+                        <div class="title">
+                            服务器模式处理的例子，返回数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
+                        </div>
+                        <pre class="brush:js;toolbar:false">
 {
     &quot;draw&quot;: 1,
     &quot;recordsTotal&quot;: 57,
@@ -413,15 +450,15 @@ $(&#39;#example&#39;).DataTable( {
         ...
     ]
 }                 </pre>
-                </div>
-            </div>
-
-            <div class="reference_examples">
-                <div class="reference_example">
-                    <div class="title">
-                        服务器端处理的例子，返回使用数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
                     </div>
-                      <pre class="brush:js;toolbar:false">
+                </div>
+
+                <div class="reference_examples">
+                    <div class="reference_example">
+                        <div class="title">
+                            服务器模式例子，返回对象数组作为数据源 ， <a href="/example/server_side/simple.html" target="_blank">完整例子</a>
+                        </div>
+                        <pre class="brush:js;toolbar:false">
 {
     &quot;draw&quot;: 1,
     &quot;recordsTotal&quot;: 57,
@@ -446,16 +483,16 @@ $(&#39;#example&#39;).DataTable( {
         ...
     ]
 }                 </pre>
-                </div>
-            </div>
-
-
-            <div class="reference_examples">
-                <div class="reference_example">
-                    <div class="title">
-                        服务器端处理的例子,返回使用对象还包括<code>DT_RowId</code> 和 <code>DT_RowData</code>（<a href="http://datatables.net/examples/server_side/object_data.html" target="_blank">完整例子</a> ）
                     </div>
-                      <pre class="brush:js;toolbar:false">
+                </div>
+
+
+                <div class="reference_examples">
+                    <div class="reference_example">
+                        <div class="title">
+                            服务器模式例子,返回使用对象还包括<code>DT_RowId</code> 和 <code>DT_RowData</code>（<a href="http://datatables.net/examples/server_side/object_data.html" target="_blank">完整例子</a> ）
+                        </div>
+                        <pre class="brush:js;toolbar:false">
 {
     &quot;draw&quot;: 1,
     &quot;recordsTotal&quot;: 57,
@@ -488,8 +525,10 @@ $(&#39;#example&#39;).DataTable( {
         ...
     ]
 }    </pre>
+                    </div>
                 </div>
-            </div>
+            </section>
+
 
             {% include quote.html %}
 
