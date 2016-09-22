@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option preDrawCallback 重绘前回调函数 《不定时一讲》 DataTables中文网</title>
+    <title>option stateLoadParams 状态读取数据操作回调函数 《不定时一讲》 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/09/02/option-preDrawCallback.html">option preDrawCallback 重绘前回调函数</a>
+                    <a href="/manual/daily/2016/09/22/option-stateLoadParams.html">option stateLoadParams 状态读取数据操作回调函数</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 2 September 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 22 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option preDrawCallback 重绘前回调函数:http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"
+                            data-clipboard-text="option stateLoadParams 状态读取数据操作回调函数:http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -112,51 +112,44 @@
                 <div class="content">
                     <!--正文-->
                     <p>参数详解连接
-<a href="http://datatables.net/reference/option/preDrawCallback" target="_blank">
-    <code class="option">preDrawCallback<span>Option</span></code>
+<a href="http://datatables.net/reference/option/stateLoadParams" target="_blank">
+    <code class="option">stateLoadParams<span>Option</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html" target="_blank">
-    <code class="option">preDrawCallback<span>不定时一讲</span></code>
+<a href="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html" target="_blank">
+    <code class="option">stateLoadParams<span>不定时一讲</span></code>
 </a></p>
 
-<p>与这个回调类似的还有
-<a href="/reference/option/drawCallback.html" target="_blank">
-    <code class="option">drawCallback<span>Option</span></code>
-</a>
-回调，他们俩区别在于执行的先后顺序不同
+<p>回调允许在加载状态之前修改保存在状态里的数据
 <!--more--></p>
 
-<p><code class="highlighter-rouge">preDrawCallback</code>在重绘表格前执行，你可以用来显示之前做更新或者清除操作，比如移除事件。这个回调函数还可以用来取消重绘操作，当方法返回 <code class="highlighter-rouge">false</code> 时</p>
-
 <p>基本语法：</p>
+
+<p>去掉保存在状态里过滤条件，意味保存在状态里的搜索条件永远不会被读取到</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
 5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15</pre></td><td class="code"><pre><span class="c1">//重绘前移除每个单元格的点击事件</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span> <span class="p">);</span>
+6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<span class="c1">//当#test的值为1的时候，取消重绘操作</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
-      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="p">}</span>
+<p>通过返回 false 不允许使用保存在状态里的数据</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
@@ -187,13 +180,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/22/option-stateLoadParams.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/22/option-stateLoadParams.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -362,7 +355,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-02-option-preDrawCallback.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-22-option-stateLoadParams.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
