@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option search.search 设置一个初始化过滤条件 《不定时一讲》 DataTables中文网</title>
+    <title>DataTables 中文网博客</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -13,14 +13,12 @@
     <link href="/css/docs.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/blog-home.css" rel="stylesheet">
-    <link href="/css/site.css" rel="stylesheet">
-    <link href="/css/highlighting.css" rel="stylesheet">
+
     <link href="/images/favicon.png" rel="shortcut icon">
-    
 </head>
 <body>
-    <!--nav-->
-    
+<!--nav-->
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -74,116 +72,84 @@
     <!-- /.container -->
 </nav>
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
-        <div class="row">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+            <h1 class="page-header">
+                Datatables 中文网博客
+                <small>希望分享更多学习经验，让大家少掉进坑里，我为人人，人人为我</small>
+            </h1>
             <ol class="breadcrumb">
                 <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li class="active">中文网Blog</li>
             </ol>
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
+            <!-- Pager -->
+            <ul class="pager">
+    <li class="previous">
+        
+        <a href="/blog/page5/">&larr; 上一页</a>
+        
+    </li>
+    <li><span class="page_number ">当前第6 页（每页10条，共 6页）</span></li>
+    <li class="next">
+        
+        <span class="next ">下一页</span>
+        
+    </li>
+</ul>
+            <hr>
+            <!-- This loops through the paginated posts -->
 
-                <h2>
-                    <a href="/manual/daily/2016/05/11/option-search-search.html">option search.search 设置一个初始化过滤条件</a>
-                </h2>
-                <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 11 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-search-search.html"></span>
-                    <button type="button"
-                            id="copyurltoclip"
-                            data-toggle="tooltip"
-                            data-placement="bottom"
-                            data-clipboard-text="option search.search 设置一个初始化过滤条件:http://datatables.club/manual/daily/2016/05/11/option-search-search.html"
-                            class="btn btn-default pull-right"
-                            title="点我复制本页url到剪贴板">复制本页地址</button>
-                </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
-                <hr>
 
-                <img class="img-responsive" src="" alt="">
-                <div class="content">
-                    <!--正文-->
-                    <p>参数详解连接
-<a href="http://datatables.net/reference/option/search.search" target="_blank">
-    <code class="option">search.search<span>Option</span></code>
+<!-- First Blog Post -->
+<h2>
+    <a href="/blog/2014/10/22/search-result-highlighting.html" target="_blank">高亮显示搜索结果</a>
+</h2>
+<p>
+    <span class="glyphicon glyphicon-user"></span>
+    DataTable中文网
+    <span class="glyphicon glyphicon-time"></span>
+    22 October 2014
+    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2014/10/22/search-result-highlighting.html"></span>
+</p>
+<hr>
+<img class="img-responsive" src="/assets/blog/2014-10/2014-10-22-search-result-highlighting.png" alt="">
+<p>
+    使用搜索引擎得到结果后，关键字都会被高亮，便于我们快速找到自己想要的结果。
+
+DataTables也可以利用 jQuery plug-in for highlighting text
+插件实现搜索结果高亮显示，效果如下图
+
+
+</p>
+<a class="btn btn-primary" href="/blog/2014/10/22/search-result-highlighting.html" target="_blank">
+    阅读更多<span class="glyphicon glyphicon-chevron-right"></span>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/11/option-search-search.html" target="_blank">
-    <code class="option">search.search<span>不定时一讲</span></code>
-</a></p>
 
-<p>Datatables 在初始化的时候可以设置一个默认的条件进行过滤，这在某些应用场景是可以用到的
-<!--more--></p>
-
-<p>表格初始化时，默认搜索包含 <code class="highlighter-rouge">Fred</code> 的数据</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5</pre></td><td class="code"><pre>    <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"Fred"</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="p">);</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<hr>
 
 
-                </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+            <!-- Pager -->
+            <ul class="pager">
+    <li class="previous">
+        
+        <a href="/blog/page5/">&larr; 上一页</a>
+        
+    </li>
+    <li><span class="page_number ">当前第6 页（每页10条，共 6页）</span></li>
+    <li class="next">
+        
+        <span class="next ">下一页</span>
+        
+    </li>
+</ul>
+        </div>
 
-                <hr>
-                <div style="margin:10px 0">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-                <!--评论-->
-                <div id="disqus_thread"></div>
-<script>
-    /**
-     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-     */
-    /*
-     var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-     };
-     */
-    var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-
-        s.src = '//datatables.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-            </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+        <!-- Blog Sidebar Widgets Column -->
+        <div class="col-md-4">
     <div>
         <div style="margin:10px 0">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -295,13 +261,13 @@
 
 </div>
 
-        </div>
-        <!-- /.row -->
+    </div>
+    <!-- /.row -->
 
-        <hr>
+    <hr>
 
-        <!-- Footer -->
-        <footer>
+    <!-- Footer -->
+    <footer>
     <div class="row">
         <div class="col-lg-6">
             <p>Themes and templates licensed under the <a
@@ -336,7 +302,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-11-option-search-search.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/blog/page6/index.html" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -396,25 +362,8 @@
     }
 </script>
 
-    </div>
-    
-    <!-- /.container -->
-    <script src="/js/bootstrap/3.3.6/bootstrap.min.js"></script>
-    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
-    <!--复制url到剪贴板-->
-    <script src="/js/ZeroClipboard.min.js"></script>
-    <script>
-        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-        client.on( "aftercopy", function( event ) {
-            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-        } );
-
-        client.on( 'error', function() {
-            ZeroClipboard.destroy();
-        } );
-    </script>
-
+</div>
+<!-- /.container -->
+<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 </body>
-
 </html>

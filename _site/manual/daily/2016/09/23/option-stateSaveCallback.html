@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option search.search 设置一个初始化过滤条件 《不定时一讲》 DataTables中文网</title>
+    <title>option stateSaveCallback 定义表格状态怎样、在哪里存储 《不定时一讲》 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
@@ -87,17 +87,17 @@
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/11/option-search-search.html">option search.search 设置一个初始化过滤条件</a>
+                    <a href="/manual/daily/2016/09/23/option-stateSaveCallback.html">option stateSaveCallback 定义表格状态怎样、在哪里存储</a>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 11 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-search-search.html"></span>
+                    <span class="glyphicon glyphicon-time"></span> 23 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html"></span>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option search.search 设置一个初始化过滤条件:http://datatables.club/manual/daily/2016/05/11/option-search-search.html"
+                            data-clipboard-text="option stateSaveCallback 定义表格状态怎样、在哪里存储:http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -112,27 +112,48 @@
                 <div class="content">
                     <!--正文-->
                     <p>参数详解连接
-<a href="http://datatables.net/reference/option/search.search" target="_blank">
-    <code class="option">search.search<span>Option</span></code>
+<a href="https://datatables.net/reference/option/stateSaveCallback" target="_blank">
+    <code class="option">stateSaveCallback<span>Option</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/11/option-search-search.html" target="_blank">
-    <code class="option">search.search<span>不定时一讲</span></code>
+<a href="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html" target="_blank">
+    <code class="option">stateSaveCallback<span>不定时一讲</span></code>
 </a></p>
 
-<p>Datatables 在初始化的时候可以设置一个默认的条件进行过滤，这在某些应用场景是可以用到的
+<p>当为<code class="highlighter-rouge">true</code>，代表 DataTables 能存储表格的状态（过滤，排序，分页等等）
+默认情况使用 <code class="highlighter-rouge">localStorage</code> 进行存储。这个回调函数允许你更改怎样储存或在哪里储存表格状态数据，比如是从服务器上
 <!--more--></p>
 
-<p>表格初始化时，默认搜索包含 <code class="highlighter-rouge">Fred</code> 的数据</p>
+<p>基本语法：</p>
+
+<p>保存状态到服务器上</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre>    <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"Fred"</span>
-      <span class="p">}</span>
-    <span class="p">}</span> <span class="p">);</span><span class="w">
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Send an Ajax request to the server with the state object</span>
+    <span class="c1">// 发送一个请求把数据存到服务器</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span> <span class="p">{</span>
+      <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_save"</span><span class="p">,</span>
+      <span class="s2">"data"</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
+      <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
+      <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+      <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{}</span>
+    <span class="p">}</span> <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 
@@ -161,13 +182,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/manual/daily/2016/09/23/option-stateSaveCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/manual/daily/2016/09/23/option-stateSaveCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/11/option-search-search.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -336,7 +357,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-11-option-search-search.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-23-option-stateSaveCallback.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
