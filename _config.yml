@@ -20,6 +20,7 @@ excerpt_separator: <!--more-->
 
 # Build settings
 markdown: kramdown
+#markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 sitename: Datatables 中文网
 description: > # this means to ignore newlines until "baseurl:"
   Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12

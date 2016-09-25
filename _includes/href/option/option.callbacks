@@ -81,6 +81,9 @@
 <a href="https://datatables.net/reference/option/stateSaveParams" target="_blank">
     <code class="option">stateSaveParams<span>Option</span></code>
 </a>
+<a href="{{ site.url }}{% post_url 2016-09-25-option-stateSaveParams %}" target="_blank">
+    <code class="option">stateSaveParams<span>不定时一讲</span></code>
+</a>
 {% elsif include.param == "stateDuration" %}
 <a href="https://datatables.net/reference/option/stateDuration" target="_blank">
     <code class="option">stateDuration<span>Option</span></code>
