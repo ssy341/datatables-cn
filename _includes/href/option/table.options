@@ -10,128 +10,128 @@
   <tbody>
     <tr>
       <td>
-          {% include href/option/option.options param="deferLoading" %}
+          {% include href/option/options/option.options param="deferLoading" %}
       </td>
       <td><p>延迟请求加载服务端的数据，直到表格第二次绘制</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="destroy" %}
+          {% include href/option/options/option.options param="destroy" %}
       </td>
       <td><p>销毁所有符合选择的table，并且用新的options重新创建表格</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="displayStart" %}
+          {% include href/option/options/option.options param="displayStart" %}
       </td>
       <td><p>初始化显示的时候从第几条数据开始显示(一开始显示第几页)</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="dom" %}</td>
+      <td>{% include href/option/options/option.options param="dom" %}</td>
       <td><p>定义DataTables的组件元素的显示和显示顺序</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="lengthMenu" %}
+          {% include href/option/options/option.options param="lengthMenu" %}
       </td>
       <td><p>定义在每页显示记录数的<code>select</code>中显示的选项</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="order" %}</td>
+      <td>{% include href/option/options/option.options param="order" %}</td>
       <td><p>表格在初始化的时候的排序</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="orderCellsTop" %}
+          {% include href/option/options/option.options param="orderCellsTop" %}
       </td>
       <td><p>控制表头的哪一个cell可以应用于该列的排序响应</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="orderClasses" %}
+          {% include href/option/options/option.options param="orderClasses" %}
       </td>
       <td><p>高亮显示在table的body中排序的列</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="orderFixed" %}
+          {% include href/option/options/option.options param="orderFixed" %}
       </td>
       <td><p>在表格中总是起作用的排序</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="orderMulti" %}
+          {% include href/option/options/option.options param="orderMulti" %}
       </td>
       <td><p>控制多列排序</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="pageLength" %}</td>
+      <td>{% include href/option/options/option.options param="pageLength" %}</td>
       <td><p>改变初始的页面长度(每页显示的记录数)</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="pagingType" %}
+          {% include href/option/options/option.options param="pagingType" %}
       </td>
       <td><p>分页按钮的显示方式</p></td>
     </tr>
     <tr>
       <td>
-          {% include href/option/option.options param="renderer" %}
+          {% include href/option/options/option.options param="renderer" %}
       </td>
       <td><p>显示组件的渲染方式</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="retrieve" %}</td>
+      <td>{% include href/option/options/option.options param="retrieve" %}</td>
       <td><p>检索已经存在的Datatables实例</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="rowId" %}</td>
+      <td>{% include href/option/options/option.options param="rowId" %}</td>
       <td>
           数据属性，Datatables在渲染的时候给 <code>tr<span>Tag</span></code>设置的ID
       </td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="scrollCollapse" %}</td>
+      <td>{% include href/option/options/option.options param="scrollCollapse" %}</td>
       <td><p>当显示更少的记录时，是否允许表格减少高度</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="search.caseInsensitive" %}</td>
+      <td>{% include href/option/options/option.options param="search.caseInsensitive" %}</td>
       <td><p>在搜索或者过滤时，是否大小写敏感</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="search.regex" %}</td>
+      <td>{% include href/option/options/option.options param="search.regex" %}</td>
       <td><p>允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="search.search" %}</td>
+      <td>{% include href/option/options/option.options param="search.search" %}</td>
       <td><p>初始化时的表格的过滤（搜索）条件</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="search.smart" %}</td>
+      <td>{% include href/option/options/option.options param="search.smart" %}</td>
       <td><p>允许或者禁止DataTables的只能过滤（搜索）功能</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="search" %}</td>
+      <td>{% include href/option/options/option.options param="search" %}</td>
       <td><p>设置一个全局的过滤条件</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="searchCols" %}</td>
+      <td>{% include href/option/options/option.options param="searchCols" %}</td>
       <td><p>给每一列定义一个初始的搜索条件</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="searchDelay" %}</td>
+      <td>{% include href/option/options/option.options param="searchDelay" %}</td>
       <td><p>设定搜索的间隔时间。</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="stateDuration" %}</td>
+      <td>{% include href/option/options/option.options param="stateDuration" %}</td>
       <td><p>间隔多长时间保存一次状态</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="stripeClasses" %}</td>
+      <td>{% include href/option/options/option.options param="stripeClasses" %}</td>
       <td><p>设置斑马条（奇偶行）的css class</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/option.options param="tabIndex" %}</td>
+      <td>{% include href/option/options/option.options param="tabIndex" %}</td>
       <td><p>用键盘上的Tab键浏览时的顺序</p></td>
     </tr>
   </tbody>

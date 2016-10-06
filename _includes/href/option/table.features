@@ -30,7 +30,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/info.dt %}
+                {% include href/option/options/option.features param="info" %}
             </p>
         </td>
         <td>
@@ -40,7 +40,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/jQueryUI.dt %}
+               {% include href/option/options/option.features param="jQueryUI" %}
             </p>
         </td>
         <td>
@@ -50,7 +50,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/lengthChange.dt %}
+                {% include href/option/options/option.features param="lengthChange" %}
             </p>
         </td>
         <td>
@@ -60,7 +60,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/ordering.dt %}
+                {% include href/option/options/option.features param="ordering" %}
             </p>
         </td>
         <td>
@@ -70,7 +70,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/paging.dt %}
+                {% include href/option/options/option.features param="paging" %}
             </p>
         </td>
         <td>
@@ -80,7 +80,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/processing.dt %}
+                {% include href/option/options/option.features param="processing" %}
             </p>
         </td>
         <td>
@@ -90,7 +90,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/scrollX.dt %}
+                {% include href/option/options/option.features param="scrollX" %}
             </p>
         </td>
         <td>
@@ -100,7 +100,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/scrollY.dt %}
+                {% include href/option/options/option.features param="scrollY" %}
             </p>
         </td>
         <td>
@@ -110,7 +110,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/searching.dt %}
+                {% include href/option/options/option.features param="searching" %}
             </p>
         </td>
         <td>
@@ -120,7 +120,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/serverSide.dt %}
+                {% include href/option/options/option.features param="serverSide" %}
             </p>
         </td>
         <td>
@@ -130,7 +130,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/stateSave.dt %}
+                {% include href/option/options/option.features param="stateSave" %}
             </p>
         </td>
         <td>

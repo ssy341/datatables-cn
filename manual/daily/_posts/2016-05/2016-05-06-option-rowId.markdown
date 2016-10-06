@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mde8e6886e194aa0cea0ac2ce0603197bo0&w=299&h=211&c=0&pid=1.9&rs=0&p=0
 ---
-参数详解连接{% include href/option/option.options param="rowId" %}
+参数详解连接{% include href/option/options/option.options param="rowId" %}
 
  **注意：需使用 1.10.8 版本以上才可以**
 
@@ -49,7 +49,7 @@ $('#myTable').DataTable( {
 
 按照他规定的属性名 `DT_RowId` 组装好返回，Datatables就自动处理，那如果不是这样的，就不行了么？
 
-作者还是考虑到了，这就是 {% include href/option/option.options param="rowId" %} 的作用
+作者还是考虑到了，这就是 {% include href/option/options/option.options param="rowId" %} 的作用
 
 {% highlight javascript linenos %}
 //数据示例

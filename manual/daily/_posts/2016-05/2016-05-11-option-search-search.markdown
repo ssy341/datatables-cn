@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M09f9a776731d5a4be58a9f9c5800be8co0&w=300&h=225&c=0&pid=1.9&rs=0&p=0
 ---
-参数详解连接{% include href/option/option.options param="search.search" %}
+参数详解连接{% include href/option/options/option.options param="search.search" %}
 
 Datatables 在初始化的时候可以设置一个默认的条件进行过滤，这在某些应用场景是可以用到的
 <!--more-->

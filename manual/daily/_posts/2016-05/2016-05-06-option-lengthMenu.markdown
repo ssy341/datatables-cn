@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?id=OIP.Meb7c6c466965e7ec77a9a41f8e05d378o0&w=243&h=142&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
-参数详解连接{% include href/option/option.options param="lengthMenu" %}
+参数详解连接{% include href/option/options/option.options param="lengthMenu" %}
 
 这个参数可以设置左上角那个下拉框（默认在左上角），默认值为 `[ 10, 25, 50, 100 ]`
 
