@@ -207,9 +207,9 @@
                 <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
                 <li>答：加上 retrieve:true 和 destroy:true 两个参数即可
                     另见：<a href="/reference/option/retrieve.html" target="_blank">
-    <code>retrieve<span>DT</span></code>
+    <code class="option">retrieve<span>Option</span></code>
 </a><a href="/reference/option/destroy.html" target="_blank">
-    <code>destroy<span>DT</span></code>
+    <code class="option">destroy<span>Option</span></code>
 </a> </li>
             </ul>
 
@@ -246,14 +246,16 @@
                 <li>答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
                     <ul>
                         <li>如果你是客户端模式，数据在5000条以内，加上 <a href="http://datatables.net/reference/option/orderClasses" target="_blank">
-    <code>orderClasses<span>DT</span></code>
+    <code class="option">orderClasses<span>DT</span></code>
 </a></li>
                         <li>如果你是ajax加载数据，数据在50000条以内，加上 <a href="/reference/option/deferRender.html" target="_blank">
     <code class="option">deferRender<span>Option</span></code>
 </a></li>
-                        <li>如果你数据量很多，那么你需要开启服务器模式 （ <a href="/reference/option/serverSide.html" target="_blank">
+                        <li>如果你数据量很多，那么你需要开启服务器模式 （ 
+<a href="/reference/option/serverSide.html" target="_blank">
     <code class="option">serverSide<span>Option</span></code>
-</a>）</li>
+</a>
+）</li>
                     </ul>
                 </li>
                 <li>注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响</li>
@@ -273,7 +275,7 @@
             <ul>
                 <li><b>问:如何按照自己的喜好摆放Datatables的控件</b></li>
                 <li>答：配置 <a href="/reference/option/dom.html" target="_blank">
-    <code>dom<span>Option</span></code>
+    <code class="option">dom<span>Option</span></code>
 </a> 属性来自有摆放， <a href="/example/basic_init/dom.html" target="_blank">示例</a> </li>
             </ul>
 

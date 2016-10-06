@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)  博客 DataTables中文网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <meta name="author" content="Datatables 中文网">
+    <!-- Le styles -->
+    <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/blog-home.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/images/favicon.png" rel="shortcut icon">
+    
+</head>
+<body>
+    <!--nav-->
+    
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://datatables.club">DataTables 中文网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/blog">博客</a>
+                </li>
+                <li>
+                    <a href="/example">例子</a>
+                </li>
+                <li>
+                    <a href="/manual">手册</a>
+                </li>
+                <li >
+                    <a href="/reference">文档(Options&API)</a>
+                </li>
+                <li>
+                    <a href="/extensions">扩展</a>
+                </li>
+                <li>
+                    <a href="/plug-ins">插件</a>
+                </li>
+                <li>
+                    <a href="/faqs">FAQS</a>
+                </li>
+                <li>
+                    <a href="/upgrade">更新</a>
+                </li>
+                <li>
+                    <a href="/about">关于</a>
+                </li>
+                <li>
+                    <a href="/tour">导航</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/">首页</a></li>
+                <li><a href="/blog">中文网Blog</a></li>
+                <li class="active">正文</li>
+            </ol>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html">关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)</a>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-user"></span> DataTable中文网
+                    <span class="glyphicon glyphicon-time"></span> 30 September 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用):http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <p>
+                    Tags: 
+                    <a href="/blog/listall.html#博客" class="btn btn-primary btn-xs">博客</a>
+                        
+                    <a href="/blog/listall.html#DataTables使用经验" class="btn btn-primary btn-xs">DataTables使用经验</a>
+                        
+                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
+                        
+                </p>
+                <hr>
+
+                <img class="img-responsive" src="" alt="">
+                <div class="content">
+                    <!--正文-->
+                    <p>这是一个
+<a href="/reference/option/stateSave.html" target="_blank">
+    <code class="option">stateSave<span>Option</span></code>
+</a>
+参数引发的一系列“惨案”。</p>
+
+<p>为什么说又爱又恨？这要从很久很久以前说起……
+<!--more--></p>
+
+<p>目录</p>
+
+<ol>
+  <li><a href="#section">爱在哪里？</a></li>
+  <li><a href="#section-1">恨在哪里？</a></li>
+  <li><a href="#section-3">什么时候该使用这个参数？</a></li>
+  <li><a href="#section-4">示例讲解</a></li>
+  <li><a href="#section-5">总结</a></li>
+</ol>
+
+<hr />
+
+<ul>
+  <li>
+    <h2 id="section">爱在哪里？</h2>
+  </li>
+</ul>
+
+<p>说实在的<code class="highlighter-rouge">stateSave</code> 这个还是 DataTables 一个比较好的功能，保存上次分页状态，数据上次排列顺序，上次条件过滤的结果……，
+这些对于某些开发者来说无疑是非常棒的，所以能不爱吗？无法抗拒啊</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+            <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">});</span>
+    <span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>在初始化的时候如上述代码，即可打开本地状态保存的功能。</p>
+
+<ul>
+  <li>
+    <h2 id="section-1">恨在哪里？</h2>
+  </li>
+</ul>
+
+<p>正是因为他功能如此之强大，导致了其他“灵异事件”。</p>
+
+<ul>
+  <li>怎么刷新了还是之前的结果？</li>
+  <li>为什么我的过滤条件不起作用？</li>
+  <li>这个排序怎么没效果？</li>
+  <li>……</li>
+</ul>
+
+<p>类似的问题有很多，看到这样的问题我第一眼需要看的就是你代码里有没有加这个参数，如果你无意间加了这个参数，那么问题很简单，按照以下两步走：</p>
+
+<ul>
+  <li>第一：去掉 <code class="highlighter-rouge">stateSave</code> 或者值赋值为 <code class="highlighter-rouge">false</code></li>
+  <li>第二：清空本地缓存</li>
+</ul>
+
+<p>这样操作后，上面提到的问题就能解决。一般来说超过99%的类似问题都是因为不理解<code class="highlighter-rouge">stateSave</code>参数导致的。</p>
+
+<p>从上面这些也反应了一个问题：</p>
+
+<p><strong>知其然不知其所以然</strong>，大家确实查询了资料、看了文档，但是只是照搬，没有弄清楚真正的意思，这样肯定会给自己带来不少麻烦。</p>
+
+<h3 id="section-2">这里告诉大家一个技巧，一般插件都有默认值、无参数的初始化方法，这是最基本的需求，而不是自己还要去加这样或那样的参数。比如如下代码：</h3>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+    <span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>只要这样，DataTables 就可以渲染你的表格，给你的表格加上分页，排序，过滤。你如果还需要其他功能，通过查询文档再相应加上相关的属性。
+我极力推荐这种做法，一是自己的代码很简洁，二是不会给自己添麻烦，三是遇到问题后，代码贴出去问题也能很快的被解决。</p>
+
+<p>PS：我推荐大家把 <a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">DataTables参数配置模板</a> 仔细看一遍，这样对DT的参数有个整体的把握，用起来会更得心应手</p>
+
+<ul>
+  <li>
+    <h2 id="section-3">什么时候该使用这个参数？</h2>
+  </li>
+</ul>
+
+<p>知其然，还得知其所以然。弄清你需要到达什么样的目的，你就会去使用他。不过在使用之前，你得知道 <code class="highlighter-rouge">stateSave</code> 是什么意思？</p>
+
+<p><strong>很简单，你可以简单理解为缓存。他可以缓存DT的所有状态。</strong></p>
+
+<p>比如说有以下应用：
+ - 保持翻页，比如当前翻到第4页，下次再打开的时候任然是第4页
+ - 保持排列顺序，比如第二列是降序排列，下次再打开第二列仍是降序排列
+ - 保持过滤条件，比如前一次输入的过滤条件是【DataTables中文网】，再次打开任然是按照此关键字来过滤数据
+ - ……
+当然不止我上面所提到的这些，大家可以天马行空，发挥自己的想象，没有做不到，只有想不到，做到做不到，试试就知道</p>
+
+<ul>
+  <li>
+    <h2 id="section-4">示例讲解</h2>
+  </li>
+</ul>
+
+<p>下面通过具体的例子告诉大家 DT 究竟是怎么保存状态的</p>
+
+<p>一个简单的例子演示了几个回调函数之间是怎么执行的，执行顺序如何？</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="c1">//开启本地保存功能</span>
+    <span class="na">stateSave</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="c1">//保存状态操作</span>
+    <span class="s2">"stateSaveParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveParams"</span><span class="p">);</span>
+        
+        <span class="c1">//这里可以操作保存的数据，写上自己特定的逻辑</span>
+        <span class="c1">//data.search.search = "";</span>
+    <span class="p">},</span>
+    <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveCallback"</span><span class="p">);</span>
+        
+        <span class="c1">//DT默认保存的key值为DataTables_+表格id+页面名称</span>
+        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+
+        <span class="c1">// 你可以把这些数据保存在服务器上，上面的代码标识使用本地储存来存储这些数据</span>
+        <span class="cm">/**$.ajax( {
+                "url": "/state_save",
+                "data": data,
+                "dataType": "json",
+                "type": "POST",
+                "success": function () {}
+            } );
+         **/</span>
+
+
+    <span class="p">},</span>
+
+    <span class="c1">//读取状态操作</span>
+    <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveParams"</span><span class="p">);</span>
+
+        <span class="c1">//在读取数据的时候可以改变数据，根据自己逻辑来处理</span>
+        <span class="c1">//data.search.search = "";</span>
+
+        <span class="c1">//或者你可以直接禁用从缓存里读取数据，只要直接返回false即可</span>
+        <span class="c1">//return false;</span>
+    <span class="p">},</span>
+    <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateLoadCallback"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span><span class="p">));</span>
+
+        <span class="c1">//同样你还可以从服务器取数，采用同步的方式获取到保存在服务器里的数据</span>
+        <span class="cm">/**var o;
+         $.ajax( {
+            "url": "/state_load",
+            "async": false,
+            "dataType": "json",
+            "success": function (json) {
+                o = json;
+            }
+        } );
+         return o;**/</span>
+
+    <span class="p">},</span>
+    <span class="c1">//状态加载完后执行的回调函数</span>
+    <span class="s2">"stateLoaded"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateLoaded"</span><span class="p">);</span>
+
+        <span class="c1">//在这里你可以打印出保存的缓存数据</span>
+        <span class="c1">//alert( 'Saved filter was: '+data.search.search );</span>
+
+    <span class="p">},</span>
+    <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/objects.txt"</span>
+    <span class="p">},</span>
+    <span class="s2">"columns"</span><span class="err">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"position"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"salary"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"start_date"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"office"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"extn"</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">"language"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"lengthMenu"</span><span class="err">:</span> <span class="s2">"每页_MENU_ 条记录"</span><span class="p">,</span>
+        <span class="s2">"zeroRecords"</span><span class="err">:</span> <span class="s2">"没有找到记录"</span><span class="p">,</span>
+        <span class="s2">"info"</span><span class="err">:</span> <span class="s2">"第 _PAGE_ 页 ( 总共 _PAGES_ 页 )"</span><span class="p">,</span>
+        <span class="s2">"infoEmpty"</span><span class="err">:</span> <span class="s2">"无记录"</span><span class="p">,</span>
+        <span class="s2">"search"</span><span class="err">:</span> <span class="s2">"搜索："</span><span class="p">,</span>
+        <span class="s2">"infoFiltered"</span><span class="err">:</span> <span class="s2">"(从 _MAX_ 条记录过滤)"</span><span class="p">,</span>
+        <span class="s2">"paginate"</span><span class="err">:</span> <span class="p">{</span>
+            <span class="s2">"previous"</span><span class="err">:</span> <span class="s2">"上一页"</span><span class="p">,</span>
+            <span class="s2">"next"</span><span class="err">:</span> <span class="s2">"下一页"</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"dom"</span><span class="err">:</span> <span class="s2">"&lt;'row'&lt;'col-xs-2'l&gt;&lt;'#mytool.col-xs-4'&gt;&lt;'col-xs-6'f&gt;r&gt;"</span> <span class="o">+</span>
+    <span class="s2">"t"</span> <span class="o">+</span>
+    <span class="s2">"&lt;'row'&lt;'col-xs-6'i&gt;&lt;'col-xs-6'p&gt;&gt;"</span>
+<span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>执行顺序如下：</p>
+
+<p>保存
+  - <code class="highlighter-rouge">stateSaveParams</code>
+  - <code class="highlighter-rouge">stateSaveCallback</code></p>
+
+<p>读取
+  - <code class="highlighter-rouge">stateLoadParams</code>
+  - <code class="highlighter-rouge">stateLoadCallback</code>
+  - <code class="highlighter-rouge">stateLoaded</code></p>
+
+<p>PS：如果对此还有疑问的，大家可以clone下面提到的完整工程，自己试验最终的结果</p>
+
+<p>下面的 JSON 数据为 DT 定义的格式，按照此要求来存储和读取表格的状态，达到缓存的效果。</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></td><td class="code"><pre><span class="p">{</span>
+    <span class="s2">"time"</span><span class="err">:</span>   <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 时间戳，状态创创建、修改的时间</span>
+    <span class="s2">"start"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 显示起始位置</span>
+    <span class="s2">"length"</span><span class="err">:</span> <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 每页显示的条数</span>
+    <span class="s2">"order"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">array</span><span class="p">}</span>                <span class="c1">// 二维数组，用来描述那些列按照什么要求排序</span>
+    <span class="s2">"search"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
+        <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
+        <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
+        <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
+    <span class="p">},</span>
+    <span class="s2">"columns"</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"visible"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span>     <span class="c1">// 列是否隐藏显示</span>
+            <span class="s2">"search"</span><span class="err">:</span>  <span class="p">{</span>             <span class="c1">// 包含每列的单独搜索条件，格式和上面的一致</span>
+                <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
+                <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
+                <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
+                <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
+            <span class="p">}</span>           
+        <span class="p">},</span>
+        <span class="err">……</span>
+    <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>再贴上一个实例的真实数据样例，完整的工程<a href="https://github.com/ssy341/datatabes_cn_example_curd_java">点我</a></p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre></td><td class="code"><pre><span class="p">{</span>
+  <span class="s2">"time"</span><span class="err">:</span> <span class="mi">1475739393071</span><span class="p">,</span>
+  <span class="s2">"start"</span><span class="err">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">"length"</span><span class="err">:</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="s2">"order"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+      <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">"asc"</span>
+    <span class="p">]</span>
+  <span class="p">],</span>
+  <span class="s2">"search"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="s2">"search"</span><span class="err">:</span> <span class="s2">"Developer"</span><span class="p">,</span>
+    <span class="s2">"smart"</span><span class="err">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"regex"</span><span class="err">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="kc">true</span>
+  <span class="p">},</span>
+  <span class="s2">"columns"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">"visible"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="s2">"smart"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="s2">"regex"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>上面的数据表示当你下次重新刷新页面后，表格将显示如下描述所示：</p>
+
+<ul>
+  <li>从第一条数据显示，每页显示10条数据</li>
+  <li>第6列升序排列</li>
+  <li>全局过滤条件为”Developer”，不支持正则，支持智能搜索，区分大小写</li>
+  <li>六列都显示，没有单独的过滤条件</li>
+</ul>
+
+<p>PS:在实际操作过程中，如果是多列同时排序 <code class="highlighter-rouge">order</code> 保存的数据如下：<code class="highlighter-rouge">[[5,"asc",0],[4,"desc",0]]</code> , 由于作者没有文档说明第三个
+数字代表什么，我猜测这是用来确定排序优先级的参数，具体大家可以查看源码，作者是怎么解析第三个数字的</p>
+
+<ul>
+  <li>
+    <h2 id="section-5">总结</h2>
+  </li>
+</ul>
+
+<p>说了这么多，大家可能终于明白了 <code class="highlighter-rouge">stateSave</code> 究竟是什么意思了。看完了这篇文章，大家同意这篇文章的标题里说的【又爱又恨】吗？</p>
+
+                </div>
+                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <hr>
+                <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+                <!--评论-->
+                <div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+     var disqus_config = function () {
+     this.page.url = '/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     };
+     */
+    var disqus_config = function () {
+        this.page.url = 'http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//datatables.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+    <div>
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    </div>
+    <!-- Blog Search Well -->
+    <div class="well">
+        <h4>百度站内搜索</h4>
+        <div class="input-group">
+            <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+        </div>
+        <!-- /.input-group -->
+    </div>
+     <div class="well">
+        <div class="input-group">
+            <script>
+                (function() {
+                    var cx = '001171264216576386016:xim4af2d2ik';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:searchbox-only></gcse:searchbox-only>
+        </div>
+        <!-- /.input-group -->
+    </div>
+
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>博客分类</h4>
+        <div class="row">
+            <div id="tagcloud" style="padding:10px">
+
+                
+                <a href="/blog/listall.html#博客" title="博客" rel="12">
+                    博客 (12)
+                </a>
+                
+                <a href="/blog/listall.html#官方博客" title="官方博客" rel="2">
+                    官方博客 (2)
+                </a>
+                
+                <a href="/blog/listall.html#活动" title="活动" rel="1">
+                    活动 (1)
+                </a>
+                
+                <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="43">
+                    不定时一讲 (43)
+                </a>
+                
+                <a href="/blog/listall.html#技能" title="技能" rel="1">
+                    技能 (1)
+                </a>
+                
+                <a href="/blog/listall.html#MarkDown" title="MarkDown" rel="1">
+                    MarkDown (1)
+                </a>
+                
+                <a href="/blog/listall.html#DataTables使用经验" title="DataTables使用经验" rel="4">
+                    DataTables使用经验 (4)
+                </a>
+                
+                <a href="/blog/listall.html#番茄工作法" title="番茄工作法" rel="1">
+                    番茄工作法 (1)
+                </a>
+                
+                <a href="/blog/listall.html#DTCODE" title="DTCODE" rel="1">
+                    DTCODE (1)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="9">
+                    所有
+                </a>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="/js/jquery.tagcloud.js"></script>
+        <script type="text/javascript" src="/js/cloud.js"></script>
+        <!-- /.row -->
+    </div>
+
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4>赞助我们</h4>
+        <a href="/about/#donate" title="赞助我们">
+            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-responsive" alt="赞助我们">
+        </a>
+        <p>
+            您的支持，将是我们前进的最大动力……
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+    <div class="row">
+        <div class="col-lg-6">
+            <p>Themes and templates licensed under the <a
+                    href="https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE">MIT
+                License</a>.
+                <br>Based on <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+            <p>Copyright &copy; 2014 - 2016 datatables.club. Powered by
+                <a href="http://jekyllrb.com/"> Jekyll</a> .</p>
+            <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?1c2bd29cae4808be68e4f91e174e69a8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+        </div>
+        <div class="col-lg-6">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true&v=2"
+                            frameborder="0" scrolling="0" width="100px" height="20px" title="Watch on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+
+            </ul>
+            <ul  class="footer-links">
+                <li>
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/blog/_posts/2016-09/2016-09-30-about-localStorage-of-stuff-for-DataTables.markdown" title="Edit this page on GitHub">
+                        <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
+                    </a>
+                </li>
+            </ul>
+            <!--<ul class="footer-links" id="qqgroup">-->
+                <!--<li>QQ群：</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <ul  class="footer-links" id="qqgroup">
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（2000人中文网交流群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=5796bab31300e68fa5adfd94d0083a65af2553435d64346364732e668290f226" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（Editor 讨论群）</a>
+                </li>
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>-->
+                <!--</li>-->
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</footer>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript">
+    function noteTitle(obj){
+        var note = $(obj).attr("title");
+        alert(note);
+    }
+</script>
+
+    </div>
+    
+    <!-- /.container -->
+    <script src="/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
+
+</body>
+
+</html>
