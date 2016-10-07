@@ -1,9 +1,10 @@
 ---
 layout: default
-title: 常见问题 Datatables 中文网
+title: 常见问题 Datatables 中文网 （Frequently Asked Questions）
 relurl: http://datatables.net/faqs/index
 ---
 {% include nav.html param="faqs" %}
+<link href="/css/site.css" rel="stylesheet">
 <style>
     dl{
         line-height: 24px;
@@ -30,186 +31,218 @@ relurl: http://datatables.net/faqs/index
     dd>a{
         margin-left: 10px;
     }
-    .hot {
-        background-image: url(http://changyan.itc.cn/v2/asset/scs/imgs/hot.gif);
-        height: 12px;
-        width: 21px;
-        position: absolute;
+    section>h3{
+        position: relative;
+        margin: 25px 0 10px;
+        padding: 10px 50px 10px 0;
+        font-size: 14px;
+        border-top: 2px solid #e5e5e5;
+        background: #f1f1f1;
+    }
+    section>p{
+        margin-bottom: 10px;
+        line-height: 160%;
+        text-align: justify;
+        text-indent: 2em;
+        text-justify: inter-ideograph;
     }
 </style>
 <div class="container" >
     <div class="span1"></div>
     <div class="span10">
         {% include xad %}
-        <h2>常见问题</h2>
-        <p>Datatables在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题，有些问题是已知的，我会列举在下面。</p>
-        <h4>获得帮助</h4>
-        <p>
-        <ul>
-            <li><b>问：我有一个问题，我怎么得到帮助？</b></li>
-            <li>答：目前有Datatables中文网，方便大家查阅，如果英语好点的可以直接查看 <a href="http://www.datatables.net" target="_blank">官网</a> ，不管是官网还是中文网，都有丰富的
-                <a href="../manual" target="_blank">手册</a> , <a href="../reference" target="_blank">参考</a>,<a href="../example" target="_blank">例子</a> 以及下面要说到的常见问题。
-                如果你不能在此页找到你需要的问题，那么你可以在<a href="https://github.com/ssy341/datatables-cn/issues" target="_blank">社区</a>提问
-                或者发布一个<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>
-                (<a href="http://www.gbtags.com/gb/share/4819.htm" target="_blank">怎么调试？</a>)
-            </li>
-            <li>
-                <b>问：如何在群里寻求大家帮助？</b>
-            </li>
-            <li>
+        <h1>常见问题（Frequently Asked Questions）</h1>
+        <p>DataTables 在给我们项目中带来便捷的同时，在使用过程中也会出现不少问题。下面列举了小伙伴们平时询问得最多的问题。</p>
+        <h2>获得帮助</h2>
+
+
+        <section>
+            <h3>我有一个问题，我怎么得到帮助？</h3>
+            <p>
+                目前有Datatables中文网，方便大家查阅例子和参数文档，您还可以直接查看 <a href="http://www.datatables.net" target="_blank">原官网</a> 。
+                你可以按照如下步骤来了解DataTables：
+                <ul>
+                    <li>第一步：查看<a href="../manual" target="_blank">入门手册</a> </li>
+                    <li>第二步：浏览<a href="../example" target="_blank">例子</a></li>
+                    <li>第三步：查阅<a href="../reference" target="_blank">参数文档</a> </li>
+                    <li>第四步：查阅下面提到的常见问题 </li>
+                    <li>第五步：如果你不能在此页找到你的问题，那么你还可以在<a href="https://github.com/ssy341/datatables-cn/issues" target="_blank">社区</a>上提问 </li>
+                    <li>第六步：或者发布一个<a href="http://runjs.cn/" target="_blank">在线调试</a>，<a href="http://runjs.cn/detail/dirmx2mi"  target="_blank">一个简单的入门例子示例</a></li>
+                </ul>
+            </p>
+        </section>
+        <section>
+            <h3>如何在群里寻求大家帮助？</h3>
+            <p>
                 首先在<b style="color:red">首页或者底部</b>加入中文网官方讨论群
                 ，但是需要注意一下，确保自己已经看过下面列出的常见问题。如果没有，自己把问题整理清楚。
                 提问先 <b style="color:red">上效果图片</b> ，<b style="color:red">然后描述问题</b>，<b style="color:red">最后贴代码</b>（不要吝啬，多贴些不会说你刷屏的）。
                 如果有<b style="color:red">报错的贴报错</b>，如果是服务器处理的（加了serverSide属性为true）<b style="color:red">贴上服务器返回数据</b>。
-                问题要明确，给足够的信息，别人才能判断、才能帮助你（注意禁止在上班期间私聊别人请教问题，不管你有多急，请尊重别人的时间，群友如果知道一般会回答）。如果还是不能解决，根据实际情况再远程协助，希望大家快乐学习。
-                注：QQ群加入机器人，有些常见的问题、连接都可以通过关键字获取，方便解决一些常见问题，如果你也有faqs，也可以提交给我，帮助到别人
-            </li>
-            <li>
-                <b>小技巧</b>:把下面的超链接拖到书签栏，当打开<a href="http://www.gbtags.com/gb/debug/new.htm" target="_blank">在线调试</a>后，点击这个即可添加Datatables需要的css和js
-                <br/>
-                <button style="width:200px;height: 50px">
-                <a href="javascript: (function() {
-    var css = $('<a>jquery.dataTables.css</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/css/jquery.dataTables.min.css').addClass('resourceitem');
-    $('#sortable').append($('<li></li>').append(css)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
-    var jqueryjs = $('<a>jquery.min.js</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.js').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.js').addClass('resourceitem');
-    $('#sortable').append($('<li></li>').append(jqueryjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
-    var dtjs = $('<a>jquery.dataTables.min.js</a>').attr('href', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js').attr('title', 'http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js').addClass('resourceitem');
-    $('#sortable').append($('<li></li>').append(dtjs)).append($('<a>删除</a>').attr('rel', '删除').addClass('remove'));
-})();">Datatables Debug</a></button>
-            </li>
-        </ul>
-        </p>
-        <hr/>
-        <h4>最常见问题</h4>
-        <p>
-            <ul>
-                <li><b>问：控制台报错，提示api方法不可用</b></li>
-                <li>答：1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
-                    <code>$().DataTable()</code> 返回的是Datatables的api实例，
-                    如果在使用过程中出现某某方法不存在不支持之类的，一般都是由于是用第一种方法初始化dt，用返回的对象去调用api的方法，所以报错误。
-                    dt的api实例和jquery可以互转 ，jquery转api：dt.api();api转jquery：dt.to$();
-                    详细参考 <a href="/manual/api.html" target="_blank">api手册</a> </li>
-            </ul>
+                问题要明确，给足够的信息，别人才能判断、才能帮助你（注意禁止在上班期间私聊别人请教问题，不管你有多急，请尊重别人的时间，群友如果知道一般会回答）。
+                如果还是不能解决，根据实际情况再远程协助，希望大家快乐学习。
+                注：如果你也有faqs，也可以提交给我，帮助到别人 <a href="https://github.com/ssy341/datatables-cn/issues/2" target="_blank">>>更多</a>
+            </p>
+        </section>
 
-            <ul>
-                <li><b>问：我现在还在使用1.9.x的版本，去哪里查看文档？</b></li>
-                <li>答：旧版本的文档可以查阅这个 <a href="http://legacy.datatables.net/" target="_blank">网址</a> ，因为考虑到版本升级，新版的Datatables对旧版做了兼容性处理，大部分的
-                    配置选项方法在新版中依然兼容，但还是推荐直接升级到最新版使用。 <a href="/upgrade/1.10-convert.html" target="_blank">1.10.x与1.9.x参数名对照表</a>
-                </li>
-            </ul>
 
+        <hr>
+        <h2>一般初始化</h2>
+        <section>
+            <h3>1，我觉得Datatables在加载的时候比较慢，有没有让Datatables更快一点</h3>
+            <p>
+                答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
             <ul>
-                <li><b>问：json数据解析错误</b></li>
-                <li>答：这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数</li>
+                <li>如果你是客户端模式，DOM数据源，数据在5000条以内，加上 {% include href/option/options/option.options param="orderClasses" %}</li>
+                <li>如果你是 AJAX 加载数据，数据在50000条以内，加上 {% include href/option/deferRender.dt %}</li>
+                <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/option/options/option.features param="serverSide" %}）</li>
             </ul>
+            注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响
+            </p>
+        </section>
+        <section>
+            <h3>2，表格不能正常显示</h3>
+            <p>
+                Datatables所需要的table是比较严谨的，table里必须包含thead和tbody标签(1.10.x+好像不需要tbody也行了，大家注意自己多尝试)。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考
+                <a
+                        href="/manual/install.html" target="_blank">安装手册</a>
+            </p>
+        </section>
 
-            <ul>
-                <li><b>问：我在ie中会提示错误，但是chrome、ff这些浏览器却不会</b></li>
-                <li>答：一般可能是缺少逗号，在ie浏览器下会抛出错误，但是chrome这些浏览器会忽略这些错误</li>
-            </ul>
-            <ul>
-                <li><b>问：为什么表头会缩在一起，刷新页面后又正常了</b></li>
-                <li>答：在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，
-                    获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就会变成这样子。
-                    还要检查css样式是否引入</li>
-            </ul>
+        <section>
+            <h3>3，表格显示的样式和例子的不同</h3>
+            <p>
+                检查css样式文件是否引入正确（名称和路径），还有页面上引入的其他css有没有一并引入
+            </p>
+        </section>
+        <section>
+            <h3>4，如何按照自己的喜好摆放Datatables的控件</h3>
+            <p>
+                配置 {% include href/option/dom.dt %} 属性来自由摆放， <a href="/example/basic_init/dom.html"
+                                                                target="_blank">示例</a>
+            </p>
+        </section>
 
-            <ul>
-                <li><b>问：控制台报错Uncaught TypeError: Cannot read property 'style' of undefined </b></li>
-                <li>答：在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的个数相等）</li>
-            </ul>
 
-            <ul>
-                <li><b>问:弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</b></li>
-                <li>答：1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误。
-                    2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况，
-                    3这个错误指出很明确了返回的一个未知的参数(和columns.data不匹配)，
-                    4tbody里不要写任何内容，除非你是dom数据源。所以 检查返回的数据和js绑定的数据，一般能解决问题</li>
-            </ul>
-
-            <ul>
-                <li><b>问:控制台报错 Cannot read property 'length' of null 或者
-                    Cannot read property 'length' of undefined 是怎么回事</b></li>
-                <li>答：这个一般是返回的数据有问题，比如应该返回<code>{data:[……]}</code>而不是<code>{tabledata:[……]}</code>，或者 <code>{data:[]}</code>
-                    而不是<code>{data:null}</code>，dt识别不了所以报此错误
-                    正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
-                </li>
-            </ul>
-
-            <ul>
-                <li><b>问:控制台报错 Cannot set property 'nTf' of undefined 是怎么回事</b></li>
-                <li>
-                    答：th 和 columns.data的数量不匹配,html里定义的th数量和 columns:[{data:"name"}]里的数量不匹配，
-                    有多少th，columns里就有多少个对象
-                </li>
-            </ul>
-
-            <ul>
-                <li><b>问:弹出提示Cannot reinitialise DataTable或者是Cannot destroy DataTable 是怎么回事</b></li>
-                <li>答：加上 retrieve:true 和 destroy:true 两个参数即可
-                    另见：{% include href/option/retrieve.dt %}{% include href/option/destroy.dt %} </li>
-            </ul>
-
-            <ul>
-                <li><b>问:弹出提示Datatables warning:Non-table node initialisation (DIV)是怎么回事</b></li>
-                <li>答：这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的id-example在其他元素上，而不是table的id</li>
-            </ul>
-            <ul>
-                <li><b>怎么取消掉Datatables弹出的错误提示？</b></li>
-                <li>
-                    使用 <code>$.fn.dataTable.ext.errMode = function(s,h,m){}</code> 覆盖掉默认的即可
-                </li>
-            </ul>
-            <ul>
-                <li><b>问：使用bootstrap页码分页问题,在上页被禁用情况下,点击也向服务器请求数据,为什么</b></li>
-                <li>这个是一个bug，问题是因为代码里只是设置了按钮的禁用状态，但是没有把按钮的点击事件屏蔽掉，所以还可以向服务器请求</li>
-            </ul>
-            <ul>
-                <li><b>问：弹出提示 Invalid JSON response 是什么意思？</b></li>
-                <li>
-                    根据提示翻译，无效的json返回。那么只需要看请求返回的数据即可知道问题所在。
-                    正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
-                    <a href="{{site.baseurl}}{% post_url 2016-04-22-how-to-find-the-questions-basic-debug-skill-of-javascript %}"
-                    target="_blank">如何查看返回数据？</a>
-                </li>
-            </ul>
-        </p>
 
         <hr/>
-        <h4>一般初始化</h4>
-        <p>
-            <ul>
-                <li><b>问:我觉得Datatables在加载的时候比较慢，有没有让Datatables更快一点</b></li>
-                <li>答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
-                    <ul>
-                        <li>如果你是客户端模式，数据在5000条以内，加上 {% include href/option/orderClasses.dt %}</li>
-                        <li>如果你是ajax加载数据，数据在50000条以内，加上 {% include href/option/deferRender.dt %}</li>
-                        <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/option/options/option.features param="serverSide" %}）</li>
-                    </ul>
-                </li>
-                <li>注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响</li>
-            </ul>
+        <h2>最常见问题</h2>
 
-            <ul>
-                <li><b>问:表格不能正常显示</b></li>
-                <li>答：Datatables所需要的table是比较严谨的，table里必须包含thead和tbody标签(1.10.x+好像不需要tbody也行了，大家注意自己多尝试)。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考 <a
-                        href="/manual/install.html" target="_blank">安装手册</a> </li>
-            </ul>
+        <section>
+            <h3>1，控制台报错，提示api方法不可用</h3>
+            <p>
+                1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
+                <code>$().DataTable()</code> 返回的是Datatables的api实例，
+                如果在使用过程中出现某某方法不存在不支持之类的，一般都是由于是用第一种方法初始化dt，用返回的对象去调用api的方法，所以报错误。
+                dt的api实例和jquery可以互转 ，jquery转api：dt.api();api转jquery：dt.to$();
+                详细参考 <a href="/manual/api.html" target="_blank">api手册</a>
+            </p>
+        </section>
+        <section>
+            <h3>2，我现在还在使用1.9.x的版本，去哪里查看文档？</h3>
+            <p>
+                旧版本的文档可以查阅这个 <a href="http://legacy.datatables.net/" target="_blank">网址</a>
+                ，因为考虑到版本升级，新版的Datatables对旧版做了兼容性处理，大部分的
+                配置选项方法在新版中依然兼容，但还是推荐直接升级到最新版使用。 <a href="/upgrade/1.10-convert.html"
+                                                   target="_blank">1.10.x与1.9.x参数名对照表</a>
+            </p>
+        </section>
+        <section>
+            <h3>3，json数据解析错误</h3>
+            <p>
+               ,这个是由于没有按照json的格式返回或者是缺少Datatables指定的参数
+            </p>
+        </section>
+        <section>
+            <h3>4，我在ie中会提示错误，但是chrome、ff这些浏览器却不会</h3>
+            <p>
+                一般可能是缺少逗号，在ie浏览器下会抛出错误，但是chrome这些浏览器会忽略这些错误
+            </p>
+        </section>
 
-            <ul>
-                <li><b>问:表格显示的样式和例子的不同</b></li>
-                <li>答：检查css样式文件是否引入正确（名称和路径），还有页面上引入的其他css有没有一并引入 </li>
-            </ul>
+        <section>
+            <h3>5，为什么表头会缩在一起，刷新页面后又正常了</h3>
+            <p>
+                在dt初始化的时候，会用类似jquery $().width()这种函数获取table父容器的宽度，如果父容器的style display属性是none的话，
+                获取到的宽度值就会是0，然后dt就会使用自己默认宽度值100px进行替代运算，结果就缩到一起。
+                或者是CSS样式没有引入正确。如果确保不是以上问题参考
+                <a href="https://github.com/ssy341/datatables-cn/issues/9" target="_blank">datatables 采用bootstrap的tab方式，表头会缩在一起，为什么？</a>
+            </p>
+        </section>
+        <section>
+            <h3>6，控制台报错 Uncaught TypeError: Cannot read property 'style' of undefined </h3>
+            <p>
+                在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的columns中的data个数相等）
+            </p>
+        </section>
+        <section>
+            <h3>7，弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</h3>
+            <p>
+                <ul>
+                    <li>1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误</li>
+                    <li>2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况</li>
+                    <li>3这个错误指出很明确了返回的一个未知的参数(和columns.data不匹配)</li>
+                    <li>4tbody里不要写任何内容，除非你是dom数据源。所以 检查返回的数据和js绑定的数据</li>
+                </ul>
+                按照以上步骤，一般能解决问题
+            </p>
+        </section>
+        <section>
+            <h3>8，控制台报错 Cannot read property 'length' of null 或者
+                Cannot read property 'length' of undefined 是怎么回事</h3>
+            <p>
+                这个一般是返回的数据有问题，比如应该返回<code>{data:[……]}</code>而不是<code>{tabledata:[……]}</code>，或者数据为空因该返回<code>{data:[]}</code>
+                而不是<code>{data:null}</code>、<code>{data:""}</code>，dt识别不了所以报此错误
+                正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+            </p>
+        </section>
 
-            <ul>
-                <li><b>问:如何按照自己的喜好摆放Datatables的控件</b></li>
-                <li>答：配置 {% include href/option/dom.dt %} 属性来自有摆放， <a href="/example/basic_init/dom.html" target="_blank">示例</a> </li>
-            </ul>
+        <section>
+            <h3>9，控制台报错 Cannot set property 'nTf' of undefined 是怎么回事</h3>
+            <p>
+                th 和 columns.data 的数量不匹配,html里定义的th数量和 columns:[{data:"name"}]里的数量不匹配，
+                有多少th，columns里就有多少个对象
+            </p>
+        </section>
+        <section>
+            <h3>10，弹出提示 Cannot reinitialise DataTable 或者是 Cannot destroy DataTable 是怎么回事</h3>
+            <p>
+                加上 retrieve:true 和 destroy:true 两个参数即可
+                另见：{% include href/option/retrieve.dt %}{% include href/option/destroy.dt %}参数具体含义
+            </p>
+        </section>
+        <section>
+            <h3>11，弹出提示 Datatables warning:Non-table node initialisation (DIV) 是怎么回事</h3>
+            <p>
+                这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的 id 在非 table 元素上
+            </p>
+        </section>
+        <section>
+            <h3>12，怎么取消掉 DataTables 弹出的错误提示？</h3>
+            <p>
+                使用 <code>$.fn.dataTable.ext.errMode = function(s,h,m){}</code> 覆盖掉默认的即可
+            </p>
+        </section>
 
-        </p>
+        <section>
+            <h3>13，使用bootstrap页码分页问题,在上页被禁用情况下,点击也向服务器请求数据,为什么</h3>
+            <p>
+                这个是一个bug，问题是因为代码里只是设置了按钮的禁用状态，但是没有把按钮的点击事件屏蔽掉，所以还可以向服务器请求
+            </p>
+        </section>
+
+        <section>
+            <h3>14，弹出提示 Invalid JSON response 是什么意思？</h3>
+            <p>
+                根据提示翻译，无效的json返回。那么只需要看请求返回的数据即可知道问题所在。
+                正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+                <a href="{{site.baseurl}}{% post_url 2016-04-22-how-to-find-the-questions-basic-debug-skill-of-javascript %}"
+                   target="_blank">如何查看返回数据？</a>
+            </p>
+        </section>
+
 
         <hr/>
-        <h4>许可</h4>
+        <h2>许可</h2>
         <p>
             <ul>
                 <li><b>问：Datatables是个很棒的插件，要多少钱呢？</b></li>
@@ -230,7 +263,7 @@ relurl: http://datatables.net/faqs/index
         </p>
 
         <hr/>
-        <h4>开发中常见问题</h4>
+        <h2>开发中常见问题</h2>
         <p>
         <ul>
             <li><b>问：我很喜欢这个插件，我该如何贡献呢？</b></li>
