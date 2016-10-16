@@ -1,13 +1,13 @@
 #include
 {% if include.param == "1.10.2" %}
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/assets/jquery/1.10.2/jquery.min.js"></script>
 {% elsif include.param == "1.10.3" %}
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.3/jquery.min.js"></script>
+<script src="/assets/jquery/1.10.3/jquery.min.js"></script>
 {% else %}
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.4/jquery.min.js"></script>
+<script src="/assets/jquery/1.10.4/jquery.min.js"></script>
 {% endif %}
 
 #layout
