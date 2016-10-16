@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>行内编辑,批量编辑</title>
-      <link href="http://www.zhuhaihengxin.com/libs/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-      <script src="http://www.zhuhaihengxin.com/libs/jquery/1.10.2/jquery.min.js"></script>
+      <link href="/assets/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+      <script src="/assets/jquery/1.10.2/jquery.min.js"></script>
       <script  type="text/javascript" charset="utf8" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
   </head>
   <body>

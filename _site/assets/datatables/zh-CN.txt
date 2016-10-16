@@ -1,0 +1,15 @@
+﻿{
+	"sProcessing": "玩命加载中...",
+	"sLengthMenu": "显示_MENU_条 ",
+	"sZeroRecords": "没有找到符合条件的记录",
+	"sInfo": "_START_ 到 _END_ 条记录——总记录: _TOTAL_ 条",
+	"sInfoEmpty": "记录数为0",
+	"sInfoFiltered": "(全部记录数 _MAX_  条)",
+	"sInfoPostFix": "",
+	"oPaginate": {
+		"sFirst":    "第一页",
+		"sPrevious": "上一页",
+		"sNext":     "下一页",
+		"sLast":     "最末页"
+	}
+}

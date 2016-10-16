@@ -1,0 +1,580 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>页面找不到了</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <link rel="shortcut icon" href="/images/favicon.png">
+    <style type='text/css'>
+        .adsense_fixed {
+            position: fixed;
+            bottom: -8px;
+            width: 100%;
+            z-index: 999999999999;
+        }
+
+        .adsense_content {
+            width: 720px;
+            margin: 0 auto;
+            position: relative;
+            background: #fff;
+        }
+
+        .adsense_btn_close, .adsense_btn_info {
+            font-size: 12px;
+            color: #fff;
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+            text-align: center;
+            background: #000;
+            top: 4px;
+            left: 4px;
+            position: absolute;
+            z-index: 99999999;
+            font-family: Georgia;
+            cursor: pointer;
+            line-height: 18px
+        }
+
+        .adsense_btn_info {
+            left: 26px;
+            font-family: Georgia;
+            font-style: italic
+        }
+
+        .adsense_info_content {
+            display: none;
+            width: 260px;
+            height: 340px;
+            position: absolute;
+            top: -360px;
+            background: rgba(255, 255, 255, .9);
+            font-size: 14px;
+            padding: 20px;
+            font-family: Arial;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+            box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
+        }
+
+        .adsense_info_content:after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 100%;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+            clear: both
+        }
+
+        .adsense_info_content #adsense_h3 {
+            color: #000;
+            margin: 0;
+            font-size: 18px !important;
+            font-family: 'Arial' !important;
+            margin-bottom: 20px !important;
+        }
+
+        .adsense_info_content .adsense_p {
+            color: #888;
+            font-size: 13px !important;
+            line-height: 20px;
+            font-family: 'Arial' !important;
+            margin-bottom: 20px !important;
+        }
+
+        .adsense_fh5co-team {
+            color: #000;
+            font-style: italic;
+        }
+
+        /*
+    Author: W3layout
+    Author URL: http://w3layouts.com
+    License: Creative Commons Attribution 3.0 Unported
+    License URL: http://creativecommons.org/licenses/by/3.0/
+    */
+        /* reset */
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        ol, ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after, q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        /* start editing from here */
+        a {
+            text-decoration: none;
+        }
+
+        .txt-rt {
+            text-align: right;
+        }
+
+        /* text align right */
+        .txt-lt {
+            text-align: left;
+        }
+
+        /* text align left */
+        .txt-center {
+            text-align: center;
+        }
+
+        /* text align center */
+        .float-rt {
+            float: right;
+        }
+
+        /* float right */
+        .float-lt {
+            float: left;
+        }
+
+        /* float left */
+        .clear {
+            clear: both;
+        }
+
+        /* clear float */
+        .pos-relative {
+            position: relative;
+        }
+
+        /* Position Relative */
+        .pos-absolute {
+            position: absolute;
+        }
+
+        /* Position Absolute */
+        .vertical-base {
+            vertical-align: baseline;
+        }
+
+        /* vertical align baseline */
+        .vertical-top {
+            vertical-align: top;
+        }
+
+        /* vertical align top */
+        .underline {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+            margin: 0 0 20px 0;
+        }
+
+        /* Add 5px bottom padding and a underline */
+        nav.vertical ul li {
+            display: block;
+        }
+
+        /* vertical menu */
+        nav.horizontal ul li {
+            display: inline-block;
+        }
+
+        /* horizontal menu */
+        img {
+            max-width: 100%;
+        }
+
+        /*end reset*/
+        /*-----light-font----*/
+        @font-face {
+            font-family: 'open_sanslight';
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /*-----regular-font----*/
+        /*-----regular-font----*/
+        @font-face {
+            font-family: 'open_sansregular';
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background: url(/images/bg.jpg) no-repeat 100%;
+            background-size: 100%;
+            font-family: 'open_sanslight';
+            font-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /**-----start-wrap---------**/
+        .wrap {
+            width: 70%;
+            margin: 5.2% auto 4% auto;
+        }
+
+        /**-----start-logo--------**/
+        .logo {
+            padding: 1em;
+            text-align: center;
+            padding: 1% 1% 5% 1%;
+        }
+
+        .logo h1 {
+            display: block;
+            padding: 2em 0em;
+        }
+
+        .logo span {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .logo span img {
+            width: 40px;
+            height: 40px;
+            vertical-align: bottom;
+            margin: 0px 10px;
+        }
+
+        /**-----end-logo---------**/
+        /**-----start-search-bar-section------**/
+        .buttom {
+            background: url(/images/bg2.png) no-repeat 100% 0%;
+            background-size: 100%;
+            text-align: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            width: 556px;
+        }
+
+        .seach_bar {
+            padding: 2em;
+        }
+
+        .seach_bar p {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 300;
+            margin: 2.6em 0em 0.5em 0em;
+        }
+
+        .seach_bar span a {
+            font-size: 1em;
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 300;
+            font-family: 'open_sansregular';
+        }
+
+        /**********search_box*************/
+        .search_box {
+            background: #F1F3F6;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            padding: 6px 10px;
+            position: relative;
+            cursor: pointer;
+            width: 75%;
+            margin: 0 auto;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -o-border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(156, 156, 156, 0.75);
+            -moz-box-shadow: inset 0 0 5px rgba(156, 156, 156, 0.75);
+            -webkit-box-shadow: inset 0px 0px 5px rgba(156, 156, 156, 0.75);
+        }
+
+        .search_box img {
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .search_box form input[type="text"] {
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 1em;
+            color: #999;
+            width: 100%;
+            font-family: 'open_sansregular';
+            -webkit-apperance: none;
+        }
+
+        .search_box form input[type="submit"] {
+            border: none;
+            cursor: pointer;
+            background: url(/images/search.png) no-repeat 0px 1px;
+            position: absolute;
+            right: 0;
+            width: 34px;
+            height: 25px;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        /*****copy-right*****/
+        .copy_right {
+            color: #fff;
+            font-size: 0.85em;
+            line-height: 1.8em;
+            padding: 5em 0px 0px 0px;
+            font-family: 'open_sansregular';
+            text-align: center;
+        }
+
+        .copy_right a {
+            color: #FF7ED5;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+        }
+
+        .copy_right a:hover {
+            color: #fff;
+        }
+
+        /*********Media Queries************/
+        @media only screen and (max-width: 768px) {
+            .wrap {
+                width: 80%;
+            }
+
+            .logo img {
+                width: 315px;
+            }
+        }
+
+        @media only screen and (max-width: 640px) {
+            .wrap {
+                width: 85%;
+            }
+
+            .logo {
+                padding: 1% 1% 12% 1%;
+            }
+
+            .buttom {
+                width: 515px;
+            }
+
+            .logo img {
+                width: 300px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .wrap {
+                width: 90%;
+            }
+
+            .logo {
+                padding: 1% 1% 12% 1%;
+            }
+
+            .buttom {
+                width: 440px;
+            }
+
+            /***/
+            .logo span {
+                font-size: 1.6em;
+            }
+
+            .seach_bar p {
+                font-size: 1.2em;
+                margin: 2.6em 0em 0.7em 0em;
+            }
+
+            .search_box {
+                padding: 3px 10px;
+            }
+
+            .logo img {
+                width: 270px;
+            }
+        }
+
+        @media only screen and (max-width: 320px) {
+            .wrap {
+                width: 90%;
+            }
+
+            .logo {
+                padding: 1% 1% 12% 1%;
+            }
+
+            .buttom {
+                width: 290px;
+            }
+
+            /***/
+            .logo span {
+                font-size: 1.4em;
+            }
+
+            .seach_bar p {
+                font-size: 1em;
+                margin: 1.5em 0em 2em 0em;
+            }
+
+            .logo span img {
+                vertical-align: middle;
+            }
+
+            .logo img {
+                width: 200px;
+            }
+
+            .copy_right {
+                padding: 2em 0px 0px 0px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<div class='adsense_fixed'>
+    <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
+        <div class='adsense_info_content'>
+            <h3 id='adsense_h3'>为什么有广告?</h3>
+            <p class='adsense_p'>
+                希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
+            <p class='adsense_p'>爱你们,
+                <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
+        </div>
+        <span class='adsense_btn_info' title='为什么有广告'>i</span>
+
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    </div>
+</div>
+
+<!---728x90--->
+<!-----start-wrap--------->
+<div class="wrap">
+    <!-----start-content--------->
+    <div class="content">
+        <!-----start-logo--------->
+        <div class="logo">
+            <h1><a href="#"><img src="/images/logo.png"/></a></h1>
+            <span><img src="/images/signal.png"/>糟糕! 您请求的页面走丢了！</span>
+        </div>
+        <!-----end-logo--------->
+        <!---728x90--->
+        <!-----start-search-bar-section--------->
+        <div class="buttom">
+            <div class="seach_bar">
+                <p>你可以回到<span><a href="#" onclick="window.history.back()">之前的页面</a></span>或者在此搜索</p>
+                <!-----start-sear-box--------->
+                <div class="search_box">
+                    <form action="http://zhannei.baidu.com/cse/search" method="get" target="_blank">
+                        <input type="hidden" name="s" value="4182846633237332666">
+                        <input type="hidden" name="entry" value="1">
+                        <input type="text" value="百度站内搜索" name="q" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = '百度站内搜索';}"><input type="submit" value="">
+                    </form>
+                    <hr/>
+                    <form action="https://cse.google.com/cse/home" target="_blank">
+                        <input type="hidden" name="cx" value="001171264216576386016:xim4af2d2ik">
+                        <input type="text" value="Google站内搜索" name="q" onfocus="this.value = '';"
+                               onblur="if (this.value == '') {this.value = 'Google站内搜索';}"><input type="submit"
+                                                                                                  value="">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-----end-sear-bar--------->
+    </div>
+    <!---728x90--->
+    <p class="copy_right">© 2014 404 error page. All rights reserved | Template by<a href="http://w3layouts.com" target="_blank">&nbsp;w3layouts</a> </p>
+</div>
+
+<!---------end-wrap---------->
+<script src="/assets/jquery/1.10.2/jquery.min.js"></script>
+<script>
+
+    $(function () {
+        $('.adsense_btn_close').click(function () {
+            $(this).closest('.adsense_fixed').css('display', 'none');
+        });
+
+        $('.adsense_btn_info').click(function () {
+            if ($('.adsense_info_content').is(':visible')) {
+                $('.adsense_info_content').css('display', 'none');
+            } else {
+                $('.adsense_info_content').css('display', 'block');
+            }
+        });
+
+    });
+
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?1c2bd29cae4808be68e4f91e174e69a8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>
