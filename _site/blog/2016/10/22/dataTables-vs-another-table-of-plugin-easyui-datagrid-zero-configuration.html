@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>DataTables表格插件和其他表格插件比较之（DataTalbe VS EasyUI DataGrid）零配置 博客 DataTables中文网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <meta name="author" content="Datatables 中文网">
+    <!-- Le styles -->
+    <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/blog-home.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/images/favicon.png" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css"> <link rel="stylesheet" type="text/css" href="/assets/easyui/easyui.css"> <link rel="stylesheet" type="text/css" href="/assets/easyui/icon.css"> <link rel="stylesheet" type="text/css" href="/assets/easyui/color.css">
+
+</head>
+<body>
+    <!--nav-->
+    
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://datatables.club">DataTables 中文网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/blog">博客</a>
+                </li>
+                <li>
+                    <a href="/example">例子</a>
+                </li>
+                <li>
+                    <a href="/manual">手册</a>
+                </li>
+                <li >
+                    <a href="/reference">文档(Options&API)</a>
+                </li>
+                <li>
+                    <a href="/extensions">扩展</a>
+                </li>
+                <li>
+                    <a href="/plug-ins">插件</a>
+                </li>
+                <li>
+                    <a href="/faqs">FAQS</a>
+                </li>
+                <li>
+                    <a href="/upgrade">更新</a>
+                </li>
+                <li>
+                    <a href="/about">关于</a>
+                </li>
+                <li>
+                    <a href="/tour">导航</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/">首页</a></li>
+                <li><a href="/blog">中文网Blog</a></li>
+                <li class="active">正文</li>
+            </ol>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html">DataTables表格插件和其他表格插件比较之（DataTalbe VS EasyUI DataGrid）零配置</a>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-user"></span> DataTable中文网
+                    <span class="glyphicon glyphicon-time"></span> 22 October 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html"></span>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="DataTables表格插件和其他表格插件比较之（DataTalbe VS EasyUI DataGrid）零配置:http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <p>
+                    Tags: 
+                    <a href="/blog/listall.html#博客" class="btn btn-primary btn-xs">博客</a>
+                        
+                    <a href="/blog/listall.html#DataTables使用经验" class="btn btn-primary btn-xs">DataTables使用经验</a>
+                        
+                </p>
+                <hr>
+
+                <img class="img-responsive" src="" alt="">
+                <div class="content">
+                    <!--正文-->
+                    <p>一直以来都想写一个 DataTables 和其他表格插件对比的文章，告诉大家该如何选取一款表格插件来解决我们实际遇到的问题。今天
+终于有这个机会和大家一起谈一谈各个表格插件之间的优劣。
+<!--more--></p>
+
+<p>2012年的时候接触到 DataTables，那时的版本还是 <code class="highlighter-rouge">1.8</code> ，现在已经 <code class="highlighter-rouge">1.10</code> 了，说实话 DataTables 确实是一款比较强大的表格插件，
+我对她情有独钟，也在很多情况下推荐别人使用这个表格插件。</p>
+
+<p>不过今天的主角不再是 DataTables 一个了，今天我还要提到 EasyUI DataGrid。说到 EasyUI，大家可能都多多少少知道她，
+曾经也是风靡一时的前端解决方案，集成了多个插件，给我们开发者带了福音，开发效率快了不少。</p>
+
+<p>需要注意的是，今天不是要分清楚到底是 DataTables 强大还是 EasyUI DataGrid 厉害，只是告诉大家该怎么去选择一款适合自己的表格插件。
+虽然我在标题里面加入了<code class="highlighter-rouge">vs</code>关键字，我不加，你们会点进来看么？哈哈，允许我任性一回。</p>
+
+<p>下面开始正题吧，今天分以下几个部分谈谈两款插件</p>
+
+<ol>
+  <li><a href="#section">初级入门</a></li>
+  <li><a href="#section-1">感悟和建议</a></li>
+  <li><a href="#section-2">讨论</a></li>
+</ol>
+
+<hr />
+
+<ul>
+  <li>
+    <h2 id="section">初级入门</h2>
+  </li>
+</ul>
+
+<p>拿到一个插件首先要做的就是对着手册做出实例，看到效果，然后开始下一步工作。</p>
+
+<p>我分别按照文档使用了两款插件，用最简单的代码实现一个”功能丰富”的表格</p>
+
+<p>现在有如下的表格：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre></td><td class="code"><pre>   <span class="nt">&lt;table&gt;</span>
+           <span class="nt">&lt;thead&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;th&gt;</span>Code<span class="nt">&lt;/th&gt;</span>
+                   <span class="nt">&lt;th&gt;</span>Name<span class="nt">&lt;/th&gt;</span>
+                   <span class="nt">&lt;th&gt;</span>Price<span class="nt">&lt;/th&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+           <span class="nt">&lt;/thead&gt;</span>
+           <span class="nt">&lt;tbody&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>001<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name1<span class="nt">&lt;/td&gt;&lt;td&gt;</span>2323<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>002<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name2<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>003<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name3<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>004<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name4<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>005<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name5<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>006<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name6<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>007<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name7<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>008<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name8<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>009<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name9<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>010<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name10<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+               <span class="nt">&lt;tr&gt;</span>
+                   <span class="nt">&lt;td&gt;</span>011<span class="nt">&lt;/td&gt;&lt;td&gt;</span>name11<span class="nt">&lt;/td&gt;&lt;td&gt;</span>4612<span class="nt">&lt;/td&gt;</span>
+               <span class="nt">&lt;/tr&gt;</span>
+           <span class="nt">&lt;/tbody&gt;</span>
+   <span class="nt">&lt;/table&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>平时我们在开发的时候经常会有展示数据的功能，一般我们都会选择用<code class="highlighter-rouge">table</code>标签来处理，在配上css想有多漂亮就有多美丽。不过这下我们
+的身份是菜鸟，我不懂css，也不太会js，做不出绚丽的表格，也不会处理数据分页，什么都不会。</p>
+
+<p>这时候插件就该发挥这些优势了，先看 DataTables 是怎么把上面的表格变得漂亮和强大</p>
+
+<p>第一步：引入 DataTables 的js和css</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>     <span class="c">&lt;!--样式文件--&gt;</span>
+     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"plugin/datatables/jquery.dataTables.min.css"</span><span class="nt">&gt;</span>
+     <span class="c">&lt;!--jquery js--&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"plugin/datatables/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+     <span class="c">&lt;!--DataTables 核心 js--&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"plugin/datatables/jquery.dataTables.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>第二步：给表格加上id</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>   <span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">"example"</span> <span class="na">class=</span><span class="s">"display"</span><span class="nt">&gt;</span>
+         ……
+   <span class="nt">&lt;/table&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>第三步：初始化</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre>    <span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="o">&lt;</span><span class="sr">/script&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>运气不差的话你会看到如下效果：</p>
+
+<hr />
+
+<table id="example" class="display">
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>001</td><td>name1</td><td>2323</td>
+    </tr>
+    <tr>
+        <td>002</td><td>name2</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>003</td><td>name3</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>004</td><td>name4</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>005</td><td>name5</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>006</td><td>name6</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>007</td><td>name7</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>008</td><td>name8</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>009</td><td>name9</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>010</td><td>name10</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>011</td><td>name11</td><td>4612</td>
+    </tr>
+    </tbody>
+</table>
+
+<hr />
+
+<p>下面我们看看EasyUI DataGrid怎么把上面的表格变得漂亮和强大</p>
+
+<p>第一步：引入 EasyUI DataGrid 的js和css</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre>     <span class="c">&lt;!--核心样式文件--&gt;</span>
+     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/assets/easyui/easyui.css"</span><span class="nt">&gt;</span>
+     <span class="c">&lt;!--图标css--&gt;</span>
+     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/assets/easyui/icon.css"</span><span class="nt">&gt;</span>
+     <span class="c">&lt;!--颜色样式--&gt;</span>
+     <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/assets/easyui/color.css"</span><span class="nt">&gt;</span>
+     <span class="c">&lt;!--核心js--&gt;</span>
+     <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/assets/easyui/jquery.easyui.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>第二步：给表格加上class和表头配置</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"easyui-datagrid"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">field=</span><span class="s">"firstname"</span><span class="nt">&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">field=</span><span class="s">"lastname"</span> <span class="nt">&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th</span> <span class="na">field=</span><span class="s">"phone"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;/thead&gt;</span>
+    ……
+<span class="nt">&lt;/table&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>同样，运气不差的话你可以看到如下效果：</p>
+
+<hr />
+
+<table class="easyui-datagrid">
+    <thead>
+    <tr>
+        <th field="firstname">First Name</th>
+        <th field="lastname">Last Name</th>
+        <th field="phone">Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>001</td><td>name1</td><td>2323</td>
+    </tr>
+    <tr>
+        <td>002</td><td>name2</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>003</td><td>name3</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>004</td><td>name4</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>005</td><td>name5</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>006</td><td>name6</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>007</td><td>name7</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>008</td><td>name8</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>009</td><td>name9</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>010</td><td>name10</td><td>4612</td>
+    </tr>
+    <tr>
+        <td>011</td><td>name11</td><td>4612</td>
+    </tr>
+    </tbody>
+</table>
+
+<hr />
+
+<ul>
+  <li>
+    <h2 id="section-1">感悟和建议</h2>
+  </li>
+</ul>
+
+<p>从上面的实际情况来看，如果只用最简代码，我们看看他们分别帮我们解决了什么问题。</p>
+
+<p><strong>DataTables</strong>：</p>
+
+<ul>
+  <li>分页</li>
+  <li>排序</li>
+  <li>过滤</li>
+  <li>表格信息显示</li>
+  <li>表格分页数量控制</li>
+  <li>鼠标移动高亮显示</li>
+</ul>
+
+<p><strong>EasyUI DataGrid</strong>：</p>
+
+<ul>
+  <li>选中效果（多选）</li>
+  <li>鼠标移动高亮显示</li>
+</ul>
+
+<p>虽然 EasyUI DataGrid 用最简配置给我们的效果不是很好，但是不能否定它就不行，在这一次比较中，我觉得各有优点</p>
+
+<p>比如：</p>
+
+<ul>
+  <li>EasyUI DataGrid 可以无js代码就初始化表格，只需要在table上加上相应的属性即可打开相应的功能，比较符合大部分人的想法，配置什么有什么</li>
+  <li>DataTables 零配置即添加了很多实用的功能，比较便捷，适合懒一点的程序员（偷笑）</li>
+</ul>
+
+<p>从本次实际使用情况，我个人不能明确说那个好那个差，也没办法给大家意见，什么时候用DataTables或者EasyUI DataGrid。</p>
+
+<ul>
+  <li>
+    <h2 id="section-2">讨论</h2>
+  </li>
+</ul>
+
+<p>本篇文章是这个系列中的第一篇，做个引子，我会逐步深入，从简单的的例子到复杂的例子，让大家看到两个插件是如何处理我们平时
+需要的功能，从而选出适合自己的插件</p>
+
+<p>同时也希望大家能给予支持，对本文有好的建议欢迎在下面留言，或者右下角的按钮反馈给我，我会认真采纳小伙伴的建议，给你们提供高质量的技术文章，帮助大家答惑解疑</p>
+
+<blockquote>
+  <p>参考：</p>
+</blockquote>
+
+<blockquote>
+  <p><a href="http://www.jeasyui.com/demo/main/index.php?plugin=DataGrid&amp;theme=default&amp;dir=ltr&amp;pitem=">DataGrid基本例子</a></p>
+</blockquote>
+
+<blockquote>
+  <p><a href="http://datatables.club/manual/install.html">DataTables入门教程</a></p>
+</blockquote>
+
+
+                </div>
+                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <hr>
+                <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+                <!--评论-->
+                <div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+     var disqus_config = function () {
+     this.page.url = '/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     };
+     */
+    var disqus_config = function () {
+        this.page.url = 'http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//datatables.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+    <div>
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    </div>
+    <!-- Blog Search Well -->
+    <div class="well">
+        <h4>百度站内搜索</h4>
+        <div class="input-group">
+            <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+        </div>
+        <!-- /.input-group -->
+    </div>
+     <div class="well">
+        <div class="input-group">
+            <script>
+                (function() {
+                    var cx = '001171264216576386016:xim4af2d2ik';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:searchbox-only></gcse:searchbox-only>
+        </div>
+        <!-- /.input-group -->
+    </div>
+
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>博客分类</h4>
+        <div class="row">
+            <div id="tagcloud" style="padding:10px">
+
+                
+                <a href="/blog/listall.html#博客" title="博客" rel="13">
+                    博客 (13)
+                </a>
+                
+                <a href="/blog/listall.html#官方博客" title="官方博客" rel="2">
+                    官方博客 (2)
+                </a>
+                
+                <a href="/blog/listall.html#活动" title="活动" rel="1">
+                    活动 (1)
+                </a>
+                
+                <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="43">
+                    不定时一讲 (43)
+                </a>
+                
+                <a href="/blog/listall.html#技能" title="技能" rel="1">
+                    技能 (1)
+                </a>
+                
+                <a href="/blog/listall.html#MarkDown" title="MarkDown" rel="1">
+                    MarkDown (1)
+                </a>
+                
+                <a href="/blog/listall.html#DataTables使用经验" title="DataTables使用经验" rel="5">
+                    DataTables使用经验 (5)
+                </a>
+                
+                <a href="/blog/listall.html#番茄工作法" title="番茄工作法" rel="1">
+                    番茄工作法 (1)
+                </a>
+                
+                <a href="/blog/listall.html#DTCODE" title="DTCODE" rel="1">
+                    DTCODE (1)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="9">
+                    所有
+                </a>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="/js/jquery.tagcloud.js"></script>
+        <script type="text/javascript" src="/js/cloud.js"></script>
+        <!-- /.row -->
+    </div>
+
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4>赞助我们</h4>
+        <a href="/about/#donate" title="赞助我们">
+            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-responsive" alt="赞助我们">
+        </a>
+        <p>
+            您的支持，将是我们前进的最大动力……
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+    <div class="row">
+        <div class="col-lg-6">
+            <p>Themes and templates licensed under the <a
+                    href="https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE">MIT
+                License</a>.
+                <br>Based on <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+            <p>Copyright &copy; 2014 - 2016 datatables.club. Powered by
+                <a href="http://jekyllrb.com/"> Jekyll</a> .</p>
+            <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?1c2bd29cae4808be68e4f91e174e69a8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+        </div>
+        <div class="col-lg-6">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true&v=2"
+                            frameborder="0" scrolling="0" width="100px" height="20px" title="Watch on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+
+            </ul>
+            <ul  class="footer-links">
+                <li>
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/blog/_posts/2016-10/2016-10-22-dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.markdown" title="Edit this page on GitHub">
+                        <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
+                    </a>
+                </li>
+            </ul>
+            <!--<ul class="footer-links" id="qqgroup">-->
+                <!--<li>QQ群：</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <ul  class="footer-links" id="qqgroup">
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（2000人中文网交流群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=5796bab31300e68fa5adfd94d0083a65af2553435d64346364732e668290f226" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（Editor 讨论群）</a>
+                </li>
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>-->
+                <!--</li>-->
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</footer>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript">
+    function noteTitle(obj){
+        var note = $(obj).attr("title");
+        alert(note);
+    }
+</script>
+
+    </div>
+    <script type="text/javascript" src="/js/datatables/jquery.dataTables.min.js"></script> <script type="text/javascript" src="/assets/easyui/jquery.easyui.min.js"></script> <script>
+     $(function () {
+            $('#example').DataTable();
+     });
+</script>
+
+    <!-- /.container -->
+    <script src="/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
+
+</body>
+
+</html>
