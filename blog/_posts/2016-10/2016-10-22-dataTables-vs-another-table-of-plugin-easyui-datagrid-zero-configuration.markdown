@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: DataTables表格插件和其他表格插件比较之（DataTalbe VS EasyUI DataGrid）零配置 博客 DataTables中文网
-short: DataTables表格插件和其他表格插件比较之（DataTalbe VS EasyUI DataGrid）零配置
+title: DataTables表格插件和其他表格插件比较之（DataTables VS EasyUI DataGrid）零配置 博客 DataTables中文网
+short: DataTables表格插件和其他表格插件比较之（DataTables VS EasyUI DataGrid）零配置
 date: 2016-10-22
 group: 2016-10
 caption: DataTables 中文网博客
