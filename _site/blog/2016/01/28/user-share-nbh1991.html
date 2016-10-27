@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>DataTables入门例子（代码封装） 博客 DataTables中文网</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
+    <meta name="author" content="Datatables 中文网">
+    <!-- Le styles -->
+    <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/blog-home.css" rel="stylesheet">
+    <link href="/css/site.css" rel="stylesheet">
+    <link href="/css/highlighting.css" rel="stylesheet">
+    <link href="/images/favicon.png" rel="shortcut icon">
+    <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css">
+
+</head>
+<body>
+    <!--nav-->
+    
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://datatables.club">DataTables 中文网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/blog">博客</a>
+                </li>
+                <li>
+                    <a href="/example">例子</a>
+                </li>
+                <li>
+                    <a href="/manual">手册</a>
+                </li>
+                <li >
+                    <a href="/reference">文档(Options&API)</a>
+                </li>
+                <li>
+                    <a href="/extensions">扩展</a>
+                </li>
+                <li>
+                    <a href="/plug-ins">插件</a>
+                </li>
+                <li>
+                    <a href="/faqs">FAQS</a>
+                </li>
+                <li>
+                    <a href="/upgrade">更新</a>
+                </li>
+                <li>
+                    <a href="/about">关于</a>
+                </li>
+                <li>
+                    <a href="/tour">导航</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="/">首页</a></li>
+                <li><a href="/blog">中文网Blog</a></li>
+                <li class="active">正文</li>
+            </ol>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="/blog/2016/01/28/user-share-nbh1991.html">DataTables入门例子（代码封装）</a>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-user"></span> DataTable中文网
+                    <span class="glyphicon glyphicon-time"></span> 28 January 2016
+                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/01/28/user-share-nbh1991.html"></span>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="DataTables入门例子（代码封装）:http://datatables.club/blog/2016/01/28/user-share-nbh1991.html"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <p>
+                    Tags: 
+                    <a href="/blog/listall.html#博客" class="btn btn-primary btn-xs">博客</a>
+                        
+                    <a href="/blog/listall.html#DataTables使用经验" class="btn btn-primary btn-xs">DataTables使用经验</a>
+                        
+                    <a href="/blog/listall.html#小伙伴分享" class="btn btn-primary btn-xs">小伙伴分享</a>
+                        
+                </p>
+                <hr>
+
+                <img class="img-responsive" src="" alt="">
+                <div class="content">
+                    <!--正文-->
+                    <p>作为DataTables的入门例子，在中文网上也有几个了，下面这个例子也可以作为入门例子，一些常用的操作都列出来了。
+感谢小伙伴  <a href="http://nbh219.iteye.com/">nbh219</a> 提供的代码，完整的工程<a href="https://github.com/ssy341/datatabes_cn_example_curd_java/tree/master/web/nbh1991.html">点我</a>
+<!--more--></p>
+
+<p>例子实现了如下功能：</p>
+
+<ul>
+  <li>多条件查询</li>
+  <li>自动触发/手动触发查询</li>
+  <li>dom定义，添加操作按钮</li>
+  <li>第一列添加checkbox</li>
+  <li>单选/多选效果</li>
+  <li>鼠标停留高亮显示</li>
+  <li>数据重新加载</li>
+</ul>
+
+<p>还是先直接上效果</p>
+
+<hr />
+
+<div>
+    是否自动检索：<input type="checkbox" id="autoSearch" />
+    <br />
+    姓名：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="1" id="col1_filter" />
+    <br />
+    地点：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="2" id="col2_filter" />
+    <br />
+    薪水：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="3" id="col3_filter" />
+    <br />
+    入职时间：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="4" id="col4_filter" />
+    <br />
+    办公地点：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="5" id="col5_filter" />
+    <br />
+    编号：<input type="text" class="form-controlSearch" placeholder="请输入关键字查询" data-column="6" id="col6_filter" />
+    <br />
+    <hr />
+    <table id="example" class="display">
+        <thead>
+        <tr>
+            <th><input type="checkbox" id="employeeCheckAll" /></th>
+            <th>姓名</th>
+            <th>地点</th>
+            <th>薪水</th>
+            <th>入职时间</th>
+            <th>办公地点</th>
+            <th>编号</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<script>
+
+    var employee = {};
+
+    employee.property = {
+        version: "v1.0",
+        name: "employee",
+        tableId: "example",
+        checkAllId: "employeeCheckAll",
+        buttonId: "employeeButtonId",
+        formId: "employeeForm",
+        corporateFormId: "employeeForm",
+        returnStatus: "SUCCESS",
+        returnTitle: "操作成功",
+        statusTitle: "请选择一条数据！",
+        idFailure: "获取id失败",
+        prompt: "提示",
+        pleaseConfirm: "请确认！",
+        wantToDelete: "您确定要删除吗?",
+        sexMan: "男",
+        sexWoman: "女",
+        isTest: "是",
+        noTest: "否",
+        banned: "禁用",
+        enable: "启用"
+    };
+
+    //初始化配置
+    employee.gridInit = {
+        searching: true,
+        lengthChange: true,
+        paging: true,
+        scrollCollapse: true,
+        serverSide: false,
+        search: true,
+        processing: true,
+        scrollY: 500,
+        scrollX: "100%",
+        scrollXInner: "100%",
+        scrollCollapse: true,
+        jQueryUI: false,
+        autoWidth: true,
+        autoSearch: false
+    };
+
+    //路径配置
+    employee.url = "/";
+    employee.requestUrl = {
+        queryList: employee.url + "example/ajax/data/objects.txt"
+    };
+
+    employee.search = {
+        uuid: ""
+    };
+
+    employee.status = [
+        {"searchable": false, "orderable": false, "targets": 0},//第一行不进行排序和搜索
+//        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
+//        {"width": "10%", "targets": [1]},  //设置第2列宽度
+//        {
+//            对第7列内容进行替换处理
+//            targets: 6,
+//            render: function (data, type, row, meta) {
+//                if (data == "1") {
+//                    return employee.table.sexMan;
+//                }
+//                if (data == "0") {
+//                    return employee.table.sexWoman;
+//                }
+//            }
+//        },
+        {defaultContent: '', targets: ['_all']} //所有列设置默认值为空字符串
+    ];
+
+    employee.filed = [
+        {
+            "data": "extn",
+            "createdCell": function (nTd, sData, oData, iRow, iCol) {
+                $(nTd).html("<input type='checkbox' name='checkList' value='" + sData + "'>");
+            }
+        },
+        {"data": "name"},
+        {"data": "position"},
+        {"data": "salary"},
+        {"data": "start_date"},
+        {"data": "office"},
+        {"data": "extn"}
+    ];
+
+    employee.buttons =
+            '<button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal">刷新表格</button>' +
+            '<button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" >多选</button>' +
+            '<button class="btn btn-primary" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" >单选</button>' +
+            '<button class="btn btn-default" type="button" id="search" style="margin-left:20px;" data-toggle="modal" >查询</button>' +
+            '<button class="btn btn-danger" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" >重置</button>';
+
+
+    var eloancn = {};
+
+    eloancn.table = {
+        grid: "",
+        statusTitle: "请选择一条数据！"
+    };
+
+    //dataTables方法封装
+    function dataTablesInit(elo) {
+
+        eloancn.table.grid = $('#' + elo.property.tableId).DataTable({
+            ajax: {
+                url: elo.requestUrl.queryList,   //请求后台路径
+                error: function (jqXHR, textStatus, errorMsg) {
+                    alert("请求失败");
+                }
+            },
+            "searching": elo.gridInit.searching,//搜索框，默认是开启
+            "lengthChange": elo.gridInit.lengthChange,//是否允许用户改变表格每页显示的记录数，默认是开启
+            "paging": elo.gridInit.paging,//是否开启本地分页，默认是开启
+            "processing": elo.gridInit.processing,//是否显示中文提示
+            "scrollCollapse": elo.gridInit.scrollCollapse,  //是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变
+            "serverSide": elo.gridInit.serverSide, //开启服务器模式，默认是关闭
+            "scrollY": elo.gridInit.scrollY,//设置高
+            "scrollX": elo.gridInit.scrollX,//设置宽度
+            "scrollXInner": elo.gridInit.scrollXInner,//设置内宽度
+            "scrollCollapse": elo.gridInit.scrollCollapse,//设置折叠
+            "jQueryUI": elo.gridInit.jQueryUI,//jquery 风格
+            "autoWidth": elo.gridInit.autoWidth, //是否自适应宽度
+            "columns": elo.filed,//字段
+            "columnDefs": elo.status,//列表状态
+            "language": {
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "未搜索到数据",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            },
+            "dom": "<'row'<'col-sm-2'l><'#" + elo.property.buttonId + ".col-sm-10'><'col-sm-6'f>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
+            "initComplete": function () {
+                $("#" + elo.property.buttonId).append(elo.buttons);
+                if (elo.gridInit.search) {
+                    $search = $("input[type='search']");
+                    //隐藏默认的搜索框
+                    $search.parent().hide();
+                }
+                //加载完成之后 初始化checkbox
+                checkbox(elo.property.tableId);
+
+
+                $("#reload").click(function () {
+                    reload();
+                });
+
+                $("#batchIds").click(function () {
+                    batchIds();
+                });
+
+                $("#selection").click(function () {
+                    selection();
+                });
+                $("#search").click(function () {
+                    search();
+                });
+                $("#clearSearch").click(function () {
+                    clearSearch("form-controlSearch");
+                });
+
+
+                //checkbox全选
+                $("#" + elo.property.checkAllId).click(function () {
+                    if ($(this).prop("checked")) {
+                        $("input[name='checkList']").prop("checked", true);
+                        $("tr").addClass('selected');
+                    } else {
+                        $("input[name='checkList']").prop("checked", false);
+                        $("tr").removeClass('selected');
+                    }
+                });
+
+            }
+        });
+
+        //错误信息提示
+        $.fn.dataTable.ext.errMode = function (s, h, m) {
+            if (h == 1) {
+                alert("连接服务器失败！");
+            } else if (h == 7) {
+                alert("返回数据错误！");
+            }
+        };
+
+        //回调，如果返回的时候有问题提示信息
+        eloancn.table.grid.on('xhr.dt', function (e, settings, json, xhr) {
+            console.log("重新加载了数据");
+            console.log(json);
+        });
+
+        //鼠标经过高亮
+        var lastIdx = null;
+        eloancn.table.grid.on('mouseover', 'td', function () {
+
+            if (typeof(eloancn.table.grid.cell(this).index()) != "undefined") {
+                var colIdx = eloancn.table.grid.cell(this).index().column;
+                if (colIdx !== lastIdx) {
+                    $(eloancn.table.grid.cells().nodes()).removeClass('highlight');
+                    $(eloancn.table.grid.column(colIdx).nodes()).addClass('highlight');
+                }
+            }
+        });
+
+        eloancn.table.grid.on('mouseleave', function () {
+            $(eloancn.table.grid.cells().nodes()).removeClass('highlight');
+        });
+
+
+        //自动搜索方法
+        $('.form-controlSearch').on('keyup change', function () {
+            elo.gridInit.autoSearch = $("#autoSearch").prop("checked");
+            if (elo.gridInit.autoSearch) {
+                filterColumn($(this).attr('data-column'));
+            }
+        });
+    }
+
+    //选中一行 checkbox选中
+    function checkbox(tableId) {
+        //每次加载时都先清理
+        $('#' + tableId + ' tbody').off("click", "tr");
+        $('#' + tableId + ' tbody').on("click", "tr", function () {
+            $(this).toggleClass('selected');
+            if ($(this).hasClass("selected")) {
+                $(this).find("input").prop("checked", true);
+            } else {
+                $(this).find("input").prop("checked", false);
+            }
+        });
+
+
+    }
+
+    //按钮搜索方法
+    function search() {
+
+        var oSettings = "";
+        $("[data-column]").each(function () {
+            var filedValue = $(this).attr('data-column');
+            if (filedValue != "") {
+                console.log($('#col' + filedValue + '_filter').val());
+                oSettings = eloancn.table.grid.column(filedValue).search(
+                        $('#col' + filedValue + '_filter').val()
+                );
+            }
+        });
+        //搜索的数据一次条件，节省资源
+        eloancn.table.grid.draw(oSettings);
+    }
+
+    //搜索
+    function filterColumn(i) {
+
+        eloancn.table.grid.column(i).search(
+                $('#col' + i + '_filter').val()
+        ).draw();
+    }
+
+    //清理搜索数据
+    function clearSearch(id) {
+
+        $("." + id).each(function () {
+            $(this).val("");
+        });
+        //清空查询条件重新读取数据
+        eloancn.table.grid.columns().search("").draw();
+    }
+
+    //获取所有选中行的UUID
+    function batchIds() {
+
+        var uuid = '';
+        var uuids = eloancn.table.grid.rows(".selected").data();
+        if (uuids.length == 0) {
+            alert(eloancn.table.statusTitle);
+        } else {
+            for (var i = 0; i < uuids.length; i++) {
+                uuid = uuid + uuids[i].extn + ",";
+            }
+            alert(uuid);
+        }
+    }
+
+    //单选
+    function selection() {
+
+        if (eloancn.table.grid.rows(".selected").data().length == 1) {
+            var uuid = eloancn.table.grid.row(".selected").data().extn;
+
+            if (uuid == "") {
+                alert(eloancn.table.statusTitle);
+            } else {
+                alert(uuid);
+            }
+
+        } else {
+            alert(eloancn.table.statusTitle);
+        }
+    }
+
+    //刷新页面
+    //重新加载数据
+    function reload() {
+        eloancn.table.grid.ajax.reload();
+    }
+
+    //销毁table
+    function destroyDataTable(tableId) {
+
+        var dttable = $('#' + tableId).DataTable();
+        dttable.destroy();
+    }
+
+
+</script>
+
+<hr />
+
+<p>代码如下：</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></td><td class="code"><pre><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"/js/datatables/jquery.dataTables.min.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"/js/datatables/jquery.dataTables.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+    是否自动检索：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"autoSearch"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    姓名：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"1"</span> <span class="na">id=</span><span class="s">"col1_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    地点：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"2"</span> <span class="na">id=</span><span class="s">"col2_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    薪水：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"3"</span> <span class="na">id=</span><span class="s">"col3_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    入职时间：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"4"</span> <span class="na">id=</span><span class="s">"col4_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    办公地点：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"5"</span> <span class="na">id=</span><span class="s">"col5_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    编号：<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">class=</span><span class="s">"form-controlSearch"</span> <span class="na">placeholder=</span><span class="s">"请输入关键字查询"</span> <span class="na">data-column=</span><span class="s">"6"</span> <span class="na">id=</span><span class="s">"col6_filter"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;br&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">id=</span><span class="s">"example"</span> <span class="na">class=</span><span class="s">"display"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+            <span class="nt">&lt;th&gt;&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"employeeCheckAll"</span><span class="nt">&gt;&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>姓名<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>地点<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>薪水<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>入职时间<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>办公地点<span class="nt">&lt;/th&gt;</span>
+            <span class="nt">&lt;th&gt;</span>编号<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337</pre></td><td class="code"><pre>    <span class="kd">var</span> <span class="nx">employee</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">property</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">version</span><span class="p">:</span> <span class="s2">"v1.0"</span><span class="p">,</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"employee"</span><span class="p">,</span>
+        <span class="na">tableId</span><span class="p">:</span> <span class="s2">"example"</span><span class="p">,</span>
+        <span class="na">checkAllId</span><span class="p">:</span> <span class="s2">"employeeCheckAll"</span><span class="p">,</span>
+        <span class="na">buttonId</span><span class="p">:</span> <span class="s2">"employeeButtonId"</span><span class="p">,</span>
+        <span class="na">formId</span><span class="p">:</span> <span class="s2">"employeeForm"</span><span class="p">,</span>
+        <span class="na">corporateFormId</span><span class="p">:</span> <span class="s2">"employeeForm"</span><span class="p">,</span>
+        <span class="na">returnStatus</span><span class="p">:</span> <span class="s2">"SUCCESS"</span><span class="p">,</span>
+        <span class="na">returnTitle</span><span class="p">:</span> <span class="s2">"操作成功"</span><span class="p">,</span>
+        <span class="na">statusTitle</span><span class="p">:</span> <span class="s2">"请选择一条数据！"</span><span class="p">,</span>
+        <span class="na">idFailure</span><span class="p">:</span> <span class="s2">"获取id失败"</span><span class="p">,</span>
+        <span class="na">prompt</span><span class="p">:</span> <span class="s2">"提示"</span><span class="p">,</span>
+        <span class="na">pleaseConfirm</span><span class="p">:</span> <span class="s2">"请确认！"</span><span class="p">,</span>
+        <span class="na">wantToDelete</span><span class="p">:</span> <span class="s2">"您确定要删除吗?"</span><span class="p">,</span>
+        <span class="na">sexMan</span><span class="p">:</span> <span class="s2">"男"</span><span class="p">,</span>
+        <span class="na">sexWoman</span><span class="p">:</span> <span class="s2">"女"</span><span class="p">,</span>
+        <span class="na">isTest</span><span class="p">:</span> <span class="s2">"是"</span><span class="p">,</span>
+        <span class="na">noTest</span><span class="p">:</span> <span class="s2">"否"</span><span class="p">,</span>
+        <span class="na">banned</span><span class="p">:</span> <span class="s2">"禁用"</span><span class="p">,</span>
+        <span class="na">enable</span><span class="p">:</span> <span class="s2">"启用"</span>
+    <span class="p">};</span>
+
+    <span class="c1">//初始化配置</span>
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">gridInit</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">searching</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">lengthChange</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">paging</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">scrollCollapse</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">serverSide</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">search</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">processing</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">scrollY</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="na">scrollX</span><span class="p">:</span> <span class="s2">"100%"</span><span class="p">,</span>
+        <span class="na">scrollXInner</span><span class="p">:</span> <span class="s2">"100%"</span><span class="p">,</span>
+        <span class="na">scrollCollapse</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">jQueryUI</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">autoWidth</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">autoSearch</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">};</span>
+
+    <span class="c1">//路径配置</span>
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="s2">"/"</span><span class="p">;</span>
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">requestUrl</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">queryList</span><span class="p">:</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">url</span> <span class="o">+</span> <span class="s2">"example/ajax/data/objects.txt"</span>
+    <span class="p">};</span>
+
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">uuid</span><span class="p">:</span> <span class="s2">""</span>
+    <span class="p">};</span>
+
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"searchable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"orderable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span><span class="c1">//第一行不进行排序和搜索</span>
+<span class="c1">//        {"targets": [12], "visible": false},    //设置第13列隐藏/显示</span>
+<span class="c1">//        {"width": "10%", "targets": [1]},  //设置第2列宽度</span>
+<span class="c1">//        {</span>
+<span class="c1">//            对第7列内容进行替换处理</span>
+<span class="c1">//            targets: 6,</span>
+<span class="c1">//            render: function (data, type, row, meta) {</span>
+<span class="c1">//                if (data == "1") {</span>
+<span class="c1">//                    return employee.table.sexMan;</span>
+<span class="c1">//                }</span>
+<span class="c1">//                if (data == "0") {</span>
+<span class="c1">//                    return employee.table.sexWoman;</span>
+<span class="c1">//                }</span>
+<span class="c1">//            }</span>
+<span class="c1">//        },</span>
+        <span class="p">{</span><span class="na">defaultContent</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">targets</span><span class="p">:</span> <span class="p">[</span><span class="s1">'_all'</span><span class="p">]}</span> <span class="c1">//所有列设置默认值为空字符串</span>
+    <span class="p">];</span>
+
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">filed</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"data"</span><span class="p">:</span> <span class="s2">"extn"</span><span class="p">,</span>
+            <span class="s2">"createdCell"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">nTd</span><span class="p">,</span> <span class="nx">sData</span><span class="p">,</span> <span class="nx">oData</span><span class="p">,</span> <span class="nx">iRow</span><span class="p">,</span> <span class="nx">iCol</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="nx">nTd</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">"&lt;input type='checkbox' name='checkList' value='"</span> <span class="o">+</span> <span class="nx">sData</span> <span class="o">+</span> <span class="s2">"'&gt;"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"position"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"salary"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"start_date"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"office"</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"extn"</span><span class="p">}</span>
+    <span class="p">];</span>
+
+    <span class="nx">employee</span><span class="p">.</span><span class="nx">buttons</span> <span class="o">=</span>
+            <span class="s1">'&lt;button class="btn btn-default"  type="button" id="reload" data-toggle="modal" data-target="#employeeModal"&gt;刷新表格&lt;/button&gt;'</span> <span class="o">+</span>
+            <span class="s1">'&lt;button class="btn btn-primary" type="button" id="batchIds" style="margin-left:20px;" data-toggle="modal" &gt;多选&lt;/button&gt;'</span> <span class="o">+</span>
+            <span class="s1">'&lt;button class="btn btn-primary" type="button" id="selection" style="margin-left:20px;" data-toggle="modal" &gt;单选&lt;/button&gt;'</span> <span class="o">+</span>
+            <span class="s1">'&lt;button class="btn btn-default" type="button" id="search" style="margin-left:20px;" data-toggle="modal" &gt;查询&lt;/button&gt;'</span> <span class="o">+</span>
+            <span class="s1">'&lt;button class="btn btn-danger" type="button" id="clearSearch" style="margin-left:20px;" data-toggle="modal" &gt;重置&lt;/button&gt;'</span><span class="p">;</span>
+
+
+    <span class="kd">var</span> <span class="nx">eloancn</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">grid</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+        <span class="na">statusTitle</span><span class="p">:</span> <span class="s2">"请选择一条数据！"</span>
+    <span class="p">};</span>
+
+    <span class="c1">//dataTables方法封装</span>
+    <span class="kd">function</span> <span class="nx">dataTablesInit</span><span class="p">(</span><span class="nx">elo</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">tableId</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+            <span class="na">ajax</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">url</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">requestUrl</span><span class="p">.</span><span class="nx">queryList</span><span class="p">,</span>   <span class="c1">//请求后台路径</span>
+                <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorMsg</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">alert</span><span class="p">(</span><span class="s2">"请求失败"</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">"searching"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">searching</span><span class="p">,</span><span class="c1">//搜索框，默认是开启</span>
+            <span class="s2">"lengthChange"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">lengthChange</span><span class="p">,</span><span class="c1">//是否允许用户改变表格每页显示的记录数，默认是开启</span>
+            <span class="s2">"paging"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">paging</span><span class="p">,</span><span class="c1">//是否开启本地分页，默认是开启</span>
+            <span class="s2">"processing"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">processing</span><span class="p">,</span><span class="c1">//是否显示中文提示</span>
+            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span>  <span class="c1">//是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变</span>
+            <span class="s2">"serverSide"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">serverSide</span><span class="p">,</span> <span class="c1">//开启服务器模式，默认是关闭</span>
+            <span class="s2">"scrollY"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollY</span><span class="p">,</span><span class="c1">//设置高</span>
+            <span class="s2">"scrollX"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollX</span><span class="p">,</span><span class="c1">//设置宽度</span>
+            <span class="s2">"scrollXInner"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollXInner</span><span class="p">,</span><span class="c1">//设置内宽度</span>
+            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span><span class="c1">//设置折叠</span>
+            <span class="s2">"jQueryUI"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">jQueryUI</span><span class="p">,</span><span class="c1">//jquery 风格</span>
+            <span class="s2">"autoWidth"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoWidth</span><span class="p">,</span> <span class="c1">//是否自适应宽度</span>
+            <span class="s2">"columns"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">filed</span><span class="p">,</span><span class="c1">//字段</span>
+            <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span><span class="c1">//列表状态</span>
+            <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">"sProcessing"</span><span class="p">:</span> <span class="s2">"处理中..."</span><span class="p">,</span>
+                <span class="s2">"sLengthMenu"</span><span class="p">:</span> <span class="s2">"显示 _MENU_ 项结果"</span><span class="p">,</span>
+                <span class="s2">"sZeroRecords"</span><span class="p">:</span> <span class="s2">"没有匹配结果"</span><span class="p">,</span>
+                <span class="s2">"sInfo"</span><span class="p">:</span> <span class="s2">"显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"</span><span class="p">,</span>
+                <span class="s2">"sInfoEmpty"</span><span class="p">:</span> <span class="s2">"显示第 0 至 0 项结果，共 0 项"</span><span class="p">,</span>
+                <span class="s2">"sInfoFiltered"</span><span class="p">:</span> <span class="s2">"(由 _MAX_ 项结果过滤)"</span><span class="p">,</span>
+                <span class="s2">"sInfoPostFix"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                <span class="s2">"sSearch"</span><span class="p">:</span> <span class="s2">"搜索:"</span><span class="p">,</span>
+                <span class="s2">"sUrl"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>
+                <span class="s2">"sEmptyTable"</span><span class="p">:</span> <span class="s2">"未搜索到数据"</span><span class="p">,</span>
+                <span class="s2">"sLoadingRecords"</span><span class="p">:</span> <span class="s2">"载入中..."</span><span class="p">,</span>
+                <span class="s2">"sInfoThousands"</span><span class="p">:</span> <span class="s2">","</span><span class="p">,</span>
+                <span class="s2">"oPaginate"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"sFirst"</span><span class="p">:</span> <span class="s2">"首页"</span><span class="p">,</span>
+                    <span class="s2">"sPrevious"</span><span class="p">:</span> <span class="s2">"上页"</span><span class="p">,</span>
+                    <span class="s2">"sNext"</span><span class="p">:</span> <span class="s2">"下页"</span><span class="p">,</span>
+                    <span class="s2">"sLast"</span><span class="p">:</span> <span class="s2">"末页"</span>
+                <span class="p">},</span>
+                <span class="s2">"oAria"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">"sSortAscending"</span><span class="p">:</span> <span class="s2">": 以升序排列此列"</span><span class="p">,</span>
+                    <span class="s2">"sSortDescending"</span><span class="p">:</span> <span class="s2">": 以降序排列此列"</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="s2">"dom"</span><span class="p">:</span> <span class="s2">"&lt;'row'&lt;'col-sm-2'l&gt;&lt;'#"</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">buttonId</span> <span class="o">+</span> <span class="s2">".col-sm-10'&gt;&lt;'col-sm-6'f&gt;r&gt;t&lt;'row'&lt;'col-sm-6'i&gt;&lt;'col-sm-6'p&gt;&gt;"</span><span class="p">,</span>
+            <span class="s2">"initComplete"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#"</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">buttonId</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">buttons</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">search</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">$search</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"input[type='search']"</span><span class="p">);</span>
+                    <span class="c1">//隐藏默认的搜索框</span>
+                    <span class="nx">$search</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">hide</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="c1">//加载完成之后 初始化checkbox</span>
+                <span class="nx">checkbox</span><span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">tableId</span><span class="p">);</span>
+
+
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#reload"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">reload</span><span class="p">();</span>
+                <span class="p">});</span>
+
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#batchIds"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">batchIds</span><span class="p">();</span>
+                <span class="p">});</span>
+
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#selection"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">selection</span><span class="p">();</span>
+                <span class="p">});</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#search"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">search</span><span class="p">();</span>
+                <span class="p">});</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#clearSearch"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="nx">clearSearch</span><span class="p">(</span><span class="s2">"form-controlSearch"</span><span class="p">);</span>
+                <span class="p">});</span>
+
+
+                <span class="c1">//checkbox全选</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s2">"#"</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">checkAllId</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">"input[name='checkList']"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'selected'</span><span class="p">);</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">"input[name='checkList']"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'selected'</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">});</span>
+
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="c1">//错误信息提示</span>
+        <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">ext</span><span class="p">.</span><span class="nx">errMode</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">h</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">h</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s2">"连接服务器失败！"</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">h</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="s2">"返回数据错误！"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">};</span>
+
+        <span class="c1">//回调，如果返回的时候有问题提示信息</span>
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'xhr.dt'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"重新加载了数据"</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
+        <span class="p">});</span>
+
+        <span class="c1">//鼠标经过高亮</span>
+        <span class="kd">var</span> <span class="nx">lastIdx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'mouseover'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">index</span><span class="p">())</span> <span class="o">!=</span> <span class="s2">"undefined"</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">colIdx</span> <span class="o">=</span> <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">index</span><span class="p">().</span><span class="nx">column</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">colIdx</span> <span class="o">!==</span> <span class="nx">lastIdx</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">cells</span><span class="p">().</span><span class="nx">nodes</span><span class="p">()).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+                    <span class="nx">$</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="nx">colIdx</span><span class="p">).</span><span class="nx">nodes</span><span class="p">()).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'mouseleave'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">cells</span><span class="p">().</span><span class="nx">nodes</span><span class="p">()).</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">'highlight'</span><span class="p">);</span>
+        <span class="p">});</span>
+
+
+        <span class="c1">//自动搜索方法</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'.form-controlSearch'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keyup change'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoSearch</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#autoSearch"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoSearch</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">filterColumn</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-column'</span><span class="p">));</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="c1">//选中一行 checkbox选中</span>
+    <span class="kd">function</span> <span class="nx">checkbox</span><span class="p">(</span><span class="nx">tableId</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//每次加载时都先清理</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span> <span class="o">+</span> <span class="s1">' tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="s2">"tr"</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span> <span class="o">+</span> <span class="s1">' tbody'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="s2">"tr"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s1">'selected'</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">"selected"</span><span class="p">))</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"input"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+
+
+    <span class="p">}</span>
+
+    <span class="c1">//按钮搜索方法</span>
+    <span class="kd">function</span> <span class="nx">search</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">oSettings</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">"[data-column]"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">filedValue</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'data-column'</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">filedValue</span> <span class="o">!=</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s1">'#col'</span> <span class="o">+</span> <span class="nx">filedValue</span> <span class="o">+</span> <span class="s1">'_filter'</span><span class="p">).</span><span class="nx">val</span><span class="p">());</span>
+                <span class="nx">oSettings</span> <span class="o">=</span> <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="nx">filedValue</span><span class="p">).</span><span class="nx">search</span><span class="p">(</span>
+                        <span class="nx">$</span><span class="p">(</span><span class="s1">'#col'</span> <span class="o">+</span> <span class="nx">filedValue</span> <span class="o">+</span> <span class="s1">'_filter'</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+                <span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+        <span class="c1">//搜索的数据一次条件，节省资源</span>
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">oSettings</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">//搜索</span>
+    <span class="kd">function</span> <span class="nx">filterColumn</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">search</span><span class="p">(</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#col'</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s1">'_filter'</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
+        <span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">//清理搜索数据</span>
+    <span class="kd">function</span> <span class="nx">clearSearch</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="nx">$</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="nx">id</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
+        <span class="p">});</span>
+        <span class="c1">//清空查询条件重新读取数据</span>
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">columns</span><span class="p">().</span><span class="nx">search</span><span class="p">(</span><span class="s2">""</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">//获取所有选中行的UUID</span>
+    <span class="kd">function</span> <span class="nx">batchIds</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">uuid</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">uuids</span> <span class="o">=</span> <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">rows</span><span class="p">(</span><span class="s2">".selected"</span><span class="p">).</span><span class="nx">data</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">uuids</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">statusTitle</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">uuids</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">uuid</span> <span class="o">=</span> <span class="nx">uuid</span> <span class="o">+</span> <span class="nx">uuids</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">extn</span> <span class="o">+</span> <span class="s2">","</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">uuid</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//单选</span>
+    <span class="kd">function</span> <span class="nx">selection</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">rows</span><span class="p">(</span><span class="s2">".selected"</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">uuid</span> <span class="o">=</span> <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">row</span><span class="p">(</span><span class="s2">".selected"</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">extn</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nx">uuid</span> <span class="o">==</span> <span class="s2">""</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">statusTitle</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">alert</span><span class="p">(</span><span class="nx">uuid</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">statusTitle</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//刷新页面</span>
+    <span class="c1">//重新加载数据</span>
+    <span class="kd">function</span> <span class="nx">reload</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">//销毁table</span>
+    <span class="kd">function</span> <span class="nx">destroyDataTable</span><span class="p">(</span><span class="nx">tableId</span><span class="p">)</span> <span class="p">{</span>
+
+        <span class="kd">var</span> <span class="nx">dttable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+        <span class="nx">dttable</span><span class="p">.</span><span class="nx">destroy</span><span class="p">();</span>
+    <span class="p">}</span>
+    
+  
+     <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+           <span class="nx">dataTablesInit</span><span class="p">(</span><span class="nx">employee</span><span class="p">);</span>
+     <span class="p">});</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+                </div>
+                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <hr>
+                <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+                <!--评论-->
+                <div id="disqus_thread"></div>
+<script>
+    /**
+     * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+    /*
+     var disqus_config = function () {
+     this.page.url = '/blog/2016/01/28/user-share-nbh1991.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/blog/2016/01/28/user-share-nbh1991.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     };
+     */
+    var disqus_config = function () {
+        this.page.url = 'http://datatables.club/blog/2016/01/28/user-share-nbh1991.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/blog/2016/01/28/user-share-nbh1991.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//datatables.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4">
+    <div>
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    </div>
+    <!-- Blog Search Well -->
+    <div class="well">
+        <h4>百度站内搜索</h4>
+        <div class="input-group">
+            <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+        </div>
+        <!-- /.input-group -->
+    </div>
+     <div class="well">
+        <div class="input-group">
+            <script>
+                (function() {
+                    var cx = '001171264216576386016:xim4af2d2ik';
+                    var gcse = document.createElement('script');
+                    gcse.type = 'text/javascript';
+                    gcse.async = true;
+                    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(gcse, s);
+                })();
+            </script>
+            <gcse:searchbox-only></gcse:searchbox-only>
+        </div>
+        <!-- /.input-group -->
+    </div>
+
+    <!-- Blog Categories Well -->
+    <div class="well">
+        <h4>博客分类</h4>
+        <div class="row">
+            <div id="tagcloud" style="padding:10px">
+
+                
+                <a href="/blog/listall.html#博客" title="博客" rel="14">
+                    博客 (14)
+                </a>
+                
+                <a href="/blog/listall.html#官方博客" title="官方博客" rel="2">
+                    官方博客 (2)
+                </a>
+                
+                <a href="/blog/listall.html#活动" title="活动" rel="1">
+                    活动 (1)
+                </a>
+                
+                <a href="/blog/listall.html#DataTables使用经验" title="DataTables使用经验" rel="6">
+                    DataTables使用经验 (6)
+                </a>
+                
+                <a href="/blog/listall.html#小伙伴分享" title="小伙伴分享" rel="1">
+                    小伙伴分享 (1)
+                </a>
+                
+                <a href="/blog/listall.html#不定时一讲" title="不定时一讲" rel="43">
+                    不定时一讲 (43)
+                </a>
+                
+                <a href="/blog/listall.html#技能" title="技能" rel="1">
+                    技能 (1)
+                </a>
+                
+                <a href="/blog/listall.html#MarkDown" title="MarkDown" rel="1">
+                    MarkDown (1)
+                </a>
+                
+                <a href="/blog/listall.html#番茄工作法" title="番茄工作法" rel="1">
+                    番茄工作法 (1)
+                </a>
+                
+                <a href="/blog/listall.html#DTCODE" title="DTCODE" rel="1">
+                    DTCODE (1)
+                </a>
+                
+                <a href="/blog/listall.html" title="all" rel="10">
+                    所有
+                </a>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="/js/jquery-2.0.0.js"></script>
+        <script type="text/javascript" src="/js/jquery.tagcloud.js"></script>
+        <script type="text/javascript" src="/js/cloud.js"></script>
+        <!-- /.row -->
+    </div>
+
+    <!-- Side Widget Well -->
+    <div class="well">
+        <h4>赞助我们</h4>
+        <a href="/about/#donate" title="赞助我们">
+            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-responsive" alt="赞助我们">
+        </a>
+        <p>
+            您的支持，将是我们前进的最大动力……
+        </p>
+
+    </div>
+
+</div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+    <div class="row">
+        <div class="col-lg-6">
+            <p>Themes and templates licensed under the <a
+                    href="https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE">MIT
+                License</a>.
+                <br>Based on <a href="http://getbootstrap.com/">Bootstrap</a>.</p>
+            <p>Copyright &copy; 2014 - 2016 datatables.club. Powered by
+                <a href="http://jekyllrb.com/"> Jekyll</a> .</p>
+            <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?1c2bd29cae4808be68e4f91e174e69a8";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+        </div>
+        <div class="col-lg-6">
+            <ul class="footer-links">
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
+                            width="100" height="20" title="Star on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe src="https://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true&v=2"
+                            frameborder="0" scrolling="0" width="100px" height="20px" title="Watch on GitHub"></iframe>
+                </li>
+                <li>
+                    <iframe style="border: 0;overflow: hidden"
+                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
+                            width="100" height="20" title="Fork on GitHub"></iframe>
+                </li>
+                <li>
+                    <a href="http://weibo.com/datatables" target="_blank"><img
+                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
+                </li>
+
+            </ul>
+            <ul  class="footer-links">
+                <li>
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/blog/_posts/2016-01/2016-01-28-user-share-nbh1991.markdown" title="Edit this page on GitHub">
+                        <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
+                    </a>
+                </li>
+            </ul>
+            <!--<ul class="footer-links" id="qqgroup">-->
+                <!--<li>QQ群：</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+            <ul  class="footer-links" id="qqgroup">
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（2000人中文网交流群）</a>
+                </li>
+                <li>
+                    <a class="bs3-link" onclick="noteTitle(this)"
+                       href="http://shang.qq.com/wpa/qunwpa?idkey=5796bab31300e68fa5adfd94d0083a65af2553435d64346364732e668290f226" target="_blank"
+                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（Editor 讨论群）</a>
+                </li>
+                <!--<li>-->
+                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
+                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"-->
+                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>-->
+                <!--</li>-->
+            </ul>
+            <ul class="footer-links">
+                <li>相关插件：</li>
+                <li><a href="http://www.ztree.me/" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
+            </ul>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</footer>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script type="text/javascript">
+    function noteTitle(obj){
+        var note = $(obj).attr("title");
+        alert(note);
+    }
+</script>
+
+    </div>
+    <script type="text/javascript" src="/js/datatables/jquery.dataTables.min.js"></script> <script>
+     $(document).ready(function(){
+           dataTablesInit(employee);
+     });
+</script>
+
+    <!-- /.container -->
+    <script src="/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
+
+</body>
+
+</html>
