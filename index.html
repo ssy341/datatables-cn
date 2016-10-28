@@ -82,10 +82,13 @@ title: Datatables 中文网
 </style>
 <div class="container"  style="margin-top:20px">
 
+    {% include getting_started.html %}
+
+
         <div class="row highlights">
 
             <div class="span4 news-list">
-                <h2>最新动态</h2>
+                <h2>DataTables中文网Blog</h2>
                 {% include bloglimit10andmore.html param=15 %}
             </div>
 
@@ -163,6 +166,8 @@ title: Datatables 中文网
 
 
 {% include libs/datatables_js.html param='1.10.5' %}
+
+<script src="/js/issue.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({
