@@ -131,10 +131,126 @@
 </style>
 <div class="container"  style="margin-top:20px">
 
+    <style>
+    pre {
+        font-size: 12px;
+        padding: 0;
+        margin: 0;
+        background: #f0f0f0;
+        line-height: 20px; /* 行距 */
+        background: url(http://www.shejidaren.com/examples/pre-style/pre-bg.gif) repeat-y left top;
+        width: 300px;
+        overflow: auto; /* 超出宽度出现滑动条 */
+        overflow-Y:hidden; /* 作用是隐藏IE的右侧滑动条 */
+    }
+
+    div.cdn {
+        position: relative;
+        margin-bottom: 1em;
+        box-shadow: 0 0 3px #555;
+    }
+
+    div.cdn>span {
+        display: inline-block;
+        width: 15%;
+        height: 30px;
+        text-align: center;
+        padding-top: 6px;
+        float: left;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        background: #eee;
+        border-right: 1px solid #bbb;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+    div.cdn>input {
+        display: inline-block;
+        width: 84%;
+        height: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px 5px;
+        vertical-align: middle;
+        background-color: #f9f9f9;
+        border: none;
+        font-family: "Source Code Pro","Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+        font-size: 0.8em;
+    }
+
+    div.cdn>a.cdn-link {
+        position: absolute;
+        top: 6px;
+        right: 11px;
+        height: 9px;
+        width: 9px;
+        background: url(https://datatables.net/media/images/external-site.gif) no-repeat center center;
+        background-color: #f9f9f9;
+        padding: 3px;
+        border: 1px solid #4d90fe;
+        border-radius: 3px;
+    }
+
+    #issueTable tbody td{
+        padding:0;
+    }
+</style>
+<link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
+<div class="row">
+    <!--简单入门-->
+    <div class="span6">
+        <p>
+            怎样简单地使用DataTables？使用下方简单的几行代码，一个方法初始化table。
+        </p>
+        <pre>
+    $(document).ready(function(){
+        $('#myTable').DataTable();
+    });</pre>
+    </div>
+    <div class="span6">
+        <p>
+            <a href="/manual/install.html" target="_blank">开始</a>使用DataTables很简单，只需要引入两个文件，
+            一个css样式文件和DataTables本身的脚本文件。在DataTables CDN上，可以使用下面这两个文件：
+        </p>
+        <div class="cdn">
+            <span>CSS</span>
+            <input type="text" value="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" readonly="">
+            <a href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" target="_blank" class="cdn-link"></a></div>
+
+        <div class="cdn">
+            <span>JS</span>
+            <input type="text" value="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" readonly="">
+            <a href="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" target="_blank" class="cdn-link"></a></div>
+    </div>
+
+    <div>
+        <div style="margin:10px 0">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- test -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2101546703939638"
+     data-ad-slot="9922577908"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+    </div>
+    <div class="span12">
+        <table class="display" id="issueTable">
+        </table>
+    </div>
+</div>
+
+
         <div class="row highlights">
 
             <div class="span4 news-list">
-                <h2>最新动态</h2>
+                <h2>DataTables中文网Blog</h2>
                 
 
 
@@ -143,8 +259,8 @@
     <div class="news-date">2016年10月22日</div>
     <div class="news-title">
         <a href="/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html">DataTables表格插件和其他表格插件比较之（DataTables VS EasyUI DataGrid）零配置</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -153,8 +269,8 @@
     <div class="news-date">2016年09月30日</div>
     <div class="news-title">
         <a href="/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html">关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -163,8 +279,8 @@
     <div class="news-date">2016年07月10日</div>
     <div class="news-title">
         <a href="/blog/2016/07/10/add-index-for-table.html">给表格添加索引(Type selector-modifier 应用)</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -173,8 +289,8 @@
     <div class="news-date">2016年06月26日</div>
     <div class="news-title">
         <a href="/blog/2016/06/26/dt-code-help-doc.html">DTCODE(DataTables代码在线编辑)简陋上线</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/26/dt-code-help-doc.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/06/26/dt-code-help-doc.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -183,8 +299,8 @@
     <div class="news-date">2016年06月10日</div>
     <div class="news-title">
         <a href="/blog/2016/06/10/multiple-columns-search.html">DataTables 多条件查询、多列搜索</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/10/multiple-columns-search.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/06/10/multiple-columns-search.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -193,8 +309,8 @@
     <div class="news-date">2016年06月9日</div>
     <div class="news-title">
         <a href="/blog/2016/06/09/datatables-for-tomato.html">番茄工作法（简单易行的时间管理方法）- DataTables实现(介绍篇)</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/09/datatables-for-tomato.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/06/09/datatables-for-tomato.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -203,8 +319,8 @@
     <div class="news-date">2016年06月4日</div>
     <div class="news-title">
         <a href="/blog/2016/06/04/to-reader.html">致在使用 DataTables 的小伙伴</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/04/to-reader.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/06/04/to-reader.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -213,8 +329,8 @@
     <div class="news-date">2016年05月28日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html">如何添加新行到表格的最上面（困扰了许多人的一个梗）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -223,8 +339,8 @@
     <div class="news-date">2016年05月23日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html">Markdown语法介绍（针对DataTables中文网）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -233,8 +349,8 @@
     <div class="news-date">2016年04月22日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html">如何定位问题（js调试基本技能）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -243,8 +359,8 @@
     <div class="news-date">2016年01月28日</div>
     <div class="news-title">
         <a href="/blog/2016/01/28/user-share-nbh1991.html">DataTables入门例子（代码封装）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/01/28/user-share-nbh1991.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2016/01/28/user-share-nbh1991.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -253,8 +369,8 @@
     <div class="news-date">2015年05月8日</div>
     <div class="news-title">
         <a href="/blog/2015/05/08/the-first-activity.html">Datatables中文网第一期交流学习活动开始了</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2015/05/08/the-first-activity.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2015/05/08/the-first-activity.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -263,8 +379,8 @@
     <div class="news-date">2015年04月10日</div>
     <div class="news-title">
         <a href="/blog/2015/04/10/vertical-page-fitting.html">DataTables 类瀑布流分页</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2015/04/10/vertical-page-fitting.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2015/04/10/vertical-page-fitting.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -273,8 +389,8 @@
     <div class="news-date">2014年10月22日</div>
     <div class="news-title">
         <a href="/blog/2014/10/22/search-result-highlighting.html">高亮显示搜索结果</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2014/10/22/search-result-highlighting.html"></span>
+        <span class='disqus-comment-count'
+                                           data-disqus-url="http://datatables.club/blog/2014/10/22/search-result-highlighting.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -291,7 +407,7 @@
     <div class="news-date">2016年09月30日</div>
     <div class="news-title">
         <a href="/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html">关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -300,7 +416,7 @@
     <div class="news-date">2016年09月25日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/25/option-stateSaveParams.html">option stateSaveParams 状态数据保存操作回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -309,7 +425,7 @@
     <div class="news-date">2016年09月23日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/23/option-stateSaveCallback.html">option stateSaveCallback 定义表格状态怎样、在哪里存储</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -318,7 +434,7 @@
     <div class="news-date">2016年09月22日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/22/option-stateLoadParams.html">option stateLoadParams 状态读取数据操作回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -327,7 +443,7 @@
     <div class="news-date">2016年09月11日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/11/option-stateLoaded.html">option stateLoaded 状态读取回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -336,7 +452,7 @@
     <div class="news-date">2016年09月10日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/10/option-stateLoadCallback.html">option stateLoadCallback 状态读取回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -345,7 +461,7 @@
     <div class="news-date">2016年09月4日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/04/option-rowCallback.html">option rowCallback 行绘制回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -354,7 +470,7 @@
     <div class="news-date">2016年09月2日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/09/02/option-preDrawCallback.html">option preDrawCallback 重绘前回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -363,7 +479,7 @@
     <div class="news-date">2016年08月30日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/08/30/option-infoCallback.html">option infoCallback 表格概要信息显示回调</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/30/option-infoCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/30/option-infoCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -372,7 +488,7 @@
     <div class="news-date">2016年08月29日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/08/29/option-headerCallback.html">option headerCallback 表头回调函数</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/29/option-headerCallback.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/29/option-headerCallback.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -381,7 +497,7 @@
     <div class="news-date">2016年07月10日</div>
     <div class="news-title">
         <a href="/blog/2016/07/10/add-index-for-table.html">给表格添加索引(Type selector-modifier 应用)</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -390,7 +506,7 @@
     <div class="news-date">2016年05月12日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/12/all-options-of-options.html">DataTables初始化对照模板4（全部option - Options 配置选项）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -399,7 +515,7 @@
     <div class="news-date">2016年05月12日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/12/all-options-of-internationalisation.html">DataTables初始化对照模板6（全部option - Internationalisation 国际化）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -408,7 +524,7 @@
     <div class="news-date">2016年05月12日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/12/all-options-of-features.html">DataTables初始化对照模板1（全部option - Features 特性）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -417,7 +533,7 @@
     <div class="news-date">2016年05月12日</div>
     <div class="news-title">
         <a href="/manual/daily/2016/05/12/all-options-of-data.html">DataTables初始化对照模板2（全部option - Data 数据）</a>
-        <i class="icon-comment "></i><span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html"></span>
+        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html"></span><i class="icon-comment "></i>
     </div>
 </article>
 
@@ -764,6 +880,8 @@ client.on( 'error', function() {
 
 <script  type="text/javascript" charset="utf8" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
 
+
+<script src="/js/issue.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#example').dataTable({
