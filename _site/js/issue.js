@@ -54,16 +54,16 @@ $(document).ready(function(){
                         hot = "<span class='hot'></span>"
                     }
                     return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels +
-                        "<i class='icon Hui-iconfont'>&#xe622;</i>"+row.comments +hot;
+                        "<i class='icon-comment'></i>"+row.comments +hot;
                 }
             }
         ],
         initComplete:function(){
             $("#toolbar").css("width","100px").css("display","inline").css("margin-left","10px");
             $("#toolbar").append("<a href='https://github.com/ssy341/datatables-cn/issues/new' " +
-                "class='btn btn-primary btn-sm'>我也要提问</a>");
-            $("#toolbar").append("<a href='example/diy.html' " +
-                "class='btn btn-default btn-sm'>DIY</a>");
+                "class='btn btn-primary btn-sm' target='_blank'>我也要提问</a>");
+            $("#toolbar").append("<a href='/example/diy.html' " +
+                "class='btn btn-default btn-sm' target='_blank'>DIY</a>");
         }
     });
 });
