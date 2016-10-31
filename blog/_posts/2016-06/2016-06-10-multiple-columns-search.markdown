@@ -128,7 +128,7 @@ $(document).on("click","#example button.search",function(){
 //扩展DT的默认配置
 $.extend($.fn.dataTable.defaults, {
     //在 dom 里面不配置 f ，可以隐藏掉默认的搜索框
-    dom: '<"datatable-header"<"dataTables_filter">l><"datatable-scroll"t><"datatable-footer"ip>',
+    dom: 't<"dataTables_info"il>p',
     //DT初始化完毕回调函数
     initComplete: function(settings) {
         var _$this = this;
@@ -155,3 +155,146 @@ var t = $('#example').DataTable({
 重写datatables搜索事件，这样就能做到按下回车时搜索了，还不破坏 DataTables 原有的样式结构。
 
 ---
+
+
+2016年10月31日补充：
+Smail小伙伴提供如下代码：
+
+{% highlight javascript linenos %}
+$.extend($.fn.dataTable.defaults, {
+	dom: 't<"dataTables_info"il>p',
+	language: {
+		"url": "../assets/lib/datatables/datatables_language.json"
+	},
+	processing: true, //当datatable获取数据时候是否显示正在处理提示信息。
+	serverSide: true, //处理分页
+	responsive: {
+		details: false
+	},
+	initComplete: function(settings) {
+		var _$this = this;
+
+		/**
+		 * 重写搜索事件
+		 */
+		$('#doSearch').bind('click', function(e) {
+			_$this.api().ajax.reload();
+		});
+		$('#search').bind('keyup', function(e) {
+			if(e.keyCode == 13 || (e.keyCode == 8 && (this.value.length == 0))) {
+				_$this.api().ajax.reload();
+			}
+		});
+	},
+	drawCallback: drawCallbackDefault
+});
+
+/**
+ * DT绘制完成回调
+ * 单独写出来是方便二次定制
+ * 
+ * 默认回调函数功能：
+ * 1.DT第一列checkbox初始化从icheck
+ * 2.iCheck全选、取消多选、多选与单选双向关联
+ * 3.选中的tr加上selected class
+ * 
+ * @param {Object} settings
+ */
+function drawCallbackDefault(settings, _$this) {
+    console.log('drawCallbackDefault');
+	_$this = (isExitsVariable('_$this') && _$this) ? _$this : this;
+	selector = _$this.selector;
+	$(selector + ' input').iCheck({
+		checkboxClass: 'icheckbox_minimal',
+		increaseArea: '20%'
+	});
+
+	/**
+	 * DT thead iCheck 点击事件
+	 */
+	$(selector + ' input[name=all]').on('ifChecked ifUnchecked', function(e) {
+		$(this).closest('table').find('input[name=single]').each(function() {
+			if(e.type == 'ifChecked') {
+				$(this).iCheck('check');
+				$(this).closest('tr').addClass('selected');
+			} else {
+				$(this).iCheck('uncheck');
+				$(this).closest('tr').removeClass('selected');
+			}
+		});
+	});
+
+	/**
+	 * DT tbody iCheck点击事件
+	 */
+	$(selector + ' input[name=single]').on('ifChecked ifUnchecked', function(e) {
+		if(e.type == 'ifChecked') {
+			$(this).iCheck('check');
+			$(this).closest('tr').addClass('selected');
+			//全选单选框的状态处理
+			var selected = _$this.api().rows('.selected').data().length; //被选中的行数
+			var recordsDisplay = _$this.api().page.info().recordsDisplay; //搜索条件过滤后的总行数
+			var iDisplayStart = _$this.api().page.info().start; // 起始行数
+			if(selected === _$this.api().page.len() || selected === recordsDisplay || selected === (recordsDisplay - iDisplayStart)) {
+				$(selector + ' input[name=all]').iCheck('check');
+			}
+		} else {
+			$(this).iCheck('uncheck');
+			$(this).closest('tr').removeClass('selected');
+			$(selector + ' input[name=all]').attr('checked', false);
+			$(selector + ' input[name=all]').iCheck('update');
+		}
+	});
+
+	/**
+	 * 检测参数是否定义
+	 * @param {Object} variableName
+	 */
+	function isExitsVariable(variableName) {
+		try {
+			if(typeof(variableName) == "undefined") {
+				return false;
+			} else {
+				return true;
+			}
+		} catch(e) {}
+		return false;
+	}
+}
+{% endhighlight %}
+使用方式：
+{% highlight javascript linenos %}
+<table class="table table-border table-bordered table-bg table-hover table-sort" width="100%">
+    <thead>
+        <tr class="text-c">
+            <th><input id="input-0" type="checkbox" name="all"><label for="input-0"></label></th>
+            <th>标题</th>
+            <th>栏目</th>
+            <th>排序</th>
+            <th>创建时间</th>
+            <th>作者</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+</table>
+$(function($) {
+	var datatable = $('.table-sort').DataTable({
+        columns: [{
+			data: "id",
+            render: function(data, type, row, meta) {
+				return '<input id="input-' + data + '" type="checkbox" name="single"><label for="input-' + data + '"></label>';
+			}
+		}],
+        drawCallback:function(settings){
+            var _$this = this;
+            drawCallbackDefault(settings,_$this);
+            console.log('用户二次定义！');
+        }
+	});
+});
+{% endhighlight %}
+如上代码：
+若不声明drawCallback，DT会调用drawCallbackDefault，控制台会打印出drawCallbackDefault，若声明drawCallback，并在drawCallback中调用默认回调，控制台会打印出drawCallbackDefault和用户二次定义 两句log，也允许完全覆盖drawCallback重写。
+注意，Smail提供的代码依赖JS iCheck组件，使用的小伙伴们记得自行引入icheck。
+
