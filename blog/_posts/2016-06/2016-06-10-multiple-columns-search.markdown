@@ -263,7 +263,7 @@ function drawCallbackDefault(settings, _$this) {
 }
 {% endhighlight %}
 使用方式：
-{% highlight javascript linenos %}
+{% highlight html linenos %}
 <table class="table table-border table-bordered table-bg table-hover table-sort" width="100%">
     <thead>
         <tr class="text-c">
@@ -278,12 +278,14 @@ function drawCallbackDefault(settings, _$this) {
         </tr>
     </thead>
 </table>
+<script>
 $(function($) {
 	var datatable = $('.table-sort').DataTable({
         columns: [{
 			data: "id",
             render: function(data, type, row, meta) {
-				return '<input id="input-' + data + '" type="checkbox" name="single"><label for="input-' + data + '"></label>';
+				return '<input id="input-' + data + '" type="checkbox" name="single">'+
+				'<label for="input-' + data + '"></label>';
 			}
 		}],
         drawCallback:function(settings){
@@ -293,8 +295,11 @@ $(function($) {
         }
 	});
 });
+</script>
 {% endhighlight %}
 如上代码：
-若不声明drawCallback，DT会调用drawCallbackDefault，控制台会打印出drawCallbackDefault，若声明drawCallback，并在drawCallback中调用默认回调，控制台会打印出drawCallbackDefault和用户二次定义 两句log，也允许完全覆盖drawCallback重写。
+若不声明drawCallback，DT会调用drawCallbackDefault，控制台会打印出drawCallbackDefault，
+若声明drawCallback，并在drawCallback中调用默认回调，控制台会打印出drawCallbackDefault和用户二次定义 两句log，
+也允许完全覆盖drawCallback重写。
 注意，Smail提供的代码依赖JS iCheck组件，使用的小伙伴们记得自行引入icheck。
 
