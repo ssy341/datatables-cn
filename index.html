@@ -167,9 +167,109 @@ title: Datatables 中文网
 
 {% include libs/datatables_js.html param='1.10.5' %}
 
-<script src="/js/issue.js"></script>
-<script type="text/javascript">
+<script>
+
+
+    //solve this
+    //reference http://stackoverflow.com/questions/4911577/jquery-click-toggle-between-two-functions
+    (function($) {
+        $.fn.clickToggle = function(func1, func2) {
+            var funcs = [func1, func2];
+            this.data('toggleclicked', 0);
+            this.click(function() {
+                var data = $(this).data();
+                var tc = data.toggleclicked;
+                $.proxy(funcs[tc], this)();
+                data.toggleclicked = (tc + 1) % 2;
+            });
+            return this;
+        };
+    }(jQuery));
+
+
+    var githubTable;
     $(document).ready(function () {
+
+        //配置DataTables默认参数
+        $.extend(true, $.fn.dataTable.defaults, {
+            "language": {
+                "url": "/assets/Chinese.txt"
+            },
+            "dom": "l<'#toolbar'>frtip"
+        });
+
+        //issue表格初始化
+        githubTable = $("#issueTable").DataTable({
+            ajax: {
+                url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
+                dataSrc: ""
+            },
+            //默认最后一列（最后更新时间）降序排列
+            order: [[2, "desc"]],
+            columnDefs: [
+                {
+                    targets: 2,
+                    data: "updated_at",
+                    title: "最后更新时间",
+                    render: function (data, type, row, meta) {
+                        return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
+                    }
+                },
+                {
+                    targets: 1,
+                    data: null,
+                    title: "发表人",
+                    render: function (data, type, row, meta) {
+                        return "<a href='" + row.user.html_url + "' target='_blank'>" + row.user.login + "</a>"
+                    }
+                },
+                {
+                    targets: 0,
+                    data: "title",
+                    title: "问题",
+                    render: function (data, type, row, meta) {
+                        var labels = "";
+                        if (row.labels.length) {
+                            labels += "【";
+                            for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
+                                labels += "<span style='color:#" + row.labels[j].color + "' >" +
+                                        row.labels[j].name + "</span>";
+                                if (j != labelslen - 1) {
+                                    labels += ",";
+                                }
+                            }
+                            labels += "】";
+                        }
+                        var hot = "";
+                        if (labels.indexOf("置顶") > 0) {
+                            hot = "<span class='hot'></span>"
+                        }
+                        return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels +
+                                "<i class='icon-comment'></i>" + row.comments + hot;
+                    }
+                }
+            ],
+            initComplete: function () {
+                $("#toolbar").css("width", "100px").css("display", "inline").css("margin-left", "10px");
+                $("#toolbar").append("<a href='https://github.com/ssy341/datatables-cn/issues/new' " +
+                        "class='btn btn-primary btn-sm' target='_blank'>我有问题</a>");
+                $("#toolbar").append("<a href='/example/diy.html' " +
+                        "class='btn btn-default btn-sm' style='margin-left: 5px' target='_blank'>DIY</a>");
+                $("#toolbar").append("<a href='javascript:void(0);' " +
+                        "class='btn btn-default btn-sm closedIssue' style='margin-left: 5px'>已解决问题</a>");
+
+                //加载已经关闭的问题
+                $(".closedIssue").clickToggle(function () {
+                    githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues?state=closed").load();
+                    $(this).text("未解决问题");
+                }, function () {
+                    githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues").load();
+                    $(this).text("已解决问题");
+                });
+            }
+        });
+
+        //捐赠表格初始化
         $('#example').dataTable({
             order: [
                 [2, "desc"]
@@ -193,15 +293,15 @@ title: Datatables 中文网
             },
             ajax: "{{site.baseurl}}/assets/donate.txt",
             createdRow: function (row, data, dataIndex) {
-                $(row).attr("title",data.note)
+                $(row).attr("title", data.note)
                 if (data.type) {
                     $(row).addClass("donateType");
                 } else {
                     $(row).addClass("earnType");
                 }
             },
-            infoCallback: function( settings, start, end, max, total, pre ) {
-                return start +"-"+ end+"(共"+total+"个热心网友 )<a class='button button-success' href='/about/index.html#donate'>我也要赞一个 &gt;&gt;</a>";
+            infoCallback: function (settings, start, end, max, total, pre) {
+                return start + "-" + end + "(共" + total + "个热心网友 )<a class='button button-success' href='/about/index.html#donate'>我也要赞一个 &gt;&gt;</a>";
             },
             initComplete: function () {
                 var api = this.api();
@@ -215,6 +315,37 @@ title: Datatables 中文网
 
     });
 
+    //时间格式化
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1,
+            //月份
+            "d+": this.getDate(),
+            //日
+            "h+": this.getHours(),
+            //小时
+            "m+": this.getMinutes(),
+            //分
+            "s+": this.getSeconds(),
+            //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    };
+
+
+
+    //广告显示/隐藏
     $(function () {
         $('.adsense_btn_close').click(function () {
             $(this).closest('.adsense_fixed').css('display', 'none');
@@ -227,6 +358,5 @@ title: Datatables 中文网
                 $('.adsense_info_content').css('display', 'block');
             }
         });
-
     });
 </script>
