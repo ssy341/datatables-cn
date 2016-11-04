@@ -1,0 +1,175 @@
+<h2>经常提的问题</h2>
+
+
+<h3>初级</h3>
+<section>
+    <h3>1，如何检查自己使用的DT是什么版本？</h3>
+    <p>
+        <code>$.fn.dataTable.versionCheck()</code>
+    </p>
+</section>
+<section>
+    <h3>2，DataTables参数名有些混乱了，为什么？</h3>
+    <p>
+        1.9- 为老版，1.10+为新版，具体区别 <a href="http://datatables.club/upgrade/1.10-convert.html#">看这里</a>
+        <a href="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html">新版用法参考</a>
+    </p>
+</section>
+<section>
+    <h3>3，DataTables支持什么样的数据源</h3>
+    <p>
+        <a href="http://datatables.club/example/data_sources/ajax.html">AJAX取数</a>，
+        <a href="http://datatables.club/example/data_sources/dom.html">DOM数据直接渲染</a>，
+        <a href="http://datatables.club/example/data_sources/js_array.html">js数组</a>，
+        <a href="http://datatables.club/example/data_sources/server_side.html">服务器处理</a>
+    </p>
+</section>
+<section>
+    <h3>4，DataTables 滚动条</h3>
+    <p>
+        <a href="http://datatables.club/example/basic_init/scroll_x.html">水平滚动条</a>，
+        <a href="http://datatables.club/example/basic_init/scroll_y.html">垂直滚动条</a>，
+        <a href="http://datatables.club/example/basic_init/scroll_xy.html">水平和垂直滚动条</a>，
+        ps：开启滚动条后，DT会把thead和tbody分为两个table来显示，如果发现有两个表头或者是列和表头对应不齐，
+        大多数情况是因为css冲突导致，建议把其他css先去掉，排除法找到冲突的css。关于表头缩在一起的问题可以参考
+        <a href="https://github.com/ssy341/datatables-cn/issues/9">#9</a>或许能有所启发
+    </p>
+</section>
+<section>
+    <h3>5，DataTables 选中行</h3>
+    <p>
+        <a href="http://datatables.club/example/api/select_single_row.html">选择单行</a>，
+        <a href="http://datatables.club/example/api/select_row.html">选择多行</a>，
+        <a href="http://datatables.club/example/api/select_single_row.html">
+            获取选中行的值（每个单元格或者一整行，包含隐藏列）table.row('.selected').data() 即为一整行的值 table.row('.selected').data().id 获取这一行每个单元格的值
+        </a>，
+        <a href="http://datatables.club/blog/2016/07/10/add-index-for-table.html">添加序号</a>
+    </p>
+</section>
+<section>
+    <h3>6，DataTables单元格渲染</h3>
+    <p>
+        <a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html">checkbox/redio/button</a>，
+        <a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html">内容替换 - 1/0 替换成 是/否、url替换成可跳转的a标签或者img</a>，
+        <a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html">内容格式化 - 时间戳改为日期格式、内容太长不换行</a>，
+        <a href="http://datatables.club/manual/daily/2016/05/03/option-formatNumber.html">数字优化显示</a>
+    </p>
+</section>
+<section>
+    <h3>7，DataTables rowspan 和 colspan 复杂表头</h3>
+    <p>
+        <a href="http://datatables.club/example/basic_init/complex_header.html">复杂表头 实例1</a>，
+        <a href="http://datatables.club/example/advanced_init/complex_header.html">复杂表头 实例2</a>
+        （ps：不能在js里配置复杂表头）
+    </p>
+</section>
+<section>
+    <h3>8，如何保持当前页的状态刷新数据</h3>
+    <p>
+    <pre>
+var dt = $("#tableid").DataTable({……});
+//再需要刷新的地方调用下面这个方法
+dt.ajax.reload(null,false)
+
+var dt = $("#tableid").DataTable({……});
+//再需重绘的地方调用下面这个方法
+dt.draw(false);
+
+</pre>
+    </p>
+</section>
+
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+<h3>高级</h3>
+
+<section>
+    <h3>1，DataTable 单元格合并怎么做？</h3>
+    <p>暂时没有答案</p>
+</section>
+<section>
+    <h3>2，DataTables 跨页选择（服务器客户端通用）</h3>
+    <p>
+        <a href="https://datatables.net/examples/server_side/select_rows.html">DataTables 跨页选择（服务器客户端通用）</a>
+    </p>
+</section>
+<section>
+    <h3>3，DataTables 动态列问题</h3>
+    <p>
+        <a href="https://github.com/ssy341/datatables-cn/issues/4">DataTables 动态列问题</a>
+    </p>
+</section>
+<section>
+    <h3>4，DataTables 行内编辑</h3>
+    <p>
+        <a href="http://datatables.club/blog/2016/06/09/datatables-for-tomato.html">DataTables 行内编辑</a>
+    </p>
+</section>
+<section>
+    <h3>5，DataTables 服务器模式</h3>
+    <p>
+        参考<a href="http://datatables.club/manual/server-side.html">DataTables 服务器模式手册</a>
+        <a href="https://github.com/ssy341/datatabes_cn_example_curd_java">java实现服务器模式</a>
+    </p>
+</section>
+<section>
+    <h3>6，后台异常，如何显示服务器返回的自定义错误，而不是弹出报错</h3>
+    <p>
+    <pre>
+$.fn.dataTable.ext.errMode = function( settings, tn, msg){
+//打印msg，和tn来判断，进了这个方法都是ajax走了error才会到这里来
+}
+
+//绑定xhr事件
+table.on('xhr.dt',function (e, settings, json, xhr) {
+    console.log(xhr)
+    if (xhr.status == 200) {
+        //自己的代码
+    } else {
+        //自己的代码
+    }
+});
+</pre>
+    </p>
+</section>
+<section>
+    <h3>7，怎么按照自己要求布局DataTables的各个元素</h3>
+    <p>
+        参考<a href="http://datatables.club/manual/daily/2016/05/11/option-dom.html">DOM参数</a>
+        <a href="http://datatables.club/example/advanced_init/dom_toolbar.html">例子</a>
+    </p>
+</section>
+
+
+
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+<h3>扩展</h3>
+<section>
+    <h3>1，怎么冻结列，冻结表头？</h3>
+    <p>
+        <a href="http://datatables.club/extensions/">DataTables扩展入口</a>
+    </p>
+</section>
+<section>
+    <h3>2，怎么指定跳转到页数？</h3>
+    <p>
+        <a href="http://datatables.club/plug-ins/">DataTables插件入口</a>
+        <a href="https://datatables.net/plug-ins/pagination/extjs">跳到指定页（extjs）</a>
+    </p>
+</section>
+<section>
+    <h3>3，搜索条件 && 或者 || [search("a b")]？</h3>
+    <p>
+        <a href="http://stackoverflow.com/questions/25382569/jquery-datatables-or-search-filter">jquery-datatables-or-search-filter</a>
+    </p>
+</section>
+<section>
+    <h3>4，自定义返回数据格式 （dataSrc）</h3>
+    <p>
+        <a href="http://stackoverflow.com/questions/32941913/custom-data-source-property-datasrc-and-pagination-issue">Custom data source property dataSrc and pagination issue</a>
+    </p>
+</section>
+
+

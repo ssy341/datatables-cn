@@ -1,0 +1,34 @@
+<h2>一般初始化</h2>
+<section>
+    <h3>1，我觉得Datatables在加载的时候比较慢，有没有让Datatables更快一点</h3>
+    <p>
+        答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
+    <ul>
+        <li>如果你是客户端模式，DOM数据源，数据在5000条以内，加上 {% include href/option/options/option.options param="orderClasses" %}</li>
+        <li>如果你是 AJAX 加载数据，数据在50000条以内，加上 {% include href/option/deferRender.dt %}</li>
+        <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/option/options/option.features param="serverSide" %}）</li>
+    </ul>
+    注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响
+    </p>
+</section>
+<section>
+    <h3>2，表格不能正常显示</h3>
+    <p>
+        Datatables所需要的table是比较严谨的，table里必须包含thead和tbody标签(1.10.x+好像不需要tbody也行了，大家注意自己多尝试)。再检查其他html是否有效，控制台有没有错误？初次使用Datatables参考
+        <a
+                href="/manual/install.html" target="_blank">安装手册</a>
+    </p>
+</section>
+<section>
+    <h3>3，表格显示的样式和例子的不同</h3>
+    <p>
+        检查css样式文件是否引入正确（名称和路径），还有页面上引入的其他css有没有一并引入
+    </p>
+</section>
+<section>
+    <h3>4，如何按照自己的喜好摆放Datatables的控件</h3>
+    <p>
+        配置 {% include href/option/dom.dt %} 属性来自由摆放， <a href="/example/basic_init/dom.html"
+                                                        target="_blank">示例</a>
+    </p>
+</section>

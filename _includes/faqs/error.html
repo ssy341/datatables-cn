@@ -1,0 +1,87 @@
+<h2>常见错误</h2>
+<section>
+    <h3>1，控制台报错，提示api方法不可用</h3>
+    <p>
+        1.10.x版本后，有两种初始化的写法， <code>$().dataTable()</code> 返回的是一个jQuery实例，
+        <code>$().DataTable()</code> 返回的是Datatables的api实例，
+        如果在使用过程中出现某某方法不存在不支持之类的，一般都是由于是用第一种方法初始化dt，用返回的对象去调用api的方法，所以报错误。
+        dt的api实例和jquery可以互转 ，jquery转api：dt.api();api转jquery：dt.to$();
+        详细参考 <a href="/manual/api.html" target="_blank">api手册</a>
+    </p>
+</section>
+<section>
+    <h3>2，弹出提示 Invalid JSON response 是什么意思？</h3>
+    <p>
+        根据提示翻译，无效的json返回。那么只需要看请求返回的数据即可知道问题所在。
+        正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+        <a href="{{site.baseurl}}{% post_url 2016-04-22-how-to-find-the-questions-basic-debug-skill-of-javascript %}"
+           target="_blank">如何查看返回数据？</a>
+    </p>
+</section>
+<section>
+    <h3>3，弹出提示 Datatables warning:Non-table node initialisation (DIV) 是怎么回事</h3>
+    <p>
+        这个根据提示很容易看出，没有一个table节点初始化，出现这个情况可能是因为你定义的 id 在非 table 元素上
+    </p>
+</section>
+<section>
+    <h3>4，弹出提示 Cannot reinitialise DataTable 或者是 Cannot destroy DataTable 是怎么回事</h3>
+    <p>
+        加上 retrieve:true 和 destroy:true 两个参数即可
+        另见：{% include href/option/retrieve.dt %}{% include href/option/destroy.dt %}参数具体含义
+    </p>
+</section>
+<section>
+    <h3>5，控制台报错 Cannot set property 'nTf' of undefined 是怎么回事</h3>
+    <p>
+        th 和 columns.data 的数量不匹配,html里定义的th数量和 columns:[{data:"name"}]里的数量不匹配，
+        有多少th，columns里就有多少个对象
+    </p>
+</section>
+<section>
+    <h3>6，控制台报错 Cannot read property 'length' of null 或者
+        Cannot read property 'length' of undefined 是怎么回事</h3>
+    <p>
+        这个一般是返回的数据有问题，比如应该返回<code>{data:[……]}</code>而不是<code>{tabledata:[……]}</code>，或者数据为空因该返回<code>{data:[]}</code>
+        而不是<code>{data:null}</code>、<code>{data:""}</code>，dt识别不了所以报此错误
+        正确返回的数据格式为 <code>{data:[{name:"datatables中文网",url:"datatables.club"}]}</code>
+    </p>
+</section>
+<section>
+    <h3>7，弹出提示 Requested unknown parameter 'id' for row 0 是怎么回事</h3>
+    <p>
+    <ul>
+        <li>1可能你在columns里指定了，但在返回的数据里没有的时候，或者列数不匹配不对应，你会得到这个错误</li>
+        <li>2请检查返回数据的的id属性名，是不是js里data绑定的是id，而数据源里是ida，或者是没有这个；或者数据为null的情况</li>
+        <li>3这个错误指出很明确了返回的一个未知的参数(和columns.data不匹配)</li>
+        <li>4tbody里不要写任何内容，除非你是dom数据源。所以 检查返回的数据和js绑定的数据</li>
+    </ul>
+    按照以上步骤，一般能解决问题
+    </p>
+</section>
+<section>
+    <h3>8，控制台报错 Uncaught TypeError: Cannot read property 'style' of undefined </h3>
+    <p>
+        在Datatables初始化时columns里定义了n列，但是thead的th是n-1（两者数量不等，th数目需和js里定义的columns中的data个数相等）
+    </p>
+</section>
+<section>
+    <h3>8，控制台报错 Cannot call method ’fnSetData‘ of undefined </h3>
+    <p>
+        表格中有class为hidden的列，使得内容部分的列数多于表头
+    </p>
+</section>
+<section>
+    <h3>9，$(...).dataTable is not a function 或者 $(...).DataTable is not a function </h3>
+    <p>
+        检查DT js 有没有引入，看控制台有无报错，比如404类似错误
+    </p>
+</section>
+<section>
+    <h3>10，Cannot read property 'aDataSort' of undefined</h3>
+    <p>
+        <a href="http://stackoverflow.com/questions/28454203/jquery-datatables-cannot-read-property-adatasort-of-undefined">
+            JQuery Datatables : Cannot read property 'aDataSort' of undefined
+        </a>
+    </p>
+</section>
