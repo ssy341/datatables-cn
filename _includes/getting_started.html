@@ -64,92 +64,6 @@
     #issueTable tbody td{
         padding:8px;
     }
-
-
-    .adsense_fixed {
-        width: 100%;
-        z-index: 999999999999;
-    }
-
-    .adsense_content {
-        width: 720px;
-        margin: 0 auto;
-        position: relative;
-        background: #fff;
-    }
-
-    .adsense_btn_close, .adsense_btn_info {
-        font-size: 12px;
-        color: #fff;
-        height: 20px;
-        width: 20px;
-        vertical-align: middle;
-        text-align: center;
-        background: #000;
-        top: 4px;
-        left: 4px;
-        position: absolute;
-        z-index: 99999999;
-        font-family: Georgia;
-        cursor: pointer;
-        line-height: 18px
-    }
-
-    .adsense_btn_info {
-        left: 26px;
-        font-family: Georgia;
-        font-style: italic
-    }
-
-    .adsense_info_content {
-        display: none;
-        width: 260px;
-        height: 340px;
-        position: absolute;
-        top: -360px;
-        background: rgba(255, 255, 255, .9);
-        font-size: 14px;
-        padding: 20px;
-        font-family: Arial;
-        border-radius: 4px;
-        -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
-    }
-
-    .adsense_info_content:after {
-        content: '';
-        position: absolute;
-        left: 25px;
-        top: 100%;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #fff;
-        clear: both
-    }
-
-    .adsense_info_content #adsense_h3 {
-        color: #000;
-        margin: 0;
-        font-size: 18px !important;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_info_content .adsense_p {
-        color: #888;
-        font-size: 13px !important;
-        line-height: 20px;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_fh5co-team {
-        color: #000;
-        font-style: italic;
-    }
 </style>
 <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
 <div class="row">
@@ -179,22 +93,7 @@
             <a href="//cdn.datatables.net/{{ site.dtversion }}/js/jquery.dataTables.min.js" target="_blank" class="cdn-link"></a></div>
     </div>
 
-    <div class="span12" style="margin:10px 0">
-        <div class='adsense_fixed'>
-            <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
-                <div class='adsense_info_content'>
-                    <h3 id='adsense_h3'>为什么有广告?</h3>
-                    <p class='adsense_p'>
-                        希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
-                    <p class='adsense_p'>爱你们,
-                        <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
-                </div>
-                <span class='adsense_btn_info' title='为什么有广告'>i</span>
-
-                {% include xad %}
-            </div>
-        </div>
-    </div>
+    {% include ad/hiddenable.html %}
 
     <div class="span12">
         <table class="display" id="issueTable">

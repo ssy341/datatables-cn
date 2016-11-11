@@ -157,6 +157,8 @@ title: Datatables 中文网
                 </div>
             </div>
 
+            {% include ad/hiddenable.html %}
+
         </div>
 
 </div>
@@ -352,10 +354,11 @@ title: Datatables 中文网
         });
 
         $('.adsense_btn_info').click(function () {
-            if ($('.adsense_info_content').is(':visible')) {
-                $('.adsense_info_content').css('display', 'none');
+            var addDiv = $(this).parent().find("div.adsense_info_content");
+            if (addDiv.is(':visible')) {
+                addDiv.css('display', 'none');
             } else {
-                $('.adsense_info_content').css('display', 'block');
+                addDiv.css('display', 'block');
             }
         });
     });
