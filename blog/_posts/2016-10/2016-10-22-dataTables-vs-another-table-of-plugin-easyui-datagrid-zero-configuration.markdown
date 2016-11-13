@@ -6,7 +6,7 @@ date: 2016-10-22
 group: 2016-10
 caption: DataTables 中文网博客
 categories: blog
-tags: [博客,DataTables使用经验]
+tags: [博客,DataTables使用经验,DataTables VS EasyUI DataGrid]
 author: DataTable中文网
 banner: http://thepunkeffect.com/wp-content/uploads/2014/05/batman-vs-superman-poster-cavill-affleck.jpg
 style: >
