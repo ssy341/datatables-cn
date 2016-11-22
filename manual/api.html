@@ -10,53 +10,55 @@ title: API 手册 Datatables中文网
     {% include xad %}
 <h2 data-anchor="DataTables-Manual">API</h2>
 <p>
-    Datatables拥有一个强大的API可以用来操作表格中的数据，他有下面六个关键部分:
+    DataTables 提供的可以操作表格数据的API，有下面六个关键部分:
 </p>
 <ul class=" list-paddingleft-2" style="list-style-type: circle;">
     <li>
-        表格
+        表格（tables）
     </li>
     <li>
-        列
+        列（Columns）
     </li>
     <li>
-        行
+        行（Rows）
     </li>
     <li>
-        单元格
+        单元格（Cells）
     </li>
     <li>
-        核心方法
+        核心方法（Core）
     </li>
     <li>
-        工具类
+        工具类（Utilities）
     </li>
 </ul>
-<p> Datatables完整的方法列表，请参考<a href="../reference/api" target="_blank">API</a></p>
+<p> Datatables完整的API方法列表，请参考<a href="../reference/api" target="_blank">API</a></p>
 <h2 data-anchor="Processing-modes">
-    专业术语(Terminology)
+    术语(Terminology)
 </h2>
 <p>
-    为了api文档的简约型，下面定义了一些术语:
+    为了API文档的简约型，下面定义了一些术语:
 </p>
 <ul class=" list-paddingleft-2" style="list-style-type: disc;">
     <li>
-        实例（Instance）  --就是指datatables初始化后的表格(i.e. 是 new Api()的结果).
+        实例（Instance）  --就是指DataTables初始化后的表格(i.e. 是 <code>new Api()</code>的结果).
     </li>
     <li>
-        结果集（Result set）  --本质上就像一个jquery的数组，拥有数组相同的方法(sort（）和push())。
+        结果集（Result set）  --本质上就像一个jQuery的数组，拥有和数组相同的方法(
+        {% include href/api/api.utility param="sort()" %}
+        和 {% include href/api/api.utility param="push()" %})。
     </li>
     <li>
-        环境、容器（Context）  --这个解释比较模糊，简单来说就是datatables在运行是时所处环境.
+        环境、容器、上下文（Context）  --这个解释比较模糊，简单来说就是DataTables在运行是时所处环境.
     </li>
 </ul>
 
 <h2 data-anchor="Data-source-types">
-    访问API(Accessing the API)
+    API调用(Accessing the API)
 </h2>
 
 <p>
-    一个datatables实例可以通过下面三个方法实现:
+    一个DataTables实例可以通过下面三个方法实现:
 </p>
 <ul class=" list-paddingleft-2" style="list-style-type: disc;">
     <li>

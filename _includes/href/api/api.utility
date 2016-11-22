@@ -14,4 +14,12 @@
 <a href="https://datatables.net/reference/api/row().child().hide()" target="_blank">
     <code class="api">row().child().hide()<span>API</span></code>
 </a>
+{% elsif include.param == "sort()" %}
+<a href="https://datatables.net/reference/api/sort()" target="_blank">
+    <code class="api">sort()<span>API</span></code>
+</a>
+{% elsif include.param == "push()" %}
+<a href="https://datatables.net/reference/api/push()" target="_blank">
+    <code class="api">push()<span>API</span></code>
+</a>
 {% endif %}

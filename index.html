@@ -346,15 +346,15 @@ title: Datatables 中文网
                 $("#toolbar").append("<a href='/example/diy.html' " +
                         "class='btn btn-default btn-sm' style='margin-left: 5px' target='_blank'>DIY</a>");
                 $("#toolbar").append("<a href='javascript:void(0);' " +
-                        "class='btn btn-default btn-sm closedIssue' style='margin-left: 5px'>已解决问题</a>");
+                        "class='btn btn-default btn-sm closedIssue' style='margin-left: 5px;color:#009900'>查看已解决问题</a>");
 
                 //加载已经关闭的问题
                 $(".closedIssue").clickToggle(function () {
                     githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues?state=closed").load();
-                    $(this).text("未解决问题");
+                    $(this).text("查看未解决问题").css("color","#FF0000");
                 }, function () {
                     githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues").load();
-                    $(this).text("已解决问题");
+                    $(this).text("查看已解决问题").css("color","#009900");
                 });
             }
         });
