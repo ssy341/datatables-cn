@@ -22,4 +22,8 @@
 <a href="{{site.url}}/reference/api/page.info().html" target="_blank">
     <code class="api">page.info()<span>API</span></code>
 </a>
+{% elsif include.param == "$()" %}
+<a href="{{site.baseurl}}/reference/api/$().html" target="_blank">
+    <code class="api">$()<span>API</span></code>
+</a>
 {% endif %}

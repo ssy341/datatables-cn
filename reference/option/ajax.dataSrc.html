@@ -10,7 +10,7 @@ since: 1.10.0
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    {% include href/option/ajax.dt %} 选项基本继承了 {% include href/jQuery.ajax %} 所有的选项，但是Datatables额外提供了
+    {% include href/option/ajax.dt %} 选项基本继承了 {% include href/jQuery/jQuery.ajax %} 所有的选项，但是Datatables额外提供了
     <code>dataSrc</code>属性来改变从服务器返回的数据给Datatables，或者是操作数据从一种形式转换成另一种形式（比如xml、json、yaml等）。
     这么做是因为 {% include href/option/ajax.dt %} 的 <code>success</code> 选项不能被改变-Datatables内部自己加载数据完成时使用。
 </p>

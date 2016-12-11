@@ -16,6 +16,45 @@
     <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
     <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
     {{ page.style }}
 </head>
 <body>
