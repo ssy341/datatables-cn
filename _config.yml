@@ -3,6 +3,7 @@ baseurl:
 #baseurl: /www
 #port: 341
 url: http://datatables.club
+en_url: https://datatables.net
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom']
 #destination: ./_site

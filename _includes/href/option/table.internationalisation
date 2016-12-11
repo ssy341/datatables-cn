@@ -54,8 +54,10 @@
       <td><p>加载数据时的提示信息 - 当 Ajax请求数据时显示</p></td>
     </tr>
     <tr>
-      <td><p><a href="//datatables.net/reference/option/language.paginate.first"><code class="option" title="DataTables initialisation option">language.paginate.first<span>DT</span></code></a></p></td>
-      <td><p>分页信息的 'first' 按钮显示的信息</p></td>
+      <td>
+        {% include href/option/option.language param="language.aria.paginate.first" %}
+      </td>
+      <td>首页(_first_)按钮的 WAI-ARIA(无障碍网页应用) 标签</td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.paginate.last"><code class="option" title="DataTables initialisation option">language.paginate.last<span>DT</span></code></a></p></td>

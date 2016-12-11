@@ -1182,6 +1182,12 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>//datatables.club/reference/option/language.aria.paginate.first.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>http://datatables.club/tour/</loc>
         <priority>0.7</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>

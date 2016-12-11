@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>{{ page.title }} {{ page.summary }} {{ page.sub }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.sitename }}">
+    <meta name="keywords" content="{{page.keywords}}">
+    <!-- Le styles -->
+    <link href="{{site.baseurl}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{site.baseurl}}/css/blog-home.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
+    {{ page.style }}
+</head>
+<body>
+    <!--nav-->
+    {% include blog/nav.html  param='reference' %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="{{site.baseurl}}/" target="_blank">首页</a></li>
+                <li><a href="{{site.baseurl}}/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="{{site.baseurl}}/reference/{{page.navcategory}}" target="_blank">{{page.navcategory|capitalize}}</a></li>
+                <li class="active">{{ page.title }} 正文</li>
+            </ol>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="{{ page.url }}">{{ page.title }}</a>
+                    <small>{{ page.summary }}</small>
+                </h2>
+                <p>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">{{ page.since }}</b>
+                    <button type="button"
+                            id="copyurltoclip"
+                            data-toggle="tooltip"
+                            data-placement="bottom"
+                            data-clipboard-text="{{ page.short }}:{{ site.url }}{{ page.url }}"
+                            class="btn btn-default pull-right"
+                            title="点我复制本页url到剪贴板">复制本页地址</button>
+                </p>
+                <hr>
+
+                <div class="content">
+                    {{ content }}
+                </div>
+
+                <blockquote>
+                    <p><a href="{{site.en_url}}{{page.author}}" target="_blank">{{site.en_url}}{{page.author}}</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
+
+                <hr>
+                {% include xad %}
+                <!--评论-->
+                {% include disqus.html %}
+            </div>
+
+            <!-- Blog Sidebar Widgets Column -->
+            {% include blog/right.html %}
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        {% include blog/footer.html %}
+
+    </div>
+    {{ page.script }}
+    <!-- /.container -->
+    <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <!--复制url到剪贴板-->
+    <script src="{{site.baseurl}}/js/ZeroClipboard.min.js"></script>
+    <script>
+        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
+
+        client.on( "aftercopy", function( event ) {
+            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
+        } );
+
+        client.on( 'error', function() {
+            ZeroClipboard.destroy();
+        } );
+    </script>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
