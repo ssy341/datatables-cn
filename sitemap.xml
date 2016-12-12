@@ -1194,6 +1194,12 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>{{site.url}}/reference/api/$.fn.dataTable.isDataTable().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>{{site.url}}/tour/</loc>
         <priority>0.7</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
