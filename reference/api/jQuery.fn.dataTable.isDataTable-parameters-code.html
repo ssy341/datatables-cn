@@ -1,0 +1,33 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>version</code></td>
+        <td>
+            {% include href/type/string %},{% include href/type/node %}, {% include href/type/jQuery %},{% include href/type/type.DataTables param="DataTables.Api"%}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            要检查table，可以是如下其中一个
+            <ul>
+                <li>一个 DOM 元素</li>
+                <li>一个 jQuery 选择器</li>
+                <li>一个包含要检查的节点的 jQuery 对象</li>
+                <li>一个 DataTables API 实例</li>
+            </ul>
+            注意如果jQuery选择器返回多个节点，只有第一个节点被检查
+        </td>
+    </tr>
+    </tbody>
+</table>

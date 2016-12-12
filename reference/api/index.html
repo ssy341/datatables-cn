@@ -1063,12 +1063,10 @@ relurl: http://datatables.net/reference/api/
     </thead>
     <tbody>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.isDataTable()"><code class="api"
-                                                                                             title="DataTables API method">$.fn.dataTable.isDataTable()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/api.Static param="$.fn.dataTable.isDataTable()" %}
         </td>
-        <td><p>检查table是不是datatables实例</p>
-        </td>
+        <td>检查一个 table 节点是不是 DataTables 实例</td>
     </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.tables()"><code class="api"
@@ -1088,7 +1086,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/fn.dataTable.util.throttle.dt %}
+            {% include href/api/api.Static param="$.fn.dataTable.util.throttle()" %}
         </td>
         <td><p>减少方法调用的频率</p>
         </td>

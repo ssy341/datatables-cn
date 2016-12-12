@@ -1,9 +1,7 @@
 {% if include.param == "tbody" %}
 <code class="tag" title="HTML tag">tbody</code>
-{% elsif include.param == "deferRender" %}
-<a href="/reference/option/deferRender.html" target="_blank">
-    <code class="option">deferRender<span>Option</span></code>
-</a>
+{% elsif include.param == "table" %}
+<code class="tag" title="HTML tag">table</code>
 {% elsif include.param == "info" %}
 <a href="/reference/option/info.html" target="_blank">
     <code class="option">info<span>Option</span></code>
