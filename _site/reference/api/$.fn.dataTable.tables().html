@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option lengthMenu 改变每页显示数据的条数 《不定时一讲》 DataTables中文网</title>
+    <title>$.fn.dataTable.tables() 获取该页面上所有的DataTables实例 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="fn,DataTables,tables">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
     
 </head>
 <body>
@@ -37,7 +77,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li >
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -46,7 +86,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -79,83 +119,155 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/api" target="_blank">Api</a></li>
+                <li class="active">$.fn.dataTable.tables() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/06/option-lengthMenu.html">option lengthMenu 改变每页显示数据的条数</a>
+                    <a href="/reference/api/$.fn.dataTable.tables().html">$.fn.dataTable.tables()</a>
+                    <small>获取该页面上所有的DataTables实例</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 6 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option lengthMenu 改变每页显示数据的条数:http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html"
+                            data-clipboard-text="$.fn.dataTable.tables() 获取该页面上所有的DataTables实例 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/$.fn.dataTable.tables().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <p>参数详解连接
-<a href="https://datatables.net/reference/option/lengthMenu" target="_blank">
-    <code class="option">lengthMenu<span>Option</span></code>
+                    <h2 id="description">描述(Description)</h2>
+<p>这个方法能够列出当前页面已存在的DataTables实例，特别是当表格可见时，表格开启了滚动条，需要调整列宽的情况下非常有用。</p>
+
+<p>请注意，这是一个静态的方法，不需要用API实例去掉用，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用即可，并且随时可以执行这个方法，
+甚至可以在生成表格之前调用这个方法。</p>
+
+<h2 id="type">类型(Type)</h2>
+
+<hr />
+
+<h3 id="function-tables--visible--">function tables( [ visible ] )</h3>
+
+<h4 id="description-1">描述(Description):</h4>
+<p>获取页面上所有已经实例化的DataTables实例 - 可选项，你可以仅仅选择当前显示的表格或者检索表格作为API实例</p>
+
+<h4 id="parameters">参数(Parameters):</h4>
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>visible</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/object" target="_blank">
+    <code class="type" title="Javascript parameter type">object<span>Type</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html" target="_blank">
-    <code class="option">lengthMenu<span>不定时一讲</span></code>
+,
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+
+        </td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            <p>
+                如果你希望获取所有的表格，那么使用 <code>false</code> ,或者只是可见的表格，则使用 <code>true</code>
+            </p>
+            <p>
+                从1.10.8版开始，这个选项也可以作为以下任选参数：
+                <ul>
+                    <li>
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+ <code>visible</code> - 置为 <code>true</code>  时，获取仅仅可见的表格
+                        ，置为 <code>false</code>    时，无论是否可见都获取
+                    </li>
+                    <li>
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+ <code>api</code> - 返回一个被选择的
+<a href="https://datatables.net/reference/type/DataTables.Apir" target="_blank">
+    <code class="type">DataTables.Api<span>Type</span></code>
+</a>
+实例或者一个
+                        
+<a href="https://datatables.net/reference/type/array" target="_blank">
+    <code class="type" title="Javascript parameter type">array<span>Type</span></code>
+</a>
+
+                    </li>
+                </ul>
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4 id="returns">返回(Returns):</h4>
+
+<p><a href="https://datatables.net/reference/type/array" target="_blank">
+    <code class="type" title="Javascript parameter type">array<span>Type</span></code>
+</a>
+,
+<a href="https://datatables.net/reference/type/DataTables.Apir" target="_blank">
+    <code class="type">DataTables.Api<span>Type</span></code>
 </a></p>
 
-<p>这个参数可以设置左上角那个下拉框（默认在左上角），默认值为 <code class="highlighter-rouge">[ 10, 25, 50, 100 ]</code></p>
+<p>数组或者是包含所有匹配的Datatables API实例</p>
 
-<p>它接受一维数组或者是二维数组，根据自己的需要可以自行设置</p>
+<hr />
 
-<ul>
-  <li>一维数组
-<!--more--></li>
-</ul>
+<h2 id="example">例子(Example)</h2>
+<p>给所有可见的表格调整列的宽度</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span> <span class="p">]</span>
-<span class="p">}</span> <span class="p">);</span><span class="w">
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span>
+    <span class="p">.</span><span class="nx">tables</span><span class="p">(</span> <span class="p">{</span> <span class="na">visible</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">api</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">)</span>
+    <span class="p">.</span><span class="nx">columns</span><span class="p">.</span><span class="nx">adjust</span><span class="p">();</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>代表你可以把表格设置为每页 20/30/40/50/100 条数据显示</p>
-
-<ul>
-  <li>二维数组</li>
-</ul>
+<p>当表格在Bootstrap的tab中切换时，调整列宽</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"所有"</span><span class="p">]</span> <span class="p">]</span>
- <span class="p">}</span> <span class="p">);</span><span class="w">
+3
+4
+5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'a[data-toggle="tab"]'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'shown.bs.tab'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span>
+        <span class="p">.</span><span class="nx">tables</span><span class="p">(</span> <span class="p">{</span> <span class="na">visible</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="na">api</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">)</span>
+        <span class="p">.</span><span class="nx">columns</span><span class="p">.</span><span class="nx">adjust</span><span class="p">();</span>
+<span class="p">})</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>第一个数组是具体的值，理解为 <code class="highlighter-rouge">&lt;option value=""&gt;&lt;/option&gt;</code>  <code class="highlighter-rouge">value</code> 对应的值</p>
-
-<p>第二个数组是用来显示的文字，理解为 <code class="highlighter-rouge">&lt;option value=""&gt;显示的文字&lt;/option&gt;</code></p>
-
-<p>这里需要提的是，数字要 <code class="highlighter-rouge">&gt;0</code> ，但是有个特殊值 <code class="highlighter-rouge">-1</code> 它代表显示全部数据</p>
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/api/%24.fn.dataTable.tables()" target="_blank">https://datatables.net/reference/api/%24.fn.dataTable.tables()</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -179,13 +291,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/06/option-lengthMenu.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/06/option-lengthMenu.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/$.fn.dataTable.tables().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/$.fn.dataTable.tables().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/$.fn.dataTable.tables().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/$.fn.dataTable.tables().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -370,7 +482,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-06-option-lengthMenu.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/$.fn.dataTable.tables().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -447,6 +559,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>

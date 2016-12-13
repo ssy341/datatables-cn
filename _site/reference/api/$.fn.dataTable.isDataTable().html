@@ -5,7 +5,7 @@
     <title>$.fn.dataTable.isDataTable() 检查一个 table 节点是不是 DataTables 实例 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
     <meta name="keywords" content="fn,DataTables,isDataTable">
@@ -150,7 +150,7 @@
 节点是否已经是一个
 DataTables实例，可以有效保证你不会把一个已经初始化的再次初始化，提高效率。</p>
 
-<p>请注意，这是一个静态的方法，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用，而不是一个API实例，随时可以执行这个方法。
+<p>请注意，这是一个静态的方法，不需要用API实例去掉用，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。</p>
 
 <h2 id="type">类型(Type)</h2>
@@ -213,7 +213,7 @@ DataTables实例</p>
 <h4 id="returns">返回(Returns):</h4>
 
 <p><a href="https://datatables.net/reference/type/boolean" target="_blank">
-    <code class="type">boolean<span>Type</span></code>
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
 </a></p>
 
 <p><code class="highlighter-rouge">true</code> 表示检查的table是一个DataTables实例，<code class="highlighter-rouge">false</code>则不是</p>

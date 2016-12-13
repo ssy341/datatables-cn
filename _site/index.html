@@ -5,7 +5,7 @@
     <title>Datatables 中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款jQuery表格插件，目前，Datatables最新版本为1.10.12
+    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
         <!-- Le styles -->
     <link href="/assets/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -62,8 +62,8 @@
                 <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="http://datatables.net/" target="_blank"
                    role="button">Datatables官网 &raquo;</a>
                 <a class="btn btn-lg btn-primary btn-shadow bs3-link"
-                   href="http://datatables.net/releases/DataTables-1.10.12.zip" target="_blank" role="button"
-                   title="DataTables-1.10.12">最新版下载 &raquo;</a>
+                   href="http://datatables.net/releases/DataTables-1.10.13.zip" target="_blank" role="button"
+                   title="DataTables-1.10.13">最新版下载 &raquo;</a>
             </p>
             <p>
                 <a class="btn btn-lg btn-primary btn-shadow bs3-link"
@@ -216,6 +216,10 @@
         color: #000;
         font-style: italic;
     }
+
+    .unread {
+        box-shadow: 2px 0 0 #4078c0 inset;
+    }
 </style>
 <div class="container"  style="margin-top:20px">
 
@@ -305,13 +309,13 @@
         </p>
         <div class="cdn">
             <span>CSS</span>
-            <input type="text" value="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" readonly="">
-            <a href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" target="_blank" class="cdn-link"></a></div>
+            <input type="text" value="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" readonly="">
+            <a href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" target="_blank" class="cdn-link"></a></div>
 
         <div class="cdn">
             <span>JS</span>
-            <input type="text" value="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" readonly="">
-            <a href="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js" target="_blank" class="cdn-link"></a></div>
+            <input type="text" value="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" readonly="">
+            <a href="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" target="_blank" class="cdn-link"></a></div>
     </div>
 
     <div class="span12" style="margin:10px 0">
@@ -346,6 +350,24 @@
         <table class="display" id="issueTable">
         </table>
     </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="issueTableCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">代码</h4>
+                </div>
+                <div class="modal-body">
+                    <pre id="issueTableCodeContent" style="width: auto"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/row-->
 </div>
 
 
@@ -1021,25 +1043,7 @@ client.on( 'error', function() {
 <script  type="text/javascript" charset="utf8" src="http://cdn.gbtags.com/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
 
 
-<script>
-
-
-    //solve this
-    //reference http://stackoverflow.com/questions/4911577/jquery-click-toggle-between-two-functions
-    (function($) {
-        $.fn.clickToggle = function(func1, func2) {
-            var funcs = [func1, func2];
-            this.data('toggleclicked', 0);
-            this.click(function() {
-                var data = $(this).data();
-                var tc = data.toggleclicked;
-                $.proxy(funcs[tc], this)();
-                data.toggleclicked = (tc + 1) % 2;
-            });
-            return this;
-        };
-    }(jQuery));
-
+<script id="issueTableScript">
 
     var githubTable;
     $(document).ready(function () {
@@ -1054,37 +1058,68 @@ client.on( 'error', function() {
 
         //issue表格初始化
         githubTable = $("#issueTable").DataTable({
+            //调用github api 获取issues 数据
             ajax: {
                 url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
                 dataSrc: ""
             },
             //默认最后一列（最后更新时间）降序排列
-            order: [[2, "desc"]],
+            order: [[4, "desc"]],
+            //行被创建回调
+            createdRow: function (row, data, dataIndex) {
+                var updated_at = new Date(Date.parse(data.updated_at)).Format("yyyy-MM-dd hh:mm:ss");
+                updated_at = new Date(updated_at).getTime();
+                var current = new Date().getTime();
+                var bl = current - updated_at;
+                var s = 5 * 24 * 60 * 60 * 1000;
+                //最后更新日期在最近5天则突出显示
+                if (bl < s) {
+                    $(row).addClass('unread');
+                }
+            },
+            //行创建完成后回调
+            rowCallback: function (row, data, index) {
+                var tags = $(row).find("td:eq(1)");
+                if (tags.text().indexOf("置顶") > 0) {
+                    var title = $(row).find("td:eq(0)");
+                    var hot = "<span class='hot'></span>";
+                    title.html(title.html() + hot);
+                }
+            },
             columnDefs: [
                 {
-                    targets: 2,
+                    targets: 4,
                     data: "updated_at",
-                    title: "最后更新时间",
+                    title: "<i class='icon-time'></i>",
                     render: function (data, type, row, meta) {
                         return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
                     }
                 },
                 {
-                    targets: 1,
+                    targets: 3,
                     data: null,
-                    title: "发表人",
+                    title: "<i class='icon-user'></i>",
                     render: function (data, type, row, meta) {
-                        return "<a href='" + row.user.html_url + "' target='_blank'>" + row.user.login + "</a>"
+                        return "<a href='" + row.user.html_url +
+                                "' target='_blank'>" + row.user.login + "</a>";
                     }
                 },
                 {
-                    targets: 0,
-                    data: "title",
-                    title: "问题",
+                    targets: 2,
+                    data: "comments",
+                    title: "<i class='icon-comment'></i>",
+                    render: function (data, type, row, meta) {
+                        var comments = data + "<i class='icon-comment'></i>";
+                        return comments;
+                    }
+                },
+                {
+                    targets: 1,
+                    data: null,
+                    title: "<i class='icon-tag'></i>",
                     render: function (data, type, row, meta) {
                         var labels = "";
                         if (row.labels.length) {
-                            labels += "【";
                             for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
                                 labels += "<span style='color:#" + row.labels[j].color + "' >" +
                                         row.labels[j].name + "</span>";
@@ -1092,38 +1127,105 @@ client.on( 'error', function() {
                                     labels += ",";
                                 }
                             }
-                            labels += "】";
                         }
-                        var hot = "";
-                        if (labels.indexOf("置顶") > 0) {
-                            hot = "<span class='hot'></span>"
-                        }
-                        return "<a href='" + row.html_url + "' target='_blank'>" + row.title + "</a>" + labels +
-                                "<i class='icon-comment'></i>" + row.comments + hot;
+                        return labels;
+                    }
+                },
+                {
+                    targets: 0,
+                    data: "title",
+                    title: "<i class='icon-question-sign'></i>",
+                    render: function (data, type, row, meta) {
+                        var title = "<a href='" + row.html_url +
+                                "' target='_blank'>" + row.title + "</a>";
+                        return title;
                     }
                 }
             ],
             initComplete: function () {
+                //表格加载完毕，手动添加按钮到表格上
                 $("#toolbar").css("width", "100px").css("display", "inline").css("margin-left", "10px");
                 $("#toolbar").append("<a href='https://github.com/ssy341/datatables-cn/issues/new' " +
                         "class='btn btn-primary btn-sm' target='_blank'>我有问题</a>");
                 $("#toolbar").append("<a href='/example/diy.html' " +
                         "class='btn btn-default btn-sm' style='margin-left: 5px' target='_blank'>DIY</a>");
                 $("#toolbar").append("<a href='javascript:void(0);' " +
-                        "class='btn btn-default btn-sm closedIssue' style='margin-left: 5px'>已解决问题</a>");
+                        "class='btn btn-default btn-sm closedIssue' " +
+                        "style='margin-left: 5px;color:#009900'>查看已解决问题</a>");
+                $("#toolbar").append("<a href='javascript:void(0);' " +
+                        "class='btn btn-default btn-sm viewCode' style='margin-left: 5px;'>查看本实例代码</a>");
 
                 //加载已经关闭的问题
                 $(".closedIssue").clickToggle(function () {
+                    //调用url方法切换dt的数据源
                     githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues?state=closed").load();
-                    $(this).text("未解决问题");
+                    $(this).text("查看未解决问题").css("color", "#FF0000");
                 }, function () {
                     githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues").load();
-                    $(this).text("已解决问题");
+                    $(this).text("查看已解决问题").css("color", "#009900");
+                });
+
+                //查看本例子代码
+                $(".viewCode").click(function(){
+                    //显示模态框展示代码
+                    $("#issueTableCode").modal("show");
+                    $("#issueTableCodeContent").html($("#issueTableScript").html());
                 });
             }
         });
+    });
 
-        //捐赠表格初始化
+    //时间格式化
+    Date.prototype.Format = function (fmt) { //author: meizz
+        var o = {
+            "M+": this.getMonth() + 1,
+            //月份
+            "d+": this.getDate(),
+            //日
+            "h+": this.getHours(),
+            //小时
+            "m+": this.getMinutes(),
+            //分
+            "s+": this.getSeconds(),
+            //秒
+            "q+": Math.floor((this.getMonth() + 3) / 3),
+            //季度
+            "S": this.getMilliseconds() //毫秒
+        };
+        if (/(y+)/.test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        }
+        for (var k in o) {
+            if (new RegExp("(" + k + ")").test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            }
+        }
+        return fmt;
+    };
+
+    //事件来回切换方法
+    //solve this
+    //reference http://stackoverflow.com/questions/4911577/jquery-click-toggle-between-two-functions
+    (function ($) {
+        $.fn.clickToggle = function (func1, func2) {
+            var funcs = [func1, func2];
+            this.data('toggleclicked', 0);
+            this.click(function () {
+                var data = $(this).data();
+                var tc = data.toggleclicked;
+                $.proxy(funcs[tc], this)();
+                data.toggleclicked = (tc + 1) % 2;
+            });
+            return this;
+        };
+    }(jQuery));
+
+</script>
+
+
+<script>
+    //捐赠表格初始化
+    $(document).ready(function () {
         $('#example').dataTable({
             order: [
                 [2, "desc"]
@@ -1165,40 +1267,10 @@ client.on( 'error', function() {
                 $(api.column(0).footer()).html("总额：" + fda);
             }
         });
-
-
     });
+</script>
 
-    //时间格式化
-    Date.prototype.Format = function (fmt) { //author: meizz
-        var o = {
-            "M+": this.getMonth() + 1,
-            //月份
-            "d+": this.getDate(),
-            //日
-            "h+": this.getHours(),
-            //小时
-            "m+": this.getMinutes(),
-            //分
-            "s+": this.getSeconds(),
-            //秒
-            "q+": Math.floor((this.getMonth() + 3) / 3),
-            //季度
-            "S": this.getMilliseconds() //毫秒
-        };
-        if (/(y+)/.test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        }
-        for (var k in o) {
-            if (new RegExp("(" + k + ")").test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-            }
-        }
-        return fmt;
-    };
-
-
-
+<script>
     //广告显示/隐藏
     $(function () {
         $('.adsense_btn_close').click(function () {

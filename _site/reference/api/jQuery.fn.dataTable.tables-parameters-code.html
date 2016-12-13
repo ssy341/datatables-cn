@@ -1,0 +1,39 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>visible</code></td>
+        <td>
+            {% include href/type/type.Javascript param="object" %},{% include href/type/type.Javascript param="boolean" %}
+        </td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            <p>
+                如果你希望获取所有的表格，那么使用 <code>false</code> ,或者只是可见的表格，则使用 <code>true</code>
+            </p>
+            <p>
+                从1.10.8版开始，这个选项也可以作为以下任选参数：
+                <ul>
+                    <li>{% include href/type/type.Javascript param="boolean" %} <code>visible</code> - 置为 <code>true</code>  时，获取仅仅可见的表格
+                        ，置为 <code>false</code>    时，无论是否可见都获取
+                    </li>
+                    <li>{% include href/type/type.Javascript param="boolean" %} <code>api</code> - 返回一个被选择的{% include href/type/type.DataTables param="DataTables.Api"%}实例或者一个
+                        {% include href/type/type.Javascript param="array" %}
+                    </li>
+                </ul>
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
