@@ -13,7 +13,7 @@ author: /reference/api/%24.fn.dataTable.isDataTable()
 这个方法能够用来检查一个{% include href/tags param="tbody" %}节点是否已经是一个
 DataTables实例，可以有效保证你不会把一个已经初始化的再次初始化，提高效率。
 
-请注意，这是一个静态的方法，通过`$.fn.dataTable`对象调用，而不是一个API实例，随时可以执行这个方法。
+请注意，这是一个静态的方法，不需要用API实例去掉用，通过`$.fn.dataTable`对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。
 
 

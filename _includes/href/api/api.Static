@@ -1,14 +1,14 @@
 {% if include.param == "$.fn.dataTable.isDataTable()" %}
-<a href="{{site.baseurl}}/reference/api/$.fn.dataTable.isDataTable().html" target="_blank">
+<a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.isDataTable().html" target="_blank">
     <code class="api">$.fn.dataTable.isDataTable()<span>API</span></code>
 </a>
 {% elsif include.param == "$.fn.dataTable.util.throttle()" %}
 <a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.util.throttle().html" target="_blank">
     <code class="api">$.fn.dataTable.util.throttle()<span>API</span></code>
 </a>
-{% elsif include.param == "state.loaded" %}
-<a href="http://datatables.net/reference/api/state.loaded()" target="_blank">
-    <code class="api">state.loaded()<span>API</span></code>
+{% elsif include.param == "$.fn.dataTable.tables()" %}
+<a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.tables()" target="_blank">
+    <code class="api">$.fn.dataTable.tables()<span>API</span></code>
 </a>
 {% elsif include.param == "state.save" %}
 <a href="http://datatables.net/reference/api/state.save()" target="_blank">
