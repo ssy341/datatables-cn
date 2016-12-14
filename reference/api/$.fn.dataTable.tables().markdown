@@ -12,7 +12,7 @@ author: /reference/api/%24.fn.dataTable.tables()
 ## 描述(Description)
 这个方法能够列出当前页面已存在的DataTables实例，特别是当表格可见时，表格开启了滚动条，需要调整列宽的情况下非常有用。
 
-请注意，这是一个静态的方法，不需要用API实例去掉用，通过`$.fn.dataTable`对象调用即可，并且随时可以执行这个方法，
+请注意，这是一个静态的方法，不需要用API实例去调用，通过`$.fn.dataTable`对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。
 
 
@@ -20,7 +20,7 @@ author: /reference/api/%24.fn.dataTable.tables()
 
 ---
 
-### function tables( [ visible ] )
+### _function_ tables( [ visible ] )
 
 #### 描述(Description):
 获取页面上所有已经实例化的DataTables实例 - 可选项，你可以仅仅选择当前显示的表格或者检索表格作为API实例

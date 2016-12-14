@@ -1,0 +1,77 @@
+---
+layout: reference_md
+title: $.fn.dataTable.util.escapeRegex()
+summary: 使用正则表达式转义特殊字符
+sub: 文档(Options & API) DataTables中文网
+since: DataTables 1.10.4
+navcategory: api
+keywords: fn,DataTables,util,escapeRegex
+author: /reference/api/%24.fn.dataTable.util.escapeRegex()
+---
+
+## 描述(Description)
+当使用正则表达式时，可以有效的转义那些有特殊意义，被格式化了的字符串。
+Javascript的正则表达式中有许多特殊字符，DataTables需要在内部转义这些字符串（对用户输入的搜索数据）- 这个方法提供在外部操作的能力。
+
+这个是为用户扩展和制作插件提供的非常有用的方法。它的使用不会直接影响DataTable和DataTables结构。在DataTables内部使用可用的API帮助扩展用户
+提高代码复用。
+
+## 类型(Type)
+
+---
+
+### _function_ escapeRegex( str )
+
+#### 描述(Description):
+使用正则表达式转义特殊字符
+
+#### 返回(Returns):
+{% include href/type/type.Javascript param="string" %}
+
+被转义的字符串
+
+---
+
+## 例子(Example)
+
+使用{% include href/tags param="select" %}元素执行转义匹配搜索：  
+{% highlight javascript linenos %}
+var table = $('#example').DataTable();
+ 
+table.columns().indexes().flatten().each( function ( i ) {
+    var column = table.column( i );
+    var select = $('<select><option value=""></option></select>')
+        .appendTo( $(column.footer()).empty() )
+        .on( 'change', function () {
+            // Escape the expression so we can perform a regex match
+            var val = $.fn.dataTable.util.escapeRegex(
+                $(this).val()
+            );
+ 
+            column
+                .search( val ? '^'+val+'$' : '', true, false )
+                .draw();
+        } );
+ 
+    column.data().unique().sort().each( function ( d, j ) {
+        select.append( '<option value="'+d+'">'+d+'</option>' )
+    } );
+} );
+{% endhighlight %}
+
+
+
+## 相关属性(Related)
+下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
+
+Options
+
+- {% include href/option/options/option.features param="searching" %}
+- {% include href/option/option.columns param="columns.searchable" %}
+
+API
+
+- {% include href/api/api.Core param="search()" %}
+- {% include href/api/api.Core param="column().search()" %}
+
+

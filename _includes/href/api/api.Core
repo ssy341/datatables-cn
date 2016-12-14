@@ -14,9 +14,13 @@
 <a href="http://datatables.net/reference/api/state.save()" target="_blank">
     <code class="api">state.save()<span>API</span></code>
 </a>
-{% elsif include.param == "search" %}
+{% elsif include.param == "search()" %}
 <a href="https://datatables.net/reference/api/search()" target="_blank">
     <code class="api">search()<span>API</span></code>
+</a>
+{% elsif include.param == "column().search()" %}
+<a href="https://datatables.net/reference/api/column().search()" target="_blank">
+    <code class="api">column().search()<span>API</span></code>
 </a>
 {% elsif include.param == "page.info()" %}
 <a href="{{site.url}}/reference/api/page.info().html" target="_blank">

@@ -1,11 +1,9 @@
 {% if include.param == "tbody" %}
-<code class="tag" title="HTML tag">tbody</code>
+<code class="tag" title="HTML tag">tbody<span>Tag</span></code>
 {% elsif include.param == "table" %}
-<code class="tag" title="HTML tag">table</code>
-{% elsif include.param == "info" %}
-<a href="/reference/option/info.html" target="_blank">
-    <code class="option">info<span>Option</span></code>
-</a>
+<code class="tag" title="HTML tag">table<span>Tag</span></code>
+{% elsif include.param == "select" %}
+<code class="tag" title="HTML tag">select<span>Tag</span></code>
 {% elsif include.param == "jQueryUI" %}
 <a href="/reference/option/jQueryUI.html" target="_blank">
     <code class="option">jQueryUI<span>Option</span></code>

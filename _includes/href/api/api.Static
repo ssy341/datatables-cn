@@ -10,9 +10,9 @@
 <a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.tables().html" target="_blank">
     <code class="api">$.fn.dataTable.tables()<span>API</span></code>
 </a>
-{% elsif include.param == "state.save" %}
-<a href="http://datatables.net/reference/api/state.save()" target="_blank">
-    <code class="api">state.save()<span>API</span></code>
+{% elsif include.param == "$.fn.dataTable.util.escapeRegex()" %}
+<a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.util.escapeRegex().html" target="_blank">
+    <code class="api">$.fn.dataTable.util.escapeRegex()<span>API</span></code>
 </a>
 {% elsif include.param == "search" %}
 <a href="https://datatables.net/reference/api/search()" target="_blank">

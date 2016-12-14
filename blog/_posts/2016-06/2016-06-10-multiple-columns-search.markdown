@@ -43,8 +43,8 @@ var table = $("#example").DataTable({
     "searching": false
 });
 {% endhighlight %}
-但是这样做会影响到 DT 提供的搜索API -{% include href/api/api.Core param="search" %} 方法,实际上DT自带的搜索框也是调用了这个方法，
-`"searching": false`相当于把搜索功能关闭了，{% include href/api/api.Core param="search" %} 就不能用了，这样当然不行，
+但是这样做会影响到 DT 提供的搜索API -{% include href/api/api.Core param="search()" %} 方法,实际上DT自带的搜索框也是调用了这个方法，
+`"searching": false`相当于把搜索功能关闭了，{% include href/api/api.Core param="search()" %} 就不能用了，这样当然不行，
 所以**如果你想用自己的搜索框，那么建议你设置 `dom` 来把默认的搜索框隐藏**（详见 [DataTables 之 DOM]({% post_url 2016-05-11-option-dom %})）
 
 我们可以自己写一个或者多个`input`框，点击按钮触发这个方法，这个方法接收的值用空格隔开，就类似于多条件搜索
