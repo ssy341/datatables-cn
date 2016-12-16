@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>$() 在整个表格里执行（完成）一个 jQuery 选择器操作 文档(Options & API) DataTables中文网</title>
+    <title>any() 确定结果集里是否有符合条件的记录(判断表格里有没有数据) 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="jQuery,DataTables">
+    <meta name="keywords" content="jQuery,DataTables,Utility,any">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,22 +122,22 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">$() 正文</li>
+                <li class="active">any() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/$().html">$()</a>
-                    <small>在整个表格里执行（完成）一个 jQuery 选择器操作</small>
+                    <a href="/reference/api/any().html">any()</a>
+                    <small>确定结果集里是否有符合条件的记录(判断表格里有没有数据)</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10.7</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="$() 在整个表格里执行（完成）一个 jQuery 选择器操作 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/$().html"
+                            data-clipboard-text="any() 确定结果集里是否有符合条件的记录(判断表格里有没有数据) 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/any().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,104 +145,44 @@
 
                 <div class="content">
                     <h2 id="description">描述(Description)</h2>
-<p>DataTables使用了大量的DOM操作，比如从 document 移除行来实现分页和过滤，从 document 中移除列实现列的可见性，还有一些其他的操作。
-当你使用标准的 jQuery 操作时，你是不能找到这些已经被移除的 DOM 元素。因为在DataTables的操作下，这些元素已经从 document 中移除。</p>
+<p>这个方法非常有用，它用来判断一个 API 实例是否包含符合条件的数据以便决定可以采取什么行动。
+比如，你可以你可以知道是否有行被选中，或者是特定的数据在表格中。</p>
+
+<p>作为多个DataTables API实例，当使用标准的Javascript
+<a href="https://datatables.net/reference/type/array" target="_blank">
+    <code class="type" title="Javascript parameter type">array<span>Type</span></code>
+</a>
+去使用，仅仅去判断<code class="highlighter-rouge">length</code>属性为0，
+不总是对的。也就是说，DataTables API实例可能包含多个表格信息，而他们也许是空的。</p>
+
+<p>这个方法提供了可以在API 实例中检索是否有可用的数据。返回的结果也可以用 
+<a href="https://datatables.net/reference/api/flatten()" target="_blank">
+    <code class="api">flatten()<span>API</span></code>
+</a>
+方法检查长度来判断。
+比如<code class="highlighter-rouge">api.flatten().length !== 0</code></p>
 
 <h2 id="type">类型(Type)</h2>
 
 <hr />
 
-<h3 id="function--selector--modifier--"><em>function</em> $( selector [, modifier ] )</h3>
+<h3 id="function-any"><em>function</em> any()</h3>
 
 <h4 id="description-1">描述(Description):</h4>
-<p>表格中
-<code class="tag" title="HTML tag">tbody<span>Tag</span></code>
-里的行和内容执行 jQuery 操作</p>
-
-<h4 id="parameters">参数(Parameters):</h4>
-<table class="parameters dataTable stripe row-border no-footer">
-    <thead>
-    <tr>
-        <th></th>
-        <th>名称（Name）</th>
-        <th>类型（Type）</th>
-        <th>是否可选（Optional）</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="even">
-        <td>1</td>
-        <td><code>selector</code></td>
-        <td><a href="https://datatables.net/reference/type/node" target="_blank">
-    <code class="type">node<span>Type</span></code>
-</a>, <a href="//datatables.net/reference/type/jQuery" target="_blank">
-    <code class="type">jQuery<span>Type</span></code>
-</a>, 
-<a href="https://datatables.net/reference/type/string" target="_blank">
-    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a>
-
-        </td>
-        <td>No</td>
-    </tr>
-    <tr class="even continuation">
-        <td></td>
-        <td colspan="3">
-            在
-<code class="tag" title="HTML tag">tbody<span>Tag</span></code>
-里的节点执行<a href="http://api.jquery.com/jQuery/#jQuery1" target="_blank">
-    jQuery selector
-</a>.
-        </td>
-    </tr>
-    <tr class="odd">
-        <td>2</td>
-        <td><code>modifier</code></td>
-        <td>
-            
-<a href="https://datatables.net/reference/type/selector-modifier" target="_blank">
-    <code class="type">selector-modifier<span>Type</span></code>
-</a>
-<a href="http://datatables.club/blog/2016/07/10/add-index-for-table.html" target="_blank">
-    <code class="type">selector-modifier<span>不定时一讲</span></code>
-</a>
-
-        </td>
-        <td>Yes - default:</td>
-    </tr>
-    <tr class="odd continuation">
-        <td></td>
-        <td colspan="3">
-            <p>
-                选项用来详细说明被选择列的内容在分页、过滤中应该被考虑到的。这个只对关于行的操作有用，比如
-                
-<a href="//datatables.net/reference/api/column().nodes()" target="_blank">
-    <code class="api">column().nodes()<span>API</span></code>
-</a>
- 和
-                
-<a href="//datatables.net/reference/api/column().data()" target="_blank">
-    <code class="api">column().data()<span>API</span></code>
-</a>
-.
-            </p>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<p>获得一个布尔值来告诉你DataTables API实例是否包含符合条件的记录</p>
 
 <h4 id="returns">返回(Returns):</h4>
 
-<p><a href="https://datatables.net/reference/type/jQuery" target="_blank">
-    <code class="type" title="Javascript parameter type">jQuery<span>Type</span></code>
+<p><a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
 </a></p>
 
-<p>匹配元素的 jQuery 对象结果集</p>
+<p><code class="highlighter-rouge">true</code> 表示在结果集中包含一条或者多条符合条件的记录，<code class="highlighter-rouge">false</code>表示不包含</p>
 
 <hr />
 
 <h2 id="example">例子(Example)</h2>
-<p>在表格里找到所有包含‘High’内容的单元格然后加上一个class</p>
+<p>检查结果集中是否有包含<code class="highlighter-rouge">selected</code>class的行</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -250,16 +190,40 @@
 4
 5</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
  
-<span class="nx">table</span>
-    <span class="p">.</span><span class="nx">$</span><span class="p">(</span><span class="s1">':contains("High")'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'important'</span><span class="p">);</span><span class="w">
+<span class="k">if</span> <span class="p">(</span> <span class="nx">table</span><span class="p">.</span><span class="nx">rows</span><span class="p">(</span> <span class="s1">'.selected'</span> <span class="p">).</span><span class="nx">any</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'Rows are selected'</span> <span class="p">);</span>
+<span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>检查表格的数据是否为空</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+ 
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">table</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">any</span><span class="p">()</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'Empty table'</span> <span class="p">);</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>API</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/api/count()" target="_blank">
+<code class="api">count()<span>API</span></code>
+</a></li>
+</ul>
 
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/%24()" target="_blank">https://datatables.net/reference/api/%24()</a></p>
+                    <p><a href="https://datatables.net/reference/api/any()" target="_blank">https://datatables.net/reference/api/any()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -285,13 +249,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/$().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/$().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/any().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/any().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/$().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/$().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/any().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/any().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -476,7 +440,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/$().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/any().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
