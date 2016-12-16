@@ -2,6 +2,18 @@
 <a href="https://datatables.net/reference/api/filter()" target="_blank">
     <code class="api">filter()<span>API</span></code>
 </a>
+{% elsif include.param == "flatten()" %}
+<a href="https://datatables.net/reference/api/flatten()" target="_blank">
+    <code class="api">flatten()<span>API</span></code>
+</a>
+{% elsif include.param == "count()" %}
+<a href="https://datatables.net/reference/api/count()" target="_blank">
+    <code class="api">count()<span>API</span></code>
+</a>
+{% elsif include.param == "any()" %}
+<a href="{{site.baseurl}}/reference/api/any().html" target="_blank">
+    <code class="api">any()<span>API</span></code>
+</a>
 {% elsif include.param == "row.add()" %}
 <a href="https://datatables.net/reference/api/row.add()" target="_blank">
     <code class="api">row.add()<span>API</span></code>

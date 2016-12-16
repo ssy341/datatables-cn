@@ -1,0 +1,41 @@
+---
+layout: reference_md
+title: $.fn.dataTable.versionCheck()
+summary: 版本号兼容性检查
+sub: 文档(Options & API) DataTables中文网
+since: DataTables 1.10
+navcategory: api
+keywords: jQuery,DataTables,fn,versionCheck
+author: /reference/api/%24.fn.dataTable.versionCheck()
+---
+
+## 描述(Description)
+这个方法可以让插件开发人员检查DataTables的运行版本。比如，[Button]({{site.baseurl}}/extensions/buttons) 插件需要 1.10.7 或者更新的DataTables支持。
+
+请注意，这是一个静态的方法，不需要用API实例去调用，通过`$.fn.dataTable`对象调用即可，并且随时可以执行这个方法，
+甚至可以在生成表格之前调用这个方法。
+
+## 类型(Type)
+
+---
+
+### _function_ versionCheck( version )
+
+#### 描述(Description):
+指定一个版本字符串检查DataTables运行版本的兼容性
+
+#### 参数(Parameters):
+{% include_relative jQuery.fn.dataTable.versionCheck-parameters-code.html %}
+
+#### 返回(Returns):
+`true` 表示当前的版本更高或者是刚好需要的版本，`false`表示和给定的版本不匹配
+
+---
+
+## 例子(Example)
+检查DataTables的兼容性，如果DT的版本低于1.9.2，则弹出提示
+{% highlight javascript linenos %}
+if ( ! $.fn.dataTable.versionCheck( '1.9.2' ) ) {
+	alert( 'A newer version of DataTables is required' );
+} 
+{% endhighlight %}

@@ -866,6 +866,14 @@ relurl: http://datatables.net/reference/api/
     </thead>
     <tbody>
     <tr>
+        <td>
+            {% include href/api/api.utility param="any()" %}
+        </td>
+        <td>
+            确定结果集里是否有符合条件的记录(判断表格里有没有数据)
+        </td>
+    </tr>
+    <tr>
         <td><p><a href="//datatables.net/reference/api/concat()"><code class="api" title="DataTables API method">concat()<span>DT</span></code></a>
         </p>
         </td>
@@ -1088,11 +1096,11 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/%24.fn.dataTable.versionCheck()"><code class="api"
-                                                                                              title="DataTables API method">$.fn.dataTable.versionCheck()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/api.Static param="$.fn.dataTable.versionCheck()" %}
         </td>
-        <td><p>版本检查</p>
+        <td>
+            版本号兼容性检查
         </td>
     </tr>
     </tbody>

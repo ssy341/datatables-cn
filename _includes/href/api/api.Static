@@ -14,16 +14,8 @@
 <a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.util.escapeRegex().html" target="_blank">
     <code class="api">$.fn.dataTable.util.escapeRegex()<span>API</span></code>
 </a>
-{% elsif include.param == "search" %}
-<a href="https://datatables.net/reference/api/search()" target="_blank">
-    <code class="api">search()<span>API</span></code>
-</a>
-{% elsif include.param == "page.info()" %}
-<a href="{{site.url}}/reference/api/page.info().html" target="_blank">
-    <code class="api">page.info()<span>API</span></code>
-</a>
-{% elsif include.param == "$()" %}
-<a href="{{site.baseurl}}/reference/api/$().html" target="_blank">
-    <code class="api">$()<span>API</span></code>
+{% elsif include.param == "$.fn.dataTable.versionCheck()" %}
+<a href="{{site.baseurl}}/reference/api/%24.fn.dataTable.versionCheck().html" target="_blank">
+    <code class="api">$.fn.dataTable.versionCheck()<span>API</span></code>
 </a>
 {% endif %}
