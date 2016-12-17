@@ -244,10 +244,11 @@ relurl: http://datatables.net/reference/api/
     </thead>
     <tbody>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/cell().cache()"><code class="api" title="DataTables API method">cell().cache()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/api.cells param="cell().cache()" %}
         </td>
-        <td><p>从缓存里获取选中单元格的数据</p>
+        <td>
+            获取被选择的单元格的缓存数据
         </td>
     </tr>
     <tr>

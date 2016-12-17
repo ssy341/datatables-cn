@@ -1,0 +1,29 @@
+{% if include.param == "cell().data()" %}
+<a href="https://datatables.net/reference/api/cell().data()" target="_blank">
+    <code class="api">cell().data()<span>API</span></code>
+</a>
+{% elsif include.param == "cells().cache()" %}
+<a href="https://datatables.net/reference/api/cells().cache()" target="_blank">
+    <code class="api">cells().cache()<span>API</span></code>
+</a>
+{% elsif include.param == "cell().cache()" %}
+<a href="{{site.baseurl}}/reference/api/cell().cache().html" target="_blank">
+    <code class="api">cell().cache()<span>API</span></code>
+</a>
+{% elsif include.param == "cells().data()" %}
+<a href="https://datatables.net/reference/api/cells().data()" target="_blank">
+    <code class="api">cells().data()<span>API</span></code>
+</a>
+{% elsif include.param == "cells().render()" %}
+<a href="https://datatables.net/reference/api/cells().render()" target="_blank">
+    <code class="api">cells().render()<span>API</span></code>
+</a>
+{% elsif include.param == "cell().data()" %}
+<a href="https://datatables.net/reference/api/cell().data()" target="_blank">
+    <code class="api">cell().data()<span>API</span></code>
+</a>
+{% elsif include.param == "cell().render()" %}
+<a href="https://datatables.net/reference/api/cell().render()" target="_blank">
+    <code class="api">cell().render()<span>API</span></code>
+</a>
+{% endif %}

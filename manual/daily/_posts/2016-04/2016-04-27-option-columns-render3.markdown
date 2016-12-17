@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: 雨吴
 banner: http://tse3.mm.bing.net/th?id=OIP.Me9e5d0c080d7bf2289cd12d6808b866eo0&w=240&h=151&c=7&rs=1&qlt=90&o=4&pid=1.1
 ---
-参数详解连接{% include href/option/columns.render.dt %}
+参数详解连接{% include href/option/option.columns param="columns.render" %}
 
 今天由4群的小伙伴- **雨吴**  给大家讲解`columns.render` 的用法，先看个代码片段：
 <!--more-->
