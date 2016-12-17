@@ -27,6 +27,12 @@ code.api {
     border: 1px solid #c6cbe9;
     white-space: nowrap;
 }
+code.string {
+    color: #c05f1d;
+    background-color: #f5eee9;
+    border: 1px solid #dfc4b2;
+    white-space: nowrap;
+}
 a code {
     text-decoration: underline;
 }
