@@ -22,7 +22,7 @@ $("#tableid").DataTable({
         url:"data.json",
         dataSrc:"tabledata"
     },
-    colunms:[
+    columns:[
         {data:"name"},
         {data:"age"}
     ]

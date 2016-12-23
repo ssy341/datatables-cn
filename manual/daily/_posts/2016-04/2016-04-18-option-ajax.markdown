@@ -18,7 +18,7 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.Mcd6f269812716d3748a8eebb96ff94bao0&w
 {% highlight javascript linenos %}
 $("#tableid").DataTable({
     ajax:"dada.json",
-    colunms:[
+    columns:[
         {data:"name"},
         {data:"age"}
     ]
