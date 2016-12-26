@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>cell().cache() 获取被选择的单元格的缓存数据 文档(Options & API) DataTables中文网</title>
+    <title>cell().data() 获取/设置被选择的单元格的数据 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="jQuery,DataTables,api,cell,cache">
+    <meta name="keywords" content="jQuery,DataTables,api,cell,data">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,14 +122,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">cell().cache() 正文</li>
+                <li class="active">cell().data() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/cell().cache().html">cell().cache()</a>
-                    <small>获取被选择的单元格的缓存数据</small>
+                    <a href="/reference/api/cell().data().html">cell().data()</a>
+                    <small>获取/设置被选择的单元格的数据</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -137,7 +137,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="cell().cache() 获取被选择的单元格的缓存数据 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/cell().cache().html"
+                            data-clipboard-text="cell().data() 获取/设置被选择的单元格的数据 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/cell().data().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,49 +145,40 @@
 
                 <div class="content">
                     <h2 id="description">描述(Description)</h2>
-<p>DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序更快的的反应。有时候用这个方法获取DataTables已经为那些操作缓存好的数据是非常有用的。</p>
+<p>通过使用
+<a href="https://datatables.net/reference/api/cell()" target="_blank">
+    <code class="api">cell()<span>API</span></code>
+</a>
+对象调用，获取被选中单元格的数据，或者设置一个新新值给选择单元格。</p>
 
-<p>缓存数据并不能保证在任何特定的时候都可用。如果DataTables没有请求数据，那么就不会被缓存。当你使用
-<code class="string" title="String">order<span>String</span></code>
-选项，列的排序还没有执行的时候尤为明显。数据失效也会导致缓存被移移除。</p>
+<p>注意这个方法设置的值会改变表格里的值，并更新数据源，但是他不会更新缓存里的数据（比如，搜索缓存和排序缓存），除非调用
+<a href="https://datatables.net/reference/api/draw" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
+方法。
+<code class="highlighter-rouge">draw</code>方法可以像<code class="highlighter-rouge">jQuery</code>的调用方式使用，比如<code class="highlighter-rouge">table.cell( 0, 0 ).data( 'Updated' ).draw();</code></p>
 
-<p>应当注意的是，这个方法针对不同操作（搜索、排序、显示等）使用不同的数据。具体参考
-<a href="https://datatables.net/reference/option/columns.data" target="_blank">
-    <code class="option">columns.data<span>Option</span></code>
-</a>
-和
-<a href="/reference/option/columns.render.html" target="_blank">
-    <code class="option">columns.render<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
-    <code class="option">columns.render 1<span>不定时一讲</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
-    <code class="option">columns.render 2<span>不定时一讲</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
-    <code class="option">columns.render 3<span>不定时一讲</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
-    <code class="option">columns.render 4<span>不定时一讲</span></code>
-</a>
-可以获取更多信息。</p>
-
-<p><a href="/reference/api/cell().data().html" target="_blank">
-    <code class="api">cell().data()<span>API</span></code>
-</a>
-方法可以获取单元格里的原始数据。如果你不为DataTables的不同操作使用数据和显示分离，这个方法则比较有限。</p>
-
-<p>注意，这个方法主要为开发DataTables插件的作者提供操作内部数据的能力。</p>
+<p>尽管这个方法设置之后，缓存数据在没有调用<code class="highlighter-rouge">draw</code>方法之前不会更新，但是单元格的内容会立马变化，因为它是用<code class="highlighter-rouge">innerHTML</code>方法实现数据插入的。</p>
 
 <h2 id="type">类型(Type)</h2>
 
 <hr />
 
-<h3 id="function-cellcache-type-"><em>function</em> cell().cache( type )</h3>
+<h3 id="function-celldata"><em>function</em> cell().data()</h3>
 
 <h4 id="description-1">描述(Description):</h4>
-<p>获得指定缓存类型的缓存数据</p>
+<p>获得选中的单元格数据</p>
+
+<h4 id="returns">返回(Returns):</h4>
+<p><code class="highlighter-rouge">Any</code>
+单元格数据</p>
+
+<hr />
+
+<h3 id="function-celldata-set-"><em>function</em> cell().data( set )</h3>
+
+<h4 id="description-2">描述(Description):</h4>
+<p>给选中的单元格设置数据</p>
 
 <h4 id="parameters">参数(Parameters):</h4>
 <table class="parameters dataTable stripe row-border no-footer">
@@ -202,42 +193,33 @@
     <tbody>
     <tr class="even">
         <td>1</td>
-        <td><code>type</code></td>
+        <td><code>set</code></td>
         <td>
-            
-<a href="https://datatables.net/reference/type/string" target="_blank">
-    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a>
-
+            <code>Any</code>
         </td>
         <td>No</td>
     </tr>
     <tr class="even continuation">
         <td></td>
         <td colspan="3">
-            指定数据应该从哪个缓存器中读取。可以使用两个值
-<code class="string" title="String">order<span>String</span></code>
- 和
-              
-<code class="string" title="String">search<span>String</span></code>
-
+           需要给你单元格设置的值
         </td>
     </tr>
     </tbody>
 </table>
 
-<h4 id="returns">返回(Returns):</h4>
+<h4 id="returns-1">返回(Returns):</h4>
 
 <p><a href="https://datatables.net/reference/type/DataTables.Apir" target="_blank">
     <code class="type">DataTables.Api<span>Type</span></code>
 </a></p>
 
-<p>被选择单元格缓存数据结果集的DataTables API 实例</p>
+<p>被选择单元格数据结果集的DataTables API 实例</p>
 
 <hr />
 
 <h2 id="example">例子(Example)</h2>
-<p>打印被缓存的排序数据</p>
+<p>alert打印出点击单元格的值</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -246,7 +228,24 @@
 5</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
  
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nx">alert</span><span class="p">(</span> <span class="nx">table</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">cache</span><span class="p">(</span> <span class="s1">'order'</span> <span class="p">)</span> <span class="p">);</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="nx">table</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span> <span class="k">this</span> <span class="p">).</span><span class="nx">data</span><span class="p">()</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>每点击一次单元格，让单元格里的值加1</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+ 
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">cell</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">cell</span><span class="p">(</span> <span class="k">this</span> <span class="p">);</span>
+    <span class="nx">cell</span><span class="p">.</span><span class="nx">data</span><span class="p">(</span> <span class="nx">cell</span><span class="p">.</span><span class="nx">data</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+    <span class="c1">// note - call draw() to update the table's draw state with the new data</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -272,8 +271,8 @@
 </a></p>
   </li>
   <li>
-    <p><a href="/reference/api/cell().data().html" target="_blank">
-<code class="api">cell().data()<span>API</span></code>
+    <p><a href="/reference/api/cell().cache().html" target="_blank">
+<code class="api">cell().cache()<span>API</span></code>
 </a></p>
   </li>
   <li>
@@ -287,7 +286,7 @@
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/cell().cache()" target="_blank">https://datatables.net/reference/api/cell().cache()</a></p>
+                    <p><a href="https://datatables.net/reference/api/cell().data()" target="_blank">https://datatables.net/reference/api/cell().data()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -313,13 +312,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/cell().cache().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/cell().cache().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/cell().data().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/cell().data().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/cell().cache().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/cell().cache().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/cell().data().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/cell().data().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -504,7 +503,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/cell().cache().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/cell().data().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>

@@ -30,4 +30,8 @@
 <a href="{{site.baseurl}}/reference/api/$().html" target="_blank">
     <code class="api">$()<span>API</span></code>
 </a>
+{% elsif include.param == "draw()" %}
+<a href="https://datatables.net/reference/api/draw" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
 {% endif %}
