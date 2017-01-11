@@ -42,4 +42,8 @@
 <a href="https://datatables.net/reference/type/undefined" target="_blank">
     <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
 </a>
+{% elsif include.param == "null" %}
+<a href="https://datatables.net/reference/type/null" target="_blank">
+    <code class="type" title="Javascript parameter type">null<span>Type</span></code>
+</a>
 {% endif %}

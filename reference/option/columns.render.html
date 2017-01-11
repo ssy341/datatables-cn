@@ -26,17 +26,17 @@ since: 1.10.0
 有三种特殊的值可以通过{% include href/option/option.columns param="columns.render" %}解决
 <ul class="markdown">
     <li>
-        {% include href/type/undefined %}
+        {% include href/type/type.Javascript param="undefined"%}
         - 当值未定义时，
         {% include href/option/option.columns param="columns.defaultContent" %}将会替换作为默认的值去显示.
         如果又是undefined又没有定义这个则会得到一个错误
     </li>
-    <li>{% include href/type/null %}
+    <li>{% include href/type/type.Javascript param="null"%}
         - 当值为null时，{% include href/option/option.columns param="columns.defaultContent" %}将会替换作为默认值去显示.
-        如果没有设置默认值则会以一个空的字符串显示 。 {% include href/type/null %}将会被用作其他所有数据类型
+        如果没有设置默认值则会以一个空的字符串显示 。 {% include href/type/type.Javascript param="null"%}将会被用作其他所有数据类型
     </li>
     <li>
-        {% include href/type/function %}
+        {% include href/type/type.Javascript param="function"%}
         - 方法将执行，返回函数执行后的值。自Datatables 1.10.1起，这个方法返回的数据将会做为这一行的数据源。
         详细的参考下面给出的示例代码</li>
 </ul>
@@ -228,7 +228,7 @@ since: 1.10.0
                     <td>4</td>
                     <td><code>meta</code></td>
                     <td>
-                        {% include href/type/object %}
+                        {% include href/type/type.Javascript param="object"%}
                     </td>
                     <td>No</td>
                 </tr>
