@@ -1,25 +1,33 @@
 {% if include.param == "row().cache()" %}
-<a href="https://datatables.net/reference/api/row().cache()" target="_blank">
+<a href="//datatables.net/reference/api/row().cache()" target="_blank">
     <code class="api">row().cache()<span>API</span></code>
 </a>
 {% elsif include.param == "row.add()" %}
-<a href="https://datatables.net/reference/api/row.add()" target="_blank">
+<a href="//datatables.net/reference/api/row.add()" target="_blank">
     <code class="api">row.add()<span>API</span></code>
 </a>
 {% elsif include.param == "rows.add()" %}
-<a href="https://datatables.net/reference/api/rows.add()" target="_blank">
+<a href="//datatables.net/reference/api/rows.add()" target="_blank">
     <code class="api">rows.add()<span>API</span></code>
 </a>
 {% elsif include.param == "row().child().hide()" %}
-<a href="https://datatables.net/reference/api/row().child().hide()" target="_blank">
+<a href="//datatables.net/reference/api/row().child().hide()" target="_blank">
     <code class="api">row().child().hide()<span>API</span></code>
 </a>
 {% elsif include.param == "row()" %}
-<a href="https://datatables.net/reference/api/row()" target="_blank">
+<a href="//datatables.net/reference/api/row()" target="_blank">
     <code class="api">row()<span>API</span></code>
 </a>
 {% elsif include.param == "row().index()" %}
-<a href="https://datatables.net/reference/api/row().index()" target="_blank">
+<a href="//datatables.net/reference/api/row().index()" target="_blank">
     <code class="api">row().index()<span>API</span></code>
+</a>
+{% elsif include.param == "row().data()" %}
+<a href="//datatables.net/reference/api/row().data()" target="_blank">
+    <code class="api">row().data()<span>API</span></code>
+</a>
+{% elsif include.param == "row().invalidate()" %}
+<a href="//datatables.net/reference/api/row().invalidate()" target="_blank">
+    <code class="api">row().invalidate()<span>API</span></code>
 </a>
 {% endif %}

@@ -34,4 +34,12 @@
 <a href="https://datatables.net/reference/api/cells().indexs()" target="_blank">
     <code class="api">cells().indexs()<span>API</span></code>
 </a>
+{% elsif include.param == "cells().invalidate()" %}
+<a href="https://datatables.net/reference/api/cells().indexs()" target="_blank">
+    <code class="api">cells().indexs()<span>API</span></code>
+</a>
+{% elsif include.param == "cell().invalidate()" %}
+<a href="{{site.baseurl}}/reference/api/cell().invalidate().html" target="_blank">
+    <code class="api">cell().invalidate()<span>API</span></code>
+</a>
 {% endif %}

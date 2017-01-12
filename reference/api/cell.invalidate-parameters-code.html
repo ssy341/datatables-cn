@@ -1,0 +1,42 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>source</code></td>
+        <td>
+            {% include href/type/type.Javascript param="string" %}
+        </td>
+        <td>Yes - default:auto</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            <p>
+                从数据源读取新的数据。
+            </p>
+
+
+           <p>
+               默认情况下，DataTables 会自动给行 从以前最初被读取过的数据源（比如，dom或者js数据源）中读取新数据。
+               但是这个参数可以用来重载以及明确地告诉DataTables应该在哪个新数据里读取。这个可能在你使用的是AJAX数据，但是又使用JS去修改单元格DOM内容的时候很有用。
+           </p>
+
+
+            这个属性可以接受如下几个参数：
+            <ul>
+                <li> {% include href/string param="auto" %} - 使用原始的数据源</li>
+                <li> {% include href/string param="data" %} - 使用JavaScript数据结构</li>
+                <li> {% include href/string param="dom" %} - 使用当前保存在DOM中的数据</li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
