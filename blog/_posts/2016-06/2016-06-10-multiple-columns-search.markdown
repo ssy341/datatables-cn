@@ -28,7 +28,7 @@ var table = $("#example").DataTable({
         {
             //设置第一列不参与搜索
             "targets":[0],
-            "serchable":false
+            "searchable":false
         }
     ]
 });
