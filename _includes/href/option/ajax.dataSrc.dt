@@ -1,9 +1,9 @@
 <a href="/reference/option/ajax.dataSrc.html" target="_blank">
     <code class="option">ajax.dataSrc<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-19-option-ajax-dataSrc1 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
     <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-20-option-ajax-dataSrc2 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
     <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
 </a>

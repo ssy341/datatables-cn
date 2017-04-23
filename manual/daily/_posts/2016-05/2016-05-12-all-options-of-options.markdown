@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.M1718b8740052ff69960b05b27286ab1fo0&w
 
 相关连接
 
-[Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
-[Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
-[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
-[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
-[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
+[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{site.url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 Options - 配置选项部分
 <!--more-->

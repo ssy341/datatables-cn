@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.Mb8cb79bda0141f372b6b59c0ea9c8cf9o0&w
 
 相关连接
 
-[Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
-[Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
-[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
-[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
-[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
+[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{site.url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 Columns - 列配置部分
 <!--more-->

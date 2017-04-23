@@ -22,23 +22,23 @@
 <a href="/reference/option/columns.render.html" target="_blank">
     <code class="option">columns.render<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-25-option-columns-render1 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
     <code class="option">columns.render 1<span>不定时一讲</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-26-option-columns-render2 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
     <code class="option">columns.render 2<span>不定时一讲</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-27-option-columns-render3 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
     <code class="option">columns.render 3<span>不定时一讲</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-04-28-option-columns-render4 %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
     <code class="option">columns.render 4<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "columns.defaultContent" %}
 <a href="https://datatables.net/reference/option/columns.defaultContent" target="_blank">
     <code class="option">columns.defaultContent<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-04-option-columns-defaultContent %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/04/option-columns-defaultContent.html" target="_blank">
     <code class="option">columns.defaultContent<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "columns.name" %}
@@ -81,7 +81,7 @@
 <a href="https://datatables.net/reference/option/columns.width" target="_blank">
     <code class="option">columns.width<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-04-option-columns-width %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/04/option-columns-width.html" target="_blank">
     <code class="option">columns.width<span>不定时一讲</span></code>
 </a>
 {% endif %}

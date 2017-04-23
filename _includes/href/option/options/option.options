@@ -10,28 +10,28 @@
 <a href="https://datatables.net/reference/option/displayStart" target="_blank">
     <code class="option">displayStart<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-05-option-displayStart %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/05/option-displayStart.html" target="_blank">
     <code class="option">displayStart<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "dom" %}
 <a href="/reference/option/dom.html" target="_blank">
     <code class="option">dom<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-dom %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-dom.html" target="_blank">
     <code class="option">dom<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "lengthMenu" %}
 <a href="https://datatables.net/reference/option/lengthMenu" target="_blank">
     <code class="option">lengthMenu<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-06-option-lengthMenu %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/06/option-lengthMenu.html" target="_blank">
     <code class="option">lengthMenu<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "order" %}
 <a href="https://datatables.net/reference/option/order" target="_blank">
     <code class="option">order<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-05-option-order %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/05/option-order.html" target="_blank">
     <code class="option">order<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "orderCellsTop" %}
@@ -70,63 +70,63 @@
 <a href="https://datatables.net/reference/option/rowId" target="_blank">
     <code class="option">rowId<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-06-option-rowId %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/06/option-rowId.html" target="_blank">
     <code class="option">rowId<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "scrollCollapse" %}
 <a href="https://datatables.net/reference/option/scrollCollapse" target="_blank">
     <code class="option">scrollCollapse<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-05-option-scrollCollapse %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/05/option-scrollCollapse.html" target="_blank">
     <code class="option">scrollCollapse<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.caseInsensitive" %}
 <a href="https://datatables.net/reference/option/search.caseInsensitive" target="_blank">
     <code class="option">search.caseInsensitive<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-search-caseInsensitive %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-search-caseInsensitive.html" target="_blank">
     <code class="option">search.caseInsensitive<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.regex" %}
 <a href="https://datatables.net/reference/option/search.regex" target="_blank">
     <code class="option">search.regex<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-search-regex %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-search-regex.html" target="_blank">
     <code class="option">search.regex<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.search" %}
 <a href="https://datatables.net/reference/option/search.search" target="_blank">
     <code class="option">search.search<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-search-search %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-search-search.html" target="_blank">
     <code class="option">search.search<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search.smart" %}
 <a href="https://datatables.net/reference/option/search.smart" target="_blank">
     <code class="option">search.smart<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-search-smart %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-search-smart.html" target="_blank">
     <code class="option">search.smart<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "search" %}
 <a href="https://datatables.net/reference/option/search" target="_blank">
     <code class="option">search<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-search %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-search.html" target="_blank">
     <code class="option">search<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "searchCols" %}
 <a href="https://datatables.net/reference/option/searchCols" target="_blank">
     <code class="option">searchCols<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-searchCols %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-searchCols.html" target="_blank">
     <code class="option">searchCols<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "searchDelay" %}
 <a href="https://datatables.net/reference/option/searchDelay" target="_blank">
     <code class="option">searchDelay<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-searchDelay %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
     <code class="option">searchDelay<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateDuration" %}
@@ -137,7 +137,7 @@
 <a href="https://datatables.net/reference/option/stripeClasses" target="_blank">
     <code class="option">stripeClasses<span>Option</span></code>
 </a>
-<a href="{{ site.url }}{% post_url 2016-05-11-option-stripeClasses %}" target="_blank">
+<a href="{{ site.url }}/manual/daily/2016/05/11/option-stripeClasses.html" target="_blank">
     <code class="option">stripeClasses<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "tabIndex" %}

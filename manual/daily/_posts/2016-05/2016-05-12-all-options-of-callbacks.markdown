@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.Mb88413ca9cb8fce53091421589436f74o0&w
 
 相关连接
 
-[Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
-[Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
-[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
-[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
-[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
+[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 Callbacks - 回调函数部分
 <!--more-->

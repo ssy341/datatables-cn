@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.Mbe4b5053ee1a1c0b9ffc8ae5d4c11946o0&w
 
 相关连接
 
-[Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
-[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
-[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
-[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
-[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
+[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{site.url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 PS：以下所谓的老版指的是1.9，新版指的是1.10
 <!--more-->

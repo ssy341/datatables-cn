@@ -154,7 +154,7 @@ script: >
 
 
 DataTables中文网推出了
-[第一篇]({{site.url}}{% post_url 2016-10-22-dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration %})
+[第一篇]({{site.url}}/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html)
 关于DataTables和其他表格插件比较后，为了把让这个比较更有意义，更能帮助到大家，DataTables中文网
 做了问卷调查，根据小伙伴们的填写我归纳了一下，一个表格插件关注点在以下三个部分基础、高级的和进阶：
 <!--more-->

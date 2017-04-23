@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.Mf736cc42fa754d772168effa055bbef9o0&w
 
 相关连接
 
-[Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
-[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
-[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
-[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
-[Internationalisation]({{site.url}}{% post_url 2016-05-12-all-options-of-internationalisation %})
+[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Callbacks]({{site.url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 Data - 数据部分
 <!--more-->

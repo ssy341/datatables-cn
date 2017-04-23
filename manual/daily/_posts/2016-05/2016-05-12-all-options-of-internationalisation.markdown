@@ -14,11 +14,11 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.M1cd4d25b89cc1f30ad25a1e1c196fa48o0&w
 
 相关连接
 
-[Features]({{site.url}}{% post_url 2016-05-12-all-options-of-features %})
-[Data]({{site.url}}{% post_url 2016-05-12-all-options-of-data %})
-[Callbacks]({{site.url}}{% post_url 2016-05-12-all-options-of-callbacks %})
-[Options]({{site.url}}{% post_url 2016-05-12-all-options-of-options %})
-[Columns]({{site.url}}{% post_url 2016-05-12-all-options-of-columns %})
+[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{site.url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
 
 Internationalisation - 国际化部分
 <!--more-->
