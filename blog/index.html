@@ -4,7 +4,7 @@ title: DataTables 中文网博客
 ---
 
 <!-- This loops through the paginated posts -->
-{% assign postlist = paginator.posts | where_exp: 'layout', 'layout == "daily" and layout == "post" ' %}
+{% assign postlist = paginator.posts | where: 'layout', 'daily' %}
 {% for post in postlist %}
 <!-- First Blog Post -->
 <h2>

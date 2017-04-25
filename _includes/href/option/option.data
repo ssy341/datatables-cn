@@ -1,17 +1,17 @@
 {% if include.param == "ajax.data" %}
 <a href="http://datatables.net/reference/option/ajax.data" target="_blank">
-    <code>ajax.data<span>Option</span></code>
+    <code class="option">ajax.data<span>Option</span></code>
 </a>
 {% elsif include.param == "ajax.dataSrc" %}
 <a href="http://datatables.net/reference/option/ajax.dataSrc" target="_blank">
-    <code>ajax.dataSrc<span>Option</span></code>
+    <code class="option">ajax.dataSrc<span>Option</span></code>
 </a>
 {% elsif include.param == "ajax" %}
 <a href="http://datatables.net/reference/option/ajax" target="_blank">
-    <code>ajax<span>Option</span></code>
+    <code class="option">ajax<span>Option</span></code>
 </a>
 {% elsif include.param == "data" %}
 <a href="http://datatables.net/reference/option/data" target="_blank">
-    <code>data<span>Option</span></code>
+    <code class="option">data<span>Option</span></code>
 </a>
 {% endif %}

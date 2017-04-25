@@ -1,5 +1,5 @@
 {% if include.param == "deferLoading" %}
-<a href="https://datatables.net/reference/option/deferLoading" target="_blank">
+<a href="/reference/option/deferLoading.html" target="_blank">
     <code class="option">deferLoading<span>Option</span></code>
 </a>
 {% elsif include.param == "destroy" %}
