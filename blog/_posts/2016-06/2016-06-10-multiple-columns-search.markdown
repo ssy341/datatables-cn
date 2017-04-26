@@ -16,7 +16,7 @@ banner: http://www.kepu.net.cn/gb/special/201009_01_bjwy/bjbc/001.png
 - 根据条件获取最终的数据显示
 - 在已经显示的数据中过滤
 
-第一种，可以参考[根据参数查询表格数据]({{ site.url }}/manual/daily/2016/04/21/option-ajax-data.html)
+第一种，可以参考[根据参数查询表格数据]({{ site.wlan_url }}/manual/daily/2016/04/21/option-ajax-data.html)
 
 第二种，DataTables 本身提供了过滤插件，默认条件下，在表格的右上角会有一个搜索框，可以对表格中的数据进行过滤，这个是针对全局（所有列）的搜索
 <!--more-->
@@ -45,11 +45,11 @@ var table = $("#example").DataTable({
 {% endhighlight %}
 但是这样做会影响到 DT 提供的搜索API -{% include href/api/api.Core param="search()" %} 方法,实际上DT自带的搜索框也是调用了这个方法，
 `"searching": false`相当于把搜索功能关闭了，{% include href/api/api.Core param="search()" %} 就不能用了，这样当然不行，
-所以**如果你想用自己的搜索框，那么建议你设置 `dom` 来把默认的搜索框隐藏**（详见 [DataTables 之 DOM]({{ site.url }}/manual/daily/2016/05/11/option-dom.html)）
+所以**如果你想用自己的搜索框，那么建议你设置 `dom` 来把默认的搜索框隐藏**（详见 [DataTables 之 DOM]({{ site.wlan_url }}/manual/daily/2016/05/11/option-dom.html)）
 
 我们可以自己写一个或者多个`input`框，点击按钮触发这个方法，这个方法接收的值用空格隔开，就类似于多条件搜索
 
-ps：你还可以传正则表达式 参考 [正则表达式搜索]({{ site.url }}/manual/daily/2016/05/11/option-search-regex.html)
+ps：你还可以传正则表达式 参考 [正则表达式搜索]({{ site.wlan_url }}/manual/daily/2016/05/11/option-search-regex.html)
 {% highlight javascript linenos %}
 //给搜索按钮绑定点击事件
 $(document).on("click","#example button.search",function(){

@@ -14,21 +14,21 @@
 <a href="https://datatables.net/reference/option/formatNumber" target="_blank">
     <code class="option">formatNumber<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/05/03/option-formatNumber.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/05/03/option-formatNumber.html" target="_blank">
     <code class="option">formatNumber<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "headerCallback" %}
 <a href="https://datatables.net/reference/option/headerCallback" target="_blank">
     <code class="option">headerCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/08/29/option-headerCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/08/29/option-headerCallback.html" target="_blank">
     <code class="option">headerCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "infoCallback" %}
 <a href="https://datatables.net/reference/option/infoCallback" target="_blank">
     <code class="option">infoCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/08/30/option-infoCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/08/30/option-infoCallback.html" target="_blank">
     <code class="option">infoCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "initComplete" %}
@@ -39,49 +39,49 @@
 <a href="https://datatables.net/reference/option/preDrawCallback" target="_blank">
     <code class="option">preDrawCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/02/option-preDrawCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/02/option-preDrawCallback.html" target="_blank">
     <code class="option">preDrawCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "rowCallback" %}
 <a href="https://datatables.net/reference/option/rowCallback" target="_blank">
     <code class="option">rowCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/04/option-rowCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/04/option-rowCallback.html" target="_blank">
     <code class="option">rowCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateLoadCallback" %}
 <a href="https://datatables.net/reference/option/stateLoadCallback" target="_blank">
     <code class="option">stateLoadCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/10/option-stateLoadCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/10/option-stateLoadCallback.html" target="_blank">
     <code class="option">stateLoadCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateLoaded" %}
 <a href="https://datatables.net/reference/option/stateLoaded" target="_blank">
     <code class="option">stateLoaded<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/11/option-stateLoaded.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/11/option-stateLoaded.html" target="_blank">
     <code class="option">stateLoaded<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateLoadParams" %}
 <a href="https://datatables.net/reference/option/stateLoadParams" target="_blank">
     <code class="option">stateLoadParams<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/22/option-stateLoadParams.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/22/option-stateLoadParams.html" target="_blank">
     <code class="option">stateLoadParams<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateSaveCallback" %}
 <a href="https://datatables.net/reference/option/stateSaveCallback" target="_blank">
     <code class="option">stateSaveCallback<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/23/option-stateSaveCallback.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/23/option-stateSaveCallback.html" target="_blank">
     <code class="option">stateSaveCallback<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateSaveParams" %}
 <a href="https://datatables.net/reference/option/stateSaveParams" target="_blank">
     <code class="option">stateSaveParams<span>Option</span></code>
 </a>
-<a href="{{ site.url }}/manual/daily/2016/09/25/option-stateSaveParams.html" target="_blank">
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/25/option-stateSaveParams.html" target="_blank">
     <code class="option">stateSaveParams<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateDuration" %}

@@ -22,7 +22,7 @@
 <a href="https://datatables.net/reference/type/selector-modifier" target="_blank">
     <code class="type">selector-modifier<span>Type</span></code>
 </a>
-<a href="{{ site.url }}/blog/2016/07/10/add-index-for-table.html" target="_blank">
+<a href="{{ site.wlan_url }}/blog/2016/07/10/add-index-for-table.html" target="_blank">
     <code class="type">selector-modifier<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "table-selector" %}

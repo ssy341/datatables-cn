@@ -31,7 +31,7 @@ jquery: 1.10.2
 ---
 <a href="aasdfa">asdfasdfa</a>
 
-定义变量 {% capture sid %}{{ site.url }}{{ page.url }}{% endcapture %}
+定义变量 {% capture sid %}{{ site.wlan_url }}{{ page.url }}{% endcapture %}
 
 自定义路径
 permalink: activity/2

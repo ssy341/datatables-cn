@@ -35,7 +35,7 @@ author: /reference/option/deferLoading
  - value: {% include href/type/type.Javascript param="null" %} 
  
 ## 例子(Example)
-表格中总共显示57条记录，无过滤操作
+表格中总共显示57条记录，无过滤操作 [示例](https://datatables.net/examples/server_side/defer_loading.html)
 {% highlight javascript linenos %}
 $('#example').DataTable( {
   "serverSide": true,

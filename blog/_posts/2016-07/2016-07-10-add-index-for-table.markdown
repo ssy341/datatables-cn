@@ -18,13 +18,13 @@ banner: https://github.com/ssy341/datatabes_cn_example_curd_java/raw/master/imag
 
 目录
 
-1. [客户端模式下添加行号](#section)
-2. [服务器模式下添加行号](#section-1)
-3. [selector-modifier 选择器的应用](#selector-modifier-)
+1. [客户端模式下添加行号](#section1)
+2. [服务器模式下添加行号](#section2)
+3. [selector-modifier选择器的应用](#section3)
 
 ---
 
-- ## 客户端模式下添加行号
+- <h2 id="section1">客户端模式下添加行号</h2>
 
 看下面的代码，看作者是怎么给第一列添加索引列的。
 {% highlight html linenos %}
@@ -83,7 +83,7 @@ banner: https://github.com/ssy341/datatabes_cn_example_curd_java/raw/master/imag
 
 通过上面这段基本的代码，在客户端模式下，行号自然就显示出来了
 
-- ## 服务器模式下添加行号
+- <h2 id="section2">服务器模式下添加行号</h2>
 
 服务器模式下添加行号可以从两方面着手：
 
@@ -133,9 +133,9 @@ table.on('draw.dt',function() {
 
 看完之后是不是觉得恍然大悟？在服务器模式下添加行号也不是件难事，以后妈妈再也不用担心我不会添加行号了。
 
-- ## selector-modifier 选择器的应用
+- <h2 id="section3">selector-modifier 选择器的应用</h2>
 
-DT 在文档中提及到的数据类型，方法返回的类型在 [Types]({{site.url}}/reference/type) 有详细的说明
+DT 在文档中提及到的数据类型，方法返回的类型在 [Types]({{site.wlan_url}}/reference/type) 有详细的说明
 
 可能大家有看到如下几种写法：
 {% highlight javascript linenos %}

@@ -10,15 +10,15 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mb88413ca9cb8fce53091421589436f74o0&w=300&h=224&c=0&pid=1.9&rs=0&p=0
 ---
-[所有option连接]({{site.url}}/reference/option/)
+[所有option连接]({{site.wlan_url}}/reference/option/)
 
 相关连接
 
-[Features]({{site.url}}/manual/daily/2016/05/12/all-options-of-features.html)
-[Data]({{site.url}}/manual/daily/2016/05/12/all-options-of-data.html)
-[Columns]({{site.url}}/manual/daily/2016/05/12/all-options-of-columns.html)
-[Options]({{site.url}}/manual/daily/2016/05/12/all-options-of-options.html)
-[Internationalisation]({{site.url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
+[Features]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-data.html)
+[Columns]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Options]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 Callbacks - 回调函数部分
 <!--more-->

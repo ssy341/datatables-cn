@@ -154,7 +154,7 @@ script: >
 
 
 DataTables中文网推出了
-[第一篇]({{site.url}}/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html)
+[第一篇]({{site.wlan_url}}/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html)
 关于DataTables和其他表格插件比较后，为了把让这个比较更有意义，更能帮助到大家，DataTables中文网
 做了问卷调查，根据小伙伴们的填写我归纳了一下，一个表格插件关注点在以下三个部分基础、高级的和进阶：
 <!--more-->
@@ -208,7 +208,7 @@ DataTables中文网推出了
 
 ---
 
-- ## DataTables实现排序，分页，搜索
+- <h2 id="datatables">DataTables实现排序，分页，搜索</h2>
 
 对于DataTables，其实之前的例子中已经做完了这个步骤，因为默认就开启了这部分功能，还是直接看代码吧
 
@@ -301,7 +301,7 @@ DataTables中文网推出了
 
 ---
 
-- ## DataGrid实现排序，分页，搜索
+- <h2 id="datagrid">DataGrid实现排序，分页，搜索</h2>
 
 不多说，还是来看看DataGrid是怎么实现的。在做DataGrid的时候我花了些时间，用起来不那么熟练，遇到了许多问题，不过通过在网上搜索
 最终解决了问题，只是翻页还是有点小bug，需要点击下排序之后，翻页才正常，如果小伙伴你知道怎么解决希望您能告诉我
@@ -350,7 +350,7 @@ dg.datagrid('enableFilter');
 
 ---
 
-- ## 讨论
+- <h2 id="section">讨论</h2>
 
 可能我是初接触DataGrid，所以在做这个例子的时候显的有些费力，虽然不是难的功能，作为初学者我觉得DataGrid还是比较难入手。
 但回过头来想想，我最开始使用DataTables的时候不也是这样费力么？开玩笑了，大家不要当真。
