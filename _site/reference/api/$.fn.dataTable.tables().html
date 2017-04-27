@@ -5,7 +5,7 @@
     <title>$.fn.dataTable.tables() 获取该页面上所有的DataTables实例 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
+    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
     <meta name="keywords" content="fn,DataTables,tables">
@@ -144,22 +144,22 @@
                 <hr>
 
                 <div class="content">
-                    <h2 id="描述description">描述(Description)</h2>
+                    <h2 id="description">描述(Description)</h2>
 <p>这个方法能够列出当前页面已存在的DataTables实例，特别是当表格可见时，表格开启了滚动条，需要调整列宽的情况下非常有用。</p>
 
 <p>请注意，这是一个静态的方法，不需要用API实例去调用，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。</p>
 
-<h2 id="类型type">类型(Type)</h2>
+<h2 id="type">类型(Type)</h2>
 
 <hr />
 
 <h3 id="function-tables--visible--"><em>function</em> tables( [ visible ] )</h3>
 
-<h4 id="描述description-1">描述(Description):</h4>
+<h4 id="description-1">描述(Description):</h4>
 <p>获取页面上所有已经实例化的DataTables实例 - 可选项，你可以仅仅选择当前显示的表格或者检索表格作为API实例</p>
 
-<h4 id="参数parameters">参数(Parameters):</h4>
+<h4 id="parameters">参数(Parameters):</h4>
 <table class="parameters dataTable stripe row-border no-footer">
     <thead>
     <tr>
@@ -224,7 +224,7 @@
     </tbody>
 </table>
 
-<h4 id="返回returns">返回(Returns):</h4>
+<h4 id="returns">返回(Returns):</h4>
 
 <p><a href="https://datatables.net/reference/type/array" target="_blank">
     <code class="type" title="Javascript parameter type">array<span>Type</span></code>
@@ -238,7 +238,7 @@
 
 <hr />
 
-<h2 id="例子example">例子(Example)</h2>
+<h2 id="example">例子(Example)</h2>
 <p>给所有可见的表格调整列的宽度</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1

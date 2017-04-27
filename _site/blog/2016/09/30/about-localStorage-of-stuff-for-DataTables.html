@@ -5,7 +5,7 @@
     <title>关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)  博客 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
+    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
     <!-- Le styles -->
@@ -127,11 +127,11 @@
 <p>目录</p>
 
 <ol>
-  <li><a href="#section1">爱在哪里？</a></li>
-  <li><a href="#section2">恨在哪里？</a></li>
-  <li><a href="#section3">什么时候该使用这个参数？</a></li>
-  <li><a href="#section4">示例讲解</a></li>
-  <li><a href="#section5">总结</a></li>
+  <li><a href="#section">爱在哪里？</a></li>
+  <li><a href="#section-1">恨在哪里？</a></li>
+  <li><a href="#section-3">什么时候该使用这个参数？</a></li>
+  <li><a href="#section-4">示例讲解</a></li>
+  <li><a href="#section-5">总结</a></li>
 </ol>
 
 <hr />
@@ -160,7 +160,7 @@
 
 <ul>
   <li>
-    <h2 id="section2">恨在哪里？</h2>
+    <h2 id="section-1">恨在哪里？</h2>
   </li>
 </ul>
 
@@ -186,7 +186,7 @@
 
 <p><strong>知其然不知其所以然</strong>，大家确实查询了资料、看了文档，但是只是照搬，没有弄清楚真正的意思，这样肯定会给自己带来不少麻烦。</p>
 
-<h3 id="这里告诉大家一个技巧一般插件都有默认值无参数的初始化方法这是最基本的需求而不是自己还要去加这样或那样的参数比如如下代码">这里告诉大家一个技巧，一般插件都有默认值、无参数的初始化方法，这是最基本的需求，而不是自己还要去加这样或那样的参数。比如如下代码：</h3>
+<h3 id="section-2">这里告诉大家一个技巧，一般插件都有默认值、无参数的初始化方法，这是最基本的需求，而不是自己还要去加这样或那样的参数。比如如下代码：</h3>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -202,7 +202,7 @@
 
 <ul>
   <li>
-    <h2 id="section3">什么时候该使用这个参数？</h2>
+    <h2 id="section-3">什么时候该使用这个参数？</h2>
   </li>
 </ul>
 
@@ -210,20 +210,20 @@
 
 <p><strong>很简单，你可以简单理解为缓存。他可以缓存DT的所有状态。</strong></p>
 
-<p>比如说有以下应用：</p>
-<ul>
-  <li>保持翻页，比如当前翻到第4页，下次再打开的时候任然是第4页</li>
-  <li>保持排列顺序，比如第二列是降序排列，下次再打开第二列仍是降序排列</li>
-  <li>保持过滤条件，比如前一次输入的过滤条件是【DataTables中文网】，再次打开任然是按照此关键字来过滤数据</li>
-  <li>
-    <p>……
+<p>比如说有以下应用：
+ - 保持翻页，比如当前翻到第4页，下次再打开的时候任然是第4页
+ - 保持排列顺序，比如第二列是降序排列，下次再打开第二列仍是降序排列
+ - 保持过滤条件，比如前一次输入的过滤条件是【DataTables中文网】，再次打开任然是按照此关键字来过滤数据
+ - ……
 当然不止我上面所提到的这些，大家可以天马行空，发挥自己的想象，没有做不到，只有想不到，做到做不到，试试就知道</p>
-  </li>
+
+<ul>
   <li>
-    <h2 id="section4">示例讲解</h2>
-    <p>下面通过具体的例子告诉大家 DT 究竟是怎么保存状态的</p>
+    <h2 id="section-4">示例讲解</h2>
   </li>
 </ul>
+
+<p>下面通过具体的例子告诉大家 DT 究竟是怎么保存状态的</p>
 
 <p>一个简单的例子演示了几个回调函数之间是怎么执行的，执行顺序如何？</p>
 
@@ -384,7 +384,7 @@
     <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/objects.txt"</span>
     <span class="p">},</span>
-    <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="s2">"columns"</span><span class="err">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"position"</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"salary"</span><span class="p">},</span>
@@ -392,19 +392,19 @@
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"office"</span><span class="p">},</span>
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"extn"</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="s2">"每页_MENU_ 条记录"</span><span class="p">,</span>
-        <span class="s2">"zeroRecords"</span><span class="p">:</span> <span class="s2">"没有找到记录"</span><span class="p">,</span>
-        <span class="s2">"info"</span><span class="p">:</span> <span class="s2">"第 _PAGE_ 页 ( 总共 _PAGES_ 页 )"</span><span class="p">,</span>
-        <span class="s2">"infoEmpty"</span><span class="p">:</span> <span class="s2">"无记录"</span><span class="p">,</span>
-        <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"搜索："</span><span class="p">,</span>
-        <span class="s2">"infoFiltered"</span><span class="p">:</span> <span class="s2">"(从 _MAX_ 条记录过滤)"</span><span class="p">,</span>
-        <span class="s2">"paginate"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="s2">"previous"</span><span class="p">:</span> <span class="s2">"上一页"</span><span class="p">,</span>
-            <span class="s2">"next"</span><span class="p">:</span> <span class="s2">"下一页"</span>
+    <span class="s2">"language"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"lengthMenu"</span><span class="err">:</span> <span class="s2">"每页_MENU_ 条记录"</span><span class="p">,</span>
+        <span class="s2">"zeroRecords"</span><span class="err">:</span> <span class="s2">"没有找到记录"</span><span class="p">,</span>
+        <span class="s2">"info"</span><span class="err">:</span> <span class="s2">"第 _PAGE_ 页 ( 总共 _PAGES_ 页 )"</span><span class="p">,</span>
+        <span class="s2">"infoEmpty"</span><span class="err">:</span> <span class="s2">"无记录"</span><span class="p">,</span>
+        <span class="s2">"search"</span><span class="err">:</span> <span class="s2">"搜索："</span><span class="p">,</span>
+        <span class="s2">"infoFiltered"</span><span class="err">:</span> <span class="s2">"(从 _MAX_ 条记录过滤)"</span><span class="p">,</span>
+        <span class="s2">"paginate"</span><span class="err">:</span> <span class="p">{</span>
+            <span class="s2">"previous"</span><span class="err">:</span> <span class="s2">"上一页"</span><span class="p">,</span>
+            <span class="s2">"next"</span><span class="err">:</span> <span class="s2">"下一页"</span>
         <span class="p">}</span>
     <span class="p">},</span>
-    <span class="s2">"dom"</span><span class="p">:</span> <span class="s2">"&lt;'row'&lt;'col-xs-2'l&gt;&lt;'#mytool.col-xs-4'&gt;&lt;'col-xs-6'f&gt;r&gt;"</span> <span class="o">+</span>
+    <span class="s2">"dom"</span><span class="err">:</span> <span class="s2">"&lt;'row'&lt;'col-xs-2'l&gt;&lt;'#mytool.col-xs-4'&gt;&lt;'col-xs-6'f&gt;r&gt;"</span> <span class="o">+</span>
     <span class="s2">"t"</span> <span class="o">+</span>
     <span class="s2">"&lt;'row'&lt;'col-xs-6'i&gt;&lt;'col-xs-6'p&gt;&gt;"</span>
 <span class="p">});</span><span class="w">
@@ -412,18 +412,14 @@
 
 <p>执行顺序如下：</p>
 
-<p>保存</p>
-<ul>
-  <li><code class="highlighter-rouge">stateSaveParams</code></li>
-  <li><code class="highlighter-rouge">stateSaveCallback</code></li>
-</ul>
+<p>保存
+  - <code class="highlighter-rouge">stateSaveParams</code>
+  - <code class="highlighter-rouge">stateSaveCallback</code></p>
 
-<p>读取</p>
-<ul>
-  <li><code class="highlighter-rouge">stateLoadParams</code></li>
-  <li><code class="highlighter-rouge">stateLoadCallback</code></li>
-  <li><code class="highlighter-rouge">stateLoaded</code></li>
-</ul>
+<p>读取
+  - <code class="highlighter-rouge">stateLoadParams</code>
+  - <code class="highlighter-rouge">stateLoadCallback</code>
+  - <code class="highlighter-rouge">stateLoaded</code></p>
 
 <p>PS：如果对此还有疑问的，大家可以clone下面提到的完整工程，自己试验最终的结果</p>
 
@@ -466,11 +462,11 @@
     <span class="s2">"columns"</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="s2">"visible"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span>     <span class="c1">// 列是否隐藏显示</span>
-            <span class="s2">"search"</span><span class="p">:</span>  <span class="p">{</span>             <span class="c1">// 包含每列的单独搜索条件，格式和上面的一致</span>
-                <span class="s2">"search"</span><span class="p">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
-                <span class="s2">"regex"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
-                <span class="s2">"smart"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
-                <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
+            <span class="s2">"search"</span><span class="err">:</span>  <span class="p">{</span>             <span class="c1">// 包含每列的单独搜索条件，格式和上面的一致</span>
+                <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
+                <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
+                <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
+                <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
             <span class="p">}</span>           
         <span class="p">},</span>
         <span class="err">……</span>
@@ -641,7 +637,7 @@
 
 <ul>
   <li>
-    <h2 id="section5">总结</h2>
+    <h2 id="section-5">总结</h2>
   </li>
 </ul>
 

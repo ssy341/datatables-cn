@@ -5,7 +5,7 @@
     <title>$.fn.dataTable.versionCheck() 版本号兼容性检查 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
+    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.13。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
     <meta name="keywords" content="jQuery,DataTables,fn,versionCheck">
@@ -144,22 +144,22 @@
                 <hr>
 
                 <div class="content">
-                    <h2 id="描述description">描述(Description)</h2>
+                    <h2 id="description">描述(Description)</h2>
 <p>这个方法可以让插件开发人员检查DataTables的运行版本。比如，<a href="/extensions/buttons">Button</a> 插件需要 1.10.7 或者更新的DataTables支持。</p>
 
 <p>请注意，这是一个静态的方法，不需要用API实例去调用，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。</p>
 
-<h2 id="类型type">类型(Type)</h2>
+<h2 id="type">类型(Type)</h2>
 
 <hr />
 
 <h3 id="function-versioncheck-version-"><em>function</em> versionCheck( version )</h3>
 
-<h4 id="描述description-1">描述(Description):</h4>
+<h4 id="description-1">描述(Description):</h4>
 <p>指定一个版本字符串检查DataTables运行版本的兼容性</p>
 
-<h4 id="参数parameters">参数(Parameters):</h4>
+<h4 id="parameters">参数(Parameters):</h4>
 <table class="parameters dataTable stripe row-border no-footer">
     <thead>
     <tr>
@@ -189,12 +189,12 @@
     </tbody>
 </table>
 
-<h4 id="返回returns">返回(Returns):</h4>
+<h4 id="returns">返回(Returns):</h4>
 <p><code class="highlighter-rouge">true</code> 表示当前的版本更高或者是刚好需要的版本，<code class="highlighter-rouge">false</code>表示和给定的版本不匹配</p>
 
 <hr />
 
-<h2 id="例子example">例子(Example)</h2>
+<h2 id="example">例子(Example)</h2>
 <p>检查DataTables的兼容性，如果DT的版本低于1.9.2，则弹出提示</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
