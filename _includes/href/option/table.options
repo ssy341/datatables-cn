@@ -44,7 +44,9 @@
       <td>
           {% include href/option/options/option.options param="orderCellsTop" %}
       </td>
-      <td><p>控制表头的哪一个cell可以应用于该列的排序响应</p></td>
+      <td>
+        控制表头(colspan rowspan 表头)的哪一个单元格可以应用于该列的排序响应
+      </td>
     </tr>
     <tr>
       <td>
