@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>pageLength 改变初始化页长度（每页多少条数据） 文档(Options & API) DataTables中文网</title>
+    <title>pagingType 分页按钮显示选项 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,pageLength">
+    <meta name="keywords" content="option,pagingType">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,14 +122,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">pageLength 正文</li>
+                <li class="active">pagingType 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/pageLength.html">pageLength</a>
-                    <small>改变初始化页长度（每页多少条数据）</small>
+                    <a href="/reference/option/pagingType.html">pagingType</a>
+                    <small>分页按钮显示选项</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -137,7 +137,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="pageLength 改变初始化页长度（每页多少条数据） 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/pageLength.html"
+                            data-clipboard-text="pagingType 分页按钮显示选项 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/pagingType.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,38 +145,42 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>使用分页时，单页显示的数据条数</p>
+<p>DataTables默认情况下会在表格下面显示一个分页控件（可以使用dom选项和额外的css更改其位置），用户可以使用这个导航按钮来操作表格翻页。</p>
 
-<p>如果该参数是开启的，那么用户可以通过弹出（
-<a href="https://datatables.net/reference/option/lengthMenu" target="_blank">
-    <code class="option">lengthMenu<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html" target="_blank">
-    <code class="option">lengthMenu<span>不定时一讲</span></code>
-</a>
-）的菜单设置每页显示的数据条数</p>
+<p>分页控件中显示的按钮由此处给出的选项定义。DataTables有6个内置的分页按钮布局：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">numbers</code>  只显示数字 （1.10.8版本）</li>
+  <li><code class="highlighter-rouge">simple</code>  只有上一页和下一页两个按钮</li>
+  <li><code class="highlighter-rouge">simple_numbers</code>  上一页和下一页两个按钮，加上页数按钮</li>
+  <li><code class="highlighter-rouge">full</code>  首页，尾页，上一页和下一页四个按钮</li>
+  <li><code class="highlighter-rouge">full_numbers</code>  首页，尾页，上一页和下一页四个按钮,加上数字按钮</li>
+  <li><code class="highlighter-rouge">first_last_numbers</code>  首页，尾页两个按钮,加上数字按钮</li>
+</ul>
+
+<p>可以使用插件添加更多的布局和特性。</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
 
 <ul>
-  <li><a href="https://datatables.net/reference/type/integer" target="_blank">
-<code class="type" title="Javascript parameter type">integer<span>Type</span></code>
+  <li><a href="https://datatables.net/reference/type/string" target="_blank">
+<code class="type" title="Javascript parameter type">string<span>Type</span></code>
 </a></li>
 </ul>
 
 <h2 id="默认值default">默认值(Default)</h2>
 <ul>
-  <li>Value ：<code class="highlighter-rouge">10</code></li>
+  <li>Value ：<code class="highlighter-rouge">simple_numbers</code></li>
 </ul>
 
 <h2 id="例子example">例子(Example)</h2>
-<p>默认每页显示50条数据</p>
+<p>显示首页，尾页，上一页和下一页四个按钮,加上数字按钮</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3</pre></td><td class="code"><pre><span class="nx">$$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-   <span class="s2">"pageLength"</span><span class="p">:</span> <span class="mi">50</span>
+  <span class="s2">"pagingType"</span><span class="p">:</span> <span class="s2">"full_numbers"</span>
  <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -187,16 +191,11 @@
 
 <ul>
   <li>
-    <p><a href="/reference/option/lengthChange.html" target="_blank">
-<code class="option">lengthChange<span>Option</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="https://datatables.net/reference/option/lengthMenu" target="_blank">
-<code class="option">lengthMenu<span>Option</span></code>
+    <p><a href="/reference/option/dom.html" target="_blank">
+<code class="option">dom<span>Option</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/06/option-lengthMenu.html" target="_blank">
-<code class="option">lengthMenu<span>不定时一讲</span></code>
+<a href="http://datatables.club/manual/daily/2016/05/11/option-dom.html" target="_blank">
+<code class="option">dom<span>不定时一讲</span></code>
 </a></p>
   </li>
   <li>
@@ -209,28 +208,16 @@
 <p>API</p>
 
 <ul>
-  <li>
-    <p><a href="http://datatables.club/reference/api/page().html" target="_blank">
+  <li><a href="http://datatables.club/reference/api/page().html" target="_blank">
 <code class="api">page()<span>API</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="http://datatables.club/reference/api/page.info().html" target="_blank">
-<code class="api">page.info()<span>API</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="http://datatables.club/reference/api/page.len().html" target="_blank">
-<code class="api">page.len()<span>API</span></code>
-</a></p>
-  </li>
+</a></li>
 </ul>
 
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/pageLength" target="_blank">https://datatables.net/reference/option/pageLength</a></p>
+                    <p><a href="https://datatables.net/reference/option/pagingType" target="_blank">https://datatables.net/reference/option/pagingType</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -256,13 +243,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/pageLength.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/pageLength.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/pagingType.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/pagingType.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/pageLength.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/pageLength.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/pagingType.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/pagingType.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -447,7 +434,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/pageLength.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/pagingType.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
