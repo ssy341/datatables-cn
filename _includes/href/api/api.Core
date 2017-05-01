@@ -38,4 +38,8 @@
 <a href="https://datatables.net/reference/api/order" target="_blank">
     <code class="api">order()<span>API</span></code>
 </a>
+{% elsif include.param == "order.fixed()" %}
+<a href="https://datatables.net/reference/api/order.fixed()" target="_blank">
+    <code class="api">order.fixed()<span>API</span></code>
+</a>
 {% endif %}

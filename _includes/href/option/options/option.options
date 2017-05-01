@@ -39,11 +39,11 @@
     <code class="option">orderCellsTop<span>Option</span></code>
 </a>
 {% elsif include.param == "orderClasses" %}
-<a href="https://datatables.net/reference/option/orderClasses" target="_blank">
+<a href="/reference/option/orderClasses.html" target="_blank">
     <code class="option">orderClasses<span>Option</span></code>
 </a>
 {% elsif include.param == "orderFixed" %}
-<a href="https://datatables.net/reference/option/orderFixed" target="_blank">
+<a href="/reference/option/orderFixed.html" target="_blank">
     <code class="option">orderFixed<span>Option</span></code>
 </a>
 {% elsif include.param == "orderMulti" %}
