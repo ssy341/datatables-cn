@@ -68,7 +68,9 @@
       <td>
           {% include href/option/options/option.options param="orderMulti" %}
       </td>
-      <td><p>控制多列排序</p></td>
+      <td>
+        多列排序控制
+      </td>
     </tr>
     <tr>
       <td>{% include href/option/options/option.options param="pageLength" %}</td>

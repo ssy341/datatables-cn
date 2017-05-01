@@ -47,7 +47,7 @@
     <code class="option">orderFixed<span>Option</span></code>
 </a>
 {% elsif include.param == "orderMulti" %}
-<a href="https://datatables.net/reference/option/orderMulti" target="_blank">
+<a href="/reference/option/orderMulti.html" target="_blank">
     <code class="option">orderMulti<span>Option</span></code>
 </a>
 {% elsif include.param == "pageLength" %}
