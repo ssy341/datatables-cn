@@ -1,6 +1,3 @@
----
----
-
 Datatables中文网
 =============
 基于 jQuery 的表格插件，灵活，强大
@@ -12,24 +9,24 @@ Datatables中文网
 ```
 <!--第一步：引入Javascript / CSS （CDN）-->
 <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/{{site.dtversion}}/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
  
 <!-- jQuery -->
 <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
  
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/{{site.dtversion}}/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
  
  
 <!--或者下载到本地，下面有下载地址-->
 <!-- DataTables CSS -->
-<link rel="stylesheet" type="text/css" href="DataTables-{{site.dtversion}}/media/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="DataTables-1.10.15/media/css/jquery.dataTables.css">
  
 <!-- jQuery -->
-<script type="text/javascript" charset="utf8" src="DataTables-{{site.dtversion}}/media/js/jquery.js"></script>
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.15/media/js/jquery.js"></script>
  
 <!-- DataTables -->
-<script type="text/javascript" charset="utf8" src="DataTables-{{site.dtversion}}/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
 ```
 
 ```
