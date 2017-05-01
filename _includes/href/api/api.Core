@@ -26,6 +26,14 @@
 <a href="{{site.wlan_url}}/reference/api/page.info().html" target="_blank">
     <code class="api">page.info()<span>API</span></code>
 </a>
+{% elsif include.param == "page.len()" %}
+<a href="{{site.wlan_url}}/reference/api/page.len().html" target="_blank">
+    <code class="api">page.len()<span>API</span></code>
+</a>
+{% elsif include.param == "page()" %}
+<a href="{{site.wlan_url}}/reference/api/page().html" target="_blank">
+    <code class="api">page()<span>API</span></code>
+</a>
 {% elsif include.param == "$()" %}
 <a href="{{site.baseurl}}/reference/api/$().html" target="_blank">
     <code class="api">$()<span>API</span></code>
