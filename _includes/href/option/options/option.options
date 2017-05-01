@@ -55,7 +55,7 @@
     <code class="option">pageLength<span>Option</span></code>
 </a>
 {% elsif include.param == "pagingType" %}
-<a href="https://datatables.net/reference/option/pagingType" target="_blank">
+<a href="/reference/option/pagingType.html" target="_blank">
     <code class="option">pagingType<span>Option</span></code>
 </a>
 {% elsif include.param == "renderer" %}

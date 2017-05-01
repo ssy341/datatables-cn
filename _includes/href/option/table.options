@@ -82,7 +82,9 @@
       <td>
           {% include href/option/options/option.options param="pagingType" %}
       </td>
-      <td><p>分页按钮的显示方式</p></td>
+      <td>
+        分页按钮显示选项
+      </td>
     </tr>
     <tr>
       <td>
