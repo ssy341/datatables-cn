@@ -90,7 +90,9 @@
       <td>
           {% include href/option/options/option.options param="renderer" %}
       </td>
-      <td><p>显示组件的渲染方式</p></td>
+      <td>
+        显示组件渲染器类型
+      </td>
     </tr>
     <tr>
       <td>{% include href/option/options/option.options param="retrieve" %}</td>

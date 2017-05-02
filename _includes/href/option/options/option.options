@@ -59,7 +59,7 @@
     <code class="option">pagingType<span>Option</span></code>
 </a>
 {% elsif include.param == "renderer" %}
-<a href="https://datatables.net/reference/option/renderer" target="_blank">
+<a href="/reference/option/renderer.html" target="_blank">
     <code class="option">renderer<span>Option</span></code>
 </a>
 {% elsif include.param == "retrieve" %}
