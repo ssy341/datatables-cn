@@ -138,7 +138,9 @@
     </tr>
     <tr>
       <td>{% include href/option/options/option.options param="stateDuration" %}</td>
-      <td><p>间隔多长时间保存一次状态</p></td>
+      <td>
+        状态保存有效期
+      </td>
     </tr>
     <tr>
       <td>{% include href/option/options/option.options param="stripeClasses" %}</td>

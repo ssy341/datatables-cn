@@ -130,7 +130,7 @@
     <code class="option">searchDelay<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "stateDuration" %}
-<a href="https://datatables.net/reference/option/stateDuration" target="_blank">
+<a href="/reference/option/stateDuration.html" target="_blank">
     <code class="option">stateDuration<span>Option</span></code>
 </a>
 {% elsif include.param == "stripeClasses" %}
