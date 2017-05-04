@@ -26,7 +26,7 @@
 		</tr>
 		<tr>
 			<td>
-                  {% include href/option/ajax.dt %}
+                  {% include href/option/option.data param="ajax" %}
 			</td>
 			<td>
 				<p>从一个ajax数据源读取数据给表格内容</p>

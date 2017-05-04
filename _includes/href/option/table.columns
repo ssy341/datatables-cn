@@ -21,7 +21,9 @@
       <td>
       {% include href/option/option.columns param="columns.cellType" %}
       </td>
-      <td><p>为列指定一个单元格类型</p></td>
+      <td>
+        为创建列设置单元格类型
+      </td>
     </tr>
     <tr>
       <td>

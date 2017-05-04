@@ -7,8 +7,11 @@
     <code class="option">ajax.dataSrc<span>Option</span></code>
 </a>
 {% elsif include.param == "ajax" %}
-<a href="http://datatables.net/reference/option/ajax" target="_blank">
+<a href="{{ site.wlan_url }}/reference/option/ajax.html" target="_blank">
     <code class="option">ajax<span>Option</span></code>
+</a>
+<a href="{{ site.wlan_url }}/manual/daily/2016/04/18/option-ajax.html" target="_blank">
+    <code class="option">ajax<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "data" %}
 <a href="http://datatables.net/reference/option/data" target="_blank">

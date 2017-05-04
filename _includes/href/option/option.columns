@@ -1,5 +1,5 @@
 {% if include.param == "columns.cellType" %}
-<a href="https://datatables.net/reference/option/columns.cellType" target="_blank">
+<a href="/reference/option/columns.cellType.html" target="_blank">
     <code class="option">columns.cellType<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.className" %}
