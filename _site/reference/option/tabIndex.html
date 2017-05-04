@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>deferLoading 延迟服务器加载数据直到第二次绘制 文档(Options & API) DataTables中文网</title>
+    <title>tabIndex Tab键控制键盘导航 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,deferLoading">
+    <meta name="keywords" content="option,tabIndex">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,22 +122,22 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">deferLoading 正文</li>
+                <li class="active">tabIndex 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/deferLoading.html">deferLoading</a>
-                    <small>延迟服务器加载数据直到第二次绘制</small>
+                    <a href="/reference/option/tabIndex.html">tabIndex</a>
+                    <small>Tab键控制键盘导航</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10.10</b>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="deferLoading 延迟服务器加载数据直到第二次绘制 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/deferLoading.html"
+                            data-clipboard-text="tabIndex Tab键控制键盘导航 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/tabIndex.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,24 +145,7 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>当你使用服务器模式处理的时候，默认的操作模式是简单的抹掉表格中已经存在的数据然后请求服务器获取第一页的
-数据显示在表格中。这对于一个空的表格来说，没有什么问题，但是如果你已经有第一页数据显示在表格中，这样操作
-比较浪费资源，因此，这个选项的存在是为了允许你告诉DT不去做出初始化的请求，而是使用页面上已经有的数据
-（排序等操作不会被应用）</p>
-
-<p><a href="/reference/option/deferLoading.html" target="_blank">
-    <code class="option">deferLoading<span>Option</span></code>
-</a>
-用于表示需要延迟加载，他也用来告诉DT
-全表有多少条记录（让信息显示控件-左下角和分页插件-右下角正确地显示）。在初始化过滤的情况下，接受一个数组，
-其中第一个元素是过滤后的记录数，第二个元素是总的记录数。</p>
-
-<p>注意：这个选项仅在开启了 
-<a href="/reference/option/serverSide.html" target="_blank">
-    <code class="option">serverSide<span>Option</span></code>
-</a>
- 才会起作用。在客户端模式下
-该参数无效。</p>
+<p>默认情况下DataTables允许通过添加<code class="highlighter-rouge">tabindex</code> 属性键盘导航操作表格（比如排序，分页和过滤操作）</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
@@ -173,55 +156,32 @@
 </a></li>
 </ul>
 
-<p>当给定一个整数，表示延迟加载，并且告诉DT有多少条数据在完整的结果集里。</p>
-
-<ul>
-  <li><a href="https://datatables.net/reference/type/array" target="_blank">
-<code class="type" title="Javascript parameter type">array<span>Type</span></code>
-</a></li>
-</ul>
-
-<p>当给定一个数组，也表示延迟加载，第一个元素表示告诉DT多有少过滤后的记录数，第二个元素表示告诉DT总共有多少记录</p>
-
 <h2 id="默认值default">默认值(Default)</h2>
 <ul>
-  <li>value: 
-<a href="https://datatables.net/reference/type/null" target="_blank">
- <code class="type" title="Javascript parameter type">null<span>Type</span></code>
-</a></li>
+  <li>Value ：<code class="highlighter-rouge">7200</code></li>
 </ul>
 
 <h2 id="例子example">例子(Example)</h2>
-<p>表格中总共显示57条记录，无过滤操作 <a href="https://datatables.net/examples/server_side/defer_loading.html">示例</a></p>
+<p>设置有效期时间为1天</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4
-5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"serverSide"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"scripts/server_processing.php"</span><span class="p">,</span>
-  <span class="s2">"deferLoading"</span><span class="p">:</span> <span class="mi">57</span>
-<span class="p">}</span> <span class="p">);</span><span class="w">
+4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>
+ <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>过滤后57条记录，100条不过滤（一个初始化过滤操作，过滤和my_filter字符串匹配的记录）</p>
+<p>使用<code class="highlighter-rouge">sessionStorage</code></p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4
-5
-6
-7
-8</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"serverSide"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"scripts/server_processing.php"</span><span class="p">,</span>
-  <span class="s2">"deferLoading"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">100</span> <span class="p">],</span>
-  <span class="s2">"search"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"my_filter"</span>
-  <span class="p">}</span>
-<span class="p">}</span> <span class="p">);</span><span class="w">
+4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+ <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
@@ -230,26 +190,16 @@
 <p>Options</p>
 
 <ul>
-  <li>
-    <p><a href="http://datatables.club/reference/option/ajax.html" target="_blank">
-<code class="option">ajax<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/18/option-ajax.html" target="_blank">
-<code class="option">ajax<span>不定时一讲</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/serverSide.html" target="_blank">
-<code class="option">serverSide<span>Option</span></code>
-</a></p>
-  </li>
+  <li><a href="/reference/option/stateSave.html" target="_blank">
+<code class="option">stateSave<span>Option</span></code>
+</a></li>
 </ul>
 
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/deferLoading" target="_blank">https://datatables.net/reference/option/deferLoading</a></p>
+                    <p><a href="https://datatables.net/reference/option/tabIndex" target="_blank">https://datatables.net/reference/option/tabIndex</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -275,13 +225,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/deferLoading.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/deferLoading.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/tabIndex.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/tabIndex.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/deferLoading.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/deferLoading.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/tabIndex.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/tabIndex.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -466,7 +416,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/deferLoading.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/tabIndex.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
