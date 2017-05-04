@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option ajax dataSrc （上） 改变默认的data属性取值 《不定时一讲》 DataTables中文网</title>
+    <title>stateDuration 状态保存有效期 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="option,stateDuration">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
     
 </head>
 <body>
@@ -37,7 +77,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li >
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -46,7 +86,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -79,136 +119,97 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/option" target="_blank">Option</a></li>
+                <li class="active">stateDuration 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/04/19/option-ajax-dataSrc1.html">option ajax dataSrc （上） 改变默认的data属性取值</a>
+                    <a href="/reference/option/stateDuration.html">stateDuration</a>
+                    <small>状态保存有效期</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 19 April 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option ajax dataSrc （上） 改变默认的data属性取值:http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html"
+                            data-clipboard-text="stateDuration 状态保存有效期 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/stateDuration.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <p>参数详解连接<a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code class="option">ajax.dataSrc<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
-    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
-    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
-</a></p>
+                    <h2 id="描述description">描述(Description)</h2>
+<p>在有效期时间内，状态一直有效，过了这个时间之后，恢复到默认状态。</p>
 
-<p>今天讲的参数dataSrc是属于ajax下的一个属性，他类似于jQuery ajax的success方法，废话少说看下面的代码
-<!--more-->
-基本用法：</p>
+<p>这个选项还可以用来指明是使用<code class="highlighter-rouge">localStorage</code>还是<code class="highlighter-rouge">sessionStorage</code>，当为-1的时候使用<code class="highlighter-rouge">sessionStorage</code>，当为0或者更大的数字的时候使用
+<code class="highlighter-rouge">localStorage</code>。</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="na">ajax</span><span class="p">:{</span>
-        <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-        <span class="na">dataSrc</span><span class="p">:</span><span class="s2">"tabledata"</span>
-    <span class="p">},</span>
-    <span class="na">columns</span><span class="p">:[</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"name"</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"age"</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<p>这两个存储API的区别在于，<code class="highlighter-rouge">sessionStorage</code>仅保留当前会话的数据（ie.当前的浏览器窗口）。更多关于的信息，参考 
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/Storage">Mozilla Storage documentation</a></p>
 
-<p>一般来说我们在定义一个接口的返回json数据格式（假设下面的数据为data.json的数据），会有msg（反馈信息），status（返回状态），data（返回数据）等等，具体看下面的数据格式</p>
+<p>请注意，该值以秒为单位。0 是一个特殊的值，表示可以无限期的储存和检索已经存在的对象。</p>
+
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/type/integer" target="_blank">
+<code class="type" title="Javascript parameter type">integer<span>Type</span></code>
+</a></li>
+</ul>
+
+<h2 id="默认值default">默认值(Default)</h2>
+<ul>
+  <li>Value ：<code class="highlighter-rouge">7200</code></li>
+</ul>
+
+<h2 id="例子example">例子(Example)</h2>
+<p>设置有效期时间为1天</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4
-5
-6
-7
-8</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="nl">msg</span><span class="p">:</span><span class="s2">"查询成功"</span><span class="p">,</span>
-    <span class="nx">status</span><span class="err">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="nx">data</span><span class="err">:</span><span class="p">[</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatables中文网"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatatble不定时一说"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span><span class="w">
+4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>
+ <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>对于上面的格式可能不太陌生，当然不是每一个人都会这么去做，那么数据格式的多样性就会让很多一开始接触Datatables的小伙伴无从下手，不知道怎么封装数据，或者和dt支持的数据格式不匹配，那么下面告诉大家dataSrc参数的用处，他可以接受一个字符串，也可以接受一个function。
-作为字符串的时候： <code>dataSrc:"tabledata"</code> 这个tabledata是什么意思，下面看一段代码</p>
+<p>使用<code class="highlighter-rouge">sessionStorage</code></p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
-4
-5
-6
-7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-    <span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-        <span class="c1">//在这个简单的ajax中，我们要使用返回的数据，直接就用result即可，那么我们要用上面数据中data的数据怎么办？</span>
-        <span class="c1">//很简单，result.data 即可以取到我们要的数据，那么tabledata的意思就在这里</span>
-    <span class="p">}</span>
-<span class="p">})</span><span class="w">
+4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+ <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>如果我们的数据是如下格式，可以看到这里只是把【data】换成了【tabledata】，是不是稍微懂些了？</p>
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="nl">msg</span><span class="p">:</span><span class="s2">"查询成功"</span><span class="p">,</span>
-    <span class="nx">status</span><span class="err">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="nx">tabledata</span><span class="err">:</span><span class="p">[</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatables中文网"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatatble不定时一说"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<p>Options</p>
 
-<p>在返回去看最上面的那段代码，dataSrc:”tabledata” 这个的意思就是相当于dt自己封装了result.tabledata,    取到数据后循环生成tr和td，
-只是dt默认的这个属性是data，但是平时项目中这个可能已经被定义了，没办法修改了，那么就在dt初始化的时候配置上，告诉dt我用的是那个属性</p>
+<ul>
+  <li><a href="/reference/option/stateSave.html" target="_blank">
+<code class="option">stateSave<span>Option</span></code>
+</a></li>
+</ul>
 
-<p>看完上面的说明，对dataSrc是否有一定的了解呢?当然这个可能还是无法满足实际的要求，那么就等明天介绍当他接受一个function的时候，怎么处理更复杂的情况</p>
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/option/stateDuration" target="_blank">https://datatables.net/reference/option/stateDuration</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -232,13 +233,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/04/19/option-ajax-dataSrc1.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/04/19/option-ajax-dataSrc1.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/stateDuration.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/stateDuration.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/stateDuration.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/stateDuration.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -423,7 +424,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-04/2016-04-19-option-ajax-dataSrc1.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/stateDuration.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -506,6 +507,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>
