@@ -145,7 +145,13 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>默认情况下DataTables允许通过添加<code class="highlighter-rouge">tabindex</code> 属性键盘导航操作表格（比如排序，分页和过滤操作）</p>
+<p>默认情况下DataTables允许通过添加<code class="highlighter-rouge">tabIndex</code> 属性在需要的元素上,实现键盘导航操作表格（比如每页条数，过滤，排序，和分页操作）。
+这样用户就可以使用 <code class="highlighter-rouge">tab</code> 键切换到相应的控件，按下 <code class="highlighter-rouge">enter</code> 激活它们，而不需要使用鼠标操作。</p>
+
+<p>默认下 tabIndex 为 <code class="highlighter-rouge">0</code>，意味着按照dom的顺序进行切换。<code class="highlighter-rouge">-1</code> 代表禁用tab切换焦点。</p>
+
+<p>需要注意的是，默认情况下，tab切换的焦点是浏览器原生支持的元素，比如<code class="highlighter-rouge">form</code>表单里的所有元素(<code class="highlighter-rouge">input</code>,<code class="highlighter-rouge">radio</code>,<code class="highlighter-rouge">select</code>,<code class="highlighter-rouge">button</code>等等)，还有<code class="highlighter-rouge">a</code>标签之类的这种带操作性质的元素。
+DataTables内部处理，当 <code class="highlighter-rouge">tabIndex</code> 的值大于0时，焦点切换的顺序是先在带有 <code class="highlighter-rouge">tabIndex</code> 的属性的元素按照数字大小依次切换，然后再是其他元素（select-每页显示多少条数据，input-过滤框），详细看下面例子的解释</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
@@ -158,29 +164,41 @@
 
 <h2 id="默认值default">默认值(Default)</h2>
 <ul>
-  <li>Value ：<code class="highlighter-rouge">7200</code></li>
+  <li>Value ：<code class="highlighter-rouge">0</code></li>
 </ul>
 
 <h2 id="例子example">例子(Example)</h2>
-<p>设置有效期时间为1天</p>
+<p>以起始焦点在l(数据长度切换下拉框)上，tabIndex为1的时候，焦点切换顺序依次是：</p>
+<ul>
+  <li>l(数据长度切换下拉框)</li>
+  <li>f(过滤input)</li>
+  <li>th(可以排序的表头)</li>
+  <li>p(分页控件)</li>
+  <li>th(可以排序的表头)</li>
+  <li>p(分页控件)</li>
+  <li>l(数据长度切换下拉框)</li>
+  <li>f(过滤input)</li>
+</ul>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3
-4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"tabIndex"</span><span class="p">:</span> <span class="mi">1</span>
  <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>使用<code class="highlighter-rouge">sessionStorage</code></p>
+<p>同样以起始焦点在l(数据长度切换下拉框)上，tabIndex为0的时候（默认为0），焦点切换顺序依次是：</p>
+<ul>
+  <li>l(数据长度切换下拉框)</li>
+  <li>f(过滤input)</li>
+  <li>th(可以排序的表头)</li>
+  <li>p(分页控件)</li>
+</ul>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3
-4</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-   <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-     <span class="s2">"stateDuration"</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"tabIndex"</span><span class="p">:</span> <span class="mi">0</span>
  <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -190,9 +208,21 @@
 <p>Options</p>
 
 <ul>
-  <li><a href="/reference/option/stateSave.html" target="_blank">
-<code class="option">stateSave<span>Option</span></code>
-</a></li>
+  <li>
+    <p><a href="/reference/option/ordering.html" target="_blank">
+<code class="option">ordering<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/paging.html" target="_blank">
+<code class="option">paging<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/searching.html" target="_blank">
+<code class="option">searching<span>Option</span></code>
+</a></p>
+  </li>
 </ul>
 
 
