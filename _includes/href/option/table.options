@@ -148,7 +148,9 @@
     </tr>
     <tr>
       <td>{% include href/option/options/option.options param="tabIndex" %}</td>
-      <td><p>用键盘上的Tab键浏览时的顺序</p></td>
+      <td>
+        Tab键控制键盘导航
+      </td>
     </tr>
   </tbody>
 </table>

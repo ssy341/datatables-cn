@@ -141,7 +141,7 @@
     <code class="option">stripeClasses<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "tabIndex" %}
-<a href="https://datatables.net/reference/option/tabIndex" target="_blank">
+<a href="/reference/option/tabIndex.html" target="_blank">
     <code class="option">tabIndex<span>Option</span></code>
 </a>
 {% endif %}

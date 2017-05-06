@@ -1242,6 +1242,12 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>{{site.wlan_url}}/reference/option/tabIndex.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>{{site.wlan_url}}/reference/option/columns.cellType.html</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
