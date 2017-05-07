@@ -3,7 +3,7 @@
     <code class="option">columns.cellType<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.className" %}
-<a href="/reference/option/columns.className" target="_blank">
+<a href="/reference/option/columns.className.html" target="_blank">
     <code class="option">columns.className<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.contentPadding" %}
