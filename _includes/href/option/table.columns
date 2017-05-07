@@ -14,7 +14,7 @@
       <td><p>为一个或多个列编制定义</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/columnDefs.dt %}</td>
+      <td>{% include href/option/option.columns param="columnDefs" %}</td>
       <td><p>设置定义列的初始属性</p></td>
     </tr>
     <tr>
@@ -29,7 +29,9 @@
       <td>
       {% include href/option/option.columns param="columns.className" %}
       </td>
-      <td><p>为指定的列的每个单元格都指定一个css class</p></td>
+      <td>
+        给列中每个单元格指定一个或多个class
+      </td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.contentPadding" %}</td>
@@ -92,7 +94,7 @@
       <td><p>设定列宽</p></td>
     </tr>
     <tr>
-      <td>{% include href/option/columns.dt %}</td>
+      <td>{% include href/option/option.columns param="columns" %}</td>
       <td><p>设定列的所有初始属性</p></td>
     </tr>
   </tbody>

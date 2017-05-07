@@ -3,7 +3,7 @@
     <code class="option">columns.cellType<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.className" %}
-<a href="https://datatables.net/reference/option/columns.className" target="_blank">
+<a href="/reference/option/columns.className" target="_blank">
     <code class="option">columns.className<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.contentPadding" %}
@@ -83,5 +83,13 @@
 </a>
 <a href="{{ site.wlan_url }}/manual/daily/2016/05/04/option-columns-width.html" target="_blank">
     <code class="option">columns.width<span>不定时一讲</span></code>
+</a>
+{% elsif include.param == "columnDefs" %}
+<a href="/reference/option/columnDefs.html" target="_blank">
+    <code class="option">columnDefs<span>Option</span></code>
+</a>
+{% elsif include.param == "columns" %}
+<a href="/reference/option/columns.html" target="_blank">
+    <code class="option">columns<span>Option</span></code>
 </a>
 {% endif %}

@@ -10,7 +10,7 @@ since: 1.10.0
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    使用{% include href/option/columnDefs.dt %}参数给列定义，用 <code>columnDefs.targets</code>告诉这个定义是指向那一列或者那几列
+    使用{% include href/option/option.columns param="columnDefs" %}参数给列定义，用 <code>columnDefs.targets</code>告诉这个定义是指向那一列或者那几列
 </p>
 <p>
   他可以是下列情况：
@@ -23,7 +23,7 @@ since: 1.10.0
 <br/>
         另外， <code>targets</code>可以同时指定多列，接受一个数组（比如 <code>targets: [ -1, -2 ]</code> ）
 </p>
-        <p>注意{% include href/option/columnDefs.dt %} 需要和<code>columnDefs.targets</code> 搭配使用，而{% include href/option/columns.dt %}可以单独使用，这是两者的不同处 </p>
+        <p>注意{% include href/option/option.columns param="columnDefs" %} 需要和<code>columnDefs.targets</code> 搭配使用，而{% include href/option/option.columns param="columns" %}可以单独使用，这是两者的不同处 </p>
 
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
@@ -97,7 +97,7 @@ since: 1.10.0
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/columnDefs.dt %}</li>
+        <li>{% include href/option/option.columns param="columnDefs" %}</li>
     </ul>
 </div>
 <div class="clear"></div>
