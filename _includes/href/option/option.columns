@@ -7,7 +7,7 @@
     <code class="option">columns.className<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.contentPadding" %}
-<a href="https://datatables.net/reference/option/columns.contentPadding" target="_blank">
+<a href="/reference/option/columns.contentPadding.html" target="_blank">
     <code class="option">columns.contentPadding<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.createdCell" %}
