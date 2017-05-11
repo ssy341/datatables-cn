@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>columns.ceellType 为创建列设置单元格类型 文档(Options & API) DataTables中文网</title>
+    <title>columns.createdCell 单元格创建回调以允许操作DOM 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,columns.ceellType">
+    <meta name="keywords" content="DataTables,option,columns.createdCell">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,14 +122,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">columns.ceellType 正文</li>
+                <li class="active">columns.createdCell 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/columns.cellType.html">columns.ceellType</a>
-                    <small>为创建列设置单元格类型</small>
+                    <a href="/reference/option/columns.createdCell.html">columns.createdCell</a>
+                    <small>单元格创建回调以允许操作DOM</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -137,7 +137,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="columns.ceellType 为创建列设置单元格类型 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/columns.cellType.html"
+                            data-clipboard-text="columns.createdCell 单元格创建回调以允许操作DOM 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/columns.createdCell.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,31 +145,169 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>创建列的时候改变单元格的类型，要么是<code class="highlighter-rouge">td</code>要么是<code class="highlighter-rouge">th</code>。</p>
+<p>从ajax数据源或dom数据源读取数据创建单元格执行的回调函数。当单元格被创建的同时允许使用</p>
 
-<p>单元格类型为<code class="highlighter-rouge">th</code>时很有用，因为在表格的tbody里有特殊的意义，允许它作为行的标题
-（你也许希望通过
-<a href="/reference/option/columns.createdCell.html" target="_blank">
-    <code class="option">columns.createdCell<span>Option</span></code>
+<p><a href="/reference/option/columns.render.html" target="_blank">
+    <code class="option">columns.render<span>Option</span></code>
 </a>
-选项添加<code class="highlighter-rouge">scope='row'</code> 属性到 <code class="highlighter-rouge">th</code> 上）</p>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+选项补充操作单元格的dom元素，比如添加背景色
+（在表格初始化的时候，如果开启了
+<a href="/reference/option/deferRender.html" target="_blank">
+    <code class="option">deferRender<span>Option</span></code>
+</a>
+,单元格也许不会立马被创建
+，或者你的行是使用API
+<a href="//datatables.net/reference/api/rows.add()" target="_blank">
+    <code class="api">rows.add()<span>API</span></code>
+</a>
+方法动态添加的）</p>
+
+<p>这个是选项是和 
+<a href="/reference/option/createdRow.html" target="_blank">
+    <code class="option">createdRow<span>Option</span></code>
+</a>
+ 回调方法相对应的</p>
 
 <h2 id="类型type">类型(Type)</h2>
-<p>这个选项能够接受以下类型的参数：</p>
 
-<ul>
-  <li><a href="https://datatables.net/reference/type/string" target="_blank">
-<code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a></li>
-</ul>
+<hr />
 
-<h2 id="默认值default">默认值(Default)</h2>
-<ul>
-  <li>Value ：<code class="highlighter-rouge">td</code></li>
-</ul>
+<h3 id="function-createdcell-cell-celldata-rowdata-rowindex-colindex-">function createdCell( cell, cellData, rowData, rowIndex, colIndex )</h3>
+
+<h4 id="参数parameters">参数(Parameters):</h4>
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>cell</code></td>
+        <td>
+           
+<a href="https://datatables.net/reference/type/node" target="_blank">
+    <code class="type" title="Javascript parameter type">node<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            已经创建的 <code>td</code> 节点
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>1</td>
+        <td><code>cellData</code></td>
+        <td>
+           <code>Any</code>
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            单元格的数据，如果你使用了
+<a href="/reference/option/columns.render.html" target="_blank">
+    <code class="option">columns.render<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/25/option-columns-render1.html" target="_blank">
+    <code class="option">columns.render 1<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/26/option-columns-render2.html" target="_blank">
+    <code class="option">columns.render 2<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/27/option-columns-render3.html" target="_blank">
+    <code class="option">columns.render 3<span>不定时一讲</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/28/option-columns-render4.html" target="_blank">
+    <code class="option">columns.render 4<span>不定时一讲</span></code>
+</a>
+去修改数据，使用
+            <code>$(cell).html()</code>得到渲染后的数据。这里的数据是来自数据源里没有修改过的原始数据。
+        </td>
+    </tr>
+    <tr class="even">
+        <td>1</td>
+        <td><code>rowData</code></td>
+        <td>
+            <code>Any</code>
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            整行的数据对象，可能是object或者array
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>1</td>
+        <td><code>rowIndex</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/integer" target="_blank">
+    <code class="type" title="Javascript parameter type">integer<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables内部的行索引
+        </td>
+    </tr>
+    <tr class="even">
+        <td>1</td>
+        <td><code>colIndex</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/integer" target="_blank">
+    <code class="type" title="Javascript parameter type">integer<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables内部的列索引
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<hr />
 
 <h2 id="例子example">例子(Example)</h2>
-<p>第一列使用 <code class="highlighter-rouge">th</code> 单元格</p>
+<p>使用 
+<a href="/reference/option/columnDefs.html" target="_blank">
+    <code class="option">columnDefs<span>Option</span></code>
+</a>
+ 配置<code class="highlighter-rouge">createdCell</code> 操作dom元素
+当单元格的值小于1的时候，加红</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -177,13 +315,19 @@
 4
 5
 6
-7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-    <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"json.txt"</span><span class="p">,</span>
-     <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
-       <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-       <span class="s2">"cellType"</span><span class="p">:</span> <span class="s2">"th"</span>
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span> <span class="p">{</span>
+       <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+       <span class="s2">"createdCell"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">td</span><span class="p">,</span> <span class="nx">cellData</span><span class="p">,</span> <span class="nx">rowData</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">col</span><span class="p">)</span> <span class="p">{</span>
+         <span class="k">if</span> <span class="p">(</span> <span class="nx">cellData</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+           <span class="nx">$</span><span class="p">(</span><span class="nx">td</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'color'</span><span class="p">,</span> <span class="s1">'red'</span><span class="p">)</span>
+         <span class="p">}</span>
+       <span class="p">}</span>
      <span class="p">}</span> <span class="p">]</span>
- <span class="p">}</span> <span class="p">);</span><span class="w">
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
@@ -193,16 +337,13 @@
 
 <ul>
   <li>
-    <p><a href="http://datatables.club/reference/option/ajax.html" target="_blank">
-<code class="option">ajax<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/18/option-ajax.html" target="_blank">
-<code class="option">ajax<span>不定时一讲</span></code>
+    <p><a href="/reference/option/createdRow.html" target="_blank">
+<code class="option">createdRow<span>Option</span></code>
 </a></p>
   </li>
   <li>
-    <p><a href="/reference/option/columns.createdCell.html" target="_blank">
-<code class="option">columns.createdCell<span>Option</span></code>
+    <p><a href="/reference/option/deferRender.html" target="_blank">
+<code class="option">deferRender<span>Option</span></code>
 </a></p>
   </li>
 </ul>
@@ -211,7 +352,7 @@
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/columns.ceellType" target="_blank">https://datatables.net/reference/option/columns.ceellType</a></p>
+                    <p><a href="https://datatables.net/reference/option/columns.createdCell" target="_blank">https://datatables.net/reference/option/columns.createdCell</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -237,13 +378,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/columns.cellType.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/columns.cellType.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/columns.createdCell.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/columns.createdCell.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/columns.cellType.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/columns.cellType.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/columns.createdCell.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/columns.createdCell.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -428,7 +569,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/columns.cellType.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/columns.createdCell.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
