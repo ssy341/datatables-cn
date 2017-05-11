@@ -41,7 +41,9 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.createdCell" %}</td>
-      <td><p>单元格生成以后的回调函数，这样你可以在这里改变DOM</p></td>
+      <td>
+        单元格创建回调以允许操作DOM
+      </td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.data" %}</td>

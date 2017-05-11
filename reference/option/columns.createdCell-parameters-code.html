@@ -1,0 +1,83 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>cell</code></td>
+        <td>
+           {% include href/type/type.Javascript param="node" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            已经创建的 <code>td</code> 节点
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>1</td>
+        <td><code>cellData</code></td>
+        <td>
+           <code>Any</code>
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            单元格的数据，如果你使用了{% include href/option/option.columns param="columns.render" %}去修改数据，使用
+            <code>$(cell).html()</code>得到渲染后的数据。这里的数据是来自数据源里没有修改过的原始数据。
+        </td>
+    </tr>
+    <tr class="even">
+        <td>1</td>
+        <td><code>rowData</code></td>
+        <td>
+            <code>Any</code>
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            整行的数据对象，可能是object或者array
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>1</td>
+        <td><code>rowIndex</code></td>
+        <td>
+            {% include href/type/type.Javascript param="integer" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables内部的行索引
+        </td>
+    </tr>
+    <tr class="even">
+        <td>1</td>
+        <td><code>colIndex</code></td>
+        <td>
+            {% include href/type/type.Javascript param="integer" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables内部的列索引
+        </td>
+    </tr>
+    </tbody>
+</table>
