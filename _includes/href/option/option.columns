@@ -50,7 +50,7 @@
     <code class="option">columns.orderable<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.orderData" %}
-<a href="https://datatables.net/reference/option/columns.orderData" target="_blank">
+<a href="/reference/option/columns.orderData.html" target="_blank">
     <code class="option">columns.orderData<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.orderDataType" %}

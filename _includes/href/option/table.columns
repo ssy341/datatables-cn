@@ -63,7 +63,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderData" %}</td>
-      <td><p>定义多个列的默认排序条件</p></td>
+      <td>定义多个列的排序作为一列的默认顺序</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderDataType" %}</td>
