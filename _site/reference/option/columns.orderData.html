@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>orderMulti 多列排序控制 文档(Options & API) DataTables中文网</title>
+    <title>columns.orderData 定义多个列的排序作为一列的默认顺序 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,orderMulti">
+    <meta name="keywords" content="DataTables,option,columns.orderData">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,14 +122,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">orderMulti 正文</li>
+                <li class="active">columns.orderData 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/orderMulti.html">orderMulti</a>
-                    <small>多列排序控制</small>
+                    <a href="/reference/option/columns.orderData.html">columns.orderData</a>
+                    <small>定义多个列的排序作为一列的默认顺序</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -137,7 +137,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="orderMulti 多列排序控制 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/orderMulti.html"
+                            data-clipboard-text="columns.orderData 定义多个列的排序作为一列的默认顺序 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/columns.orderData.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,91 +145,88 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>当排序功能（
-<a href="/reference/option/ordering.html" target="_blank">
-    <code class="option">ordering<span>Option</span></code>
-</a>
- 为true
-）打开的时候，DataTables 默认是允许用户按住shift点击表头，多列排序。
-虽然这个操作对用户来说是比较有用的，但同时也增加了表格处理数据的时间。因此，可以通过此选项来关闭多列排序的功能。</p>
+<p>允许定义多个列的数据同时作为一列的排序的条件（多数情况下是隐藏列）。</p>
 
-<p>需要注意的是，即使禁用了多列排序，但是开发人员任然可以使用</p>
-
-<p><a href="/reference/option/columns.orderData.html" target="_blank">
-    <code class="option">columns.orderData<span>Option</span></code>
-</a>
-，</p>
-
-<p><a href="https://datatables.net/reference/option/order" target="_blank">
-    <code class="option">order<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/05/05/option-order.html" target="_blank">
-    <code class="option">order<span>不定时一讲</span></code>
-</a>
-和
-<a href="https://datatables.net/reference/api/order" target="_blank">
-    <code class="api">order()<span>API</span></code>
-</a>
-在代码里
-实现多列排序，次禁用只是不允许用户来操作多列排序。</p>
+<p>这里有一个例子，表格中有一列是图片，你最终显示的数据是不能直接排序的，但是你可以使用元数据对其进行排序（比如文件名）。
+关于orthogonal data（数据和显示分离）参考<a href="https://datatables.net/manual/data/orthogonal-data">这里</a></p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
 
 <ul>
-  <li><a href="https://datatables.net/reference/type/boolean" target="_blank">
-<code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+  <li><a href="https://datatables.net/reference/type/integer" target="_blank">
+<code class="type" title="Javascript parameter type">integer<span>Type</span></code>
 </a></li>
 </ul>
 
+<p>单列索引去排序</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/type/array" target="_blank">
+<code class="type" title="Javascript parameter type">array<span>Type</span></code>
+</a></li>
+</ul>
+
+<p>多列索引来定义多列排序</p>
+
 <h2 id="默认值default">默认值(Default)</h2>
-<p><code class="highlighter-rouge">true</code></p>
+<p>自动获取列的索引值</p>
 
 <h2 id="例子example">例子(Example)</h2>
-<p>禁用多列排序</p>
+<p>使用 
+<a href="/reference/option/columnDefs.html" target="_blank">
+    <code class="option">columnDefs<span>Option</span></code>
+</a>
+ 配置</p>
+
+<ul>
+  <li>第一列按照第一列和第二列排序作为默认排序</li>
+  <li>第二列按照第一列来排序作为默认排序</li>
+  <li>第三列按照第三，四，五列来排序作为默认排序</li>
+</ul>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"orderMulti"</span><span class="p">:</span> <span class="kc">false</span>
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">],</span>    <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>           <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">1</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">],</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+        <span class="p">]</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>使用 
+<a href="/reference/option/columns.html" target="_blank">
+    <code class="option">columns<span>Option</span></code>
+</a>
+ 配置</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+      <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
+         <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">},</span>
+         <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="p">},</span>
+         <span class="p">{</span> <span class="s2">"orderData"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span> <span class="p">]</span> <span class="p">},</span>
+         <span class="kc">null</span><span class="p">,</span>
+         <span class="kc">null</span>
+       <span class="p">]</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
-
-<p>Options</p>
-
-<ul>
-  <li>
-    <p><a href="https://datatables.net/reference/option/order" target="_blank">
-<code class="option">order<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/05/05/option-order.html" target="_blank">
-<code class="option">order<span>不定时一讲</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/ordering.html" target="_blank">
-<code class="option">ordering<span>Option</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/columns.orderable.html" target="_blank">
-<code class="option">columns.orderable<span>Option</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/columns.orderData.html" target="_blank">
-<code class="option">columns.orderData<span>Option</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/orderFixed.html" target="_blank">
-<code class="option">orderFixed<span>Option</span></code>
-</a></p>
-  </li>
-</ul>
 
 <p>API</p>
 
@@ -251,11 +248,29 @@
   </li>
 </ul>
 
+<p>Options</p>
+
+<ul>
+  <li>
+    <p><a href="https://datatables.net/reference/option/order" target="_blank">
+<code class="option">order<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/05/05/option-order.html" target="_blank">
+<code class="option">order<span>不定时一讲</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/ordering.html" target="_blank">
+<code class="option">ordering<span>Option</span></code>
+</a></p>
+  </li>
+</ul>
+
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/orderMulti" target="_blank">https://datatables.net/reference/option/orderMulti</a></p>
+                    <p><a href="https://datatables.net/reference/option/columns.orderData" target="_blank">https://datatables.net/reference/option/columns.orderData</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -281,13 +296,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/orderMulti.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/orderMulti.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/columns.orderData.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/columns.orderData.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/orderMulti.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/orderMulti.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/columns.orderData.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/columns.orderData.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -472,7 +487,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/orderMulti.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/columns.orderData.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
