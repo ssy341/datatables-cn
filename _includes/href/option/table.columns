@@ -59,7 +59,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderable" %}</td>
-      <td><p>在该列上允许或者禁止排序功能</p></td>
+      <td>开启/禁用这列是否排序</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderData" %}</td>
