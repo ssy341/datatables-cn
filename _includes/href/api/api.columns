@@ -34,6 +34,10 @@
 <a href="//datatables.net/reference/api/column().index()" target="_blank">
     <code class="api">column().index()<span>API</span></code>
 </a>
+{% elsif include.param == "columns().indexes()" %}
+<a href="//datatables.net/reference/api/columns().indexes()" target="_blank">
+    <code class="api">columns().indexes()<span>API</span></code>
+</a>
 {% elsif include.param == "column.index()" %}
 <a href="//datatables.net/reference/api/column.index()" target="_blank">
     <code class="api">column.index()<span>API</span></code>

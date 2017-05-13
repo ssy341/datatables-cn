@@ -55,7 +55,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.name" %}</td>
-      <td><p>为列设定一个别名（描述性名字）</p></td>
+      <td>给列设置一个描述名称</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderable" %}</td>

@@ -42,7 +42,7 @@
     <code class="option">columns.defaultContent<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "columns.name" %}
-<a href="https://datatables.net/reference/option/columns.name" target="_blank">
+<a href="/reference/option/columns.name.html" target="_blank">
     <code class="option">columns.name<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.orderable" %}
