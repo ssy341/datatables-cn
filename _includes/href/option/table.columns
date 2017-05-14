@@ -83,7 +83,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.title" %}</td>
-      <td><p>设定该列的标题</p></td>
+      <td>设置列的标题</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.type" %}</td>
