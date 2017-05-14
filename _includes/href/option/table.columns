@@ -79,7 +79,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.searchable" %}</td>
-      <td><p>在该列上允许或者禁止过滤搜索记录</p></td>
+      <td>开启或者关闭此列中数据过滤</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.title" %}</td>

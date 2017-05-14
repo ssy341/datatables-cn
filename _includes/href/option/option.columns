@@ -62,7 +62,7 @@
     <code class="option">columns.orderSequence<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.searchable" %}
-<a href="https://datatables.net/reference/option/columns.searchable" target="_blank">
+<a href="/reference/option/columns.searchable.html" target="_blank">
     <code class="option">columns.searchable<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.title" %}
