@@ -50,4 +50,12 @@
 <a href="//datatables.net/reference/api/columns().order()" target="_blank">
     <code class="api">columns().order()<span>API</span></code>
 </a>
+{% elsif include.param == "column().visible()" %}
+<a href="//datatables.net/reference/api/column().order()" target="_blank">
+    <code class="api">column().visible()<span>API</span></code>
+</a>
+{% elsif include.param == "columns().visible()" %}
+<a href="//datatables.net/reference/api/columns().visible()" target="_blank">
+    <code class="api">columns().visible()<span>API</span></code>
+</a>
 {% endif %}

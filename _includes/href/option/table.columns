@@ -91,7 +91,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.visible" %}</td>
-      <td><p>显示或隐藏该列</p></td>
+      <td>允许或者禁止列的显示</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.width" %}</td>

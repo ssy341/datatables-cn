@@ -1314,6 +1314,12 @@
         <changefreq>Always</changefreq>
     </url>
     <url>
+        <loc>{{site.wlan_url}}/reference/option/columns.visible.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
         <loc>{{site.wlan_url}}/reference/api/$().html</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
