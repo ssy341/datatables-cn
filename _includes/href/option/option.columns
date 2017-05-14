@@ -54,7 +54,7 @@
     <code class="option">columns.orderData<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.orderDataType" %}
-<a href="https://datatables.net/reference/option/columns.orderDataType" target="_blank">
+<a href="/reference/option/columns.orderDataType.html" target="_blank">
     <code class="option">columns.orderDataType<span>Option</span></code>
 </a>
 {% elsif include.param == "columns.orderSequence" %}

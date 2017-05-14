@@ -67,7 +67,7 @@
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderDataType" %}</td>
-      <td><p>列的表格的DOM类型，可以用来方便排序</p></td>
+      <td>给列分配实时DOM排序类型</td>
     </tr>
     <tr>
       <td>{% include href/option/option.columns param="columns.orderSequence" %}</td>
