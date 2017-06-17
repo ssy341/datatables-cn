@@ -10,17 +10,17 @@
 <a href="{{site.baseurl}}/reference/option/language.paginate.first" target="_blank">
     <code class="option">language.paginate.first<span>Option</span></code>
 </a>
-{% elsif include.param == "jQueryUI" %}
-<a href="/reference/option/jQueryUI.html" target="_blank">
-    <code class="option">jQueryUI<span>Option</span></code>
+{% elsif include.param == "language" %}
+<a href="/reference/option/language.html" target="_blank">
+    <code class="option">language<span>Option</span></code>
 </a>
-{% elsif include.param == "lengthChange" %}
-<a href="/reference/option/lengthChange.html" target="_blank">
-    <code class="option">lengthChange<span>Option</span></code>
+{% elsif include.param == "language.thousands" %}
+<a href="/reference/option/language.thousands.html" target="_blank">
+    <code class="option">language.thousands<span>Option</span></code>
 </a>
-{% elsif include.param == "ordering" %}
-<a href="/reference/option/ordering.html" target="_blank">
-    <code class="option">ordering<span>Option</span></code>
+{% elsif include.param == "language.decimal" %}
+<a href="/reference/option/language.decimal.html" target="_blank">
+    <code class="option">language.decimal<span>Option</span></code>
 </a>
 {% elsif include.param == "paging" %}
 <a href="/reference/option/paging.html" target="_blank">
