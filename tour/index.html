@@ -39,17 +39,39 @@ title: 网址导航 Datatables 中文网
 <div class="container" style="margin-top:100px">
     <div class="span3"></div>
     <div class="span6">
-        <!--<form class="form-search" style="margin:0;padding:0" method=get action="http://209.85.229.119/search"-->
-              <!--target="_blank">-->
-            <!--<input class="input-medium search-query" type=text name=q style="width:400px">-->
-            <!--<input class="btn" type=submit name=btnG value="Google搜索">-->
-        <!--</form>-->
-
         <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=9387011596926898338' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
     </div>
     <div class="span3">
     </div>
 </div>
+
+
+<div class="container" style="margin-top:20px">
+    <div class="span3"></div>
+    <div class="span6">
+        <form action="https://www.startpage.com/do/asearch" method="POST" target="_top">
+            <input type="hidden" name="cmd" value="process_search">
+            <input type="hidden" name="language" value="jiantizhongwen">
+            <input type="hidden" name="enginecount" value="1">
+            <input type="hidden" name="pl" value="">
+            <input type="hidden" name="abp" class="abp" value="-1">
+            <input type="hidden" name="hmb" value="1">
+            <input type="hidden" name="ff" value="">
+            <input type="hidden" name="theme" value="">
+            <input type="hidden" id="flag_ac1" name="flag_ac" value="0">
+            <input name="cat" type="hidden" value="web">
+            <input name="ycc" type="hidden" value="0">
+            <input type="hidden" name="t" value="air">
+            <input type="hidden" name="nj" id="nj" value="0">
+            <input type="hidden" name="pg" value="0">
+            <input type="text" name="query" style="height: 34px; line-height: 34px;">
+            <input type="submit" value="google搜索">
+        </form>
+    </div>
+    <div class="span3">
+    </div>
+</div>
+
 <div class="container">
     {% include xad %}
     <h1>网址导航</h1>

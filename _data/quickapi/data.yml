@@ -1,0 +1,15 @@
+- url: http://datatables.club/reference/option/ajax.data.html
+  title: 增加或修改通过Ajax提交到服务端的请求数据
+  text: ajax.data
+
+- url: http://datatables.club/reference/option/ajax.dataSrc.html
+  title: 数据属性或操作表数据的方法
+  text: ajax.dataSrc
+
+- url: http://datatables.club/reference/option/ajax.html
+  title: 从一个ajax数据源读取数据给表格内容
+  text: ajax
+
+- url: http://datatables.club/reference/option/data.html
+  title: 用来显示表格的数据
+  text: data

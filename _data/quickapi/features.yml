@@ -1,0 +1,47 @@
+- url: http://datatables.club/reference/option/info.html
+  title: 控制是否显示表格左下角的信息
+  text: info
+
+- url: http://datatables.club/reference/option/lengthChange.html
+  title: 是否允许用户改变表格每页显示的记录数
+  text: lengthChange
+
+- url: http://datatables.club/reference/option/ordering.html
+  title: 是否允许Datatables开启排序
+  text: ordering
+
+- url: http://datatables.club/reference/option/paging.html
+  title: 是否开启本地分页
+  text: paging
+
+- url: http://datatables.club/reference/option/processing.html
+  title: 是否显示处理状态(排序的时候，数据很多耗费时间长的话，也会显示这个)
+  text: processing
+
+- url: http://datatables.club/reference/option/scrollX.html
+  title: 设置水平滚动
+  text: scrollX
+
+- url: http://datatables.club/reference/option/scrollY.html
+  title: 设置垂直滚动
+  text: scrollY
+
+- url: http://datatables.club/reference/option/searching.html
+  title: 是否允许Datatables开启本地搜索
+  text: searching
+
+- url: http://datatables.club/reference/option/serverSide.html
+  title: 是否开启服务器模式
+  text: serverSide
+
+- url: http://datatables.club/reference/option/stateSave.html
+  title: 保存状态 - 在页面重新加载的时候恢复状态（页码等内容）
+  text: stateSave
+
+- url: http://datatables.club/reference/option/autoWidth.html
+  title: 控制Datatables是否自适应宽度
+  text: autoWidth
+
+- url: http://datatables.club/reference/option/deferRender.html
+  title: 控制Datatables的延迟渲染，可以提高初始化的速度
+  text: deferRender
