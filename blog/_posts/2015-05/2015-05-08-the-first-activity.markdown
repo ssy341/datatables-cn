@@ -19,11 +19,11 @@ banner: /images/activity/ibm.jpg
 <!--more-->
 
 - 奖品展示： [ibm降噪耳机](http://s.taobao.com/search?q=ibm+%E9%99%8D%E5%99%AA%E8%80%B3%E6%9C%BA&commend=all&ssid=s5-e&search_type=item&sourceId=tb.index&spm=1.7274553.1997520841.1&initiative_id=tbindexz_20150427,"IBM降噪耳机2个")
-- ![ibm降噪耳机]({{site.baseurl}}/images/activity/ibm.jpg)
+- ![ibm降噪耳机]({{site.wlan_url}}/images/activity/ibm.jpg)
 
 Demo连接：
 
-[Amazing Grace - 行内编辑(不使用第三方插件php）]({{site.baseurl}}/example/user_share/inline_edit_no_plugin.html)
+[Amazing Grace - 行内编辑(不使用第三方插件php）]({{site.wlan_url}}/example/user_share/inline_edit_no_plugin.html)
 
 [飘絮 - 带参数查询](/example/user_share/send_extra_param.html)
 

@@ -7,14 +7,14 @@
 
     <!-- Le styles -->
     {% include libs/bootstrap_css.html %}
-    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
     <style>
         body {
             font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
         }
     </style>
 
-    <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.png">
+    <link rel="shortcut icon" href="{{site.wlan_url}}/images/favicon.png">
 </head>
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 {{content}}
@@ -27,7 +27,7 @@
 
 {% include libs/jquery_js.html %}
 {% include libs/bootstrap_js.html param="3.0.3" %}
-<script src="{{site.baseurl}}/js/application.js"></script>
+<script src="{{site.wlan_url}}/js/application.js"></script>
 {% include note.js %}
 {% include copy.js %}
 

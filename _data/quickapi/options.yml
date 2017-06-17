@@ -1,0 +1,103 @@
+- url: http://datatables.club/reference/option/deferLoading.html
+  title: 延迟请求加载服务端的数据，直到表格第二次绘制
+  text: deferLoading
+
+- url: http://datatables.club/reference/option/destroy.html
+  title: 销毁所有符合选择的table，并且用新的options重新创建表格
+  text: destroy
+
+- url: https://datatables.net/reference/option/displayStart
+  title: 初始化显示的时候从第几条数据开始显示(一开始显示第几页)
+  text: displayStart
+
+- url: http://datatables.club/reference/option/dom.html
+  title: 定义DataTables的组件元素的显示和显示顺序
+  text: dom
+
+- url: https://datatables.net/reference/option/lengthMenu
+  title: 定义在每页显示记录数的select中显示的选项
+  text: lengthMenu
+
+- url: http://datatables.club/reference/option/orderCellsTop.html
+  title: 控制表头(colspan rowspan 表头)的哪一个单元格可以应用于该列的排序响应
+  text: orderCellsTop
+
+- url: http://datatables.club/reference/option/orderClasses.html
+  title: 高亮显示表格中排序的列
+  text: orderClasses
+
+- url: http://datatables.club/reference/option/orderFixed.html
+  title: 排序始终作用于表格
+  text: orderFixed
+
+- url: http://datatables.club/reference/option/orderMulti.html
+  title: 多列排序控制
+  text: orderMulti
+
+- url: https://datatables.net/reference/option/order
+  title: 表格在初始化的时候的排序
+  text: order
+
+- url: http://datatables.club/reference/option/pageLength.html
+  title: 改变初始化页长度（每页多少条数据）
+  text: pageLength
+
+- url: http://datatables.club/reference/option/pagingType.html
+  title: 分页按钮显示选项
+  text: pagingType
+
+- url: http://datatables.club/reference/option/renderer.html
+  title: 显示组件渲染器类型
+  text: renderer
+
+- url: http://datatables.club/reference/option/retrieve.html
+  title: 检索已经存在的Datatables实例
+  text: retrieve
+
+- url: https://datatables.net/reference/option/rowId
+  title: 数据属性，Datatables在渲染的时候给 trTag设置的ID
+  text: rowId
+
+- url: https://datatables.net/reference/option/scrollCollapse
+  title: 当显示更少的记录时，是否允许表格减少高度
+  text: scrollCollapse
+
+- url: https://datatables.net/reference/option/search.caseInsensitive
+  title: 在搜索或者过滤时，是否大小写敏感
+  text: search.caseInsensitive
+
+- url: https://datatables.net/reference/option/search.regex
+  title: 允许或者禁止对在搜索字符串中出现的正则表达式字符强制编码
+  text: search.regex
+
+- url: https://datatables.net/reference/option/search.search
+  title: 初始化时的表格的过滤（搜索）条件
+  text: search.search
+
+- url: https://datatables.net/reference/option/search.smart
+  title: 允许或者禁止DataTables的只能过滤（搜索）功能
+  text: search.smart
+
+- url: https://datatables.net/reference/option/searchCols
+  title: 给每一列定义一个初始的搜索条件
+  text: searchCols
+
+- url: https://datatables.net/reference/option/searchDelay
+  title: 设定搜索的间隔时间
+  text: searchDelay
+
+- url: https://datatables.net/reference/option/search
+  title: 设置一个全局的过滤条件
+  text: search
+
+- url: http://datatables.club/reference/option/stateDuration.html
+  title: 状态保存有效期
+  text: stateDuration
+
+- url: https://datatables.net/reference/option/stripeClasses
+  title: 设置斑马条（奇偶行）的css class
+  text: stripeClasses
+
+- url: http://datatables.club/reference/option/tabIndex.html
+  title: Tab键控制键盘导航
+  text: tabIndex

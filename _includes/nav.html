@@ -1,6 +1,6 @@
 <style>
     .hot {
-        background-image: url({{site.baseurl}}/images/hot.gif);
+        background-image: url({{site.wlan_url}}/images/hot.gif);
         height: 12px;
         width: 21px;
         position: absolute;
@@ -17,18 +17,18 @@
             <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li {% if include.param == "index" %}class="active"{% endif %}><a href="{{site.baseurl}}/">首页</a></li>
-                    <li {% if include.param == "blog" %}class="active"{% endif %}><a href="{{site.baseurl}}/blog">博客<span class="hot"></span></a></li>
-                    <li {% if include.param == "example" %}class="active"{% endif %}><a href="{{site.baseurl}}/example">例子</a></li>
-                    <li {% if include.param == "manual" %}class="active"{% endif %}><a href="{{site.baseurl}}/manual">手册</a></li>
-                    <li {% if include.param == "reference" %}class="active"{% endif %}><a href="{{site.baseurl}}/reference">文档(Options&API)</a></li>
-                    <li {% if include.param == "extensions" %}class="active"{% endif %}><a href="{{site.baseurl}}/extensions">扩展</a></li>
-                    <li {% if include.param == "plugins" %}class="active"{% endif %}><a href="{{site.baseurl}}/plug-ins">插件</a></li>
-                    <li {% if include.param == "faqs" %}class="active"{% endif %}><a href="{{site.baseurl}}/faqs">FAQs</a></li>
-                    <li {% if include.param == "update" %}class="active"{% endif %}><a href="{{site.baseurl}}/upgrade/">更新<span id="updateFlag"></span></a></li>
-                    <!--<li {% if include.param == "activity" %}class="active"{% endif %}><a href="{{site.baseurl}}/activity/">活动</a></li>-->
-                    <li {% if include.param == "about" %}class="active"{% endif %}><a href="{{site.baseurl}}/about/">关于</a></li>
-                    <li {% if include.param == "nav" %}class="active"{% endif %}><a href="{{site.baseurl}}/tour/">导航</a></li>
+                    <li {% if include.param == "index" %}class="active"{% endif %}><a href="{{site.wlan_url}}/">首页</a></li>
+                    <li {% if include.param == "blog" %}class="active"{% endif %}><a href="{{site.wlan_url}}/blog">博客<span class="hot"></span></a></li>
+                    <li {% if include.param == "example" %}class="active"{% endif %}><a href="{{site.wlan_url}}/example">例子</a></li>
+                    <li {% if include.param == "manual" %}class="active"{% endif %}><a href="{{site.wlan_url}}/manual">手册</a></li>
+                    <li {% if include.param == "reference" %}class="active"{% endif %}><a href="{{site.wlan_url}}/reference">文档(Options&API)</a></li>
+                    <li {% if include.param == "extensions" %}class="active"{% endif %}><a href="{{site.wlan_url}}/extensions">扩展</a></li>
+                    <li {% if include.param == "plugins" %}class="active"{% endif %}><a href="{{site.wlan_url}}/plug-ins">插件</a></li>
+                    <li {% if include.param == "faqs" %}class="active"{% endif %}><a href="{{site.wlan_url}}/faqs">FAQs</a></li>
+                    <li {% if include.param == "update" %}class="active"{% endif %}><a href="{{site.wlan_url}}/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <!--<li {% if include.param == "activity" %}class="active"{% endif %}><a href="{{site.wlan_url}}/activity/">活动</a></li>-->
+                    <li {% if include.param == "about" %}class="active"{% endif %}><a href="{{site.wlan_url}}/about/">关于</a></li>
+                    <li {% if include.param == "nav" %}class="active"{% endif %}><a href="{{site.wlan_url}}/tour/">导航</a></li>
                 </ul>
             </div>
         </div>

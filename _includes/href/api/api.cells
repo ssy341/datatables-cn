@@ -1,5 +1,5 @@
 {% if include.param == "cell().data()" %}
-<a href="{{site.baseurl}}/reference/api/cell().data().html" target="_blank">
+<a href="{{site.wlan_url}}/reference/api/cell().data().html" target="_blank">
     <code class="api">cell().data()<span>API</span></code>
 </a>
 {% elsif include.param == "cells().cache()" %}
@@ -7,7 +7,7 @@
     <code class="api">cells().cache()<span>API</span></code>
 </a>
 {% elsif include.param == "cell().cache()" %}
-<a href="{{site.baseurl}}/reference/api/cell().cache().html" target="_blank">
+<a href="{{site.wlan_url}}/reference/api/cell().cache().html" target="_blank">
     <code class="api">cell().cache()<span>API</span></code>
 </a>
 {% elsif include.param == "cells().data()" %}
@@ -27,7 +27,7 @@
     <code class="api">cell()<span>API</span></code>
 </a>
 {% elsif include.param == "cell().index()" %}
-<a href="{{site.baseurl}}/reference/api/cell().index().html" target="_blank">
+<a href="{{site.wlan_url}}/reference/api/cell().index().html" target="_blank">
     <code class="api">cell().index()<span>API</span></code>
 </a>
 {% elsif include.param == "cells().indexs()" %}
@@ -39,7 +39,7 @@
     <code class="api">cells().indexs()<span>API</span></code>
 </a>
 {% elsif include.param == "cell().invalidate()" %}
-<a href="{{site.baseurl}}/reference/api/cell().invalidate().html" target="_blank">
+<a href="{{site.wlan_url}}/reference/api/cell().invalidate().html" target="_blank">
     <code class="api">cell().invalidate()<span>API</span></code>
 </a>
 {% endif %}

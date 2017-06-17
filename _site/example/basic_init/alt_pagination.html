@@ -14,7 +14,7 @@
 <link href="/assets/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
 
 <link href="/assets/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-<link href="/css/docs.css" rel="stylesheet">
+<link href="http://datatables.club/css/docs.css" rel="stylesheet">
 <style>
     body {
         font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -47,7 +47,7 @@
 <body>
 <style>
     .hot {
-        background-image: url(/images/hot.gif);
+        background-image: url(http://datatables.club/images/hot.gif);
         height: 12px;
         width: 21px;
         position: absolute;
@@ -64,18 +64,18 @@
             <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
             <div class="nav-collapse collapse">
                 <ul class="nav">
-                    <li ><a href="/">首页</a></li>
-                    <li ><a href="/blog">博客<span class="hot"></span></a></li>
-                    <li class="active"><a href="/example">例子</a></li>
-                    <li ><a href="/manual">手册</a></li>
-                    <li ><a href="/reference">文档(Options&API)</a></li>
-                    <li ><a href="/extensions">扩展</a></li>
-                    <li ><a href="/plug-ins">插件</a></li>
-                    <li ><a href="/faqs">FAQs</a></li>
-                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
-                    <!--<li ><a href="/activity/">活动</a></li>-->
-                    <li ><a href="/about/">关于</a></li>
-                    <li ><a href="/tour/">导航</a></li>
+                    <li ><a href="http://datatables.club/">首页</a></li>
+                    <li ><a href="http://datatables.club/blog">博客<span class="hot"></span></a></li>
+                    <li class="active"><a href="http://datatables.club/example">例子</a></li>
+                    <li ><a href="http://datatables.club/manual">手册</a></li>
+                    <li ><a href="http://datatables.club/reference">文档(Options&API)</a></li>
+                    <li ><a href="http://datatables.club/extensions">扩展</a></li>
+                    <li ><a href="http://datatables.club/plug-ins">插件</a></li>
+                    <li ><a href="http://datatables.club/faqs">FAQs</a></li>
+                    <li ><a href="http://datatables.club/upgrade/">更新<span id="updateFlag"></span></a></li>
+                    <!--<li ><a href="http://datatables.club/activity/">活动</a></li>-->
+                    <li ><a href="http://datatables.club/about/">关于</a></li>
+                    <li ><a href="http://datatables.club/tour/">导航</a></li>
                 </ul>
             </div>
         </div>
@@ -1255,7 +1255,7 @@
 <footer class="footer">
     <div class="container">
         <div class="span3">
-            <img src="/assets/logo-fade.png" alt=""/>
+            <img src="http://datatables.club/assets/logo-fade.png" alt=""/>
         </div>
         <div class="span6" style="margin: 0">
             <ul class="footer-links">
@@ -1383,7 +1383,7 @@
 
 <script type="text/javascript">
 //判断是否显示更新提示
-$.get("/assets/updatelog.txt", function (data) {
+$.get("http://datatables.club/assets/updatelog.txt", function (data) {
     var json = JSON.parse(data);
     if (json.isNote) {
     var cache = localStorage['dt.thxopen.com.note'];
@@ -1401,7 +1401,7 @@ $.get("/assets/updatelog.txt", function (data) {
     });
 </script>
 <!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
+<script src="http://datatables.club/js/ZeroClipboard.min.js"></script>
 <script>
 $('[data-toggle="tooltip"]').tooltip();
 $('#copyurltoclip').on('show.bs.tooltip', function () {

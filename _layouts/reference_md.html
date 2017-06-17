@@ -9,13 +9,13 @@
     <meta name="author" content="{{ site.sitename }}">
     <meta name="keywords" content="{{page.keywords}}">
     <!-- Le styles -->
-    <link href="{{site.baseurl}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
-    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{site.baseurl}}/css/blog-home.css" rel="stylesheet">
-    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
-    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
-    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
+    <link href="{{site.wlan_url}}/css/blog-home.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.wlan_url}}/images/favicon.png" rel="shortcut icon">
     <style>
         table.dataTable.no-footer {
             border-bottom: 1px solid #111;
@@ -65,9 +65,9 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="{{site.baseurl}}/" target="_blank">首页</a></li>
-                <li><a href="{{site.baseurl}}/reference" target="_blank">文档(Options & API)</a></li>
-                <li><a href="{{site.baseurl}}/reference/{{page.navcategory}}" target="_blank">{{page.navcategory|capitalize}}</a></li>
+                <li><a href="{{site.wlan_url}}/" target="_blank">首页</a></li>
+                <li><a href="{{site.wlan_url}}/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="{{site.wlan_url}}/reference/{{page.navcategory}}" target="_blank">{{page.navcategory|capitalize}}</a></li>
                 <li class="active">{{ page.title }} 正文</li>
             </ol>
             <!-- Blog Entries Column -->
@@ -118,10 +118,10 @@
     </div>
     {{ page.script }}
     <!-- /.container -->
-    <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script src="{{site.wlan_url}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
     <!--复制url到剪贴板-->
-    <script src="{{site.baseurl}}/js/ZeroClipboard.min.js"></script>
+    <script src="{{site.wlan_url}}/js/ZeroClipboard.min.js"></script>
     <script>
         var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
 

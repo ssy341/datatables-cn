@@ -63,8 +63,8 @@ $(document).on("click","#example button.search",function(){
 {% endhighlight %}
 再回到 {% include href/api/api.columns param="column().search()" %} 这个，先看看下面两个例子:
 
-- [给每一列添加搜索框]({{site.baseurl}}/example/api/multi_filter.html)
-- [给每一列添加下拉框搜索]({{site.baseurl}}/example/api/multi_filter_select.html)
+- [给每一列添加搜索框]({{site.wlan_url}}/example/api/multi_filter.html)
+- [给每一列添加下拉框搜索]({{site.wlan_url}}/example/api/multi_filter_select.html)
 
 例子中代码看起来可能有点难理解，不要紧，我把关键代码拿出来，如下：
 {% highlight javascript linenos %}

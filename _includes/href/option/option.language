@@ -1,13 +1,13 @@
 {% if include.param == "language.aria.paginate.first" %}
-<a href="{{site.baseurl}}/reference/option/language.aria.paginate.first.html" target="_blank">
+<a href="{{site.wlan_url}}/reference/option/language.aria.paginate.first.html" target="_blank">
     <code class="option">language.aria.paginate.first<span>Option</span></code>
 </a>
 {% elsif include.param == "language.aria.paginate" %}
-<a href="{{site.baseurl}}/reference/option/language.aria.paginate" target="_blank">
+<a href="{{site.wlan_url}}/reference/option/language.aria.paginate" target="_blank">
     <code class="option">language.aria.paginate<span>Option</span></code>
 </a>
 {% elsif include.param == "language.paginate.first" %}
-<a href="{{site.baseurl}}/reference/option/language.paginate.first" target="_blank">
+<a href="{{site.wlan_url}}/reference/option/language.paginate.first" target="_blank">
     <code class="option">language.paginate.first<span>Option</span></code>
 </a>
 {% elsif include.param == "language" %}
@@ -22,9 +22,17 @@
 <a href="/reference/option/language.decimal.html" target="_blank">
     <code class="option">language.decimal<span>Option</span></code>
 </a>
-{% elsif include.param == "paging" %}
-<a href="/reference/option/paging.html" target="_blank">
-    <code class="option">paging<span>Option</span></code>
+{% elsif include.param == "language.zeroRecords" %}
+<a href="/reference/option/zeroRecords.html" target="_blank">
+    <code class="option">language.zeroRecords<span>Option</span></code>
+</a>
+{% elsif include.param == "language.emptyTable" %}
+<a href="/reference/option/language.emptyTable.html" target="_blank">
+    <code class="option">language.emptyTable<span>Option</span></code>
+</a>
+{% elsif include.param == "language.infoEmpty" %}
+<a href="/reference/option/infoEmpty.html" target="_blank">
+    <code class="option">language.infoEmpty<span>Option</span></code>
 </a>
 {% elsif include.param == "processing" %}
 <a href="/reference/option/processing.html" target="_blank">

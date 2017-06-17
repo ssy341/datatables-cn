@@ -1,6 +1,6 @@
 <script type="text/javascript">
 //判断是否显示更新提示
-$.get("{{site.baseurl}}/assets/updatelog.txt", function (data) {
+$.get("{{site.wlan_url}}/assets/updatelog.txt", function (data) {
     var json = JSON.parse(data);
     if (json.isNote) {
     var cache = localStorage['dt.thxopen.com.note'];

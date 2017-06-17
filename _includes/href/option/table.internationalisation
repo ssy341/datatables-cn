@@ -28,8 +28,12 @@
       <td>小数点表示字符（有些语言中用"，"表示小数点）</td>
     </tr>
     <tr>
-      <td><p><a href="//datatables.net/reference/option/language.emptyTable"><code class="option" title="DataTables initialisation option">language.emptyTable<span>DT</span></code></a></p></td>
-      <td><p>当表格没有数据时，表格所显示的字符串</p></td>
+      <td>
+       {% include href/option/option.language param="language.emptyTable" %}
+      </td>
+      <td>
+        当表格没有数据时，表格所显示的字符串
+      </td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.info"><code class="option" title="DataTables initialisation option">language.info<span>DT</span></code></a></p></td>
