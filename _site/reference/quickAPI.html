@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Quick API | Datatables.club</title>
+    <link rel="stylesheet" href="../css/quickapi/default.css" type="text/css"/>
+    <script type="text/javascript" src="../js/quickapi/jquery.1.7.min.js"></script>
+    <script type="text/javascript" src="../js/quickapi/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="../js/quickapi/jquery.quicksearch.js"></script>
+    <script type="text/javascript" src="../js/quickapi/main.js"></script>
+</head>
+<body class="cheat-detail">
+<div id="more-list-container">
+    <a href="javascript:void(0)">更多 &raquo;</a>
+    <ul id="nav-more-list">
+        <li><a href="http://datatables.club/blog" title="DataTables中文网">Blog</a></li>
+        <li><a href="http://datatables.club/example" title="实例">例子</a></li>
+        <li><a href="http://datatables.club/manual" title="实例">入门手册</a></li>
+        <li><a href="http://datatables.club/reference" title="实例">文档</a></li>
+        <li><a href="http://datatables.club/extensions" title="实例">扩展</a></li>
+        <li><a href="http://datatables.club/plug-ins" title="实例">插件</a></li>
+        <li><a href="http://datatables.club/faqs" title="常见问题">FAQs</a></li>
+        <li><a href="http://datatables.club/about/" title="关于DataTables中文网">关于DT中文网</a></li>
+        <li><a href="http://datatables.club/tour/" title="便捷导航">导航</a></li>
+        <li><a href="/#more" id="">Even More &raquo;</a></li>
+    </ul>
+</div>
+<div id="navbar">
+    <a id="logo" href="/">DataTables.club</a>
+    <ul id="navlist" class="nav">
+        <li><a href="http://overapi.com" title="overapi">overapi</a></li>
+        <li><a href="#more" id="nav-more">更多 &raquo;</a></li>
+    </ul>
+</div>
+
+<div style="position:fixed;right:105px;top:10px;z-index:200;">
+    <input type="" id="searchApi" placeholder="搜索"/>
+</div>
+<div class="addthis_toolbox addthis_default_style" style="position:fixed;right:5px;top:17px;z-index:200;">
+    <a class="addthis_button_facebook"></a>
+    <a class="addthis_button_twitter"></a>
+    <a class="addthis_button_sinaweibo"></a>
+    <a class="addthis_button_compact"></a>
+</div>
+<div class="loading">
+    加载中...
+</div>
+
+<div class="content">
+    <div class="board">
+        <h2 class="board-title">特性(Features)</h2>
+        <div class="board-card">
+            <ul>
+                
+
+<li>
+    <a href="http://datatables.club/reference/option/info.html" title="控制是否显示表格左下角的信息">info</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/lengthChange.html" title="是否允许用户改变表格每页显示的记录数">lengthChange</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/ordering.html" title="是否允许Datatables开启排序">ordering</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/paging.html" title="是否开启本地分页">paging</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/processing.html" title="是否显示处理状态(排序的时候，数据很多耗费时间长的话，也会显示这个)">processing</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/scrollX.html" title="设置水平滚动">scrollX</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/scrollY.html" title="设置垂直滚动">scrollY</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/searching.html" title="是否允许Datatables开启本地搜索">searching</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/serverSide.html" title="是否开启服务器模式">serverSide</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/stateSave.html" title="保存状态 - 在页面重新加载的时候恢复状态（页码等内容）">stateSave</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/autoWidth.html" title="控制Datatables是否自适应宽度">autoWidth</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/deferRender.html" title="控制Datatables的延迟渲染，可以提高初始化的速度">deferRender</a>
+</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">数据(Data)</h2>
+        <div class="board-card">
+            <ul>
+                
+
+<li>
+    <a href="http://datatables.club/reference/option/ajax.data.html" title="增加或修改通过Ajax提交到服务端的请求数据">ajax.data</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/ajax.dataSrc.html" title="数据属性或操作表数据的方法">ajax.dataSrc</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/ajax.html" title="从一个ajax数据源读取数据给表格内容">ajax</a>
+</li>
+
+<li>
+    <a href="http://datatables.club/reference/option/data.html" title="用来显示表格的数据">data</a>
+</li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">回调函数(Callbacks)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">配置(Options)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">列(Columns)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">静态方法(Static)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">国际化(Language)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="board">
+        <h2 class="board-title">自动填充(AutoFill)</h2>
+        <div class="board-card">
+            <ul>
+                <li>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">按钮(Buttons)</h2>
+        <div class="board-card">
+
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">拖动列(ColReorder)</h2>
+        <div class="board-card">
+
+        </div>
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">编辑器(Editor)</h2>
+        <div class="board-card">
+
+        </div>
+
+    </div>
+
+    <div class="board">
+        <h2 class="board-title">固定列(FixedColumns)</h2>
+        <div class="board-card">
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
