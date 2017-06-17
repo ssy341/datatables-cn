@@ -37,7 +37,7 @@ since: 1.10.0
             <p>
                这个是最简单的应用，<code>ajax</code>指定一个返回数据的url，这个是多个形式的比如json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……
                 <br/>
-                Datatables默认接收的是一个属性为 <code>data</code>，如果你返回的数据不是这样，你需要使用 {% include href/option/ajax.dataSrc.dt %}来处理
+                Datatables默认接收的是一个属性为 <code>data</code>，如果你返回的数据不是这样，你需要使用 {% include href/option/option.data param="ajax.dataSrc" %}来处理
             </p>
             <p>
                 默认的数据（对象）格式如下：
@@ -88,15 +88,15 @@ since: 1.10.0
             <p>
             <ul>
                 <li>
-                    <code>data</code>( {% include href/option/ajax.data.dt %}) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收
+                    <code>data</code>( {% include href/option/option.data param="ajax.data" %}) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收
                     <code>function</code>，作为function时可以操作请求参数，在实际应用中，可以在此函数里加入自定义的条件传到服务器。这个方法在1.9-版本中为 <code>fnServerParams </code>。
                 </li>
                 <li>
-                    <code>dataSrc</code>（{% include href/option/ajax.dataSrc.dt %}） - 如果Datatables是通过ajax或者服务器取数，默认情况下，Datatables会去找返回数据中的 <code>data</code>（或者是
+                    <code>dataSrc</code>（{% include href/option/option.data param="ajax.dataSrc" %}） - 如果Datatables是通过ajax或者服务器取数，默认情况下，Datatables会去找返回数据中的 <code>data</code>（或者是
                     <code>aaData</code>兼容1.9-）去显示表格。这个方法已经取代了1.9-中的 <code>sAjaxDataProp</code>
                 </li>
                 <li>
-                    <code>success</code> - 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用 {% include href/option/ajax.dataSrc.dt %} 处理，或者是把
+                    <code>success</code> - 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用 {% include href/option/option.data param="ajax.dataSrc" %}处理，或者是把
                     <code>ajax</code>作为一个函数使用（见下面的说明）
                 </li>
             </ul>
@@ -301,9 +301,9 @@ since: 1.10.0
     <ul class="markdown">
         <li>{% include href/option/options/option.features param="serverSide" %}</li>
 
-        <li>{% include href/option/ajax.data.dt %}</li>
+        <li>{% include href/option/option.data param="ajax.data" %}</li>
 
-        <li>{% include href/option/ajax.dataSrc.dt %}</li>
+        <li>{% include href/option/option.data param="ajax.dataSrc" %}</li>
     </ul>
 </div>
 <div class="clear"></div>

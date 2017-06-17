@@ -10,7 +10,7 @@
 	<tbody>
 		<tr>
 			<td>
-                {% include href/option/ajax.data.dt %}
+                {% include href/option/option.data param="ajax.data" %}
 			</td>
 			<td>
 				<p>增加或修改通过Ajax提交到服务端的请求数据</p>
@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/ajax.dataSrc.dt %}
+                {% include href/option/option.data param="ajax.dataSrc" %}
 			</td>
 			<td>
 				<p>数据属性或操作表数据的方法</p>
