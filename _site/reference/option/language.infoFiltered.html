@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>language.emptyTable 用来描述表格没有数据的字符串 文档(Options & API) DataTables中文网</title>
+    <title>language.infoFiltered 当表格过滤的时候，将此字符串附加到主要信息 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,language.emptyTable">
+    <meta name="keywords" content="option,language.infoFiltered">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -122,14 +122,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">language.emptyTable 正文</li>
+                <li class="active">language.infoFiltered 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/language.emptyTable.html">language.emptyTable</a>
-                    <small>用来描述表格没有数据的字符串</small>
+                    <a href="/reference/option/language.infoFiltered.html">language.infoFiltered</a>
+                    <small>当表格过滤的时候，将此字符串附加到主要信息</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -137,7 +137,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="language.emptyTable 用来描述表格没有数据的字符串 文档(Options & API) DataTables中文网:/reference/option/language.emptyTable.html"
+                            data-clipboard-text="language.infoFiltered 当表格过滤的时候，将此字符串附加到主要信息 文档(Options & API) DataTables中文网:/reference/option/language.infoFiltered.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -145,16 +145,14 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>当表格为空时（不管过滤），此字符串首选项是 
-<a href="/reference/option/zeroRecords.html" target="_blank">
-    <code class="option">language.zeroRecords<span>Option</span></code>
-</a></p>
 
-<p>请注意，这是一个可选参数，如果不给予赋值，值会被
-<a href="/reference/option/zeroRecords.html" target="_blank">
-    <code class="option">language.zeroRecords<span>Option</span></code>
+<p>当用户执行过滤操作的时候，此字符串会被追加到主要信息（<code class="highlighter-rouge">info</code>）以了解是怎样过滤的。</p>
+
+<p><code class="highlighter-rouge">_MAX_</code> 标记会被动态更新 - 参考
+<a href="/reference/option/language.info.html" target="_blank">
+    <code class="option">language.info<span>Option</span></code>
 </a>
-替换掉（默认值或者给定值）</p>
+ 查看所有的标记</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
@@ -167,20 +165,20 @@
 
 <h2 id="默认值default">默认值(Default)</h2>
 <ul>
-  <li>Value ：<code class="highlighter-rouge">No data available in table</code></li>
+  <li>Value ：<code class="highlighter-rouge">(filtered from _MAX_ total entries)</code></li>
 </ul>
 
 <h2 id="例子example">例子(Example)</h2>
 
-<p>设置空表格显示的字符提示</p>
+<p>改变过滤信息字符串</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
 5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-   <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
-       <span class="s2">"emptyTable"</span><span class="p">:</span> <span class="s2">"无可用数据"</span>
+    <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+       <span class="s2">"infoFiltered"</span><span class="p">:</span> <span class="s2">" - 从 _MAX_ 记录中过滤"</span>
      <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
@@ -197,13 +195,23 @@
 </a></p>
   </li>
   <li>
+    <p><a href="/reference/option/language.info.html" target="_blank">
+<code class="option">language.info<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
     <p><a href="/reference/option/language.infoEmpty.html" target="_blank">
 <code class="option">language.infoEmpty<span>Option</span></code>
 </a></p>
   </li>
   <li>
-    <p><a href="/reference/option/zeroRecords.html" target="_blank">
-<code class="option">language.zeroRecords<span>Option</span></code>
+    <p><a href="/reference/option/language.infoPostFix.html" target="_blank">
+<code class="option">language.infoPostFix<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/language.thousands.html" target="_blank">
+<code class="option">language.thousands<span>Option</span></code>
 </a></p>
   </li>
 </ul>
@@ -211,7 +219,7 @@
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/language.emptyTable" target="_blank">https://datatables.net/reference/option/language.emptyTable</a></p>
+                    <p><a href="https://datatables.net/reference/option/language.infoFiltered" target="_blank">https://datatables.net/reference/option/language.infoFiltered</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -237,13 +245,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/language.emptyTable.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/language.emptyTable.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/language.infoFiltered.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/language.infoFiltered.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/language.emptyTable.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/language.emptyTable.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/language.infoFiltered.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/language.infoFiltered.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -429,7 +437,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/language.emptyTable.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/language.infoFiltered.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
