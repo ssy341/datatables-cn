@@ -213,7 +213,7 @@ title: Datatables 中文网
                     </div>
                     <!-- /.input-group -->
                 </div>
-                {% include xad %}
+                {% include xad.html %}
 
                 <div class="well">
                     <h3>赞助</h3>
@@ -465,7 +465,7 @@ title: Datatables 中文网
                 }
 //                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
             },
-            ajax: "{{site.wlan_url}}/assets/donate.txt",
+            ajax: "{{site.baseurl}}/assets/donate.txt",
             createdRow: function (row, data, dataIndex) {
                 $(row).attr("title", data.note)
                 if (data.type) {

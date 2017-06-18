@@ -69,7 +69,7 @@ oTable02.rows.add(rows);
 {% endhighlight %}
 这个时候大家遇到的问题就是，怎么都往后面追加了，要是有2页的话，不翻页还不知道这行已经添加进去了
 
-先别急，我们先看看这个例子 [添加行 API 示例 Datatables中文网]({{site.wlan_url}}/example/api/add_row.html)
+先别急，我们先看看这个例子 [添加行 API 示例 Datatables中文网]({{site.baseurl}}/example/api/add_row.html)
 
 不用怀疑，如果你操作了这个例子，你心中肯定想的是，添加新行就是往后追加的
 

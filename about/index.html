@@ -7,9 +7,9 @@ title: 关于Datatables中文网
     {% include head.html %}
     {% include libs/bootstrap_css.html %}
     {% include libs/datatables_css.html %}
-    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{site.wlan_url}}/images/favicon.png">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.png">
     <style>
         .donateType {
             color: red;
@@ -44,7 +44,7 @@ title: 关于Datatables中文网
             </ul>
         </div>
         <div class="span9">
-            {% include xad %}
+            {% include xad.html %}
             <section id="about">
                 <div class="page-header">
                     <h2>关于我们</h2>
@@ -143,7 +143,7 @@ title: 关于Datatables中文网
 <!--footer-->
 {% include copyright.html %}
 {% include script.html %}
-<scrip src="{{site.wlan_url}}/js/application.js"></scrip>
+<scrip src="{{site.baseurl}}/js/application.js"></scrip>
 {% include libs/datatables_js.html param='1.10.5' %}
 <script type="text/javascript">
     $(document).ready(function () {
@@ -175,7 +175,7 @@ title: 关于Datatables中文网
                     },
                     info: " _START_ 到 _END_ (共 _TOTAL_ 条记录)"
                 },
-                ajax: "{{site.wlan_url}}/assets/donate.txt",
+                ajax: "{{site.baseurl}}/assets/donate.txt",
                 createdRow: function (row, data, dataIndex) {
                     if (data.type) {
                         $(row).addClass("donateType");

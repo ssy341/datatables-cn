@@ -30,7 +30,7 @@ title: 网址导航 Datatables 中文网
         margin-left: 10px;
     }
     .hot {
-        background-image: url({{site.wlan_url}}/images/hot.gif);
+        background-image: url({{site.baseurl}}/images/hot.gif);
         height: 12px;
         width: 21px;
         position: absolute;
@@ -73,27 +73,18 @@ title: 网址导航 Datatables 中文网
 </div>
 
 <div class="container">
-    {% include xad %}
+    {% include xad.html %}
     <h1>网址导航</h1>
     <dl>
         <dt>jQuery插件</dt>
         <dd>
-            <a href="http://www.ztree.me/v3/main.php#_zTreeInfo" target="_blank" title="树插件">zTree</a>
-            <a href="http://posabsolute.github.io/jQuery-Validation-Engine/" target="_blank"
-               title="表格验证插件">jQuery.validationEngine</a>
-            <a href="http://needim.github.io/noty/" target="_blank" title="提示插件">noty</a>
-            <a href="http://www.highcharts.com/" target="_blank" title="图表插件">Highcharts</a>
-            <a href="http://trirand.com/blog/jqgrid/jqgrid.html" target="_blank" title="表格插件">jqGrid</a>
-            <a href="http://www.kminek.pl/lab/yetii/" target="_blank" title="tab切换">yetii</a>
+            {% include tour.html param="jQuery-plugin" %}
         </dd>
     </dl>
     <dl>
         <dt>优质博客</dt>
         <dd >
-            <a href="http://coolshell.cn/" target="_blank" title="酷壳">酷壳</a>
-            <a href="http://avnpc.com/" target="_blank" title="avnpc">avnpc</a>
-            <a href="http://www.ruanyifeng.com/blog/" target="_blank" title="阮一峰">阮一峰</a>
-            <a href="http://www.php63.cc" target="_blank" title="普修米洛斯">普修米洛斯</a>
+            {% include tour.html param="blog" %}
         </dd>
     </dl>
     <dl>
@@ -137,7 +128,7 @@ title: 网址导航 Datatables 中文网
         </dd>
     </dl>
     <div style="margin-top: 20px">
-        <p>如果你想共享自己的精品网址，请发送邮箱至 thxopen@datatables.club</p>
+        <p>如果你想共享自己的精品网址，请发送邮箱至 <a href="mailto:thxopen@datatables.club ">thxopen@datatables.club </a> 或者 <a href="https://github.com/ssy341/datatables-cn/tree/gh-pages/_data/tour">pull request</a></p>
     </div>
     {% include disqus.html %}
 </div>

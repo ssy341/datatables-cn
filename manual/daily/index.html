@@ -22,7 +22,7 @@ title: 《不定时一讲》 入门必看手册 Datatables中文网
             </ul>
         </div>
         <div class="span9">
-            {% include xad %}
+            {% include xad.html %}
             <div class="span12">
                 <section id="2016-05">
                     <table id="2016-05_table" class="display custom" cellspacing="0" width="100%">
@@ -48,8 +48,8 @@ title: 《不定时一讲》 入门必看手册 Datatables中文网
 {% include script.html %}
 
 {% include libs/datatables_js.html %}
-{% include example.js %}
-<script src="{{site.wlan_url}}/js/application.js"></script>
+{% include example_js.html %}
+<script src="{{site.baseurl}}/js/application.js"></script>
 <script>
     $(document).ready(function(){
         example.dailyInit();

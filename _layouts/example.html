@@ -4,16 +4,16 @@
     {% include head.html %}
     <!-- Le styles -->
     {% include libs/bootstrap_css.html %}
-    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/images/favicon.png" rel="shortcut icon" >
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon" >
     <style>
         td.details-control {
-            background: url('{{site.wlan_url}}/css/img/details_open.png') no-repeat center center;
+            background: url('{{site.baseurl}}/css/img/details_open.png') no-repeat center center;
             cursor: pointer;
         }
         tr.shown td.details-control {
-            background: url('{{site.wlan_url}}/css/img/details_close.png') no-repeat center center;
+            background: url('{{site.baseurl}}/css/img/details_close.png') no-repeat center center;
         }
         tbody>tr:nth-child(odd)>td {
             background-color: #f9f9f9;

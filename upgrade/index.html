@@ -11,7 +11,7 @@ title: 更新日志 Datatables中文网
     <link rel="shortcut icon" href="../images/favicon.png">
     <style>
         .hot {
-            background-image: url({{site.wlan_url}}/images/hot.gif);
+            background-image: url({{site.baseurl}}/images/hot.gif);
             height: 12px;
             width: 21px;
             position: absolute;
@@ -30,7 +30,7 @@ title: 更新日志 Datatables中文网
 </header>
 
 <div class="container">
-    {% include xad %}
+    {% include xad.html %}
     <div class="row-fluid" style="margin-top:20px">
             <!-- 表格开始 -->
             <table id="example" class="display" cellspacing="0" width="100%">
@@ -61,7 +61,7 @@ title: 更新日志 Datatables中文网
             ],
             paging: !1,
             dom: "t",
-            ajax: "{{site.wlan_url}}/assets/updatelog.txt",
+            ajax: "{{site.baseurl}}/assets/updatelog.txt",
             "columnDefs": [{
                 "targets": 1,
                 "render": function (data, type, row, meta) {

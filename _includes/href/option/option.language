@@ -1,13 +1,13 @@
 {% if include.param == "language.aria.paginate.first" %}
-<a href="{{site.wlan_url}}/reference/option/language.aria.paginate.first.html" target="_blank">
+<a href="{{site.baseurl}}/reference/option/language.aria.paginate.first.html" target="_blank">
     <code class="option">language.aria.paginate.first<span>Option</span></code>
 </a>
 {% elsif include.param == "language.aria.paginate" %}
-<a href="{{site.wlan_url}}/reference/option/language.aria.paginate" target="_blank">
+<a href="{{site.baseurl}}/reference/option/language.aria.paginate" target="_blank">
     <code class="option">language.aria.paginate<span>Option</span></code>
 </a>
 {% elsif include.param == "language.paginate.first" %}
-<a href="{{site.wlan_url}}/reference/option/language.paginate.first" target="_blank">
+<a href="{{site.baseurl}}/reference/option/language.paginate.first" target="_blank">
     <code class="option">language.paginate.first<span>Option</span></code>
 </a>
 {% elsif include.param == "language" %}
@@ -34,21 +34,21 @@
 <a href="/reference/option/infoEmpty.html" target="_blank">
     <code class="option">language.infoEmpty<span>Option</span></code>
 </a>
-{% elsif include.param == "processing" %}
-<a href="/reference/option/processing.html" target="_blank">
-    <code class="option">processing<span>Option</span></code>
+{% elsif include.param == "language.infoFiltered" %}
+<a href="/reference/option/language.infoFiltered.html" target="_blank">
+    <code class="option">language.infoFiltered<span>Option</span></code>
 </a>
-{% elsif include.param == "scrollX" %}
-<a href="/reference/option/scrollX.html" target="_blank">
-    <code class="option">scrollX<span>Option</span></code>
+{% elsif include.param == "language.infoPostFix" %}
+<a href="/reference/option/language.infoPostFix.html" target="_blank">
+    <code class="option">language.infoPostFix<span>Option</span></code>
 </a>
-{% elsif include.param == "scrollY" %}
-<a href="/reference/option/scrollY.html" target="_blank">
-    <code class="option">scrollY<span>Option</span></code>
+{% elsif include.param == "language.thousands" %}
+<a href="/reference/option/language.thousands.html" target="_blank">
+    <code class="option">language.thousands<span>Option</span></code>
 </a>
-{% elsif include.param == "searching" %}
-<a href="/reference/option/searching.html" target="_blank">
-    <code class="option">searching<span>Option</span></code>
+{% elsif include.param == "language.info" %}
+<a href="/reference/option/language.info.html" target="_blank">
+    <code class="option">language.info<span>Option</span></code>
 </a>
 {% elsif include.param == "serverSide" %}
 <a href="/reference/option/serverSide.html" target="_blank">

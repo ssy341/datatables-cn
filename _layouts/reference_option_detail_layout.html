@@ -3,7 +3,7 @@
 <head>
     {% include reference/reference_option_meta.html %}
     {% include reference/reference_option_detail_link.html %}
-    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
 	<style>
     div.ref_type {
         position: relative;
@@ -75,7 +75,7 @@
      {% include nav.html param='reference' %}
      {% include example_script.html %}
      <div class="container">
-         {% include xad %}
+         {% include xad.html %}
 				{{content}}
 	</div><!--/.fluid-container-->
      <hr>

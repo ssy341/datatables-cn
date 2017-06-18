@@ -8,7 +8,7 @@ title: 页面找不到了
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="{{ site.description }}">
-    <link rel="shortcut icon" href="{{site.wlan_url}}/images/favicon.png">
+    <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.png">
     <style type='text/css'>
         .adsense_fixed {
             position: fixed;
@@ -230,7 +230,7 @@ title: 页面找不到了
         }
 
         body {
-            background: url({{site.wlan_url}}/images/bg.jpg) no-repeat 100%;
+            background: url({{site.baseurl}}/images/bg.jpg) no-repeat 100%;
             background-size: 100%;
             font-family: 'open_sanslight';
             font-size: 100%;
@@ -272,7 +272,7 @@ title: 页面找不到了
         /**-----end-logo---------**/
         /**-----start-search-bar-section------**/
         .buttom {
-            background: url({{site.wlan_url}}/images/bg2.png) no-repeat 100% 0%;
+            background: url({{site.baseurl}}/images/bg2.png) no-repeat 100% 0%;
             background-size: 100%;
             text-align: center;
             vertical-align: middle;
@@ -339,7 +339,7 @@ title: 页面找不到了
         .search_box form input[type="submit"] {
             border: none;
             cursor: pointer;
-            background: url({{site.wlan_url}}/images/search.png) no-repeat 0px 1px;
+            background: url({{site.baseurl}}/images/search.png) no-repeat 0px 1px;
             position: absolute;
             right: 0;
             width: 34px;
@@ -484,7 +484,7 @@ title: 页面找不到了
         </div>
         <span class='adsense_btn_info' title='为什么有广告'>i</span>
 
-        {% include xad %}
+        {% include xad.html %}
     </div>
 </div>
 
@@ -495,8 +495,8 @@ title: 页面找不到了
     <div class="content">
         <!-----start-logo--------->
         <div class="logo">
-            <h1><a href="#"><img src="{{site.wlan_url}}/images/logo.png"/></a></h1>
-            <span><img src="{{site.wlan_url}}/images/signal.png"/>糟糕! 您请求的页面走丢了！</span>
+            <h1><a href="#"><img src="{{site.baseurl}}/images/logo.png"/></a></h1>
+            <span><img src="{{site.baseurl}}/images/signal.png"/>糟糕! 您请求的页面走丢了！</span>
         </div>
         <!-----end-logo--------->
         <!---728x90--->

@@ -32,7 +32,7 @@ title: 例子 Datatables中文网
             </ul>
         </div>
         <div class="span9">
-            {% include xad %}
+            {% include xad.html %}
             <div class="span12">
                 <b style="color:red"> 在参考例子之前先参考 <a href="../faqs/index.html" target="_blank">FAQS</a></b>。
                 下面的例子、视频什么的都看完了，怎么办？那还不简单，动手开搞啊！（下面展示了一个简单的例子，可以编辑代码达到你想要的效果，代码改乱了，刷新下就复原了）
@@ -145,8 +145,8 @@ title: 例子 Datatables中文网
 
 </script>
 {% include libs/datatables_js.html %}
-{% include example.js %}
-<script src="{{site.wlan_url}}/js/application.js"></script>
+{% include example_js.html %}
+<script src="{{site.baseurl}}/js/application.js"></script>
 <script>
     $(document).ready(function(){
         example.init();

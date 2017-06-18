@@ -10,7 +10,7 @@ author: /reference/api/%24.fn.dataTable.versionCheck()
 ---
 
 ## 描述(Description)
-这个方法可以让插件开发人员检查DataTables的运行版本。比如，[Button]({{site.wlan_url}}/extensions/buttons) 插件需要 1.10.7 或者更新的DataTables支持。
+这个方法可以让插件开发人员检查DataTables的运行版本。比如，[Button]({{site.baseurl}}/extensions/buttons) 插件需要 1.10.7 或者更新的DataTables支持。
 
 请注意，这是一个静态的方法，不需要用API实例去调用，通过`$.fn.dataTable`对象调用即可，并且随时可以执行这个方法，
 甚至可以在生成表格之前调用这个方法。

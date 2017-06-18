@@ -1,0 +1,79 @@
+- url: http://datatables.club/reference/option/columnDefs.targets.html
+  title: 为一个或多个列编制定义
+  text: columnDefs.targets
+
+- url: http://datatables.club/reference/option/columnDefs.html
+  title: 设置定义列的初始属性
+  text: columnDefs
+
+- url: http://datatables.club/reference/option/columns.cellType.html
+  title: 为创建列设置单元格类型
+  text: columns.cellType
+
+- url: http://datatables.club/reference/option/columns.className.html
+  title: 给列中每个单元格指定一个或多个class
+  text: columns.className
+
+- url: http://datatables.club/reference/option/columns.contentPadding.html
+  title: 当表格计算最佳值为文本内容添加填充(padding)
+  text: columns.contentPadding
+
+- url: http://datatables.club/reference/option/columns.createdCell.html
+  title: 单元格创建回调以允许操作DOM
+  text: columns.createdCell
+
+- url: https://datatables.net/reference/option/columns.data
+  title: 设置列的数据源，即如何从整个Table的数据源(object / array)中获得
+  text: columns.data
+
+- url: https://datatables.net/reference/option/columns.defaultContent
+  title: 设定该列的默认、静态的内容
+  text: columns.defaultContent
+
+- url: http://datatables.club/reference/option/columns.name.html
+  title: 给列设置一个描述名称
+  text: columns.name
+
+- url: http://datatables.club/reference/option/columns.orderable.html
+  title: 开启/禁用这列是否排序
+  text: columns.orderable
+
+- url: http://datatables.club/reference/option/columns.orderData.html
+  title: 定义多个列的排序作为一列的默认顺序
+  text: columns.orderData
+
+- url: http://datatables.club/reference/option/columns.orderDataType.html
+  title: 给列分配实时DOM排序类型
+  text: columns.orderDataType
+
+- url: http://datatables.club/reference/option/columns.orderSequence.html
+  title: 定义列排序的方向
+  text: columns.orderSequence
+
+- url: http://datatables.club/reference/option/columns.render.html
+  title: 在列上处理数据的函数，可以再次自定义显示内容
+  text: columns.render
+
+- url: http://datatables.club/reference/option/columns.searchable.html
+  title: 开启或者关闭此列中数据过滤
+  text: columns.searchable
+
+- url: http://datatables.club/reference/option/columns.title.html
+  title: 设置列的标题
+  text: columns.title
+
+- url: https://datatables.net/reference/option/columns.type
+  title: 设定该列的类型 - 在该列排序或者搜索的时候使用
+  text: columns.type
+
+- url: http://datatables.club/reference/option/columns.visible.html
+  title: 允许或者禁止列的显示
+  text: columns.visible
+
+- url: https://datatables.net/reference/option/columns.width
+  title: 设定列宽
+  text: columns.width
+
+- url: http://datatables.club/reference/option/columns.html
+  title: 设定列的所有初始属性
+  text: columns

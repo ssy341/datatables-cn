@@ -1,0 +1,43 @@
+- url: http://www.ztree.me/v3/main.php#_zTreeInfo
+  title: 树插件
+  text: zTree
+
+- url: http://posabsolute.github.io/jQuery-Validation-Engine/
+  title: 表格验证插件
+  text: jQuery.validationEngine
+
+- url: http://ned.im/noty/
+  title: 提示插件
+  text: noty
+
+- url: http://www.highcharts.com/
+  title: 图表插件
+  text: Highcharts
+
+- url: http://trirand.com/blog/jqgrid/jqgrid.html
+  title: 表格插件
+  text: jqGrid
+
+- url: https://www.kminek.pl/lab/yetii/
+  title: tab切换
+  text: yetii
+
+- url: http://textextjs.com/
+  title: TextExt is a plugin for jQuery which is designed to provide functionality such as tag input and autocomplete.
+  text: TextExt
+
+- url: https://aehlke.github.io/tag-it/
+  title: 标签插件
+  text: tag-it
+
+- url: http://underscorejs.org/
+  title: js模板引擎
+  text: underscorejs(en)
+
+- url: http://www.css88.com/doc/underscore/#
+  title: js模板引擎
+  text: underscorejs(zh)
+
+- url: http://www.layui.com/laytpl/
+  title: laytpl是一款非常轻量的JavaScript模板引擎，它用巧妙的实现方式，将自身的体积浓缩为不到2KB的字符，laytpl试图打造极致的模版渲染！
+  text: laytpl

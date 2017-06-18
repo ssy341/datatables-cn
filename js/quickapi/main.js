@@ -34,10 +34,6 @@ $(function(){
         var target = e.target;
         if(!$(this).parent().hasClass('inactive')){
             window.open($(target).attr('href'));
-            mixpanel.track("Cheat Link",{
-                'pagename':location.pathname
-                ,'href':$(target).attr('href')
-            });
         }
     });
 

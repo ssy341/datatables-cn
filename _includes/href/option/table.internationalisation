@@ -36,8 +36,10 @@
       </td>
     </tr>
     <tr>
-      <td><p><a href="//datatables.net/reference/option/language.info"><code class="option" title="DataTables initialisation option">language.info<span>DT</span></code></a></p></td>
-      <td><p>表格的page分页所需显示的所有字符串</p></td>
+      <td>
+        {% include href/option/option.language param="language.info" %}
+      </td>
+      <td>用来描述表格主要信息的字符串</td>
     </tr>
     <tr>
       <td><p><a href="//datatables.net/reference/option/language.infoEmpty"><code class="option" title="DataTables initialisation option">language.infoEmpty<span>DT</span></code></a></p></td>

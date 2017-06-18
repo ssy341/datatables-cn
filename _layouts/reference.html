@@ -7,10 +7,10 @@
     <meta name="description" content="{{ site.description }}">
     <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="http://cdn.bootcss.com/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/highlighting.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/images/favicon.png" rel="shortcut icon">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
     <style>
         body {
             padding-top: 60px;
@@ -77,15 +77,15 @@
         <div style="color: #ac5900;float: right;">版本要求: {{ page.since }}</div>
         <p>{{ page.title }}</p>
         <div style="margin:10px auto">
-            {% include xad %}
+            {% include xad.html %}
         </div>
         {{content}}
     </div>
     {% include copyright.html %}
     {% include libs/jquery_js.html %}
     {% include libs/bootstrap_js.html %}
-    {% include note.js %}
-    {% include copy.js %}
+    {% include note_js.html %}
+    {% include copy_js.html %}
     <script>
         $(document).ready(function(){
             $("table tbody tr").each(function(index,obj){

@@ -7,9 +7,9 @@ title: 活动 Datatables中文网
     {% include head.html %}
     {% include libs/bootstrap_css.html %}
     {% include libs/datatables_css.html %}
-    <link href="{{site.wlan_url}}/css/docs.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
-    <link rel="shortcut icon" href="{{site.wlan_url}}/images/favicon.png">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.png">
 </head>
 <body>
 {% include nav.html param="activity" %}
@@ -23,7 +23,7 @@ title: 活动 Datatables中文网
 </header>
 
 <div class="container">
-    {% include xad %}
+    {% include xad.html %}
     <div class="row-fluid" style="margin-top:20px">
         <!-- 表格开始 -->
         <table id="example" class="display" cellspacing="0" width="100%">
@@ -53,7 +53,7 @@ title: 活动 Datatables中文网
             ],
             paging: !1,
             dom: "t",
-            ajax:"{{site.wlan_url}}/assets/activity.txt",
+            ajax:"{{site.baseurl}}/assets/activity.txt",
             columns:[
                 {data:"title",render:function(data,type,row,meta){
                     return '<a href="'+row.url+'" target="_blank">'+data+'</a>'

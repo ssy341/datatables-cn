@@ -3,8 +3,8 @@
 <head>
     {% include head.html %}
     {% include link.html %}
-    <link href="{{site.wlan_url}}/css/site.css" rel="stylesheet">
-    <link href="{{site.wlan_url}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
 </head>
 <body>
 {% include nav.html param='manual' %}
@@ -12,7 +12,7 @@
 <div class="container">
     <h2>{{ page.short }}</h2><span>{{page.date | date: "%-d %B %Y"}} | {{page.author}}</span>
     <div style="margin:10px auto">
-        {% include xad %}
+        {% include xad.html %}
     </div>
     {{content}}
     <h3>如果大家也有小的技巧，欢迎给我发邮件 <code>{{ site.email }}</code></h3>
@@ -20,8 +20,8 @@
 </div>
 {% include libs/jquery_js.html %}
 {% include libs/bootstrap_js.html %}
-{% include note.js %}
-{% include copy.js %}
+{% include note_js.html %}
+{% include copy_js.html %}
 {% include copyright.html %}
 </body>
 </html>
