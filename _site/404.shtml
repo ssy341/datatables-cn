@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
-    <link rel="shortcut icon" href="http://datatables.club/images/favicon.png">
+    <link rel="shortcut icon" href="/images/favicon.png">
     <style type='text/css'>
         .adsense_fixed {
             position: fixed;
@@ -228,7 +228,7 @@
         }
 
         body {
-            background: url(http://datatables.club/images/bg.jpg) no-repeat 100%;
+            background: url(/images/bg.jpg) no-repeat 100%;
             background-size: 100%;
             font-family: 'open_sanslight';
             font-size: 100%;
@@ -270,7 +270,7 @@
         /**-----end-logo---------**/
         /**-----start-search-bar-section------**/
         .buttom {
-            background: url(http://datatables.club/images/bg2.png) no-repeat 100% 0%;
+            background: url(/images/bg2.png) no-repeat 100% 0%;
             background-size: 100%;
             text-align: center;
             vertical-align: middle;
@@ -337,7 +337,7 @@
         .search_box form input[type="submit"] {
             border: none;
             cursor: pointer;
-            background: url(http://datatables.club/images/search.png) no-repeat 0px 1px;
+            background: url(/images/search.png) no-repeat 0px 1px;
             position: absolute;
             right: 0;
             width: 34px;
@@ -504,8 +504,8 @@
     <div class="content">
         <!-----start-logo--------->
         <div class="logo">
-            <h1><a href="#"><img src="http://datatables.club/images/logo.png"/></a></h1>
-            <span><img src="http://datatables.club/images/signal.png"/>糟糕! 您请求的页面走丢了！</span>
+            <h1><a href="#"><img src="/images/logo.png"/></a></h1>
+            <span><img src="/images/signal.png"/>糟糕! 您请求的页面走丢了！</span>
         </div>
         <!-----end-logo--------->
         <!---728x90--->
