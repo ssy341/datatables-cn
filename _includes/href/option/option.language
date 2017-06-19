@@ -50,12 +50,12 @@
 <a href="/reference/option/language.info.html" target="_blank">
     <code class="option">language.info<span>Option</span></code>
 </a>
-{% elsif include.param == "serverSide" %}
-<a href="/reference/option/serverSide.html" target="_blank">
-    <code class="option">serverSide<span>Option</span></code>
+{% elsif include.param == "language.lengthMenu" %}
+<a href="/reference/option/language.lengthMenu.html" target="_blank">
+    <code class="option">language.lengthMenu<span>Option</span></code>
 </a>
-{% elsif include.param == "stateSave" %}
-<a href="/reference/option/stateSave.html" target="_blank">
-    <code class="option">stateSave<span>Option</span></code>
+{% elsif include.param == "language.loadingRecords" %}
+<a href="/reference/option/language.loadingRecords.html" target="_blank">
+    <code class="option">language.loadingRecords<span>Option</span></code>
 </a>
 {% endif %}
