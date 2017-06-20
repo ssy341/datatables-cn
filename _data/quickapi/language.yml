@@ -1,0 +1,107 @@
+- url: http://datatables.club/reference/option/language.aria.paginate.html
+  title: WAI-ARIA(无障碍网页应用) 标签
+  text: language.aria.paginate
+
+- url: http://datatables.club/reference/option/language.aria.paginate.first.html
+  title: 首页(_first_)按钮的 WAI-ARIA(无障碍网页应用) 标签
+  text: language.aria.paginate.first
+
+- url: http://datatables.club/reference/option/language.aria.paginate.last.html
+  title: 首页(_last_)按钮的 WAI-ARIA(无障碍网页应用) 标签
+  text: language.aria.paginate.last
+
+- url: http://datatables.club/reference/option/language.aria.paginate.next.html
+  title: 首页(_next_)按钮的 WAI-ARIA(无障碍网页应用) 标签
+  text: language.aria.paginate.next
+
+- url: http://datatables.club/reference/option/language.aria.paginate.previous.html
+  title: 首页(_previous_)按钮的 WAI-ARIA(无障碍网页应用) 标签
+  text: language.aria.paginate.previous
+
+- url: http://datatables.club/reference/option/language.decimal.html
+  title: 小数点表示字符（有些语言中用'，'表示小数点）
+  text: language.decimal
+
+- url: http://datatables.club/reference/option/language.emptyTable.html
+  title: 用来描述表格没有数据的字符串
+  text: language.emptyTable
+
+- url: http://datatables.club/reference/option/language.infoEmpty.html
+  title: 用来描述当表格没有记录的时候显示的字符串
+  text: language.infoEmpty
+
+- url: http://datatables.club/reference/option/language.infoFiltered.html
+  title: 当表格过滤的时候，将此字符串附加到主要信息
+  text: language.infoFiltered
+
+- url: http://datatables.club/reference/option/language.info.html
+  title: 用来描述表格主要信息的字符串
+  text: language.info
+
+- url: http://datatables.club/reference/option/language.infoPostFix.html
+  title: 在摘要信息后继续追加的字符串
+  text: language.infoPostFix
+
+- url: http://datatables.club/reference/option/language.lengthMenu.html
+  title: 用来描述页面长度选项的字符串
+  text: language.lengthMenu
+
+- url: http://datatables.club/reference/option/language.loadingRecords.html
+  title: 用来描述数据在加载中等待的提示字符串 - 当异步读取数据的时候显示
+  text: language.loadingRecords
+
+- url: http://datatables.net/reference/option/language.aria.sortAscending
+  title: Language strings used for WAI-ARIA（无障碍网页应用） specific attributes
+  text: language.aria.sortAscending
+
+- url: http://datatables.net/reference/option/language.aria.sortDescending
+  title: Language strings used for WAI-ARIA（无障碍网页应用） specific attributes
+  text: language.aria.sortDescending
+
+- url: http://datatables.net/reference/option/language.aria
+  title: Language strings used for WAI-ARIA（无障碍网页应用） specific attributes
+  text: language.aria
+
+- url: http://datatables.net/reference/option/language.paginate.last
+  title: 分页信息的 'last' 按钮显示的信息
+  text: language.paginate.last
+
+- url: http://datatables.net/reference/option/language.paginate.next
+  title: 分页信息的 'next' 按钮显示的信息
+  text: language.paginate.next
+
+- url: http://datatables.net/reference/option/language.paginate.previous
+  title: 分页信息的 'previous' 按钮显示的信息
+  text: language.paginate.previous
+
+- url: http://datatables.net/reference/option/language.paginate
+  title: 分页信息显示所需的字符串的所有信息
+  text: language.paginate
+
+- url: http://datatables.net/reference/option/language.processing
+  title: 当table处理用户处理信息时，显示的信息字符串
+  text: language.processing
+
+- url: http://datatables.net/reference/option/language.search
+  title: 搜索框的提示信息
+  text: language.search
+
+- url: http://datatables.net/reference/option/language.searchPlaceholder
+  title: 搜索框(input)的placeholder属性
+  text: language.searchPlaceholder
+
+- url: http://datatables.net/reference/option/language.thousands
+  title: 千位的分隔符
+  text: language.thousands
+
+- url: http://datatables.net/reference/option/language.url
+  title: 从远程地址中加载语言信息
+  text: language.url
+
+- url: http://datatables.net/reference/option/language.zeroRecords
+  title: 当搜索结果为空时，显示的信息
+  text: language.zeroRecords
+
+- url: http://datatables.net/reference/option/language
+  title: 所有DataTables的语言配置都在这里
+  text: language

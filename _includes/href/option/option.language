@@ -6,13 +6,41 @@
 <a href="{{site.baseurl}}/reference/option/language.aria.paginate" target="_blank">
     <code class="option">language.aria.paginate<span>Option</span></code>
 </a>
+{% elsif include.param == "language.aria" %}
+<a href="{{site.baseurl}}/reference/option/language.aria" target="_blank">
+    <code class="option">language.aria<span>Option</span></code>
+</a>
+{% elsif include.param == "language.aria.sortAscending" %}
+<a href="{{site.baseurl}}/reference/option/language.aria.sortAscending" target="_blank">
+    <code class="option">language.aria.sortAscending<span>Option</span></code>
+</a>
+{% elsif include.param == "language.aria.sortDescending" %}
+<a href="{{site.baseurl}}/reference/option/language.aria.sortDescending" target="_blank">
+    <code class="option">language.aria.sortDescending<span>Option</span></code>
+</a>
 {% elsif include.param == "language.paginate.first" %}
 <a href="{{site.baseurl}}/reference/option/language.paginate.first" target="_blank">
     <code class="option">language.paginate.first<span>Option</span></code>
 </a>
+{% elsif include.param == "language.paginate.last" %}
+<a href="{{site.baseurl}}/reference/option/language.paginate.last" target="_blank">
+    <code class="option">language.paginate.last<span>Option</span></code>
+</a>
+{% elsif include.param == "language.paginate.next" %}
+<a href="{{site.baseurl}}/reference/option/language.paginate.next" target="_blank">
+    <code class="option">language.paginate.next<span>Option</span></code>
+</a>
+{% elsif include.param == "language.paginate.previous" %}
+<a href="{{site.baseurl}}/reference/option/language.paginate.previous" target="_blank">
+    <code class="option">language.paginate.previous<span>Option</span></code>
+</a>
 {% elsif include.param == "language" %}
 <a href="/reference/option/language.html" target="_blank">
     <code class="option">language<span>Option</span></code>
+</a>
+{% elsif include.param == "language.paginate" %}
+<a href="/reference/option/language.paginate.html" target="_blank">
+    <code class="option">language.paginate<span>Option</span></code>
 </a>
 {% elsif include.param == "language.thousands" %}
 <a href="/reference/option/language.thousands.html" target="_blank">
@@ -57,5 +85,13 @@
 {% elsif include.param == "language.loadingRecords" %}
 <a href="/reference/option/language.loadingRecords.html" target="_blank">
     <code class="option">language.loadingRecords<span>Option</span></code>
+</a>
+{% elsif include.param == "language.processing" %}
+<a href="/reference/option/language.processing.html" target="_blank">
+    <code class="option">language.processing<span>Option</span></code>
+</a>
+{% elsif include.param == "language.search" %}
+<a href="/reference/option/language.search.html" target="_blank">
+    <code class="option">language.search<span>Option</span></code>
 </a>
 {% endif %}

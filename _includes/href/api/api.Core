@@ -50,4 +50,8 @@
 <a href="https://datatables.net/reference/api/order.fixed()" target="_blank">
     <code class="api">order.fixed()<span>API</span></code>
 </a>
+{% elsif include.param == "i18n()" %}
+<a href="https://datatables.net/reference/api/i18n()" target="_blank">
+    <code class="api">i18n()<span>API</span></code>
+</a>
 {% endif %}
