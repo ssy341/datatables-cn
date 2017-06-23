@@ -93,10 +93,12 @@
         <td>首页(_first_)按钮的 WAI-ARIA(无障碍网页应用) 标签</td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.last"><code class="option"
-                                                                                        title="DataTables initialisation option">language.paginate.last<span>DT</span></code></a>
-        </p></td>
-        <td><p>分页信息的 'last' 按钮显示的信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.paginate.last" %}
+        </td>
+        <td>
+            用来描述分页控件_最后一页_按钮的字符串
+        </td>
     </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/option/language.paginate.next"><code class="option"
