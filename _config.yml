@@ -13,7 +13,7 @@ email: thxopen@datatables.club
 github: https://github.com/ssy341/datatables-cn/blob/gh-pages/
 
 # page config
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 paginate: 10
 paginate_path: "/blog/page:num/"
 

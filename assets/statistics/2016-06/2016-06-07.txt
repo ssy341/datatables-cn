@@ -1,5 +1,3 @@
----
----
 {% assign list = site.data.statistics.2016-06.2016-06-07 %}
  {
      "data":[{% for item in list %}
