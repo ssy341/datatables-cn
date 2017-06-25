@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option ajax dataSrc （下） 对返回数据进行处理 《不定时一讲》 DataTables中文网</title>
+    <title>language.searchPlaceholder 搜索输入框元素占位符属性 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="option,language.searchPlaceholder">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
     
 </head>
 <body>
@@ -37,7 +77,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li >
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -46,7 +86,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -79,187 +119,124 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/option" target="_blank">Option</a></li>
+                <li class="active">language.searchPlaceholder 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/04/20/option-ajax-dataSrc2.html">option ajax dataSrc （下） 对返回数据进行处理</a>
+                    <a href="/reference/option/language.searchPlaceholder.html">language.searchPlaceholder</a>
+                    <small>搜索输入框元素占位符属性</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 20 April 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="/manual/daily/2016/04/20/option-ajax-dataSrc2.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10.1</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option ajax dataSrc （下） 对返回数据进行处理:/manual/daily/2016/04/20/option-ajax-dataSrc2.html"
+                            data-clipboard-text="language.searchPlaceholder 搜索输入框元素占位符属性 文档(Options & API) DataTables中文网:/reference/option/language.searchPlaceholder.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <p>参数详解连接
-<a href="/reference/option/ajax.dataSrc.html" target="_blank">
-    <code class="option">ajax.dataSrc<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/19/option-ajax-dataSrc1.html" target="_blank">
-    <code class="option">columns.dataSrc 1<span>不定时一讲</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html" target="_blank">
-    <code class="option">columns.dataSrc 2<span>不定时一讲</span></code>
+                    <h2 id="描述description">描述(Description)</h2>
+
+<p>HTML 5 引入了 <code class="highlighter-rouge">input type='text''</code>元素占位符属性，以便在没有值时为输入控件提供信息文本。</p>
+
+<p>该参数可用于在DataTable的搜索输入中为占位符属性设置值。</p>
+
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/type/string" target="_blank">
+<code class="type" title="Javascript parameter type">string<span>Type</span></code>
+</a></li>
+</ul>
+
+<h2 id="默认值default">默认值(Default)</h2>
+<ul>
+  <li>Value ：``</li>
+</ul>
+
+<p>此参数的默认值为空字符串，表示最终用户是看不见的</p>
+
+<h2 id="例子example">例子(Example)</h2>
+
+<p>过滤输入框自动追加到描述文字之后</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"paginate"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"search"</span><span class="p">:</span> <span class="s2">"过滤记录:"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>搜索框没有描述标签，只有占位符描述</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">search</span><span class="p">:</span> <span class="s2">"_INPUT_"</span><span class="p">,</span>
+        <span class="na">searchPlaceholder</span><span class="p">:</span> <span class="s2">"搜索..."</span>
+      <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>API</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/api/search()" target="_blank">
+<code class="api">search()<span>API</span></code>
+</a></li>
+</ul>
+
+<p>Options</p>
+
+<ul>
+  <li>
+    <p><a href="/reference/option/language.html" target="_blank">
+<code class="option">language<span>Option</span></code>
 </a></p>
-
-<p>接着昨天的dataSrc作为function时能处理什么复杂的情况呢？
-在这里可以把dataSrc和jQuery的ajax的success方法一起看，或者对于Datatables来说dataSrc是success的扩展、加强
-<!--more--></p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-    <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-    <span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-        <span class="c1">//result其实就是data.json的数据，那么当服务器返回的数据格式不是Datatables所支持的格式怎么办？这个时候就可以用到dataSrc来处理这个情况</span>
-    <span class="p">}</span>
-<span class="p">})</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>先假设data.json的数据格式如下：</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="nl">msg</span><span class="p">:</span><span class="s2">"成功返回数据"</span><span class="p">,</span>
-    <span class="nx">listdata</span><span class="err">:</span><span class="p">{</span>
-        <span class="nl">treeData</span><span class="p">:[</span>
-            <span class="p">{</span><span class="na">id</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="na">pid</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="na">name</span><span class="p">:</span><span class="s2">"节点一"</span><span class="p">},</span>
-            <span class="p">{</span><span class="na">id</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="na">pid</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="na">name</span><span class="p">:</span><span class="s2">"节点二"</span><span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nx">tableData</span><span class="err">:</span><span class="p">{</span>
-            <span class="nl">page</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
-            <span class="nx">draw</span><span class="err">:</span><span class="mi">1</span><span class="p">,</span>
-            <span class="nx">size</span><span class="err">:</span><span class="mi">58</span><span class="p">,</span>
-            <span class="nx">filter_size</span><span class="err">:</span><span class="mi">2</span><span class="p">,</span>
-            <span class="nx">data</span><span class="err">:</span><span class="p">[</span>
-                <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"中文网"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">2</span><span class="p">},</span>
-                <span class="p">{</span><span class="na">name</span><span class="p">:</span><span class="s2">"datatables"</span><span class="p">,</span><span class="na">age</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nx">status</span><span class="err">:</span><span class="kc">true</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p>相信很多小伙伴的数据格式比这个还要复杂，各种嵌套，各种包含，那么这里注意一点，认清Datatables所支持的格式（参考<a href="http://datatables.club/manual/server-side.html#returndata">服务器模式</a>），把这点弄明白，实际上就不难了，看下面代码，怎么使用上面所示格式的数据交给Datatables去处理</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="na">ajax</span><span class="p">:{</span>
-        <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
-        <span class="na">dataSrc</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下</span>
-            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活</span>
-            <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">columns</span><span class="p">:[</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"name"</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"age"</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
-
-<p><strong>更新：2017年6月25日</strong></p>
-
-<p>对于使用服务器模式的小伙伴，参考如下代码：</p>
-
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="na">serverSide</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span>
-    <span class="na">ajax</span><span class="p">:{</span>
-        <span class="na">url</span><span class="p">:</span><span class="s2">"data.action"</span><span class="p">,</span>
-        <span class="na">dataSrc</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-             <span class="c1">//这里除了把数据处理后返回给DataTables，还需要把另外三个参数处理为顶级的属性</span>
-             <span class="nx">result</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">draw</span><span class="p">;</span>
-             <span class="nx">result</span><span class="p">.</span><span class="nx">recordsTotal</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span>
-             <span class="nx">result</span><span class="p">.</span><span class="nx">recordsFiltered</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">filter_size</span><span class="p">;</span>
-             
-            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下</span>
-            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活</span>
-            <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="na">columns</span><span class="p">:[</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"name"</span><span class="p">},</span>
-        <span class="p">{</span><span class="na">data</span><span class="p">:</span><span class="s2">"age"</span><span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">});</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+  </li>
+  <li>
+    <p><a href="/reference/option/searching.html" target="_blank">
+<code class="option">searching<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/language.search.html" target="_blank">
+<code class="option">language.search<span>Option</span></code>
+</a></p>
+  </li>
+</ul>
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/option/language.searchPlaceholder" target="_blank">https://datatables.net/reference/option/language.searchPlaceholder</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -283,13 +260,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/04/20/option-ajax-dataSrc2.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/04/20/option-ajax-dataSrc2.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/language.searchPlaceholder.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/language.searchPlaceholder.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/04/20/option-ajax-dataSrc2.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/language.searchPlaceholder.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/language.searchPlaceholder.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -475,7 +452,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-04/2016-04-20-option-ajax-dataSrc2.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/language.searchPlaceholder.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -558,6 +535,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>
