@@ -138,7 +138,8 @@
 9</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
     <span class="s2">"columnDefs"</span><span class="p">:[</span>
         <span class="p">{</span>
-            <span class="c1">//设置第一列不参与搜索</span>
+            <span class="c1">//设置第一列不参与搜索
+</span>
             <span class="s2">"targets"</span><span class="p">:[</span><span class="mi">0</span><span class="p">],</span>
             <span class="s2">"searchable"</span><span class="p">:</span><span class="kc">false</span>
         <span class="p">}</span>
@@ -159,7 +160,8 @@
 2
 3
 4</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="c1">//关闭DT的本地搜索</span>
+    <span class="c1">//关闭DT的本地搜索
+</span>
     <span class="s2">"searching"</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
@@ -188,14 +190,18 @@
 6
 7
 8
-9</pre></td><td class="code"><pre><span class="c1">//给搜索按钮绑定点击事件</span>
+9</pre></td><td class="code"><pre><span class="c1">//给搜索按钮绑定点击事件
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span><span class="s2">"#example button.search"</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
-    <span class="c1">//自己定义的搜索框，可以是时间控件，或者checkbox 等等</span>
+    <span class="c1">//自己定义的搜索框，可以是时间控件，或者checkbox 等等
+</span>
     <span class="kd">var</span> <span class="nx">args1</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#input1"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
     <span class="kd">var</span> <span class="nx">args2</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#input2"</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
-    <span class="c1">//用空格隔开，达到多条件搜索的效果，相当于两个关键字</span>
+    <span class="c1">//用空格隔开，达到多条件搜索的效果，相当于两个关键字
+</span>
     <span class="nx">table</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">args1</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">args2</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
-    <span class="c1">//table.search(args1+" "+args2).draw(false);//保留分页，排序状态</span>
+    <span class="c1">//table.search(args1+" "+args2).draw(false);//保留分页，排序状态
+</span>
 <span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -327,18 +333,23 @@
 23
 24
 25
-26</pre></td><td class="code"><pre><span class="c1">//扩展DT的默认配置</span>
+26</pre></td><td class="code"><pre><span class="c1">//扩展DT的默认配置
+</span>
 <span class="nx">$</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">defaults</span><span class="p">,</span> <span class="p">{</span>
-    <span class="c1">//在 dom 里面不配置 f ，可以隐藏掉默认的搜索框</span>
+    <span class="c1">//在 dom 里面不配置 f ，可以隐藏掉默认的搜索框
+</span>
     <span class="na">dom</span><span class="p">:</span> <span class="s1">'t&lt;"dataTables_info"il&gt;p'</span><span class="p">,</span>
-    <span class="c1">//DT初始化完毕回调函数</span>
+    <span class="c1">//DT初始化完毕回调函数
+</span>
     <span class="na">initComplete</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">_$this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">searchHTML</span> <span class="o">=</span> <span class="s1">'&lt;label&gt;&lt;span&gt;搜索:&lt;/span&gt; &lt;input type="search" placeholder="请输入搜索内容" aria-controls="datatable1"&gt;&lt;/label&gt;'</span><span class="p">;</span>
-        <span class="c1">//快捷操作的HTML DOM</span>
+        <span class="c1">//快捷操作的HTML DOM
+</span>
         <span class="nx">$</span><span class="p">(</span><span class="nx">_$this</span><span class="p">.</span><span class="nx">selector</span> <span class="o">+</span> <span class="s1">'_wrapper .dataTables_filter'</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">searchHTML</span><span class="p">);</span>
 
-        <span class="c1">//重写搜索事件</span>
+        <span class="c1">//重写搜索事件
+</span>
         <span class="nx">$</span><span class="p">(</span><span class="nx">_$this</span><span class="p">.</span><span class="nx">selector</span> <span class="o">+</span> <span class="s1">'_wrapper .dataTables_filter input'</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">'keyup'</span><span class="p">,</span>
         <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">13</span> <span class="o">||</span> <span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">==</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">.</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)))</span> <span class="p">{</span>
@@ -348,10 +359,13 @@
     <span class="p">}</span>
 <span class="p">});</span>
 
-<span class="c1">//初始化DT</span>
+<span class="c1">//初始化DT
+</span>
 <span class="kd">var</span> <span class="nx">t</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="c1">//......</span>
-    <span class="c1">//自己需要的其他属性</span>
+    <span class="c1">//......
+</span>
+    <span class="c1">//自己需要的其他属性
+</span>
 <span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -466,8 +480,10 @@ Smail小伙伴提供如下代码：</p>
 	<span class="na">language</span><span class="p">:</span> <span class="p">{</span>
 		<span class="s2">"url"</span><span class="p">:</span> <span class="s2">"../assets/lib/datatables/datatables_language.json"</span>
 	<span class="p">},</span>
-	<span class="na">processing</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//当datatable获取数据时候是否显示正在处理提示信息。</span>
-	<span class="na">serverSide</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//处理分页</span>
+	<span class="na">processing</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//当datatable获取数据时候是否显示正在处理提示信息。
+</span>
+	<span class="na">serverSide</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">//处理分页
+</span>
 	<span class="na">responsive</span><span class="p">:</span> <span class="p">{</span>
 		<span class="na">details</span><span class="p">:</span> <span class="kc">false</span>
 	<span class="p">},</span>
@@ -531,10 +547,14 @@ Smail小伙伴提供如下代码：</p>
 		<span class="k">if</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s1">'ifChecked'</span><span class="p">)</span> <span class="p">{</span>
 			<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">iCheck</span><span class="p">(</span><span class="s1">'check'</span><span class="p">);</span>
 			<span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">closest</span><span class="p">(</span><span class="s1">'tr'</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'selected'</span><span class="p">);</span>
-			<span class="c1">//全选单选框的状态处理</span>
-			<span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">rows</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span> <span class="c1">//被选中的行数</span>
-			<span class="kd">var</span> <span class="nx">recordsDisplay</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">page</span><span class="p">.</span><span class="nx">info</span><span class="p">().</span><span class="nx">recordsDisplay</span><span class="p">;</span> <span class="c1">//搜索条件过滤后的总行数</span>
-			<span class="kd">var</span> <span class="nx">iDisplayStart</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">page</span><span class="p">.</span><span class="nx">info</span><span class="p">().</span><span class="nx">start</span><span class="p">;</span> <span class="c1">// 起始行数</span>
+			<span class="c1">//全选单选框的状态处理
+</span>
+			<span class="kd">var</span> <span class="nx">selected</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">rows</span><span class="p">(</span><span class="s1">'.selected'</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">length</span><span class="p">;</span> <span class="c1">//被选中的行数
+</span>
+			<span class="kd">var</span> <span class="nx">recordsDisplay</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">page</span><span class="p">.</span><span class="nx">info</span><span class="p">().</span><span class="nx">recordsDisplay</span><span class="p">;</span> <span class="c1">//搜索条件过滤后的总行数
+</span>
+			<span class="kd">var</span> <span class="nx">iDisplayStart</span> <span class="o">=</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">page</span><span class="p">.</span><span class="nx">info</span><span class="p">().</span><span class="nx">start</span><span class="p">;</span> <span class="c1">// 起始行数
+</span>
 			<span class="k">if</span><span class="p">(</span><span class="nx">selected</span> <span class="o">===</span> <span class="nx">_$this</span><span class="p">.</span><span class="nx">api</span><span class="p">().</span><span class="nx">page</span><span class="p">.</span><span class="nx">len</span><span class="p">()</span> <span class="o">||</span> <span class="nx">selected</span> <span class="o">===</span> <span class="nx">recordsDisplay</span> <span class="o">||</span> <span class="nx">selected</span> <span class="o">===</span> <span class="p">(</span><span class="nx">recordsDisplay</span> <span class="o">-</span> <span class="nx">iDisplayStart</span><span class="p">))</span> <span class="p">{</span>
 				<span class="nx">$</span><span class="p">(</span><span class="nx">selector</span> <span class="o">+</span> <span class="s1">' input[name=all]'</span><span class="p">).</span><span class="nx">iCheck</span><span class="p">(</span><span class="s1">'check'</span><span class="p">);</span>
 			<span class="p">}</span>

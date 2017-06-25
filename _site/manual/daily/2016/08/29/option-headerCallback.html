@@ -130,7 +130,8 @@
 5
 6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"headerCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">thead</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">display</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="c1">//可以分别打印 thead, data, start, end, display 看看究竟是什么</span>
+    <span class="c1">//可以分别打印 thead, data, start, end, display 看看究竟是什么
+</span>
     <span class="nx">$</span><span class="p">(</span><span class="nx">thead</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'th'</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span> <span class="s1">'显示 '</span><span class="o">+</span><span class="p">(</span><span class="nx">end</span><span class="o">-</span><span class="nx">start</span><span class="p">)</span><span class="o">+</span><span class="s1">' 条记录'</span> <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">

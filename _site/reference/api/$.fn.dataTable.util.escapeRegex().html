@@ -203,7 +203,8 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
     <span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;select&gt;&lt;option value=""&gt;&lt;/option&gt;&lt;/select&gt;'</span><span class="p">)</span>
         <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">column</span><span class="p">.</span><span class="nx">footer</span><span class="p">()).</span><span class="nx">empty</span><span class="p">()</span> <span class="p">)</span>
         <span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'change'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">// Escape the expression so we can perform a regex match</span>
+            <span class="c1">// Escape the expression so we can perform a regex match
+</span>
             <span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">escapeRegex</span><span class="p">(</span>
                 <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
             <span class="p">);</span>

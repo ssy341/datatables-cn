@@ -210,16 +210,20 @@ json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……</p>
 18
 19
 20
-21</pre></td><td class="code"><pre><span class="c1">//data.json返回数据格式如下</span>
+21</pre></td><td class="code"><pre><span class="c1">//data.json返回数据格式如下
+</span>
 <span class="p">{</span>
     <span class="s2">"data"</span><span class="err">:</span> <span class="p">[</span>
         <span class="p">{</span> <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Tiger Nixon"</span><span class="p">,</span> <span class="s2">"position"</span><span class="p">:</span> <span class="s2">"System Architect"</span><span class="p">,</span> <span class="s2">"salary"</span><span class="p">:</span> <span class="s2">"$3,120"</span><span class="p">,</span> <span class="s2">"start_date"</span><span class="p">:</span> <span class="s2">"2011/04/25"</span><span class="p">,</span> <span class="s2">"office"</span><span class="p">:</span> <span class="s2">"Edinburgh"</span><span class="p">,</span> <span class="s2">"extn"</span><span class="p">:</span> <span class="s2">"5421"</span> <span class="p">},</span>
-        <span class="c1">// row 2 data source,</span>
-        <span class="c1">// etc</span>
+        <span class="c1">// row 2 data source,
+</span>
+        <span class="c1">// etc
+</span>
     <span class="p">]</span>
 <span class="p">}</span>            
 
-<span class="c1">//如下代码初始化</span>
+<span class="c1">//如下代码初始化
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
     <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"data.json"</span><span class="p">,</span>
     <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
@@ -246,7 +250,8 @@ json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……</p>
 9
 10
 11
-12</pre></td><td class="code"><pre><span class="c1">//data.json返回数据格式如下</span>
+12</pre></td><td class="code"><pre><span class="c1">//data.json返回数据格式如下
+</span>
 <span class="p">{</span>
     <span class="s2">"data"</span><span class="err">:</span> <span class="p">[</span>
         <span class="p">[</span><span class="s2">"Tiger Nixon"</span><span class="p">,</span> <span class="s2">"System Architect"</span><span class="p">,</span> <span class="s2">"Edinburgh"</span><span class="p">,</span> <span class="s2">"5421"</span><span class="p">,</span> <span class="s2">"2011/04/25"</span><span class="p">,</span> <span class="s2">"$3,120"</span><span class="p">],</span>
@@ -254,7 +259,8 @@ json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……</p>
     <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="c1">//如下代码初始化</span>
+<span class="c1">//如下代码初始化
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"data.json"</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">

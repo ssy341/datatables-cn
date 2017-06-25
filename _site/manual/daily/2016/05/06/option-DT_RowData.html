@@ -157,14 +157,16 @@ ServerSide Document
 33
 34
 35
-36</pre></td><td class="code"><pre><span class="c1">//数据实例</span>
+36</pre></td><td class="code"><pre><span class="c1">//数据实例
+</span>
 <span class="p">{</span>
     <span class="s2">"data"</span><span class="err">:</span><span class="p">[</span>
         <span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="mi">341</span><span class="p">,</span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Datatables中文网"</span><span class="p">,</span><span class="s2">"content"</span><span class="p">:</span><span class="s2">"Datatables是一个基于jQuery的表格插件"</span><span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
 
-<span class="c1">//初始化代码</span>
+<span class="c1">//初始化代码
+</span>
 <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
     <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
     <span class="s2">"columns"</span><span class="p">:[</span>
@@ -188,9 +190,11 @@ ServerSide Document
     <span class="p">]</span>
 <span class="p">});</span>
 
-<span class="c1">//显示行详情</span>
+<span class="c1">//显示行详情
+</span>
 <span class="kd">function</span> <span class="nx">show</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">content</span><span class="p">){</span>
-    <span class="c1">//用alert模拟弹框的效果</span>
+    <span class="c1">//用alert模拟弹框的效果
+</span>
     <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">content</span><span class="p">);</span>
 <span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
@@ -259,7 +263,8 @@ ServerSide Document
 53
 54
 55
-56</pre></td><td class="code"><pre><span class="c1">//数据实例</span>
+56</pre></td><td class="code"><pre><span class="c1">//数据实例
+</span>
 <span class="p">{</span>
     <span class="s2">"data"</span><span class="err">:</span><span class="p">[</span>
         <span class="p">{</span>
@@ -276,7 +281,8 @@ ServerSide Document
 <span class="p">}</span>
 
 
-<span class="c1">//初始化代码</span>
+<span class="c1">//初始化代码
+</span>
 <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
     <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
     <span class="s2">"columns"</span><span class="p">:[</span>
@@ -298,10 +304,13 @@ ServerSide Document
 <span class="p">});</span>
 
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="c1">//如果有多个按钮，根据class名称区分</span>
+    <span class="c1">//如果有多个按钮，根据class名称区分
+</span>
     <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="s2">"view-detail"</span><span class="p">)){</span>
-        <span class="c1">// a标签在td，td 在tr</span>
-        <span class="c1">// 这里要获取tr的对象，所以是 a标签的父级的父级</span>
+        <span class="c1">// a标签在td，td 在tr
+</span>
+        <span class="c1">// 这里要获取tr的对象，所以是 a标签的父级的父级
+</span>
         <span class="kd">var</span> <span class="nx">trObjData</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">parent</span><span class="p">().</span><span class="nx">data</span><span class="p">(</span><span class="s2">"DT_RowData"</span><span class="p">);</span>
         <span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">trObjData</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span>
         <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">trObjData</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
@@ -310,9 +319,11 @@ ServerSide Document
     <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span>
 
-<span class="c1">//显示行详情</span>
+<span class="c1">//显示行详情
+</span>
 <span class="kd">function</span> <span class="nx">show</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span><span class="nx">content</span><span class="p">){</span>
-    <span class="c1">//用alert模拟弹框的效果</span>
+    <span class="c1">//用alert模拟弹框的效果
+</span>
     <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nx">content</span><span class="p">);</span>
 <span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>

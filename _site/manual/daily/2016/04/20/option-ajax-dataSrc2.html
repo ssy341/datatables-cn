@@ -134,7 +134,8 @@
 6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
     <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
     <span class="na">success</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-        <span class="c1">//result其实就是data.json的数据，那么当服务器返回的数据格式不是Datatables所支持的格式怎么办？这个时候就可以用到dataSrc来处理这个情况</span>
+        <span class="c1">//result其实就是data.json的数据，那么当服务器返回的数据格式不是Datatables所支持的格式怎么办？这个时候就可以用到dataSrc来处理这个情况
+</span>
     <span class="p">}</span>
 <span class="p">})</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
@@ -201,8 +202,10 @@
     <span class="na">ajax</span><span class="p">:{</span>
         <span class="na">url</span><span class="p">:</span><span class="s2">"data.json"</span><span class="p">,</span>
         <span class="na">dataSrc</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下</span>
-            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活</span>
+            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下
+</span>
+            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活
+</span>
             <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">},</span>
@@ -241,13 +244,16 @@
     <span class="na">ajax</span><span class="p">:{</span>
         <span class="na">url</span><span class="p">:</span><span class="s2">"data.action"</span><span class="p">,</span>
         <span class="na">dataSrc</span><span class="p">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">){</span>
-             <span class="c1">//这里除了把数据处理后返回给DataTables，还需要把另外三个参数处理为顶级的属性</span>
+             <span class="c1">//这里除了把数据处理后返回给DataTables，还需要把另外三个参数处理为顶级的属性
+</span>
              <span class="nx">result</span><span class="p">.</span><span class="nx">draw</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">draw</span><span class="p">;</span>
              <span class="nx">result</span><span class="p">.</span><span class="nx">recordsTotal</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span>
              <span class="nx">result</span><span class="p">.</span><span class="nx">recordsFiltered</span> <span class="o">=</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">filter_size</span><span class="p">;</span>
              
-            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下</span>
-            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活</span>
+            <span class="c1">//这里result和上面jquery的ajax的代码类似，也是可以得到data.json的数据，但是这样的格式，Datatables不能直接使用，这时候需要在这里处理一下
+</span>
+            <span class="c1">//直接返回Datatables需要的那部分数据即可，看到这里，大家或许又懂了些什么看到了他的强大和灵活
+</span>
             <span class="k">return</span> <span class="nx">result</span><span class="p">.</span><span class="nx">listdata</span><span class="p">.</span><span class="nx">tableData</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
         <span class="p">}</span>
     <span class="p">},</span>

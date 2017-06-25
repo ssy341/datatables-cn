@@ -137,14 +137,16 @@
 12
 13
 14
-15</pre></td><td class="code"><pre><span class="c1">//首页右下角表格效果</span>
+15</pre></td><td class="code"><pre><span class="c1">//首页右下角表格效果
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"infoCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">total</span><span class="p">,</span> <span class="nx">pre</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">start</span> <span class="o">+</span><span class="s2">"-"</span><span class="o">+</span> <span class="nx">end</span><span class="o">+</span><span class="s2">"(共"</span><span class="o">+</span><span class="nx">total</span><span class="o">+</span><span class="s2">"个热心网友 )&lt;a class='button button-success' href='/about/index.html#donate'&gt;我也要赞一个 &amp;gt;&amp;gt;&lt;/a&gt;"</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span>
 
-<span class="c1">//使用api获取分页信息</span>
+<span class="c1">//使用api获取分页信息
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"infoCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">total</span><span class="p">,</span> <span class="nx">pre</span> <span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">api</span><span class="p">();</span>

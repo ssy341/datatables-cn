@@ -935,7 +935,8 @@
         <span class="na">enable</span><span class="p">:</span> <span class="s2">"启用"</span>
     <span class="p">};</span>
 
-    <span class="c1">//初始化配置</span>
+    <span class="c1">//初始化配置
+</span>
     <span class="nx">employee</span><span class="p">.</span><span class="nx">gridInit</span> <span class="o">=</span> <span class="p">{</span>
         <span class="na">searching</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
         <span class="na">lengthChange</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -953,7 +954,8 @@
         <span class="na">autoSearch</span><span class="p">:</span> <span class="kc">false</span>
     <span class="p">};</span>
 
-    <span class="c1">//路径配置</span>
+    <span class="c1">//路径配置
+</span>
     <span class="nx">employee</span><span class="p">.</span><span class="nx">url</span> <span class="o">=</span> <span class="s2">"/"</span><span class="p">;</span>
     <span class="nx">employee</span><span class="p">.</span><span class="nx">requestUrl</span> <span class="o">=</span> <span class="p">{</span>
         <span class="na">queryList</span><span class="p">:</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">url</span> <span class="o">+</span> <span class="s2">"example/ajax/data/objects.txt"</span>
@@ -964,22 +966,38 @@
     <span class="p">};</span>
 
     <span class="nx">employee</span><span class="p">.</span><span class="nx">status</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">"searchable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"orderable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span><span class="c1">//第一行不进行排序和搜索</span>
-<span class="c1">//        {"targets": [12], "visible": false},    //设置第13列隐藏/显示</span>
-<span class="c1">//        {"width": "10%", "targets": [1]},  //设置第2列宽度</span>
-<span class="c1">//        {</span>
-<span class="c1">//            对第7列内容进行替换处理</span>
-<span class="c1">//            targets: 6,</span>
-<span class="c1">//            render: function (data, type, row, meta) {</span>
-<span class="c1">//                if (data == "1") {</span>
-<span class="c1">//                    return employee.table.sexMan;</span>
-<span class="c1">//                }</span>
-<span class="c1">//                if (data == "0") {</span>
-<span class="c1">//                    return employee.table.sexWoman;</span>
-<span class="c1">//                }</span>
-<span class="c1">//            }</span>
-<span class="c1">//        },</span>
-        <span class="p">{</span><span class="na">defaultContent</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">targets</span><span class="p">:</span> <span class="p">[</span><span class="s1">'_all'</span><span class="p">]}</span> <span class="c1">//所有列设置默认值为空字符串</span>
+        <span class="p">{</span><span class="s2">"searchable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"orderable"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">"targets"</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span><span class="c1">//第一行不进行排序和搜索
+</span>
+<span class="c1">//        {"targets": [12], "visible": false},    //设置第13列隐藏/显示
+</span>
+<span class="c1">//        {"width": "10%", "targets": [1]},  //设置第2列宽度
+</span>
+<span class="c1">//        {
+</span>
+<span class="c1">//            对第7列内容进行替换处理
+</span>
+<span class="c1">//            targets: 6,
+</span>
+<span class="c1">//            render: function (data, type, row, meta) {
+</span>
+<span class="c1">//                if (data == "1") {
+</span>
+<span class="c1">//                    return employee.table.sexMan;
+</span>
+<span class="c1">//                }
+</span>
+<span class="c1">//                if (data == "0") {
+</span>
+<span class="c1">//                    return employee.table.sexWoman;
+</span>
+<span class="c1">//                }
+</span>
+<span class="c1">//            }
+</span>
+<span class="c1">//        },
+</span>
+        <span class="p">{</span><span class="na">defaultContent</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="na">targets</span><span class="p">:</span> <span class="p">[</span><span class="s1">'_all'</span><span class="p">]}</span> <span class="c1">//所有列设置默认值为空字符串
+</span>
     <span class="p">];</span>
 
     <span class="nx">employee</span><span class="p">.</span><span class="nx">filed</span> <span class="o">=</span> <span class="p">[</span>
@@ -1012,30 +1030,46 @@
         <span class="na">statusTitle</span><span class="p">:</span> <span class="s2">"请选择一条数据！"</span>
     <span class="p">};</span>
 
-    <span class="c1">//dataTables方法封装</span>
+    <span class="c1">//dataTables方法封装
+</span>
     <span class="kd">function</span> <span class="nx">dataTablesInit</span><span class="p">(</span><span class="nx">elo</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">tableId</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
             <span class="na">ajax</span><span class="p">:</span> <span class="p">{</span>
-                <span class="na">url</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">requestUrl</span><span class="p">.</span><span class="nx">queryList</span><span class="p">,</span>   <span class="c1">//请求后台路径</span>
+                <span class="na">url</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">requestUrl</span><span class="p">.</span><span class="nx">queryList</span><span class="p">,</span>   <span class="c1">//请求后台路径
+</span>
                 <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">jqXHR</span><span class="p">,</span> <span class="nx">textStatus</span><span class="p">,</span> <span class="nx">errorMsg</span><span class="p">)</span> <span class="p">{</span>
                     <span class="nx">alert</span><span class="p">(</span><span class="s2">"请求失败"</span><span class="p">);</span>
                 <span class="p">}</span>
             <span class="p">},</span>
-            <span class="s2">"searching"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">searching</span><span class="p">,</span><span class="c1">//搜索框，默认是开启</span>
-            <span class="s2">"lengthChange"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">lengthChange</span><span class="p">,</span><span class="c1">//是否允许用户改变表格每页显示的记录数，默认是开启</span>
-            <span class="s2">"paging"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">paging</span><span class="p">,</span><span class="c1">//是否开启本地分页，默认是开启</span>
-            <span class="s2">"processing"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">processing</span><span class="p">,</span><span class="c1">//是否显示中文提示</span>
-            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span>  <span class="c1">//是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变</span>
-            <span class="s2">"serverSide"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">serverSide</span><span class="p">,</span> <span class="c1">//开启服务器模式，默认是关闭</span>
-            <span class="s2">"scrollY"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollY</span><span class="p">,</span><span class="c1">//设置高</span>
-            <span class="s2">"scrollX"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollX</span><span class="p">,</span><span class="c1">//设置宽度</span>
-            <span class="s2">"scrollXInner"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollXInner</span><span class="p">,</span><span class="c1">//设置内宽度</span>
-            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span><span class="c1">//设置折叠</span>
-            <span class="s2">"jQueryUI"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">jQueryUI</span><span class="p">,</span><span class="c1">//jquery 风格</span>
-            <span class="s2">"autoWidth"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoWidth</span><span class="p">,</span> <span class="c1">//是否自适应宽度</span>
-            <span class="s2">"columns"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">filed</span><span class="p">,</span><span class="c1">//字段</span>
-            <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span><span class="c1">//列表状态</span>
+            <span class="s2">"searching"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">searching</span><span class="p">,</span><span class="c1">//搜索框，默认是开启
+</span>
+            <span class="s2">"lengthChange"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">lengthChange</span><span class="p">,</span><span class="c1">//是否允许用户改变表格每页显示的记录数，默认是开启
+</span>
+            <span class="s2">"paging"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">paging</span><span class="p">,</span><span class="c1">//是否开启本地分页，默认是开启
+</span>
+            <span class="s2">"processing"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">processing</span><span class="p">,</span><span class="c1">//是否显示中文提示
+</span>
+            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span>  <span class="c1">//是否开启DataTables的高度自适应，当数据条数不够分页数据条数的时候，插件高度是否随数据条数而改变
+</span>
+            <span class="s2">"serverSide"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">serverSide</span><span class="p">,</span> <span class="c1">//开启服务器模式，默认是关闭
+</span>
+            <span class="s2">"scrollY"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollY</span><span class="p">,</span><span class="c1">//设置高
+</span>
+            <span class="s2">"scrollX"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollX</span><span class="p">,</span><span class="c1">//设置宽度
+</span>
+            <span class="s2">"scrollXInner"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollXInner</span><span class="p">,</span><span class="c1">//设置内宽度
+</span>
+            <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">scrollCollapse</span><span class="p">,</span><span class="c1">//设置折叠
+</span>
+            <span class="s2">"jQueryUI"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">jQueryUI</span><span class="p">,</span><span class="c1">//jquery 风格
+</span>
+            <span class="s2">"autoWidth"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoWidth</span><span class="p">,</span> <span class="c1">//是否自适应宽度
+</span>
+            <span class="s2">"columns"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">filed</span><span class="p">,</span><span class="c1">//字段
+</span>
+            <span class="s2">"columnDefs"</span><span class="p">:</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">status</span><span class="p">,</span><span class="c1">//列表状态
+</span>
             <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
                 <span class="s2">"sProcessing"</span><span class="p">:</span> <span class="s2">"处理中..."</span><span class="p">,</span>
                 <span class="s2">"sLengthMenu"</span><span class="p">:</span> <span class="s2">"显示 _MENU_ 项结果"</span><span class="p">,</span>
@@ -1065,10 +1099,12 @@
                 <span class="nx">$</span><span class="p">(</span><span class="s2">"#"</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">buttonId</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">buttons</span><span class="p">);</span>
                 <span class="k">if</span> <span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">search</span><span class="p">)</span> <span class="p">{</span>
                     <span class="nx">$search</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"input[type='search']"</span><span class="p">);</span>
-                    <span class="c1">//隐藏默认的搜索框</span>
+                    <span class="c1">//隐藏默认的搜索框
+</span>
                     <span class="nx">$search</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">hide</span><span class="p">();</span>
                 <span class="p">}</span>
-                <span class="c1">//加载完成之后 初始化checkbox</span>
+                <span class="c1">//加载完成之后 初始化checkbox
+</span>
                 <span class="nx">checkbox</span><span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">tableId</span><span class="p">);</span>
 
 
@@ -1091,7 +1127,8 @@
                 <span class="p">});</span>
 
 
-                <span class="c1">//checkbox全选</span>
+                <span class="c1">//checkbox全选
+</span>
                 <span class="nx">$</span><span class="p">(</span><span class="s2">"#"</span> <span class="o">+</span> <span class="nx">elo</span><span class="p">.</span><span class="nx">property</span><span class="p">.</span><span class="nx">checkAllId</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
                     <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">))</span> <span class="p">{</span>
                         <span class="nx">$</span><span class="p">(</span><span class="s2">"input[name='checkList']"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
@@ -1105,7 +1142,8 @@
             <span class="p">}</span>
         <span class="p">});</span>
 
-        <span class="c1">//错误信息提示</span>
+        <span class="c1">//错误信息提示
+</span>
         <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">ext</span><span class="p">.</span><span class="nx">errMode</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="nx">h</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">h</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">alert</span><span class="p">(</span><span class="s2">"连接服务器失败！"</span><span class="p">);</span>
@@ -1114,13 +1152,15 @@
             <span class="p">}</span>
         <span class="p">};</span>
 
-        <span class="c1">//回调，如果返回的时候有问题提示信息</span>
+        <span class="c1">//回调，如果返回的时候有问题提示信息
+</span>
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'xhr.dt'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"重新加载了数据"</span><span class="p">);</span>
             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
         <span class="p">});</span>
 
-        <span class="c1">//鼠标经过高亮</span>
+        <span class="c1">//鼠标经过高亮
+</span>
         <span class="kd">var</span> <span class="nx">lastIdx</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'mouseover'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 
@@ -1138,7 +1178,8 @@
         <span class="p">});</span>
 
 
-        <span class="c1">//自动搜索方法</span>
+        <span class="c1">//自动搜索方法
+</span>
         <span class="nx">$</span><span class="p">(</span><span class="s1">'.form-controlSearch'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'keyup change'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoSearch</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">"#autoSearch"</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s2">"checked"</span><span class="p">);</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">elo</span><span class="p">.</span><span class="nx">gridInit</span><span class="p">.</span><span class="nx">autoSearch</span><span class="p">)</span> <span class="p">{</span>
@@ -1147,9 +1188,11 @@
         <span class="p">});</span>
     <span class="p">}</span>
 
-    <span class="c1">//选中一行 checkbox选中</span>
+    <span class="c1">//选中一行 checkbox选中
+</span>
     <span class="kd">function</span> <span class="nx">checkbox</span><span class="p">(</span><span class="nx">tableId</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">//每次加载时都先清理</span>
+        <span class="c1">//每次加载时都先清理
+</span>
         <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span> <span class="o">+</span> <span class="s1">' tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="s2">"tr"</span><span class="p">);</span>
         <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span> <span class="o">+</span> <span class="s1">' tbody'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="s2">"tr"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">toggleClass</span><span class="p">(</span><span class="s1">'selected'</span><span class="p">);</span>
@@ -1163,7 +1206,8 @@
 
     <span class="p">}</span>
 
-    <span class="c1">//按钮搜索方法</span>
+    <span class="c1">//按钮搜索方法
+</span>
     <span class="kd">function</span> <span class="nx">search</span><span class="p">()</span> <span class="p">{</span>
 
         <span class="kd">var</span> <span class="nx">oSettings</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
@@ -1176,11 +1220,13 @@
                 <span class="p">);</span>
             <span class="p">}</span>
         <span class="p">});</span>
-        <span class="c1">//搜索的数据一次条件，节省资源</span>
+        <span class="c1">//搜索的数据一次条件，节省资源
+</span>
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">draw</span><span class="p">(</span><span class="nx">oSettings</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="c1">//搜索</span>
+    <span class="c1">//搜索
+</span>
     <span class="kd">function</span> <span class="nx">filterColumn</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="nx">i</span><span class="p">).</span><span class="nx">search</span><span class="p">(</span>
@@ -1188,17 +1234,20 @@
         <span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="c1">//清理搜索数据</span>
+    <span class="c1">//清理搜索数据
+</span>
     <span class="kd">function</span> <span class="nx">clearSearch</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="nx">$</span><span class="p">(</span><span class="s2">"."</span> <span class="o">+</span> <span class="nx">id</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
             <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
         <span class="p">});</span>
-        <span class="c1">//清空查询条件重新读取数据</span>
+        <span class="c1">//清空查询条件重新读取数据
+</span>
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">columns</span><span class="p">().</span><span class="nx">search</span><span class="p">(</span><span class="s2">""</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="c1">//获取所有选中行的UUID</span>
+    <span class="c1">//获取所有选中行的UUID
+</span>
     <span class="kd">function</span> <span class="nx">batchIds</span><span class="p">()</span> <span class="p">{</span>
 
         <span class="kd">var</span> <span class="nx">uuid</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
@@ -1213,7 +1262,8 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="c1">//单选</span>
+    <span class="c1">//单选
+</span>
     <span class="kd">function</span> <span class="nx">selection</span><span class="p">()</span> <span class="p">{</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">rows</span><span class="p">(</span><span class="s2">".selected"</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">length</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
@@ -1230,13 +1280,16 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-    <span class="c1">//刷新页面</span>
-    <span class="c1">//重新加载数据</span>
+    <span class="c1">//刷新页面
+</span>
+    <span class="c1">//重新加载数据
+</span>
     <span class="kd">function</span> <span class="nx">reload</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">eloancn</span><span class="p">.</span><span class="nx">table</span><span class="p">.</span><span class="nx">grid</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
     <span class="p">}</span>
 
-    <span class="c1">//销毁table</span>
+    <span class="c1">//销毁table
+</span>
     <span class="kd">function</span> <span class="nx">destroyDataTable</span><span class="p">(</span><span class="nx">tableId</span><span class="p">)</span> <span class="p">{</span>
 
         <span class="kd">var</span> <span class="nx">dttable</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#'</span> <span class="o">+</span> <span class="nx">tableId</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>

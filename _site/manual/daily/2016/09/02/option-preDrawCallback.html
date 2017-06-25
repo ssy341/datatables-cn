@@ -144,14 +144,16 @@
 12
 13
 14
-15</pre></td><td class="code"><pre><span class="c1">//重绘前移除每个单元格的点击事件</span>
+15</pre></td><td class="code"><pre><span class="c1">//重绘前移除每个单元格的点击事件
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span> <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span>
 
-<span class="c1">//当#test的值为1的时候，取消重绘操作</span>
+<span class="c1">//当#test的值为1的时候，取消重绘操作
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">settings</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#test'</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>

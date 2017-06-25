@@ -318,22 +318,28 @@
 89
 90
 91</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#example"</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="c1">//开启本地保存功能</span>
+    <span class="c1">//开启本地保存功能
+</span>
     <span class="na">stateSave</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="c1">//保存状态操作</span>
+    <span class="c1">//保存状态操作
+</span>
     <span class="s2">"stateSaveParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveParams"</span><span class="p">);</span>
         
-        <span class="c1">//这里可以操作保存的数据，写上自己特定的逻辑</span>
-        <span class="c1">//data.search.search = "";</span>
+        <span class="c1">//这里可以操作保存的数据，写上自己特定的逻辑
+</span>
+        <span class="c1">//data.search.search = "";
+</span>
     <span class="p">},</span>
     <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveCallback"</span><span class="p">);</span>
         
-        <span class="c1">//DT默认保存的key值为DataTables_+表格id+页面名称</span>
+        <span class="c1">//DT默认保存的key值为DataTables_+表格id+页面名称
+</span>
         <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
 
-        <span class="c1">// 你可以把这些数据保存在服务器上，上面的代码标识使用本地储存来存储这些数据</span>
+        <span class="c1">// 你可以把这些数据保存在服务器上，上面的代码标识使用本地储存来存储这些数据
+</span>
         <span class="cm">/**$.ajax( {
                 "url": "/state_save",
                 "data": data,
@@ -346,21 +352,27 @@
 
     <span class="p">},</span>
 
-    <span class="c1">//读取状态操作</span>
+    <span class="c1">//读取状态操作
+</span>
     <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateSaveParams"</span><span class="p">);</span>
 
-        <span class="c1">//在读取数据的时候可以改变数据，根据自己逻辑来处理</span>
-        <span class="c1">//data.search.search = "";</span>
+        <span class="c1">//在读取数据的时候可以改变数据，根据自己逻辑来处理
+</span>
+        <span class="c1">//data.search.search = "";
+</span>
 
-        <span class="c1">//或者你可以直接禁用从缓存里读取数据，只要直接返回false即可</span>
-        <span class="c1">//return false;</span>
+        <span class="c1">//或者你可以直接禁用从缓存里读取数据，只要直接返回false即可
+</span>
+        <span class="c1">//return false;
+</span>
     <span class="p">},</span>
     <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateLoadCallback"</span><span class="p">);</span>
         <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span><span class="p">));</span>
 
-        <span class="c1">//同样你还可以从服务器取数，采用同步的方式获取到保存在服务器里的数据</span>
+        <span class="c1">//同样你还可以从服务器取数，采用同步的方式获取到保存在服务器里的数据
+</span>
         <span class="cm">/**var o;
          $.ajax( {
             "url": "/state_load",
@@ -373,12 +385,15 @@
          return o;**/</span>
 
     <span class="p">},</span>
-    <span class="c1">//状态加载完后执行的回调函数</span>
+    <span class="c1">//状态加载完后执行的回调函数
+</span>
     <span class="s2">"stateLoaded"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"stateLoaded"</span><span class="p">);</span>
 
-        <span class="c1">//在这里你可以打印出保存的缓存数据</span>
-        <span class="c1">//alert( 'Saved filter was: '+data.search.search );</span>
+        <span class="c1">//在这里你可以打印出保存的缓存数据
+</span>
+        <span class="c1">//alert( 'Saved filter was: '+data.search.search );
+</span>
 
     <span class="p">},</span>
     <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
@@ -453,24 +468,38 @@
 22
 23
 24</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="s2">"time"</span><span class="err">:</span>   <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 时间戳，状态创创建、修改的时间</span>
-    <span class="s2">"start"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 显示起始位置</span>
-    <span class="s2">"length"</span><span class="err">:</span> <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 每页显示的条数</span>
-    <span class="s2">"order"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">array</span><span class="p">}</span>                <span class="c1">// 二维数组，用来描述那些列按照什么要求排序</span>
+    <span class="s2">"time"</span><span class="err">:</span>   <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 时间戳，状态创创建、修改的时间
+</span>
+    <span class="s2">"start"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 显示起始位置
+</span>
+    <span class="s2">"length"</span><span class="err">:</span> <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 每页显示的条数
+</span>
+    <span class="s2">"order"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">array</span><span class="p">}</span>                <span class="c1">// 二维数组，用来描述那些列按照什么要求排序
+</span>
     <span class="s2">"search"</span><span class="err">:</span> <span class="p">{</span>
-        <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
-        <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
-        <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
-        <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
+        <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件
+</span>
+        <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式
+</span>
+        <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索
+</span>
+        <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写
+</span>
     <span class="p">},</span>
     <span class="s2">"columns"</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="s2">"visible"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span>     <span class="c1">// 列是否隐藏显示</span>
-            <span class="s2">"search"</span><span class="p">:</span>  <span class="p">{</span>             <span class="c1">// 包含每列的单独搜索条件，格式和上面的一致</span>
-                <span class="s2">"search"</span><span class="p">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件</span>
-                <span class="s2">"regex"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式</span>
-                <span class="s2">"smart"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索</span>
-                <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写</span>
+            <span class="s2">"visible"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span>     <span class="c1">// 列是否隐藏显示
+</span>
+            <span class="s2">"search"</span><span class="p">:</span>  <span class="p">{</span>             <span class="c1">// 包含每列的单独搜索条件，格式和上面的一致
+</span>
+                <span class="s2">"search"</span><span class="p">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索条件
+</span>
+                <span class="s2">"regex"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否支持正则表达式
+</span>
+                <span class="s2">"smart"</span><span class="p">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否开启了智能搜索
+</span>
+                <span class="s2">"caseInsensitive"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 不区分大小写
+</span>
             <span class="p">}</span>           
         <span class="p">},</span>
         <span class="err">……</span>

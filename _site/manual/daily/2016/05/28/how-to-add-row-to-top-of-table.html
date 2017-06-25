@@ -190,7 +190,8 @@
 23
 24
 25
-26</pre></td><td class="code"><pre><span class="c1">//单独添加一行</span>
+26</pre></td><td class="code"><pre><span class="c1">//单独添加一行
+</span>
 <span class="kd">var</span> <span class="nx">singlerow</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"DataTables 中文网"</span><span class="p">,</span>
@@ -200,7 +201,8 @@
 <span class="p">};</span>
 <span class="nx">oTable02</span><span class="p">.</span><span class="nx">row</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">singlerow</span><span class="p">);</span>
 
-<span class="c1">//同时添加多行</span>
+<span class="c1">//同时添加多行
+</span>
 <span class="kd">var</span> <span class="nx">rows</span> <span class="o">=</span> <span class="p">[{</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"DataTables 中文网 api"</span><span class="p">,</span>
@@ -276,9 +278,12 @@
         <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Type"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span>
         <span class="p">{</span><span class="s1">'title'</span><span class="p">:</span> <span class="s2">"Background-color"</span><span class="p">,</span> <span class="s1">'targets'</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
     <span class="p">],</span>
-    <span class="c1">//这里之所以写出来，是大家需要注意的，因为dt的的默认值为[[0, 'asc']]</span>
-    <span class="c1">//所以上面提到的 添加行的例子 操作的结果是在后面追加</span>
-    <span class="c1">//因为默认第一列升序排列，所以根据代码，新加的行第一列是累加的，那么越来越大，升序的话当然往后面排啊</span>
+    <span class="c1">//这里之所以写出来，是大家需要注意的，因为dt的的默认值为[[0, 'asc']]
+</span>
+    <span class="c1">//所以上面提到的 添加行的例子 操作的结果是在后面追加
+</span>
+    <span class="c1">//因为默认第一列升序排列，所以根据代码，新加的行第一列是累加的，那么越来越大，升序的话当然往后面排啊
+</span>
     <span class="s2">"order"</span><span class="p">:</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"des"</span><span class="p">]],</span>
     <span class="s2">"columns"</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span><span class="s2">"data"</span><span class="p">:</span> <span class="s2">"priority"</span><span class="p">},</span>
@@ -289,7 +294,8 @@
      <span class="s2">"ajax"</span><span class="p">:</span><span class="s2">"json.json"</span>
 <span class="p">});</span>
 
-<span class="c1">//针对这个代码示例，先假设表格中已经有一行数据【  0  中文网  1  white 】，我新加的行要在他上面，代码这样写</span>
+<span class="c1">//针对这个代码示例，先假设表格中已经有一行数据【  0  中文网  1  white 】，我新加的行要在他上面，代码这样写
+</span>
 <span class="kd">var</span> <span class="nx">singlerow</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"id"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"我在最上面"</span><span class="p">,</span>

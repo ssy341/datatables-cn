@@ -224,9 +224,12 @@
     <span class="p">},</span>
     <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">o</span><span class="p">;</span>
-        <span class="c1">// Send an Ajax request to the server to get the data. Note that</span>
-        <span class="c1">// this is a synchronous request since the data is expected back from the</span>
-        <span class="c1">// function</span>
+        <span class="c1">// Send an Ajax request to the server to get the data. Note that
+</span>
+        <span class="c1">// this is a synchronous request since the data is expected back from the
+</span>
+        <span class="c1">// function
+</span>
         <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
             <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_load"</span><span class="p">,</span>
             <span class="s2">"async"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -244,7 +247,8 @@
         <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
     <span class="p">},</span>
     <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Send an Ajax request to the server with the state object</span>
+        <span class="c1">// Send an Ajax request to the server with the state object
+</span>
         <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
             <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_save"</span><span class="p">,</span>
             <span class="s2">"data"</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>

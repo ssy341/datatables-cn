@@ -265,22 +265,29 @@
 17
 18
 19
-20</pre></td><td class="code"><pre><span class="c1">//添加序号</span>
-<span class="c1">//不管是排序，还是分页，还是搜索最后都会重画，这里监听draw事件即可</span>
+20</pre></td><td class="code"><pre><span class="c1">//添加序号
+</span>
+<span class="c1">//不管是排序，还是分页，还是搜索最后都会重画，这里监听draw事件即可
+</span>
 <span class="nx">table</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'draw.dt'</span><span class="p">,</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
             <span class="nx">table</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">{</span>
                 <span class="na">search</span><span class="p">:</span> <span class="s1">'applied'</span><span class="p">,</span>
                 <span class="na">order</span><span class="p">:</span> <span class="s1">'applied'</span>
             <span class="p">}).</span><span class="nx">nodes</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">cell</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">//i 从0开始，所以这里先加1</span>
+                <span class="c1">//i 从0开始，所以这里先加1
+</span>
                 <span class="nx">i</span> <span class="o">=</span> <span class="nx">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-                <span class="c1">//服务器模式下获取分页信息，使用 DT 提供的 API 直接获取分页信息</span>
+                <span class="c1">//服务器模式下获取分页信息，使用 DT 提供的 API 直接获取分页信息
+</span>
                 <span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">page</span><span class="p">.</span><span class="nx">info</span><span class="p">();</span>
-                <span class="c1">//当前第几页，从0开始</span>
+                <span class="c1">//当前第几页，从0开始
+</span>
                 <span class="kd">var</span> <span class="nx">pageno</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">page</span><span class="p">;</span>
-                <span class="c1">//每页数据</span>
+                <span class="c1">//每页数据
+</span>
                 <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
-                <span class="c1">//行号等于 页数*每页数据长度+行号</span>
+                <span class="c1">//行号等于 页数*每页数据长度+行号
+</span>
                 <span class="kd">var</span> <span class="nx">columnIndex</span> <span class="o">=</span> <span class="p">(</span><span class="nx">i</span><span class="o">+</span><span class="nx">pageno</span><span class="o">*</span><span class="nx">length</span><span class="p">);</span>
                 <span class="nx">cell</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">columnIndex</span><span class="p">;</span>
             <span class="p">});</span>
@@ -359,16 +366,24 @@
 10
 11
 12</pre></td><td class="code"><pre><span class="p">{</span>
-    <span class="c1">// DataTables core</span>
-    <span class="nl">order</span><span class="p">:</span>  <span class="s1">'current'</span><span class="p">,</span>  <span class="c1">// 'current', 'applied', 'index',  'original'</span>
-    <span class="nx">page</span><span class="err">:</span>   <span class="s1">'all'</span><span class="p">,</span>      <span class="c1">// 'all',     'current'</span>
-    <span class="nx">search</span><span class="err">:</span> <span class="s1">'none'</span><span class="p">,</span>     <span class="c1">// 'none',    'applied', 'removed'</span>
+    <span class="c1">// DataTables core
+</span>
+    <span class="nl">order</span><span class="p">:</span>  <span class="s1">'current'</span><span class="p">,</span>  <span class="c1">// 'current', 'applied', 'index',  'original'
+</span>
+    <span class="nx">page</span><span class="err">:</span>   <span class="s1">'all'</span><span class="p">,</span>      <span class="c1">// 'all',     'current'
+</span>
+    <span class="nx">search</span><span class="err">:</span> <span class="s1">'none'</span><span class="p">,</span>     <span class="c1">// 'none',    'applied', 'removed'
+</span>
 
-    <span class="c1">// Extension - KeyTable (v2.1+) - cells only</span>
-    <span class="nx">focused</span><span class="err">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="c1">// true, false, undefined</span>
+    <span class="c1">// Extension - KeyTable (v2.1+) - cells only
+</span>
+    <span class="nx">focused</span><span class="err">:</span> <span class="kc">undefined</span><span class="p">,</span> <span class="c1">// true, false, undefined
+</span>
 
-    <span class="c1">// Extension - Select (v1.0+)</span>
-    <span class="nx">selected</span><span class="err">:</span> <span class="kc">undefined</span> <span class="c1">// true, false, undefined</span>
+    <span class="c1">// Extension - Select (v1.0+)
+</span>
+    <span class="nx">selected</span><span class="err">:</span> <span class="kc">undefined</span> <span class="c1">// true, false, undefined
+</span>
 <span class="p">}</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 

@@ -144,7 +144,8 @@
 14
 15
 16
-17</pre></td><td class="code"><pre><span class="c1">//高亮显示单元格值为A的（对象类型数据源）</span>
+17</pre></td><td class="code"><pre><span class="c1">//高亮显示单元格值为A的（对象类型数据源）
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">.</span><span class="nx">grade</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="p">)</span> <span class="p">{</span>
@@ -153,7 +154,8 @@
   <span class="p">}</span>
 <span class="p">}</span> <span class="p">);</span>
 
-<span class="c1">//高亮显示单元格值为A的（数组类型数据源）</span>
+<span class="c1">//高亮显示单元格值为A的（数组类型数据源）
+</span>
 <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span> <span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span> <span class="p">)</span> <span class="p">{</span>

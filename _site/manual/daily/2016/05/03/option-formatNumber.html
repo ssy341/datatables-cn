@@ -137,7 +137,8 @@
 5
 6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
   <span class="s2">"formatNumber"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">toFormat</span> <span class="p">)</span> <span class="p">{</span>
-     <span class="c1">//使用正则表达式匹配，替换数字</span>
+     <span class="c1">//使用正则表达式匹配，替换数字
+</span>
     <span class="k">return</span> <span class="nx">toFormat</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\B(?=(\d{3})</span><span class="sr">+</span><span class="se">(?!\d))</span><span class="sr">/g</span><span class="p">,</span> <span class="s2">"'"</span><span class="p">);</span>
   <span class="p">};</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">

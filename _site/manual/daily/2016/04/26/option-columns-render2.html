@@ -205,7 +205,8 @@
         <span class="na">data</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">}],</span>
     <span class="na">columnDefs</span><span class="p">:</span> <span class="p">[{</span>
-        <span class="c1">//   指定第最后一列</span>
+        <span class="c1">//   指定第最后一列
+</span>
         <span class="na">targets</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
         <span class="na">render</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">row</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="s1">'&lt;a type="button"  href="#" onclick="del("'</span> <span class="o">+</span> <span class="nx">row</span><span class="p">.</span><span class="nx">id</span> <span class="o">+</span> <span class="s1">'","'</span> <span class="o">+</span> <span class="nx">row</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">'")" &gt;删除&lt;/a&gt;'</span><span class="p">;</span>
@@ -213,18 +214,22 @@
     <span class="p">}]</span>
 <span class="p">});</span>
 
-<span class="c1">//删除方法</span>
+<span class="c1">//删除方法
+</span>
 <span class="kd">function</span> <span class="nx">del</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
         <span class="na">url</span><span class="p">:</span> <span class="s2">"del.action"</span><span class="p">,</span>
-        <span class="c1">//在后台接受id这个参数</span>
+        <span class="c1">//在后台接受id这个参数
+</span>
         <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
             <span class="na">id</span><span class="p">:</span> <span class="nx">id</span>
         <span class="p">},</span>
         <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
-                <span class="c1">//如果后台删除成功，则刷新表格，并提示用户删除成功</span>
-                <span class="c1">//保留分页信息</span>
+                <span class="c1">//如果后台删除成功，则刷新表格，并提示用户删除成功
+</span>
+                <span class="c1">//保留分页信息
+</span>
                 <span class="nx">table</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
                 <span class="nx">alert</span><span class="p">(</span><span class="nx">name</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">msg</span><span class="p">);</span>
             <span class="p">}</span>
