@@ -10,6 +10,18 @@
 <a href="{{site.baseurl}}/reference/option/language.aria.paginate.last.html" target="_blank">
     <code class="option">language.aria.paginate.last<span>Option</span></code>
 </a>
+{% elsif include.param == "language.aria.paginate.previous" %}
+<a href="{{site.baseurl}}/reference/option/language.aria.paginate.previous.html" target="_blank">
+    <code class="option">language.aria.paginate.previous<span>Option</span></code>
+</a>
+{% elsif include.param == "language.aria.paginate.next" %}
+<a href="{{site.baseurl}}/reference/option/language.aria.paginate.next.html" target="_blank">
+    <code class="option">language.aria.paginate.next<span>Option</span></code>
+</a>
+{% elsif include.param == "language.searchPlaceholder" %}
+<a href="{{site.baseurl}}/reference/option/language.searchPlaceholder.html" target="_blank">
+    <code class="option">language.searchPlaceholder<span>Option</span></code>
+</a>
 {% elsif include.param == "language.aria" %}
 <a href="{{site.baseurl}}/reference/option/language.aria" target="_blank">
     <code class="option">language.aria<span>Option</span></code>

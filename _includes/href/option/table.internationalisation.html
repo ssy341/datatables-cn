@@ -101,46 +101,58 @@
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.next"><code class="option"
-                                                                                        title="DataTables initialisation option">language.paginate.next<span>DT</span></code></a>
-        </p></td>
-        <td><p>分页信息的 'next' 按钮显示的信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.paginate.next" %}
+        </td>
+        <td>
+            用来描述分页控件_下一页_按钮的字符串
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate.previous"><code class="option"
-                                                                                            title="DataTables initialisation option">language.paginate.previous<span>DT</span></code></a>
-        </p></td>
-        <td><p>分页信息的 'previous' 按钮显示的信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.paginate.previous" %}
+        </td>
+        <td>
+            用来描述分页控件_上一页_按钮的字符串
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.paginate"><code class="option"
-                                                                                   title="DataTables initialisation option">language.paginate<span>DT</span></code></a>
-        </p></td>
-        <td><p>分页信息显示所需的字符串的所有信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.paginate" %}
+        </td>
+        <td>分页控件所有字符串的对象属性</td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.processing"><code class="option"
-                                                                                     title="DataTables initialisation option">language.processing<span>DT</span></code></a>
-        </p></td>
-        <td><p>当table处理用户处理信息时，显示的信息字符串</p></td>
+        <td>
+            {% include href/option/option.language param="language.processing" %}
+        </td>
+        <td>
+            用来描述加载进度的字符串
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.search"><code class="option"
-                                                                                 title="DataTables initialisation option">language.search<span>DT</span></code></a>
-        </p></td>
-        <td><p>搜索框的提示信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.search" %}
+        </td>
+        <td>
+            用来描述搜索输入框的字符串
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.searchPlaceholder"><code class="option"
-                                                                                            title="DataTables initialisation option">language.searchPlaceholder<span>DT</span></code></a>
-        </p></td>
-        <td><p>搜索框(input)的placeholder属性</p></td>
+        <td>
+            {% include href/option/option.language param="language.searchPlaceholder" %}
+        </td>
+        <td>
+            搜索输入框元素占位符属性
+        </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.thousands"><code class="option"
-                                                                                    title="DataTables initialisation option">language.thousands<span>DT</span></code></a>
-        </p></td>
-        <td><p>千位的分隔符</p></td>
+        <td>
+            {% include href/option/option.language param="language.thousands" %}
+        </td>
+        <td>
+            千分位分隔符
+        </td>
     </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/option/language.url"><code class="option"
