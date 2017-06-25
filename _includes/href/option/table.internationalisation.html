@@ -155,10 +155,12 @@
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.url"><code class="option"
-                                                                              title="DataTables initialisation option">language.url<span>DT</span></code></a>
-        </p></td>
-        <td><p>从远程地址中加载语言信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.url" %}
+        </td>
+        <td>
+            从远程文件读取国际化信息
+        </td>
     </tr>
     <tr>
         <td>
@@ -169,10 +171,12 @@
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/option/language.zeroRecords"><code class="option"
-                                                                                      title="DataTables initialisation option">language.zeroRecords<span>DT</span></code></a>
-        </p></td>
-        <td><p>当搜索结果为空时，显示的信息</p></td>
+        <td>
+            {% include href/option/option.language param="language.zeroRecords" %}
+        </td>
+        <td>
+            用来描述当表格过滤记录为空时的字符串
+        </td>
     </tr>
     </tbody>
 </table>

@@ -1,7 +1,7 @@
 ---
 layout: reference_md
 title: language.zeroRecords
-summary: Table empty as a result of filtering string.
+summary: 用来描述当表格过滤记录为空时的字符串
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: option
@@ -11,9 +11,10 @@ author: /reference/option/language.zeroRecords
 
 ## 描述(Description)
 
-Text shown inside the table records when the is no information to be displayed after filtering.
+当过滤后无显示信息时表格中显示的文本记录。
 
-Note that language.emptyTable is shown when there is simply no information in the table at all (regardless of filtering), while this parameter is used for when the table is empty due to filtering.
+注意，当表格完全没有任何数据时，显示{% include href/option/option.language param="language.emptyTable" %}文本（不管过滤），
+而此参数用于当表格过滤后为空的情况。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -27,11 +28,11 @@ Note that language.emptyTable is shown when there is simply no information in th
  
 ## 例子(Example)
 
-Set zero records string:
+设置没有匹配记录字符串Set zero records string:
 {% highlight javascript linenos %}
 $('#example').DataTable( {
  "language": {
-     "zeroRecords": "No records to display"
+     "zeroRecords": "没有找到相关记录"
    }
 } );
 {% endhighlight %}
@@ -49,4 +50,4 @@ Options
 
 - {% include href/option/option.language param="language" %}
 - {% include href/option/option.language param="language.emptyTable" %}
-- {% include href/option/option/option.options param="search" %}
+- {% include href/option/options/option.options param="search" %}
