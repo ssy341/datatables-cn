@@ -14,7 +14,7 @@
 <link href="/assets/syntaxhighlighter/3.0.83/styles/shThemeDefault.css" rel="stylesheet" type="text/css"/>
 
 <link href="/assets/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-<link href="http://datatables.club/css/docs.css" rel="stylesheet">
+<link href="/css/docs.css" rel="stylesheet">
 <style>
     body {
         font-family: "ff-tisa-web-pro-1", "ff-tisa-web-pro-2", "Lucida Grande", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
@@ -449,22 +449,22 @@
 <script type="text/javascript" charset="utf8" src="/assets/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-//判断是否显示更新提示
-$.get("http://datatables.club/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
+    //判断是否显示更新提示
+    $.get("/assets/updatelog.txt", function (data) {
+        var json = JSON.parse(data);
+        if (json.isNote) {
+            var cache = localStorage['dt.thxopen.com.note'];
+            if (typeof cache == 'undefined') {
+                $("#updateFlag").addClass("hot");
+            } else {
+                var current = new Date().getTime();
+                var bl = current - cache;
+                var s = 24 * 60 * 60 * 1000;
+                if (bl > s) {
+                    $("#updateFlag").addClass("hot");
+                }
+            }
+        }
     });
 </script>
 <!--复制本页url到剪贴板-->

@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>DataTables初始化对照模板3（全部option - Callbacks 回调函数） 《不定时一讲》 DataTables中文网</title>
+    <title>language.url 从远程文件读取国际化信息 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="option,language.url">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
     
 </head>
 <body>
@@ -37,7 +77,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li >
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -46,7 +86,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li >
+                <li class="active">
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -79,50 +119,73 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/option" target="_blank">Option</a></li>
+                <li class="active">language.url 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/12/all-options-of-callbacks.html">DataTables初始化对照模板3（全部option - Callbacks 回调函数）</a>
+                    <a href="/reference/option/language.url.html">language.url</a>
+                    <small>从远程文件读取国际化信息</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 12 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="/manual/daily/2016/05/12/all-options-of-callbacks.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="DataTables初始化对照模板3（全部option - Callbacks 回调函数）:/manual/daily/2016/05/12/all-options-of-callbacks.html"
+                            data-clipboard-text="language.url 从远程文件读取国际化信息 文档(Options & API) DataTables中文网:/reference/option/language.url.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <p><a href="/reference/option/">所有option连接</a></p>
+                    <h2 id="描述description">描述(Description)</h2>
 
-<p>相关连接</p>
+<p>DataTables提供的所有语言选项都可以储存在服务器上的文件中，如果你设置了此参数，DataTables将会从这个url中去获取语言。
+该文件必须是有效的JSON文件，里面包含的属性参考
+<a href="/reference/option/language.html" target="_blank">
+    <code class="option">language<span>Option</span></code>
+</a></p>
 
-<p><a href="/manual/daily/2016/05/12/all-options-of-features.html">Features</a>
-<a href="/manual/daily/2016/05/12/all-options-of-data.html">Data</a>
-<a href="/manual/daily/2016/05/12/all-options-of-columns.html">Columns</a>
-<a href="/manual/daily/2016/05/12/all-options-of-options.html">Options</a>
-<a href="/manual/daily/2016/05/12/all-options-of-internationalisation.html">Internationalisation</a></p>
+<p>在这个<a href="https://datatables.net/plug-ins/i18n">网站</a>上，已经有其他语言的插件可以直接使用。</p>
 
-<p>Callbacks - 回调函数部分
-<!--more--></p>
+<p>请注意当此参数设置时，由于Ajax数据加载，DataTables初始化将是异步的。也就是说，在完成Ajax请求之前，不会绘制表格。
+因此，需要表完成其初始化的任何操作都应该放在 
+<a href="/reference/option/initComplete.html" target="_blank">
+    <code class="option">initComplete<span>Option</span></code>
+</a>
+ 回调中处理。</p>
+
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<ul>
+  <li><a href="https://datatables.net/reference/type/string" target="_blank">
+<code class="type" title="Javascript parameter type">string<span>Type</span></code>
+</a></li>
+</ul>
+
+<h2 id="例子example">例子(Example)</h2>
+
+<p>从远程文件中读取语言信息</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://datatables.club/assets/Chinese.txt"</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>由于使用了url参数，合计列操作需要放在initComplete回调中处理</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -137,136 +200,47 @@
 11
 12
 13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
-    <span class="s2">"createdRow"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">dataIndex</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">$</span><span class="p">(</span><span class="nx">row</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">'important'</span><span class="p">);</span>
-        <span class="p">}</span>
+14</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">({</span>
+    <span class="s2">"language"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"http://datatables.club/assets/Chinese.txt"</span>
     <span class="p">},</span>
-    <span class="s2">"drawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="s1">'DataTables has redrawn the table'</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"footerCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tfoot</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">display</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="nx">tfoot</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'th'</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s2">"Starting index is "</span> <span class="o">+</span> <span class="nx">start</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"formatNumber"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">toFormat</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">toFormat</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\B(?=(\d{3})</span><span class="sr">+</span><span class="se">(?!\d))</span><span class="sr">/g</span><span class="p">,</span> <span class="s2">"'"</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"headerCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">thead</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">display</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="nx">thead</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">'th'</span><span class="p">).</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'Displaying '</span> <span class="o">+</span> <span class="p">(</span><span class="nx">end</span> <span class="o">-</span> <span class="nx">start</span><span class="p">)</span> <span class="o">+</span> <span class="s1">' records'</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"infoCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">start</span><span class="p">,</span> <span class="nx">end</span><span class="p">,</span> <span class="nx">max</span><span class="p">,</span> <span class="nx">total</span><span class="p">,</span> <span class="nx">pre</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">start</span> <span class="o">+</span> <span class="s2">" to "</span> <span class="o">+</span> <span class="nx">end</span><span class="p">;</span>
-    <span class="p">},</span>
-    <span class="s2">"initComplete"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="s1">'DataTables has finished its initialisation.'</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"preDrawCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">off</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"rowCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">.</span><span class="nx">grade</span> <span class="o">==</span> <span class="s2">"A"</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">$</span><span class="p">(</span><span class="s1">'td:eq(4)'</span><span class="p">,</span> <span class="nx">row</span><span class="p">).</span><span class="nx">html</span><span class="p">(</span><span class="s1">'&lt;b&gt;A&lt;/b&gt;'</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">"stateLoadCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">o</span><span class="p">;</span>
-        <span class="c1">// Send an Ajax request to the server to get the data. Note that
+    <span class="s2">"initComplete"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">api</span><span class="p">();</span>
+ 
+        <span class="c1">// Put the sum of column 5 into the footer cell
 </span>
-        <span class="c1">// this is a synchronous request since the data is expected back from the
-</span>
-        <span class="c1">// function
-</span>
-        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_load"</span><span class="p">,</span>
-            <span class="s2">"async"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
-            <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">o</span> <span class="o">=</span> <span class="nx">json</span><span class="p">;</span>
-            <span class="p">}</span>
-        <span class="p">});</span>
-        <span class="k">return</span> <span class="nx">o</span><span class="p">;</span>
-    <span class="p">},</span>
-    <span class="s2">"stateLoaded"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">alert</span><span class="p">(</span><span class="s1">'Saved filter was: '</span> <span class="o">+</span> <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span><span class="p">);</span>
-    <span class="p">},</span>
-    <span class="s2">"stateLoadParams"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-    <span class="p">},</span>
-    <span class="s2">"stateSaveCallback"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Send an Ajax request to the server with the state object
-</span>
-        <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-            <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"/state_save"</span><span class="p">,</span>
-            <span class="s2">"data"</span><span class="p">:</span> <span class="nx">data</span><span class="p">,</span>
-            <span class="s2">"dataType"</span><span class="p">:</span> <span class="s2">"json"</span><span class="p">,</span>
-            <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
-            <span class="s2">"success"</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
-        <span class="p">});</span>
-    <span class="p">},</span>
-    <span class="s2">"stateSaveParams"</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nx">api</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">footer</span><span class="p">()).</span><span class="nx">html</span><span class="p">(</span>
+            <span class="nx">api</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">data</span><span class="p">().</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+        <span class="p">}));</span>
     <span class="p">}</span>
 <span class="p">});</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法</p>
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>Options</p>
+
+<ul>
+  <li>
+    <p><a href="/reference/option/language.html" target="_blank">
+<code class="option">language<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/initComplete.html" target="_blank">
+<code class="option">initComplete<span>Option</span></code>
+</a></p>
+  </li>
+</ul>
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/option/language.url" target="_blank">https://datatables.net/reference/option/language.url</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -290,13 +264,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/12/all-options-of-callbacks.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/12/all-options-of-callbacks.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/language.url.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/language.url.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/12/all-options-of-callbacks.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/language.url.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/language.url.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -482,7 +456,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-12-all-options-of-callbacks.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/language.url.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -565,6 +539,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>

@@ -406,22 +406,22 @@
 <script src="/assets/jquery/1.10.2/jquery.min.js"></script>
 <script src="/assets/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-//判断是否显示更新提示
-$.get("http://datatables.club/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
+    //判断是否显示更新提示
+    $.get("/assets/updatelog.txt", function (data) {
+        var json = JSON.parse(data);
+        if (json.isNote) {
+            var cache = localStorage['dt.thxopen.com.note'];
+            if (typeof cache == 'undefined') {
+                $("#updateFlag").addClass("hot");
+            } else {
+                var current = new Date().getTime();
+                var bl = current - cache;
+                var s = 24 * 60 * 60 * 1000;
+                if (bl > s) {
+                    $("#updateFlag").addClass("hot");
+                }
+            }
+        }
     });
 </script>
 <!--复制本页url到剪贴板-->
@@ -493,7 +493,7 @@ client.on( 'error', function() {
 
 <script type="text/javascript" charset="utf8" src="/assets/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
 
-<script src="http://datatables.club/js/dataTables.bootstrap.js"></script>
+<script src="/js/dataTables.bootstrap.js"></script>
 <script >
 /**
  * Created by datatables.club on 2016/4/4.
@@ -659,7 +659,7 @@ var example = {
         var user_share_data = {
             tableId: "user_share_table",
             title: "网友共享",
-            url: "http://datatables.club/assets/example/user_share_json.txt",
+            url: "/assets/example/user_share_json.txt",
             divId: "user_share"
         };
         example.eventListen(user_share_data.tableId, example.createTable(user_share_data));
@@ -667,7 +667,7 @@ var example = {
         var basic_init_data = {
             tableId: "basic_init_table",
             title: "基本初始化",
-            url: "http://datatables.club/assets/example/basic_init_json.txt",
+            url: "/assets/example/basic_init_json.txt",
             divId: "basic_init"
         };
         example.eventListen(basic_init_data.tableId, example.createTable(basic_init_data));
@@ -675,7 +675,7 @@ var example = {
         var advanced_init_data = {
             tableId: "advanced_init_table",
             title: "高初始化",
-            url: "http://datatables.club/assets/example/advanced_init_json.txt",
+            url: "/assets/example/advanced_init_json.txt",
             divId: "basic_init"
         };
         example.eventListen(advanced_init_data.tableId, example.createTable(advanced_init_data));
@@ -683,7 +683,7 @@ var example = {
         var styling_data = {
             tableId: "styling_table",
             title: "样式",
-            url: "http://datatables.club/assets/example/styling_json.txt",
+            url: "/assets/example/styling_json.txt",
             divId: "styling"
         };
         example.eventListen(styling_data.tableId, example.createTable(styling_data));
@@ -691,7 +691,7 @@ var example = {
         var data_sources = {
             tableId: "data_sources_table",
             title: "数据源",
-            url: "http://datatables.club/assets/example/data_sources_json.txt",
+            url: "/assets/example/data_sources_json.txt",
             divId: "data_sources"
         };
         example.eventListen(data_sources.tableId, example.createTable(data_sources));
@@ -699,7 +699,7 @@ var example = {
         var api_sources = {
             tableId: "api_table",
             title: "API",
-            url: "http://datatables.club/assets/example/api_json.txt",
+            url: "/assets/example/api_json.txt",
             divId: "api"
         };
         example.eventListen(api_sources.tableId, example.createTable(api_sources));
@@ -708,7 +708,7 @@ var example = {
         var ajax_sources = {
             tableId: "ajax_table",
             title: "AJAX",
-            url: "http://datatables.club/assets/example/ajax_json.txt",
+            url: "/assets/example/ajax_json.txt",
             divId: "ajax"
         };
         example.eventListen(ajax_sources.tableId, example.createTable(ajax_sources));
@@ -717,7 +717,7 @@ var example = {
         var server_side_sources = {
             tableId: "server_side_table",
             title: "Server-side",
-            url: "http://datatables.club/assets/example/server_side_json.txt",
+            url: "/assets/example/server_side_json.txt",
             divId: "server_side"
         };
         example.eventListen(server_side_sources.tableId, example.createTable(server_side_sources));
@@ -725,7 +725,7 @@ var example = {
         var plug_ins_sources = {
             tableId: "plug_ins_table",
             title: "Plug-ins",
-            url: "http://datatables.club/assets/example/plug_ins_json.txt",
+            url: "/assets/example/plug_ins_json.txt",
             divId: "plug_ins"
         };
         example.eventListen(plug_ins_sources.tableId, example.createTable(plug_ins_sources));
@@ -734,7 +734,7 @@ var example = {
         var vedio1_sources = {
             tableId: "vedio1_table",
             title: "Datatables入门视频",
-            url: "http://datatables.club/assets/example/vedio_json.txt",
+            url: "/assets/example/vedio_json.txt",
             divId: "vedio1"
         };
         example.eventListen(vedio1_sources.tableId, example.createTable(vedio1_sources));
@@ -742,7 +742,7 @@ var example = {
         var vedio2_sources = {
             tableId: "vedio2_table",
             title: "",
-            url: "http://datatables.club/assets/example/vedio_user_share_json.txt",
+            url: "/assets/example/vedio_user_share_json.txt",
             divId: "vedio2"
         };
         example.eventListen(vedio2_sources.tableId, example.createTable(vedio2_sources));
@@ -752,7 +752,7 @@ var example = {
         var daily_sources = {
             tableId: "2016-04_table",
             title: "",
-            url: "http://datatables.club/assets/daily/2016-04_json.txt",
+            url: "/assets/daily/2016-04_json.txt",
             divId: ""
         };
         example.dailyEventListen(daily_sources.tableId, example.createDailyTable(daily_sources));
@@ -760,7 +760,7 @@ var example = {
         var daily_05_sources = {
             tableId: "2016-05_table",
             title: "",
-            url: "http://datatables.club/assets/daily/2016-05_json.txt",
+            url: "/assets/daily/2016-05_json.txt",
             divId: ""
         };
         example.dailyEventListen(daily_05_sources.tableId, example.createDailyTable(daily_05_sources));

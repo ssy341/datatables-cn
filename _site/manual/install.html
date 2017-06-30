@@ -181,7 +181,7 @@ $(document).ready( function () {
                     DataTables v1.10.15(官方)
                 </a>
                 |
-                <a href="http://datatables.club/assets/releases/DataTables-1.10.15.zip">
+                <a href="/assets/releases/DataTables-1.10.15.zip">
                     DataTables v1.10.15（DataTables中文网）
                 </a>
             </p>
@@ -274,22 +274,22 @@ $(document).ready( function () {
 <script type="text/javascript" charset="utf8" src="/assets/datatables/1.10.4/js/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-//判断是否显示更新提示
-$.get("http://datatables.club/assets/updatelog.txt", function (data) {
-    var json = JSON.parse(data);
-    if (json.isNote) {
-    var cache = localStorage['dt.thxopen.com.note'];
-    if (typeof cache == 'undefined') {
-    $("#updateFlag").addClass("hot");
-    } else {
-    var current = new Date().getTime();
-    var bl = current - cache;
-    var s = 24 * 60 * 60 * 1000;
-    if (bl > s) {
-    $("#updateFlag").addClass("hot");
-    }
-    }
-    }
+    //判断是否显示更新提示
+    $.get("/assets/updatelog.txt", function (data) {
+        var json = JSON.parse(data);
+        if (json.isNote) {
+            var cache = localStorage['dt.thxopen.com.note'];
+            if (typeof cache == 'undefined') {
+                $("#updateFlag").addClass("hot");
+            } else {
+                var current = new Date().getTime();
+                var bl = current - cache;
+                var s = 24 * 60 * 60 * 1000;
+                if (bl > s) {
+                    $("#updateFlag").addClass("hot");
+                }
+            }
+        }
     });
 </script>
 <!--复制本页url到剪贴板-->
