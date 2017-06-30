@@ -36,11 +36,11 @@
             <div id="tagcloud" style="padding:10px">
 
                 {% for tag in site.tags %}
-                <a href="{{site.wlan_url}}/blog/listall.html#{{ tag | first }}" title="{{ tag | first }}" rel="{{ tag | last | size }}">
+                <a href="{{ site.baseurl }}/blog/listall.html#{{ tag | first }}" title="{{ tag | first }}" rel="{{ tag | last | size }}">
                     {{ tag | first }} ({{ tag | last | size }})
                 </a>
                 {% endfor %}
-                <a href="{{site.wlan_url}}/blog/listall.html" title="all" rel="{{site.tags | size}}">
+                <a href="{{ site.baseurl }}/blog/listall.html" title="all" rel="{{site.tags | size}}">
                     所有
                 </a>
 

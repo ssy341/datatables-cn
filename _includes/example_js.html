@@ -1,4 +1,4 @@
-<script src="{{site.wlan_url}}/js/dataTables.bootstrap.js"></script>
+<script src="{{ site.baseurl }}/js/dataTables.bootstrap.js"></script>
 <script >
 /**
  * Created by datatables.club on 2016/4/4.
@@ -164,7 +164,7 @@ var example = {
         var user_share_data = {
             tableId: "user_share_table",
             title: "网友共享",
-            url: "{{site.wlan_url}}/assets/example/user_share_json.txt",
+            url: "{{ site.baseurl }}/assets/example/user_share_json.txt",
             divId: "user_share"
         };
         example.eventListen(user_share_data.tableId, example.createTable(user_share_data));
@@ -172,7 +172,7 @@ var example = {
         var basic_init_data = {
             tableId: "basic_init_table",
             title: "基本初始化",
-            url: "{{site.wlan_url}}/assets/example/basic_init_json.txt",
+            url: "{{ site.baseurl }}/assets/example/basic_init_json.txt",
             divId: "basic_init"
         };
         example.eventListen(basic_init_data.tableId, example.createTable(basic_init_data));
@@ -180,7 +180,7 @@ var example = {
         var advanced_init_data = {
             tableId: "advanced_init_table",
             title: "高初始化",
-            url: "{{site.wlan_url}}/assets/example/advanced_init_json.txt",
+            url: "{{ site.baseurl }}/assets/example/advanced_init_json.txt",
             divId: "basic_init"
         };
         example.eventListen(advanced_init_data.tableId, example.createTable(advanced_init_data));
@@ -188,7 +188,7 @@ var example = {
         var styling_data = {
             tableId: "styling_table",
             title: "样式",
-            url: "{{site.wlan_url}}/assets/example/styling_json.txt",
+            url: "{{ site.baseurl }}/assets/example/styling_json.txt",
             divId: "styling"
         };
         example.eventListen(styling_data.tableId, example.createTable(styling_data));
@@ -196,7 +196,7 @@ var example = {
         var data_sources = {
             tableId: "data_sources_table",
             title: "数据源",
-            url: "{{site.wlan_url}}/assets/example/data_sources_json.txt",
+            url: "{{site.baseurl}}/assets/example/data_sources_json.txt",
             divId: "data_sources"
         };
         example.eventListen(data_sources.tableId, example.createTable(data_sources));
@@ -204,7 +204,7 @@ var example = {
         var api_sources = {
             tableId: "api_table",
             title: "API",
-            url: "{{site.wlan_url}}/assets/example/api_json.txt",
+            url: "{{site.baseurl}}/assets/example/api_json.txt",
             divId: "api"
         };
         example.eventListen(api_sources.tableId, example.createTable(api_sources));
@@ -213,7 +213,7 @@ var example = {
         var ajax_sources = {
             tableId: "ajax_table",
             title: "AJAX",
-            url: "{{site.wlan_url}}/assets/example/ajax_json.txt",
+            url: "{{site.baseurl}}/assets/example/ajax_json.txt",
             divId: "ajax"
         };
         example.eventListen(ajax_sources.tableId, example.createTable(ajax_sources));
@@ -222,7 +222,7 @@ var example = {
         var server_side_sources = {
             tableId: "server_side_table",
             title: "Server-side",
-            url: "{{site.wlan_url}}/assets/example/server_side_json.txt",
+            url: "{{ site.baseurl }}/assets/example/server_side_json.txt",
             divId: "server_side"
         };
         example.eventListen(server_side_sources.tableId, example.createTable(server_side_sources));
@@ -230,7 +230,7 @@ var example = {
         var plug_ins_sources = {
             tableId: "plug_ins_table",
             title: "Plug-ins",
-            url: "{{site.wlan_url}}/assets/example/plug_ins_json.txt",
+            url: "{{ site.baseurl }}/assets/example/plug_ins_json.txt",
             divId: "plug_ins"
         };
         example.eventListen(plug_ins_sources.tableId, example.createTable(plug_ins_sources));
@@ -239,7 +239,7 @@ var example = {
         var vedio1_sources = {
             tableId: "vedio1_table",
             title: "Datatables入门视频",
-            url: "{{site.wlan_url}}/assets/example/vedio_json.txt",
+            url: "{{ site.baseurl }}/assets/example/vedio_json.txt",
             divId: "vedio1"
         };
         example.eventListen(vedio1_sources.tableId, example.createTable(vedio1_sources));
@@ -247,7 +247,7 @@ var example = {
         var vedio2_sources = {
             tableId: "vedio2_table",
             title: "",
-            url: "{{site.wlan_url}}/assets/example/vedio_user_share_json.txt",
+            url: "{{ site.baseurl }}/assets/example/vedio_user_share_json.txt",
             divId: "vedio2"
         };
         example.eventListen(vedio2_sources.tableId, example.createTable(vedio2_sources));
@@ -257,7 +257,7 @@ var example = {
         var daily_sources = {
             tableId: "2016-04_table",
             title: "",
-            url: "{{site.wlan_url}}/assets/daily/2016-04_json.txt",
+            url: "{{ site.baseurl }}/assets/daily/2016-04_json.txt",
             divId: ""
         };
         example.dailyEventListen(daily_sources.tableId, example.createDailyTable(daily_sources));
@@ -265,7 +265,7 @@ var example = {
         var daily_05_sources = {
             tableId: "2016-05_table",
             title: "",
-            url: "{{site.wlan_url}}/assets/daily/2016-05_json.txt",
+            url: "{{ site.baseurl }}/assets/daily/2016-05_json.txt",
             divId: ""
         };
         example.dailyEventListen(daily_05_sources.tableId, example.createDailyTable(daily_05_sources));

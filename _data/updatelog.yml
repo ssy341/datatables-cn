@@ -14,11 +14,11 @@
   date: 2015-02-05
   isHot: 0
 
-- content: <a target='_blank' href='http://datatables.club/tour'> Datatables 中文网导航</a>
+- content: <a target='_blank' href='/tour'> Datatables 中文网导航</a>
   date: 2015-03-02
   isHot: 0
 
-- content: <a target='_blank' href='http://datatables.club/faqs'>使用 Datatables 常见问题</a>
+- content: <a target='_blank' href='/faqs'>使用 Datatables 常见问题</a>
   date: 2015-03-18
   isHot: 1
 

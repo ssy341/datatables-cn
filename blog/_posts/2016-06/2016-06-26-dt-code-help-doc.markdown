@@ -30,7 +30,7 @@ banner: /images/blog/2016-06/dt-code-help-doc.png
 3. 请求返回的数据，在处理服务器模式时，这个信息尤为重要
 4. 截图，通过截图描述你的问题，更能够表达清楚
 5. 简单易懂的问题描述
-6. 如果不知道上述怎么操作，参考 [如何定位问题（js调试基本技能）]({{site.wlan_url}}/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html)
+6. 如果不知道上述怎么操作，参考 [如何定位问题（js调试基本技能）]({{ site.baseurl }}/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html)
 
 据不完全统计，按照上述方法提问的小伙伴，问题还没提出来，就已经解决了，是不是很神奇？
 

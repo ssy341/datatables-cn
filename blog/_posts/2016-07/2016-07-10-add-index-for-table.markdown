@@ -135,7 +135,7 @@ table.on('draw.dt',function() {
 
 - <h2 id="section3">selector-modifier 选择器的应用</h2>
 
-DT 在文档中提及到的数据类型，方法返回的类型在 [Types]({{site.wlan_url}}/reference/type) 有详细的说明
+DT 在文档中提及到的数据类型，方法返回的类型在 [Types]({{ site.baseurl }}/reference/type) 有详细的说明
 
 可能大家有看到如下几种写法：
 {% highlight javascript linenos %}

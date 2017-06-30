@@ -10,15 +10,15 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M1cd4d25b89cc1f30ad25a1e1c196fa48o0&w=289&h=213&c=0&pid=1.9&rs=0&p=0
 ---
-[所有option连接]({{site.wlan_url}}/reference/option/)
+[所有option连接]({{ site.baseurl }}/reference/option/)
 
 相关连接
 
-[Features]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-features.html)
-[Data]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-data.html)
-[Callbacks]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
-[Options]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-options.html)
-[Columns]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Features]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-features.html)
+[Data]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Options]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-options.html)
+[Columns]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-columns.html)
 
 Internationalisation - 国际化部分
 <!--more-->
@@ -61,6 +61,6 @@ var table = $('#example').DataTable({
 });
 {% endhighlight %}
 
-[Chinese.txt]({{site.wlan_url}}/assets/Chinese.txt)
+[Chinese.txt]({{ site.baseurl }}/assets/Chinese.txt)
 
 PS:以上代码无任何实际使用价值，纯粹演示对象结构，和新版参数的写法

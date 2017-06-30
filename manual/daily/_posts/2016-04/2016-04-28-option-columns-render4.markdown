@@ -104,7 +104,7 @@ render: function(data, type, row, meta) {
 
 **针对第一点**:
 
-每一次DataTable的是重绘或者重载都会后台执行很多回调函数  [更多参考](http://datatables.club/reference/option/)
+每一次 DataTables 的是重绘或者重载都会后台执行很多回调函数  [更多参考](/reference/option/)
 
 `columns.render`是在`createdRow`前执行的
 `columnDefs.render`是在`rowCallback`后执行的

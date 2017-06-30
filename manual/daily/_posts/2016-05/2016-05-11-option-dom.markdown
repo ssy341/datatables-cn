@@ -12,9 +12,9 @@ banner: http://tse4.mm.bing.net/th?id=OIP.M5ba0bc29fe755dec3d3ba5bbb35380f0o0&w=
 ---
 参数详解连接{% include href/option/options/option.options param="dom" %}
 
-相关例子 [视频讲解]({{site.wlan_url}}/example/vedio/season1/dom/)，
-[示例讲解1]({{site.wlan_url}}/example/basic_init/dom.html) 和
-[示例讲解2]({{site.wlan_url}}/example/advanced_init/dom_toolbar.html)
+相关例子 [视频讲解]({{ site.baseurl }}/example/vedio/season1/dom/)，
+[示例讲解1]({{ site.baseurl }}/example/basic_init/dom.html) 和
+[示例讲解2]({{ site.baseurl }}/example/advanced_init/dom_toolbar.html)
 
 前几天在搬家，所以没时间去更新了，今天搬完了，终于解放了。搬一次家感觉一辈子都不想再搬了……
 <!--more-->

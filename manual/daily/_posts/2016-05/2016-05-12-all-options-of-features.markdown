@@ -10,15 +10,15 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Mbe4b5053ee1a1c0b9ffc8ae5d4c11946o0&w=300&h=201&c=0&pid=1.9&rs=0&p=0
 ---
-[所有option连接]({{site.wlan_url}}/reference/option/)
+[所有option连接]({{ site.baseurl }}/reference/option/)
 
 相关连接
 
-[Data]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-data.html)
-[Callbacks]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-callbacks.html)
-[Columns]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-columns.html)
-[Options]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-options.html)
-[Internationalisation]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
+[Data]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-data.html)
+[Callbacks]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-callbacks.html)
+[Columns]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-columns.html)
+[Options]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-options.html)
+[Internationalisation]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-internationalisation.html)
 
 PS：以下所谓的老版指的是1.9，新版指的是1.10
 <!--more-->
@@ -29,11 +29,11 @@ PS：以下所谓的老版指的是1.9，新版指的是1.10
 
 虽然作者在1.10版中给出了兼容，为了规范起见，用新版的就写新版的写法，自己看着舒服，用着也放心
 
-新版和老版很容易区分 [详见]({{site.wlan_url}}/upgrade/1.10-convert.html)
+新版和老版很容易区分 [详见]({{ site.baseurl }}/upgrade/1.10-convert.html)
 
 Features - 特性部分
 
-下面每个属性的值为DataTables的默认值，对应的中文解释，请参考[options]({{site.wlan_url}}/reference/option/)
+下面每个属性的值为DataTables的默认值，对应的中文解释，请参考[options]({{ site.baseurl }}/reference/option/)
 {% highlight javascript linenos %}
 var table = $("#example").DataTable({
     "autoWidth":true,

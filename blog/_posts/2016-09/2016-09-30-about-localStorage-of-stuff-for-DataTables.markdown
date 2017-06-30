@@ -72,7 +72,7 @@ banner: http://www.bhmpics.com/download/the_boxtrolls_movie_poster-1920x1080.jpg
 只要这样，DataTables 就可以渲染你的表格，给你的表格加上分页，排序，过滤。你如果还需要其他功能，通过查询文档再相应加上相关的属性。
 我极力推荐这种做法，一是自己的代码很简洁，二是不会给自己添麻烦，三是遇到问题后，代码贴出去问题也能很快的被解决。
 
-PS：我推荐大家把 [DataTables参数配置模板]({{site.wlan_url}}/manual/daily/2016/05/12/all-options-of-features.html) 仔细看一遍，这样对DT的参数有个整体的把握，用起来会更得心应手
+PS：我推荐大家把 [DataTables参数配置模板]({{ site.baseurl }}/manual/daily/2016/05/12/all-options-of-features.html) 仔细看一遍，这样对DT的参数有个整体的把握，用起来会更得心应手
 
 
 
