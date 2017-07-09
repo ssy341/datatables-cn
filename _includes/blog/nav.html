@@ -18,7 +18,7 @@
                 <li {% if include.param == "blog" %}class="active"{% endif %}>
                     <a href="{{site.baseurl}}/blog">博客</a>
                 </li>
-                <li>
+                <li {% if include.param == "example" %}class="active"{% endif %}>
                     <a href="{{site.baseurl}}/example">例子</a>
                 </li>
                 <li>
