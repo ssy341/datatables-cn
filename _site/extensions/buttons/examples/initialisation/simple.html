@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>不同的分页样式 基本初始化 博客 DataTables中文网</title>
+    <title>基本初始化 博客 DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
@@ -17,7 +17,7 @@
     <link href="/images/favicon.png" rel="shortcut icon">
     <link rel="stylesheet" href="/css/prettify.css">
     
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"> <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css">
 	
 
 
@@ -111,15 +111,9 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <h1 class="page-header">
-                不同的分页样式
+                基本初始化
             </h1>
             <ol class="breadcrumb">
-                
-                    <li><a href="/">首页</a></li>
-                
-                    <li><a href="/example">示例</a></li>
-                
-                    <li class="active">不同的分页样式</li>
                 
             </ol>
 
@@ -127,26 +121,17 @@
                 Tags: 
                 <a href="/blog/listall.html#例子" class="btn btn-primary btn-xs">例子</a>
                 
-                <a href="/blog/listall.html#基本初始化" class="btn btn-primary btn-xs">基本初始化</a>
+                <a href="/blog/listall.html#基本例子" class="btn btn-primary btn-xs">基本例子</a>
+                
+                <a href="/blog/listall.html#Button扩展" class="btn btn-primary btn-xs">Button扩展</a>
                 
             </p>
             <hr>
-            <p>默认情况下 Datatables 的分页就是上一页、下一页和6个页数按钮，这适合大部分情况。不过也有用户不喜欢这样，Datatables提供了四个模式供用户选择，通过设置<code class="highlighter-rouge">pagingType</code>选项来配置</p>
+            <p>Buttons can be initialised very easily though the buttons object which can be given as an array of the buttons that you wish to display. The B option in the dom parameter will instruct DataTables where the buttons should be placed in the document - in this case, at the top left (CSS also plays a part).</p>
 
-<ul>
-  <li><code class="highlighter-rouge">number</code> - 只有只有数字按钮</li>
-  <li><code class="highlighter-rouge">simple</code> - 只有上一页、下一页两个按钮</li>
-  <li><code class="highlighter-rouge">simple_numbers</code> - 除了上一页、下一页两个按钮还有页数按钮，Datatables默认是这个</li>
-  <li><code class="highlighter-rouge">full</code> - 有四个按钮首页、上一页、下一页、末页</li>
-  <li><code class="highlighter-rouge">full_numbers</code> - 除首页、上一页、下一页、末页四个按钮还有页数按钮</li>
-  <li><code class="highlighter-rouge">first_last_numbers</code> - 除首页、末页两个按钮还有页数按钮</li>
-</ul>
+<p>The simplest method of using buttons is to use predefined button types which can be displayed simply by using their name in the buttons array. Each button can also be extended to provide customisation of that button.</p>
 
-<p>更多分页插件，参考 <a href="/plug-ins">这里</a>。</p>
-
-<p>ps:DataTables中文网总结了问的最多的是指定页面跳转<a href="https://datatables.net/plug-ins/pagination/extjs">传送门</a></p>
-
-<p>下面的例子展示了full_numbers类型的分页</p>
+<p>This example shows the copy, csv, excel, pdf and print buttons being used to display data export options for the DataTable.</p>
 
 <div class="bs-docs-example">
     <table id="example" class="display" cellspacing="0" width="100%">
@@ -633,24 +618,35 @@
 <pre class="prettyprint linenums">
 &lt;!--引入css--&gt;
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://cdn.datatables.net/buttons/1.3.1/css/buttons.dataTables.min.css&quot;&gt;
 
 &lt;!--引入JavaScript--&gt;
 &lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;
 &lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdn.datatables.net/buttons/1.3.1/js/buttons.flash.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js&quot;&gt;&lt;/script&gt;
 
 &lt;!--初始化代码--&gt;
 &lt;script&gt;
-     $(document).ready(function() {
-           $(&#39;#example&#39;).DataTable({
-                 &quot;pagingType&quot;:   &quot;full_numbers&quot;
-           });
-      });
+    $(document).ready(function() {
+        $(&#39;#example&#39;).DataTable( {
+            dom: &#39;Bfrtip&#39;,
+            buttons: [
+                &#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;, &#39;pdf&#39;, &#39;print&#39;
+            ]
+        } );
+    } );
 &lt;/script&gt;
 </pre>
 
 
             <blockquote>
-                <p><a href="https://datatables.net/examples/basic_init/alt_pagination" target="_blank">https://datatables.net/examples/basic_init/alt_pagination</a></p>
+                <p><a href="https://datatables.net/extensions/buttons/examples/initialisation/simple.html" target="_blank">https://datatables.net/extensions/buttons/examples/initialisation/simple.html</a></p>
                 <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
             </blockquote>
 
@@ -676,13 +672,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/example/basic_init/alt_pagination.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/example/basic_init/alt_pagination.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/extensions/buttons/examples/initialisation/simple.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/extensions/buttons/examples/initialisation/simple.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/example/basic_init/alt_pagination.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/example/basic_init/alt_pagination.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/extensions/buttons/examples/initialisation/simple.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/extensions/buttons/examples/initialisation/simple.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -863,7 +859,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/example/basic_init/alt_pagination.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/extensions/buttons/examples/initialisation/simple.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -932,13 +928,16 @@
 <!-- /.container -->
 <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script> <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script> <script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.flash.min.js"></script> <script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script> <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/pdfmake.min.js"></script> <script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.27/build/vfs_fonts.js"></script> <script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script> <script type="text/javascript" language="javascript" src="//cdn.datatables.net/buttons/1.3.1/js/buttons.print.min.js"></script>
 <script>
-   $(document).ready(function () {
-       $('#example').DataTable({
-           "pagingType": "full_numbers"
-       });
-   });
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+    } );
 </script>
 
 
