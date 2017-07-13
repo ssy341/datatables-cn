@@ -66,6 +66,10 @@
   title: 分页信息的 'last' 按钮显示的信息
   text: language.paginate.last
 
+- url: http://datatables.club/reference/option/language.paginate.first.html
+  title: 分页信息的 'first' 按钮显示的信息
+  text: language.paginate.first
+
 - url: http://datatables.club/reference/option/language.paginate.next.html
   title: 分页信息的 'next' 按钮显示的信息
   text: language.paginate.next

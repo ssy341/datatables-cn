@@ -1181,12 +1181,15 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    {% assign languageList = site.data.quickapi.language %}
+    {% for languageItem in languageList %}
     <url>
-        <loc>{{site.wlan_url}}/reference/option/language.aria.paginate.first.html</loc>
+        <loc>{{languageItem.url}}</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    {% endfor %}
     <url>
         <loc>{{site.wlan_url}}/reference/option/orderClasses.html</loc>
         <priority>0.8</priority>
@@ -1315,12 +1318,6 @@
     </url>
     <url>
         <loc>{{site.wlan_url}}/reference/option/columns.visible.html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/option/language.decimal.html</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
