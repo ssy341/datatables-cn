@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <script type="text/javascript" language="javascript" src="/assets/jquery/1.8.2/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="/assets/datatables/1.9.4/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="/plug-ins/pagination/extjs/extjs.css">
 </head>
 <body>
 <table id="example" class="display" cellspacing="0" width="100%">
@@ -489,11 +488,11 @@
 </table>
 </body>
 <script type="text/javascript" language="javascript" src="/assets/datatables/1.9.4/js/jquery.dataTables.js"></script>
-<script type="text/javascript" language="javascript" src="/plug-ins/pagination/extjs/extjs.js"></script>
+<script type="text/javascript" language="javascript" src="/plug-ins/pagination/four_button/four_button.js"></script>
 <script>
     $(document).ready(function () {
         $('#example').dataTable({
-            'sPaginationType': 'extStyle'
+            'sPaginationType': 'four_button'
         });
     });
 </script>

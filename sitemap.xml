@@ -1419,4 +1419,10 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    <url>
+        <loc>{{site.wlan_url}}/plug-ins/pagination/four_button/index.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
 </urlset>

@@ -1,10 +1,10 @@
 ---
 layout: plugins
 title: extjs样式分页插件（Plug-ins） Datatables中文网
-from: https://datatables.net/plug-ins/pagination/extjs
+from: /plug-ins/pagination/extjs
 short: extjs样式
 tags: [extjs,插件,分页插件]
-tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li>','<li class="active">extjs</li>']
+tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li>','<li><a href="/plug-ins/pagination">分页插件</a></li>','<li class="active">extjs</li>']
 ---
 
 该插件位ExtJs翻页风格，允许用户在输入框里直接输入页码或者点击按钮翻页。如果你要实现如下效果，按照下面的代码示例参考即可。

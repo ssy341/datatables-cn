@@ -1,10 +1,10 @@
 ---
 layout: plugins
 title: 省略号分页插件（Plug-ins） Datatables中文网
-from: https://datatables.net/plug-ins/pagination/ellipses
+from: /plug-ins/pagination/ellipses
 short: 省略号
 tags: [省略号,插件,分页插件]
-tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li>','<li class="active">省略号</li>']
+tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li>','<li><a href="/plug-ins/pagination">分页插件</a></li>','<li class="active">省略号</li>']
 ---
 
 该插件在1.10.+的版本已经内置，如果你要实现如下效果，不需要额外引入插件的js，只需要更新到最新的DT即可。使用1.9版本的用户任然可以继续使用此插件，
