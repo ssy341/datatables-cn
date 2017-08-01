@@ -1,6 +1,6 @@
 ---
 layout: plugins
-title: 四个按钮分页插件（Plug-ins） Datatables中文网
+title: 四个按钮 分页插件（Plug-ins） Datatables中文网
 from: /plug-ins/pagination/four_button
 short: 四个按钮
 tags: [四个按钮,插件,分页插件]
@@ -12,7 +12,7 @@ tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li
 
 
 <div class="bs-docs-example">
-    <iframe src="four_button_example.html" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+{% include iframe.html src="four_button_example.html" iframe_id="iframe1" %}
 </div>
 <pre class="prettyprint linenums">
 

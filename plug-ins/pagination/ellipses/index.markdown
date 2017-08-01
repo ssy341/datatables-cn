@@ -1,6 +1,6 @@
 ---
 layout: plugins
-title: 省略号分页插件（Plug-ins） Datatables中文网
+title: 省略号 分页插件（Plug-ins） Datatables中文网
 from: /plug-ins/pagination/ellipses
 short: 省略号
 tags: [省略号,插件,分页插件]
@@ -12,7 +12,7 @@ tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li
 
 
 <div class="bs-docs-example">
-    <iframe src="ellipses_example.html" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+{% include iframe.html src="ellipses_example.html" iframe_id="iframe1" %}
 </div>
 <pre class="prettyprint linenums">
 

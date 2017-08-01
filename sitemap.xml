@@ -1425,4 +1425,16 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    <url>
+        <loc>{{site.wlan_url}}/plug-ins/pagination/full_numbers_no_ellipses/index.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/plug-ins/pagination/input/index.html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
 </urlset>

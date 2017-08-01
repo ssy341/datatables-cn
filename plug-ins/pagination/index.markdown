@@ -33,8 +33,8 @@ DataTables 有下列扩展的分页风格，通过{% include href/option/options
 - [ellipses](/plug-ins/pagination/ellipses/index.html) - 当页数很多的时候，用省略号代替数字
 - [extjs](/plug-ins/pagination/extjs/index.html) - ExtJS风格的分页方式
 - [four_button](/plug-ins/pagination/four_button/index.html) - 显示向前、向后、首页和尾页四个按钮
-- [full_numbers_no_ellipses]() - 和DT默认的full_numbers一样，只是没有省略号
-- [input]() - 显示可以输入跳转到指定页的输入框
+- [full_numbers_no_ellipses](/plug-ins/pagination/full_numbers_no_ellipses/index.html) - 和DT默认的full_numbers一样，只是没有省略号
+- [input](/plug-ins/pagination/input/index.html) - 显示可以输入跳转到指定页的输入框
 - [scrolling]() - 滚动页面的方式翻页
 - [select]()
 - [simple_numbers_no_ellipses]() - 和DT自带的simple_numbers一样，只是没有省略号
