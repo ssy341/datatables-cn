@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>extjs样式 分页插件（Plug-ins） Datatables中文网</title>
+    <title>四个按钮没有省略号 分页插件（Plug-ins） Datatables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
@@ -107,7 +107,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
             <h1 class="page-header">
-                extjs样式
+                四个按钮没有省略号
             </h1>
 
             
@@ -119,7 +119,7 @@
                 
                     <li><a href="/plug-ins/pagination">分页插件</a></li>
                 
-                    <li class="active">extjs</li>
+                    <li class="active">四个按钮没有省略号</li>
                 
             </ol>
             
@@ -127,7 +127,7 @@
             
             <p>
                 Tags: 
-                <a href="/blog/listall.html#extjs" class="btn btn-primary btn-xs">extjs</a>
+                <a href="/blog/listall.html#四个按钮" class="btn btn-primary btn-xs">四个按钮</a>
                 
                 <a href="/blog/listall.html#插件" class="btn btn-primary btn-xs">插件</a>
                 
@@ -137,15 +137,17 @@
             <hr>
             
 
-            <p>该插件位ExtJs翻页风格，允许用户在输入框里直接输入页码或者点击按钮翻页。如果你要实现如下效果，按照下面的代码示例参考即可。</p>
-
-<p>ps：该插件是基于1.9版本，1.10版的此风格翻页插件看<a href="/plug-ins/pagination/input/index.html">这里</a></p>
-
-<p>使用方法如下代码所示：</p>
+            <p>该插件在1.10.+的版本已经内置，类似 <code class="highlighter-rouge">full_numbers</code> (参考 
+<a href="/reference/option/pagingType.html" target="_blank">
+    <code class="option">pagingType<span>Option</span></code>
+</a>
+)
+最多一次性显示7个分页按钮
+使用方法如下代码所示：</p>
 
 <div class="bs-docs-example">
 
-<iframe src="extjs_example.html" width="100%" id="iframe1" name="iframe1" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+<iframe src="four_button_no_ellipses_example.html" width="100%" id="iframe1" name="iframe1" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
 
 
 <script type="text/javascript">
@@ -166,15 +168,14 @@
 </div>
 <pre class="prettyprint linenums">
 
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/datatables/1.9.4/css/jquery.dataTables.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/plug-ins/pagination/extjs/extjs.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;/assets/datatables/1.10.5/css/jquery.dataTables.css&quot;&gt;
 
-&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;/assets/datatables/1.9.4/js/jquery.dataTables.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;/plug-ins/pagination/extjs/extjs.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;/assets/datatables/1.10.5/js/jquery.dataTables.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot; src=&quot;/plug-ins/pagination/full_numbers_no_ellipses/full_numbers_no_ellipses.js&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     $(document).ready(function () {
        $(&#39;#example&#39;).dataTable({
-            &#39;sPaginationType&#39;: &#39;extStyle&#39;
+            &#39;pagingType&#39;: &#39;full_numbers_no_ellipses&#39;
        });
    });
 &lt;/script&gt;
@@ -184,7 +185,7 @@
 
 
             <blockquote>
-                <p><a href="https://datatables.net/plug-ins/pagination/extjs" target="_blank">https://datatables.net/plug-ins/pagination/extjs</a></p>
+                <p><a href="https://datatables.net/plug-ins/pagination/full_numbers_no_ellipses" target="_blank">https://datatables.net/plug-ins/pagination/full_numbers_no_ellipses</a></p>
                 <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
             </blockquote>
 
@@ -210,13 +211,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/plug-ins/pagination/extjs/'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/plug-ins/pagination/extjs/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/plug-ins/pagination/full_numbers_no_ellipses/'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/plug-ins/pagination/full_numbers_no_ellipses/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/plug-ins/pagination/extjs/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/plug-ins/pagination/extjs/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/plug-ins/pagination/full_numbers_no_ellipses/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/plug-ins/pagination/full_numbers_no_ellipses/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -397,7 +398,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/plug-ins/pagination/extjs/index.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/plug-ins/pagination/full_numbers_no_ellipses/index.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>

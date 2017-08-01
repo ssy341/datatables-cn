@@ -2,7 +2,7 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>四个按钮分页插件（Plug-ins） Datatables中文网</title>
+    <title>四个按钮 分页插件（Plug-ins） Datatables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
@@ -141,7 +141,25 @@
 使用方法如下代码所示：</p>
 
 <div class="bs-docs-example">
-    <iframe src="four_button_example.html" width="100%" height="600px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+<iframe src="four_button_example.html" width="100%" id="iframe1" name="iframe1" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes"></iframe>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.setInterval("reinitIframe()", 200);
+    });
+    function reinitIframe(){
+        var iframe = document.getElementById("iframe1");
+        try{
+            var bHeight = iframe.contentWindow.document.body.scrollHeight;
+            var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+            var height = Math.max(bHeight, dHeight);
+            iframe.height = height;
+            console.log(height);
+        }catch (ex){}
+    }
+</script>
 </div>
 <pre class="prettyprint linenums">
 
