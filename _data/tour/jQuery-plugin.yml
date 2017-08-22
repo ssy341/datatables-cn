@@ -1,4 +1,4 @@
-- url: http://www.ztree.me/v3/main.php#_zTreeInfo
+- url: http://www.treejs.cn
   title: 树插件
   text: zTree
 
@@ -41,3 +41,7 @@
 - url: http://www.layui.com/laytpl/
   title: laytpl是一款非常轻量的JavaScript模板引擎，它用巧妙的实现方式，将自身的体积浓缩为不到2KB的字符，laytpl试图打造极致的模版渲染！
   text: laytpl
+
+- url: https://terryz.github.io
+  title: 多功能下拉分页选择插件
+  text: SelectPage
