@@ -38,7 +38,7 @@ $('#example').DataTable( {
 {% endhighlight %}
 
 
-由于使用了url参数，合计列操作需要放在initComplete回调中处理
+由于使用了url参数，异步加载，合计列操作需要放在initComplete回调中处理
 {% highlight javascript linenos %}
 $('#example').DataTable({
     "language": {

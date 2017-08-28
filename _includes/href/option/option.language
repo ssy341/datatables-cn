@@ -106,6 +106,10 @@
 <a href="/reference/option/language.processing.html" target="_blank">
     <code class="option">language.processing<span>Option</span></code>
 </a>
+{% elsif include.param == "language.url" %}
+<a href="/reference/option/language.url.html" target="_blank">
+    <code class="option">language.url<span>Option</span></code>
+</a>
 {% elsif include.param == "language.search" %}
 <a href="/reference/option/language.search.html" target="_blank">
     <code class="option">language.search<span>Option</span></code>
