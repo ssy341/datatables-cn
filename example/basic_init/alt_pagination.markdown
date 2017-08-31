@@ -25,7 +25,7 @@ script: >
 
 默认情况下 Datatables 的分页就是上一页、下一页和6个页数按钮，这适合大部分情况。不过也有用户不喜欢这样，Datatables提供了四个模式供用户选择，通过设置`pagingType`选项来配置
                                   
-- `number` - 只有只有数字按钮 
+- `numbers` - 只有只有数字按钮 
 - `simple` - 只有上一页、下一页两个按钮 
 - `simple_numbers` - 除了上一页、下一页两个按钮还有页数按钮，Datatables默认是这个 
 - `full` - 有四个按钮首页、上一页、下一页、末页 
