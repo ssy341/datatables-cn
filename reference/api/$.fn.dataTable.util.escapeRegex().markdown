@@ -26,7 +26,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
 使用正则表达式转义特殊字符
 
 #### 返回(Returns):
-{% include href/type/type.Javascript param="string" %}
+{% include href/type.html param="string" %}
 
 被转义的字符串
 

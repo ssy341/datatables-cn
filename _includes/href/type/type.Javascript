@@ -10,10 +10,6 @@
 <a href="https://datatables.net/reference/type/function" target="_blank">
     <code class="type" title="Javascript parameter type">function<span>Type</span></code>
 </a>
-{% elsif include.param == "integer" %}
-<a href="https://datatables.net/reference/type/integer" target="_blank">
-    <code class="type" title="Javascript parameter type">integer<span>Type</span></code>
-</a>
 {% elsif include.param =="jQuery" %}
 <a href="https://datatables.net/reference/type/jQuery" target="_blank">
     <code class="type" title="Javascript parameter type">jQuery<span>Type</span></code>
@@ -33,14 +29,6 @@
 {% elsif include.param == "object" %}
 <a href="https://datatables.net/reference/type/object" target="_blank">
     <code class="type" title="Javascript parameter type">object<span>Type</span></code>
-</a>
-{% elsif include.param == "string" %}
-<a href="https://datatables.net/reference/type/string" target="_blank">
-    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a>
-{% elsif include.param == "undefined" %}
-<a href="https://datatables.net/reference/type/undefined" target="_blank">
-    <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
 </a>
 {% elsif include.param == "null" %}
 <a href="https://datatables.net/reference/type/null" target="_blank">

@@ -25,7 +25,7 @@ author: /reference/option/deferLoading
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="integer" %}
+- {% include href/type.html param="integer" %}
 当给定一个整数，表示延迟加载，并且告诉DT有多少条数据在完整的结果集里。
 
 - {% include href/type/type.Javascript param="array" %}

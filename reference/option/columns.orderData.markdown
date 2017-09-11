@@ -18,7 +18,7 @@ author: /reference/option/columns.orderData
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="integer" %}
+- {% include href/type.html param="integer" %}
 单列索引去排序
 
 - {% include href/type/type.Javascript param="array" %}

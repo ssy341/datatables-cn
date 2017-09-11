@@ -26,7 +26,7 @@ banner: http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Po
     - 可选的
     - 说明
 - `settings`
-    - {% include href/type/DataTables.Settings %}
+    - {% include href/type.html param="DataTables.Settings" %}
     - No
     - DataTables settings 对象
 - `data`

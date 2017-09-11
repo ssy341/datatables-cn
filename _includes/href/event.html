@@ -1,0 +1,33 @@
+{% if include.param == "error" %}
+<a href="http://datatables.net/reference/event/error" target="_blank">
+    <code class="event">error<span>Event</span></code>
+</a>
+{% elsif include.param == "destroy" %}
+<a href="http://datatables.net/reference/event/destroy" target="_blank">
+    <code class="event">destroy<span>Event</span></code>
+</a>
+{% elsif include.param == "draw" %}
+<a href="http://datatables.net/reference/event/draw" target="_blank">
+    <code class="event">draw<span>Event</span></code>
+</a>
+{% elsif include.param == "stateLoaded" %}
+<a href="http://datatables.net/reference/event/stateLoaded" target="_blank">
+    <code class="event">stateLoaded<span>Event</span></code>
+</a>
+{% elsif include.param == "stateLoadParams" %}
+<a href="http://datatables.net/reference/event/stateLoadParams" target="_blank">
+    <code class="event">stateLoadParams<span>Event</span></code>
+</a>
+{% elsif include.param == "stateSaveParams" %}
+<a href="http://datatables.net/reference/event/stateSaveParams" target="_blank">
+    <code class="event">stateSaveParams<span>Event</span></code>
+</a>
+{% elsif include.param == "xhr" %}
+<a href="http://datatables.net/reference/event/xhr" target="_blank">
+    <code class="event">xhr<span>Event</span></code>
+</a>
+{% elsif include.param == "init" %}
+<a href="http://datatables.net/reference/event/init" target="_blank">
+    <code class="event">init<span>Event</span></code>
+</a>
+{% endif %}

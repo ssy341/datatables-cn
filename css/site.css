@@ -35,6 +35,12 @@ code.string {
     border: 1px solid #dfc4b2;
     white-space: nowrap;
 }
+code.event{
+    color: #2a839e;
+    background-color: #f5fafb;
+    border: 1px solid #a8ddec;
+    white-space: nowrap;
+}
 a code {
     text-decoration: underline;
 }

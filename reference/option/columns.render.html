@@ -26,7 +26,7 @@ since: 1.10.0
 有三种特殊的值可以通过{% include href/option/option.columns param="columns.render" %}解决
 <ul class="markdown">
     <li>
-        {% include href/type/type.Javascript param="undefined"%}
+        {% include href/type.html param="undefined" %}
         - 当值未定义时，
         {% include href/option/option.columns param="columns.defaultContent" %}将会替换作为默认的值去显示.
         如果又是undefined又没有定义这个则会得到一个错误
@@ -201,7 +201,7 @@ since: 1.10.0
                     <td>2</td>
                     <td><code>type</code></td>
                     <td>
-                        {% include href/type/type.Javascript param="string" %}
+                        {% include href/type.html param="string" %}
                     </td>
                     <td>No</td>
                 </tr>
@@ -248,7 +248,7 @@ since: 1.10.0
                                 {% include href/api/api.columns param="column().index()" %}
                             </li>
                             <li><code>settings</code> -
-                                {% include href/type/DataTables.Settings %}
+                                {% include href/type.html param="DataTables.Settings" %}
                                 API实例
                             </li>
                         </ul>

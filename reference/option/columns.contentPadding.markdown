@@ -21,7 +21,7 @@ author: /reference/option/columns.contentPadding
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="string" %}
+- {% include href/type.html param="string" %}
 
 ## 例子(Example)
 给表格中最后一列设置一个文本的填充

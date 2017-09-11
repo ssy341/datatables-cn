@@ -20,7 +20,7 @@ HTML 5 引入了 `input type='text''`元素占位符属性，以便在没有值�
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="string" %}
+- {% include href/type.html param="string" %}
 
 
 ## 默认值(Default)

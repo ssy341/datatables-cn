@@ -28,7 +28,7 @@ author: /reference/option/columns.name
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="string" %}
+- {% include href/type.html param="string" %}
 
 
 ## 例子(Example)
