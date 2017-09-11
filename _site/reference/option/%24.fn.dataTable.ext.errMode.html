@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option stateSaveParams 状态数据保存操作回调函数 《不定时一讲》 DataTables中文网</title>
+    <title>$.fn.dataTable.ext.errMode 设置DataTables会怎么提示检测到的错误 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="option,errMode,alert">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
 
     <script type="text/javascript" src="http://datatables.club/js/jquery-2.0.0.js"></script>
     
@@ -39,7 +79,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active" >
+                <li>
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -48,7 +88,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li>
+                <li class="active" >
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -81,120 +121,167 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/option" target="_blank">Option</a></li>
+                <li class="active">$.fn.dataTable.ext.errMode 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/09/25/option-stateSaveParams.html">option stateSaveParams 状态数据保存操作回调函数</a>
+                    <a href="/reference/option/%2524.fn.dataTable.ext.errMode.html">$.fn.dataTable.ext.errMode</a>
+                    <small>设置DataTables会怎么提示检测到的错误</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 25 September 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="/manual/daily/2016/09/25/option-stateSaveParams.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option stateSaveParams 状态数据保存操作回调函数:/manual/daily/2016/09/25/option-stateSaveParams.html"
+                            data-clipboard-text="$.fn.dataTable.ext.errMode 设置DataTables会怎么提示检测到的错误 文档(Options & API) DataTables中文网:/reference/option/%2524.fn.dataTable.ext.errMode.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <h2 id="描述">描述</h2>
-<p>参数详解连接
-<a href="https://datatables.net/reference/option/stateSaveParams" target="_blank">
-    <code class="option">stateSaveParams<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html" target="_blank">
-    <code class="option">stateSaveParams<span>不定时一讲</span></code>
-</a></p>
+                    <h2 id="描述description">描述(Description)</h2>
 
-<p>当
-<a href="https://datatables.net/reference/option/stateSaveCallback" target="_blank">
-    <code class="option">stateSaveCallback<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html" target="_blank">
-    <code class="option">stateSaveCallback<span>不定时一讲</span></code>
-</a>
-执行完毕后或者保存的数据被操作即触发这个回调函数。
-<!--more--></p>
+<p>如果DataTables遇到一个已知的错误（比如：无效的JSON），它可以提供错误描述和教你如果解决它的有用信息。</p>
 
-<h2 id="类型">类型</h2>
+<p>处理默认的错误是有必要的，能让开发人员知道在对接DataTables接口出现了什么样的问题。但是，这并不总是您可能希望在您的页面上
+呈现出的方式，此选项提供了控制如何给出错误提示。</p>
 
-<h3 id="function-statesaveparams-settings-data-">function stateSaveParams( settings, data )</h3>
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<h3 id="string"><em>string</em></h3>
+
+<p>执行内置错误提示操作之一：</p>
 
 <ul>
-  <li>参数名
-    <ul>
-      <li>类型</li>
-      <li>可选的</li>
-      <li>说明</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">settings</code>
-    <ul>
-      <li>
-        <p><a href="https://datatables.net/reference/type/DataTables.Settings" target="_blank">
-  <code class="type">Datatables.Settings<span>Type</span></code>
-</a></p>
-      </li>
-      <li>No</li>
-      <li>DataTables settings 对象</li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">data</code>
-    <ul>
-      <li>
-        <p><a href="https://datatables.net/reference/type/object" target="_blank">
-  <code class="type" title="Javascript parameter type">object<span>Type</span></code>
-</a></p>
-      </li>
-      <li>No</li>
-      <li>用来储存的数据。数据来自
-<a href="https://datatables.net/reference/option/stateSaveParams" target="_blank">
-  <code class="option">stateSaveParams<span>Option</span></code>
+  <li><code class="highlighter-rouge">alert</code> (default) - alert提示错误</li>
+  <li><code class="highlighter-rouge">throw</code> - 抛出一个js的错误，在控制台可以看到具体的错误</li>
+  <li><code class="highlighter-rouge">none</code> - 不处理（你可能想使用
+<a href="http://datatables.net/reference/event/error" target="_blank">
+  <code class="event">error<span>Event</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html" target="_blank">
-  <code class="option">stateSaveParams<span>不定时一讲</span></code>
-</a></li>
-    </ul>
-  </li>
+来处理这个情况）</li>
 </ul>
 
-<h2 id="例子">例子</h2>
-<p>基本语法：</p>
+<h3 id="function-fndatatableexterrmode-settings-technote-message-"><em>function</em> <strong>$.fn.dataTable.ext.errMode( settings, techNote, message )</strong></h3>
 
-<p>移除过滤条件，即搜索条件不会被保存在状态里</p>
+<h4 id="描述description-1">描述(Description):</h4>
+<p>作为一个function，你可以定制自己的错误提示方式，例如向用户显示消息或重新加载页面以从错误中恢复。</p>
+
+<h4 id="参数parameters">参数(Parameters):</h4>
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>settings</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/DataTables.Settings" target="_blank">
+    <code class="type">Datatables.Settings<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables settings 对象
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>techNote</code></td>
+        <td>
+<a href="https://datatables.net/reference/type/integer" target="_blank">
+    <code class="type" title="Javascript parameter type">integer<span>Type</span></code>
+</a>
+</td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            技术说明参考，其中包含有关发生错误的详细信息，这些信息能够在<code>https://datatables.net/tn/{techNote}</code>&gt;找到
+        </td>
+    </tr>
+    <tr class="even">
+        <td>3</td>
+        <td><code>message</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/string" target="_blank">
+    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            错误信息
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4 id="返回returns">返回(Returns):</h4>
+
+<p><a href="https://datatables.net/reference/type/undefined" target="_blank">
+    <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
+</a></p>
+
+<p>No return is excepted or acted upon</p>
+
+<h2 id="例子example">例子(Example)</h2>
+
+<p>设置DataTables的错误提示方式为抛出异常</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5
-6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="s2">"stateSave"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">"stateSaveParams"</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">settings</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">search</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
-  <span class="p">}</span>
+5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">ext</span><span class="p">.</span><span class="nx">errMode</span> <span class="o">=</span> <span class="s1">'throw'</span><span class="p">;</span>
+ 
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="na">ajax</span><span class="p">:</span> <span class="s1">'data.json'</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>Events</p>
+
+<ul>
+  <li><a href="http://datatables.net/reference/event/error" target="_blank">
+<code class="event">error<span>Event</span></code>
+</a></li>
+</ul>
+
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/option/%24.fn.dataTable.ext.errMode" target="_blank">https://datatables.net/reference/option/%24.fn.dataTable.ext.errMode</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -218,13 +305,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/09/25/option-stateSaveParams.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/09/25/option-stateSaveParams.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -409,7 +496,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-09/2016-09-25-option-stateSaveParams.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/%24.fn.dataTable.ext.errMode.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -493,6 +580,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>
