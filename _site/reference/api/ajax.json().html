@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>$.fn.dataTable.ext.errMode 设置DataTables会怎么提示检测到的错误 文档(Options & API) DataTables中文网</title>
+    <title>ajax.json() 获取最新的JSON数据 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,errMode,alert">
+    <meta name="keywords" content="ajax.json,DataTables">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -123,15 +123,15 @@
             <ol class="breadcrumb">
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
-                <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">$.fn.dataTable.ext.errMode 正文</li>
+                <li><a href="/reference/api" target="_blank">Api</a></li>
+                <li class="active">ajax.json() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/%2524.fn.dataTable.ext.errMode.html">$.fn.dataTable.ext.errMode</a>
-                    <small>设置DataTables会怎么提示检测到的错误</small>
+                    <a href="/reference/api/ajax.json().html">ajax.json()</a>
+                    <small>获取最新的JSON数据</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -139,7 +139,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="$.fn.dataTable.ext.errMode 设置DataTables会怎么提示检测到的错误 文档(Options & API) DataTables中文网:/reference/option/%2524.fn.dataTable.ext.errMode.html"
+                            data-clipboard-text="ajax.json() 获取最新的JSON数据 文档(Options & API) DataTables中文网:/reference/api/ajax.json().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -147,139 +147,113 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
+<p>能够从DataTables请求中获取JSON数据做汇总往往是非常有用的，或者获取在响应中的数据但是DataTables不直接使用的数据（这个在开发中
+可以减少AJAX请求，把想要的数据一次性返回，以帮助提高性能）。该方法提供访问该数据。</p>
 
-<p>如果DataTables遇到一个已知的错误（比如：无效的JSON），它可以提供错误描述和教你如果解决它的有用信息。</p>
+<p>请注意，如果API实例引用了多个DataTables实例，则只会返回第一个表中的JSON数据。如果你使用了多个表，通过</p>
 
-<p>处理默认的错误是有必要的，能让开发人员知道在对接DataTables接口出现了什么样的问题。但是，这并不总是您可能希望在您的页面上
-呈现出的方式，此选项提供了控制如何给出错误提示。</p>
+<p><a href="https://datatables.net/reference/api/table()" target="_blank">
+    <code class="api">table()<span>API</span></code>
+</a>
+获取指定的DataTables实例。</p>
+
+<p>此外，如果
+<a href="http://datatables.club/reference/option/ajax.html" target="_blank">
+    <code class="option">ajax<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/18/option-ajax.html" target="_blank">
+    <code class="option">ajax<span>不定时一讲</span></code>
+</a>
+是作为一个function使用，该方法返回的是<code class="highlighter-rouge">undefined</code>而不是JSON字符串，
+因为给定的function已经覆盖了DataTables原有的Ajax处理程序。</p>
 
 <h2 id="类型type">类型(Type)</h2>
-<p>这个选项能够接受以下类型的参数：</p>
 
-<h3 id="string"><em>string</em></h3>
+<hr />
 
-<p>执行内置错误提示操作之一：</p>
-
-<ul>
-  <li><code class="highlighter-rouge">alert</code> (default) - alert提示错误</li>
-  <li><code class="highlighter-rouge">throw</code> - 抛出一个js的错误，在控制台可以看到具体的错误</li>
-  <li><code class="highlighter-rouge">none</code> - 不处理（你可能想使用
-<a href="http://datatables.net/reference/event/error" target="_blank">
-  <code class="event">error<span>Event</span></code>
-</a>
-来处理这个情况）</li>
-</ul>
-
-<h3 id="function-fndatatableexterrmode-settings-technote-message-"><em>function</em> <strong>$.fn.dataTable.ext.errMode( settings, techNote, message )</strong></h3>
-
-<h4 id="描述description-1">描述(Description):</h4>
-<p>作为一个function，你可以定制自己的错误提示方式，例如向用户显示消息或重新加载页面以从错误中恢复。</p>
-
-<h4 id="参数parameters">参数(Parameters):</h4>
-<table class="parameters dataTable stripe row-border no-footer">
-    <thead>
-    <tr>
-        <th></th>
-        <th>名称（Name）</th>
-        <th>类型（Type）</th>
-        <th>是否可选（Optional）</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="even">
-        <td>1</td>
-        <td><code>settings</code></td>
-        <td>
-            
-<a href="https://datatables.net/reference/type/DataTables.Settings" target="_blank">
-    <code class="type">Datatables.Settings<span>Type</span></code>
-</a>
-
-        </td>
-        <td>No</td>
-    </tr>
-    <tr class="even continuation">
-        <td></td>
-        <td colspan="3">
-            DataTables settings 对象
-        </td>
-    </tr>
-    <tr class="odd">
-        <td>2</td>
-        <td><code>techNote</code></td>
-        <td>
-<a href="https://datatables.net/reference/type/integer" target="_blank">
-    <code class="type" title="Javascript parameter type">integer<span>Type</span></code>
-</a>
-</td>
-        <td>No</td>
-    </tr>
-    <tr class="odd continuation">
-        <td></td>
-        <td colspan="3">
-            技术说明参考，其中包含有关发生错误的详细信息，这些信息能够在<code>https://datatables.net/tn/{techNote}</code>&gt;找到
-        </td>
-    </tr>
-    <tr class="even">
-        <td>3</td>
-        <td><code>message</code></td>
-        <td>
-            
-<a href="https://datatables.net/reference/type/string" target="_blank">
-    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a>
-
-        </td>
-        <td>No</td>
-    </tr>
-    <tr class="even continuation">
-        <td></td>
-        <td colspan="3">
-            错误信息
-        </td>
-    </tr>
-    </tbody>
-</table>
+<h3 id="function-ajaxjson"><em>function</em> <strong>ajax.json()</strong></h3>
 
 <h4 id="返回returns">返回(Returns):</h4>
 
-<p><a href="https://datatables.net/reference/type/undefined" target="_blank">
-    <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
+<p><a href="https://datatables.net/reference/type/object" target="_blank">
+    <code class="type" title="Javascript parameter type">object<span>Type</span></code>
 </a></p>
 
-<p>No return is excepted or acted upon</p>
+<p>从服务器获取最新的Ajax数据</p>
+
+<hr />
 
 <h2 id="例子example">例子(Example)</h2>
-
-<p>设置DataTables的错误提示方式为抛出异常</p>
+<p>alert弹出显示加载了多少行</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3
 4
-5</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">ext</span><span class="p">.</span><span class="nx">errMode</span> <span class="o">=</span> <span class="s1">'throw'</span><span class="p">;</span>
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s2">"data.json"</span>
+<span class="p">}</span> <span class="p">);</span>
  
-<span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-  <span class="na">ajax</span><span class="p">:</span> <span class="s1">'data.json'</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'xhr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span><span class="s1">' row(s) were loaded'</span> <span class="p">);</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 
+<p>API</p>
+
+<ul>
+  <li>
+    <p><a href="https://datatables.net/reference/api/ajax.params()" target="_blank">
+<code class="api">ajax.params()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/ajax.url().html" target="_blank">
+<code class="api">ajax.url()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/ajax.url().load().html" target="_blank">
+<code class="api">ajax.url().load()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/ajax.reload().html" target="_blank">
+<code class="api">ajax.reload()<span>API</span></code>
+</a></p>
+  </li>
+</ul>
+
 <p>Events</p>
 
 <ul>
-  <li><a href="http://datatables.net/reference/event/error" target="_blank">
-<code class="event">error<span>Event</span></code>
+  <li><a href="http://datatables.net/reference/event/xhr" target="_blank">
+<code class="event">xhr<span>Event</span></code>
 </a></li>
 </ul>
 
+<p>Options</p>
+
+<ul>
+  <li><a href="http://datatables.club/reference/option/ajax.html" target="_blank">
+<code class="option">ajax<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/04/18/option-ajax.html" target="_blank">
+<code class="option">ajax<span>不定时一讲</span></code>
+</a></li>
+</ul>
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/%24.fn.dataTable.ext.errMode" target="_blank">https://datatables.net/reference/option/%24.fn.dataTable.ext.errMode</a></p>
+                    <p><a href="https://datatables.net/reference/api/ajax.json()" target="_blank">https://datatables.net/reference/api/ajax.json()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -305,13 +279,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/ajax.json().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/ajax.json().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/%2524.fn.dataTable.ext.errMode.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/ajax.json().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/ajax.json().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -496,7 +470,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/%24.fn.dataTable.ext.errMode.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/ajax.json().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
