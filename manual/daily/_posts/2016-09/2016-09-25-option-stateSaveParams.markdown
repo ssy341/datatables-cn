@@ -30,7 +30,7 @@ banner: http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Po
     - No
     - DataTables settings 对象
 - `data`
-    - {% include href/type/type.Javascript param="object"%}
+    - {% include href/type.html param="object"%}
     - No
     - 用来储存的数据。数据来自{% include href/option/option.callbacks param="stateSaveParams" %}
 

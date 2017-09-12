@@ -49,8 +49,8 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/ajax.json()"><code class="api" title="DataTables API method">ajax.json()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/api.Core param="ajax.json()" %}
         </td>
         <td><p>获得最终的json数据</p>
         </td>
@@ -65,7 +65,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/ajax.reload.dt %}
+                {% include href/api/api.Core param="ajax.reload()" %}
             </p>
         </td>
         <td><p>重新加载数据源获取数据（不能指定新的数据源）</p>
@@ -74,7 +74,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/ajax.url.load.dt %}
+                {% include href/api/api.Core param="ajax.url().load()" %}
             </p>
         </td>
         <td><p>设置新的url数据源重新加载数据</p>
@@ -83,7 +83,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/ajax.url.dt %}
+                {% include href/api/api.Core param="ajax.url()" %}
             </p>
         </td>
         <td><p>设置新的url数据源</p>

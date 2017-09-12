@@ -19,6 +19,7 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
+---
 
 ### _string_
 
@@ -28,6 +29,7 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 - `throw` - 抛出一个js的错误，在控制台可以看到具体的错误
 - `none` - 不处理（你可能想使用{% include href/event.html param="error" %}来处理这个情况）
     
+---
     
 ### _function_ **$.fn.dataTable.ext.errMode( settings, techNote, message )**   
 
@@ -41,9 +43,8 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 {% include href/type.html param="undefined" %}
 No return is excepted or acted upon
      
-     
-     
-
+--- 
+    
 ## 例子(Example)
 
 设置DataTables的错误提示方式为抛出异常
@@ -54,6 +55,26 @@ $.fn.dataTable.ext.errMode = 'throw';
 $('#example').DataTable( {
   ajax: 'data.json'
 } );
+{% endhighlight %}
+
+
+后台异常，显示服务器返回的自定义错误，而不是alert弹出报错
+{% highlight javascript linenos %}
+$.fn.dataTable.ext.errMode = function( settings, tn, msg){
+//打印msg，和tn来判断，进了这个方法都是ajax走了error才会到这里来
+}
+
+var table = $("#example").DataTable({……});
+//绑定xhr事件
+table.on('xhr.dt',function (e, settings, json, xhr) {
+    console.log(xhr)
+    if (xhr.status == 200) {
+        //自己的代码
+    } else {
+        //自己的代码
+    }
+});
+
 {% endhighlight %}
 
 

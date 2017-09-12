@@ -54,4 +54,24 @@
 <a href="https://datatables.net/reference/api/i18n()" target="_blank">
     <code class="api">i18n()<span>API</span></code>
 </a>
+{% elsif include.param == "ajax.params()" %}
+<a href="https://datatables.net/reference/api/ajax.params()" target="_blank">
+    <code class="api">ajax.params()<span>API</span></code>
+</a>
+{% elsif include.param == "ajax.url()" %}
+<a href="/reference/api/ajax.url().html" target="_blank">
+    <code class="api">ajax.url()<span>API</span></code>
+</a>
+{% elsif include.param == "ajax.url().load()" %}
+<a href="/reference/api/ajax.url().load().html" target="_blank">
+    <code class="api">ajax.url().load()<span>API</span></code>
+</a>
+{% elsif include.param == "ajax.reload()" %}
+<a href="/reference/api/ajax.reload().html" target="_blank">
+    <code class="api">ajax.reload()<span>API</span></code>
+</a>
+{% elsif include.param == "ajax.json()" %}
+<a href="/reference/api/ajax.json().html" target="_blank">
+    <code class="api">ajax.json()<span>API</span></code>
+</a>
 {% endif %}

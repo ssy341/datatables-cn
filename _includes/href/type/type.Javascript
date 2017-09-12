@@ -26,10 +26,6 @@
 <a href="https://datatables.net/reference/type/number" target="_blank">
     <code class="type" title="Javascript parameter type">number<span>Type</span></code>
 </a>
-{% elsif include.param == "object" %}
-<a href="https://datatables.net/reference/type/object" target="_blank">
-    <code class="type" title="Javascript parameter type">object<span>Type</span></code>
-</a>
 {% elsif include.param == "null" %}
 <a href="https://datatables.net/reference/type/null" target="_blank">
     <code class="type" title="Javascript parameter type">null<span>Type</span></code>

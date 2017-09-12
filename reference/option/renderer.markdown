@@ -29,7 +29,7 @@ DataTables当前支持两种不同渲染器类型：
 - {% include href/type.html param="string" %}
 使用指定的渲染器，如果不存在将使用默认的渲染器
 
-- {% include href/type/type.Javascript param="object" %}
+- {% include href/type.html param="object" %}
 为不同的渲染器类型指定特定的渲染器
  
 ## 例子(Example)

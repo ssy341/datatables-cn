@@ -9,11 +9,11 @@ relurl: http://datatables.net/reference/api/ajax.url()
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    你可以使用{% include href/api/ajax.reload.dt %}方法来刷新表格数据，但是在某些情况下你需要重新设置其他的数据源
+    你可以使用{% include href/api/api.Core param="ajax.reload()" %}方法来刷新表格数据，但是在某些情况下你需要重新设置其他的数据源
     这个时候那个使用这个方法会帮到你
 </p>
-        <p>注意，使用 {% include href/api/ajax.url.dt %} 方法只能设置新的url，并不能触发ajax请求，你需要使用
-            {% include href/api/ajax.url.load.dt %} 方法来跟换url并重新获取数据</p>
+        <p>注意，使用 {% include href/api/api.Core param="ajax.url()" %} 方法只能设置新的url，并不能触发ajax请求，你需要使用
+            {% include href/api/api.Core param="ajax.url().load()" %} 方法来跟换url并重新获取数据</p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
 
@@ -123,10 +123,10 @@ table.ajax.url( &#39;newData.json&#39; ).load();</pre>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">API
     <ul class="markdown">
-        <li>{% include href/api/ajax.json.dt %}</li>
-        <li>{% include href/api/ajax.reload.dt %}</li>
-        <li>{% include href/api/ajax.url.dt %}</li>
-        <li>{% include href/api/ajax.url.load.dt %}</li>
+        <li>{% include href/api/api.Core param="ajax.json()" %}</li>
+        <li>{% include href/api/api.Core param="ajax.reload()" %}</li>
+        <li>{% include href/api/api.Core param="ajax.url()" %}</li>
+        <li>{% include href/api/api.Core param="ajax.url().load()" %}</li>
     </ul>
 </div>
 <div class="reference_related">Events
