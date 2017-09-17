@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>renderer 显示组件渲染器类型 文档(Options & API) DataTables中文网</title>
+    <title>lengthMenu 更改页面显示条数的下拉框选项 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="option,renderer">
+    <meta name="keywords" content="lengthMenu,option">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -124,14 +124,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/option" target="_blank">Option</a></li>
-                <li class="active">renderer 正文</li>
+                <li class="active">lengthMenu 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/option/renderer.html">renderer</a>
-                    <small>显示组件渲染器类型</small>
+                    <a href="/reference/option/lengthMenu.html">lengthMenu</a>
+                    <small>更改页面显示条数的下拉框选项</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -139,7 +139,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="renderer 显示组件渲染器类型 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/renderer.html"
+                            data-clipboard-text="lengthMenu 更改页面显示条数的下拉框选项 文档(Options & API) DataTables中文网:http://datatables.club/reference/option/lengthMenu.html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -147,79 +147,101 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>DataTables添加了一些复杂的控件，比如分页控件。用于计算表格中的数据应该显示多少页，是DataTables的核心，通常情况下
-不会跟着页面的样式改变实际显示的方式，比如分页按钮可能是<code class="highlighter-rouge">ul</code>下的<code class="highlighter-rouge">li</code>,或者只是一组<code class="highlighter-rouge">a</code>标签。</p>
-
-<p>DataTables提供了扩展的能力，DataTables提供集成选项来支持目前几种流行的CSS框架，比如 Bootstrap ，Foundation 和 jQuery UI。</p>
-
-<p>此参数可以告诉 DataTables 使用那种渲染器，前提是指定的渲染器是已经存在的，否则使用默认的渲染器。可以通过插件添加其他渲染器。</p>
-
-<p>DataTables当前支持两种不同渲染器类型：</p>
+<p>此选项能够指定显示分页长度<code class="highlighter-rouge">select</code>元素的下拉选项，它可以是：</p>
 
 <ul>
-  <li><code class="highlighter-rouge">header</code> 头单元格渲染器</li>
-  <li><code class="highlighter-rouge">pageButton</code> 分页按钮</li>
+  <li>整数值的一维数组，用于显示的选项和显示长度的值</li>
+  <li>二维数组，第一个数组用来作为长度的值，第二个数组用来作为显示的选项。这是很有用的，比如当你想显示“所有”选项</li>
 </ul>
+
+<p>分页长度值必须的大于<code class="highlighter-rouge">0</code>，当为<code class="highlighter-rouge">-1</code>的时候，代表告诉DataTablse禁用分页（比如，显示所有数据）</p>
+
+<p>注意
+<a href="/reference/option/pageLength.html" target="_blank">
+    <code class="option">pageLength<span>Option</span></code>
+</a>
+属性将会自动设置为这个数组的第一个值</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
 
 <ul>
-  <li><a href="https://datatables.net/reference/type/string" target="_blank">
-<code class="type" title="Javascript parameter type">string<span>Type</span></code>
+  <li><a href="https://datatables.net/reference/type/array" target="_blank">
+<code class="type" title="Javascript parameter type">array<span>Type</span></code>
 </a></li>
 </ul>
 
-<p>使用指定的渲染器，如果不存在将使用默认的渲染器</p>
-
-<ul>
-  <li><a href="https://datatables.net/reference/type/object" target="_blank">
-<code class="type" title="Javascript parameter type">object<span>Type</span></code>
-</a></li>
-</ul>
-
-<p>为不同的渲染器类型指定特定的渲染器</p>
+<h2 id="默认值default">默认值(Default)</h2>
+<p><code class="highlighter-rouge">[ 10, 25, 50, 100 ]</code></p>
 
 <h2 id="例子example">例子(Example)</h2>
-<p>使用 Bootstrap 插件渲染器</p>
+
+<p>显示选项10,25,50,75,100</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
 3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-    <span class="na">renderer</span><span class="p">:</span> <span class="s2">"bootstrap"</span>
+  <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span> <span class="p">]</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>指定特定的渲染器</p>
+<p>显示选项10,25,50,所有</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3
-4
-5
-6</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-    <span class="na">renderer</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">"header"</span><span class="p">:</span> <span class="s2">"jqueryui"</span><span class="p">,</span>
-        <span class="s2">"pageButton"</span><span class="p">:</span> <span class="s2">"bootstrap"</span>
-    <span class="p">}</span>
+3</pre></td><td class="code"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+  <span class="s2">"lengthMenu"</span><span class="p">:</span> <span class="p">[</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">"所有"</span><span class="p">]</span> <span class="p">]</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 
+<p>API</p>
+
+<ul>
+  <li>
+    <p><a href="/reference/api/page().html" target="_blank">
+<code class="api">page()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/page.info().html" target="_blank">
+<code class="api">page.info()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/page.len().html" target="_blank">
+<code class="api">page.len()<span>API</span></code>
+</a></p>
+  </li>
+</ul>
+
 <p>Options</p>
 
 <ul>
-  <li><a href="/reference/option/pagingType.html" target="_blank">
-<code class="option">pagingType<span>Option</span></code>
-</a></li>
+  <li>
+    <p><a href="/reference/option/paging.html" target="_blank">
+<code class="option">paging<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/lengthChange.html" target="_blank">
+<code class="option">lengthChange<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/pageLength.html" target="_blank">
+<code class="option">pageLength<span>Option</span></code>
+</a></p>
+  </li>
 </ul>
+
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/option/renderer" target="_blank">https://datatables.net/reference/option/renderer</a></p>
+                    <p><a href="https://datatables.net/reference/option/lengthMenu" target="_blank">https://datatables.net/reference/option/lengthMenu</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -245,13 +267,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/option/renderer.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/option/renderer.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/option/lengthMenu.html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/option/lengthMenu.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/option/renderer.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/option/renderer.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/option/lengthMenu.html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/option/lengthMenu.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -436,7 +458,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/renderer.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/option/lengthMenu.markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
