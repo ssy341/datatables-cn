@@ -12,7 +12,7 @@
     <tr>
         <td>
             {% assign key = {{item.key}} %}
-            {% include href/type/type.Javascript param=key %}
+            {% include href/type.html param=key %}
         </td>
         <td>
             <p>{{item.des}}</p>

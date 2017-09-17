@@ -21,7 +21,7 @@
     <code class="option">dom<span>不定时一讲</span></code>
 </a>
 {% elsif include.param == "lengthMenu" %}
-<a href="https://datatables.net/reference/option/lengthMenu" target="_blank">
+<a href="/reference/option/lengthMenu.html" target="_blank">
     <code class="option">lengthMenu<span>Option</span></code>
 </a>
 <a href="{{ site.wlan_url }}/manual/daily/2016/05/06/option-lengthMenu.html" target="_blank">

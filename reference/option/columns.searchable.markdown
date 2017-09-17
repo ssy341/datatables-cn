@@ -15,7 +15,7 @@ author: /reference/option/columns.searchable
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="boolean" %}
+- {% include href/type.html param="boolean" %}
 
 ## 默认值(Default)
 

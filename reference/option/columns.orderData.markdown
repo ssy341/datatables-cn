@@ -21,7 +21,7 @@ author: /reference/option/columns.orderData
 - {% include href/type.html param="integer" %}
 单列索引去排序
 
-- {% include href/type/type.Javascript param="array" %}
+- {% include href/type.html param="array" %}
 多列索引来定义多列排序
 
 ## 默认值(Default)

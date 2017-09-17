@@ -29,7 +29,7 @@ author: /reference/api/%24.fn.dataTable.tables()
 {% include_relative jQuery.fn.dataTable.tables-parameters-code.html %}
 
 #### 返回(Returns):
-{% include href/type/type.Javascript param="array" %},{% include href/type/type.DataTables param="DataTables.Api"%}
+{% include href/type.html param="array" %},{% include href/type/type.DataTables param="DataTables.Api"%}
 
 数组或者是包含所有匹配的Datatables API实例
 

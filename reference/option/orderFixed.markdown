@@ -27,7 +27,7 @@ author: /reference/option/orderFixed
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/type.Javascript param="array" %}
+- {% include href/type.html param="array" %}
 在排序之前加上。
 当给定的是一个数组的时候，此参数给定的排序将会作用于标准排序之前，格式参考下面的例子
 

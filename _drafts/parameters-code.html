@@ -1,0 +1,52 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>settings</code></td>
+        <td>
+            {% include href/type.html param="DataTables.Settings" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            DataTables settings 对象
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>techNote</code></td>
+        <td>{% include href/type.html param="integer" %}</td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            技术说明参考，其中包含有关发生错误的详细信息，这些信息能够在<code>https://datatables.net/tn/{techNote}</code>>找到
+        </td>
+    </tr>
+    <tr class="even">
+        <td>3</td>
+        <td><code>message</code></td>
+        <td>
+            {% include href/type.html param="string" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            错误信息
+        </td>
+    </tr>
+    </tbody>
+</table>
