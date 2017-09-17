@@ -230,9 +230,11 @@ client.on( 'error', function() {
     注意：如果你视图操作一个不存在的页数，Datatables不会抛出错误，而是重置到第一页
 </p>
 <p>
-    还需要注意的是，使用 <code>page()</code>时需要搭配 <a href="/reference/api/draw().html" target="_blank">
-    <code>draw()<span>DT</span></code>
-</a> 方法一起使用，比如 <code>table.page( 0 ).draw( false
+    还需要注意的是，使用 <code>page()</code>时需要搭配 
+<a href="https://datatables.net/reference/api/draw()" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
+ 方法一起使用，比如 <code>table.page( 0 ).draw( false
     );</code>
 </p>
 <p>
@@ -247,7 +249,11 @@ client.on( 'error', function() {
     <dl>
         <dt>描述:</dt>
         <dd>
-           获取表格当前页。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 来确保操作的是单个表格对象
+           获取表格当前页。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 
+<a href="https://datatables.net/reference/api/table()" target="_blank">
+    <code class="api">table()<span>API</span></code>
+</a>
+来确保操作的是单个表格对象
         </dd>
         <dt>返回:</dt>
         <dd>
