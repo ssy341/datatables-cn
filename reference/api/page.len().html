@@ -16,7 +16,7 @@ since: 1.10.0
     一个特别的数字 <code>-1</code>可以作为参数，代表是所有的数据
 </p>
 <p>
-   同样这个需要配合  {% include href/api/draw.dt %} 方法才能应用到表格上。比如 <code>table.page( 0 ).draw();</code>
+   同样这个需要配合  {% include href/api/Core.html param="draw()" %} 方法才能应用到表格上。比如 <code>table.page( 0 ).draw();</code>
 </p>
 <a name="Type"></a>
 <h2 data-anchor="Type">数据类型</h2>
@@ -27,7 +27,7 @@ since: 1.10.0
     <dl>
         <dt>描述:</dt>
         <dd>
-           获取表格分页长度。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/table.dt %}来确保操作的是单个表格对象
+           获取表格分页长度。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/Tables.html param="table()" %}来确保操作的是单个表格对象
         </dd>
         <dt>返回:</dt>
         <dd>
@@ -49,7 +49,7 @@ since: 1.10.0
     <dl>
         <dt>描述:</dt>
         <dd>
-            获取表格分页状态。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/table.dt %}来确保操作的是单个表格对象
+            获取表格分页状态。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/Tables.html param="table()" %}来确保操作的是单个表格对象
         </dd>
         <dt>
             参数：

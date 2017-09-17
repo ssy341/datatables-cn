@@ -47,8 +47,8 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/api.columns param="column()" %}
-- {% include href/api/api.columns param="columns()" %}
+- {% include href/api/Columns.html param="column()" %}
+- {% include href/api/Columns.html param="columns()" %}
 
 Options
 

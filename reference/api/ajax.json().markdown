@@ -13,7 +13,7 @@ author: /reference/api/ajax.json()
 能够从DataTables请求中获取JSON数据做汇总往往是非常有用的，或者获取在响应中的数据但是DataTables不直接使用的数据（这个在开发中
 可以减少AJAX请求，把想要的数据一次性返回，以帮助提高性能）。该方法提供访问该数据。
 
-请注意，如果API实例引用了多个DataTables实例，则只会返回第一个表中的JSON数据。如果你使用了多个表，通过{% include href/api/api.Tables.html param="table()" %}获取指定的DataTables实例。
+请注意，如果API实例引用了多个DataTables实例，则只会返回第一个表中的JSON数据。如果你使用了多个表，通过{% include href/api/Tables.html param="table()" %}获取指定的DataTables实例。
 
 此外，如果{% include href/option/option.data param="ajax" %}是作为一个function使用，该方法返回的是`undefined`而不是JSON字符串，
 因为给定的function已经覆盖了DataTables原有的Ajax处理程序。
@@ -52,10 +52,10 @@ table.on( 'xhr', function () {
 
 API
 
-- {% include href/api/api.Core param="ajax.params()" %}
-- {% include href/api/api.Core param="ajax.url()" %}
-- {% include href/api/api.Core param="ajax.url().load()" %}
-- {% include href/api/api.Core param="ajax.reload()" %}
+- {% include href/api/Core.html param="ajax.params()" %}
+- {% include href/api/Core.html param="ajax.url()" %}
+- {% include href/api/Core.html param="ajax.url().load()" %}
+- {% include href/api/Core.html param="ajax.reload()" %}
 
 Events
 

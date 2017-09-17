@@ -34,7 +34,7 @@ var table = $("#example").DataTable({
 });
 {% endhighlight %}
 ps：第一列是索引列，那我们是不希望他被搜索到，因为没有意义，所以我们设置第一列不参与搜索，注意**这里是不参与，只是说针对于全局搜索时，
-会把这个值排除在外再搜索，并不是这一列禁用了搜索**，我们依然可以使用 {% include href/api/api.columns param="column().search()" %} 方法，具体往下看
+会把这个值排除在外再搜索，并不是这一列禁用了搜索**，我们依然可以使用 {% include href/api/Columns.html param="column().search()" %} 方法，具体往下看
 
 当然如果你不想用这个全局搜索，你还可以关掉他，毕竟他是`keyup`事件，对于有些情况来说不是那么好用
 {% highlight javascript linenos %}
@@ -43,8 +43,8 @@ var table = $("#example").DataTable({
     "searching": false
 });
 {% endhighlight %}
-但是这样做会影响到 DT 提供的搜索API -{% include href/api/api.Core param="search()" %} 方法,实际上DT自带的搜索框也是调用了这个方法，
-`"searching": false`相当于把搜索功能关闭了，{% include href/api/api.Core param="search()" %} 就不能用了，这样当然不行，
+但是这样做会影响到 DT 提供的搜索API -{% include href/api/Core.html param="search()" %} 方法,实际上DT自带的搜索框也是调用了这个方法，
+`"searching": false`相当于把搜索功能关闭了，{% include href/api/Core.html param="search()" %} 就不能用了，这样当然不行，
 所以**如果你想用自己的搜索框，那么建议你设置 `dom` 来把默认的搜索框隐藏**（详见 [DataTables 之 DOM]({{ site.baseurl }}/manual/daily/2016/05/11/option-dom.html)）
 
 我们可以自己写一个或者多个`input`框，点击按钮触发这个方法，这个方法接收的值用空格隔开，就类似于多条件搜索
@@ -61,7 +61,7 @@ $(document).on("click","#example button.search",function(){
     //table.search(args1+" "+args2).draw(false);//保留分页，排序状态
 });
 {% endhighlight %}
-再回到 {% include href/api/api.columns param="column().search()" %} 这个，先看看下面两个例子:
+再回到 {% include href/api/Columns.html param="column().search()" %} 这个，先看看下面两个例子:
 
 - [给每一列添加搜索框]({{site.baseurl}}/example/api/multi_filter.html)
 - [给每一列添加下拉框搜索]({{site.baseurl}}/example/api/multi_filter_select.html)
@@ -91,8 +91,8 @@ $(document).on("click","#example button.search",function(){
 
 当然大家还可以自己实践，对代码进行优化，DT 1.10版之后支持链式写法，可以一直点下去
 
-{% include href/api/api.columns param="column().search()" %} 这个方法他不能得到按条件搜索过后的最终结果，
-如果你想获取搜索后的数据集，需要使用{% include href/api/api.utility param="filter()" %}
+{% include href/api/Columns.html param="column().search()" %} 这个方法他不能得到按条件搜索过后的最终结果，
+如果你想获取搜索后的数据集，需要使用{% include href/api/Utility.html param="filter()" %}
 
 {% highlight javascript linenos %}
  var table = $('#example').DataTable();
@@ -109,15 +109,15 @@ $(document).on("click","#example button.search",function(){
 
 我想作者应该是考虑了的，这样做肯定有他的道理，我们这么普通的人都想得到的，作者这么聪明的不会想不到呢？
 
-总的来说{% include href/api/api.columns param="column().search()" %}配合全局的搜索，应该是能满足绝大部分的需求，好好发挥
+总的来说{% include href/api/Columns.html param="column().search()" %}配合全局的搜索，应该是能满足绝大部分的需求，好好发挥
 自己的想象力吧
 
 最后总结：
 
 - `"searching": false` 这样配置了，DT的搜索功能关闭，相关的方法也失效（服务器模式下不影响）
 - 搜索功能开启的前提下，全局搜索时可以配置某列不参与搜索
-- 你还可以使用 {% include href/api/api.columns param="column().search()" %} 方法匹配的具体某列进行过滤搜索
-- 如果你想获取搜索后的结果集，你得需要使用{% include href/api/api.utility param="filter()" %}方法
+- 你还可以使用 {% include href/api/Columns.html param="column().search()" %} 方法匹配的具体某列进行过滤搜索
+- 如果你想获取搜索后的结果集，你得需要使用{% include href/api/Utility.html param="filter()" %}方法
 
 2016年7月2日补充：
 

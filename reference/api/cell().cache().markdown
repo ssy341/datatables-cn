@@ -16,7 +16,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 
 应当注意的是，这个方法针对不同操作（搜索、排序、显示等）使用不同的数据。具体参考{% include href/option/option.columns param="columns.data" %}和{% include href/option/option.columns param="columns.render" %}可以获取更多信息。
 
-{% include href/api/api.cells param="cell().data()" %}方法可以获取单元格里的原始数据。如果你不为DataTables的不同操作使用数据和显示分离，这个方法则比较有限。
+{% include href/api/Cells.html param="cell().data()" %}方法可以获取单元格里的原始数据。如果你不为DataTables的不同操作使用数据和显示分离，这个方法则比较有限。
 
 注意，这个方法主要为开发DataTables插件的作者提供操作内部数据的能力。
 
@@ -56,10 +56,10 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/api.cells param="cells().cache()" %}
-- {% include href/api/api.cells param="cells().data()" %}
-- {% include href/api/api.cells param="cells().render()" %}
-- {% include href/api/api.cells param="cell().data()" %}
-- {% include href/api/api.cells param="cell().render()" %}
+- {% include href/api/Cells.html param="cells().cache()" %}
+- {% include href/api/Cells.html param="cells().data()" %}
+- {% include href/api/Cells.html param="cells().render()" %}
+- {% include href/api/Cells.html param="cell().data()" %}
+- {% include href/api/Cells.html param="cell().render()" %}
 
 

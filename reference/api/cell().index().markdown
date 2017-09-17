@@ -10,11 +10,11 @@ author: /reference/api/cell().index()
 ---
 
 ## 描述(Description)
-DataTables 把行列的数据储存在内部索引里面，这个可以用来快速的执行排序和搜索等操作。当你使用{% include href/api/api.rows param="row()" %}，{% include href/api/api.columns param="column()" %}或者其他方法时，这个索引是很有用的。
+DataTables 把行列的数据储存在内部索引里面，这个可以用来快速的执行排序和搜索等操作。当你使用{% include href/api/Rows.html param="row()" %}，{% include href/api/Columns.html param="column()" %}或者其他方法时，这个索引是很有用的。
 
 并且这个方法提供了列数据索引还有可见列索引，同时还可以动态从DOM中添加和删除列。
 
-使用 {% include href/api/api.cells param="cell()" %} 方法获取的单元格返回的数据结构如下
+使用 {% include href/api/Cells.html param="cell()" %} 方法获取的单元格返回的数据结构如下
 {% highlight javascript linenos %}
 {
     "row":           integer, // Row index
@@ -75,9 +75,9 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/api.cells param="cells().indexs()" %}
-- {% include href/api/api.rows param="row().index()" %}
-- {% include href/api/api.columns param="column().index()" %}
-- {% include href/api/api.columns param="column.index()" %}
+- {% include href/api/Cells.html param="cells().indexs()" %}
+- {% include href/api/Rows.html param="row().index()" %}
+- {% include href/api/Columns.html param="column().index()" %}
+- {% include href/api/Columns.html param="column.index()" %}
 
 

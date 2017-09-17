@@ -44,8 +44,8 @@ DataTables的默认语言选项如下所示。此外，这里还提供了更多�
 }
 {% endhighlight %}
 
-从 DataTables 1.10.7 开始，新的{% include href/api/api.Core param="i18n()" %}方法可以由插件作者从{% include href/option/option.language param="language" %}对象来访问语言信息。
-因此这里提供的参数列表并不是最详细的。如果你想知道使用{% include href/api/api.Core param=" i18n()" %}能获取到的完整信息，参考插件文档。
+从 DataTables 1.10.7 开始，新的{% include href/api/Core.html param="i18n()" %}方法可以由插件作者从{% include href/option/option.language param="language" %}对象来访问语言信息。
+因此这里提供的参数列表并不是最详细的。如果你想知道使用{% include href/api/Core.html param=" i18n()" %}能获取到的完整信息，参考插件文档。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -58,7 +58,7 @@ DataTables的默认语言选项如下所示。此外，这里还提供了更多�
 
 API
 
-- {% include href/api/api.Core param="i18n()" %}
+- {% include href/api/Core.html param="i18n()" %}
 
 Options
 

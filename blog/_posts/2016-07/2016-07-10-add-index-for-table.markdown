@@ -115,7 +115,7 @@ table.on('draw.dt',function() {
             });
         });
 {% endhighlight %}
-{% include href/api/api.Core param='page.info()' %}打印出来如下：
+{% include href/api/Core.html param='page.info()' %}打印出来如下：
 {% highlight javascript linenos %}
 {
     "page": 1,

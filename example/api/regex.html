@@ -8,10 +8,10 @@ relurl: http://datatables.net/examples/api/regex.html
         <h3>搜索api（正则表达式）</h3>
         <p>
             对于表格来说，搜索是一个常见操作，Datatables为用户提供了许多方法来搜索，一种是全局
-            {% include href/api/api.Core param="search()" %},一种是单列{% include href/api/api.columns param="column().search()" %}
+            {% include href/api/Core.html param="search()" %},一种是单列{% include href/api/Columns.html param="column().search()" %}
         </p>
         <p>
-            不过需要注意的是，使用上面的方法操作表格后，还记得要使用 {% include href/api/draw.dt %}方法重绘表格才能看到效果
+            不过需要注意的是，使用上面的方法操作表格后，还记得要使用 {% include href/api/Core.html param="draw()" %} 方法重绘表格才能看到效果
         </p>
         <p>
             不管是全局还是单列，Datatables都可以让你的搜索更智能，你可以用智能搜索（也就是默认的）或者使用正则

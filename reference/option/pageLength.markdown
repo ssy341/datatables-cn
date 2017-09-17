@@ -41,6 +41,6 @@ Options
 
 API
 
-- {% include href/api/api.Core param="page()" %}
-- {% include href/api/api.Core param="page.info()" %}
-- {% include href/api/api.Core param="page.len()" %}
+- {% include href/api/Core.html param="page()" %}
+- {% include href/api/Core.html param="page.info()" %}
+- {% include href/api/Core.html param="page.len()" %}

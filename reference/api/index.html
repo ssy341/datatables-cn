@@ -42,7 +42,7 @@ relurl: http://datatables.net/reference/api/
     <tbody>
     <tr>
         <td>
-            {% include href/api/api.Core param="$()" %}
+            {% include href/api/Core.html param="$()" %}
         </td>
         <td>
             在整个表格里执行（完成）一个 jQuery 选择器操作
@@ -50,7 +50,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Core param="ajax.json()" %}
+            {% include href/api/Core.html param="ajax.json()" %}
         </td>
         <td><p>获得最终的json数据</p>
         </td>
@@ -65,7 +65,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/api.Core param="ajax.reload()" %}
+                {% include href/api/Core.html param="ajax.reload()" %}
             </p>
         </td>
         <td><p>重新加载数据源获取数据（不能指定新的数据源）</p>
@@ -74,7 +74,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/api.Core param="ajax.url().load()" %}
+                {% include href/api/Core.html param="ajax.url().load()" %}
             </p>
         </td>
         <td><p>设置新的url数据源重新加载数据</p>
@@ -83,7 +83,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/api.Core param="ajax.url()" %}
+                {% include href/api/Core.html param="ajax.url()" %}
             </p>
         </td>
         <td><p>设置新的url数据源</p>
@@ -122,7 +122,7 @@ relurl: http://datatables.net/reference/api/
     <tr>
         <td>
             <p>
-                {% include href/api/draw.dt %}
+                {% include href/api/Core.html param="draw()" %}
             </p>
         </td>
         <td><p>重绘表格</p>
@@ -130,7 +130,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Core param="i18n()" %}
+            {% include href/api/Core.html param="i18n()" %}
         </td>
         <td>
             国际化标签查找
@@ -177,7 +177,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Core param="page()" %}
+            {% include href/api/Core.html param="page()" %}
         </td>
         <td>
             获得或者设置表格当前页
@@ -185,14 +185,14 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Core param="page.info()" %}
+            {% include href/api/Core.html param="page.info()" %}
         </td>
         <td><p>获得表格的分页信息</p>
         </td>
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Core param="page.len()" %}
+            {% include href/api/Core.html param="page.len()" %}
         </td>
         <td>
             获得或者设置表格的分页长度
@@ -255,7 +255,7 @@ relurl: http://datatables.net/reference/api/
     <tbody>
     <tr>
         <td>
-            {% include href/api/api.cells param="cell().cache()" %}
+            {% include href/api/Cells.html param="cell().cache()" %}
         </td>
         <td>
             获取被选择的单元格的缓存数据
@@ -263,7 +263,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.cells param="cell().data()" %}
+            {% include href/api/Cells.html param="cell().data()" %}
         </td>
         <td>
             获取/设置被选择的单元格的数据
@@ -271,7 +271,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.cells param="cell().index()" %}
+            {% include href/api/Cells.html param="cell().index()" %}
         </td>
         <td>
             获取被选择的单元格的索引信息
@@ -279,7 +279,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.cells param="cell().invalidate()" %}
+            {% include href/api/Cells.html param="cell().invalidate()" %}
         </td>
         <td>
             废除被选中单元格保持在DataTables内部数据中的数据
@@ -880,7 +880,7 @@ relurl: http://datatables.net/reference/api/
     <tbody>
     <tr>
         <td>
-            {% include href/api/api.utility param="any()" %}
+            {% include href/api/Utility.html param="any()" %}
         </td>
         <td>
             确定结果集里是否有符合条件的记录(判断表格里有没有数据)
@@ -1085,17 +1085,17 @@ relurl: http://datatables.net/reference/api/
     <tbody>
     <tr>
         <td>
-            {% include href/api/api.Static param="$.fn.dataTable.isDataTable()" %}
+            {% include href/api/Static.html param="$.fn.dataTable.isDataTable()" %}
         </td>
         <td>检查一个 table 节点是不是 DataTables 实例</td>
     </tr>
     <tr>
-        <td>{% include href/api/api.Static param="$.fn.dataTable.tables()" %}</td>
+        <td>{% include href/api/Static.html param="$.fn.dataTable.tables()" %}</td>
         <td>获取该页面上所有的DataTables实例</td>
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Static param="$.fn.dataTable.util.escapeRegex()" %}
+            {% include href/api/Static.html param="$.fn.dataTable.util.escapeRegex()" %}
         </td>
         <td>
             使用正则表达式转义特殊字符
@@ -1103,14 +1103,14 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Static param="$.fn.dataTable.util.throttle()" %}
+            {% include href/api/Static.html param="$.fn.dataTable.util.throttle()" %}
         </td>
         <td><p>减少方法调用的频率</p>
         </td>
     </tr>
     <tr>
         <td>
-            {% include href/api/api.Static param="$.fn.dataTable.versionCheck()" %}
+            {% include href/api/Static.html param="$.fn.dataTable.versionCheck()" %}
         </td>
         <td>
             版本号兼容性检查

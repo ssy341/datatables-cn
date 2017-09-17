@@ -39,7 +39,7 @@
     <code class="api">$()<span>API</span></code>
 </a>
 {% elsif include.param == "draw()" %}
-<a href="https://datatables.net/reference/api/draw" target="_blank">
+<a href="https://datatables.net/reference/api/draw()" target="_blank">
     <code class="api">draw()<span>API</span></code>
 </a>
 {% elsif include.param == "order()" %}
@@ -50,9 +50,17 @@
 <a href="https://datatables.net/reference/api/order.fixed()" target="_blank">
     <code class="api">order.fixed()<span>API</span></code>
 </a>
+{% elsif include.param == "order.listener()" %}
+<a href="https://datatables.net/reference/api/order.listener()" target="_blank">
+    <code class="api">order.listener()<span>API</span></code>
+</a>
 {% elsif include.param == "i18n()" %}
 <a href="https://datatables.net/reference/api/i18n()" target="_blank">
     <code class="api">i18n()<span>API</span></code>
+</a>
+{% elsif include.param == "ajax" %}
+<a href="https://datatables.net/reference/api/ajax target="_blank">
+    <code class="api">ajax<span>API</span></code>
 </a>
 {% elsif include.param == "ajax.params()" %}
 <a href="https://datatables.net/reference/api/ajax.params()" target="_blank">
@@ -73,5 +81,25 @@
 {% elsif include.param == "ajax.json()" %}
 <a href="/reference/api/ajax.json().html" target="_blank">
     <code class="api">ajax.json()<span>API</span></code>
+</a>
+{% elsif include.param == "data()" %}
+<a href="//datatables.net/reference/api/data()" target="_blank">
+    <code class="api">data()<span>API</span></code>
+</a>
+{% elsif include.param == "destroy()" %}
+<a href="//datatables.net/reference/api/destroy()" target="_blank">
+    <code class="api">destroy()<span>API</span></code>
+</a>
+{% elsif include.param == "init()" %}
+<a href="//datatables.net/reference/api/init()" target="_blank">
+    <code class="api">init()<span>API</span></code>
+</a>
+{% elsif include.param == "off()" %}
+<a href="//datatables.net/reference/api/off()" target="_blank">
+    <code class="api">off()<span>API</span></code>
+</a>
+{% elsif include.param == "on()" %}
+<a href="//datatables.net/reference/api/on()" target="_blank">
+    <code class="api">on()<span>API</span></code>
 </a>
 {% endif %}

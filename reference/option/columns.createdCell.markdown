@@ -13,7 +13,7 @@ author: /reference/option/columns.createdCell
 从ajax数据源或dom数据源读取数据创建单元格执行的回调函数。当单元格被创建的同时允许使用 
 {% include href/option/option.columns param="columns.render" %}选项补充操作单元格的dom元素，比如添加背景色
 （在表格初始化的时候，如果开启了{% include href/option/options/option.features param="deferRender" %},单元格也许不会立马被创建
-，或者你的行是使用API{% include href/api/api.rows param="rows.add()" %}方法动态添加的）
+，或者你的行是使用API{% include href/api/Rows.html param="rows.add()" %}方法动态添加的）
 
 这个是选项是和 {% include href/option/option.callbacks param="createdRow" %} 回调方法相对应的
 

@@ -49,9 +49,9 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/api.Core param="search()" %}
-- {% include href/api/api.columns param="column().search()" %}
-- {% include href/api/api.columns param="columns().search()" %}
+- {% include href/api/Core.html param="search()" %}
+- {% include href/api/Columns.html param="column().search()" %}
+- {% include href/api/Columns.html param="columns().search()" %}
 
 Options
 

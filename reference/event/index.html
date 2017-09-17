@@ -9,7 +9,7 @@ relurl: http://datatables.net/reference/event/
 </p>
 
 <p>
-   Datatables的事件监听使用 {% include href/api/on.dt %} 方法或者   {% include href/jQuery/jQuery.on %}  ,事件的命名都用dt结尾，
+   Datatables的事件监听使用 {% include href/api/Core.html param="on()" %} 方法或者   {% include href/jQuery/jQuery.on %}  ,事件的命名都用dt结尾，
     保证和其他的命名不冲突，下面的例子显示了如何监听 {% include href/event.html param="draw" %}事件
     <pre>
         $(&#39;#myTable&#39;).on(&#39;draw.dt&#39;,function() {

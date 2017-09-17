@@ -10,7 +10,7 @@ author: /reference/option/columns.visible
 ---
 
 ## 描述(Description)
-DataTables通过 {% include href/api/api.columns param="column().visible()" %}/ {% include href/api/api.columns param="columns().visible()" %}
+DataTables通过 {% include href/api/Columns.html param="column().visible()" %}/ {% include href/api/Columns.html param="columns().visible()" %}
 方法动态显示和隐藏列。此选项用来获取列的初始状态可见性，API方法取得该状态稍后更改列的状态。
 
 这个选项可能会特别有用，在你的表中包含大量的列，并且希望用户能够控制他们可以看到那些列，或者表中的数据最终不能被看到的时候。
@@ -55,8 +55,8 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/api.columns param="column().visible()" %}
-- {% include href/api/api.columns param="columns().visible()" %}
+- {% include href/api/Columns.html param="column().visible()" %}
+- {% include href/api/Columns.html param="columns().visible()" %}
 
 Options
 

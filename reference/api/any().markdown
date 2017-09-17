@@ -16,7 +16,7 @@ author: /reference/api/any()
 作为多个DataTables API实例，当使用标准的Javascript{% include href/type/type.Javascript param="array" %}去使用，仅仅去判断`length`属性为0，
 不总是对的。也就是说，DataTables API实例可能包含多个表格信息，而他们也许是空的。
 
-这个方法提供了可以在API 实例中检索是否有可用的数据。返回的结果也可以用 {% include href/api/api.utility param="flatten()" %}方法检查长度来判断。
+这个方法提供了可以在API 实例中检索是否有可用的数据。返回的结果也可以用 {% include href/api/Utility.html param="flatten()" %}方法检查长度来判断。
 比如`api.flatten().length !== 0`
 
 
@@ -63,5 +63,5 @@ if ( ! table.data().any() ) {
 
 API
 
-- {% include href/api/api.utility param="count()" %}
+- {% include href/api/Utility.html param="count()" %}
 
