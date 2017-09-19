@@ -50,4 +50,4 @@ Options
 
 - {% include href/option/option.language param="language" %}
 - {% include href/option/option.language param="language.emptyTable" %}
-- {% include href/option/options/option.options param="search" %}
+- {% include href/option/options.html param="search" %}

@@ -10,7 +10,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/autoWidth.dt %}
+                {% include href/option/features.html param="autoWidth" %}
             </p>
         </td>
         <td>
@@ -30,7 +30,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="info" %}
+                {% include href/option/features.html param="info" %}
             </p>
         </td>
         <td>
@@ -40,7 +40,7 @@
     <tr>
         <td>
             <p>
-               {% include href/option/options/option.features param="jQueryUI" %}
+               {% include href/option/features.html param="jQueryUI" %}
             </p>
         </td>
         <td>
@@ -50,7 +50,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="lengthChange" %}
+                {% include href/option/features.html param="lengthChange" %}
             </p>
         </td>
         <td>
@@ -60,7 +60,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="ordering" %}
+                {% include href/option/features.html param="ordering" %}
             </p>
         </td>
         <td>
@@ -70,7 +70,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="paging" %}
+                {% include href/option/features.html param="paging" %}
             </p>
         </td>
         <td>
@@ -80,7 +80,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="processing" %}
+                {% include href/option/features.html param="processing" %}
             </p>
         </td>
         <td>
@@ -90,7 +90,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="scrollX" %}
+                {% include href/option/features.html param="scrollX" %}
             </p>
         </td>
         <td>
@@ -100,7 +100,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="scrollY" %}
+                {% include href/option/features.html param="scrollY" %}
             </p>
         </td>
         <td>
@@ -110,7 +110,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="searching" %}
+                {% include href/option/features.html param="searching" %}
             </p>
         </td>
         <td>
@@ -120,7 +120,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="serverSide" %}
+                {% include href/option/features.html param="serverSide" %}
             </p>
         </td>
         <td>
@@ -130,7 +130,7 @@
     <tr>
         <td>
             <p>
-                {% include href/option/options/option.features param="stateSave" %}
+                {% include href/option/features.html param="stateSave" %}
             </p>
         </td>
         <td>

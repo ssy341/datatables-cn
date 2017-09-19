@@ -60,4 +60,4 @@ API
 
 Options
 
-- {% include href/option/options/option.features param="scrollX" %}
+- {% include href/option/features.html param="scrollX" %}

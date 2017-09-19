@@ -11,7 +11,7 @@ author: /reference/option/language.lengthMenu
 
 ## 描述(Description)
 
-通过选择下拉菜单的值改变每页显示的记录数。 `_MENU_` 标记被默认替换成10,25,50,100（或者任何其他通过{% include href/option/options/option.options param="lengthMenu" %}指定的值），如果需要，可以自己定义选择列表替换。
+通过选择下拉菜单的值改变每页显示的记录数。 `_MENU_` 标记被默认替换成10,25,50,100（或者任何其他通过{% include href/option/options.html param="lengthMenu" %}指定的值），如果需要，可以自己定义选择列表替换。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -59,5 +59,5 @@ API
 Options
 
 - {% include href/option/option.language param="language" %}
-- {% include href/option/options/option.features param="lengthChange" %}
-- {% include href/option/options/option.options param="lengthMenu" %}
+- {% include href/option/features.html param="lengthChange" %}
+- {% include href/option/options.html param="lengthMenu" %}

@@ -34,7 +34,7 @@ relurl: http://datatables.net/manual/server-side
                     返回给 DataTables。
                 </p>
                 <p>
-                    开启服务器模式需要使用 {% include href/option/options/option.features param="serverSide" %}和{% include href/option/option.data param="ajax" %}选项，进一步的信息，请参考下面的
+                    开启服务器模式需要使用 {% include href/option/features.html param="serverSide" %}和{% include href/option/data.html param="ajax" %}选项，进一步的信息，请参考下面的
                     <a href="#initdt">配置选项</a>。
                 </p>
             </section>
@@ -280,7 +280,7 @@ relurl: http://datatables.net/manual/server-side
                                     纯数组前台就不需要用 <code>columns</code>绑定数据，会自动按照顺序去显示
                                     ，而对象数组则需要使用 <code>columns</code>绑定数据才能正常显示。
                                     注意这个 <code>data</code>的名称可以由
-                                    {% include href/option/option.data param="ajax" %}的{% include href/option/option.data param="ajax.dataSrc" %}控制
+                                    {% include href/option/data.html param="ajax" %}的{% include href/option/data.html param="ajax.dataSrc" %}控制
 
                                 </p>
                             </td>
@@ -365,8 +365,8 @@ relurl: http://datatables.net/manual/server-side
             <section id="initdt">
                 <h3>如何开启服务器模式（Configuration）</h3>
 
-                <p>使用服务器模式需要启用 {% include href/option/options/option.features param="serverSide" %}选项 ，
-                    设置为 <code>true</code>，并且配置 {% include href/option/option.data param="ajax" %}设置url，告诉 DataTables 该
+                <p>使用服务器模式需要启用 {% include href/option/features.html param="serverSide" %}选项 ，
+                    设置为 <code>true</code>，并且配置 {% include href/option/data.html param="ajax" %}设置url，告诉 DataTables 该
                     从那里获得数据</p>
                 <div class="reference_examples">
                     <div class="reference_example">
@@ -384,7 +384,7 @@ $(&#39;#example&#39;).DataTable( {
                     </div>
                 </div>
                 <p>
-                    {% include href/option/option.data param="ajax" %} 可以直接接受一个字符串也可以作为一个对象使用。作为对象他就像 {% include href/jQuery/jQuery.ajax  %} 配置一样
+                    {% include href/option/data.html param="ajax" %} 可以直接接受一个字符串也可以作为一个对象使用。作为对象他就像 {% include href/jQuery/jQuery.ajax  %} 配置一样
                 </p>
                 <div class="reference_examples">
                     <div class="reference_example">
@@ -402,7 +402,7 @@ $(&#39;#example&#39;).DataTable( {
                       </pre>
                     </div>
                 </div>
-                <p>在 DataTables 中的 <code>ajax</code>选项配置详细参考 {% include href/option/option.data param="ajax" %} </p>
+                <p>在 DataTables 中的 <code>ajax</code>选项配置详细参考 {% include href/option/data.html param="ajax" %} </p>
 
 
                 <h3>老版（Legacy）</h3>
@@ -410,7 +410,7 @@ $(&#39;#example&#39;).DataTable( {
                 <p>
                     1.9-版中发送给服务器的参数和 1.10+的有所不同。但是Datatables为1.9-的脚本做了兼容模式，
                     你可以使用高版本的js兼容低版本的写法，但是反过来则不行。
-                    旧的是使用 <code>sAjaxSource </code> 而新的是使用 {% include href/option/option.data param="ajax" %}或者通过设置
+                    旧的是使用 <code>sAjaxSource </code> 而新的是使用 {% include href/option/data.html param="ajax" %}或者通过设置
                     <code>0.fn.dataTable.ext.legacy.ajax = true;</code>
                 </p>
                 <p>

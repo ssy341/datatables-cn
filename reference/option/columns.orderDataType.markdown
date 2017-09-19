@@ -10,7 +10,7 @@ author: /reference/option/columns.orderDataType
 ---
 
 ## 描述(Description)
-DataTables主要的排序功能（{% include href/option/options/option.features param="ordering" %}特性）是利用已经缓存在内存中的
+DataTables主要的排序功能（{% include href/option/features.html param="ordering" %}特性）是利用已经缓存在内存中的
 数据，而不是每次读取DOM的数据来排序，考虑到从DOM读取本来就很慢。然后有时候又不得不从DOM中读取数据，比如表格中有表单元素，
 这势必也会影响到性能。提供这个属性是为了插件在DataTables能提供此功能。
 
@@ -60,7 +60,7 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/options/option.features param="ordering" %}
+- {% include href/option/features.html param="ordering" %}
 - {% include href/option/option.columns param="columns.type" %}
 
 

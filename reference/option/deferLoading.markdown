@@ -15,11 +15,11 @@ author: /reference/option/deferLoading
 比较浪费资源，因此，这个选项的存在是为了允许你告诉DT不去做出初始化的请求，而是使用页面上已经有的数据
 （排序等操作不会被应用）
 
-{% include href/option/options/option.options param="deferLoading" %}用于表示需要延迟加载，他也用来告诉DT
+{% include href/option/options.html param="deferLoading" %}用于表示需要延迟加载，他也用来告诉DT
 全表有多少条记录（让信息显示控件-左下角和分页插件-右下角正确地显示）。在初始化过滤的情况下，接受一个数组，
 其中第一个元素是过滤后的记录数，第二个元素是总的记录数。
 
-注意：这个选项仅在开启了 {% include href/option/options/option.features param="serverSide" %} 才会起作用。在客户端模式下
+注意：这个选项仅在开启了 {% include href/option/features.html param="serverSide" %} 才会起作用。在客户端模式下
 该参数无效。
 
 ## 类型(Type)
@@ -62,5 +62,5 @@ $('#example').dataTable( {
 
 Options
 
-- {% include href/option/option.data param="ajax" %}
-- {% include href/option/options/option.features param="serverSide" %}
+- {% include href/option/data.html param="ajax" %}
+- {% include href/option/features.html param="serverSide" %}

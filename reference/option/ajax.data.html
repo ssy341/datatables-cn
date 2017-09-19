@@ -13,11 +13,11 @@ since: 1.10.0
     当向服务器发出一个ajax请求，Datatables将会把服务器请求到的数据构造成一个数据对象。数据包含的内容取决于Datatables操作的处理模式：
 <ul>
     <li>纯客户端处理，没有其他额外的数据需要提交给服务器</li>
-    <li>服务器处理（{% include href/option/options/option.features param="serverSide" %}），详细参考 <a href="#">服务器处理指南</a></li>
+    <li>服务器处理（{% include href/option/features.html param="serverSide" %}），详细参考 <a href="#">服务器处理指南</a></li>
 </ul>
 </p>
 <p>
-    {% include href/option/option.data param="ajax.data" %}
+    {% include href/option/data.html param="ajax.data" %}
     将额外的参数添加到请求或修改需要被提交的数据对象
 </p>
 <p>
@@ -37,7 +37,7 @@ since: 1.10.0
             <p>
                 如果当做一个对象，<a href="#" target="_blank"><code>ajax.data<span>DT</span></code></a>
                 选项用于扩展Datatables构造内部对象，将额外的，静态的参数传递给服务器。对于动态的处理，使用
-                {% include href/option/option.data param="ajax.data" %}作为一个函数（见下文）。
+                {% include href/option/data.html param="ajax.data" %}作为一个函数（见下文）。
             </p>
         </dd>
     </dl>
@@ -49,7 +49,7 @@ since: 1.10.0
         <dt>描述:</dt>
         <dd class="description">
             <p>
-                作为一个函数，{% include href/option/option.data param="ajax.data" %}
+                作为一个函数，{% include href/option/data.html param="ajax.data" %}
                 选项可以用于修改由Datatables内部构造的原始数据或者完全取代这些，然后ajax请求到服务器
             </p>
 
@@ -78,7 +78,7 @@ since: 1.10.0
                         </p>
                         </td>
                         <td>No</td>
-                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/option/options/option.features param="serverSide" %})
+                        <td><p>Datatables构造的请求参数，如果开启了服务器模式({% include href/option/features.html param="serverSide" %})
                             这个还会包含服务器请求的一些参数
                         </td>
                     </tr>
@@ -229,7 +229,7 @@ function reloadTable() {
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/option.data param="ajax" %}</li>
+        <li>{% include href/option/data.html param="ajax" %}</li>
     </ul>
 </div>
 <div class="clear"></div>

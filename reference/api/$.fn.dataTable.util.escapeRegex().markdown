@@ -66,7 +66,7 @@ table.columns().indexes().flatten().each( function ( i ) {
 
 Options
 
-- {% include href/option/options/option.features param="searching" %}
+- {% include href/option/features.html param="searching" %}
 - {% include href/option/option.columns param="columns.searchable" %}
 
 API

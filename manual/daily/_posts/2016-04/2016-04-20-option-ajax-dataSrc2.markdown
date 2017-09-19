@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M16b9391ab8e64299ca3efcc57ae5f0fco0&w=283&h=300&c=0&pid=1.9&rs=0&p=0
 ---
-参数详解连接{% include href/option/option.data param="ajax.dataSrc" %}
+参数详解连接{% include href/option/data.html param="ajax.dataSrc" %}
 
 接着昨天的dataSrc作为function时能处理什么复杂的情况呢？
 在这里可以把dataSrc和jQuery的ajax的success方法一起看，或者对于Datatables来说dataSrc是success的扩展、加强
