@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>ajax.json() 获取最新的JSON数据 文档(Options & API) DataTables中文网</title>
+    <title>ajax.params() 获取最后一次Ajax请求提交的参数 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="ajax.json,DataTables">
+    <meta name="keywords" content="ajax.params,api">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -124,14 +124,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">ajax.json() 正文</li>
+                <li class="active">ajax.params() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/ajax.json().html">ajax.json()</a>
-                    <small>获取最新的JSON数据</small>
+                    <a href="/reference/api/ajax.params().html">ajax.params()</a>
+                    <small>获取最后一次Ajax请求提交的参数</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -139,7 +139,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="ajax.json() 获取最新的JSON数据 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/ajax.json().html"
+                            data-clipboard-text="ajax.params() 获取最后一次Ajax请求提交的参数 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/ajax.params().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -147,43 +147,48 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>能够从DataTables请求中获取JSON数据做汇总往往是非常有用的，或者获取在响应中的数据但是DataTables不直接使用的数据（这个在开发中
-可以减少AJAX请求，把想要的数据一次性返回，以帮助提高性能）。该方法提供访问该数据。</p>
 
-<p>请注意，如果API实例引用了多个DataTables实例，则只会返回第一个表中的JSON数据。如果你使用了多个表，通过
-<a href="https://datatables.net/reference/api/table()" target="_blank">
-    <code class="api">table()<span>API</span></code>
-</a>
-获取指定的DataTables实例。</p>
+<p>在某些时候可以知道什么数据提交到服务器了。该方法提供获取DataTables的Ajax请求的数据对象。</p>
 
-<p>此外，如果
-<a href="/reference/option/ajax.html" target="_blank">
-    <code class="option">ajax<span>Option</span></code>
+<p>The data object stored is the resulting object once the 
+<a href="/reference/option/ajax.data.html" target="_blank">
+    <code class="option">ajax.data<span>Option</span></code>
 </a>
-<a href="/manual/daily/2016/04/18/option-ajax.html" target="_blank">
-    <code class="option">ajax<span>不定时一讲</span></code>
-</a>
-是作为一个function使用，该方法返回的是<code class="highlighter-rouge">undefined</code>而不是JSON字符串，
-因为给定的function已经覆盖了DataTables原有的Ajax处理程序。</p>
+<a href="/manual/daily/2016/04/21/option-ajax-data.html" target="_blank">
+    <code class="option">ajax.data<span>不定时一讲</span></code>
+</a></p>
+
+<p>option has been fully evaluated, so any custom parameters are also stored.</p>
+
+<p>这个对象是只读的，你对它进行任何更改，不会影响DataTables的操作，它提供仅是为了使用API。</p>
 
 <h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
 
 <hr />
 
-<h3 id="function-ajaxjson"><em>function</em> <strong>ajax.json()</strong></h3>
+<h3 id="function-ajaxparams"><em>function</em> <strong>ajax.params()</strong></h3>
 
 <h4 id="返回returns">返回(Returns):</h4>
 
 <p><a href="https://datatables.net/reference/type/object" target="_blank">
     <code class="type" title="Javascript parameter type">object<span>Type</span></code>
+</a>
+,
+<a href="https://datatables.net/reference/type/undefined" target="_blank">
+    <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
 </a></p>
 
-<p>从服务器获取最新的Ajax数据</p>
+<p>在最后一个Ajax请求中提交的数据，如果没有发生请求则返回
+<a href="https://datatables.net/reference/type/undefined" target="_blank">
+    <code class="type" title="Javascript parameter type">undefined<span>Type</span></code>
+</a>
+。</p>
 
 <hr />
 
 <h2 id="例子example">例子(Example)</h2>
-<p>alert弹出显示加载了多少行</p>
+<p>在每一次Ajax请求显示搜索词</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -192,13 +197,15 @@
 5
 6
 7
-8</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-    <span class="na">ajax</span><span class="p">:</span> <span class="s2">"data.json"</span>
+8
+9</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s2">"data.json"</span><span class="p">,</span>
+    <span class="na">serverSide</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span> <span class="p">);</span>
  
 <span class="nx">table</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'xhr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-    <span class="nx">alert</span><span class="p">(</span> <span class="nx">json</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span><span class="s1">' row(s) were loaded'</span> <span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">ajax</span><span class="p">.</span><span class="nx">params</span><span class="p">();</span>
+    <span class="nx">alert</span><span class="p">(</span> <span class="s1">'搜索词是: '</span><span class="o">+</span><span class="nx">data</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">value</span> <span class="p">);</span>
 <span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
@@ -209,8 +216,8 @@
 
 <ul>
   <li>
-    <p><a href="/reference/api/ajax.params().html" target="_blank">
-<code class="api">ajax.params()<span>API</span></code>
+    <p><a href="/reference/api/ajax.json().html" target="_blank">
+<code class="api">ajax.json()<span>API</span></code>
 </a></p>
   </li>
   <li>
@@ -249,10 +256,11 @@
 </a></li>
 </ul>
 
+
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/ajax.json()" target="_blank">https://datatables.net/reference/api/ajax.json()</a></p>
+                    <p><a href="https://datatables.net/reference/api/ajax.params()" target="_blank">https://datatables.net/reference/api/ajax.params()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -278,13 +286,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/ajax.json().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/ajax.json().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/ajax.params().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/ajax.params().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/ajax.json().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/ajax.json().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/ajax.params().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/ajax.params().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -469,7 +477,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/ajax.json().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/ajax.params().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
