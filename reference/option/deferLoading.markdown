@@ -25,14 +25,14 @@ author: /reference/option/deferLoading
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="integer" %}
+- {% include href/type/Javascript.html param="integer" %}
 当给定一个整数，表示延迟加载，并且告诉DT有多少条数据在完整的结果集里。
 
-- {% include href/type.html param="array" %}
+- {% include href/type/Javascript.html param="array" %}
 当给定一个数组，也表示延迟加载，第一个元素表示告诉DT多有少过滤后的记录数，第二个元素表示告诉DT总共有多少记录
 
 ## 默认值(Default)
- - value: {% include href/type.html param="null" %} 
+ - value: {% include href/type/Javascript.html param="null" %} 
  
 ## 例子(Example)
 表格中总共显示57条记录，无过滤操作 [示例](https://datatables.net/examples/server_side/defer_loading.html)

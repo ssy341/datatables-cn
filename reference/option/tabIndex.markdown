@@ -21,7 +21,7 @@ DataTables内部处理，当 `tabIndex` 的值大于0时，焦点切换的顺序
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="integer" %}
+- {% include href/type/Javascript.html param="integer" %}
 
 ## 默认值(Default)
 - Value ：`0`

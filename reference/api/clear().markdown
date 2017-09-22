@@ -33,7 +33,7 @@ author: /reference/api/clear()
 简单的移除表格的所有的数据
 
 #### 返回(Returns):
-{% include href/type.html param="DataTables.Settings" %}
+{% include href/type/DataTables.html param="DataTables.Settings" %}
 
 
 DataTables API 实例对象

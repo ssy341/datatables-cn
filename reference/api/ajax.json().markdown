@@ -25,7 +25,7 @@ author: /reference/api/ajax.json()
 ### _function_ **ajax.json()**
 
 #### 返回(Returns):
-{% include href/type.html param="object" %}
+{% include href/type/Javascript.html param="object" %}
 
 从服务器获取最新的Ajax数据
 

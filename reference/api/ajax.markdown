@@ -22,7 +22,7 @@ author: /reference/api/ajax
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="object" %}
+- {% include href/type/Javascript.html param="object" %}
 
 
 ## 例子(Example)

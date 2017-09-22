@@ -17,7 +17,7 @@ author: /reference/option/language.aria.paginate.first
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="string" %}
+- {% include href/type/Javascript.html param="string" %}
 
 ## 默认值(Default)
  {% include href/option/option.language param="language.aria.paginate.first" %} 属性没有默认值

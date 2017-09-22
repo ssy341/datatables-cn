@@ -26,7 +26,7 @@ DataTables默认情况下会在表格下面显示一个分页控件（可以使�
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="string" %}
+- {% include href/type/Javascript.html param="string" %}
 
 ## 默认值(Default)
 - Value ：`simple_numbers`

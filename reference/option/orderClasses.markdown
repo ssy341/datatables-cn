@@ -19,7 +19,7 @@ DataTables高亮被排序的列，是通给该列的所有单元格加上一个c
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="boolean" %}
+- {% include href/type/Javascript.html param="boolean" %}
 
 ## 默认值(Default)
  true

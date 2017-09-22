@@ -17,7 +17,7 @@ author: /reference/option/columns.className
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="string" %}
+- {% include href/type/Javascript.html param="string" %}
 
 ## 例子(Example)
 使用{% include href/option/option.columns param="columnDefs" %}的方式给第一列的每一个单元格指定一个 `my_class` 的样式

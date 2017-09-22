@@ -16,7 +16,7 @@ DataTables 为内置分页控件类型使用的分页描述字符串。
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="object" %}
+- {% include href/type/Javascript.html param="object" %}
 
 
  

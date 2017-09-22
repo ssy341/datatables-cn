@@ -40,7 +40,7 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 {% include_relative fn.dataTable.ext.errMode-parameters-code.html %}
 
 #### 返回(Returns):
-{% include href/type.html param="undefined" %}
+{% include href/type/Javascript.html param="undefined" %}
 No return is excepted or acted upon
      
 --- 

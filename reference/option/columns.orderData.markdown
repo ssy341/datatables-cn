@@ -18,10 +18,10 @@ author: /reference/option/columns.orderData
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="integer" %}
+- {% include href/type/Javascript.html param="integer" %}
 单列索引去排序
 
-- {% include href/type.html param="array" %}
+- {% include href/type/Javascript.html param="array" %}
 多列索引来定义多列排序
 
 ## 默认值(Default)

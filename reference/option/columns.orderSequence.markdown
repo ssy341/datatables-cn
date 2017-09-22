@@ -15,7 +15,7 @@ author: /reference/option/columns.orderSequence
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type.html param="array" %}
+- {% include href/type/Javascript.html param="array" %}
 
 ## 默认值(Default)
 
