@@ -1,0 +1,41 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>paging</code></td>
+        <td>
+            {% include href/type/Javascript.html param="boolean" %},{% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>Yes - default:true</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            此参数决定什么样的重绘DataTables将执行。这里有三个选项可以提供（请注意，字符串选项需要v1.10.8或者更新的版本）
+            <ul>
+                <li>
+                    {% include href/string.html param="full-reset" %}或者 <code>true</code>(默认) - 排序和搜索将会重新计算，行在新的位置重新绘制。
+                    分页将回到第一页。
+                </li>
+                <li>
+                    {% include href/string.html param="full-hold" %}或者 <code>false</code> -  排序和搜索将会重新计算，行在新的位置重新绘制。
+                    分页不会被重置，任保持当前页。
+                </li>
+                <li>
+                    {% include href/string.html param="page" %} - 排序，搜索和分页都维持当前的。这个会很有用，在页数（即{% include href/api/Core.html param="page()" %} ）
+                    切换之间数据不会改变。
+                </li>
+            </ul>
+            请注意，字符串选项需要v1.10.8或者更新的版本，v1.10.8版本以下只支持 <code>boolean</code> 类型的值
+        </td>
+    </tr>
+    </tbody>
+</table>
