@@ -15,7 +15,7 @@ author: /reference/option/columns.createdCell
 （在表格初始化的时候，如果开启了{% include href/option/features.html param="deferRender" %},单元格也许不会立马被创建
 ，或者你的行是使用API{% include href/api/Rows.html param="rows.add()" %}方法动态添加的）
 
-这个是选项是和 {% include href/option/option.callbacks param="createdRow" %} 回调方法相对应的
+这个是选项是和 {% include href/option/Callbacks.html param="createdRow" %} 回调方法相对应的
 
 ## 类型(Type)
 
@@ -50,5 +50,5 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/option.callbacks param="createdRow" %}
+- {% include href/option/Callbacks.html param="createdRow" %}
 - {% include href/option/features.html param="deferRender" %}

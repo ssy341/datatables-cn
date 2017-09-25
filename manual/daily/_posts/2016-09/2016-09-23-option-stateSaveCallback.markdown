@@ -10,9 +10,9 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://images5.fanpop.com/image/photos/32000000/Looper-Movie-Poster-looper-32031468-2560-1920.jpg
 ---
-参数详解连接{% include href/option/option.callbacks param="stateSaveCallback" %}
+参数详解连接{% include href/option/Callbacks.html param="stateSaveCallback" %}
 
-当{% include href/option/option.callbacks param="stateSave" %}为`true`，代表 DataTables 能存储表格的状态（过滤，排序，分页等等）
+当{% include href/option/Callbacks.html param="stateSave" %}为`true`，代表 DataTables 能存储表格的状态（过滤，排序，分页等等）
 默认情况使用 `localStorage` 进行存储。这个回调函数允许你更改怎样储存或在哪里储存表格状态数据，比如是从服务器上
 <!--more-->
 

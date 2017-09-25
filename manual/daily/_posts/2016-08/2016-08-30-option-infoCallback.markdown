@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://cdn-static.denofgeek.com/sites/denofgeek/files/2016/05/x-men-apocalypse-launch-quad-poster.jpg
 ---
-参数详解连接{% include href/option/option.callbacks param="infoCallback" %}
+参数详解连接{% include href/option/Callbacks.html param="infoCallback" %}
 
 表格通常有一个描述信息，用来显示当前表格总共多少记录，当前显示的是多少条到多少条记录，或者其他自定义的信息，如果你需要自定义这些，这个回调函数会帮你处理这个问题
 <!--more-->

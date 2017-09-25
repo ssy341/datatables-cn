@@ -12,9 +12,9 @@ banner: http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Po
 ---
 
 ## 描述
-参数详解连接{% include href/option/option.callbacks param="stateSaveParams" %}
+参数详解连接{% include href/option/Callbacks.html param="stateSaveParams" %}
 
-当{% include href/option/option.callbacks param="stateSaveCallback" %}执行完毕后或者保存的数据被操作即触发这个回调函数。
+当{% include href/option/Callbacks.html param="stateSaveCallback" %}执行完毕后或者保存的数据被操作即触发这个回调函数。
 <!--more-->
 
 ## 类型
@@ -32,7 +32,7 @@ banner: http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Po
 - `data`
     - {% include href/type/Javascript.html param="object"%}
     - No
-    - 用来储存的数据。数据来自{% include href/option/option.callbacks param="stateSaveParams" %}
+    - 用来储存的数据。数据来自{% include href/option/Callbacks.html param="stateSaveParams" %}
 
 
 ## 例子

@@ -17,7 +17,7 @@ DataTables提供的所有语言选项都可以储存在服务器上的文件中�
 在这个[网站](https://datatables.net/plug-ins/i18n)上，已经有其他语言的插件可以直接使用。
 
 请注意当此参数设置时，由于Ajax数据加载，DataTables初始化将是异步的。也就是说，在完成Ajax请求之前，不会绘制表格。
-因此，需要表完成其初始化的任何操作都应该放在 {% include href/option/option.callbacks param="initComplete" %} 回调中处理。
+因此，需要表完成其初始化的任何操作都应该放在 {% include href/option/Callbacks.html param="initComplete" %} 回调中处理。
 
 
 ## 类型(Type)
@@ -63,4 +63,4 @@ $('#example').DataTable({
 Options
 
 - {% include href/option/option.language param="language" %}
-- {% include href/option/option.callbacks param="initComplete" %}
+- {% include href/option/Callbacks.html param="initComplete" %}

@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://img.goldposter.com/2015/12/Ice-Age-5_poster_goldposter_com_4.jpg
 ---
-参数详解连接{% include href/option/option.callbacks param="headerCallback" %}
+参数详解连接{% include href/option/Callbacks.html param="headerCallback" %}
 
 一个标准的表格分为thead，tbody和tfoot，一般我们可能只使用了thead和tbody，在开发过程中偶尔也会在表头做一些特殊处理，DataTables 提供了表头的回调处理
 <!--more-->

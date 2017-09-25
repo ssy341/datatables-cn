@@ -10,7 +10,7 @@
 	<tbody>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="createdRow" %}
+                {% include href/option/Callbacks.html param="createdRow" %}
             </td>
 			<td>
 				<p>行被创建时回调函数</p>
@@ -18,7 +18,7 @@
 			</tr>
 			<tr>
 				<td>
-					{% include href/option/option.callbacks param="drawCallback" %}
+					{% include href/option/Callbacks.html param="drawCallback" %}
 				</td>
 				<td>
 					<p>表格每次重绘回调函数</p>
@@ -27,7 +27,7 @@
 			<tr>
 				<td>
 					<p>
-					{% include href/option/option.callbacks param="footerCallback" %}
+					{% include href/option/Callbacks.html param="footerCallback" %}
                     </p>
 				</td>
 				<td>
@@ -36,7 +36,7 @@
 			</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="formatNumber" %}
+                {% include href/option/Callbacks.html param="formatNumber" %}
             </td>
 			<td>
 				<p>数字格式化时的回调函数</p>
@@ -44,7 +44,7 @@
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="headerCallback" %}
+                {% include href/option/Callbacks.html param="headerCallback" %}
             </td>
 			<td>
 				<p>表格Header显示时的回调函数</p>
@@ -52,53 +52,53 @@
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="infoCallback" %}
+                {% include href/option/Callbacks.html param="infoCallback" %}
             </td>
 			<td>改变表格状态信息的回调函数</td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="initComplete" %}
+                {% include href/option/Callbacks.html param="initComplete" %}
             </td>
 			<td><p>初始化结束后的回调函数</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="preDrawCallback" %}
+                {% include href/option/Callbacks.html param="preDrawCallback" %}
             </td>
 			<td><p>表格绘制前的回调函数</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="rowCallback" %}
+                {% include href/option/Callbacks.html param="rowCallback" %}
             </td>
 			<td><p>表格行(Row)绘制的回调函数</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="stateLoadCallback" %}
+                {% include href/option/Callbacks.html param="stateLoadCallback" %}
             </td>
 			<td><p>该回调函数定义了从哪里和如何读取保存的状态</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="stateLoaded" %}
+                {% include href/option/Callbacks.html param="stateLoaded" %}
             </td>
 			<td><p>状态加载完成之后的回调函数</p></td>
 		</tr>
 		<tr>
-			<td> {% include href/option/option.callbacks param="stateLoadParams" %}</td>
+			<td> {% include href/option/Callbacks.html param="stateLoadParams" %}</td>
 			<td><p>状态加载完成之后，对数据处理的回调函数</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="stateSaveCallback" %}
+                {% include href/option/Callbacks.html param="stateSaveCallback" %}
             </td>
 			<td><p>该回调函数定义了状态该存储在什么地方及如何存储</p></td>
 		</tr>
 		<tr>
 			<td>
-                {% include href/option/option.callbacks param="stateSaveParams" %}
+                {% include href/option/Callbacks.html param="stateSaveParams" %}
             </td>
 			<td><p>对状态进行存储时，对数据处理的回调函数</p></td>
 		</tr>

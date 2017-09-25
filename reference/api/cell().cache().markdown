@@ -12,7 +12,7 @@ author: /reference/api/cell().cache()
 ## 描述(Description)
 DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序更快的的反应。有时候用这个方法获取DataTables已经为那些操作缓存好的数据是非常有用的。
 
-缓存数据并不能保证在任何特定的时候都可用。如果DataTables没有请求数据，那么就不会被缓存。当你使用{% include href/string param="order" %}选项，列的排序还没有执行的时候尤为明显。数据失效也会导致缓存被移移除。
+缓存数据并不能保证在任何特定的时候都可用。如果DataTables没有请求数据，那么就不会被缓存。当你使用{% include href/string.html param="order" %}选项，列的排序还没有执行的时候尤为明显。数据失效也会导致缓存被移移除。
 
 应当注意的是，这个方法针对不同操作（搜索、排序、显示等）使用不同的数据。具体参考{% include href/option/option.columns param="columns.data" %}和{% include href/option/option.columns param="columns.render" %}可以获取更多信息。
 

@@ -10,12 +10,12 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://www.wallpaperdx.com/images/jason-bourne-2016-poster-hd-wallpaper.jpg
 ---
-参数详解连接{% include href/option/option.callbacks param="stateLoadCallback" %}
+参数详解连接{% include href/option/Callbacks.html param="stateLoadCallback" %}
 
 这个回调函数定义了保存状态应该怎样、从哪里被读取。默认情况下 DT 从`localStorage`读取，但是也许你也会从服务器或者`cookies`中获取这些状态。
 <!--more-->
 
-关于储存的个数据格式，参考 {% include href/option/option.callbacks param="stateSaveCallback" %}
+关于储存的个数据格式，参考 {% include href/option/Callbacks.html param="stateSaveCallback" %}
 
 注意，这个回调函数需要和 `stateSaveCallback` 配合使用。一个是如何读取，一个是如何存储。
 

@@ -11,7 +11,7 @@ author: /reference/option/language.thousands
 
 ## 描述(Description)
 
-DataTables内置的数字格式化方法({% include href/option/option.callbacks param="formatNumber" %})用于格式化表中使用的大数字。
+DataTables内置的数字格式化方法({% include href/option/Callbacks.html param="formatNumber" %})用于格式化表中使用的大数字。
 默认情况下使用逗号分隔，这个参数可以改变成你想要的其他任何字符，适合任何地方，或者你不需要千分位分隔，设置为空即可。
 
 请注意，不同于{% include href/option/option.language param="language.decimal" %}，千分位分隔符仅用于输出信息
@@ -49,4 +49,4 @@ Options
 - {% include href/option/option.language param="language.infoEmpty" %}
 - {% include href/option/option.language param="language.infoFiltered" %}
 - {% include href/option/option.language param="language.infoPostFix" %}
-- {% include href/option/option.callbacks param="formatNumber" %}
+- {% include href/option/Callbacks.html param="formatNumber" %}
