@@ -13,7 +13,7 @@ author: /reference/option/language.zeroRecords
 
 当过滤后无显示信息时表格中显示的文本记录。
 
-注意，当表格完全没有任何数据时，显示{% include href/option/option.language param="language.emptyTable" %}文本（不管过滤），
+注意，当表格完全没有任何数据时，显示{% include href/option/Internationalisation.html param="language.emptyTable" %}文本（不管过滤），
 而此参数用于当表格过滤后为空的情况。
 
 ## 类型(Type)
@@ -48,6 +48,6 @@ API
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.emptyTable" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.emptyTable" %}
 - {% include href/option/options.html param="search" %}

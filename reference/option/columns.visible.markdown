@@ -26,7 +26,7 @@ DataTables通过 {% include href/api/Columns.html param="column().visible()" %}/
 
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 设置第一列隐藏
+使用 {% include href/option/Columns.html param="columnDefs" %} 设置第一列隐藏
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {
@@ -36,7 +36,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置
+使用 {% include href/option/Columns.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
  "columns": [

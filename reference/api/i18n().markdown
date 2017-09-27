@@ -1,0 +1,170 @@
+---
+layout: reference_md
+title: i18n()
+summary: 国际化标记查询
+sub: 文档(Options & API) DataTables中文网
+since: DataTables 1.10.7
+navcategory: api
+keywords: i18n,api
+author: /reference/api/i18n()
+---
+
+
+## 描述(Description)
+该方法设计是为了提供给插件和扩展的开发人员，最终向用户显示语言字符串。它提供了将{% include href/option/Internationalisation.html param="language" %}配置对象
+用作语言字符串的单个配置点，然后从该对象中查找值的功能。对于开发人员未提供自己的字符串的情况，应该提供默认值。
+
+该方法还提供了在考虑国际化时必须考虑的单数，复数，双重等形式的基本支持。这是通过提供一个包含要使用的表单的键的对象以及默认值来完成的。
+
+考虑如下对象：
+{% highlight javascript linenos %}
+{
+    _: "%d rows selected",
+    0: "Click a row to select",
+    1: "1 row selected"
+}
+{% endhighlight %}
+
+当数值`0`传入（第三个参数）的情况下，将使用 "Click a row to select" 字符串。数值为`1`时，使用"1 row selected"。对于其他所有值，默认
+`_`参数的值将与`%d`替换为数字值一起使用。对于使用双重形式的语言，添加`2`参数等。
+
+应该指出，国际化（简称i18n）/本地化（简称为l10n）[很难](http://search.cpan.org/dist/Locale-Maketext/lib/Locale/Maketext/TPJ13.pod#A_Localization_Horror_Story:_It_Could_Happen_To_You)。
+该方法为DataTables及其组件中的基本国际化提供了良好的支持，但不完全支持。在此时，完全支持已经超出了DataTables库的范围。
+
+
+## 类型(Type)
+这个选项能够接受以下类型的参数：
+
+---
+    
+### _function_ **i18n( token, def [, numeric ] )**   
+
+---
+
+#### 描述(Description):
+
+查找在DataTables的{% include href/option/Internationalisation.html param="language" %}初始化对象中定义的语言标记。
+
+     
+#### 参数(Parameters):
+{% include_relative i18n-parameters-code.html %}
+
+#### 返回(Returns):
+
+{% include href/type/Javascript.html param="string" %}
+
+返回国际化字符串
+
+--- 
+    
+## 例子(Example)
+
+简单的字符串标记查找，不使用定义的字符串，使用默认的（结果将弹出提示框显示 "Copy to clipboard"）
+{% highlight javascript linenos %}
+var table = $('#myTable').DataTable();
+
+alert(
+    table.i18n( 'buttons.copy', 'Copy to clipboard' )
+);
+{% endhighlight %}
+
+
+---
+
+跟上面例子一样，只是开发人员定义了值（结果将弹出提示框显示 "Click to copy"）
+{% highlight javascript linenos %}
+var table = $('#myTable').DataTable( {
+    language: {
+        buttons: {
+            copy: "Click to copy"
+        }
+    }
+} );
+
+alert(
+    table.i18n( 'buttons.copy', 'Copy to clipboard' )
+);
+{% endhighlight %}
+
+
+
+---
+
+对象形式，开发人员不定义
+{% highlight javascript linenos %}
+var table = $('#myTable').DataTable();
+ 
+// 将显示 "0 rows selected"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 0 )
+);
+ 
+// 将显示 "1 row selected"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 1 )
+);
+ 
+// 将显示 "4 rows selected"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 4 )
+);
+{% endhighlight %}
+---
+
+和上面例子一样，对象形式，加入开发人员定义
+{% highlight javascript linenos %}
+var table = $('#myTable').DataTable( {
+    language: {
+        select: {
+            rows: {
+                _: '%d rows selected',
+                0: 'Click a row to select',
+                1: 'Just one row selected'
+            }
+        }
+    }
+} );
+ 
+// 将显示 "Click a row to select"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 0 )
+);
+ 
+// 将显示 "Just one row selected"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 1 )
+);
+ 
+// 将显示 "4 rows selected"
+alert(
+    table.i18n( 'select.rows', {
+        _: '%d rows selected',
+        1: '1 row selected'
+    }, 4 )
+);
+{% endhighlight %}
+
+
+
+## 相关属性(Related)
+下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
+
+Options
+
+- {% include href/option/Internationalisation.html param="language" %}
+

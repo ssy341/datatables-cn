@@ -43,5 +43,5 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.loadingRecords" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.loadingRecords" %}

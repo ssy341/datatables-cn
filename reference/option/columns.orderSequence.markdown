@@ -22,7 +22,7 @@ author: /reference/option/columns.orderSequence
 - Value: `[ 'asc', 'desc' ]`
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 设置 `orderSequence`
+使用 {% include href/option/Columns.html param="columnDefs" %} 设置 `orderSequence`
 
 - 设置第1列第一次升序排列
 - 设置第3列第一次降序，第二次升序，第三次升序，依次循环
@@ -38,7 +38,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置
+使用 {% include href/option/Columns.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
     "columns": [

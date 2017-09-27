@@ -10,9 +10,9 @@ author: /reference/option/language.emptyTable
 ---
 
 ## 描述(Description)
-当表格为空时（不管过滤），此字符串首选项是 {% include href/option/option.language param="language.zeroRecords" %}
+当表格为空时（不管过滤），此字符串首选项是 {% include href/option/Internationalisation.html param="language.zeroRecords" %}
 
-请注意，这是一个可选参数，如果不给予赋值，值会被{% include href/option/option.language param="language.zeroRecords" %}替换掉（默认值或者给定值）
+请注意，这是一个可选参数，如果不给予赋值，值会被{% include href/option/Internationalisation.html param="language.zeroRecords" %}替换掉（默认值或者给定值）
 
 
 ## 类型(Type)
@@ -40,6 +40,6 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.infoEmpty" %}
-- {% include href/option/option.language param="language.zeroRecords" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.infoEmpty" %}
+- {% include href/option/Internationalisation.html param="language.zeroRecords" %}

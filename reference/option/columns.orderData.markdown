@@ -29,7 +29,7 @@ author: /reference/option/columns.orderData
 
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 配置
+使用 {% include href/option/Columns.html param="columnDefs" %} 配置
 
 
 - 第一列按照第一列和第二列排序作为默认排序
@@ -46,7 +46,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置
+使用 {% include href/option/Columns.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
       "columns": [

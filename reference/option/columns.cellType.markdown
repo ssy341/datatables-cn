@@ -13,7 +13,7 @@ author: /reference/option/columns.ceellType
 创建列的时候改变单元格的类型，要么是`td`要么是`th`。
 
 单元格类型为`th`时很有用，因为在表格的tbody里有特殊的意义，允许它作为行的标题
-（你也许希望通过{% include href/option/option.columns param="columns.createdCell" %}选项添加`scope='row'` 属性到 `th` 上）
+（你也许希望通过{% include href/option/Columns.html param="columns.createdCell" %}选项添加`scope='row'` 属性到 `th` 上）
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -41,4 +41,4 @@ $('#example').DataTable( {
 Options
 
 - {% include href/option/data.html param="ajax" %}
-- {% include href/option/option.columns param="columns.createdCell" %}
+- {% include href/option/Columns.html param="columns.createdCell" %}

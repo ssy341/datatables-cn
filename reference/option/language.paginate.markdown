@@ -25,8 +25,8 @@ DataTables 为内置分页控件类型使用的分页描述字符串。
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.paginate.first" %}
-- {% include href/option/option.language param="language.paginate.next" %}
-- {% include href/option/option.language param="language.paginate.previous" %}
-- {% include href/option/option.language param="language.paginate.last" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.paginate.first" %}
+- {% include href/option/Internationalisation.html param="language.paginate.next" %}
+- {% include href/option/Internationalisation.html param="language.paginate.previous" %}
+- {% include href/option/Internationalisation.html param="language.paginate.last" %}

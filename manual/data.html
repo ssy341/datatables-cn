@@ -69,7 +69,7 @@ title: 数据 手册 Datatables中文网
     </li>
 </ul>
 <p>
-    DataTables 可以用 {% include href/option/option.columns param="columns.data" %} 或者 {% include href/option/option.columns param="columns.render" %}
+    DataTables 可以用 {% include href/option/Columns.html param="columns.data" %} 或者 {% include href/option/Columns.html param="columns.render" %}
     选项来设定显示数据，默认操作模式是数组（Arrays），而对象（Objects）和实例（Instance）能处理更复杂的数据
 </p>
 <h3 data-anchor="Arrays" style="margin: 1em 0px 0.5em; padding: 0px; font-size: 1.4em; font-weight: normal; color: rgb(51, 51, 51); font-family: &#39;Helvetica Neue&#39;, HelveticaNeue, Helvetica, Verdana, Arial, sans-serif; line-height: 20.8799991607666px; white-space: normal; background-color: rgb(255, 255, 255);">
@@ -134,8 +134,8 @@ title: 数据 手册 Datatables中文网
     根据表格的需求显示，对象可以包含更多的信息,例如包括数据库的主键而用户是看不见的.
 </p>
 <p style="color: red;font-weight: bold">
-    使用对象前，你需要明确告诉 DataTables 那个属性对应那一列，&nbsp;通过使用{% include href/option/option.columns param="columns.data" %}
-    或者{% include href/option/option.columns param="columns.data" %}选项完成。
+    使用对象前，你需要明确告诉 DataTables 那个属性对应那一列，&nbsp;通过使用{% include href/option/Columns.html param="columns.data" %}
+    或者{% include href/option/Columns.html param="columns.data" %}选项完成。
 </p>
 <p>
     下面看看 Object 是个什么样的格式：
@@ -196,7 +196,7 @@ title: 数据 手册 Datatables中文网
 </p>
 
 <p>
-    注意,name,salary,position 是属性而office是一个方法，DataTables 允许这样使用，他会自动识别，详细见手册{% include href/option/option.columns param="columns.data" %}<br/>
+    注意,name,salary,position 是属性而office是一个方法，DataTables 允许这样使用，他会自动识别，详细见手册{% include href/option/Columns.html param="columns.data" %}<br/>
     以上为实例作为数据源的实例，效果如下：
 </p>
 

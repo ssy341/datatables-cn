@@ -52,20 +52,20 @@ API
 
 Options
 
-- {% include href/option/option.columns param="columnDefs" %}
-- {% include href/option/option.columns param="columns.cellType" %}
-- {% include href/option/option.columns param="columns.className" %}
-- {% include href/option/option.columns param="columns.contentPadding" %}
-- {% include href/option/option.columns param="columns.createdCell" %}
-- {% include href/option/option.columns param="columns.data" %}
-- {% include href/option/option.columns param="columns.defaultContent" %}
-- {% include href/option/option.columns param="columns.name" %}
-- {% include href/option/option.columns param="columns.orderable" %}
-- {% include href/option/option.columns param="columns.orderData" %}
-- {% include href/option/option.columns param="columns.orderDataType" %}
-- {% include href/option/option.columns param="columns.render" %}
-- {% include href/option/option.columns param="columns.searchable" %}
-- {% include href/option/option.columns param="columns.title" %}
-- {% include href/option/option.columns param="columns.type" %}
-- {% include href/option/option.columns param="columns.visible" %}
-- {% include href/option/option.columns param="columns.width" %}
+- {% include href/option/Columns.html param="columnDefs" %}
+- {% include href/option/Columns.html param="columns.cellType" %}
+- {% include href/option/Columns.html param="columns.className" %}
+- {% include href/option/Columns.html param="columns.contentPadding" %}
+- {% include href/option/Columns.html param="columns.createdCell" %}
+- {% include href/option/Columns.html param="columns.data" %}
+- {% include href/option/Columns.html param="columns.defaultContent" %}
+- {% include href/option/Columns.html param="columns.name" %}
+- {% include href/option/Columns.html param="columns.orderable" %}
+- {% include href/option/Columns.html param="columns.orderData" %}
+- {% include href/option/Columns.html param="columns.orderDataType" %}
+- {% include href/option/Columns.html param="columns.render" %}
+- {% include href/option/Columns.html param="columns.searchable" %}
+- {% include href/option/Columns.html param="columns.title" %}
+- {% include href/option/Columns.html param="columns.type" %}
+- {% include href/option/Columns.html param="columns.visible" %}
+- {% include href/option/Columns.html param="columns.width" %}

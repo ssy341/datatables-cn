@@ -32,7 +32,7 @@ author: /reference/option/columns.name
 
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 配置`columns.name` 
+使用 {% include href/option/Columns.html param="columnDefs" %} 配置`columns.name` 
 给1,2,3,4,5 列分别指定engine，browser，platform，version，grade名称
 {% highlight javascript linenos %}
 $('#example').DataTable( {
@@ -46,7 +46,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置 `columns.name` 
+使用 {% include href/option/Columns.html param="columns" %} 配置 `columns.name` 
 {% highlight javascript linenos %}
 $('#example').DataTable( {
      "columns": [

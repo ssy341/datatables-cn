@@ -61,10 +61,10 @@ API
 
 Options
 
-- {% include href/option/option.language param="language" %}
+- {% include href/option/Internationalisation.html param="language" %}
 - {% include href/option/features.html param="searching" %}
-- {% include href/option/option.language param="language.searchPlaceholder" %}
-- {% include href/option/option.language param="language.paginate.next" %}
-- {% include href/option/option.language param="language.paginate.previous" %}
-- {% include href/option/option.language param="language.aria.paginate" %}
-- {% include href/option/option.language param="language.aria.paginate.last" %}
+- {% include href/option/Internationalisation.html param="language.searchPlaceholder" %}
+- {% include href/option/Internationalisation.html param="language.paginate.next" %}
+- {% include href/option/Internationalisation.html param="language.paginate.previous" %}
+- {% include href/option/Internationalisation.html param="language.aria.paginate" %}
+- {% include href/option/Internationalisation.html param="language.aria.paginate.last" %}

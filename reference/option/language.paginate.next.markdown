@@ -45,10 +45,10 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.paginate" %}
-- {% include href/option/option.language param="language.paginate.first" %}
-- {% include href/option/option.language param="language.paginate.last" %}
-- {% include href/option/option.language param="language.paginate.previous" %}
-- {% include href/option/option.language param="language.aria.paginate" %}
-- {% include href/option/option.language param="language.aria.paginate.next" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.paginate" %}
+- {% include href/option/Internationalisation.html param="language.paginate.first" %}
+- {% include href/option/Internationalisation.html param="language.paginate.last" %}
+- {% include href/option/Internationalisation.html param="language.paginate.previous" %}
+- {% include href/option/Internationalisation.html param="language.aria.paginate" %}
+- {% include href/option/Internationalisation.html param="language.aria.paginate.next" %}

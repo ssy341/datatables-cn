@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.Md8cd419f998bdfd2a75da5f04f4d8a4bo0&w=300&h=187&c=0&pid=1.9&rs=0&p=0
 ---
-参数详解连接{% include href/option/option.columns param="columns.render" %}
+参数详解连接{% include href/option/Columns.html param="columns.render" %}
 
 昨天暂且列出了7个问题，今天讲第二个，怎么在表格的最后一列，添加自定义的按钮，比如说【删除】
 <!--more-->

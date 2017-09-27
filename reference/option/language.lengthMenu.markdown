@@ -58,6 +58,6 @@ API
 
 Options
 
-- {% include href/option/option.language param="language" %}
+- {% include href/option/Internationalisation.html param="language" %}
 - {% include href/option/features.html param="lengthChange" %}
 - {% include href/option/options.html param="lengthMenu" %}

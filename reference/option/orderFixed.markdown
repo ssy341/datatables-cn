@@ -78,8 +78,8 @@ Options
 
 - {% include href/option/options.html param="order" %}
 - {% include href/option/features.html param="ordering" %}
-- {% include href/option/option.columns param="columns.orderable" %}
-- {% include href/option/option.columns param="columns.orderData" %}
+- {% include href/option/Columns.html param="columns.orderable" %}
+- {% include href/option/Columns.html param="columns.orderData" %}
 
 API
 

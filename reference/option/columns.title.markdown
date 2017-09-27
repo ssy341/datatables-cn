@@ -26,7 +26,7 @@ author: /reference/option/columns.title
 - 从列的表头单元格获取数据
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 设置 `title`
+使用 {% include href/option/Columns.html param="columnDefs" %} 设置 `title`
 
 设置第一列的标题
 
@@ -38,7 +38,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置
+使用 {% include href/option/Columns.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
   "columns": [

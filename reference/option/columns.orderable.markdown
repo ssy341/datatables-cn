@@ -25,7 +25,7 @@ author: /reference/option/columns.orderable
 
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 配置第一列不允许排序
+使用 {% include href/option/Columns.html param="columnDefs" %} 配置第一列不允许排序
 {% highlight javascript linenos %}
 $('#example').DataTable( {
    "columnDefs": [
@@ -34,7 +34,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置第一列不允许排序
+使用 {% include href/option/Columns.html param="columns" %} 配置第一列不允许排序
 {% highlight javascript linenos %}
 $('#example').DataTable( {
     "columns": [

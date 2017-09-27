@@ -22,7 +22,7 @@ DataTables主要的排序功能（{% include href/option/features.html param="or
 - {% include href/type/Javascript.html param="string" %}
 
 ## 例子(Example)
-使用 {% include href/option/option.columns param="columnDefs" %} 设置实时排序类型
+使用 {% include href/option/Columns.html param="columnDefs" %} 设置实时排序类型
 下面给出了一个表格包含了form表单元素的排序例子
 
 - 第3,4列按照text排序
@@ -41,7 +41,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/option.columns param="columns" %} 配置
+使用 {% include href/option/Columns.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
      "columns": [
@@ -61,7 +61,7 @@ $('#example').DataTable( {
 Options
 
 - {% include href/option/features.html param="ordering" %}
-- {% include href/option/option.columns param="columns.type" %}
+- {% include href/option/Columns.html param="columns.type" %}
 
 
 

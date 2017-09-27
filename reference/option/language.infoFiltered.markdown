@@ -13,7 +13,7 @@ author: /reference/option/language.infoFiltered
 
 当用户执行过滤操作的时候，此字符串会被追加到主要信息（`info`）以了解是怎样过滤的。
 
-`_MAX_` 标记会被动态更新 - 参考{% include href/option/option.language param="language.info" %} 查看所有的标记
+`_MAX_` 标记会被动态更新 - 参考{% include href/option/Internationalisation.html param="language.info" %} 查看所有的标记
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -40,8 +40,8 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/option.language param="language" %}
-- {% include href/option/option.language param="language.info" %}
-- {% include href/option/option.language param="language.infoEmpty" %}
-- {% include href/option/option.language param="language.infoPostFix" %}
-- {% include href/option/option.language param="language.thousands" %}
+- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/option/Internationalisation.html param="language.info" %}
+- {% include href/option/Internationalisation.html param="language.infoEmpty" %}
+- {% include href/option/Internationalisation.html param="language.infoPostFix" %}
+- {% include href/option/Internationalisation.html param="language.thousands" %}
