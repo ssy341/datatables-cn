@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>$.fn.dataTable.isDataTable() 检查一个 table 节点是不是 DataTables 实例 文档(Options & API) DataTables中文网</title>
+    <title>off() 移除表格所有事件 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="fn,DataTables,isDataTable">
+    <meta name="keywords" content="off,api">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -124,14 +124,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">$.fn.dataTable.isDataTable() 正文</li>
+                <li class="active">off() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/$.fn.dataTable.isDataTable().html">$.fn.dataTable.isDataTable()</a>
-                    <small>检查一个 table 节点是不是 DataTables 实例</small>
+                    <a href="/reference/api/off().html">off()</a>
+                    <small>移除表格所有事件</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -139,7 +139,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="$.fn.dataTable.isDataTable() 检查一个 table 节点是不是 DataTables 实例 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/$.fn.dataTable.isDataTable().html"
+                            data-clipboard-text="off() 移除表格所有事件 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/off().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -147,25 +147,49 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>这个方法能够用来检查一个
-<code class="tag" title="HTML tag">tbody<span>Tag</span></code>
-节点是否已经是一个
-DataTables实例，可以有效保证你不会把一个已经初始化的再次初始化，提高效率。</p>
 
-<p>请注意，这是一个静态的方法，不需要用API实例去调用，通过<code class="highlighter-rouge">$.fn.dataTable</code>对象调用即可，并且随时可以执行这个方法，
-甚至可以在生成表格之前调用这个方法。</p>
+<p>DataTables可以触发很多事件，这些事件在DataTables执行对应事件可以采取相应的行动。比如说，知道当Ajax事件（
+<a href="http://datatables.net/reference/event/xhr" target="_blank">
+    <code class="event">xhr<span>Event</span></code>
+</a>
+）
+何时发生是非常有用的，所以你可以添加额外的数据到JSON有效载荷。</p>
+
+<p>DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件方法相匹配：</p>
+
+<ul>
+  <li><a href="//datatables.net/reference/api/on()" target="_blank">
+<code class="api">on()<span>API</span></code>
+</a>
+ 监听事件</li>
+  <li><a href="/reference/api/off().html" target="_blank">
+<code class="api">off()<span>API</span></code>
+</a>
+ 移除监听事件</li>
+  <li><a href="//datatables.net/reference/api/one()" target="_blank">
+<code class="api">one()<span>API</span></code>
+</a>
+ 监听一次然后移除事件</li>
+</ul>
+
+<p><code class="highlighter-rouge">off()</code>方法用于删除已经附加到DataTables的事件。只需要传递你希望删除的事件即可移除事件监听，你还可以使用特定的方法来移除单个的事件监听。</p>
 
 <h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
 
 <hr />
 
-<h3 id="function-isdatatable-table-"><em>function</em> isDataTable( table )</h3>
+<h3 id="function-off-event--callback-"><em>function</em> <strong>off( event [, callback] )</strong></h3>
+
+<hr />
 
 <h4 id="描述description-1">描述(Description):</h4>
-<p>检查一个
-<code class="tag" title="HTML tag">tbody<span>Tag</span></code>
-节点是否已经是一个
-DataTables实例</p>
+
+<p>删除使用 
+<a href="//datatables.net/reference/api/on()" target="_blank">
+    <code class="api">on()<span>API</span></code>
+</a>
+ 绑定的监听器</p>
 
 <h4 id="参数parameters">参数(Parameters):</h4>
 <table class="parameters dataTable stripe row-border no-footer">
@@ -180,23 +204,11 @@ DataTables实例</p>
     <tbody>
     <tr class="even">
         <td>1</td>
-        <td><code>version</code></td>
+        <td><code>event</code></td>
         <td>
             
 <a href="https://datatables.net/reference/type/string" target="_blank">
     <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a>
-,
-<a href="https://datatables.net/reference/type/node" target="_blank">
-    <code class="type" title="Javascript parameter type">node<span>Type</span></code>
-</a>
-, 
-<a href="https://datatables.net/reference/type/jQuery" target="_blank">
-    <code class="type" title="Javascript parameter type">jQuery<span>Type</span></code>
-</a>
-,
-<a href="https://datatables.net/reference/type/DataTables.Api" target="_blank">
-    <code class="type">DataTables.Api<span>Type</span></code>
 </a>
 
         </td>
@@ -205,14 +217,23 @@ DataTables实例</p>
     <tr class="even continuation">
         <td></td>
         <td colspan="3">
-            要检查table，可以是如下其中一个
-            <ul>
-                <li>一个 DOM 元素</li>
-                <li>一个 jQuery 选择器</li>
-                <li>一个包含要检查的节点的 jQuery 对象</li>
-                <li>一个 DataTables API 实例</li>
-            </ul>
-            注意如果jQuery选择器返回多个节点，只有第一个节点被检查
+            要删除的事件名称。可以删除多个事件以空格分隔或者命名空间，就像 <code>jQuyer.off()</code> 一样的使用方法。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>callback</code></td>
+        <td>
+<a href="https://datatables.net/reference/type/function" target="_blank">
+    <code class="type" title="Javascript parameter type">function<span>Type</span></code>
+</a>
+</td>
+        <td>Yes - default:</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            要取消绑定单独的事件监听可使用具体回调方法。如果没有定义回调方法，将删除与第一个参数中给出的事件名称/命名空间相匹配的所有事件监听。
         </td>
     </tr>
     </tbody>
@@ -220,29 +241,51 @@ DataTables实例</p>
 
 <h4 id="返回returns">返回(Returns):</h4>
 
-<p><a href="https://datatables.net/reference/type/boolean" target="_blank">
-    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+<p><a href="https://datatables.net/reference/type/DataTables.Api" target="_blank">
+    <code class="type">DataTables.Api<span>Type</span></code>
 </a></p>
 
-<p><code class="highlighter-rouge">true</code> 表示检查的table是一个DataTables实例，<code class="highlighter-rouge">false</code>则不是</p>
+<p>DataTables API 实例对象</p>
 
 <hr />
 
 <h2 id="例子example">例子(Example)</h2>
-<p>检查<code class="highlighter-rouge">#example</code>是否是一个DataTables实例，如果不是，就初始化</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre><span class="k">if</span> <span class="p">(</span> <span class="o">!</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">DataTable</span><span class="p">.</span><span class="nx">isDataTable</span><span class="p">(</span> <span class="s1">'#example'</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">();</span>
-<span class="p">}</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<p>监听第一次 <code class="highlighter-rouge">xhr</code> 事件， 请注意，这个和使用 <code class="highlighter-rouge">table.one(...);</code> 是一样的效果</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">ajax</span><span class="p">:</span> <span class="s2">"/data"</span><span class="p">,</span>
+    <span class="na">serverSide</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span> <span class="p">);</span>
+ 
+<span class="nx">table</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'xhr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">table</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span> <span class="s1">'xhr'</span> <span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s1">'Ajax事件发生，返回的数据: '</span><span class="p">,</span> <span class="nx">json</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span></code></pre></figure>
+
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>API</p>
+
+<ul>
+  <li>
+    <p><a href="//datatables.net/reference/api/on()" target="_blank">
+<code class="api">on()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="//datatables.net/reference/api/one()" target="_blank">
+<code class="api">one()<span>API</span></code>
+</a></p>
+  </li>
+</ul>
 
 
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/%24.fn.dataTable.isDataTable()" target="_blank">https://datatables.net/reference/api/%24.fn.dataTable.isDataTable()</a></p>
+                    <p><a href="https://datatables.net/reference/api/off()" target="_blank">https://datatables.net/reference/api/off()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -268,13 +311,13 @@ DataTables实例</p>
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/$.fn.dataTable.isDataTable().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/$.fn.dataTable.isDataTable().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/off().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/off().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/$.fn.dataTable.isDataTable().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/$.fn.dataTable.isDataTable().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/off().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/off().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -459,7 +502,7 @@ DataTables实例</p>
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/$.fn.dataTable.isDataTable().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/off().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>

@@ -1,0 +1,38 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>event</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            要删除的事件名称。可以删除多个事件以空格分隔或者命名空间，就像 <code>jQuyer.off()</code> 一样的使用方法。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>callback</code></td>
+        <td>{% include href/type/Javascript.html param="function" %}</td>
+        <td>Yes - default:</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            要取消绑定单独的事件监听可使用具体回调方法。如果没有定义回调方法，将删除与第一个参数中给出的事件名称/命名空间相匹配的所有事件监听。
+        </td>
+    </tr>
+    </tbody>
+</table>
