@@ -1,0 +1,38 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>event</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            用来监听事件。多个事件监听可以用空格分开也可以使用命名空间，就像 <code>jQuery.on</code>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>callback</code></td>
+        <td>{% include href/type/Javascript.html param="function" %}</td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            事件回调函数处理函数。
+        </td>
+    </tr>
+    </tbody>
+</table>
