@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>off() 移除表格所有事件 文档(Options & API) DataTables中文网</title>
+    <title>one() 监听表格事件一次然后再移除监听 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="off,api">
+    <meta name="keywords" content="one,api">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -124,14 +124,14 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">off() 正文</li>
+                <li class="active">one() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/off().html">off()</a>
-                    <small>移除表格所有事件</small>
+                    <a href="/reference/api/one().html">one()</a>
+                    <small>监听表格事件一次然后再移除监听</small>
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
@@ -139,7 +139,7 @@
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="off() 移除表格所有事件 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/off().html"
+                            data-clipboard-text="one() 监听表格事件一次然后再移除监听 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/one().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -172,24 +172,20 @@
  监听一次然后移除事件</li>
 </ul>
 
-<p><code class="highlighter-rouge">off()</code>方法用于删除已经附加到DataTables的事件。只需要传递你希望删除的事件即可移除事件监听，你还可以使用特定的方法来移除单个的事件监听。</p>
+<p><code class="highlighter-rouge">one()</code>方法用于监听DataTables的事件,然后在第一次触发该事件后立即删掉监听。只要传递你想要监听的事件，并提供一个回调函数，当事件被DataTables触发时，它将被激活，然后被删除。</p>
 
 <h2 id="类型type">类型(Type)</h2>
 <p>这个选项能够接受以下类型的参数：</p>
 
 <hr />
 
-<h3 id="function-off-event--callback-"><em>function</em> <strong>off( event [, callback] )</strong></h3>
+<h3 id="function-one-event-callback-"><em>function</em> <strong>one( event, callback )</strong></h3>
 
 <hr />
 
 <h4 id="描述description-1">描述(Description):</h4>
 
-<p>删除使用 
-<a href="/reference/api/on().html" target="_blank">
-    <code class="api">on()<span>API</span></code>
-</a>
- 绑定的监听器</p>
+<p>添加一个事件监听器，为此回调将被触发一次，然后删除事件侦听器</p>
 
 <h4 id="参数parameters">参数(Parameters):</h4>
 <table class="parameters dataTable stripe row-border no-footer">
@@ -217,7 +213,7 @@
     <tr class="even continuation">
         <td></td>
         <td colspan="3">
-            要删除的事件名称。可以删除多个事件以空格分隔或者命名空间，就像 <code>jQuyer.off()</code> 一样的使用方法。
+            用来监听事件。多个事件监听可以用空格分开也可以使用命名空间，就像 <code>jQuery.on</code>
         </td>
     </tr>
     <tr class="odd">
@@ -228,12 +224,12 @@
     <code class="type" title="Javascript parameter type">function<span>Type</span></code>
 </a>
 </td>
-        <td>Yes - default:</td>
+        <td>No</td>
     </tr>
     <tr class="odd continuation">
         <td></td>
         <td colspan="3">
-            要取消绑定单独的事件监听可使用具体回调方法。如果没有定义回调方法，将删除与第一个参数中给出的事件名称/命名空间相匹配的所有事件监听。
+            事件回调函数处理函数。
         </td>
     </tr>
     </tbody>
@@ -251,17 +247,24 @@
 
 <h2 id="例子example">例子(Example)</h2>
 
-<p>监听第一次 <code class="highlighter-rouge">xhr</code> 事件， 请注意，这个和使用 <code class="highlighter-rouge">table.one(...);</code> 是一样的效果</p>
+<p>监听第一次 <code class="highlighter-rouge">xhr</code> 事件</p>
 
-<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
     <span class="na">ajax</span><span class="p">:</span> <span class="s2">"/data"</span><span class="p">,</span>
     <span class="na">serverSide</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">}</span> <span class="p">);</span>
  
-<span class="nx">table</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'xhr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="nx">table</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span> <span class="s1">'xhr'</span> <span class="p">);</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s1">'Ajax事件发生，返回的数据: '</span><span class="p">,</span> <span class="nx">json</span> <span class="p">);</span>
-<span class="p">}</span> <span class="p">);</span></code></pre></figure>
+<span class="nx">table</span><span class="p">.</span><span class="nx">one</span><span class="p">(</span> <span class="s1">'xhr'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">settings</span><span class="p">,</span> <span class="nx">json</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span> <span class="s1">'Ajax事件发生，返回的数据是: '</span><span class="p">,</span> <span class="nx">json</span> <span class="p">);</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
@@ -275,8 +278,8 @@
 </a></p>
   </li>
   <li>
-    <p><a href="/reference/api/one().html" target="_blank">
-<code class="api">one()<span>API</span></code>
+    <p><a href="/reference/api/off().html" target="_blank">
+<code class="api">off()<span>API</span></code>
 </a></p>
   </li>
 </ul>
@@ -285,7 +288,7 @@
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/off()" target="_blank">https://datatables.net/reference/api/off()</a></p>
+                    <p><a href="https://datatables.net/reference/api/one()" target="_blank">https://datatables.net/reference/api/one()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -311,13 +314,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/off().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/off().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/one().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/one().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/off().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/off().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/one().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/one().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -502,7 +505,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/off().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/one().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
