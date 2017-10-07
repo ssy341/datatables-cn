@@ -1,0 +1,26 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>order</code></td>
+        <td>
+            {% include href/type/Javascript.html param="array" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            <code>[[ columnIndex, "asc|desc" ],...,[ columnIndex, "asc|desc" ]]</code>格式的二维数组，比如 <code>[[ 0, "desc" ],[ 1, "asc" ]]</code> 代表第一列降序，第二列升序排列。
+        </td>
+    </tr>
+    </tbody>
+</table>
