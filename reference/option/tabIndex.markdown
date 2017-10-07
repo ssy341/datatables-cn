@@ -60,6 +60,6 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/features.html param="ordering" %}
-- {% include href/option/features.html param="paging" %}
-- {% include href/option/features.html param="searching" %}
+- {% include href/option/Features.html param="ordering" %}
+- {% include href/option/Features.html param="paging" %}
+- {% include href/option/Features.html param="searching" %}

@@ -15,7 +15,7 @@ DataTables内置的数字格式化方法({% include href/option/Callbacks.html p
 默认情况下使用逗号分隔，这个参数可以改变成你想要的其他任何字符，适合任何地方，或者你不需要千分位分隔，设置为空即可。
 
 请注意，不同于{% include href/option/Internationalisation.html param="language.decimal" %}，千分位分隔符仅用于输出信息
-(特别是{% include href/option/features.html param="info" %})，更改它不会影响DataTable如何读取原始数据。
+(特别是{% include href/option/Features.html param="info" %})，更改它不会影响DataTable如何读取原始数据。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：

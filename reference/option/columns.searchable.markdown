@@ -55,7 +55,7 @@ API
 
 Options
 
-- {% include href/option/options.html param="search" %}
+- {% include href/option/Options.html param="search" %}
 
 
 

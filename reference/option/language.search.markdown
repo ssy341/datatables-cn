@@ -62,7 +62,7 @@ API
 Options
 
 - {% include href/option/Internationalisation.html param="language" %}
-- {% include href/option/features.html param="searching" %}
+- {% include href/option/Features.html param="searching" %}
 - {% include href/option/Internationalisation.html param="language.searchPlaceholder" %}
 - {% include href/option/Internationalisation.html param="language.paginate.next" %}
 - {% include href/option/Internationalisation.html param="language.paginate.previous" %}

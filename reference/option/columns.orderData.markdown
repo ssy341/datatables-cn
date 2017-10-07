@@ -70,8 +70,8 @@ API
 
 Options
 
-- {% include href/option/options.html param="order" %}
-- {% include href/option/features.html param="ordering" %}
+- {% include href/option/Options.html param="order" %}
+- {% include href/option/Features.html param="ordering" %}
 
 
 

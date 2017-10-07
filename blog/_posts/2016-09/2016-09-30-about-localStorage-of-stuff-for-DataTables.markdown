@@ -11,7 +11,7 @@ author: DataTable中文网
 banner: http://www.bhmpics.com/download/the_boxtrolls_movie_poster-1920x1080.jpg
 ---
 
-这是一个{% include href/option/features.html param="stateSave" %}参数引发的一系列“惨案”。
+这是一个{% include href/option/Features.html param="stateSave" %}参数引发的一系列“惨案”。
 
 为什么说又爱又恨？这要从很久很久以前说起……
 <!--more-->

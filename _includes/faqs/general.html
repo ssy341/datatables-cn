@@ -4,9 +4,9 @@
     <p>
         答：有下列几个方法可以提高Datatables的速度，大家根据自己的情况选择合适的办法
     <ul>
-        <li>如果你是客户端模式，DOM数据源，数据在5000条以内，加上 {% include href/option/options.html param="orderClasses" %}</li>
+        <li>如果你是客户端模式，DOM数据源，数据在5000条以内，加上 {% include href/option/Options.html param="orderClasses" %}</li>
         <li>如果你是 AJAX 加载数据，数据在50000条以内，加上 {% include href/option/deferRender.dt %}</li>
-        <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/option/features.html param="serverSide" %}）</li>
+        <li>如果你数据量很多，那么你需要开启服务器模式 （ {% include href/option/Features.html param="serverSide" %}）</li>
     </ul>
     注意：如果你使用的是ie6,7这样的，上面的数字可能会少一些。此外如果你使用的是firefox的firebug，你要关掉它，因为他会给性能造成负面影响
     </p>

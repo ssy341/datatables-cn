@@ -17,7 +17,7 @@ author: /reference/api/clear()
 `table.clear().draw()`;当你希望立即向表中添加新行的时候，完成操作后，你将只需要调用一次{% include href/api/Core.html param="draw()" %}方法，
 这将有助于提高性能。
 
-当使用了{% include href/option/features.html param="serverSide" %}参数，即服务器模式的时候，不应该使用该方法。使用服务器处理
+当使用了{% include href/option/Features.html param="serverSide" %}参数，即服务器模式的时候，不应该使用该方法。使用服务器处理
 时，因该从数据库里删除数据（即向服务器发送Ajax请求），然后调用{% include href/api/Core.html param="draw()" %}方法。如果在服务器模式下，
 删除客户端的数据将不会起作用，因为数据并没有从服务器中删除，那么数据在下一次重绘之后，仍然显示在表格上。
 
@@ -33,7 +33,7 @@ author: /reference/api/clear()
 简单的移除表格的所有的数据
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Settings" %}
+{% include href/type/DataTables.html param="DataTables.Api" %}
 
 
 DataTables API 实例对象

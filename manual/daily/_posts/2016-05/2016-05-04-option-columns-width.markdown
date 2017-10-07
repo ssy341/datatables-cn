@@ -12,7 +12,7 @@ banner: http://tse1.mm.bing.net/th?&id=OIP.M703c1a1d6852c9144f59cdd2ed8d7b9do2&w
 ---
 参数详解连接{% include href/option/columns.width.dt %}
 
-DataTable会根据列内容自动计算列宽，通过设置{% include href/option/features.html param="autoWidth" %}属性控制是否开启这个功能
+DataTable会根据列内容自动计算列宽，通过设置{% include href/option/Features.html param="autoWidth" %}属性控制是否开启这个功能
 <!--more-->
 
 同样我们也可以自定义列宽，看下面代码：

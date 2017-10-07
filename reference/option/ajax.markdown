@@ -221,6 +221,6 @@ API
 
 API
 
-- {% include href/option/features.html param="serverSide" %}
+- {% include href/option/Features.html param="serverSide" %}
 - {% include href/option/data.html param="ajax.data" %}
 - {% include href/option/data.html param="ajax.dataSrc" %}
