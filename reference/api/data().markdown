@@ -32,7 +32,7 @@ author: /reference/api/data()
 
 {% include href/type/DataTables.html param="DataTables.Api" %}
 
-DataTables API实例与表格中每行的数据的结果集。
+包含表格中每行的数据的结果集的DataTables API实例
 
 --- 
     

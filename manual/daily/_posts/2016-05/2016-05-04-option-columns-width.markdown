@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 banner: http://tse1.mm.bing.net/th?&id=OIP.M703c1a1d6852c9144f59cdd2ed8d7b9do2&w=297&h=248&c=0&pid=1.9&rs=0&p=0
 ---
-参数详解连接{% include href/option/columns.width.dt %}
+参数详解连接{% include href/option/Columns.html param="columns.width" %}
 
 DataTable会根据列内容自动计算列宽，通过设置{% include href/option/Features.html param="autoWidth" %}属性控制是否开启这个功能
 <!--more-->
@@ -38,7 +38,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-除了百分比，{% include href/option/columns.width.dt %}还接受任何 css 值，比如 3em, 20px 等等
+除了百分比，{% include href/option/Columns.html param="columns.width" %}还接受任何 css 值，比如 3em, 20px 等等
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

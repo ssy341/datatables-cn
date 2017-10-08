@@ -44,7 +44,7 @@ author: /reference/api/order.listener()
 
 {% include href/type/DataTables.html param="DataTables.Api" %}
 
-DataTables API实例与当前排序的结果集
+包含当前排序的结果集的DataTables API实例
 
 --- 
     
