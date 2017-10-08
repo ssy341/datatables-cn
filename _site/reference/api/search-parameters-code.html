@@ -1,0 +1,65 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>input</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            应用于表格搜索的字符串
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>regex</code></td>
+        <td>{% include href/type/Javascript.html param="boolean" %}</td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            作为正则表达式（true）或不作为（默认为false）
+        </td>
+    </tr>
+    <tr class="even">
+        <td>3</td>
+        <td><code>smart</code></td>
+        <td>
+            {% include href/type/Javascript.html param="boolean" %}
+        </td>
+        <td>Yes - default:true</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            执行内置搜索算法（默认为true）或者不执行（false）。在使用此参数前，确保第二个参数是false，不然两个正则表达式可能冲突导致意想不到的结果。
+            如果你不想使用内置算法搜索，置为false，第二个参数为true，即可自定义正则表达式搜索。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>caseInsen</code></td>
+        <td>{% include href/type/Javascript.html param="boolean" %}</td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            不区分大小写匹配（默认为true）或者区分大小写匹配（false）
+        </td>
+    </tr>
+    </tbody>
+</table>

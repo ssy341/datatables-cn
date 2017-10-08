@@ -2,12 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>option searchDelay 设置搜索延迟时间 《不定时一讲》 DataTables中文网</title>
+    <title>search() 在表格里搜索数据 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
+    <meta name="keywords" content="search,api">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -16,6 +17,45 @@
     <link href="/css/site.css" rel="stylesheet">
     <link href="/css/highlighting.css" rel="stylesheet">
     <link href="/images/favicon.png" rel="shortcut icon">
+    <style>
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #111;
+        }
+        table.parameters {
+            width: 100%;
+            margin-bottom: 1em;
+        }
+        table.parameters tr.continuation td {
+            border-top: none;
+        }
+        table.dataTable tbody tr {
+            background-color: #fff;
+        }
+        table.dataTable, table.dataTable th, table.dataTable td {
+            -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+        }
+        table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+            background-color: #f9f9f9;
+        }
+        table.dataTable.stripe tbody tr.even, table.dataTable.display tbody tr.even {
+            background-color: #fff;
+        }
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #111;
+        }
+        table.dataTable thead th, table.dataTable tfoot th {
+            font-weight: bold;
+        }
+        table.dataTable tbody th, table.dataTable tbody td {
+            padding: 8px 10px;
+        }
+        table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+            border-top: 1px solid #ddd;
+        }
+
+    </style>
 
     <script type="text/javascript" src="http://datatables.club/js/jquery-2.0.0.js"></script>
     
@@ -39,7 +79,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active" >
+                <li>
                     <a href="/blog">博客</a>
                 </li>
                 <li>
@@ -48,7 +88,7 @@
                 <li>
                     <a href="/manual">手册</a>
                 </li>
-                <li>
+                <li class="active" >
                     <a href="/reference">文档(Options&API)</a>
                 </li>
                 <li>
@@ -81,102 +121,280 @@
 
         <div class="row">
             <ol class="breadcrumb">
-                <li><a href="/">首页</a></li>
-                <li><a href="/blog">中文网Blog</a></li>
-                <li class="active">正文</li>
+                <li><a href="/" target="_blank">首页</a></li>
+                <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
+                <li><a href="/reference/api" target="_blank">Api</a></li>
+                <li class="active">search() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/manual/daily/2016/05/11/option-searchDelay.html">option searchDelay 设置搜索延迟时间</a>
+                    <a href="/reference/api/search().html">search()</a>
+                    <small>在表格里搜索数据</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-user"></span> DataTables中文网
-                    <span class="glyphicon glyphicon-time"></span> 11 May 2016
-                    <span class='glyphicon glyphicon-comment disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html"></span>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="option searchDelay 设置搜索延迟时间:http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html"
+                            data-clipboard-text="search() 在表格里搜索数据 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/search().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
-                <p>
-                    Tags: 
-                    <a href="/blog/listall.html#不定时一讲" class="btn btn-primary btn-xs">不定时一讲</a>
-                        
-                </p>
                 <hr>
 
-                <img class="img-responsive" src="" alt="">
                 <div class="content">
-                    <!--正文-->
-                    <p>参数详解连接
-<a href="https://datatables.net/reference/option/searchDelay" target="_blank">
-    <code class="option">searchDelay<span>Option</span></code>
+                    <h2 id="描述description">描述(Description)</h2>
+
+<p>检索数据是表概念的核心，该方法允许用户轻松访问数据。该方法提供通过API控制表的全局搜索的能力。全局搜索在所有可搜索的列中执行（参考
+<a href="/reference/option/columns.searchable.html" target="_blank">
+    <code class="option">columns.searchable<span>Option</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
-    <code class="option">searchDelay<span>不定时一讲</span></code>
-</a></p>
-
-<p>Datatables的客户端搜索和服务器搜索默认的延迟时间是400ms，所以当按下键后就立马开始搜索，
-这样处理只是符合大多数情况，但是有些时候这样处理太消耗资源，降低了用户体验：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>1. 电脑比较旧了，性能更不上，那么需要调整下这个延迟时间
-2. 服务器端数据太多了，减少请求次数，这是优化服务器性能
-3. 减少重绘次数
-4. 当然，你还可以设置为0，来获得更快的速度，只要你愿意
-</code></pre>
-</div>
-
-<p><a href="https://datatables.net/reference/option/searchDelay" target="_blank">
-    <code class="option">searchDelay<span>Option</span></code>
+禁止搜索某些列）。
+如果发现数据在任何列中匹配，则整行匹配并显示在结果集中。可以使用
+<a href="https://datatables.net/reference/api/columns().search()" target="_blank">
+    <code class="api">columns().search()<span>API</span></code>
 </a>
-<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
-    <code class="option">searchDelay<span>不定时一讲</span></code>
-</a>
-接受的参数是以 <code class="highlighter-rouge">ms</code> 为单位
-<!--more--></p>
-
-<p>提一点，这个延迟参数只针对全局搜索有效，如果是</p>
-
-<p><a href="/reference/api/search().html" target="_blank">
-    <code class="api">search()<span>API</span></code>
-</a>
-,
+和
 <a href="https://datatables.net/reference/api/column().search()" target="_blank">
     <code class="api">column().search()<span>API</span></code>
 </a>
- 方法则此参数不会生效，需要使用</p>
+方法来执行各个列的搜索。</p>
 
-<p><a href="/reference/api/%24.fn.dataTable.util.throttle().html" target="_blank">
-    <code class="api">$.fn.dataTable.util.throttle()<span>API</span></code>
-</a>
-来处理</p>
+<p>DataTables有一个内置的搜索算法，称为“smart”搜索，旨在搜索表格数据，方便最终用户使用。smart搜索提供以下功能：</p>
 
-<p><a href="https://datatables.net/reference/option/searchDelay" target="_blank">
-    <code class="option">searchDelay<span>Option</span></code>
-</a>
-<a href="http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html" target="_blank">
-    <code class="option">searchDelay<span>不定时一讲</span></code>
-</a>
-默认值为 <code class="highlighter-rouge">null</code> ，
-他会自己判断如果是客户端模式，值为 <code class="highlighter-rouge">Instant</code> （及时），如果是服务器模式，值为 <code class="highlighter-rouge">400ms</code></p>
+<ul>
+  <li>匹配无序单词（Match words out of order）。例如你搜索 <code class="highlighter-rouge">Allan Fife</code>，它将匹配包含单词 <code class="highlighter-rouge">Allan</code> 和 <code class="highlighter-rouge">Fife</code> 的行，而不管他们在表格中的顺序或位置如何。</li>
+  <li>部分字符匹配（Partial word matching）。随着用户在输入框里输入字符，DataTables将给出及时过滤，单词的部分可以在结果集中匹配。比如，<code class="highlighter-rouge">All</code> 将会匹配 <code class="highlighter-rouge">Allan</code>。</li>
+  <li>保留文本（Preserved text）。1.10+版本提供了搜索文本可以包含双引号，来搜索确切短语的功能。比如 <code class="highlighter-rouge">Allan Fife</code> 将只会匹配包含<code class="highlighter-rouge">Allan Fife</code>的文本，<code class="highlighter-rouge">Allan is in Fife</code>将不会匹配。</li>
+</ul>
 
-<p>设置延时时间为350ms</p>
+<p>smart搜索是用正则表达式实现，可以使用此方法的第三参数启用或者禁用。如果你希望使用自定义正则表达式，比如，要执行全字精确匹配，你需要启用正则表达式选项（第二个参数），并禁用smart搜索选项（第三个参数）,以确保两者不冲突。
+DataTables提供了一个工具方法（
+<a href="/reference/api/%24.fn.dataTable.util.escapeRegex().html" target="_blank">
+    <code class="api">$.fn.dataTable.util.escapeRegex()<span>API</span></code>
+</a>
+）来转义正则表达式特殊字符，如果用户输入和正则表达式混合，这个方法将非常有用。</p>
+
+<p>请注意，smart搜索实际上是一个过滤器，因为它是减法操作。但是，我们在术语上命名为 search 是为了避免和
+<a href="https://datatables.net/reference/api/filter()" target="_blank">
+    <code class="api">filter()<span>API</span></code>
+</a>
+辅助方法相冲突。</p>
+
+<p>请注意，此方法并不执行搜索操作，为了执行搜索并显示结果，请使用
+<a href="/reference/api/draw().html" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
+方法，例如：<code class="highlighter-rouge">table.search( 'Fred' ).draw();</code>.
+这是为了在重绘前，还可以执行其他操作，然后一并显示结果。</p>
+
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<hr />
+
+<h3 id="function-search"><em>function</em> <strong>search()</strong></h3>
+
+<hr />
+
+<h4 id="描述description-1">描述(Description):</h4>
+<p>获取当前全局搜索词。如果当前有多个DataTables实例对象，将返回找到的第一个实例对象的搜索词。使用
+<a href="https://datatables.net/reference/api/table()" target="_blank">
+    <code class="api">table()<span>API</span></code>
+</a>
+来获取不同表格实例。</p>
+
+<h4 id="返回returns">返回(Returns):</h4>
+
+<p><a href="https://datatables.net/reference/type/string" target="_blank">
+    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
+</a></p>
+
+<p>当前全局搜索的词语。如果没有，将返回空字符串。</p>
+
+<hr />
+
+<h3 id="function-search-input--regex--smart--caseinsen--"><em>function</em> <strong>search( input [, regex[ , smart[ , caseInsen ]]] )</strong></h3>
+
+<hr />
+
+<h4 id="描述description-2">描述(Description):</h4>
+<p>设置全局搜索应用到表格中。注意，如果要把搜索结果显示在表格中，还需要执行
+<a href="/reference/api/draw().html" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
+方法。</p>
+
+<h4 id="参数parameters">参数(Parameters):</h4>
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>input</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/string" target="_blank">
+    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
+</a>
+
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            应用于表格搜索的字符串
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>regex</code></td>
+        <td>
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+</td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            作为正则表达式（true）或不作为（默认为false）
+        </td>
+    </tr>
+    <tr class="even">
+        <td>3</td>
+        <td><code>smart</code></td>
+        <td>
+            
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+
+        </td>
+        <td>Yes - default:true</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            执行内置搜索算法（默认为true）或者不执行（false）。在使用此参数前，确保第二个参数是false，不然两个正则表达式可能冲突导致意想不到的结果。
+            如果你不想使用内置算法搜索，置为false，第二个参数为true，即可自定义正则表达式搜索。
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>caseInsen</code></td>
+        <td>
+<a href="https://datatables.net/reference/type/boolean" target="_blank">
+    <code class="type" title="Javascript parameter type">boolean<span>Type</span></code>
+</a>
+</td>
+        <td>Yes - default:false</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            不区分大小写匹配（默认为true）或者区分大小写匹配（false）
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<h4 id="返回returns-1">返回(Returns):</h4>
+
+<p><a href="https://datatables.net/reference/type/DataTables.Api" target="_blank">
+    <code class="type">DataTables.Api<span>Type</span></code>
+</a></p>
+
+<p>DataTables API 实例对象</p>
+
+<hr />
+
+<h2 id="例子example">例子(Example)</h2>
+
+<p>使用自定义的输入框过滤表格数据，<code class="highlighter-rouge">#myInput</code> 是一个 <code class="highlighter-rouge">&lt;input type="text"&gt;</code> 元素</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
-3</pre></td><td class="code"><pre> <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">(</span> <span class="p">{</span>
-   <span class="na">searchDelay</span><span class="p">:</span> <span class="mi">350</span>
- <span class="p">}</span> <span class="p">);</span><span class="w">
+3
+4
+5</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+ 
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#myInput'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'keyup'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">table</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">).</span><span class="nx">draw</span><span class="p">();</span>
+<span class="p">}</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
+<p>使用自定义正则表达式完全匹配字符：</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+ 
+<span class="kd">var</span> <span class="nx">columnNo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">myValue</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#myInput'</span><span class="p">).</span><span class="nx">val</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">regExSearch</span> <span class="o">=</span> <span class="s1">'^\\s'</span> <span class="o">+</span> <span class="nx">myValue</span> <span class="o">+</span><span class="s1">'\\s*$'</span><span class="p">;</span>
+<span class="nx">table</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span><span class="nx">columnNo</span><span class="p">).</span><span class="nx">search</span><span class="p">(</span><span class="nx">regExSearch</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span><span class="p">).</span><span class="nx">draw</span><span class="p">();</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h2 id="相关属性related">相关属性(Related)</h2>
+<p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
+
+<p>API</p>
+
+<ul>
+  <li>
+    <p><a href="https://datatables.net/reference/api/column().search()" target="_blank">
+<code class="api">column().search()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/api/columns().search()" target="_blank">
+<code class="api">columns().search()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/%24.fn.dataTable.util.escapeRegex().html" target="_blank">
+<code class="api">$.fn.dataTable.util.escapeRegex()<span>API</span></code>
+</a></p>
+  </li>
+</ul>
+
+<p>Options</p>
+
+<ul>
+  <li>
+    <p><a href="/reference/option/searching.html" target="_blank">
+<code class="option">searching<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/option/columns.searchable.html" target="_blank">
+<code class="option">columns.searchable<span>Option</span></code>
+</a></p>
+  </li>
+</ul>
 
                 </div>
-                <h3>如果大家也有小技巧和使用经验，欢迎给我发邮件 <code>thxopen@datatables.club</code></h3>
+
+                <blockquote>
+                    <p><a href="https://datatables.net/reference/api/search()" target="_blank">https://datatables.net/reference/api/search()</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
 
                 <hr>
                 <div style="margin:10px 0">
@@ -200,13 +418,13 @@
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/manual/daily/2016/05/11/option-searchDelay.html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/manual/daily/2016/05/11/option-searchDelay.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/search().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/search().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/manual/daily/2016/05/11/option-searchDelay.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/search().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/search().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -391,7 +609,7 @@
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/manual/daily/_posts/2016-05/2016-05-11-option-searchDelay.markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/search().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
@@ -475,6 +693,9 @@
         client.on( 'error', function() {
             ZeroClipboard.destroy();
         } );
+    </script>
+    <script>
+
     </script>
 
 </body>
