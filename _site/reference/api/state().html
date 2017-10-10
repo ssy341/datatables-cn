@@ -2,13 +2,13 @@
 <html lang="utf-8">
 <head>
     <!--meta-->
-    <title>$.fn.dataTable.util.escapeRegex() 使用正则表达式转义特殊字符 文档(Options & API) DataTables中文网</title>
+    <title>state() 获取最新保存的表的状态 文档(Options & API) DataTables中文网</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
     Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
     <meta name="author" content="Datatables 中文网">
-    <meta name="keywords" content="fn,DataTables,util,escapeRegex">
+    <meta name="keywords" content="state,api">
     <!-- Le styles -->
     <link href="/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="/css/docs.css" rel="stylesheet">
@@ -124,22 +124,22 @@
                 <li><a href="/" target="_blank">首页</a></li>
                 <li><a href="/reference" target="_blank">文档(Options & API)</a></li>
                 <li><a href="/reference/api" target="_blank">Api</a></li>
-                <li class="active">$.fn.dataTable.util.escapeRegex() 正文</li>
+                <li class="active">state() 正文</li>
             </ol>
             <!-- Blog Entries Column -->
             <div class="col-md-8">
 
                 <h2>
-                    <a href="/reference/api/$.fn.dataTable.util.escapeRegex().html">$.fn.dataTable.util.escapeRegex()</a>
-                    <small>使用正则表达式转义特殊字符</small>
+                    <a href="/reference/api/state().html">state()</a>
+                    <small>获取最新保存的表的状态</small>
                 </h2>
                 <p>
-                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10.4</b>
+                    <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">DataTables 1.10.1</b>
                     <button type="button"
                             id="copyurltoclip"
                             data-toggle="tooltip"
                             data-placement="bottom"
-                            data-clipboard-text="$.fn.dataTable.util.escapeRegex() 使用正则表达式转义特殊字符 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/$.fn.dataTable.util.escapeRegex().html"
+                            data-clipboard-text="state() 获取最新保存的表的状态 文档(Options & API) DataTables中文网:http://datatables.club/reference/api/state().html"
                             class="btn btn-default pull-right"
                             title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
@@ -147,36 +147,14 @@
 
                 <div class="content">
                     <h2 id="描述description">描述(Description)</h2>
-<p>当使用正则表达式时，可以有效的转义那些有特殊意义，被格式化了的字符串。
-Javascript的正则表达式中有许多特殊字符，DataTables需要在内部转义这些字符串（对用户输入的搜索数据）- 这个方法提供在外部操作的能力。</p>
 
-<p>这个是为用户扩展和制作插件提供的非常有用的方法。它的使用不会直接影响DataTable和DataTables结构。在DataTables内部使用可用的API帮助扩展用户
-提高代码复用。</p>
+<p>当
+<a href="/reference/option/stateSave.html" target="_blank">
+    <code class="option">stateSave<span>Option</span></code>
+</a>
+开启时，知道某个特定时刻表保存的状态是很有用的。该方法提供了获取最新保存的状态。</p>
 
-<h2 id="类型type">类型(Type)</h2>
-
-<hr />
-
-<h3 id="function-escaperegex-str-"><em>function</em> escapeRegex( str )</h3>
-
-<h4 id="描述description-1">描述(Description):</h4>
-<p>使用正则表达式转义特殊字符</p>
-
-<h4 id="返回returns">返回(Returns):</h4>
-
-<p><a href="https://datatables.net/reference/type/string" target="_blank">
-    <code class="type" title="Javascript parameter type">string<span>Type</span></code>
-</a></p>
-
-<p>被转义的字符串</p>
-
-<hr />
-
-<h2 id="例子example">例子(Example)</h2>
-
-<p>使用
-<code class="tag" title="HTML tag">select<span>Tag</span></code>
-元素执行转义匹配搜索：</p>
+<p>该数据格式如下所示，但请注意，作为DataTables的插件和扩展可以通过添加所需要的状态信息来修改这个结构。</p>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -195,62 +173,168 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
 15
 16
 17
-18
-19
-20
-21</pre></td><td class="code"><pre><span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
- 
-<span class="nx">table</span><span class="p">.</span><span class="nx">columns</span><span class="p">().</span><span class="nx">indexes</span><span class="p">().</span><span class="nx">flatten</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">i</span> <span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">column</span> <span class="o">=</span> <span class="nx">table</span><span class="p">.</span><span class="nx">column</span><span class="p">(</span> <span class="nx">i</span> <span class="p">);</span>
-    <span class="kd">var</span> <span class="nx">select</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'&lt;select&gt;&lt;option value=""&gt;&lt;/option&gt;&lt;/select&gt;'</span><span class="p">)</span>
-        <span class="p">.</span><span class="nx">appendTo</span><span class="p">(</span> <span class="nx">$</span><span class="p">(</span><span class="nx">column</span><span class="p">.</span><span class="nx">footer</span><span class="p">()).</span><span class="nx">empty</span><span class="p">()</span> <span class="p">)</span>
-        <span class="p">.</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'change'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="c1">// Escape the expression so we can perform a regex match
+18</pre></td><td class="code"><pre><span class="p">{</span>
+    <span class="s2">"time"</span><span class="err">:</span>   <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 该状态创建的时间戳（Time stamp of when the object was created）
 </span>
-            <span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">dataTable</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">escapeRegex</span><span class="p">(</span>
-                <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">val</span><span class="p">()</span>
-            <span class="p">);</span>
- 
-            <span class="nx">column</span>
-                <span class="p">.</span><span class="nx">search</span><span class="p">(</span> <span class="nx">val</span> <span class="p">?</span> <span class="s1">'^'</span><span class="o">+</span><span class="nx">val</span><span class="o">+</span><span class="s1">'$'</span> <span class="p">:</span> <span class="s1">''</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">false</span> <span class="p">)</span>
-                <span class="p">.</span><span class="nx">draw</span><span class="p">();</span>
-        <span class="p">}</span> <span class="p">);</span>
- 
-    <span class="nx">column</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">unique</span><span class="p">().</span><span class="nx">sort</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span> <span class="kd">function</span> <span class="p">(</span> <span class="nx">d</span><span class="p">,</span> <span class="nx">j</span> <span class="p">)</span> <span class="p">{</span>
-        <span class="nx">select</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span> <span class="s1">'&lt;option value="'</span><span class="o">+</span><span class="nx">d</span><span class="o">+</span><span class="s1">'"&gt;'</span><span class="o">+</span><span class="nx">d</span><span class="o">+</span><span class="s1">'&lt;/option&gt;'</span> <span class="p">)</span>
-    <span class="p">}</span> <span class="p">);</span>
-<span class="p">}</span> <span class="p">);</span><span class="w">
+    <span class="s2">"start"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 显示起始位置（Display start point）
+</span>
+    <span class="s2">"length"</span><span class="err">:</span> <span class="p">{</span><span class="nx">number</span><span class="p">}</span>               <span class="c1">// 分页长度（Page length）
+</span>
+    <span class="s2">"order"</span><span class="err">:</span>  <span class="p">{</span><span class="nx">array</span><span class="p">}</span>                <span class="c1">// 排序信息的二维数组（2D array of column ordering information (see `order` option)）
+</span>
+    <span class="s2">"search"</span><span class="err">:</span> <span class="p">{</span>
+        <span class="s2">"search"</span><span class="err">:</span>          <span class="p">{</span><span class="nx">string</span><span class="p">}</span>  <span class="c1">// 搜索词（Search term）
+</span>
+        <span class="s2">"regex"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 表明搜索词是否当做正则表达式处理（Indicate if the search term should be treated as regex or not）
+</span>
+        <span class="s2">"smart"</span><span class="err">:</span>           <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 标记是否开启内置搜索（Flag to enable DataTables smart search）
+</span>
+        <span class="s2">"caseInsensitive"</span><span class="err">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span> <span class="c1">// 是否区分大小写（Case insensitive flag）
+</span>
+    <span class="p">},</span>
+    <span class="s2">"columns"</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">"visible"</span><span class="p">:</span> <span class="p">{</span><span class="kr">boolean</span><span class="p">}</span>     <span class="c1">// 列隐藏信息（Column visibility）
+</span>
+            <span class="s2">"search"</span><span class="p">:</span>  <span class="p">{}</span>            <span class="c1">// 列搜索的信息（Object containing column search information. Same structure as `search` above）
+</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>请注意，这个方法提供获取最新的状态，但不一定是当前的状态。比如
+<a href="/reference/api/page().html" target="_blank">
+    <code class="api">page()<span>API</span></code>
+</a>
+方法不会自动触发状态保存。调用
+<a href="/reference/api/draw().html" target="_blank">
+    <code class="api">draw()<span>API</span></code>
+</a>
+方法或者
+<a href="/reference/api/state.save().html" target="_blank">
+    <code class="api">state.save()<span>API</span></code>
+</a>
+方法来保存状态。</p>
+
+<h2 id="类型type">类型(Type)</h2>
+<p>这个选项能够接受以下类型的参数：</p>
+
+<hr />
+
+<h3 id="function-state"><em>function</em> <strong>state()</strong></h3>
+
+<hr />
+
+<h4 id="描述description-1">描述(Description):</h4>
+<p>获取最新表的状态</p>
+
+<h4 id="返回returns">返回(Returns):</h4>
+
+<p><a href="https://datatables.net/reference/type/object" target="_blank">
+    <code class="type" title="Javascript parameter type">object<span>Type</span></code>
+</a></p>
+
+<p>被保存的状态对象</p>
+
+<hr />
+
+<h2 id="例子example">例子(Example)</h2>
+
+<p>从状态对象获取分页长度</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nx">alert</span><span class="p">(</span> <span class="s1">'保存的分页长度是: '</span><span class="o">+</span> <span class="nx">table</span><span class="p">.</span><span class="nx">state</span><span class="p">().</span><span class="nx">length</span> <span class="p">);</span><span class="w">
 </span></pre></td></tr></tbody></table></code></pre></figure>
 
 <h2 id="相关属性related">相关属性(Related)</h2>
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 
-<p>Options</p>
-
-<ul>
-  <li>
-    <p><a href="/reference/option/searching.html" target="_blank">
-<code class="option">searching<span>Option</span></code>
-</a></p>
-  </li>
-  <li>
-    <p><a href="/reference/option/columns.searchable.html" target="_blank">
-<code class="option">columns.searchable<span>Option</span></code>
-</a></p>
-  </li>
-</ul>
-
 <p>API</p>
 
 <ul>
   <li>
-    <p><a href="/reference/api/search().html" target="_blank">
-<code class="api">search()<span>API</span></code>
+    <p><a href="/reference/api/state.clear().html" target="_blank">
+<code class="api">state.clear()<span>API</span></code>
 </a></p>
   </li>
   <li>
-    <p><a href="https://datatables.net/reference/api/column().search()" target="_blank">
-<code class="api">column().search()<span>API</span></code>
+    <p><a href="/reference/api/state.loaded().html" target="_blank">
+<code class="api">state.loaded()<span>API</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="/reference/api/state.save().html" target="_blank">
+<code class="api">state.save()<span>API</span></code>
+</a></p>
+  </li>
+</ul>
+
+<p>Events</p>
+
+<ul>
+  <li>
+    <p><a href="http://datatables.net/reference/event/stateLoaded" target="_blank">
+<code class="event">stateLoaded<span>Event</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="http://datatables.net/reference/event/stateLoadParams" target="_blank">
+<code class="event">stateLoadParams<span>Event</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="http://datatables.net/reference/event/stateSaveParams" target="_blank">
+<code class="event">stateSaveParams<span>Event</span></code>
+</a></p>
+  </li>
+</ul>
+
+<p>Options</p>
+
+<ul>
+  <li>
+    <p><a href="/reference/option/stateSave.html" target="_blank">
+<code class="option">stateSave<span>Option</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/option/stateSaveCallback" target="_blank">
+<code class="option">stateSaveCallback<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html" target="_blank">
+<code class="option">stateSaveCallback<span>不定时一讲</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/option/stateLoadCallback" target="_blank">
+<code class="option">stateLoadCallback<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html" target="_blank">
+<code class="option">stateLoadCallback<span>不定时一讲</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/option/stateLoadParams" target="_blank">
+<code class="option">stateLoadParams<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html" target="_blank">
+<code class="option">stateLoadParams<span>不定时一讲</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/option/stateSaveParams" target="_blank">
+<code class="option">stateSaveParams<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html" target="_blank">
+<code class="option">stateSaveParams<span>不定时一讲</span></code>
+</a></p>
+  </li>
+  <li>
+    <p><a href="https://datatables.net/reference/option/stateLoaded" target="_blank">
+<code class="option">stateLoaded<span>Option</span></code>
+</a>
+<a href="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html" target="_blank">
+<code class="option">stateLoaded<span>不定时一讲</span></code>
 </a></p>
   </li>
 </ul>
@@ -259,7 +343,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
                 </div>
 
                 <blockquote>
-                    <p><a href="https://datatables.net/reference/api/%24.fn.dataTable.util.escapeRegex()" target="_blank">https://datatables.net/reference/api/%24.fn.dataTable.util.escapeRegex()</a></p>
+                    <p><a href="https://datatables.net/reference/api/state()" target="_blank">https://datatables.net/reference/api/state()</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -285,13 +369,13 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
      */
     /*
      var disqus_config = function () {
-     this.page.url = '/reference/api/$.fn.dataTable.util.escapeRegex().html'; // Replace PAGE_URL with your page's canonical URL variable
-     this.page.identifier = '/reference/api/$.fn.dataTable.util.escapeRegex().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+     this.page.url = '/reference/api/state().html'; // Replace PAGE_URL with your page's canonical URL variable
+     this.page.identifier = '/reference/api/state().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
      };
      */
     var disqus_config = function () {
-        this.page.url = 'http://datatables.club/reference/api/$.fn.dataTable.util.escapeRegex().html'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://datatables.club/reference/api/$.fn.dataTable.util.escapeRegex().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://datatables.club/reference/api/state().html'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://datatables.club/reference/api/state().html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
@@ -476,7 +560,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
             </ul>
             <ul  class="footer-links">
                 <li>
-                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/$.fn.dataTable.util.escapeRegex().markdown" title="Edit this page on GitHub">
+                    <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/reference/api/state().markdown" title="Edit this page on GitHub">
                         <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
                     </a>
                 </li>
