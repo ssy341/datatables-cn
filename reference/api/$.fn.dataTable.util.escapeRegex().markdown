@@ -72,6 +72,6 @@ Options
 API
 
 - {% include href/api/Core.html param="search()" %}
-- {% include href/api/Core.html param="column().search()" %}
+- {% include href/api/Columns.html param="column().search()" %}
 
 

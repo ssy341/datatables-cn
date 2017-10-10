@@ -219,32 +219,35 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/state()"><code class="api"
-                                                                      title="DataTables API method">state()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/Core.html param="state()" %}
         </td>
-        <td><p>得到表格最后存储的状态</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/state.clear()"><code class="api" title="DataTables API method">state.clear()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>清楚表格储存的状态</p>
+        <td>
+            得到表格最新存储的状态
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/state.loaded()"><code class="api" title="DataTables API method">state.loaded()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/Core.html param="state.clear()" %}
         </td>
-        <td><p>表格初始化的时候读取之前的状态</p>
+        <td>
+            清除表格储存的状态
         </td>
     </tr>
     <tr>
-        <td><p><a href="//datatables.net/reference/api/state.save()"><code class="api" title="DataTables API method">state.save()<span>DT</span></code></a>
-        </p>
+        <td>
+            {% include href/api/Core.html param="state.loaded()" %}
         </td>
-        <td><p>保存表格的当前状态</p>
+        <td>
+            获取初始化期间加载的表状态
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {% include href/api/Core.html param="state.save()" %}
+        </td>
+        <td>
+            触发状态保存操作
         </td>
     </tr>
     </tbody>
