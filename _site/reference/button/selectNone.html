@@ -304,7 +304,6 @@ client.on( 'error', function() {
 	position: fixed;
 	top: 35%;
 	right: 20px;
-	display:block;
 }
 
 .right-ad div{
@@ -328,7 +327,6 @@ client.on( 'error', function() {
 	position: fixed;
 	top: 35%;
 	left: 20px;
-	display:block;
 }
 .left-ad div{
 	box-sizing: content-box;
@@ -341,57 +339,171 @@ client.on( 'error', function() {
 	left:0;
 	top:25px;
 }
+
+
+
+/*可以隐藏的广告css样式*/
+.adsense_fixed {
+    width: 100%;
+    z-index: 999999999999;
+}
+
+.adsense_content {
+    width: 720px;
+    margin: 0 auto;
+    position: relative;
+    background: #fff;
+}
+
+.adsense_btn_close, .adsense_btn_info {
+    font-size: 12px;
+    color: #fff;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    text-align: center;
+    background: #000;
+    top: 4px;
+    left: 4px;
+    position: absolute;
+    z-index: 99999999;
+    font-family: Georgia;
+    cursor: pointer;
+    line-height: 18px
+}
+
+.adsense_btn_info {
+    left: 26px;
+    font-family: Georgia;
+    font-style: italic
+}
+
+.adsense_info_content {
+    display: none;
+    width: 260px;
+    height: 220px;
+    position: absolute;
+    top: -270px;
+    background: rgba(255, 255, 255, .9);
+    font-size: 14px;
+    padding: 20px;
+    font-family: Arial;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+    box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
+}
+
+.adsense_info_content:after {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 100%;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #fff;
+    clear: both
+}
+
+.adsense_info_content .adsense_h3 {
+    color: #000;
+    margin: 0;
+    font-size: 18px !important;
+    font-family: 'Arial' !important;
+    margin-bottom: 20px !important;
+}
+
+.adsense_info_content .adsense_p {
+    color: #888;
+    font-size: 13px !important;
+    line-height: 20px;
+    font-family: 'Arial' !important;
+    margin-bottom: 20px !important;
+}
+
+.adsense_fh5co-team {
+    color: #000;
+    font-style: italic;
+}
+
+.unread {
+    box-shadow: 2px 0 0 #4078c0 inset;
+}
 </style>
 <div class="left-ad"  id="adLeft">
-  <div>
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   <!-- yad-left -->
-   <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2101546703939638"
-        data-ad-slot="1953170309"
-        data-ad-format="auto"></ins>
-   <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
- </div>
+    <div class="span12" style="margin:10px 0">
+        <div class='adsense_fixed'>
+            <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
+                <div class='adsense_info_content'>
+                    <h3 class="adsense_h3">为什么有广告?</h3>
+                    <p class='adsense_p'>
+                        希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
+                    <p class='adsense_p'>爱你们,
+                        <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
+                </div>
+                <span class='adsense_btn_info' title='为什么有广告'>i</span>
+
+                <div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- yad-left -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2101546703939638"
+                         data-ad-slot="1953170309"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="right-ad" id="adRight">
-  <div>
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   <!-- yad-right -->
-   <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2101546703939638"
-        data-ad-slot="7999703903"
-        data-ad-format="auto"></ins>
-   <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
- </div>
+    <div class="span12" style="margin:10px 0">
+        <div class='adsense_fixed'>
+            <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
+                <div class='adsense_info_content'>
+                    <h3 class="adsense_h3">为什么有广告?</h3>
+                    <p class='adsense_p'>
+                        希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
+                    <p class='adsense_p'>爱你们,
+                        <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
+                </div>
+                <span class='adsense_btn_info' title='为什么有广告'>i</span>
+
+                <div>
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- yad-left -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2101546703939638"
+                         data-ad-slot="7999703903"
+                         data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
-          // 屏幕分辨率的高：
-        var h = window.screen.height;
-         // 屏幕分辨率的宽：
-         var w = window.screen.width;
-         if(w<1500){
-            var adLeft = document.getElementById("adLeft").style.display = "none";
-            var adRight = document.getElementById("adRight").style.display = "none";
-         }else{
-            console.log("多些大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
-            console.log("非常期待您的反馈，这样中文网才能越做越好");
-            console.log("Thank you for your support! If you have any suggestions, please contact thxopen@datatables.club");
-            console.log("I'm looking forward your feedback. Make the website better and better.");
-            console.log(":)");
-            if(document.getElementById("noad")){
-                var adLeft = document.getElementById("adLeft").style.display = "none";
-                var adRight = document.getElementById("adRight").style.display = "none";
-                console.log("index no ad of side");
-            }
-         }
+    console.log("多谢大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
+    console.log("非常期待您的反馈，这样中文网才能越做越好");
+    console.log("Thank you for your support! If you have any suggestions, please contact thxopen@datatables.club");
+    console.log("I'm looking forward your feedback. Make the website better and better.");
+    console.log(":)");
+
+    if(document.getElementById("noad")){
+        document.getElementById("adLeft").style.display = "none";
+        document.getElementById("adRight").style.display = "none";
+        console.log("index no ad of side");
+    }
 </script>
 <script>
 (function(){
@@ -512,6 +624,25 @@ client.on( 'error', function() {
         var note = $(obj).attr("title");
         alert(note);
     }
+</script>
+
+<script>
+
+    //广告显示/隐藏
+    $(function () {
+        $('.adsense_btn_close').click(function () {
+            $(this).closest('.adsense_fixed').css('display', 'none');
+        });
+
+        $('.adsense_btn_info').click(function () {
+            var addDiv = $(this).parent().find("div.adsense_info_content");
+            if (addDiv.is(':visible')) {
+                addDiv.css('display', 'none');
+            } else {
+                addDiv.css('display', 'block');
+            }
+        });
+    });
 </script>
 </body>
 </html>
