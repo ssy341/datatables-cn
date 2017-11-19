@@ -104,3 +104,22 @@
         alert(note);
     }
 </script>
+
+<script>
+
+    //广告显示/隐藏
+    $(function () {
+        $('.adsense_btn_close').click(function () {
+            $(this).closest('.adsense_fixed').css('display', 'none');
+        });
+
+        $('.adsense_btn_info').click(function () {
+            var addDiv = $(this).parent().find("div.adsense_info_content");
+            if (addDiv.is(':visible')) {
+                addDiv.css('display', 'none');
+            } else {
+                addDiv.css('display', 'block');
+            }
+        });
+    });
+</script>

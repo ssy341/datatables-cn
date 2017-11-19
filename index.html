@@ -254,8 +254,8 @@ title: Datatables 中文网
         </div>
 
 </div>
-{% include copyright.html %}
 {% include script.html %}
+{% include copyright.html %}
 <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 
 
@@ -483,24 +483,6 @@ title: Datatables 中文网
                     return (parseFloat(a) + parseFloat(b)).toFixed(2);
                 });
                 $(api.column(0).footer()).html("总额：" + fda);
-            }
-        });
-    });
-</script>
-
-<script>
-    //广告显示/隐藏
-    $(function () {
-        $('.adsense_btn_close').click(function () {
-            $(this).closest('.adsense_fixed').css('display', 'none');
-        });
-
-        $('.adsense_btn_info').click(function () {
-            var addDiv = $(this).parent().find("div.adsense_info_content");
-            if (addDiv.is(':visible')) {
-                addDiv.css('display', 'none');
-            } else {
-                addDiv.css('display', 'block');
             }
         });
     });
