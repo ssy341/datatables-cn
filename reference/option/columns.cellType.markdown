@@ -1,6 +1,6 @@
 ---
 layout: reference_md
-title: columns.ceellType
+title: columns.cellType
 summary: 为创建列设置单元格类型
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
