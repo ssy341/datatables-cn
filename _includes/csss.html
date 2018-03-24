@@ -1,0 +1,4 @@
+{% for css in page.csss %}
+{% capture has_link %}{% if css contains '://' %}{{css}}{% else %}{{site.baseurl}}{{css}}{% endif %}{% endcapture%}
+<link rel="stylesheet" href="{{has_link}}">
+{% endfor %}

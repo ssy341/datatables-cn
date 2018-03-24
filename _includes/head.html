@@ -16,16 +16,16 @@
 <!-- most color styles are extracted out to here -->
 <link rel="stylesheet" href="css/theme-blue.css">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="{{site.baseurl}}assets/jquery/2.1.4/jquery.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="{{site.baseurl}}assets/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script src="{{ "js/jquery.navgoco.min.js" }}"></script>
 
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{site.baseurl}}assets/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!-- Anchor.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="{{site.baseurl}}assets/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="{{ "js/toc.js" }}"></script>
 <script src="{{ "js/customscripts.js" }}"></script>
 
@@ -39,3 +39,11 @@
 <![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.url }}">
+
+{% if page.csss %}
+{% include csss.html %}
+{% endif %}
+
+{% if page.scripts %}
+{% include scripts.html %}
+{% endif %}

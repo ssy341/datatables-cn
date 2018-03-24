@@ -1,0 +1,4 @@
+{% for script in page.scripts %}
+{% capture has_link %}{% if script contains '://' %}{{script}}{% else %}{{site.baseurl}}{{script}}{% endif %}{% endcapture%}
+<script src="{{has_link}}"></script>
+{% endfor %}
