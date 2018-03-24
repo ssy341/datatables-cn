@@ -19,42 +19,71 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Overview
+  - title: 概览
     output: web, pdf
     folderitems:
 
-    - title: Get started
+    - title: 开始使用
       url: /index.html
       output: web, pdf
       type: homepage
 
-    - title: Introduction
-      url: /mydoc_introduction.html
+    - title: DataTable介绍
+      url: /introduction.html
       output: web, pdf
 
-    - title: Supported features
-      url: /mydoc_supported_features.html
-      output: web, pdf
-
-    - title: About the theme author
-      url: /mydoc_about.html
-      output: web, pdf
-
-    - title: Support
-      url: /mydoc_support.html
-      output: web, pdf
-
-  - title: Release Notes
+  - title: DataTables使用手册
     output: web, pdf
     folderitems:
 
-    - title: 6.0 Release notes
+    - title: 安装
       url: /mydoc_release_notes_60.html
       output: web, pdf
 
-    - title: 5.0 Release notes
+    - title: 数据源
       url: /mydoc_release_notes_50.html
       output: web, pdf
+
+    - title: Ajax
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 选项
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: API
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+      subfolders:
+        - title: 主题样式
+          output: web
+          subfolderitems:
+
+          - title: 默认的样式选项
+            url: /tag_formatting.html
+            output: web
+
+          - title: 主题创建器
+            url: /tag_navigation.html
+            output: web
+
+          - title: 主题森林
+            url: /tag_content_types.html
+            output: web
+
+          - title: Bootstarp
+            url: /tag_publishing.html
+            output: web
+
+          - title: Foundation
+            url: /tag_special_layouts.html
+            output: web
+
+          - title: jQuery UI
+            url: /tag_collaboration.html
+            output: web
 
   - title: Installation
     output: web, pdf
