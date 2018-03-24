@@ -2,8 +2,19 @@
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;{{ site.time | date: "%Y"  }} {{site.company_name}}. All rights reserved. <br />
-{% if page.last_updated %}<span>Page last updated:</span> {{page.last_updated}}<br/>{% endif %} Site last generated: {{ site.time | date: "%b %-d, %Y"  }} <br />
-<p><img src="{{ "images/company_logo.png" }}" alt="Company logo"/></p>
+
+                    Translation from <a href="http://datatables.net">DataTables.net</a>, with permission <br>
+
+                    With help <a href="http://jekyllrb.com/" target="_blank"
+                                 title="Transform your plain text into static websites and blogs.">Jekyll
+                </a>&amp;
+                    <a href="https://github.com/tomjoht/documentation-theme-jekyll" target="_blank"
+                       title="A Jekyll-based theme designed for documentation and help systems. See the link for detailed instructions on setting up and configuring everything.">documentation-theme-jekyll
+                    </a>
+                    <br>
+
+{% if page.last_updated %}<span>Page last updated:</span> {{page.last_updated}}<br/>{% endif %} 网站最后更新时间: {{ site.time | date: "%b %-d, %Y"  }} <br />
+<p><img src="{{ "images/Datatables.png" }}" alt="Company logo"/></p>
                 </div>
             </div>
 </footer>
