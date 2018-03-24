@@ -1,1412 +1,877 @@
 <!DOCTYPE html>
-<html lang="utf-8">
+<html>
 <head>
-        <!--meta-->
-    <title>Datatables 中文网</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
-    Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件">
-        <!-- Le styles -->
-    <link href="/assets/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="/assets/datatables/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
-    <link href="/css/docs.css" rel="stylesheet">
-    <link href="/images/favicon.png" rel="shortcut icon">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="跟着下面的步骤可以快速把你的Table标签变成一个带有许多功能的强大表格.">
+<meta name="keywords" content=" 入门 homepage">
+<title>开始使用DataTables | DataTables中文网</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://localhost:4000/feed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
 </head>
 <body>
-<style>
-    .hot {
-        background-image: url(/images/hot.gif);
-        height: 12px;
-        width: 21px;
-        position: absolute;
-    }
-</style>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="#" id="copyurltoclip" data-toggle="tooltip" data-placement="bottom" data-clipboard-text="" title="点我复制本页url到剪贴板">Datatables中文网</a>
-            <div class="nav-collapse collapse">
-                <ul class="nav">
-                    <li class="active"><a href="/">首页</a></li>
-                    <li ><a href="/blog">博客<span class="hot"></span></a></li>
-                    <li ><a href="/example">例子</a></li>
-                    <li ><a href="/manual">手册</a></li>
-                    <li ><a href="/reference">文档(Options&API)</a></li>
-                    <li ><a href="/extensions">扩展</a></li>
-                    <li ><a href="/plug-ins">插件</a></li>
-                    <li ><a href="/faqs">FAQs</a></li>
-                    <li ><a href="/upgrade/">更新<span id="updateFlag"></span></a></li>
-                    <!--<li ><a href="/activity/">活动</a></li>-->
-                    <li ><a href="/about/">关于</a></li>
-                    <li ><a href="/tour/">导航</a></li>
-                </ul>
-            </div>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> DataTables中文网</span></a>
         </div>
-    </div>
-</div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> 导航</a></li>
+                <!-- entries without drop-downs appear here -->
 
-<input type="hidden" id="noad"/>
-<header class="jumbotron subhead" id="overview">
-    <div class="container">
-        <div class="span4">
-            <h1>Welcome</h1>
-            <h3>欢迎访问Datatables中文网</h3>
-            <p>
-                <a class="btn btn-lg btn-primary btn-shadow bs3-link" href="http://datatables.net/" target="_blank"
-                   role="button">Datatables官网 &raquo;</a>
-                <a class="btn btn-lg btn-primary btn-shadow bs3-link"
-                   href="http://datatables.net/releases/DataTables-1.10.15.zip" target="_blank" role="button"
-                   title="DataTables-1.10.15">最新版下载 &raquo;</a>
-            </p>
-            <p>
-                <a class="btn btn-lg btn-primary btn-shadow bs3-link"
-                   href="https://github.com/ssy341/datatables-cn/issues" target="_blank" role="button"
-                   title="交流学习">交流学习 &raquo;</a>
-            </p>
-            <p>
-                <a class="btn btn-lg btn-primary btn-shadow bs3-link"
-                   href="#qqgroup" role="button"
-                   title="加入QQ群交流">加入QQ群交流 &raquo;</a>
-            </p>
-        </div>
-        <div class="span7">
-            <p style="font-size:15px;text-indent: 2em;">
-                Datatables是一款jquery表格插件。它是一个高度灵活的工具，可以将任何HTML表格添加高级的交互功能。
-            <ul>
-                <li>分页，即时搜索和排序</li>
-                <li>几乎支持任何数据源：DOM，
-                    javascript，
-                    Ajax 和
-                    服务器处理
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/ssy341/datatables-cn" target="_blank">GitHub</a></li>
+                
+                
+                
+                <li><a href="blog">博客</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">DataTables官网<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="//datatables.net/manual/" target="_blank">DataTables手册</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/examples/index" target="_blank">DataTables例子</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/reference/index" target="_blank">DataTables参考</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/extensions/index" target="_blank">DataTables扩展</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/plug-ins/index" target="_blank">DataTables插件</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/blog/index" target="_blank">DataTables博客</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/forums/index" target="_blank">DataTables论坛</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/support/index" target="_blank">DataTables支持</a></li>
+                        
+                        
+                        
+                        <li><a href="//datatables.net/faqs/index" target="_blank">DataTablesFAQs</a></li>
+                        
+                        
+                    </ul>
                 </li>
-                <li>支持不同主题 DataTables, jQuery UI, Bootstrap, Foundation</li>
-                <li>各式各样的扩展: Editor, TableTools, FixedColumns ……</li>
-                <li>丰富多样的option和强大的API</li>
-                <li>支持国际化</li>
-                <li>超过2900+个单元测试</li>
-                <li>免费开源 （ <a href="http://datatables.net/license/mit">MIT license</a> ）！<a
-                        href="http://datatables.net/support"> 商业支持</a></li>
-                <li>更多特性请到官网查看</li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">获得DataTables<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="datatables.netdownloadindex">下载</a></li>
+                        
+                        
+                        
+                        <li><a href="datatables.netpurchaseindex">购买</a></li>
+                        
+                        
+                        
+                        <li><a href="p2_landing_page.html">Product 2</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:thxopen@datatables.club?subject=关于Datatables中文网-开始使用DataTables('+window.location.href+')的反馈'; "><i class="fa fa-envelope-o"></i> 需要帮助么？</a>
+
+</li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="搜索...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="开始使用DataTables">{title}</a></li>',
+                    noResultsText: '没找到结果.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
             </ul>
-            </p>
         </div>
-    </div>
-</header>
-<style>
-    .news-title {
-        font-weight: 700;
-    }
-
-    .news-date {
-        color: #acaaaf;
-        font-weight: 500;
-    }
-
-    .news {
-        margin-top: 1.25rem;
-    }
-
-    .news-list h2 {
-        margin-top: 25px;
-        text-transform: uppercase;
-        color: #333;
-        font-size: 22px;
-    }
-
-    .more-news {
-        margin-top: 2.5rem;
-        display: inline-block;
-    }
-
-    .highlights {
-        margin-top: 2rem;
-    }
-
-
-
-    /*可以隐藏的广告css样式*/
-    .adsense_fixed {
-        width: 100%;
-        z-index: 999999999999;
-    }
-
-    .adsense_content {
-        width: 720px;
-        margin: 0 auto;
-        position: relative;
-        background: #fff;
-    }
-
-    .adsense_btn_close, .adsense_btn_info {
-        font-size: 12px;
-        color: #fff;
-        height: 20px;
-        width: 20px;
-        vertical-align: middle;
-        text-align: center;
-        background: #000;
-        top: 4px;
-        left: 4px;
-        position: absolute;
-        z-index: 99999999;
-        font-family: Georgia;
-        cursor: pointer;
-        line-height: 18px
-    }
-
-    .adsense_btn_info {
-        left: 26px;
-        font-family: Georgia;
-        font-style: italic
-    }
-
-    .adsense_info_content {
-        display: none;
-        width: 260px;
-        height: 220px;
-        position: absolute;
-        top: -270px;
-        background: rgba(255, 255, 255, .9);
-        font-size: 14px;
-        padding: 20px;
-        font-family: Arial;
-        border-radius: 4px;
-        -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
-    }
-
-    .adsense_info_content:after {
-        content: '';
-        position: absolute;
-        left: 25px;
-        top: 100%;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #fff;
-        clear: both
-    }
-
-    .adsense_info_content .adsense_h3 {
-        color: #000;
-        margin: 0;
-        font-size: 18px !important;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_info_content .adsense_p {
-        color: #888;
-        font-size: 13px !important;
-        line-height: 20px;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_fh5co-team {
-        color: #000;
-        font-style: italic;
-    }
-
-    .unread {
-        box-shadow: 2px 0 0 #4078c0 inset;
-    }
-</style>
-<div class="container"  style="margin-top:20px">
-
-    <style>
-    pre {
-        font-size: 12px;
-        padding: 0;
-        margin: 0;
-        background: #f0f0f0;
-        line-height: 20px; /* 行距 */
-        background: url(/images/pre-bg.gif) repeat-y left top;
-        width: 300px;
-        overflow: auto; /* 超出宽度出现滑动条 */
-        overflow-Y:hidden; /* 作用是隐藏IE的右侧滑动条 */
-    }
-
-    div.cdn {
-        position: relative;
-        margin-bottom: 1em;
-        box-shadow: 0 0 3px #555;
-    }
-
-    div.cdn>span {
-        display: inline-block;
-        width: 15%;
-        height: 30px;
-        text-align: center;
-        padding-top: 6px;
-        float: left;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        background: #eee;
-        border-right: 1px solid #bbb;
-        cursor: pointer;
-        font-size: 0.9em;
-    }
-
-    div.cdn>input {
-        display: inline-block;
-        width: 84%;
-        height: 20px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 10px 5px;
-        vertical-align: middle;
-        background-color: #f9f9f9;
-        border: none;
-        font-family: "Source Code Pro","Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
-        font-size: 0.8em;
-    }
-
-    div.cdn>a.cdn-link {
-        position: absolute;
-        top: 6px;
-        right: 11px;
-        height: 9px;
-        width: 9px;
-        background: url(/images/external-site.gif) no-repeat center center;
-        background-color: #f9f9f9;
-        padding: 3px;
-        border: 1px solid #4d90fe;
-        border-radius: 3px;
-    }
-
-    #issueTable tbody td{
-        padding:8px;
-    }
-</style>
-<link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
-<div class="row">
-    <!--简单入门-->
-    <div class="span6">
-        <p>
-            怎样简单地使用DataTables？使用下方简单的几行代码，一个方法初始化table。
-        </p>
-        <pre>
-    $(document).ready(function(){
-        $('#myTable').DataTable();
-    });</pre>
-    </div>
-    <div class="span6">
-        <p>
-            <a href="/manual/install.html" target="_blank">开始</a>使用DataTables很简单，只需要引入两个文件，
-            一个css样式文件和DataTables本身的脚本文件。在DataTables CDN上，可以使用下面这两个文件：
-        </p>
-        <div class="cdn">
-            <span>CSS</span>
-            <input type="text" value="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" readonly="">
-            <a href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" target="_blank" class="cdn-link"></a></div>
-
-        <div class="cdn">
-            <span>JS</span>
-            <input type="text" value="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" readonly="">
-            <a href="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js" target="_blank" class="cdn-link"></a></div>
-    </div>
-
-    <div class="span12" style="margin:10px 0">
-    <div class='adsense_fixed'>
-        <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
-            <div class='adsense_info_content'>
-                <h3 class="adsense_h3">为什么有广告?</h3>
-                <p class='adsense_p'>
-                    希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
-                <p class='adsense_p'>爱你们,
-                    <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
-            </div>
-            <span class='adsense_btn_info' title='为什么有广告'>i</span>
-
-            <div style="margin:10px 0">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
         </div>
-    </div>
-</div>
+        <!-- /.container -->
+</nav>
 
-    <div class="span12">
-        <table class="display" id="issueTable">
-        </table>
-    </div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="issueTableCode" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">代码</h4>
-                </div>
-                <div class="modal-body">
-                    <pre id="issueTableCodeContent" style="width: auto"></pre>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/row-->
-</div>
-
-
-        <div class="row highlights">
-
-            <div class="span4 news-list">
-                <h2>DataTables中文网Blog</h2>
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
                 
 
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">Jekyll Doc Theme 6.0</li>
+  
+  
+  
+      
+  
+  <li>
+      <a href="#">Overview</a>
+      <ul>
+          
+          
+          
+          <li class="active"><a href="index.html">Get started</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_introduction.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_supported_features.html">Supported features</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_about.html">About the theme author</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_support.html">Support</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Release Notes</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_release_notes_60.html">6.0 Release notes</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_release_notes_50.html">5.0 Release notes</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Installation</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_about_ruby_gems_etc.html">About Ruby, Gems, Bundler, etc.</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_install_jekyll_on_mac.html">Install Jekyll on Mac</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_install_jekyll_on_windows.html">Install Jekyll on Windows</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Authoring</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_pages.html">Pages</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_posts.html">Posts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_lists.html">Lists</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_conditional_logic.html">Conditional logic</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_content_reuse.html">Content reuse</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_collections.html">Collections</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_webstorm_text_editor.html">WebStorm editor tips</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_atom_text_editor.html">Atom editor tips</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Navigation</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_sidebar_navigation.html">Sidebar navigation</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_yaml_tutorial.html">YAML tutorial in the context of Jekyll</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_tags.html">Tags</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_series.html">Series</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Formatting</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_adding_tooltips.html">Tooltips</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_alerts.html">Alerts</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_icons.html">Icons</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_images.html">Images</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_code_samples.html">Code samples</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_labels.html">Labels</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_hyperlinks.html">Links</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_navtabs.html">Navtabs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_tables.html">Tables</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_syntax_highlighting.html">Syntax highlighting</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_workflow_maps.html">Workflow maps</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Handling reviews</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_commenting_on_files.html">Commenting on files</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Publishing</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_build_arguments.html">Build arguments</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_themes.html">Themes</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_generating_pdfs.html">Generating PDFs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_help_api.html">Help APIs and UI tooltips</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_search_configuration.html">Search configuration</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_iterm_profiles.html">iTerm profiles</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_push_build_to_server.html">Pushing builds to server</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_publishing_github_pages.html">Publishing on Github Pages</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Special layouts</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_kb_layout.html">Knowledge-base layout</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_glossary.html">Glossary layout</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_faq_layout.html">FAQ layout</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a href="mydoc_shuffle.html">Shuffle layout</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Troubleshooting</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_troubleshooting.html">Troubleshooting</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+  
+  <li>
+      <a href="#">Tag archives</a>
+      <ul>
+          
+          
+          
+          <li><a href="mydoc_tag_archives_overview.html">Tag archives overview</a></li>
+          
+          
+          
+          <li class="subfolders">
+              <a href="#">Tag archive pages</a>
+              <ul>
+                  
+                  
+                  
+                  <li><a href="tag_formatting.html">Formatting pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_navigation.html">Navigation pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_content_types.html">Content types pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_publishing.html">Publishing pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_special_layouts.html">Special layout pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_collaboration.html">Collaboration pages</a></li>
+                  
+                  
+                  
+                  
+                  
+                  <li><a href="tag_troubleshooting.html">Troubleshooting pages</a></li>
+                  
+                  
+                  
+              </ul>
+          </li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年11月11日</div>
-    <div class="news-title">
-        <a href="/blog/2016/11/11/dataTables-vs-easyui-datagrid-basic-configuration.html">DataTables VS EasyUI DataGrid 基础应用</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/11/11/dataTables-vs-easyui-datagrid-basic-configuration.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年10月22日</div>
-    <div class="news-title">
-        <a href="/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html">DataTables表格插件和其他表格插件比较之（DataTables VS EasyUI DataGrid）零配置</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/10/22/dataTables-vs-another-table-of-plugin-easyui-datagrid-zero-configuration.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月30日</div>
-    <div class="news-title">
-        <a href="/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html">关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年07月10日</div>
-    <div class="news-title">
-        <a href="/blog/2016/07/10/add-index-for-table.html">给表格添加索引(Type selector-modifier 应用)</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年06月26日</div>
-    <div class="news-title">
-        <a href="/blog/2016/06/26/dt-code-help-doc.html">DTCODE(DataTables代码在线编辑)简陋上线</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/26/dt-code-help-doc.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年06月10日</div>
-    <div class="news-title">
-        <a href="/blog/2016/06/10/multiple-columns-search.html">DataTables 多条件查询、多列搜索</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/10/multiple-columns-search.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年06月9日</div>
-    <div class="news-title">
-        <a href="/blog/2016/06/09/datatables-for-tomato.html">番茄工作法（简单易行的时间管理方法）- DataTables实现(介绍篇)</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/09/datatables-for-tomato.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年06月4日</div>
-    <div class="news-title">
-        <a href="/blog/2016/06/04/to-reader.html">致在使用 DataTables 的小伙伴</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/06/04/to-reader.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月28日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html">如何添加新行到表格的最上面（困扰了许多人的一个梗）</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月23日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html">Markdown语法介绍（针对DataTables中文网）</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/05/23/markdown-grammar-for-datatables-cn.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年04月22日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html">如何定位问题（js调试基本技能）</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/manual/daily/2016/04/22/how-to-find-the-questions-basic-debug-skill-of-javascript.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年01月28日</div>
-    <div class="news-title">
-        <a href="/blog/2016/01/28/user-share-nbh1991.html">DataTables入门例子（代码封装）</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2016/01/28/user-share-nbh1991.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2015年05月8日</div>
-    <div class="news-title">
-        <a href="/blog/2015/05/08/the-first-activity.html">Datatables中文网第一期交流学习活动开始了</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2015/05/08/the-first-activity.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2015年04月10日</div>
-    <div class="news-title">
-        <a href="/blog/2015/04/10/vertical-page-fitting.html">DataTables 类瀑布流分页</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2015/04/10/vertical-page-fitting.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2014年10月22日</div>
-    <div class="news-title">
-        <a href="/blog/2014/10/22/search-result-highlighting.html">高亮显示搜索结果</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="http://datatables.club/blog/2014/10/22/search-result-highlighting.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<a class="more-news" href="/blog">更多 »</a>
             </div>
+            
+        
 
-            <div class="span4 news-list">
-                <h2>不定时一讲</h2>
-                
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">开始使用DataTables</h1>
+</div>
 
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月30日</div>
-    <div class="news-title">
-        <a href="/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html">关于 DataTables 本地储存那点事，又爱又恨 (stateSave参数应用)</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/09/30/about-localStorage-of-stuff-for-DataTables.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月25日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/25/option-stateSaveParams.html">option stateSaveParams 状态数据保存操作回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/25/option-stateSaveParams.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
+<div class="post-content">
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月23日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/23/option-stateSaveCallback.html">option stateSaveCallback 定义表格状态怎样、在哪里存储</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/23/option-stateSaveCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
+   
+    <div class="summary">跟着下面的步骤可以快速把你的Table标签变成一个带有许多功能的强大表格.</div>
+   
 
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月22日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/22/option-stateLoadParams.html">option stateLoadParams 状态读取数据操作回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/22/option-stateLoadParams.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月11日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/11/option-stateLoaded.html">option stateLoaded 状态读取回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/11/option-stateLoaded.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月10日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/10/option-stateLoadCallback.html">option stateLoadCallback 状态读取回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/10/option-stateLoadCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月4日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/04/option-rowCallback.html">option rowCallback 行绘制回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/04/option-rowCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年09月2日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/09/02/option-preDrawCallback.html">option preDrawCallback 重绘前回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/09/02/option-preDrawCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年08月30日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/08/30/option-infoCallback.html">option infoCallback 表格概要信息显示回调</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/30/option-infoCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年08月29日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/08/29/option-headerCallback.html">option headerCallback 表头回调函数</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/08/29/option-headerCallback.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年07月10日</div>
-    <div class="news-title">
-        <a href="/blog/2016/07/10/add-index-for-table.html">给表格添加索引(Type selector-modifier 应用)</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/blog/2016/07/10/add-index-for-table.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月12日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/12/all-options-of-options.html">DataTables初始化对照模板4（全部option - Options 配置选项）</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-options.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月12日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/12/all-options-of-internationalisation.html">DataTables初始化对照模板6（全部option - Internationalisation 国际化）</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-internationalisation.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月12日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/12/all-options-of-features.html">DataTables初始化对照模板1（全部option - Features 特性）</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-features.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">2016年05月12日</div>
-    <div class="news-title">
-        <a href="/manual/daily/2016/05/12/all-options-of-data.html">DataTables初始化对照模板2（全部option - Data 数据）</a>
-        <span class='disqus-comment-count' data-disqus-url="http://datatables.club/manual/daily/2016/05/12/all-options-of-data.html"></span><i class="icon-comment "></i>
-    </div>
-</article>
-
-<a class="more-news" href="/blog">更多 »</a>
-            </div>
-
-            <div class="span4 intro">
-                <div class="well">
-                    <h4>百度站内搜索</h4>
-                    <div class="input-group">
-                        <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
-                    </div>
-                </div>
-                <div class="well">
-                    <div class="input-group">
-                        <script>
-                            (function() {
-                                var cx = '001171264216576386016:xim4af2d2ik';
-                                var gcse = document.createElement('script');
-                                gcse.type = 'text/javascript';
-                                gcse.async = true;
-                                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                                var s = document.getElementsByTagName('script')[0];
-                                s.parentNode.insertBefore(gcse, s);
-                            })();
-                        </script>
-                        <gcse:searchbox-only></gcse:searchbox-only>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-                <div style="margin:10px 0">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
+$( document ).ready(function() {
+  // Handler for .ready() called.
 
-                <div class="well">
-                    <h3>赞助</h3>
-                    <div class="flex-center">
-                        <a href="/about/index.html#donate">
-                            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-polaroid">
-                        </a>
-                    </div>
-                </div>
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
 
-                <div class="well">
-                    <span>
-                        您的支持，将是我们前进的最大动力……
-                    </span>
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
 
-                    <!-- 表格开始 -->
-                    <table id="example" class="display" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th>昵称</th>
-                            <th>金额</th>
-                            <th>时间</th>
-                            <!--<th>备注</th>-->
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        <tfoot>
-                        <th colspan="3"></th>
-                        </tfoot>
-                    </table>
-
-                </div>
-            </div>
-
-            <div class="span12" style="margin:10px 0">
-    <div class='adsense_fixed'>
-        <div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>
-            <div class='adsense_info_content'>
-                <h3 class="adsense_h3">为什么有广告?</h3>
-                <p class='adsense_p'>
-                    希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>
-                <p class='adsense_p'>爱你们,
-                    <br><span class='adsense_fh5co-team'>DataTables中文网</span></p>
-            </div>
-            <span class='adsense_btn_info' title='为什么有广告'>i</span>
-
-            <div style="margin:10px 0">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- test -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2101546703939638"
-     data-ad-slot="9922577908"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-</div>
-        </div>
-    </div>
-</div>
-
-        </div>
-
-</div>
-<script src="/assets/jquery/1.10.2/jquery.min.js"></script>
-<script src="/assets/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-    //判断是否显示更新提示
-    $.get("/assets/updatelog.txt", function (data) {
-        var json = JSON.parse(data);
-        if (json.isNote) {
-            var cache = localStorage['dt.thxopen.com.note'];
-            if (typeof cache == 'undefined') {
-                $("#updateFlag").addClass("hot");
-            } else {
-                var current = new Date().getTime();
-                var bl = current - cache;
-                var s = 24 * 60 * 60 * 1000;
-                if (bl > s) {
-                    $("#updateFlag").addClass("hot");
-                }
-            }
-        }
-    });
-</script>
-<!--复制本页url到剪贴板-->
-<script src="/js/ZeroClipboard.min.js"></script>
-<script>
-$('[data-toggle="tooltip"]').tooltip();
-$('#copyurltoclip').on('show.bs.tooltip', function () {
-
-    var url = window.location.href;
-    var title = $("title").html();
-    var text = title + ":"+url;
-    $(this).attr("data-clipboard-text",text);
-
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
 });
-
-var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-client.on( "aftercopy", function( event ) {
-    console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-} );
-
-client.on( 'error', function() {
-    ZeroClipboard.destroy();
-} );
 </script>
 
+<div id="toc"></div>
+
+    
+
+
+    
+
+    <a target="_blank" href="https://github.com/tomjoht/documentation-theme-jekyll/blob/gh-pages//index.md" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> 编辑本页面</a>
+
+    
+
+
+    
+
+  <h2 id="第一步引入下面两个文件">第一步：引入下面两个文件</h2>
+
+<p>css:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css
+</code></pre></div></div>
+
+<p>js:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js
+</code></pre></div></div>
+
+<h2 id="第二步在页面上执行下面代码">第二步：在页面上执行下面代码</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'#myTable'</span><span class="p">).</span><span class="nx">DataTable</span><span class="p">();</span>
+<span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="第三步你可以看到如下所示一个功能强大的表格">第三步：你可以看到如下所示一个功能强大的表格</h2>
 
 
 
-<style>
-.right-ad{
-	box-sizing: content-box;
-	width: 150px;
-	height: 600px;
-	overflow: hidden;
-	z-index: 2147483647;
-	position: fixed;
-	top: 35%;
-	right: 20px;
-}
-
-.right-ad div{
-	box-sizing: content-box;
-	width:150px;
-	height:600px;
-	padding:4px;
-	<!-- border:#acacac 1px solid; -->
-	overflow:hidden;
-	position:absolute;
-	left:0;
-	top:25px;
-}
-
-.left-ad{
-	box-sizing: content-box;
-	width: 150px;
-	height: 600px;
-	overflow: hidden;
-	z-index: 2147483647;
-	position: fixed;
-	top: 35%;
-	left: 20px;
-}
-.left-ad div{
-	box-sizing: content-box;
-	width:150px;
-	height:600px;
-	padding:4px;
-	<!--border:#acacac 1px solid; -->
-	overflow:hidden;
-	position:absolute;
-	left:0;
-	top:25px;
-}
-
-
-
-/*可以隐藏的广告css样式*/
-.adsense_fixed {
-    width: 100%;
-    z-index: 999999999999;
-}
-
-.adsense_content {
-    width: 720px;
-    margin: 0 auto;
-    position: relative;
-    background: #fff;
-}
-
-.adsense_btn_close, .adsense_btn_info {
-    font-size: 12px;
-    color: #fff;
-    height: 20px;
-    width: 20px;
-    vertical-align: middle;
-    text-align: center;
-    background: #000;
-    top: 4px;
-    left: 4px;
-    position: absolute;
-    z-index: 99999999;
-    font-family: Georgia;
-    cursor: pointer;
-    line-height: 18px
-}
-
-.adsense_btn_info {
-    left: 26px;
-    font-family: Georgia;
-    font-style: italic
-}
-
-.adsense_info_content {
-    display: none;
-    width: 260px;
-    height: 220px;
-    position: absolute;
-    top: -270px;
-    background: rgba(255, 255, 255, .9);
-    font-size: 14px;
-    padding: 20px;
-    font-family: Arial;
-    border-radius: 4px;
-    -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-    -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-    box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
-}
-
-.adsense_info_content:after {
-    content: '';
-    position: absolute;
-    left: 25px;
-    top: 100%;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #fff;
-    clear: both
-}
-
-.adsense_info_content .adsense_h3 {
-    color: #000;
-    margin: 0;
-    font-size: 18px !important;
-    font-family: 'Arial' !important;
-    margin-bottom: 20px !important;
-}
-
-.adsense_info_content .adsense_p {
-    color: #888;
-    font-size: 13px !important;
-    line-height: 20px;
-    font-family: 'Arial' !important;
-    margin-bottom: 20px !important;
-}
-
-.adsense_fh5co-team {
-    color: #000;
-    font-style: italic;
-}
-
-.unread {
-    box-shadow: 2px 0 0 #4078c0 inset;
-}
-</style>
-<!--<div class="left-ad"  id="adLeft">-->
-    <!--<div class="span12" style="margin:10px 0">-->
-        <!--<div class='adsense_fixed'>-->
-            <!--<div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>-->
-                <!--<div class='adsense_info_content'>-->
-                    <!--<h3 class="adsense_h3">为什么有广告?</h3>-->
-                    <!--<p class='adsense_p'>-->
-                        <!--希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>-->
-                    <!--<p class='adsense_p'>爱你们,-->
-                        <!--<br><span class='adsense_fh5co-team'>DataTables中文网</span></p>-->
-                <!--</div>-->
-                <!--<span class='adsense_btn_info' title='为什么有广告'>i</span>-->
-
-                <!--<div>-->
-                    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-                    <!--&lt;!&ndash; yad-left &ndash;&gt;-->
-                    <!--<ins class="adsbygoogle"-->
-                         <!--style="display:block"-->
-                         <!--data-ad-client="ca-pub-2101546703939638"-->
-                         <!--data-ad-slot="1953170309"-->
-                         <!--data-ad-format="auto"></ins>-->
-                    <!--<script>-->
-                        <!--(adsbygoogle = window.adsbygoogle || []).push({});-->
-                    <!--</script>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!--<div class="right-ad" id="adRight">-->
-    <!--<div class="span12" style="margin:10px 0">-->
-        <!--<div class='adsense_fixed'>-->
-            <!--<div class='adsense_content'><span class='adsense_btn_close' title='隐藏广告'>x</span>-->
-                <!--<div class='adsense_info_content'>-->
-                    <!--<h3 class="adsense_h3">为什么有广告?</h3>-->
-                    <!--<p class='adsense_p'>-->
-                        <!--希望你能理解我们为什么会在这里显示广告。为了给大家提供文档供大家查询，帮助大家解决问题。但是域名、服务器以及维护都需要资金，所以我们必须显示广告。谢谢你们的支持！</p>-->
-                    <!--<p class='adsense_p'>爱你们,-->
-                        <!--<br><span class='adsense_fh5co-team'>DataTables中文网</span></p>-->
-                <!--</div>-->
-                <!--<span class='adsense_btn_info' title='为什么有广告'>i</span>-->
-
-                <!--<div>-->
-                    <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-                    <!--&lt;!&ndash; yad-left &ndash;&gt;-->
-                    <!--<ins class="adsbygoogle"-->
-                         <!--style="display:block"-->
-                         <!--data-ad-client="ca-pub-2101546703939638"-->
-                         <!--data-ad-slot="7999703903"-->
-                         <!--data-ad-format="auto"></ins>-->
-                    <!--<script>-->
-                        <!--(adsbygoogle = window.adsbygoogle || []).push({});-->
-                    <!--</script>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<script>
-    console.log("多谢大家对中文网的支持，有任何建议都可以发送邮箱：thxopen@datatables.club");
-    console.log("非常期待您的反馈，这样中文网才能越做越好");
-    console.log("Thank you for your support! If you have any suggestions, please contact thxopen@datatables.club");
-    console.log("I'm looking forward your feedback. Make the website better and better.");
-    console.log(":)");
-
-    if(document.getElementById("noad")){
-        document.getElementById("adLeft").style.display = "none";
-        document.getElementById("adRight").style.display = "none";
-        console.log("index no ad of side");
-    }
-</script>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    bp.src = '//push.zhanzhang.baidu.com/push.js';
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-<!--footer-->
-<footer class="footer">
-    <div class="container">
-        <div class="span3">
-            <img src="/assets/logo-fade.png" alt=""/>
-        </div>
-        <div class="span6" style="margin: 0">
-            <ul class="footer-links">
-                <li>
-                    <iframe style="border: 0;overflow: hidden"
-                            src="http://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true"
-                            width="100" height="20" title="Star on GitHub"></iframe>
-                </li>
-                <li>
-                    <iframe src="https://ghbtns.com/github-btn.html?user=ssy341&repo=datatables-cn&type=watch&count=true&v=2"
-                            frameborder="0" scrolling="0" width="100px" height="20px" title="Watch on GitHub"></iframe>
-                </li>
-                <li>
-                    <iframe style="border: 0;overflow: hidden"
-                            src="http://ghbtns.com/github-btn.html?user=ssy341&amp;repo=datatables-cn&amp;type=fork&amp;count=true"
-                            width="100" height="20" title="Fork on GitHub"></iframe>
-                </li>
-                <li>
-                    <a href="http://weibo.com/datatables" target="_blank"><img
-                            src="http://img.t.sinajs.cn/t6/style/images/global_nav/WB_logo.png" alt="微博"/></a>
-                </li>
-            </ul>
-            <p>Translation from <a href="http://datatables.net">DataTables.net</a>, with permission</p>
-
-            <p>With help <a href="http://getbootstrap.com" target="_blank" title="bootstrap前端框架">Bootstrap</a>
-                &
-                <a href="http://jekyllrb.com/" target="_blank"
-                   title="Transform your plain text into static websites and blogs.">Jekyll</a></p>
-
-            <p>
-                <a href="https://github.com/ssy341/datatables-cn/blob/gh-pages/index.html" title="Edit this page on GitHub">
-                    <img src="https://az835927.vo.msecnd.net/sites/iot/Resources/images/Octocat.png" class="nr">在GitHub上编辑此页面
-                </a>
-            </p>
-            <!--<ul class="footer-links" id="qqgroup">-->
-                <!--<li>QQ群：</li>-->
-                <!--<li>-->
-                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
-                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=ee2ceba90019346a255da2dc0875469616f2cf27aa0e81436542525e8d18021c" target="_blank"-->
-                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">238625393（1群）</a>-->
-                <!--</li>-->
-                <!--<li>-->
-                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
-                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=b9e5ddc360190f5cc28d62fb6131afa98790503d7612d5302d0ad6038bedb4d6" target="_blank"-->
-                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（3群）</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-            <ul  class="footer-links" id="qqgroup">
-                <li>
-                    <a class="bs3-link" onclick="noteTitle(this)"
-                       href="http://shang.qq.com/wpa/qunwpa?idkey=b1e693c4133e1655580af5b27013b8b0d23bfced561cf027c8d89fb8bc4459c9" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">547691991（2000人中文网交流群1）满</a>
-                </li>
-                <li>
-                    <a class="bs3-link" onclick="noteTitle(this)"
-                       href="http://shang.qq.com/wpa/qunwpa?idkey=e21eada25d8342caa6b81aac4393b35b84d350d7c5b2aa9e36ec2055498b6242" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">20779435（2000人中文网交流群3）</a>
-                </li>
-                <li>
-                    <a class="bs3-link" onclick="noteTitle(this)"
-                       href="http://shang.qq.com/wpa/qunwpa?idkey=5796bab31300e68fa5adfd94d0083a65af2553435d64346364732e668290f226" target="_blank"
-                       title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告">490289088（Editor 讨论群）</a>
-                </li>
-                <!--<li>-->
-                    <!--<a class="bs3-link" onclick="noteTitle(this)"-->
-                       <!--href="http://shang.qq.com/wpa/qunwpa?idkey=35add13134a17cb0c6297bebc25fb4e359104a86e0d47c948aa2d711b319ca31" target="_blank"-->
-                       <!--title="提示：禁止同时加入多个群！进群后请仔细参考置顶群公告。注：本群为进阶群，新手勿加">180188326（进阶群，注：本群为进阶群，新手勿加）</a>-->
-                <!--</li>-->
-            </ul>
-            <ul class="footer-links">
-                <li>相关插件：</li>
-                <li><a href="http://www.treejs.cn" target="_blank" title="zTree 是一个依靠 jQuery 实现的多功能 “树插件”">zTree</a></li>
-                <li><a href="https://terryz.github.io" target="_blank" title="多功能下拉分页选择插件">SelectPage</a></li>
-            </ul>
-            <script>
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?1c2bd29cae4808be68e4f91e174e69a8";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
-        </div>
-       <div class="span3">
-           <p style="font-size:15px;text-indent: 2em;">
-               Datatables中文网是结合官网给大家一个完整的、易懂的手册。
-               本站内容均为原创翻译制作，并获得作者的同意，本站将会持续更新，
-               让我们更好的使用Datatables。在本站中对一些重要的方法、属性等都做了详细的批注以及示例展示。
-           </p>
-           <p style="font-size:15px;text-indent: 2em;">
-             <b> 申明：</b>未经本站许可请勿对本站文档进行复制或再发行，谢谢合作！最后还要感谢Datatables的作者的支持
-               <ul class="footer-links">
-                   <li><a href="http://www.thxopen.com" target="_blank">Thxopen</a></li>
-                   <li><a href="http://clboxing.com" target="_blank">成龙拳馆</a></li>
-                   <li><a href="http://app.qisedie.com" target="_blank">七色蝶手机网</a></li>
-               </ul>
-           </p>
-       </div>
+    <div class="tags">
+        
     </div>
+
+
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'idratherbewriting'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2018 单客哦朋. All rights reserved. <br />
+ Site last generated: Mar 24, 2018 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
 </footer>
-<script type="text/javascript">
-    function noteTitle(obj){
-        var note = $(obj).attr("title");
-        alert(note);
-    }
-</script>
-
-<script>
-
-    //广告显示/隐藏
-    $(function () {
-        $('.adsense_btn_close').click(function () {
-            $(this).closest('.adsense_fixed').css('display', 'none');
-        });
-
-        $('.adsense_btn_info').click(function () {
-            var addDiv = $(this).parent().find("div.adsense_info_content");
-            if (addDiv.is(':visible')) {
-                addDiv.css('display', 'none');
-            } else {
-                addDiv.css('display', 'block');
-            }
-        });
-    });
-</script>
-<script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 
 
-
-<script  type="text/javascript" charset="utf8" src="/assets/datatables/1.10.5/js/jquery.dataTables.min.js"></script>
-
-
-<script id="issueTableScript">
-
-    var githubTable;
-    $(document).ready(function () {
-
-        //配置DataTables默认参数
-        $.extend(true, $.fn.dataTable.defaults, {
-            "language": {
-                "url": "/assets/Chinese.txt"
-            },
-            "dom": "l<'#toolbar'>frtip"
-        });
-
-        //issue表格初始化
-        githubTable = $("#issueTable").DataTable({
-            //调用github api 获取issues 数据
-            ajax: {
-                url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
-                dataSrc: ""
-            },
-            //默认最后一列（最后更新时间）降序排列
-            order: [[4, "desc"]],
-            //行被创建回调
-            createdRow: function (row, data, dataIndex) {
-                var updated_at = new Date(Date.parse(data.updated_at)).Format("yyyy-MM-dd hh:mm:ss");
-                updated_at = new Date(updated_at).getTime();
-                var current = new Date().getTime();
-                var bl = current - updated_at;
-                var s = 5 * 24 * 60 * 60 * 1000;
-                //最后更新日期在最近5天则突出显示
-                if (bl < s) {
-                    $(row).addClass('unread');
-                }
-            },
-            //行创建完成后回调
-            rowCallback: function (row, data, index) {
-                var tags = $(row).find("td:eq(1)");
-                if (tags.text().indexOf("置顶") > 0) {
-                    var title = $(row).find("td:eq(0)");
-                    var hot = "<span class='hot'></span>";
-                    title.html(title.html() + hot);
-                }
-            },
-            columnDefs: [
-                {
-                    targets: 4,
-                    data: "updated_at",
-                    title: "<i class='icon-time'></i>",
-                    render: function (data, type, row, meta) {
-                        return new Date(Date.parse(data)).Format("yyyy-MM-dd hh:mm:ss");
-                    }
-                },
-                {
-                    targets: 3,
-                    data: null,
-                    title: "<i class='icon-user'></i>",
-                    render: function (data, type, row, meta) {
-                        return "<a href='" + row.user.html_url +
-                                "' target='_blank'>" + row.user.login + "</a>";
-                    }
-                },
-                {
-                    targets: 2,
-                    data: "comments",
-                    title: "<i class='icon-comment'></i>",
-                    render: function (data, type, row, meta) {
-                        var comments = data + "<i class='icon-comment'></i>";
-                        return comments;
-                    }
-                },
-                {
-                    targets: 1,
-                    data: null,
-                    title: "<i class='icon-tag'></i>",
-                    render: function (data, type, row, meta) {
-                        var labels = "";
-                        if (row.labels.length) {
-                            for (var j = 0, labelslen = row.labels.length; j < labelslen; j++) {
-                                labels += "<span style='color:#" + row.labels[j].color + "' >" +
-                                        row.labels[j].name + "</span>";
-                                if (j != labelslen - 1) {
-                                    labels += ",";
-                                }
-                            }
-                        }
-                        return labels;
-                    }
-                },
-                {
-                    targets: 0,
-                    data: "title",
-                    title: "<i class='icon-question-sign'></i>",
-                    render: function (data, type, row, meta) {
-                        var title = "<a href='" + row.html_url +
-                                "' target='_blank'>" + row.title + "</a>";
-                        return title;
-                    }
-                }
-            ],
-            initComplete: function () {
-                //表格加载完毕，手动添加按钮到表格上
-                $("#toolbar").css("width", "100px").css("display", "inline").css("margin-left", "10px");
-                $("#toolbar").append("<a href='https://github.com/ssy341/datatables-cn/issues/new' " +
-                        "class='btn btn-primary btn-sm' target='_blank'>我有问题</a>");
-                $("#toolbar").append("<a href='/example/diy.html' " +
-                        "class='btn btn-default btn-sm' style='margin-left: 5px' target='_blank'>DIY</a>");
-                $("#toolbar").append("<a href='javascript:void(0);' " +
-                        "class='btn btn-default btn-sm closedIssue' " +
-                        "style='margin-left: 5px;color:#009900'>查看已解决问题</a>");
-                $("#toolbar").append("<a href='javascript:void(0);' " +
-                        "class='btn btn-default btn-sm viewCode' style='margin-left: 5px;'>查看本实例代码</a>");
-
-                //加载已经关闭的问题
-                $(".closedIssue").clickToggle(function () {
-                    //调用url方法切换dt的数据源
-                    githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues?state=closed").load();
-                    $(this).text("查看未解决问题").css("color", "#FF0000");
-                }, function () {
-                    githubTable.ajax.url("https://api.github.com/repos/ssy341/datatables-cn/issues").load();
-                    $(this).text("查看已解决问题").css("color", "#009900");
-                });
-
-                //查看本例子代码
-                $(".viewCode").click(function(){
-                    //显示模态框展示代码
-                    $("#issueTableCode").modal("show");
-                    $("#issueTableCodeContent").html($("#issueTableScript").html());
-                });
-            }
-        });
-    });
-
-    //时间格式化
-    Date.prototype.Format = function (fmt) { //author: meizz
-        var o = {
-            "M+": this.getMonth() + 1,
-            //月份
-            "d+": this.getDate(),
-            //日
-            "h+": this.getHours(),
-            //小时
-            "m+": this.getMinutes(),
-            //分
-            "s+": this.getSeconds(),
-            //秒
-            "q+": Math.floor((this.getMonth() + 3) / 3),
-            //季度
-            "S": this.getMilliseconds() //毫秒
-        };
-        if (/(y+)/.test(fmt)) {
-            fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
-        }
-        for (var k in o) {
-            if (new RegExp("(" + k + ")").test(fmt)) {
-                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
-            }
-        }
-        return fmt;
-    };
-
-    //事件来回切换方法
-    //solve this
-    //reference http://stackoverflow.com/questions/4911577/jquery-click-toggle-between-two-functions
-    (function ($) {
-        $.fn.clickToggle = function (func1, func2) {
-            var funcs = [func1, func2];
-            this.data('toggleclicked', 0);
-            this.click(function () {
-                var data = $(this).data();
-                var tc = data.toggleclicked;
-                $.proxy(funcs[tc], this)();
-                data.toggleclicked = (tc + 1) % 2;
-            });
-            return this;
-        };
-    }(jQuery));
-
-</script>
-
-
-<script>
-    //捐赠表格初始化
-    $(document).ready(function () {
-        $('#example').dataTable({
-            order: [
-                [2, "desc"]
-            ],
-            pageLength: 3,
-            dom: "it" +
-            "<'row'p>",
-            lengthChange: !1,
-            columns: [
-                {data: "nickname"},
-                {data: "money"},
-                {data: "date"}
-            ],
-            language: {
-                search: "",
-                paginate: {
-                    next: ">",
-                    previous: "<"
-                }
-//                info: " _START_ - _END_ (共_TOTAL_个热心网友 )"+' <a class="button button-success" href="/about/index.html#donate">我也要赞一个 &gt;&gt;</a>'
-            },
-            ajax: "/assets/donate.txt",
-            createdRow: function (row, data, dataIndex) {
-                $(row).attr("title", data.note)
-                if (data.type) {
-                    $(row).addClass("donateType");
-                } else {
-                    $(row).addClass("earnType");
-                }
-            },
-            infoCallback: function (settings, start, end, max, total, pre) {
-                return start + "-" + end + "(共" + total + "个热心网友 )<a class='button button-success' href='/about/index.html#donate'>我也要赞一个 &gt;&gt;</a>";
-            },
-            initComplete: function () {
-                var api = this.api();
-                var fda = api.column(1).data().reduce(function (a, b) {
-                    return (parseFloat(a) + parseFloat(b)).toFixed(2);
-                });
-                $(api.column(0).footer()).html("总额：" + fda);
-            }
-        });
-    });
-</script>
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
 
 </body>
+
+<!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-66296557-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
 </html>

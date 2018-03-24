@@ -1,28 +1,115 @@
-#baseurl: /datatables-cn
-baseurl:
-#baseurl: /www
-#port: 341
-wlan_url: http://datatables.club
-en_url: https://datatables.net
-encoding: utf-8
-exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom']
-#destination: ./_site
-#destination: C:\code\xampp\htdocs
-dtversion: 1.10.15
-email: thxopen@datatables.club
-github: https://github.com/ssy341/datatables-cn/blob/gh-pages/
+repository: tomjoht/documentation-theme-jekyll
 
-# page config
-plugins: [jekyll-paginate]
-paginate: 10
-paginate_path: "/blog/page:num/"
+output: web
+# this property is useful for conditional filtering of content that is separate from the PDF.
 
-excerpt_separator: <!--more-->
+topnav_title: DataTables中文网
+# this appears on the top navigation bar next to the home button
 
-# Build settings
+site_title: DataTables中文网
+# this appears in the html browser tab for the site title (seen mostly by search engines, not users)
+
+company_name: 单客哦朋
+# this appears in the footer
+
+github_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
+# if you're using Github, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
+
+# gitlab_editme_path: tomjoht/documentation-theme-jekyll/blob/gh-pages/
+# if you're using GitLab, provide the basepath to the branch you've created for reviews, following the sample here. if not, leave this value blank.
+
+disqus_shortname: idratherbewriting
+# if you're using disqus for comments, add the shortname here. if not, leave this value blank.
+
+google_analytics: UA-66296557-1
+# if you have google-analytics ID, put it in. if not, edit this value to blank.
+
+host: 127.0.0.1
+# the preview server used. Leave as is.
+
+port: 4000
+# the port where the preview is rendered. You can leave this as is unless you have other Jekyll builds using this same port that might cause conflicts. in that case, use another port such as 4006.
+
+exclude:
+  - .idea/
+  - .gitignore
+# these are the files and directories that jekyll will exclude from the build
+
+feedback_subject_line: Datatables中文网
+
+feedback_email: thxopen@datatables.club
+# used as a contact email for the Feedback link in the top navigation bar
+
+# feedback_disable: true
+# if you uncomment the previous line, the Feedback link gets removed
+
+feedback_text: "需要帮助么？"
+# if you uncomment the previous line, it changes the Feedback text
+
+# feedback_link: "http://helpy.io/"
+# if you uncomment the previous line, it changes where the feedback link points to
+
+highlighter: rouge
+# library used for syntax highlighting
+
 markdown: kramdown
-#markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-sitename: Datatables 中文网
-description: > # this means to ignore newlines until "baseurl:"
-  Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
-      Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+# filter used to process markdown. note that kramdown differs from github-flavored markdown in some subtle ways
+
+collections:
+  tooltips:
+    output: false
+# collections are declared here. this renders the content in _tooltips and processes it, but doesn't output it as actual files in the output unless you change output to true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      sidebar: home_sidebar
+      topnav: topnav
+  -
+    scope:
+      path: ""
+      type: "tooltips"
+    values:
+      layout: "page"
+      comments: true
+      search: true
+      tooltip: true
+
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      search: true
+      sidebar: home_sidebar
+      topnav: topnav
+
+# these are defaults used for the frontmatter for these file types
+
+sidebars:
+- home_sidebar
+- mydoc_sidebar
+- product1_sidebar
+- product2_sidebar
+- other
+
+description: "Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features."
+# the description is used in the feed.xml file
+
+# needed for sitemap.xml file only
+url: http://datatables.club
+baseurl: /

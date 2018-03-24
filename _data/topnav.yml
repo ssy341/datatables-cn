@@ -1,0 +1,42 @@
+## Topnav single links
+## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+topnav:
+- title: Topnav
+  items:
+    - title: GitHub
+      external_url: https://github.com/ssy341/datatables-cn
+    - title: 博客
+      url: /blog
+
+#Topnav dropdowns
+topnav_dropdowns:
+- title: Topnav dropdowns
+  folders:
+    - title: DataTables官网
+      folderitems:
+        - title: DataTables手册
+          external_url: //datatables.net/manual/
+        - title: DataTables例子
+          external_url: //datatables.net/examples/index
+        - title: DataTables参考
+          external_url: //datatables.net/reference/index
+        - title: DataTables扩展
+          external_url: //datatables.net/extensions/index
+        - title: DataTables插件
+          external_url: //datatables.net/plug-ins/index
+        - title: DataTables博客
+          external_url: //datatables.net/blog/index
+        - title: DataTables论坛
+          external_url: //datatables.net/forums/index
+        - title: DataTables支持
+          external_url: //datatables.net/support/index
+        - title: DataTablesFAQs
+          external_url: //datatables.net/faqs/index
+    - title: 获得DataTables
+      folderitems:
+        - title: 下载
+          url: //datatables.net/download/index
+        - title: 购买
+          url: //datatables.net/purchase/index
+        - title: Product 2
+          url: /p2_landing_page.html

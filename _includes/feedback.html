@@ -1,0 +1,13 @@
+<li>
+{% if site.feedback_text %}
+  {% assign feedback_text = site.feedback_text %}
+{% else %}
+  {% assign feedback_text = "Feedback" %}
+{% endif %}
+
+{% if site.feedback_link %}
+  <a class="email" title="Submit feedback" href="{{site.feedback_link}}">{{feedback_text}}</a>
+{% else %}
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:{{site.feedback_email}}?subject=关于{{site.feedback_subject_line}}-{{page.title}}('+window.location.href+')的反馈'; "><i class="fa fa-envelope-o"></i> {{feedback_text}}</a>
+{% endif %}
+</li>

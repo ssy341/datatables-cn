@@ -1,6 +1,0 @@
-{% assign templist = site.data.quickapi[include.param] %}
-{% for item in templist %}
-<li>
-    <a href="{{item.url}}" title="{{item.title}}">{{item.text}}</a>
-</li>
-{% endfor %}

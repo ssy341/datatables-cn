@@ -1,1 +1,0 @@
-jekyll build --watch
