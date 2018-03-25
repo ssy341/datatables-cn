@@ -39,6 +39,7 @@ scripts: [
 </style>
 
 
+{% include ad.html %}
 
 ## 第一步：引入下面两个文件
 
@@ -110,6 +111,7 @@ $('#example')
 
 对了还有我说的Github issue的例子的代码，不用担心，我没有忘记，先看一则广告:)
 
+{% include ad.html %}
 
 ```javascript
 var githubTable;
