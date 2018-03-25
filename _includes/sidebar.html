@@ -44,6 +44,16 @@
           {% endfor %}
       </ul>
    </li>
+    {% else %}
+        {% if folder.external_url %}
+        <li><a href="{{folder.external_url}}" target="_blank">{{folder.title}}</a></li>
+        {% else %}
+            {% if page.url == folder.url %}
+            <li class="active"><a href="{{folder.url | remove: "/"}}">{{folder.title}}</a></li>
+            {% else %}
+            <li><a href="{{folder.url}}">{{ folder.title }}</a></li>
+            {% endif %}
+        {% endif %}
      {% endif %}
       {% endfor %}
       {% endfor %}

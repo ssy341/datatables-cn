@@ -2,22 +2,9 @@
 
 entries:
 - title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
+  product: DataTables
+  version: 1.10.16
   folders:
-
-  - title:
-    output: pdf
-    type: frontmatter
-    folderitems:
-    - title:
-      url: /titlepage.html
-      output: pdf
-      type: frontmatter
-    - title:
-      url: /tocpage.html
-      output: pdf
-      type: frontmatter
 
   - title: 概览
     output: web, pdf
@@ -36,11 +23,11 @@ entries:
     output: web, pdf
     folderitems:
 
-    - title: 安装
+    - title: 安装（Installation）
       url: /mydoc_release_notes_60.html
       output: web, pdf
 
-    - title: 数据源
+    - title: 数据源（Data）
       url: /mydoc_release_notes_50.html
       output: web, pdf
 
@@ -48,7 +35,7 @@ entries:
       url: /mydoc_release_notes_50.html
       output: web, pdf
 
-    - title: 选项
+    - title: 选项（Options）
       url: /mydoc_release_notes_50.html
       output: web, pdf
 
@@ -57,7 +44,7 @@ entries:
       output: web, pdf
 
       subfolders:
-        - title: 主题样式
+        - title: 主题样式（Styling）
           output: web
           subfolderitems:
 
@@ -85,240 +72,163 @@ entries:
             url: /tag_collaboration.html
             output: web
 
-  - title: Installation
+    - title: 事件（Events）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 服务器处理（Server-side processing）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 国际化（Internationalisation）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 安全（Security）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 插件开发（Plug-in development）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 技术说明（Technical notes）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+    - title: 发展（Development）
+      url: /mydoc_release_notes_50.html
+      output: web, pdf
+
+  - title: 参考文档（Reference）
     output: web, pdf
     folderitems:
+      - title: 选项（Options）
+        url: /mydoc_pages.html
+        output: web, pdf
 
-    - title: About Ruby, Gems, Bundler, etc.
-      url: /mydoc_about_ruby_gems_etc.html
-      output: web, pdf
+      - title: API
+        url: /mydoc_pages.html
+        output: web, pdf
 
-    - title: Install Jekyll on Mac
-      url: /mydoc_install_jekyll_on_mac.html
-      output: web, pdf
+      - title: 事件（Events）
+        url: /mydoc_pages.html
+        output: web, pdf
 
-    - title: Install Jekyll on Windows
-      url: /mydoc_install_jekyll_on_windows.html
-      output: web, pdf
+      - title: 按钮（Buttons）
+        url: /mydoc_pages.html
+        output: web, pdf
 
-  - title: Authoring
+      - title: 类型（Types）
+        url: /mydoc_pages.html
+        output: web, pdf
+
+  - title: 扩展（Extensions）
     output: web, pdf
 
     folderitems:
-    - title: Pages
+    - title: 自动填充（AutoFill）
       url: /mydoc_pages.html
       output: web, pdf
 
-    - title: Posts
+    - title: 按钮（Buttons）
       url: /mydoc_posts.html
       output: web, pdf
 
-    - title: Lists
+    - title: 列拖拽（ColReorder）
       url: /mydoc_lists.html
       output: web, pdf
 
-    - title: Conditional logic
+    - title: 编辑器（Editor）
       url: /mydoc_conditional_logic.html
       output: web, pdf
 
-    - title: Content reuse
+    - title: 固定列（FixedColumns）
       url: /mydoc_content_reuse.html
       output: web, pdf
 
-    - title: Collections
+    - title: 固定表头（FixedHeader）
       url: /mydoc_collections.html
       output: web, pdf
 
-    - title: WebStorm editor tips
+    - title: 键盘导航（KeyTable）
       url: /mydoc_webstorm_text_editor.html
       output: web, pdf
 
-    - title: Atom editor tips
+    - title: 自适应（Responsive）
       url: /mydoc_atom_text_editor.html
       output: web, pdf
 
-  - title: Navigation
+    - title: 行分组（RowGroup）
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+    - title: 行拖拽（RowReorder）
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+    - title: 瀑布滚动条（Scroller）
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+    - title: 选择条目（Select）
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+    - title: 列隐藏（ColVis）- 废弃 Retired
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+    - title: 表格工具（TableTools）- 废弃 Retired
+      url: /mydoc_atom_text_editor.html
+      output: web, pdf
+
+  - title: 插件（Plug-ins）
     output: web, pdf
 
     folderitems:
-    - title: Sidebar navigation
+    - title: 排序（Sorting）
       url: /mydoc_sidebar_navigation.html
       output: web, pdf
 
-    - title: YAML tutorial in the context of Jekyll
+    - title: 类型检测（Type detection）
       url: /mydoc_yaml_tutorial.html
       output: web, pdf
 
-    - title: Tags
+    - title: 分页（Paginatioin）
       url: /mydoc_tags.html
       output: web, pdf
 
-    - title: Series
+    - title: 国际化（Internationalisation）
       url: /mydoc_series.html
       output: web, pdf
 
-  - title: Formatting
-    output: web, pdf
-
-    folderitems:
-    - title: Tooltips
-      url: /mydoc_adding_tooltips.html
+    - title: 过滤（Filtering）
+      url: /mydoc_series.html
       output: web, pdf
 
-    - title: Alerts
-      url: /mydoc_alerts.html
+    - title: 渲染（Render）
+      url: /mydoc_series.html
       output: web, pdf
 
-    - title: Icons
-      url: /mydoc_icons.html
+    - title: API
+      url: /mydoc_series.html
       output: web, pdf
 
-    - title: Images
-      url: /mydoc_images.html
-      output: web, pdf
+  - title: 博客
+    external_url: https://datatables.net/blog/index
 
-    - title: Code samples
-      url: /mydoc_code_samples.html
-      output: web, pdf
+  - title: 论坛
+    external_url: https://datatables.net/forums/
 
-    - title: Labels
-      url: /mydoc_labels.html
-      output: web, pdf
+  - title: 支持
+    external_url: https://datatables.net/support/index
 
-    - title: Links
-      url: /mydoc_hyperlinks.html
-      output: web, pdf
+  - title: 常见问题
+    external_url: https://datatables.net/faqs/index
 
-    - title: Navtabs
-      url: /mydoc_navtabs.html
-      output: web, pdf
+  - title: 下载
+    external_url: https://datatables.net/download/index
 
-    - title: Tables
-      url: /mydoc_tables.html
-      output: web, pdf
-
-    - title: Syntax highlighting
-      url: /mydoc_syntax_highlighting.html
-      output: web, pdf
-
-    - title: Workflow maps
-      url: /mydoc_workflow_maps.html
-      output: web, pdf
-
-  - title: Handling reviews
-    output: web, pdf
-
-    folderitems:
-    - title: Commenting on files
-      url: /mydoc_commenting_on_files.html
-      output: web, pdf
-
-#    - title: Git collaboration
-#      url: /mydoc_git_collaboration
-#      output: web, pdf
-
-  - title: Publishing
-    output: web, pdf
-
-    folderitems:
-    - title: Build arguments
-      url: /mydoc_build_arguments.html
-      output: web, pdf
-
-    - title: Themes
-      url: /mydoc_themes.html
-      output: web, pdf
-
-    - title: Generating PDFs
-      url: /mydoc_generating_pdfs.html
-      output: web, pdf
-
-    - title: Help APIs and UI tooltips
-      url: /mydoc_help_api.html
-      output: web, pdf
-
-    - title: Search configuration
-      url: /mydoc_search_configuration.html
-      output: web, pdf
-
-    - title: iTerm profiles
-      url: /mydoc_iterm_profiles.html
-      output: web, pdf
-
-    - title: Pushing builds to server
-      url: /mydoc_push_build_to_server.html
-      output: web, pdf
-
-    - title: Publishing on Github Pages
-      url: /mydoc_publishing_github_pages.html
-      output: web, pdf
-
-  - title: Special layouts
-    output: web, pdf
-
-    folderitems:
-    - title: Knowledge-base layout
-      url: /mydoc_kb_layout.html
-      output: web, pdf
-
-    - title: Glossary layout
-      url: /mydoc_glossary.html
-      output: web, pdf
-
-    - title: FAQ layout
-      url: /mydoc_faq_layout.html
-      output: web, pdf
-
-    - title: Shuffle layout
-      url: /mydoc_shuffle.html
-      output: web, pdf
-
-  - title: Troubleshooting
-    output: web, pdf
-
-    folderitems:
-
-    - title: Troubleshooting
-      url: /mydoc_troubleshooting.html
-      output: web, pdf
-
-  - title: Tag archives
-    output: web
-    folderitems:
-
-    - title: Tag archives overview
-      url: /mydoc_tag_archives_overview.html
-      output: web
-
-      subfolders:
-      - title: Tag archive pages
-        output: web
-        subfolderitems:
-
-        - title: Formatting pages
-          url: /tag_formatting.html
-          output: web
-
-        - title: Navigation pages
-          url: /tag_navigation.html
-          output: web
-
-        - title: Content types pages
-          url: /tag_content_types.html
-          output: web
-
-        - title: Publishing pages
-          url: /tag_publishing.html
-          output: web
-
-        - title: Special layout pages
-          url: /tag_special_layouts.html
-          output: web
-
-        - title: Collaboration pages
-          url: /tag_collaboration.html
-          output: web
-
-        - title: Troubleshooting pages
-          url: /tag_troubleshooting.html
-          output: web
+  - title: 购买
+    external_url: https://datatables.net/support/index
