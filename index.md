@@ -38,6 +38,7 @@ scripts: [
     }
 </style>
 
+# *免费简单的方式添加高级交互控件到你的HTML表格*
 
 {% include ad.html %}
 
@@ -45,12 +46,12 @@ scripts: [
 
 css:
 ```html
-//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css
+//cdn.datatables.net/{{site.dtversion}}/css/jquery.dataTables.min.css
 ```
 
 js:
 ```html
-//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js
+//cdn.datatables.net/{{site.dtversion}}/js/jquery.dataTables.min.js
 ```
 
 ## 第二步：在页面上执行下面代码

@@ -24,7 +24,7 @@ entries:
     folderitems:
 
     - title: 安装（Installation）
-      url: /mydoc_release_notes_60.html
+      url: /manual/installation.html
       output: web, pdf
 
     - title: 数据源（Data）

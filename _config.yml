@@ -9,6 +9,8 @@ topnav_title: DataTables中文网
 site_title: DataTables中文网
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
+dtversion: 1.10.16
+
 company_name: 单客哦朋
 # this appears in the footer
 

@@ -1,1 +1,1 @@
-<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> {{include.content}}</div>
+<div markdown="span" class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>{% if include.note %}<b>{{include.note}}:</b>{% else %}<b>Note:</b>{% endif %} {{include.content}}</div>
