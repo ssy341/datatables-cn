@@ -30,9 +30,9 @@
                   {% if subfolderitem.external_url %}
                   <li><a href="{{subfolderitem.external_url}}" target="_blank">{{subfolderitem.title}}</a></li>
                   {% elsif page.url == subfolderitem.url %}
-                  <li class="active"><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                  <li class="active"><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
                   {% else %}
-                  <li><a href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                  <li><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
                   {% endif %}
                   {% endif %}
                   {% endfor %}
@@ -49,7 +49,7 @@
         <li><a href="{{folder.external_url}}" target="_blank">{{folder.title}}</a></li>
         {% else %}
             {% if page.url == folder.url %}
-            <li class="active"><a href="{{folder.url | remove: "/"}}">{{folder.title}}</a></li>
+            <li class="active"><a href="{{folder.url}}">{{folder.title}}</a></li>
             {% else %}
             <li><a href="{{folder.url}}">{{ folder.title }}</a></li>
             {% endif %}

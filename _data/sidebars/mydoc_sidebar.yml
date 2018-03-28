@@ -27,9 +27,22 @@ entries:
       url: /manual/installation.html
       output: web, pdf
 
-    - title: 数据源（Data）
-      url: /mydoc_release_notes_50.html
-      output: web, pdf
+      subfolders:
+        - title: 数据（Data）
+          output: web
+          subfolderitems:
+
+          - title: 介绍
+            url: /manual/data/index.html
+            output: web
+
+          - title: 正交数据
+            url: /manual/data/orthogonal-data.html
+            output: web
+
+          - title: 渲染器
+            url: /manual/data/renderers.html
+            output: web
 
     - title: Ajax
       url: /mydoc_release_notes_50.html

@@ -52,6 +52,12 @@ layout: default
 
     {% endif %}
 
+    {% if page.reference %}
+       <div class="reference">
+           <a href="{{page.reference}}" target="_blank">{{page.reference}}</a>
+       </div>
+    {% endif %}
+
   {{content}}
 
     <div class="tags">

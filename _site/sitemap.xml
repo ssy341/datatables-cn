@@ -28,6 +28,12 @@
   
   
   <url>
+    <loc>http://localhost:4000/manual/data/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
     <loc>http://localhost:4000/index.html</loc>
   </url>
   
@@ -377,6 +383,12 @@
   
   <url>
     <loc>http://localhost:4000/news_archive.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/manual/data/orthogonal-datd.html</loc>
   </url>
   
   

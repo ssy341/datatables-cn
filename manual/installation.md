@@ -1,8 +1,9 @@
 ---
-title: "安装 Installation | 手册 Manual DataTables中文网"
+title: 安装 Installation
 keywords: 手册 安装
 sidebar: mydoc_sidebar
 permalink: manual/installation.html
+reference: https://datatables.net/manual/installation
 csss: [
     assets/datatables/1.10.16/datatables.min.css
 ]

@@ -586,6 +586,22 @@ a[data-toggle] {
 }
 
 
+
+.reference {
+    font-size:120%;
+    color: #808080;
+    margin:20px 0px 20px 0px;
+    border-left: 5px solid #248ec2;
+    padding-left: 10px;
+
+}
+
+.reference:before {
+    content: "原文: ";
+    font-weight: bold;
+}
+
+
 a.fa.fa-envelope-o.mailto {
     font-weight: 600;
 }
