@@ -61,7 +61,8 @@ DataTables本身在浏览器中完成表格的排序，搜索，分页以及Data
 在服务器处理模式下，数据的排序，搜索等交给服务器，服务器可以利用数据库引擎提高对数据处理的速度。
 每页数据（DataTables管这个操作叫作 draw）会向服务器发送ajax请求。虽然每个Ajax请求可能需要几分之一秒，但比起等待加载大量数据更可取。
 
-服务器处理开启需要 serverSide 选项启用，有关服务器处理模式更多的信息，参考手册[服务器处理](https://datatables.net/manual/server-side)部分。
+服务器处理开启需要 {% include option.html name="serverSide" %} 选项启用，有关服务器处理模式更多的信息，
+参考手册[服务器处理](https://datatables.net/manual/server-side)部分。
 
 
 
@@ -94,7 +95,7 @@ DataTables本身在浏览器中完成表格的排序，搜索，分页以及Data
 - 对象 : {}
 - 实例 : new Myclass()
 
-DataTables可以使用columns.data和columns.render选项使用这些数据。
+DataTables可以使用{% include option.html name="columns.data" %}和{% include option.html name="columns.render" %}选项使用这些数据。
 默认的操作模式是一个数组，对象和实例在有些情况下很有用，它们在处理复杂数据时显的更直观。
 
 ### 数组
@@ -173,7 +174,7 @@ $('#example').DataTable( {
 对象还可以包含比DataTables显示所需要的更多的信息，这对于操作数据来说非常重要。（例如包含数据库的主键，而不需要让最终用户看到这个数据）
 
 使用对象的缺点是，你需要明确告诉DataTables它应该从每个列的对象中使用那个属性。
-这个操作由 columns.data 或者 columns.render 选项来完成。
+这个操作由 {% include option.html name="columns.data" %} 或者 {% include option.html name="columns.render" %} 选项来完成。
 
 适用对象作为数据源，数据如下所示：
 
@@ -246,7 +247,7 @@ $('#example').DataTable( {
 ### 实例
 
 使用Javascript对象实例作为数据源会非常有用，因为这些实例定义了可用于更新数据的抽象方法。
-实例和对象可以几乎相同的方式在DataTables中使用，只需要传入对象并将方法或属性名称分配给 columns.data 以获得每列的数据。
+实例和对象可以几乎相同的方式在DataTables中使用，只需要传入对象并将方法或属性名称分配给 {% include option.html name="columns.data" %} 以获得每列的数据。
 
 ```javascript
 function Employee ( name, position, salary, office ) {
@@ -274,10 +275,13 @@ $('#example').DataTable( {
 } );
 ```
 
-{% include note.html content="
-`office` 是一个方法，而 `name`,`position`和`salary`是属性。DataTables会自动实现一个函数，执行它并使用这个函数返回的值作为
-单元格的值。你也可以使用语法 `office()` 来明确使用函数，查询 columns.data 获得更详细的信息。
-" %}
+
+{% capture desc1 %}
+office 是一个方法，而 name,position和salary是属性。DataTables会自动实现一个函数，执行它并使用这个函数返回的值作为
+单元格的值。你也可以使用语法 office() 来明确使用函数，查询 {% include option.html name='columns.data' %} 获得更详细的信息。
+{% endcapture %}
+
+{% include note.html content=desc1 %}
 
 
 基于上面数据， `position` 列显示在最后一列，他是根据读取属性的顺序来决定的，然后你会看到如下效果：
@@ -320,10 +324,10 @@ DataTables有三种基本数据来源：
 ### DOM 
 
 当DataTables启动时，它会自动检查它正在操作的表是否已经存在数据，并且将数据用于表中。
-（注意，如果你使用 data 或者 ajax 属性获取新数据，它会丢弃这些数据）。这是使用DataTables最简单的办法-使用常规的HTMl表格。
+（注意，如果你使用 {% include option.html name="data" %} 或者 {% include option.html name="ajax" %}属性获取新数据，它会丢弃这些数据）。这是使用DataTables最简单的办法-使用常规的HTMl表格。
 
-注意，使用DOM做为数据源，默认情况下，DataTables将使用数组作为数据源（自动创建），不过你可以使用 columns.data 选项让它为
-行数据构造对象
+注意，使用DOM做为数据源，默认情况下，DataTables将使用数组作为数据源（自动创建），不过你可以使用 {% include option.html name="columns.data" %} 选项让它为
+行数据构造对象。
 
 #### HTML5
 
@@ -346,16 +350,17 @@ DataTables会自动检测：
 
 ### JavaScript
 
-你可以指示DataTables使用 data 选项初始化数据。这些数据可以是数组，对象，实例。只要Javascript可以访问的数据，就可以
+你可以指示DataTables使用 {% include option.html name="data" %}  选项初始化数据。这些数据可以是数组，对象，实例。只要Javascript可以访问的数据，就可以
 将它发送到DataTables（无论是自定义的ajax调用，websocket或者只要是好的数组数据）
 
-当你使用[DataTables API](https://datatables.net/manual/api)时，这种方法尤其有用，特别是 row.add() 和 row.remove()
+当你使用[DataTables API](https://datatables.net/manual/api)时，这种方法尤其有用，特别是 
+{% include api.html name="row.add()" %}  和 {% include api.html name="row.remove()" %}
 方法能够动态添加数据和删除数据。
 
 ### Ajax
 
 Ajax数据源很像Javascript数据源，只是DataTables会发送ajax请求来得到数据。从特定的脚本获取表格数据通常会很有用，将显示
-的数据和逻辑分开。DataTables中的ajax数据源由 ajax 选项控制。它是可以访问到数据的url字符串。
+的数据和逻辑分开。DataTables中的ajax数据源由 {% include option.html name="ajax" %}  选项控制。它是可以访问到数据的url字符串。
 
 跟Javascript数据源类似，ajax数据源可以是对象或者数组的形式，但是不能使用实例的方式（因为json里没有办法用实例表示）。
 

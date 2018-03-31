@@ -1214,3 +1214,87 @@ h4.panel-title {
         display:block !important;
     }
 }
+
+code.option {
+    color: #D14;
+    background-color: #fcf6f8;
+    border: 1px solid #f7d6df;
+}
+
+code.option:after {
+    content: 'Option';
+}
+
+code.tag {
+    color: #c29f00;
+    background-color: #fff9d7;
+    border: 1px solid #ffe700;
+    white-space: nowrap;
+}
+
+code.tag:after {
+    content: 'Tag';
+}
+
+code.type {
+    color: #d119cf;
+    background-color: #faebfa;
+    border: 1px solid #f3aef2;
+    white-space: nowrap;
+}
+
+code.type:after {
+    content: 'Type';
+}
+
+code.api {
+    color: #0c199c;
+    background-color: #f4f5fc;
+    border: 1px solid #c6cbe9;
+    white-space: nowrap;
+}
+
+code.api:after {
+    content: 'API';
+}
+
+code.string {
+    color: #c05f1d;
+    background-color: #f5eee9;
+    border: 1px solid #dfc4b2;
+    white-space: nowrap;
+}
+
+code.string:after {
+    content: 'String';
+}
+
+code.event {
+    color: #2a839e;
+    background-color: #f5fafb;
+    border: 1px solid #a8ddec;
+    white-space: nowrap;
+}
+
+code.event:after {
+    content: 'Event';
+}
+
+code.path {
+    color: #095c05;
+    background-color: #eef7ed;
+    border: 1px solid #8ccb89;
+    white-space: nowrap;
+}
+
+code.path:after {
+    content: 'Path';
+}
+
+code.option:after, code.tag:after, code.api:after, code.type:after, code.event:after, code.string:after, code.path:after {
+    display: inline-block;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
+    margin-left: 4px;
+    padding-left: 4px;
+    opacity: 0.5;
+}

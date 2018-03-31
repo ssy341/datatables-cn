@@ -35,7 +35,7 @@ DataTables只有一个库需要依赖-[jQuery](https://jquery.com/)。
 
 ### HTML
 为了使DataTables能够增强HTML表格，该表格必须是有效的，标准的HTML，一个头部
-(`thead`)和一个表体(`tbody`)。表脚(`tfoot`)可以根据需要使用。
+({% include tag.html name="thead" %})和一个表体({% include tag.html name="tbody" %})。表脚({% include tag.html name="tfoot" %})可以根据需要使用。
 
 ```html
 <table id="table_id" class="display">
@@ -58,11 +58,11 @@ DataTables只有一个库需要依赖-[jQuery](https://jquery.com/)。
 </table>
 ```
 如果你使用服务器端程序（例如php，ruby，c#，java或其他任何软件）生成HTML，
-输出像上面代码示例一样即可。这正是对你表格的格式提出要求，即使`thead`和`tbody`不是
+输出像上面代码示例一样即可。这正是对你表格的格式提出要求，即使{% include tag.html name="thead" %}和{% include tag.html name="tbody" %}不是
 被经常使用到（他们会告诉DataTables什么应该用于列标题和点击排序控件）
 
 需要注意的是，这是针对的是纯HTML来说，如果你使用的是Ajax数据源，DataTables
-是会帮你生成`thead`，`tbody`和所有行和列。关于DataTables使用不同数据源，更多
+是会帮你生成{% include tag.html name="thead" %}，{% include tag.html name="tbody" %}和所有行和列。关于DataTables使用不同数据源，更多
 信息参考手册的[数据源](https://datatables.net/manual/data)部分
 
 
@@ -102,7 +102,7 @@ DataTables CDN由CloudFlare提供支持，CloudFlare在世界各地都有服务�
 
 只需要使用[下载构建器](https://datatables.net/download)即可下载最新版本的DataTables，其中你可以根据自己的需要
 选择其他插件和样式打包下载。然后解压放到你的网络服务上。解压之后你可以得到一个
-名为 `DataTables` 的目录，然后使用以下HTML在你的页面上添加DataTales。
+名为 {% include path.html name="DataTables" %} 的目录，然后使用以下HTML在你的页面上添加DataTales。
 
 
 {% include note.html content="
