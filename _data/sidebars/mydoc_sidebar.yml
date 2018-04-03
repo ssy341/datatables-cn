@@ -45,7 +45,7 @@ entries:
             output: web
 
     - title: Ajax
-      url: /mydoc_release_notes_50.html
+      url: /manual/ajax.html
       output: web, pdf
 
     - title: 选项（Options）
