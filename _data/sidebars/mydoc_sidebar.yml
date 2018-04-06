@@ -49,11 +49,11 @@ entries:
       output: web, pdf
 
     - title: 选项（Options）
-      url: /mydoc_release_notes_50.html
+      url: /manual/options.html
       output: web, pdf
 
     - title: API
-      url: /mydoc_release_notes_50.html
+      url: /manual/api.html
       output: web, pdf
 
       subfolders:

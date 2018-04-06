@@ -31,6 +31,12 @@
   
   
   
+  <url>
+    <loc>http://localhost:4000/manual/api.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
@@ -389,6 +395,12 @@
   
   <url>
     <loc>http://localhost:4000/news_archive.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4000/manual/options.html</loc>
   </url>
   
   
