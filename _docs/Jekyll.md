@@ -41,7 +41,7 @@ $ tree -L 1
 ├── images
 ├── js                              ## 静态资源文件：JavaScript脚本
 ├── licenses                        ## 授权协议
-├── manual
+├── manual                          ## 手册
 │   └── data
 ├── pages                           ## 原始内容
 │   ├── mydoc
@@ -52,7 +52,7 @@ $ tree -L 1
 ├── pdf
 ├── pdfconfigs
 ├── var
-├── 404.md                          ## 错误信息页面
+├── 404.md                          ## 404错误信息页面
 ├── _config.yml                     ## 站点配置文件
 ├── createtag
 ├── docker-compose.yml
@@ -69,5 +69,5 @@ $ tree -L 1
 ├── sitemap.xml
 ├── tooltips.html
 ├── tooltips.json
-└── update.sh
+└── update.sh                       ## git更新shell脚本
 ```
