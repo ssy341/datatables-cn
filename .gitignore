@@ -1,6 +1,13 @@
-_site/
-.sass-cache/
+# bundle files
+_site
+
+# cache
+.sass-cache
 .jekyll-metadata
 _pdf
+
+# mac
 .DS_Store
+
+# IDE
 .idea
