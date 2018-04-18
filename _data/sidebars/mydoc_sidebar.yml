@@ -62,7 +62,7 @@ entries:
           subfolderitems:
 
           - title: 默认的样式选项
-            url: /tag_formatting.html
+            url: /manual/styling/classes.html
             output: web
 
           - title: 主题创建器
