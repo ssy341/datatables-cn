@@ -1,34 +1,39 @@
-
 # Jekyll 说明
 
-### 安装
+## 安装
+
 (自行google，略)
 
-### 启动
+## 启动
 
-```
+```shell
 jekyll serve
 ```
 
-### 项目结构
+## 项目皮肤框架
+
+> [Getting started with the Documentation Theme for Jekyll](http://idratherbewriting.com/documentation-theme-jekyll/)
+
+## 项目结构
 
 **使用`tree`命令生成以下目录结构**
 
-```
-$ tree -d
-$ tree -L 1
+```shell
+tree -d
+tree -L 1
 ```
 
-#### 参考
+### 参考
 
-> https://www.cnblogs.com/ayseeing/p/4097066.html
->
-> https://www.cnblogs.com/ayseeing/p/4097066.html
+> [mac tree命令](https://www.cnblogs.com/ayseeing/p/4097066.html)
 
-```
+### 文件系统路径树
+
+```shell
 .
 ├── _data                           ## 动态数据、模板
 │   └── sidebars                        ## 侧边栏
+│       └── mydoc_sidebar.yml               ## 在用的通用侧边栏
 ├── _docs                           ## 文档说明
 ├── _includes                       ## 被模板包含的HTML片段
 ├── _layouts                        ## 网页排版模板
