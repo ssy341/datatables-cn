@@ -61,6 +61,10 @@ entries:
           output: web
           subfolderitems:
 
+          - title: 概览
+            url: /manual/styling/index.html
+            output: web
+
           - title: 默认的样式选项
             url: /manual/styling/classes.html
             output: web
