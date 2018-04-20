@@ -14,9 +14,9 @@ scripts: [
 
 # 安装
 
-DataTables是一个强大Javascript库，用于给HTML表格添加交互功能，虽然简单是
-整个项目的核心的，但是入门并不简单。但是，在网站上运行DataTables实际上是非常
-简单，只需要引入两个文件即可:
+DataTables是一个功能强大Javascript库，用于给HTML表格添加交互功能，
+虽然简单是整个项目的核心设计原则，但入门并不简单。
+但是，在网站上运行DataTables实际上是非常简单，只需要引入两个文件即可:
 
 - DataTables Javascript 文件
 - DataTables CSS 文件
