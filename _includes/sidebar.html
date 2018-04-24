@@ -2,62 +2,68 @@
 
 <ul id="mysidebar" class="nav">
   <li class="sidebarTitle">{{sidebar[0].product}} {{sidebar[0].version}}</li>
-  {% for entry in sidebar %}
+{% for entry in sidebar %}
   {% for folder in entry.folders %}
-  {% if folder.output contains "web" %}
-  <li>
-      <a href="#">{{ folder.title }}</a>
-      <ul>
-          {% for folderitem in folder.folderitems %}
-          {% if folderitem.output contains "web" %}
-          {% if folderitem.external_url %}
-          <li><a href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a></li>
-          {% elsif page.url == folderitem.url %}
-          <li class="active"><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
-          {% elsif folderitem.type == "empty" %}
-          <li><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
+      {% if folder.output contains "web" %}
+      <li>
+          <a href="#">{{ folder.title }}</a>
+          <ul>
+              {% for folderitem in folder.folderitems %}
+                  {% if folderitem.output contains "web" %}
+                      {% if folderitem.external_url %}
+                            <!--项目是有外面的链接，用新窗口打开-->
+                            <li><a href="{{folderitem.external_url}}" target="_blank">{{folderitem.title}}</a></li>
+                      {% elsif page.url == folderitem.url %}
+                            <!--项目是本地链接，并且为当前访问地址，变为激活状态-->
+                            <li class="active"><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
+                      {% elsif folderitem.type == "empty" %}
+                            <!--空的 针对二级菜单有三级菜单的项目-->
+                      {% else %}
+                            <!--当前网址不是激活状态-->
+                            <li><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
+                      {% endif %}
 
-          {% else %}
-          <li><a href="{{folderitem.url}}">{{folderitem.title}}</a></li>
-          {% endif %}
-          {% for subfolders in folderitem.subfolders %}
-          {% if subfolders.output contains "web" %}
-          <li class="subfolders">
-              <a href="#">{{ subfolders.title }}</a>
-              <ul>
-                  {% for subfolderitem in subfolders.subfolderitems %}
-                  {% if subfolderitem.output contains "web" %}
-                  {% if subfolderitem.external_url %}
-                  <li><a href="{{subfolderitem.external_url}}" target="_blank">{{subfolderitem.title}}</a></li>
-                  {% elsif page.url == subfolderitem.url %}
-                  <li class="active"><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
-                  {% else %}
-                  <li><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
+                        <!--三级菜单-->
+                      {% for subfolders in folderitem.subfolders %}
+                          {% if subfolders.output contains "web" %}
+                              <li class="subfolders">
+                                  <a href="#">{{ subfolders.title }}</a>
+                                  <ul>
+                                      {% for subfolderitem in subfolders.subfolderitems %}
+                                          {% if subfolderitem.output contains "web" %}
+                                              {% if subfolderitem.external_url %}
+                                                <li><a href="{{subfolderitem.external_url}}" target="_blank">{{subfolderitem.title}}</a></li>
+                                              {% elsif page.url == subfolderitem.url %}
+                                                <li class="active"><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
+                                              {% else %}
+                                                <li><a href="{{subfolderitem.url}}">{{subfolderitem.title}}</a></li>
+                                              {% endif %}
+                                          {% endif %}
+                                      {% endfor %}
+                                  </ul>
+                              </li>
+                          {% endif %}
+                      {% endfor %}
                   {% endif %}
-                  {% endif %}
-                  {% endfor %}
-              </ul>
-          </li>
-          {% endif %}
-          {% endfor %}
-          {% endif %}
-          {% endfor %}
-      </ul>
-   </li>
-    {% else %}
-        {% if folder.external_url %}
-        <li><a href="{{folder.external_url}}" target="_blank">{{folder.title}}</a></li>
-        {% else %}
-            {% if page.url == folder.url %}
-            <li class="active"><a href="{{folder.url}}">{{folder.title}}</a></li>
+              {% endfor %}
+          </ul>
+       </li>
+      {% else %}
+            <!--没有子项目，直接是外站链接-->
+            {% if folder.external_url %}
+                <li><a href="{{folder.external_url}}" target="_blank">{{folder.title}}</a></li>
             {% else %}
-            <li><a href="{{folder.url}}">{{ folder.title }}</a></li>
+                <!--没有子项目，链接为本地链接，并且为当前访问页面-->
+                {% if page.url == folder.url %}
+                    <li class="active"><a href="{{folder.url}}">{{folder.title}}</a></li>
+                {% else %}
+                    <li><a href="{{folder.url}}">{{ folder.title }}</a></li>
+                {% endif %}
             {% endif %}
-        {% endif %}
-     {% endif %}
-      {% endfor %}
-      {% endfor %}
-      <!-- if you aren't using the accordion, uncomment this block:
+      {% endif %}
+  {% endfor %}
+{% endfor %}
+      <!-- 展开/收起所有菜单 if you aren't using the accordion, uncomment this block:
          <p class="external">
              <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
          </p>

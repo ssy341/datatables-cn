@@ -120,25 +120,71 @@ entries:
   - title: 参考文档（Reference）
     output: web, pdf
     folderitems:
+
+    - output: web
+      type: empty
+      subfolders:
+      - title: 三级菜单测试（Options）
+        output: web
+
+    - title: 概览
+      url: /reference/index.html
+      output: web, pdf
+
+    - title: 快速api
+      url: /reference/quickapi.html
+      output: web, pdf
+
+      subfolders:
       - title: 选项（Options）
-        url: /mydoc_pages.html
-        output: web, pdf
+        output: web
+        subfolderitems:
+        - title: autoWidth
+          url: /reference/option/autoWidth.html
+          output: web
+        - title: autoWidth1
+          url: /reference/option/autoWidth1.html
+          output: web
 
       - title: API
-        url: /mydoc_pages.html
-        output: web, pdf
+        output: web
+        subfolderitems:
+        - title: $()
+          url: /reference/api/%24().html
+          output: web
+        - title: ajax.json()
+          url: /reference/api/ajax.json().html
+          output: web
 
       - title: 事件（Events）
-        url: /mydoc_pages.html
-        output: web, pdf
+        output: web
+        subfolderitems:
+        - title: column-sizing
+          url: /reference/event/column-sizing.html
+          output: web
+        - title: column-visibility
+          url: /reference/event/column-visibility.html
+          output: web
 
       - title: 按钮（Buttons）
-        url: /mydoc_pages.html
-        output: web, pdf
+        output: web
+        subfolderitems:
+        - title: collection
+          url: /reference/button/collection.html
+          output: web
+        - title: columnsToggle
+          url: /reference/button/columnsToggle.html
+          output: web
 
       - title: 类型（Types）
-        url: /mydoc_pages.html
-        output: web, pdf
+        output: web
+        subfolderitems:
+        - title: cell-selector
+          url: /reference/type/cell-selector.html
+          output: web
+        - title: column-selector
+          url: /reference/type/column-selector.html
+          output: web
 
   - title: 扩展（Extensions）
     output: web, pdf
