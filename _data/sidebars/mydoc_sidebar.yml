@@ -142,8 +142,218 @@ entries:
         - title: autoWidth
           url: /reference/option/autoWidth.html
           output: web
-        - title: autoWidth1
-          url: /reference/option/autoWidth1.html
+        - title: createdRow
+          url: /reference/option/createdRow.html
+          output: web
+        - title: data
+          url: /reference/option/data.html
+          output: web
+        - title: deferLoading
+          url: /reference/option/deferLoading.html
+          output: web
+        - title: deferRender
+          url: /reference/option/deferRender.html
+          output: web
+        - title: destroy
+          url: /reference/option/destroy.html
+          output: web
+        - title: dom
+          url: /reference/option/dom.html
+          output: web
+        - title: drawCallback
+          url: /reference/option/drawCallback.html
+          output: web
+        - title: footerCallback
+          url: /reference/option/footerCallback.html
+          output: web
+        - title: info
+          url: /reference/option/info.html
+          output: web
+        - title: initComplete
+          url: /reference/option/initComplete.html
+          output: web
+        - title: jQueryUI
+          url: /reference/option/jQueryUI.html
+          output: web
+        - title: ajax
+          url: /reference/option/ajax.html
+          output: web
+        - title: ajax.data
+          url: /reference/option/ajax.data.html
+          output: web
+        - title: ajax.dataSrc
+          url: /reference/option/ajax.dataSrc.html
+          output: web
+        - title: columnDefs
+          url: /reference/option/columnDefs.html
+          output: web
+        - title: columnDefs.targets
+          url: /reference/option/columnDefs.targets.html
+          output: web
+        - title: columns.cellType
+          url: /reference/option/columns.cellType.html
+          output: web
+        - title: columns.className
+          url: /reference/option/columns.className.html
+          output: web
+        - title: columns.contentPadding
+          url: /reference/option/columns.contentPadding.html
+          output: web
+        - title: columns.createdCell
+          url: /reference/option/columns.createdCell.html
+          output: web
+        - title: columns
+          url: /reference/option/columns.html
+          output: web
+        - title: columns.name
+          url: /reference/option/columns.name.html
+          output: web
+        - title: columns.orderable
+          url: /reference/option/columns.orderable.html
+          output: web
+        - title: columns.orderData
+          url: /reference/option/columns.orderData.html
+          output: web
+        - title: columns.orderDataType
+          url: /reference/option/columns.orderDataType.html
+          output: web
+        - title: columns.orderSequence
+          url: /reference/option/columns.orderSequence.html
+          output: web
+        - title: columns.render
+          url: /reference/option/columns.render.html
+          output: web
+        - title: columns.searchable
+          url: /reference/option/columns.searchable.html
+          output: web
+        - title: columns.title
+          url: /reference/option/columns.title.html
+          output: web
+        - title: columns.visible
+          url: /reference/option/columns.visible.html
+          output: web
+        - title: language
+          url: /reference/option/language.html
+          output: web
+        - title: language.aria.paginate.first
+          url: /reference/option/language.aria.paginate.first.html
+          output: web
+        - title: language.decimal
+          url: /reference/option/language.decimal.html
+          output: web
+        - title: language.emptyTable
+          url: /reference/option/language.emptyTable.html
+          output: web
+        - title: language.info
+          url: /reference/option/language.info.html
+          output: web
+        - title: language.infoEmpty
+          url: /reference/option/language.infoEmpty.html
+          output: web
+        - title: language.infoFiltered
+          url: /reference/option/language.infoFiltered.html
+          output: web
+        - title: language.infoPostFix
+          url: /reference/option/language.infoPostFix.html
+          output: web
+        - title: language.lengthMenu
+          url: /reference/option/language.lengthMenu.html
+          output: web
+        - title: language.loadingRecords
+          url: /reference/option/language.loadingRecords.html
+          output: web
+        - title: language.paginate
+          url: /reference/option/language.paginate.html
+          output: web
+        - title: language.paginate.first
+          url: /reference/option/language.paginate.first.html
+          output: web
+        - title: language.paginate.last
+          url: /reference/option/language.paginate.last.html
+          output: web
+        - title: language.paginate.next
+          url: /reference/option/language.paginate.next.html
+          output: web
+        - title: language.paginate.previous
+          url: /reference/option/language.paginate.previous.html
+          output: web
+        - title: language.processing
+          url: /reference/option/language.processing.html
+          output: web
+        - title: language.search
+          url: /reference/option/language.search.html
+          output: web
+        - title: language.searchPlaceholder
+          url: /reference/option/language.searchPlaceholder.html
+          output: web
+        - title: language.thousands
+          url: /reference/option/language.thousands.html
+          output: web
+        - title: language.url
+          url: /reference/option/language.url.html
+          output: web
+        - title: language.zeroRecords
+          url: /reference/option/language.zeroRecords.html
+          output: web
+        - title: lengthChange
+          url: /reference/option/lengthChange.html
+          output: web
+        - title: lengthMenu
+          url: /reference/option/lengthMenu.html
+          output: web
+        - title: orderCellsTop
+          url: /reference/option/orderCellsTop.html
+          output: web
+        - title: orderClasses
+          url: /reference/option/orderClasses.html
+          output: web
+        - title: orderFixed
+          url: /reference/option/orderFixed.html
+          output: web
+        - title: ordering
+          url: /reference/option/ordering.html
+          output: web
+        - title: orderMulti
+          url: /reference/option/orderMulti.html
+          output: web
+        - title: pageLength
+          url: /reference/option/pageLength.html
+          output: web
+        - title: paging
+          url: /reference/option/paging.html
+          output: web
+        - title: pagingType
+          url: /reference/option/pagingType.html
+          output: web
+        - title: processing
+          url: /reference/option/processing.html
+          output: web
+        - title: renderer
+          url: /reference/option/renderer.html
+          output: web
+        - title: retrieve
+          url: /reference/option/retrieve.html
+          output: web
+        - title: scrollX
+          url: /reference/option/scrollX.html
+          output: web
+        - title: scrollY
+          url: /reference/option/scrollY.html
+          output: web
+        - title: searching
+          url: /reference/option/searching.html
+          output: web
+        - title: serverSide
+          url: /reference/option/serverSide.html
+          output: web
+        - title: stateDuration
+          url: /reference/option/stateDuration.html
+          output: web
+        - title: stateSave
+          url: /reference/option/stateSave.html
+          output: web
+        - title: tabIndex
+          url: /reference/option/tabIndex.html
           output: web
 
       - title: API
@@ -152,8 +362,110 @@ entries:
         - title: $()
           url: /reference/api/%24().html
           output: web
+        - title: $.fn.dataTable.isDataTable()
+          url: /reference/api/$.fn.dataTable.isDataTable().html
+          output: web
+        - title: $.fn.dataTable.tables()
+          url: /reference/api/$.fn.dataTable.tables().html
+          output: web
+        - title: $.fn.dataTable.util.escapeRegex()
+          url: /reference/api/$.fn.dataTable.util.escapeRegex().html
+          output: web
+        - title: $.fn.dataTable.util.throttle()
+          url: /reference/api/$.fn.dataTable.util.throttle().html
+          output: web
+        - title: $.fn.dataTable.versionCheck()
+          url: /reference/api/$.fn.dataTable.versionCheck().html
+          output: web
+        - title: ajax
+          url: /reference/api/ajax.html
+          output: web
         - title: ajax.json()
           url: /reference/api/ajax.json().html
+          output: web
+        - title: ajax.params()
+          url: /reference/api/ajax.params().html
+          output: web
+        - title: ajax.reload()
+          url: /reference/api/ajax.reload().html
+          output: web
+        - title: ajax.url()
+          url: /reference/api/ajax.url().html
+          output: web
+        - title: ajax.url().load()
+          url: /reference/api/ajax.url().load().html
+          output: web
+        - title: any()
+          url: /reference/api/any().html
+          output: web
+        - title: cell().cache()
+          url: /reference/api/cell().cache().html
+          output: web
+        - title: cell().data()
+          url: /reference/api/cell().data().html
+          output: web
+        - title: cell().index()
+          url: /reference/api/cell().index().html
+          output: web
+        - title: cell().invalidate()
+          url: /reference/api/cell().invalidate().html
+          output: web
+        - title: clear()
+          url: /reference/api/clear().html
+          output: web
+        - title: data()
+          url: /reference/api/data().html
+          output: web
+        - title: destroy()
+          url: /reference/api/destroy().html
+          output: web
+        - title: draw()
+          url: /reference/api/draw().html
+          output: web
+        - title: i18n()
+          url: /reference/api/i18n().html
+          output: web
+        - title: off()
+          url: /reference/api/off().html
+          output: web
+        - title: on()
+          url: /reference/api/on().html
+          output: web
+        - title: one()
+          url: /reference/api/one().html
+          output: web
+        - title: order()
+          url: /reference/api/order().html
+          output: web
+        - title: order.listener()
+          url: /reference/api/order.listener().html
+          output: web
+        - title: page()
+          url: /reference/api/page().html
+          output: web
+        - title: page.info()
+          url: /reference/api/page.info().html
+          output: web
+        - title: page.len()
+          url: /reference/api/page.len().html
+          output: web
+        - title: search()
+          url: /reference/api/search().html
+          output: web
+        - title: settings()
+          url: /reference/api/settings().html
+          output: web
+        - title: state()
+          url: /reference/api/state().html
+          output: web
+        - title: state.clear()
+          url: /reference/api/state.clear().html
+          output: web
+        - title: state.loaded()
+          url: /reference/api/state.loaded().html
+          output: web
+        - title: state.save()
+          url: /reference/api/state.save().html
           output: web
 
       - title: 事件（Events）
