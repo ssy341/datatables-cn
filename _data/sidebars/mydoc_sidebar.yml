@@ -360,7 +360,7 @@ entries:
         output: web
         subfolderitems:
         - title: $()
-          url: /reference/api/%24().html
+          url: /reference/api/$().html
           output: web
         - title: $.fn.dataTable.isDataTable()
           url: /reference/api/$.fn.dataTable.isDataTable().html
