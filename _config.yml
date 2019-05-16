@@ -1,34 +1,8 @@
-#baseurl: /datatables-cn
-baseurl:
-#baseurl: /www
-#port: 341
-wlan_url: http://datatables.club
-en_url: https://datatables.net
-encoding: utf-8
-exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom','Gemfile','Gemfile.lock']
-#destination: ./_site
-#destination: C:\code\xampp\htdocs
-dtversion: 1.10.15
-email: thxopen@datatables.club
-github: https://github.com/ssy341/datatables-cn/blob/gh-pages/
-
-# page config
-plugins: [jekyll-paginate]
-paginate: 10
-paginate_path: "/blog/page:num/"
-
-excerpt_separator: <!--more-->
-
 # Build settings
 markdown: kramdown
-#markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-sitename: Datatables 中文网
-description: > # this means to ignore newlines until "baseurl:"
-  Datatables是一款基于jQuery表格插件。目前，Datatables最新版本为1.10.15。
-      Datatables中文网致力于为广大国内开发者提供详尽的中文文档、代码实例等，助力开发者使用这个jQuery表格插件
 
 # name of the software
-name: Jekyll Docs Theme
+name: Datatables中文网
 
 project:
   version: 0.1.0
@@ -73,3 +47,5 @@ social:
 analytics:
   google: UA-123456-1
 
+exclude:
+  - .idea # ignore Minimal Mistakes /.idea

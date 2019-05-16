@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Datatables中文网 0.1.0</title>
+<meta name="description"
+      content="">
+
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/docs.css">
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<link rel="canonical" href="http://localhost:4000/reference/">
+<link rel="alternate" type="application/rss+xml" title="" href="/feed.xml">
+
+<style>
+    #jumbotron-header {
+        background: #080331;
+        background: linear-gradient(135deg, #080331, #673051);
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+<script src="/assets/js/docs.min.js"></script>
+
+    </head>
+
+    <body>
+        <header class="navbar navbar-static-top bs-docs-nav" id="top">
+    <div class="container">
+        <div class="navbar-header" role="banner">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">Datatables中文网</a>
+            <a class="navbar-brand" href="/reference/index.html">Docs</a>
+            <a class="navbar-brand" href="/example/index.html">Examples</a>
+            <a class="navbar-brand" href="/faqs/index.html">FAQs</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="https://github.com/allejo/jekyll-docs-theme">GitHub</a>
+                    </li>
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+        
+    <div class="bs-docs-header" id="jumbotron-header">
+        <div class="container">
+            <h1></h1>
+            <p></p>
+        </div>
+    </div>
+
+
+
+        <div class="container">
+    <div class="bs-docs-container row">
+        <div class="col-md-12" role="main">
+            <div class="bs-docs-section"><h1 id="概览">概览</h1>
+
+<blockquote>
+  <p>This is a <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll theme</a> based on <a href="https://github.com/mistic100/jekyll-bootstrap-doc">mistic100’s modification</a> of the official Bootstrap documentation from a few years back.</p>
+</blockquote>
+
+<p>Jekyll Docs Theme is provided as a theme for writing documentation for your projects instead of having a single large README file or several markdown files stored in a not so user-friendly manner.</p>
+
+<p>This theme is still in development but is kept fairly stable; just note, there are a lot things yet to come.</p>
+
+<h1 id="options">Options</h1>
+
+<h2 id="autowidth">autoWidth</h2>
+
+<p><a href="https://datatables.net/reference/option/autoWidth" title="原链接">英文</a></p>
+
+<p>version:1.10</p>
+
+<p>特性功能，Datatables的智能列宽处理</p>
+
+<p>Description：</p>
+
+<p>开启或者关闭自动列宽计算。如果你使用  columns.width 指定列宽，可以禁止这个功能作为优化（计算列宽需要花费时间）。</p>
+
+<p>Default：</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>禁止自动计算列宽</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"autoWidth"</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="deferrender">deferRender</h2>
+
+<p><a href="https://datatables.net/reference/option/deferRender" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，延迟渲染以获得额外的初始化速度</p>
+
+<p>Description:</p>
+
+<p>默认情况下，当Datatables从Ajax或者Javascript数据源加载数据时，它将预先创建所需的所有HTML元素。
+尤其是在IE6-8这样的旧版浏览器中，如果加载大量的数据，这会花费很多时间。
+这个选项允许Datatables仅在绘制时才创建需要的节点（表中的行和单元格）。</p>
+
+<p>举一个例子来说明这一点，如果加载10万条数据，每页显示10条记录，当开启延迟渲染时，Datatables将只创建10条而不是10万条。
+当用户对数据进行排序，分页或者过滤时，它会自动创建下一个显示所需要的行。
+有效地在整个表格生命周期中分散了在页面上创建行的负载。</p>
+
+<p>请注意，如果你启用了这个特性，并不是所有的节点始终都可以使用，你在使用 columns().nodes() 
+这样的API方法时，需要考虑到这点。下面给出了如何使用jQuery委托事件来处理这种情况的示例。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">false</code></p>
+
+<p>Examples:</p>
+
+<p>打开延迟渲染：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"sources/arrays.txt"</span><span class="p">,</span>
+    <span class="s2">"deferRender"</span><span class="p">:</span> <span class="kc">true</span>
+  <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>对于延迟渲染的事件绑定：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example tbody'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span> <span class="s1">'click'</span><span class="p">,</span> <span class="s1">'td'</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+     <span class="nx">alert</span><span class="p">(</span> <span class="s1">'Clicked on: '</span><span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="p">);</span>
+ <span class="p">}</span> <span class="p">);</span>
+  
+ <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"sources/arrays.txt"</span><span class="p">,</span>
+   <span class="s2">"deferRender"</span><span class="p">:</span> <span class="kc">true</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="info">info</h2>
+
+<p><a href="https://datatables.net/reference/option/info" title="原链接">英文</a></p>
+
+<p>version:1.10</p>
+
+<p>特性功能，显示表格信息</p>
+
+<p>Description:</p>
+
+<p>当这个属性开启，Datatables会显示该表的有关信息，比如显示过滤后的总记录数。
+此选项允许你开启或者关闭该功能。</p>
+
+<p>请注意，默认情况下，表格信息显示位于表格的左下方，但你可以使用 dom 和 css控制他的位置。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>关闭信息展示：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"info"</span><span class="p">:</span> <span class="kc">false</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="lengthchange">lengthChange</h2>
+
+<p><a href="https://datatables.net/reference/option/lengthChange" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，允许用户改变表格每页显示数据的条数</p>
+
+<p>Description:</p>
+
+<p>当分页功能开启，这个选项会控制下拉列表的显示，可以更改每页显示的数据条数。
+列表中的选项由 lengthMenu 配置选项控制。</p>
+
+<p>请注意，默认情况下，该下拉列表会显示在表格的左上方，你可以使用 dom 和 css控制它的位置。</p>
+
+<p>如果这个选项是<code class="highlighter-rouge">false</code>，下拉列表会被移出，但是 page.len() 方法任然可以在代码中使用，使用 pageLength 可以指定初始页面的长度。
+分页功能本身不受影响。</p>
+
+<p>此外，如果使用 paging 选项禁用了分页功能，这个选项会自动禁用。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>禁止用户改变每页数据显示条数：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"lengthChange"</span><span class="p">:</span> <span class="kc">false</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="ordering">ordering</h2>
+
+<p><a href="https://datatables.net/reference/option/ordering" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，Datatables的排序能力</p>
+
+<p>Description:</p>
+
+<p>开启或者关闭列的排序，非常简单方便！Datatables默认允许用户点击每个表头的单元格排序列。
+使用该选项可以禁止用户排序数据。</p>
+
+<p>请注意，你可以使用 columns.orderable 给每一列单独设置是否可以排序。该选项是全局选项，
+当它被禁用，所有的列就不具备排序功能。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>禁用排序：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+      <span class="s2">"ordering"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="paging">paging</h2>
+
+<p><a href="https://datatables.net/reference/option/paging" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，开启或者关闭表格分页</p>
+
+<p>Description:</p>
+
+<p>Datatables可以分割行到单独的页面，这是一个高效的方法，可以在一个小的空间里显示大量的数据。
+给用户提供控制按钮，以在浏览数据的时候请求显示不同的数据。
+这个功能默认开启，通过这个选项你可以禁用这个功能。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>禁用分页功能：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"paging"</span><span class="p">:</span> <span class="kc">false</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="processing">processing</h2>
+
+<p><a href="https://datatables.net/reference/option/processing" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，加载动画</p>
+
+<p>Description:</p>
+
+<p>开启或者关闭当用户在执行操作（比如排序操作）时，‘处理中……’提示符的显示。
+当你在处理很多很多数据的时候，执行排序操作可能会花费一些时候，给出相应的提示是非常有帮助的。</p>
+
+<p>请注意，默认情况下会显示在表格的中间，你可以使用 dom 和 css 控制它出现的位置。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">false</code></p>
+
+<p>Example:</p>
+
+<p>开启加载动画：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"processing"</span><span class="p">:</span> <span class="kc">true</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="scrollx">scrollX</h2>
+
+<p><a href="https://datatables.net/reference/option/scrollX" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，水平滚动条</p>
+
+<p>Description:</p>
+
+<p>开启水平滚动条。当表格太宽不能放入某个布局，或者表各种有大量列，则可以开启水平滚动条，
+在可视范围中滚动表格。此属性可以为<code class="highlighter-rouge">true</code>，这将允许表格在需要的时候出现水平滚动条（推荐）；
+或者任何css单位或数字（这种情况下被认为是像素）。</p>
+
+<p>Type:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">false</code> 没有水平滚动条</li>
+  <li><code class="highlighter-rouge">true</code> 在表格里开启水平滚动条</li>
+</ul>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">false</code></p>
+
+<p>Examples:</p>
+
+<p>开启水平滚动条</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"scrollX"</span><span class="p">:</span> <span class="kc">true</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>当表格超过300px，开启水平滚动条</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"scrollX"</span><span class="p">:</span> <span class="mi">300</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="scrolly">scrollY</h2>
+
+<p><a href="https://datatables.net/reference/option/scrollY" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，垂直滚动条</p>
+
+<p>Description:</p>
+
+<p>开启垂直滚动条。垂直滚动条会约束表格到指定高度，当任何溢出当前可视范围的数据，开启滚动。
+这个可以作为分页的替代方案，在小的区域中显示大量的数据（如果有需要，可以同时使用分页并开启滚动条）</p>
+
+<p>该属性值接受任何css单位或者一个数字（这种情况下会被认为px单位），并应用到表格中（不考虑thead和tfoot的高度）</p>
+
+<p>Type:</p>
+
+<p><code class="highlighter-rouge">string</code></p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">''</code> 空字符串</p>
+
+<p>Example:</p>
+
+<p>禁用分页，开启垂直滚动条：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+     <span class="s2">"scrollY"</span><span class="p">:</span> <span class="s2">"200px"</span><span class="p">,</span>
+     <span class="s2">"scrollCollapse"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="s2">"paging"</span><span class="p">:</span> <span class="kc">false</span>
+    <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="searching">searching</h2>
+
+<p><a href="https://datatables.net/reference/option/searching" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，Datatables搜索能力</p>
+
+<p>Description:</p>
+
+<p>该属性可以开启或者关闭Datatables的搜索能力。搜索在Datatables是智能的，允许用户
+输入多个词（空格隔开），匹配包含这些词的行（允许跨多个列匹配）。</p>
+
+<p>请注意，从技术上来讲，Datatables中的“Search”实际是一个过滤器，它做的是减法操作，把数据从数据集中删除。
+这里被命名为“Search”，而在Datatables API中为了保持一致性并确保与此类似的名称没有冲突。（特别是 filter() API 方法）。</p>
+
+<p>请注意，如果你希望使用Datatables的搜索功能，那你需要设置该属性为<code class="highlighter-rouge">true</code>，
+如果你需要使用诸如 search() 这类方法，但同时不显示默认的搜索框，请使用 dom 选项配置。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">true</code></p>
+
+<p>Example:</p>
+
+<p>禁止搜索功能：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"searching"</span><span class="p">:</span> <span class="kc">false</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="serverside">serverSide</h2>
+
+<p><a href="https://datatables.net/reference/option/serverSide" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，Datatables服务器处理模式</p>
+
+<p>Description:</p>
+
+<p>Datatables有两种基本的操作模式：</p>
+
+<ul>
+  <li>客户端模式，过滤，翻页，排序这些操作由浏览器完成计算</li>
+  <li>服务器模式，过滤，翻页，排序这次操作由服务器完成计算</li>
+</ul>
+
+<p>默认情况下，Datatables是客户端模式，你可以使用这个选项切换成服务器模式。
+服务器模式在处理大量数据的时候很有用（一般来说大于5万条数据），这样就可以利用数据库引擎来执行排序等一些计算。
+现代的数据库引擎都高度优化，允许Datatables操作大规模的数据</p>
+
+<p>当你使用服务器模式，Datatables会发送参数到服务器指出它需要哪些数据（哪一页，什么过滤条件等等），
+并且还要求返回某些参数，以便它具有显示表所需的所有信息。
+关于服务器模式通信协议的详细介绍在<a href="https://datatables.net/manual/server-side">这里</a>。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">false</code></p>
+
+<p>Example:</p>
+
+<p>开启服务器模式：</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"serverSide"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"xhr.php"</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+<hr />
+
+<h2 id="statesave">stateSave</h2>
+
+<p><a href="https://datatables.net/reference/option/stateSave" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>特性功能，状态保存，页面重新加载时恢复到上次操作</p>
+
+<p>Description:</p>
+
+<p>开启或者关闭状态保存。当你开启状态保存，Datatables会存储状态信息，比如第几页，显示长度，过滤条件和排序。
+当用户重新加载页面，表格的状态会被匹配到之前设置的状态。</p>
+
+<p>浏览器中的状态信息的数据存储是使用 <code class="highlighter-rouge">localStorage</code> 或 <code class="highlighter-rouge">sessionStorage</code> HTML5 API执行的。
+` stateDuratio<code class="highlighter-rouge"> 选项指明Datatables使用那个API(</code>localStorage<code class="highlighter-rouge">:0或者更大的数，</code>sessionStorage`:-1)</p>
+
+<p>为了独立唯一每个表格的状态数据，使用当前页面路径和表格的ID来储存信息。
+如果表格的ID或者页面URL改变了，状态信息就会丢失。</p>
+
+<p>请注意，因为使用了HTML5 API来储存数据，意味着这个功能在老版本浏览器（IE6/7）将不会起作用。
+可以通过 <code class="highlighter-rouge">stateSaveCallback</code> 和 <code class="highlighter-rouge">stateLoadCallback</code> 选项使用Ajax或者Cookie在服务器上保存状态解决这个问题。</p>
+
+<p>Default:</p>
+
+<p><code class="highlighter-rouge">false</code></p>
+
+<p>Examples:</p>
+
+<p>开启状态保存：</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="na">stateSave</span><span class="p">:</span> <span class="kc">true</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>开启状态保存，仅使用表格id保存/读取状态数据</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="na">stateSave</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+   <span class="na">stateSaveCallback</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">,</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+       <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span> <span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">)</span>
+     <span class="p">},</span>
+   <span class="na">stateLoadCallback</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">settings</span><span class="p">)</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span> <span class="s1">'DataTables_'</span> <span class="o">+</span> <span class="nx">settings</span><span class="p">.</span><span class="nx">sInstance</span> <span class="p">)</span> <span class="p">)</span>
+     <span class="p">}</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="ajax">ajax</h2>
+
+<p><a href="https://datatables.net/reference/option/ajax" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>从一个ajax数据源获取表格显示的数据</p>
+
+<p>Description:</p>
+
+<p>Datatables能够使用此初始化参数从一些源中获取数据显示在表格里，包括从一个ajax数据源。
+数组或者对象可以作为每一行的数据源，使用 <code class="highlighter-rouge">columns.data</code> 指定从源中哪个对象属性获取。</p>
+
+<p><code class="highlighter-rouge">ajax</code> 属性有三种不同的操作模式：</p>
+
+<ul>
+  <li><code class="highlighter-rouge">string</code> 加载数据的url</li>
+  <li><code class="highlighter-rouge">object</code> 给 <code class="highlighter-rouge">jQuery.ajax</code> 定义属性的对象</li>
+  <li><code class="highlighter-rouge">function</code>  自定义数据获取的函数</li>
+</ul>
+
+<p>Type:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">string</code></li>
+</ul>
+
+<p>Description:</p>
+
+<p>In its simplest form, ajax, when given as a string will simply load the data from the given remote file. Note that DataTables expects the table data to be an array of items in the data parameter of the object (use the ajax.dataSrc option of ajax as an object, if your data is formatted differently):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="err">//</span><span class="w"> </span><span class="err">row</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">source</span><span class="p">,</span><span class="w">
+          </span><span class="err">//</span><span class="w"> </span><span class="err">row</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">source</span><span class="p">,</span><span class="w">
+          </span><span class="err">//</span><span class="w"> </span><span class="err">etc</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>DataTables can use objects or arrays in almost any format as the data source for each row through use of the columns.data option. The default is to use an array data source.</p>
+
+<p>Simple example:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+    <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"data.json"</span>
+  <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">object</code>
+Description:</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">function</code>
+Description:</p>
+  </li>
+</ul>
+
+<p>Examples:</p>
+
+<p>通过ajax从一个文件获取JSON数据</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"ajax"</span><span class="p">:</span> <span class="s2">"data.json"</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<p>通过ajax从一个文件获取JSON数据，使用 <code class="highlighter-rouge">dataSrc</code> 选项，改变从<code class="highlighter-rouge">data</code> 为 <code class="highlighter-rouge">tableData</code> 获取数据</p>
+
+<p>数据示例：</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">
+</span><span class="p">{</span><span class="w"> 
+   </span><span class="err">tableData</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> 
+      </span><span class="p">{},{}</span><span class="w">
+   </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"ajax"</span><span class="p">:</span> <span class="p">{</span>
+     <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"data.json"</span><span class="p">,</span>
+     <span class="s2">"dataSrc"</span><span class="p">:</span> <span class="s2">"tableData"</span>
+   <span class="p">}</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+<h2 id="ordering-1">ordering</h2>
+
+<p><a href="https://datatables.net/reference/option/lengthChange" title="原链接">英文</a></p>
+
+<p>version: 1.10</p>
+
+<p>Description:</p>
+
+<p>Default:</p>
+
+<p>Example:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nx">$</span><span class="p">(</span><span class="s1">'#example'</span><span class="p">).</span><span class="nx">dataTable</span><span class="p">(</span> <span class="p">{</span>
+   <span class="s2">"paging"</span><span class="p">:</span> <span class="kc">false</span>
+ <span class="p">}</span> <span class="p">);</span>
+</code></pre></div></div>
+</div>
+        </div>
+
+        <div class="col-md-3 bs-docs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-docs-sidenav"></ul>
+
+            <a class="back-to-top" href="#top"> <i class="glyphicon glyphicon-chevron-up"></i>
+                Back to top
+            </a>
+        </div>
+    </div>
+
+    
+</div>
+
+        <footer class="bs-docs-footer" role="contentinfo">
+    <div class="container">
+        <div class="bs-docs-social">
+            <ul class="bs-docs-social-buttons">
+                
+                    <li>
+                        <iframe class="github-btn"
+                                src="https://ghbtns.com/github-btn.html?user=allejo&amp;repo=jekyll-docs-theme&amp;type=watch&amp;count=true"
+                                width="90"
+                                height="20"
+                                title="Star on GitHub"></iframe>
+                    </li>
+                    <li>
+                        <iframe class="github-btn"
+                                src="https://ghbtns.com/github-btn.html?user=allejo&amp;repo=jekyll-docs-theme&amp;type=fork&amp;count=true"
+                                width="90"
+                                height="20"
+                                title="Fork on GitHub"></iframe>
+                    </li>
+                
+                
+                
+                
+                
+            </ul>
+        </div>
+
+        <p>
+            Licensed under <a href="http://opensource.org/licenses/MIT" target="_blank">MIT License</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
+        <p>
+            Documentation template by <a href="http://getbootstrap.com">Bootstrap team</a>, generated with <a href="https://github.com/allejo/jekyll-docs-theme">Jekyll Docs Theme</a>
+        </p>
+
+        <ul class="bs-docs-footer-links muted">
+            
+                <li>Currently v0.1.0</li>
+            
+            
+                <li>&middot;</li>
+                <li>
+                    <a href="https://github.com/allejo/jekyll-docs-theme">GitHub</a>
+                </li>
+            
+                <li>&middot;</li>
+                <li>
+                    <a href="https://github.com/allejo/jekyll-docs-theme/issues?state=open">Issues</a>
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.2/trianglify.min.js"></script>
+    <script>
+        trianglify("#080331", "#673051");
+    </script>
+
+
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-123456-1', 'auto');
+    ga('send', 'pageview');
+</script>
+
+
+    </body>
+</html>
