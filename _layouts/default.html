@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="utf-8">
-<head>
-    {% include head.html %}
-    {% include link.html %}
-</head>
-<body>
-{{content}}
-</body>
+<html lang="en" class="no-js">
+    <head>
+        {% include head.html %}
+    </head>
+
+    <body>
+        {% include navigation.html %}
+        {% include jumbotron.html %}
+
+        {{ content }}
+
+        {% include footer.html %}
+    </body>
 </html>
