@@ -1,0 +1,25 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>d</code></td>
+        <td>{% include href/type/Javascript.html param="array"%}, {% include href/type/Javascript.html param="object"%}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            给行的数据。这个可能是数组，对象或者是Javascript对象实例，但是需要注意必须表格中数据保持相同格式（比如，表格使用的是对象，这里也需要使用对象）    
+        </td>
+    </tr>
+    </tbody>
+</table>
