@@ -13,7 +13,7 @@ author: /reference/event/error
 
 在任何复杂的应用程序中，错误控制是一个很重要的考虑。DataTables提供这个事件允许将应用程序自身的错误在DataTables中捕获。比如，你可以触发一个ajax，来记录错误信息，或者把错误信息显示给最终用户。
 
-该事件与  {% include href/option/Static.html param="$.fn.dataTable.ext.errMode" %} 选项密切相关，它可以控制DataTables如何处理错误。它可以接受以下四个值：
+该事件与{% include href/option/Static.html param="$.fn.dataTable.ext.errMode" %}选项密切相关，它可以控制DataTables如何处理错误。它可以接受以下四个值：
 
 - {% include href/string.html param="alert" %} （默认）弹框显示错误
 - {% include href/string.html param="throw" %} 抛出一个Javascript错误
