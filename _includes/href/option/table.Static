@@ -10,7 +10,7 @@
   <tbody>
     <tr>
       <td>
-          {% include href/option/option.static param="$.fn.dataTable.ext.errMode" %}
+          {% include href/option/Static.html param="$.fn.dataTable.ext.errMode" %}
       </td>
       <td>
         设置Datatables侦查到错误后的报错方式
