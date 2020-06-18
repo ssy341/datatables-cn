@@ -11,9 +11,9 @@ author: /reference/api/table()
 
 ## 描述(Description)
 
-这个DataTables API可以同时操作多个表格（存在上下文中的）。有个简单的例子 `$('.dataTable').DataTable().search('Fred').draw();`这个代码会在所有表格里找class名为`.datatble`的表格去做相应的操作。
+这个DataTables API可以同时操作多个表格（存在上下文中的）。有个简单的例子 `$('.dataTable').DataTable().search('Fred').draw();`这个代码会在上下文里找class名为`.datatble`的表格去做相应的操作。
 
-API实例的上下文定义了API将在那些DataTables表格上进行操作，并且此方法提供了一种控制该上下文表的方式。
+API实例的上下文定义了API将在哪些DataTables表格上进行操作，并且此方法提供了一种控制该上下文表的方式。
 
 如果你在一个页面上有多个表，那么这个方法对这种情况特别有用，但是你可能还希望减少表格里API上下文，以便仅操作一个表或其他表格的子集上。
 
