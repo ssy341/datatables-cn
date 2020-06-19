@@ -1,0 +1,40 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>show</code></td>
+        <td>
+            {% include href/type/Javascript.html param="boolean" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            指定该列是可见的（<code>true</code>）还是不可见的（<code>false</code>）
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>redrawCalculations</code></td>
+        <td>
+            {% include href/type/Javascript.html param="boolean" %}
+        </td>
+        <td>Yes-default:true</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            指示DataTables是否应该重新计算列布局（<code>true</code>默认）或者不计算（<code>false</code>）。通常将其保留为默认值，但如果在循环的逻辑中禁用会很有用，因为如果每次调用都会执行计算，会影响性能。
+        </td>
+    </tr>
+    </tbody>
+</table>
