@@ -1,85 +1,85 @@
 {% if include.param == "buttons.buttons.action" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.action" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.action" >
     <code>buttons.buttons.action<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.available" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.available" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.available" >
     <code>buttons.buttons.available<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.className" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.className" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.className" >
     <code>buttons.buttons.className<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.destroy" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.destroy" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.destroy" >
     <code>buttons.buttons.destroy<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.enabled" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.enabled" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.enabled" >
     <code>buttons.buttons.enabled<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.extend" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.extend" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.extend" >
     <code>buttons.buttons.extend<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.init" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.init" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.init" >
     <code>buttons.buttons.init<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.key" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.key" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.key" >
     <code>buttons.buttons.key<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.name" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.name" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.name" >
     <code>buttons.buttons.name<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.namespace" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.namespace" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.namespace" >
     <code>buttons.buttons.namespace<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.text" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.text" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.text" >
     <code>buttons.buttons.text<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons.titleAttr" %}
-<a href="http://datatables.net/reference/option/buttons.buttons.titleAttr" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons.titleAttr" >
     <code>buttons.buttons.titleAttr<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.buttons" %}
-<a href="http://datatables.net/reference/option/buttons.buttons" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.buttons" >
     <code>buttons.buttons<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom.button" %}
-<a href="http://datatables.net/reference/option/buttons.dom.button" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom.button" >
     <code>buttons.dom.button<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom.buttonContainer" %}
-<a href="http://datatables.net/reference/option/buttons.dom.buttonContainer" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom.buttonContainer" >
     <code>buttons.dom.buttonContainer<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom.buttonLiner" %}
-<a href="http://datatables.net/reference/option/buttons.dom.buttonLiner" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom.buttonLiner" >
     <code>buttons.dom.buttonLiner<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom.collection" %}
-<a href="http://datatables.net/reference/option/buttons.dom.collection" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom.collection" >
     <code>buttons.dom.collection<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom.container" %}
-<a href="http://datatables.net/reference/option/buttons.dom.container" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom.container" >
     <code>buttons.dom.container<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.dom" %}
-<a href="http://datatables.net/reference/option/buttons.dom" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.dom" >
     <code>buttons.dom<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons.name" %}
-<a href="http://datatables.net/reference/option/buttons.name" target="_blank">
+<a href="http://datatables.net/reference/option/buttons.name" >
     <code>buttons.name<span>Option</span></code>
 </a>
 {% elsif include.param == "buttons" %}
-<a href="http://datatables.net/reference/option/buttons" target="_blank">
+<a href="http://datatables.net/reference/option/buttons" >
     <code>buttons<span>Option</span></code>
 </a>
 {% endif %}

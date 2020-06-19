@@ -1,3 +1,3 @@
-<a href="http://datatables.net/reference/api/button().trigger()" target="_blank">
+<a href="http://datatables.net/reference/api/button().trigger()" >
     <code>button().trigger()<span>API</span></code>
 </a>
