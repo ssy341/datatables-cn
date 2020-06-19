@@ -23,7 +23,7 @@ author: /reference/api/column().visible
 
 #### 返回(Returns):
 
-{% include href/type/Javascripts.html param="boolean" %}
+{% include href/type/Javascript.html param="boolean" %}
 
 `true`表示列是可见的，`false`表示不可见
 
@@ -39,7 +39,7 @@ author: /reference/api/column().visible
 
 #### 参数(Parameters):
 
-{% include_relative column-visible-parameters-code.html %}
+{% include_relative column.visible-parameters-code.html %}
 
 #### 返回(Returns):
 
