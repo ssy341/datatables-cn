@@ -3,9 +3,9 @@
 {% for post in postlist['博客'] limit:pagelen %}
 <!-- First Blog Post -->
 <article class="news">
-    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
+    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}{% if post.hot %}<span class="hot"></span>{% endif %}</div>
     <div class="news-title">
-        <a href="{{ post.url }}">{{ post.short }}{% if post.hot %}<span class="hot"></span>{% endif %}</a>
+        <a href="{{ post.url }}">{{ post.short }}</a>
         <span class='disqus-comment-count'
                                            data-disqus-url="{{ site.wlan_url }}{{ post.url }}"></span><i class="icon-comment "></i>
     </div>
