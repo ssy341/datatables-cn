@@ -93,11 +93,21 @@ title: 更新日志 Datatables中文网
             });
         }).draw();
     });
-    var time = localStorage['dt.thxopen.com.note'];
-    if(typeof time === 'object'){
-        localStorage.removeItem("dt.thxopen.com.note");
+
+    //博客更新标记
+    var blog_time = localStorage['blog.datatables.club'];
+    if(typeof blog_time === 'object'){
+        localStorage.removeItem("blog.datatables.club");
     }
-    localStorage['dt.thxopen.com.note'] = new Date().getTime();
+    localStorage['blog.datatables.club'] = new Date().getTime();
+
+    //更新日志标记
+    var update_time = localStorage['notice.datatables.club'];
+    if(typeof update_time === 'object'){
+        localStorage.removeItem("notice.datatables.club");
+    }
+    localStorage['notice.datatables.club'] = new Date().getTime();
+
 </script>
 </body>
 </html>
