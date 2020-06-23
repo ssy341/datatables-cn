@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
 author: DataTable中文网
-banner: https://img9.doubanio.com/view/photo/l/public/p2422325505.webp
 ---
 
 ## 前言

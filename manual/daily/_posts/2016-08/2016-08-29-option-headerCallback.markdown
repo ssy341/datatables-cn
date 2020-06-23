@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://img.goldposter.com/2015/12/Ice-Age-5_poster_goldposter_com_4.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="headerCallback" %}
 

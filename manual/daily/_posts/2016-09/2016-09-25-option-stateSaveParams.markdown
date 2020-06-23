@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://xdesktopwallpapers.com/wp-content/uploads/2011/04/Avatar-Movie-Poster.jpg
 ---
 
 ## 描述

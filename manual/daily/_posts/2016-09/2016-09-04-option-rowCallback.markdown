@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://www.movierulz25.com/wp-content/uploads/2016/06/independence_day_resurgence_ver14_xlg-1200x558.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="rowCallback" %}
 

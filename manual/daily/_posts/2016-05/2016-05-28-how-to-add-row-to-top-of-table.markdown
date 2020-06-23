@@ -8,10 +8,7 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [博客,DataTables使用经验]
 author: DataTables中文网
-banner: http://tse1.mm.bing.net/th?&id=OIP.M39bd88a4b8b35a051591e14753dd434dH0&w=300&h=165&c=0&pid=1.9&rs=0&p=0
 ---
-
-![Alt text](http://tse1.mm.bing.net/th?&id=OIP.M39bd88a4b8b35a051591e14753dd434dH0&w=300&h=165&c=0&pid=1.9&rs=0&p=0)
 
 这个还要从很久很久之前说起……
 

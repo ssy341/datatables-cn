@@ -56,7 +56,10 @@
                 </p>
                 <hr>
 
+                {% if post.banner %}
                 <img class="img-responsive" src="{{ post.banner }}" alt="">
+                {% endif %}
+                
                 <div class="content">
                     <!--正文-->
                     {{content}}

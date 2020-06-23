@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://utbgeek.com/home/bradu25/public_html/utbgeek/wp-content/uploads/2016/03/central-intelligence-movie-poster.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="stateLoadParams" %}
 

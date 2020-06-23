@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://www.wallpaperdx.com/images/jason-bourne-2016-poster-hd-wallpaper.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="stateLoadCallback" %}
 

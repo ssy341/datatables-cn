@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,DataTables VS EasyUI DataGrid]
 author: DataTable中文网
-banner: http://media.comicbook.com/2016/04/doctor-strange-city-bending-179855.jpeg
 style: >
     <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/easyui.css">

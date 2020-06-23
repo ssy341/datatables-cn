@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验]
 author: DataTable中文网
-banner: http://www.kepu.net.cn/gb/special/201009_01_bjwy/bjbc/001.png
 ---
 
 在使用DataTables展示数据，通常有两种

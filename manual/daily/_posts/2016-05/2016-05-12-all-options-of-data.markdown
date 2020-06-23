@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://tse1.mm.bing.net/th?&id=OIP.Mf736cc42fa754d772168effa055bbef9o0&w=300&h=272&c=0&pid=1.9&rs=0&p=0
 ---
 [所有option连接]({{ site.baseurl }}/reference/option/)
 

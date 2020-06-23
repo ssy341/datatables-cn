@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://images5.fanpop.com/image/photos/32000000/Looper-Movie-Poster-looper-32031468-2560-1920.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="stateSaveCallback" %}
 

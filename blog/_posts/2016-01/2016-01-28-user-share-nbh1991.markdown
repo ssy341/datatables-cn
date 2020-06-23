@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,小伙伴分享]
 author: DataTable中文网
-banner: http://siembradudas.org/wp-content/uploads/2014/12/key_art_gattaca.jpg
 style: >
     <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css">
 script: >

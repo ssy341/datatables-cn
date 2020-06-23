@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://media.comicbook.com/2016/02/tmnt2posters-170417.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="stateLoaded" %}
 

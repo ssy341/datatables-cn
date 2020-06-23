@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,不定时一讲]
 author: DataTable中文网
-banner: http://www.bhmpics.com/download/the_boxtrolls_movie_poster-1920x1080.jpg
 ---
 
 这是一个{% include href/option/Features.html param="stateSave" %}参数引发的一系列“惨案”。

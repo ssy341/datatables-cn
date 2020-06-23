@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,DataTables VS EasyUI DataGrid]
 author: DataTable中文网
-banner: http://thepunkeffect.com/wp-content/uploads/2014/05/batman-vs-superman-poster-cavill-affleck.jpg
 style: >
     <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/easyui.css">

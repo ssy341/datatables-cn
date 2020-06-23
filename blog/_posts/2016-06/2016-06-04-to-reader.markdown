@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客]
 author: DataTable中文网
-banner: http://tse1.mm.bing.net/th?&id=OIP.M101281a1318c408600b600ca16d7c8c9H0&w=300&h=187&c=0&pid=1.9&rs=0&p=0
 ---
 
 DataTables 中文网博客今天正式面向大家，我非常激动，非常高兴。之前中文网推出了《不定时一讲》，反映还行。不管怎样，记住一句话

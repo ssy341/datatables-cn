@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://cdn-static.denofgeek.com/sites/denofgeek/files/2016/05/x-men-apocalypse-launch-quad-poster.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="infoCallback" %}
 

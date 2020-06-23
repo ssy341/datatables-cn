@@ -8,7 +8,6 @@ caption: 《不定时一讲》
 categories: manual daily
 tags: [不定时一讲]
 author: DataTables中文网
-banner: http://www.chipandco.com/wp-content/uploads/2015/05/tomorrowland-movie-poster-2015-space-mountain-wallpaper.jpg
 ---
 参数详解连接{% include href/option/Callbacks.html param="preDrawCallback" %}
 
