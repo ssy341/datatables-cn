@@ -56,5 +56,14 @@
 </div>
 <!-- /.container -->
 <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+
+<script>
+    //博客更新标记
+    var blog_time = localStorage['blog.datatables.club'];
+    if(typeof blog_time === 'object'){
+        localStorage.removeItem("blog.datatables.club");
+    }
+    localStorage['blog.datatables.club'] = new Date().getTime();
+</script>
 </body>
 </html>
