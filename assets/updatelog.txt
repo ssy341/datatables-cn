@@ -6,7 +6,7 @@
             {
               "content":"{{item.content}}",
               "date":"{{item.date}}",
-              "isHot":"{{item.isHot}}"
+              "isHot":{{item.isHot}}
             }{% if forloop.last == false %},{% endif %}
            {% endfor %}
    ],
