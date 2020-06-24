@@ -49,6 +49,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 - 开刊（即本节内容，Done √）
 - 第一章，Datatables的6大特性
     - DOM属性的介绍
+        - 入门使用DataTables（Done √）
+        - dom是什么
 - 第二章，对于各种数据源该怎么使用Datatables？
     - Dom数据源
     - javascript数据
