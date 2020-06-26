@@ -5,7 +5,6 @@ summary: 检查一个 table 节点是不是 DataTables 实例
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: fn,DataTables,isDataTable
 author: /reference/api/%24.fn.dataTable.isDataTable()
 ---

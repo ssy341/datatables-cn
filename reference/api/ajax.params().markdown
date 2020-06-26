@@ -5,7 +5,6 @@ summary: 获取最后一次Ajax请求提交的参数
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: ajax.params,api
 author: /reference/api/ajax.params()
 ---

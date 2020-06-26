@@ -5,7 +5,6 @@ summary: 获取被选择的单元格的缓存数据
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: jQuery,DataTables,api,cell,cache
 author: /reference/api/cell().cache()
 ---

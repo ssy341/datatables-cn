@@ -5,7 +5,6 @@ summary: 在整个表格里执行（完成）一个 jQuery 选择器操作
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: jQuery,DataTables
 author: /reference/api/%24()
 ---

@@ -5,7 +5,6 @@ summary: 确定结果集里是否有符合条件的记录(判断表格里有没�
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10.7
 navcategory: api
-categories: reference api
 keywords: jQuery,DataTables,Utility,any
 author: /reference/api/any()
 ---

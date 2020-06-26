@@ -5,7 +5,6 @@ summary: 获取最新的JSON数据
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: ajax.json,DataTables
 author: /reference/api/ajax.json()
 ---

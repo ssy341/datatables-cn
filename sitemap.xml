@@ -701,11 +701,12 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    <!-- blog -->
     {% assign bloglist = site.categories.blog | where: 'layout', 'daily' %}
     {% for post in bloglist %}
     <url>
         <loc>{{ site.wlan_url }}{{ post.url }}</loc>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
@@ -716,24 +717,25 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
+    <!-- daily -->
     {% assign dailylist = site.categories.daily | where: 'layout', 'daily' %}
     {% for post in dailylist %}
     <url>
         <loc>{{ site.wlan_url }}{{ post.url }}</loc>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
     {% endfor %}
     <url>
         <loc>{{site.wlan_url}}/plug-ins/</loc>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
     <url>
         <loc>{{site.wlan_url}}/reference/</loc>
-        <priority>0.8</priority>
+        <priority>0.9</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
@@ -763,132 +765,23 @@
         <changefreq>Always</changefreq>
     </url>
 
-     <!-- reference -->
+    <!-- reference -->
+    {% assign references = site.pages | where_exp: "item" , "item.path contains 'reference'"%}
+    {% for reference in references %}
+    <url>
+        <loc>{{ site.wlan_url }}{{ reference.url }}</loc>
+        <priority>0.7</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    {% endfor %}
     <url>
         <loc>{{site.wlan_url}}/reference/api</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
-     
-    {% assign referenceList = site.categories.api | where: 'layout', 'reference_md' %}
-    {% for reference in referenceList %}
-    <url>
-        <loc>{{ site.wlan_url }}{{ reference.url }}</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    {% endfor %}
 
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.isDataTable().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.tables().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.util.escapeRegex().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.versionCheck().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/any().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().cache().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().data().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().index().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().invalidate().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.util.throttle().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/ajax.reload().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/ajax.url().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/ajax.url().load().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/draw().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/page().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/page.info().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/page.len().html</loc>
-        <priority>0.9</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
     <url>
         <loc>{{site.wlan_url}}/reference/button/collection.html</loc>
         <priority>0.9</priority>

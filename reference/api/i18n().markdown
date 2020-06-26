@@ -5,7 +5,6 @@ summary: 国际化标记查询
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10.7
 navcategory: api
-categories: reference api
 keywords: i18n,api
 author: /reference/api/i18n()
 ---

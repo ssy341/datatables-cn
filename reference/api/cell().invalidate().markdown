@@ -5,7 +5,6 @@ summary: 废除被选中单元格保持在DataTables内部数据中的数据
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-categories: reference api
 keywords: jQuery,DataTables,api,cell,invalidate
 author: /reference/api/cell().invalidate()
 ---
