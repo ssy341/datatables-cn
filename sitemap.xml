@@ -771,7 +771,7 @@
         <changefreq>Always</changefreq>
     </url>
      
-    {% assign referenceList = site.categories.reference | where: 'layout', 'reference_md' %}
+    {% assign referenceList = site.categories.api | where: 'layout', 'reference_md' %}
     {% for reference in referenceList %}
     <url>
         <loc>{{ site.wlan_url }}{{ reference.url }}</loc>
