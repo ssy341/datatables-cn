@@ -5,6 +5,7 @@ summary: 在一个元素上为一个给定列添加一个排序监听
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
+categories: reference api
 keywords: order.listener,api
 author: /reference/api/order.listener()
 ---

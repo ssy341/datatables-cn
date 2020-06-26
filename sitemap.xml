@@ -737,12 +737,7 @@
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
     </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
+  
     <url>
         <loc>{{site.wlan_url}}/reference/button</loc>
         <priority>0.8</priority>
@@ -763,6 +758,85 @@
     </url>
     <url>
         <loc>{{site.wlan_url}}/reference/type</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+
+     <!-- reference -->
+    <url>
+        <loc>{{site.wlan_url}}/reference/api</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+     
+    {% assign referenceList = site.categories.reference | where: 'layout', 'reference_md' %}
+    {% for reference in referenceList %}
+    <url>
+        <loc>{{ site.wlan_url }}{{ reference.url }}</loc>
+        <priority>0.9</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    {% endfor %}
+
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/$().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.isDataTable().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.tables().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.util.escapeRegex().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.versionCheck().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/any().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/cell().cache().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/cell().data().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/cell().index().html</loc>
+        <priority>0.8</priority>
+        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <loc>{{site.wlan_url}}/reference/api/cell().invalidate().html</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>
@@ -1318,66 +1392,6 @@
     </url>
     <url>
         <loc>{{site.wlan_url}}/reference/option/columns.visible.html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.isDataTable().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.tables().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.util.escapeRegex().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/$.fn.dataTable.versionCheck().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/any().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().cache().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().data().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().index().html</loc>
-        <priority>0.8</priority>
-        <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-        <changefreq>Always</changefreq>
-    </url>
-    <url>
-        <loc>{{site.wlan_url}}/reference/api/cell().invalidate().html</loc>
         <priority>0.8</priority>
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
         <changefreq>Always</changefreq>

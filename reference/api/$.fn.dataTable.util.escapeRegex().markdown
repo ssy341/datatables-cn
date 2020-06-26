@@ -5,6 +5,7 @@ summary: 使用正则表达式转义特殊字符
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10.4
 navcategory: api
+categories: reference api
 keywords: fn,DataTables,util,escapeRegex
 author: /reference/api/%24.fn.dataTable.util.escapeRegex()
 ---

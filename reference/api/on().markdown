@@ -5,6 +5,7 @@ summary: 监听表格事件
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
+categories: reference api
 keywords: on,api
 author: /reference/api/on()
 ---

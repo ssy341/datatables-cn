@@ -5,6 +5,7 @@ summary: 获取/设置被选择的单元格的数据
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
+categories: reference api
 keywords: jQuery,DataTables,api,cell,data
 author: /reference/api/cell().data()
 ---

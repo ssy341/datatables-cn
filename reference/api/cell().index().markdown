@@ -5,6 +5,7 @@ summary: 获取被选择的单元格的索引信息
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
+categories: reference api
 keywords: jQuery,DataTables,api,cell,index
 author: /reference/api/cell().index()
 ---
