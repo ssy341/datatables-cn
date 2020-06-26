@@ -346,13 +346,11 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: 奥巴羊
   money: 1
   date: 2017-7-29
   note: 支持中文网发展
   type: 1
-
 
 - nickname: vWisdom
   money: 1
@@ -360,20 +358,17 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *伟业
   money: 1
   date: 2017-9-14
   note: 支持中文网发展
   type: 1
 
-  
 - nickname: *文昊
   money: 2
   date: 2017-11-29
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *杰
   money: 5
@@ -381,13 +376,11 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *晨杰
   money: 20
   date: 2017-11-02
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *斌
   money: 1
@@ -395,13 +388,11 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *冬元
   money: 5
   date: 2018-1-26
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *少平
   money: 0.32
@@ -409,13 +400,11 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *立明
   money: 0.1
   date: 2018-4-27
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *润泽
   money: 。01
@@ -423,13 +412,11 @@
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *永超
   money: 1
   date: 2018-5-17
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *立明
   money: 0.1
@@ -437,20 +424,17 @@
   note: 支持中文网发展
   type: 1
 
-  
 - nickname: *健
   money: 0.01
   date: 2018-6-21
   note: 支持中文网发展
   type: 1
 
-
 - nickname: *波
   money: 05
   date: 2018-7-27
   note: 支持中文网发展
   type: 1
-
 
 - nickname: *春林
   money: 1
@@ -463,7 +447,6 @@
   date: 2019-6-6
   note: 支持中文网发展
   type: 1
-
 
 - nickname: 支付宝
   money: 1.68
