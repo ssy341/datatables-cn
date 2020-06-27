@@ -47,8 +47,13 @@ hot: 1
 
 由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]和[bilibili频道][bilibili]在线播放
 
+## 课程代码
+
+课程中所有代码都已经放在github上了，[点我查看][github]
+
 最后，谢谢大家的支持，如有错误的地方还望指出，如果您还有其他的建议或要求，欢迎在下方留言
 
 
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
+[github]: https://github.com/ssy341/datatables-season2/tree/master/example01
