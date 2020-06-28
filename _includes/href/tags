@@ -8,10 +8,8 @@
 <a href="/reference/option/jQueryUI.html" >
     <code class="option">jQueryUI<span>Option</span></code>
 </a>
-{% elsif include.param == "lengthChange" %}
-<a href="/reference/option/lengthChange.html" >
-    <code class="option">lengthChange<span>Option</span></code>
-</a>
+{% elsif include.param == "div" %}
+<code class="tag" title="HTML tag">div<span>Tag</span></code>
 {% elsif include.param == "ordering" %}
 <a href="/reference/option/ordering.html" >
     <code class="option">ordering<span>Option</span></code>
