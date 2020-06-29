@@ -1,13 +1,10 @@
-#baseurl: /datatables-cn
 baseurl:
-#baseurl: /www
 #port: 341
 wlan_url: http://datatables.club
 en_url: https://datatables.net
 encoding: utf-8
 exclude: ['*.bat','*.iml','*.md','LICENSE','.idea','*.custom']
 #destination: ./_site
-#destination: C:\code\xampp\htdocs
 dtversion: 1.10.21
 email: thxopen@datatables.club
 github: https://github.com/ssy341/datatables-cn/blob/gh-pages/
