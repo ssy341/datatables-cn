@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ site.description }}">
     <meta name="author" content="{{ site.sitename }}">
-    <meta name="keywords" content="{{page.keywords}}">
+    <meta name="keywords" content="{{ page.keywords }}">
     <!-- Le styles -->
     <link href="{{site.baseurl}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
     <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
@@ -81,13 +81,6 @@
                 </h2>
                 <p>
                     <span class="glyphicon glyphicon-time"></span>最低支持版本：<b style="color: #e56c0c">{{ page.since }}</b>
-                    <button type="button"
-                            id="copyurltoclip"
-                            data-toggle="tooltip"
-                            data-placement="bottom"
-                            data-clipboard-text="{{ page.title }} {{ page.summary }} {{ page.sub }}:{{ site.wlan_url }}{{ page.url }}"
-                            class="btn btn-default pull-right"
-                            title="点我复制本页url到剪贴板">复制本页地址</button>
                 </p>
                 <hr>
 
@@ -118,27 +111,11 @@
         {% include blog/footer.html %}
 
     </div>
-    {{ page.script }}
     <!-- /.container -->
     <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
     <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
-    <!--复制url到剪贴板-->
-    <script src="{{site.baseurl}}/js/ZeroClipboard.min.js"></script>
-    <script>
-        var client = new ZeroClipboard($('#copyurltoclip')); //  可以用jquery对象
-
-        client.on( "aftercopy", function( event ) {
-            console.log("成功复制url：" + event.data["text/plain"]+"到剪贴板" );
-        } );
-
-        client.on( 'error', function() {
-            ZeroClipboard.destroy();
-        } );
-    </script>
-    <script>
-
-    </script>
-
+    <script src="{{ site.baseurl }}/code/scripts/jquery.storageapi.js"></script>
+    {{ page.script }}
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+<div>
+    <button style="position:absolute;right: 15px;"><a id="runcode{{ include.param }}" target="_blank">亲自试一试</a></button>
+</div>
+<script>
+
+$("#runcode{{ include.param }}").click(function(){
+
+    let scriptContent = $("#{{ include.param }}").text();
+    //设置本次运行的代码
+    $.localStorage.set("scriptContent_datatables_club",scriptContent);
+
+    window.location.href = "{{ site.baseurl }}/code/run.html";
+})
+
+</script>

@@ -1,41 +1,41 @@
 ---
 ---
-code.option {
+a code.option {
     color: #D14;
     background-color: #fcf6f8;
     border: 1px solid #f7d6df;
 }
-code>span {
+a code>span {
     border-left: 1px solid rgba(0,0,0,0.2);
     margin-left: 4px;
     padding-left: 4px;
     opacity: 0.5;
 }
-code.tag {
+a code.tag {
     color: #c29f00;
     background-color: #fff9d7;
     border: 1px solid #ffe700;
     white-space: nowrap;
 }
-code.type {
+a code.type {
     color: #d119cf;
     background-color: #faebfa;
     border: 1px solid #f3aef2;
     white-space: nowrap;
 }
-code.api {
+a code.api {
     color: #0c199c;
     background-color: #f4f5fc;
     border: 1px solid #c6cbe9;
     white-space: nowrap;
 }
-code.string {
+a code.string {
     color: #c05f1d;
     background-color: #f5eee9;
     border: 1px solid #dfc4b2;
     white-space: nowrap;
 }
-code.event{
+a code.event{
     color: #2a839e;
     background-color: #f5fafb;
     border: 1px solid #a8ddec;
@@ -45,7 +45,7 @@ a code {
     text-decoration: underline;
 }
 
-code {
+a code {
     font-family: "Source Code Pro", Consolas, Menlo, Monaco, "Courier New", monospace;
     padding: 1px 4px;
     font-size: 0.8em;

@@ -6,17 +6,11 @@
   height: 387px;
   background: #ffffff !important;
   border:1px solid #c3c3c3;
-  -moz-box-shadow: 3px 3px 3px #888;
-  -webkit-box-shadow: 3px 3px 3px#888;
-  box-shadow: 3px 3px 3px #888;
 }
 .CodeMirror-scroll {
   /* Set scrolling behaviour here */
   overflow: auto;
   height: 387px;
-  -moz-box-shadow: 3px 3px 3px #888;
-  -webkit-box-shadow: 3px 3px 3px#888;
-  box-shadow: 3px 3px 3px #888;
 }
 
 /* PADDING */

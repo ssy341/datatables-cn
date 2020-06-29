@@ -52,36 +52,35 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
   样式集成的默认值为：
 
   Bootstrap 3:
-  {% highlight javascript linenos %}
+  {% highlight javascript %}
   "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
   "<'row'<'col-sm-12'tr>>" +
   "<'row'<'col-sm-5'i><'col-sm-7'p>>",
   {% endhighlight %}
 
   Bootstrap 4:
-  {% highlight javascript linenos %}
+  {% highlight javascript %}
   "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
   "<'row'<'col-sm-12'tr>>" +
   "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
   {% endhighlight %}
 
   Foundation:
-  {% highlight javascript linenos %}
+  {% highlight javascript %}
   "<'row'<'small-6 columns'l><'small-6 columns'f>r>"+
   "t"+
   "<'row'<'small-6 columns'i><'small-6 columns'p>>",
   {% endhighlight %}
 
   jQuery UI:
-  {% highlight javascript linenos %}
+  {% highlight javascript %}
   '<"fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-tl ui-corner-tr"lfr>'+
   't'+
   '<"fg-toolbar ui-toolbar ui-widget-header ui-helper-clearfix ui-corner-bl ui-corner-br"ip>',
   {% endhighlight %}
 
-
   Semantic UI:
-  {% highlight javascript linenos %}
+  {% highlight javascript %}
   "<'ui stackable grid'"+
       "<'row'"+
           "<'eight wide column'l>"+
@@ -96,7 +95,6 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
       ">"+
   ">"
   {% endhighlight %}
-
 
 
 - ### 插件（Plug-ins）
@@ -132,8 +130,10 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 
 没有过滤输入框
 
+{% include runcode.html param="dom-example1" %}
+{: #dom-example1 }
+{% highlight javascript %}
 
-{% highlight javascript linenos %}
 /* Results in:
     <div>
       {length}
@@ -150,7 +150,10 @@ $('#example').dataTable( {
 
 把控制元素包裹起来
 
-{% highlight javascript linenos %}
+
+{% include runcode.html param="dom-example2" %}
+{: #dom-example2 }
+{% highlight javascript %}
 /* Results in:
     <div class="wrapper">
       {filter}
@@ -167,7 +170,10 @@ $('#example').dataTable( {
 
 长度改变控件和过滤框在上面，信息展示和分页在表格下面
 
-{% highlight javascript linenos %}
+
+{% include runcode.html param="dom-example3" %}
+{: #dom-example3 }
+{% highlight javascript %}
 /* Results in:
     <div>
       {length}
@@ -187,7 +193,10 @@ $('#example').dataTable( {
 
 表格概览信息在头部，过滤框，长度改变和处理中在底部再加一个clear元素
 
-{% highlight javascript linenos %}
+
+{% include runcode.html param="dom-example4" %}
+{: #dom-example4 }
+{% highlight javascript %}
 /* Results in:
     <div class="top">
       {information}
