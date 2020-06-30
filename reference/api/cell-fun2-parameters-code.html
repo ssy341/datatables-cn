@@ -1,0 +1,38 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>cellSelector</code></td>
+        <td>
+            {% include href/type/DataTables.html param="cell-selector" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+           单元格选择器
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>modifier</code></td>
+        <td>{% include href/type/DataTables.html param="selector-modifier" %}</td>
+        <td>Yes - default:</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            该选项用来指定单元格如何排序，或者如果分页或者过滤功能打开，这个因素也需要考虑进去
+        </td>
+    </tr>
+    </tbody>
+</table>

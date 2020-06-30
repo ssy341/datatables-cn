@@ -10,33 +10,42 @@
     <tbody>
     <tr class="even">
         <td>1</td>
-        <td><code>selector</code></td>
-        <td>{% include href/type/Javascript.html param="node"%}, {% include href/type/Javascript.html param="jQuery"%}, {% include href/type/Javascript.html param="string" %}
+        <td><code>rowSelector</code></td>
+        <td>
+            {% include href/type/DataTables.html param="row-selector" %}
         </td>
         <td>No</td>
     </tr>
     <tr class="even continuation">
         <td></td>
         <td colspan="3">
-            在{% include href/tags.html param="tbody" %}里的节点执行{% include href/jQuery/jQuery %}.
+           行选择器，用于指定单元格应该从哪一行获取。
         </td>
     </tr>
     <tr class="odd">
         <td>2</td>
+        <td><code>columnSelector</code></td>
+        <td>{% include href/type/DataTables.html param="column-selector" %}</td>
+        <td>No</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            列选择器，用于指定单元格应该从那一列获取
+        </td>
+    </tr>
+     <tr class="even">
+        <td>3</td>
         <td><code>modifier</code></td>
         <td>
             {% include href/type/DataTables.html param="selector-modifier" %}
         </td>
         <td>Yes - default:</td>
     </tr>
-    <tr class="odd continuation">
+    <tr class="even continuation">
         <td></td>
         <td colspan="3">
-            <p>
-                选项用来详细说明被选择列的内容在分页、过滤中应该被考虑到的。这个只对关于行的操作有用，比如
-                {% include href/api/Columns.html param="column().nodes()" %} 和
-                {% include href/api/Columns.html param="column().data()" %}.
-            </p>
+            该选项用来指定单元格如何排序，或者如果分页或者过滤功能打开，这个因素也需要考虑进去
         </td>
     </tr>
     </tbody>

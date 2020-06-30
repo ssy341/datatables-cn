@@ -160,8 +160,8 @@
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
+                <th id="column-1">Name</th>
+                <th id="column-2">Position</th>
                 <th>Office</th>
                 <th>Age</th>
                 <th>Start date</th>
@@ -181,6 +181,14 @@
         </tfoot>
  
         <tbody>
+            <tr id="row-1">
+                <td class="specialCell">Airi Satou</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>33</td>
+                <td>2008/11/28</td>
+                <td>$162,700</td>
+            </tr>
             <tr>
                 <td>Tiger Nixon</td>
                 <td>System Architect</td>
@@ -212,14 +220,6 @@
                 <td>22</td>
                 <td>2012/03/29</td>
                 <td>$433,060</td>
-            </tr>
-            <tr>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>33</td>
-                <td>2008/11/28</td>
-                <td>$162,700</td>
             </tr>
             <tr>
                 <td>Brielle Williamson</td>
@@ -414,7 +414,7 @@
                 <td>$850,000</td>
             </tr>
             <tr>
-                <td>Shou Itou</td>
+                <td class="specialCell">Shou Itou</td>
                 <td>Regional Marketing</td>
                 <td>Tokyo</td>
                 <td>20</td>
