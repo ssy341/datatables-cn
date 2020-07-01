@@ -131,7 +131,7 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 没有过滤输入框
 
 {% include runcode.html param="dom-example1" %}
-{: #dom-example1 }
+{: #dom-example1-js }
 {% highlight javascript %}
 
 /* Results in:
@@ -152,7 +152,7 @@ $('#example').dataTable( {
 
 
 {% include runcode.html param="dom-example2" %}
-{: #dom-example2 }
+{: #dom-example2-js }
 {% highlight javascript %}
 /* Results in:
     <div class="wrapper">
@@ -172,7 +172,7 @@ $('#example').dataTable( {
 
 
 {% include runcode.html param="dom-example3" %}
-{: #dom-example3 }
+{: #dom-example3-js }
 {% highlight javascript %}
 /* Results in:
     <div>
@@ -195,7 +195,7 @@ $('#example').dataTable( {
 
 
 {% include runcode.html param="dom-example4" %}
-{: #dom-example4 }
+{: #dom-example4-js }
 {% highlight javascript %}
 /* Results in:
     <div class="top">

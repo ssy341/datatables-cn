@@ -75,7 +75,7 @@ DataTables API 实例，包含被选择的单元格
 打印指定样式单元格内容(表格数据里有两个单元格的class为specialCell，在不同的页数，通过使用 {% include href/type/DataTables.html param="selector-modifier" %}参数指定当前页，即第一页，所以打印的结果为Airi Satou)
 
 {% include runcode.html param="cell-example1" %}
-{: #cell-example1 }
+{: #cell-example1-js }
 {% highlight javascript %}
 
 /**
@@ -93,7 +93,7 @@ alert("类名为specialCell的单元格内容是" + table.cell(".specialCell",{p
 打印第一行和第二列交叉的单元格内容(最终打印的结果为Accountant)
 
 {% include runcode.html param="cell-example2" %}
-{: #cell-example2 }
+{: #cell-example2-js }
 {% highlight javascript %}
 
 /**

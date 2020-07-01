@@ -5,9 +5,11 @@
 
 $("#runcode{{ include.param }}").click(function(){
 
-    let scriptContent = $("#{{ include.param }}").text();
+    let scriptContent = $("#{{ include.param }}-js").text();
+    let styleContent = $("#{{ include.param }}-css").text();
     //设置本次运行的代码
     $.localStorage.set("scriptContent_datatables_club",scriptContent);
+    $.localStorage.set("styleContent_datatables_club",styleContent);
 
     window.location.href = "{{ site.baseurl }}/code/run.html";
 })

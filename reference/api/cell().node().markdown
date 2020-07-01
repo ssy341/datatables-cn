@@ -37,8 +37,8 @@ author: /reference/api/cell().node()
 使用jQuery ID选择器选择一个单元格并给其添加一个样式
 
 {% include runcode.html param="cell-node-example" %}
-{: #cell-node-example }
-{% highlight javascript linenos %}
+{: #cell-node-example-js }
+{% highlight javascript %}
 var table = $('#example').DataTable();
  
 var cell = table
@@ -46,6 +46,13 @@ var cell = table
     .node();
  
 $( cell ).addClass( 'warning' );
+{% endhighlight %}
+
+{: #cell-node-example-css }
+{% highlight css %}
+.warning {
+    color:red;
+}
 {% endhighlight %}
 
 

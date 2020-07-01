@@ -37,8 +37,8 @@ DataTables API 实例，集合中包含选择器获得到的{% include href/tags
 使用jQuery contains选择器选择包含内容Accountant单元格并给其添加一个样式
 
 {% include runcode.html param="cells-nodes-example" %}
-{: #cells-nodes-example }
-{% highlight javascript linenos %}
+{: #cells-nodes-example-js }
+{% highlight javascript %}
 var table = $('#example').DataTable();
  
 var cells = table
