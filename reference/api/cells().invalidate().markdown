@@ -1,12 +1,12 @@
 ---
 layout: reference_md
-title: cell().invalidate()
-summary: 失效被选中单个单元格保持在DataTables内部数据中的数据
+title: cells().invalidate()
+summary: 失效被选中的多个单元格保持在DataTables内部数据中的数据
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-keywords: jQuery,DataTables,api,cell,invalidate
-author: /reference/api/cell().invalidate()
+keywords: jQuery,DataTables,api,cells,invalidate
+author: /reference/api/cells().invalidate()
 ---
 
 ## 描述(Description)
@@ -16,17 +16,17 @@ DataTables 是不会知道你做了修改。这个方法就是用来告诉DataTa
 {% include href/api/Cells.html param="cell().data()" %}，{% include href/api/Rows.html param="row().data()" %}两个方法可以修改单元格数据，相比下这两个方法比`invalidate`
 更好，写更少的代码。但是`invalidate`方法最出色的是当表格的数据源是外部对象的时候，就可以用对象自己的方法来更新数据。
 
-在`DataTables 1.10.4`版本之前，这个方法会使整行失效，在`1.10.4`版本之后，这个方法只会让单元格失效。
+在之前，这个方法实际上会使所选单元格的整行的数据失效，但现在，这个方法只会让选中的单元格失效。
 
 
 ## 类型(Type)
 
 ---
 
-### _function_ cell().invalidate( [ source ] )
+### _function_ cells().invalidate( [ source ] )
 
 #### 描述(Description):
-使选定单个单元格的数据失效
+使选定的多个单元格的数据失效
 
 #### 参数(Parameters):
 {% include_relative cell.invalidate-parameters-code.html %}
@@ -38,14 +38,14 @@ DataTables 是不会知道你做了修改。这个方法就是用来告诉DataTa
 ---
 
 ## 例子(Example)
-使一个单元格里的内容+1然后使缓存的数据失效，然后重绘
+
+使用jQuery修改单元格的内容，然后使DataTables保留的内部数据失效以保持一致
 {% highlight javascript linenos %}
 var table = $('#example').DataTable();
+var td = $('#example tbody td:eq(0)');
  
-$('#example tbody').on( 'click', 'td', function () {
-    this.innerHTML = parseInt( this.innerHTML ) + 1;
-    table.cell( this ).invalidate().draw();
-} );
+td.html( 'Updated' );
+table.cell( td ).invalidate().draw();
 {% endhighlight %}
 
 
@@ -55,13 +55,11 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/Cells.html param="cells().cache()" %}
 - {% include href/api/Cells.html param="cells().data()" %}
 - {% include href/api/Cells.html param="cells().render()" %}
-- {% include href/api/Cells.html param="cells().invalidate()" %}
-- {% include href/api/Cells.html param="cell().cache()" %}
 - {% include href/api/Cells.html param="cell().data()" %}
+- {% include href/api/Cells.html param="cell().invalidate()" %}
 - {% include href/api/Cells.html param="cell().render()" %}
-- {% include href/api/Rows.html param="row().invalidate()" %}
+- {% include href/api/Rows.html param="rows().invalidate()" %}
 
 

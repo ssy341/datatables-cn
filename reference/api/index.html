@@ -125,9 +125,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            <p>
-                {% include href/api/Core.html param="draw()" %}
-            </p>
+            {% include href/api/Core.html param="draw()" %}
         </td>
         <td>
             重绘表格
@@ -191,8 +189,7 @@ relurl: http://datatables.net/reference/api/
         <td>
             {% include href/api/Core.html param="page.info()" %}
         </td>
-        <td><p>获得表格的分页信息</p>
-        </td>
+        <td>获得表格的分页信息</td>
     </tr>
     <tr>
         <td>
@@ -262,113 +259,115 @@ relurl: http://datatables.net/reference/api/
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cell().cache()" %}
-        </td>
-        <td>
-            获取被选择的单元格的缓存数据
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cell().data()" %}
-        </td>
-        <td>
-            获取/设置被选择的单元格的数据
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cell().index()" %}
-        </td>
-        <td>
-            获取被选择的单元格的索引信息
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cell().invalidate()" %}
-        </td>
-        <td>
-            废除被选中单元格保持在DataTables内部数据中的数据
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cell().node()"><code class="api" title="DataTables API method">cell().node()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得选中单元格的dom</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cell().render()"><code class="api" title="DataTables API method">cell().render()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得渲染过的单元格数据</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cell()" %}
-        </td>
-        <td>
-            从表格中获取单个的单元格
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().cache()"><code class="api" title="DataTables API method">cells().cache()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>从缓存里获取选中多个单元格的数据</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().data()"><code class="api" title="DataTables API method">cells().data()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获取选中的多个单元格值</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().indexes()"><code class="api"
-                                                                                title="DataTables API method">cells().indexes()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得选中的多个单元格的索引信息</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().invalidate()"><code class="api"
-                                                                                   title="DataTables API method">cells().invalidate()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>Invalidate the data held in DataTables for the selected cells</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().nodes()"><code class="api" title="DataTables API method">cells().nodes()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得选中的多个单元格的dom</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/cells().render()"><code class="api"
-                                                                               title="DataTables API method">cells().render()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得渲染过的多个单元格数据</p>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            {% include href/api/Cells.html param="cells()" %}
-        </td>
-        <td>
-            从表格里选择多个单元格
-        </td>
-    </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell()" %}
+            </td>
+            <td>
+                从表格中获取单个的单元格
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell().cache()" %}
+            </td>
+            <td>
+                获取被选择的单元格的缓存数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell().data()" %}
+            </td>
+            <td>
+                获取/设置被选择的单元格的数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell().index()" %}
+            </td>
+            <td>
+                获取被选择的单元格的索引信息
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell().invalidate()" %}
+            </td>
+            <td>
+                失效被选中单元格保持在DataTables内部数据中的数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cell().node()" %}
+            </td>
+            <td>得到被选择的单个单元格的DOM元素</td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cells()" %}
+            </td>
+            <td>
+                从表格里选择多个单元格
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cells().invalidate()" %}
+            </td>
+            <td>
+                失效被选中的多个单元格保持在DataTables内部数据中的数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cells().nodes()" %}
+            </td>
+            <td><p>获得选中的多个单元格的dom</p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td><p><a href="//datatables.net/reference/api/cell().render()"><code class="api" title="DataTables API method">cell().render()<span>DT</span></code></a>
+            </p>
+            </td>
+            <td><p>获得渲染过的单元格数据</p>
+            </td>
+        </tr>
+    
+        <tr>
+            <td><p><a href="//datatables.net/reference/api/cells().cache()"><code class="api" title="DataTables API method">cells().cache()<span>DT</span></code></a>
+            </p>
+            </td>
+            <td><p>从缓存里获取选中多个单元格的数据</p>
+            </td>
+        </tr>
+        <tr>
+            <td><p><a href="//datatables.net/reference/api/cells().data()"><code class="api" title="DataTables API method">cells().data()<span>DT</span></code></a>
+            </p>
+            </td>
+            <td><p>获取选中的多个单元格值</p>
+            </td>
+        </tr>
+        <tr>
+            <td><p><a href="//datatables.net/reference/api/cells().indexes()"><code class="api"
+                                                                                    title="DataTables API method">cells().indexes()<span>DT</span></code></a>
+            </p>
+            </td>
+            <td><p>获得选中的多个单元格的索引信息</p>
+            </td>
+        </tr>
+        <tr>
+            <td><p><a href="//datatables.net/reference/api/cells().render()"><code class="api"
+                                                                                title="DataTables API method">cells().render()<span>DT</span></code></a>
+            </p>
+            </td>
+            <td><p>获得渲染过的多个单元格数据</p>
+            </td>
+        </tr>
+        
     </tbody>
 </table>
 
@@ -450,8 +449,7 @@ relurl: http://datatables.net/reference/api/
                                                                                 title="DataTables API method">column().search()<span>DT</span></code></a>
         </p>
         </td>
-        <td><p>在指定列搜索</p>
-        </td>
+        <td>在指定列搜索</td>
     </tr>
     <tr>
         <td>
