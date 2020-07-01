@@ -168,6 +168,13 @@ $('#example').dataTable( {
 } );
 {% endhighlight %}
 
+{: #dom-example2-css }
+{% highlight css %}
+.wrapper{
+  background: red;
+}
+{% endhighlight %}
+
 长度改变控件和过滤框在上面，信息展示和分页在表格下面
 
 
@@ -215,6 +222,18 @@ $('#example').dataTable( {
 } );
 {% endhighlight %}
 
+{: #dom-example4-css }
+{% highlight css %}
+.top{
+  background: red;
+}
+.bottom{
+  background: blue;
+}
+.clear{
+  background: green;
+}
+{% endhighlight %}
 
 ## 相关属性(Related)
 下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
