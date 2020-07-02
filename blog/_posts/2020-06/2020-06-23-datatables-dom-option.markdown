@@ -27,18 +27,24 @@ hot: 1
     - DataTables能解决什么问题？
     - 怎么把普通HTML表格变成功能强大的DT表格？
     - DataTables几大核心特性是什么？
-- 理解Datatables基本模型DOM
+- 理解Datatables基本模型DOM（Done √）
     - length changing
     - filter
     - information
     - pagination
-- DOM引发的一系列"血案"，解密真相，揭开谜底
+    - table
+- DOM引发的一系列"血案"，解密真相，揭开谜底（Done √）
     - 它的控件我不喜欢，想隐藏掉，怎么做？
     - 表格上下都有翻页控件，怎么做?
     - 按照自己的意愿摆放它的控件，怎么做？
     - 我需要多个条件过滤，它只有一个搜索框，怎么做？
     - Bootstrap的布局自适应，使用很方便，Datatables可以套用么，怎么做？
     - 改变各个控件的显示位置，怎么做？
+- 如何阅读DataTables中文网的文档解决问题（Done √）
+    - 属性基本描述
+    - 属性的数据类型
+    - 属性的默认值
+    - 属性相关的例子
     
 通过简单的入门，原理的介绍，还有真实的案例，三部曲带领大家走进Datatables的大门。
 
