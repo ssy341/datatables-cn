@@ -49,7 +49,7 @@ DataTables拥有使用 [正交数据](orthogonal-data) 的能力，比如对于�
 {: #cell-render-example1-js }
 {% highlight javascript %}
 var table = $('#example').DataTable({
-    column:[
+    columns:[
         {"data":"time",render:function(data,type,row,meta){
             if(type == "display"){
                 return data;
@@ -131,7 +131,7 @@ $('#example').on( 'click', 'tbody td', function () {
 {: #cell-render-example2-js }
 {% highlight javascript %}
 var table = $('#example').DataTable({
-    column:[
+    columns:[
         {"data":"time",render:function(data,type,row,meta){
             if(type == "display"){
                 return data;
@@ -205,6 +205,65 @@ $('#example').on( 'click', 'tbody td', function () {
     </table>
 {% endhighlight %}
 
+
+
+点击单元格，获取该单元格自定义类型的信息
+
+
+{% include runcode.html param="cell-render-example3" %}
+{: #cell-render-example3-js }
+{% highlight javascript %}
+var table = $('#example').DataTable({
+    columns:[
+        {"data":"time",render:function(data,type,row,meta){
+            if(type == "custom"){
+                return customFormat(data);
+            }
+            return data;
+        }},
+        {"data":"date",render:function(data,type,row,meta){
+            if(type == "custom"){
+                return customFormat(data);
+            }
+            return data;
+        }}
+    ]
+});
+
+//模拟转换
+function customFormat(args){
+    return "DataTables中文网"+args;
+}
+ 
+$('#example').on( 'click', 'tbody td', function () {
+    //这里的类型又render方法里if的判断决定
+    var data = table.cell( this ).render( 'custom' );
+ 
+    alert( data );
+} );
+{% endhighlight %}
+
+{: #cell-render-example3-body }
+{% highlight html %}
+  <table id="example" class="display">
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>日期</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>00:04:06</td>
+                <td>2020年7月4日</td>
+            </tr>
+            <tr>
+                <td>00:04:34</td>
+                <td>2020年7月6日</td>
+            </tr>
+        </tbody>
+    </table>
+{% endhighlight %}
 
 
 
