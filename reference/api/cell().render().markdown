@@ -48,7 +48,50 @@ DataTables拥有使用 [正交数据](orthogonal-data) 的能力，比如对于�
 {% include runcode.html param="cell-render-example1" %}
 {: #cell-render-example1-js }
 {% highlight javascript %}
-var table = $('#example').DataTable();
+var table = $('#example').DataTable({
+    column:[
+        {"data":"time",render:function(data,type,row,meta){
+            if(type == "display"){
+                return data;
+            }
+            if(type == "filter"){
+                return timeFilterFormat(data);
+            }
+            if(type == "sort"){
+                return timeOrderFormat(data);
+            }
+            return data;
+
+        }},
+        {"data":"date",render:function(data,type,row,meta){
+            if(type == "display"){
+                return data;
+            }
+            if(type == "filter"){
+                return dateFilterFormat(data);
+            }
+            if(type == "sort"){
+                return dateOrderFormat(data);
+            }
+            return data;
+
+        }}
+    ]
+});
+
+//模拟时间转换
+function timeOrderFormat(time){
+    return 1234567890;
+}
+function timeFilterFormat(time){
+    return "2020年7月4日00:09:00"
+}
+function dateOrderFormat(date){
+    return "12345670000";
+}
+function dateFilterFormat(date){
+    return "2020年7月4日";
+}
  
 $('#example').on( 'click', 'tbody td', function () {
     var data = table.cell( this ).render( 'display' );
@@ -62,20 +105,18 @@ $('#example').on( 'click', 'tbody td', function () {
   <table id="example" class="display">
         <thead>
             <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
+                <th>时间</th>
+                <th>日期</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
+                <td>00:04:06</td>
+                <td>2020年7月4日</td>
             </tr>
             <tr>
-                <td data-filter="21st November 2013 21/11/2013" data-sort="1384992000">
-                    21st November 2013
-                </td>
-                <td>Row 2 Data 2</td>
+                <td>00:04:34</td>
+                <td>2020年7月6日</td>
             </tr>
         </tbody>
     </table>
@@ -89,7 +130,50 @@ $('#example').on( 'click', 'tbody td', function () {
 {% include runcode.html param="cell-render-example2" %}
 {: #cell-render-example2-js }
 {% highlight javascript %}
-var table = $('#example').DataTable();
+var table = $('#example').DataTable({
+    column:[
+        {"data":"time",render:function(data,type,row,meta){
+            if(type == "display"){
+                return data;
+            }
+            if(type == "filter"){
+                return timeFilterFormat(data);
+            }
+            if(type == "sort"){
+                return timeOrderFormat(data);
+            }
+            return data;
+
+        }},
+        {"data":"date",render:function(data,type,row,meta){
+            if(type == "display"){
+                return data;
+            }
+            if(type == "filter"){
+                return dateFilterFormat(data);
+            }
+            if(type == "sort"){
+                return dateOrderFormat(data);
+            }
+            return data;
+
+        }}
+    ]
+});
+
+//模拟时间转换
+function timeOrderFormat(time){
+    return 1234567890;
+}
+function timeFilterFormat(time){
+    return "2020年7月4日00:09:00"
+}
+function dateOrderFormat(date){
+    return "12345670000";
+}
+function dateFilterFormat(date){
+    return "2020年7月4日";
+}
  
 $('#example').on( 'click', 'tbody td', function () {
     var data = table.cell( this ).render( 'sort' );
@@ -104,20 +188,18 @@ $('#example').on( 'click', 'tbody td', function () {
   <table id="example" class="display">
         <thead>
             <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
+                <th>时间</th>
+                <th>日期</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>Row 1 Data 1</td>
-                <td>Row 1 Data 2</td>
+                <td>00:04:06</td>
+                <td>2020年7月4日</td>
             </tr>
             <tr>
-                <td data-filter="21st November 2013 21/11/2013" data-sort="1384992000">
-                    21st November 2013
-                </td>
-                <td>Row 2 Data 2</td>
+                <td>00:04:34</td>
+                <td>2020年7月6日</td>
             </tr>
         </tbody>
     </table>
