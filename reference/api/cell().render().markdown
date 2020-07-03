@@ -72,7 +72,7 @@ $('#example').on( 'click', 'tbody td', function () {
                 <td>Row 1 Data 2</td>
             </tr>
             <tr>
-                <td data-search="21st November 2013 21/11/2013" data-order="1384992000">
+                <td data-filter="21st November 2013 21/11/2013" data-sort="1384992000">
                     21st November 2013
                 </td>
                 <td>Row 2 Data 2</td>
@@ -114,7 +114,7 @@ $('#example').on( 'click', 'tbody td', function () {
                 <td>Row 1 Data 2</td>
             </tr>
             <tr>
-                <td data-search="21st November 2013 21/11/2013" data-order="1384992000">
+                <td data-filter="21st November 2013 21/11/2013" data-sort="1384992000">
                     21st November 2013
                 </td>
                 <td>Row 2 Data 2</td>
