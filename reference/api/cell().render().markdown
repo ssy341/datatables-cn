@@ -92,7 +92,7 @@ $('#example').on( 'click', 'tbody td', function () {
 var table = $('#example').DataTable();
  
 $('#example').on( 'click', 'tbody td', function () {
-    var data = table.cell( this ).render( 'display' );
+    var data = table.cell( this ).render( 'sort' );
  
     alert( data );
 } );
