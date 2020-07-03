@@ -142,3 +142,7 @@ Options
 
 - {% include href/option/Columns.html param="columns.data" %}
 - {% include href/option/Columns.html param="columns.render" %}
+
+
+
+[orthogonal-data]: https://datatables.net/manual/orthogonal-data
