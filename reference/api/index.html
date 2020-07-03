@@ -330,10 +330,11 @@ relurl: http://datatables.net/reference/api/
         </tr>
         
         <tr>
-            <td><p><a href="//datatables.net/reference/api/cell().render()"><code class="api" title="DataTables API method">cell().render()<span>DT</span></code></a>
-            </p>
+            <td>
+                {% include href/api/Cells.html param="cell().render()" %}
             </td>
-            <td><p>获得渲染过的单元格数据</p>
+            <td>
+                从单元格获取已经渲染的数据
             </td>
         </tr>
     

@@ -664,14 +664,7 @@
 
 
         //从缓存中获取代码
-        let flag = $.localStorage.get("flag_datatables_club");
-        let bodyContent;
-        if(!flag){
-            //特别声明使用目标设置的初始化html，否则使用本页面的html代码
-            bodyContent = $("#bodyContent").html();
-        }else{
-            bodyContent = $.localStorage.get("bodyContent_datatables_club");
-        }
+        let bodyContent = $.localStorage.get("bodyContent_datatables_club") || $("#bodyContent").html();;
         let styleContent = $.localStorage.get("styleContent_datatables_club");
         let scriptContent = $.localStorage.get("scriptContent_datatables_club");
         let htmlContent = createHtmlContent(styleContent,bodyContent,scriptContent);

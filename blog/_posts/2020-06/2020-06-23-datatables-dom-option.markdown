@@ -11,7 +11,7 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 ——《使用Datatables"武装"你的html表格》的第一节，主要讲dom。
+本节为Datatables入门第二期 —— 《使用Datatables"武装"你的html表格》的第一章，主要讲dom。
 
 ## 课程简介
 

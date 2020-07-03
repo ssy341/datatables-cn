@@ -219,7 +219,7 @@ API
 - {% include href/api/Core.html param="ajax.reload()" %}
 - {% include href/api/Core.html param="ajax.url()" %}
 
-API
+Options
 
 - {% include href/option/Features.html param="serverSide" %}
 - {% include href/option/data.html param="ajax.data" %}

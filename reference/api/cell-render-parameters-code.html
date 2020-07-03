@@ -1,0 +1,32 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>show</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+           获取不同类型的数据，参考下面的参数：
+           <ul>
+               <li>{% include href/type/string.html param="display" %} 显示的数据类型</li>
+               <li>{% include href/type/string.html param="filter" %} 过滤的数据类型</li>
+               <li>{% include href/type/string.html param="sort" %} 排序的数据类型</li>
+               <li>{% include href/type/string.html param="type" %} </li>
+           </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>
