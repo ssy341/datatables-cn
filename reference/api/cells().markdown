@@ -64,7 +64,7 @@ DataTables API 实例，包含被选择的单元格
 选择由行选择器和列选择器找到的多个单元格
 
 #### 参数(Parameters):
-{% include_relative cell-fun2-parameters-code.html %}
+{% include_relative cell-fun3-parameters-code.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}

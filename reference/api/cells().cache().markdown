@@ -33,15 +33,16 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 {% include_relative cell-cache-parameters-code.html %}
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="string" %}
 
-所选单元格的缓存数据字符串
+{% include href/type/DataTables.html param="DataTables.Api"%}
+
+DataTables API 实例，结果集包含被选择单元格缓存数据
 
 --- 
     
 ## 例子(Example)
 
-给一列构建一个过滤列表
+给第一列构建一个过滤列表
 
 {% include runcode.html param="cells-cache-example" %}
 {: #cells-cache-example-js }
@@ -82,7 +83,7 @@ function timeOrderFormat(time){
     return 1234567890;
 }
 function timeFilterFormat(time){
-    return "2020年7月4日00:09:00"
+    return "2020年7月4日"+time;
 }
 function dateOrderFormat(date){
     return "12345670000";
