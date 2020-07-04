@@ -28,7 +28,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 获得指定缓存类型的缓存数据 
 
 #### 参数(Parameters):
-{% include_relative cell.cache-parameters-code.html %}
+{% include_relative cell-cache-parameters-code.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}
@@ -38,7 +38,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 
 ## 例子(Example)
 打印被缓存的排序数据
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var table = $('#example').DataTable();
  
 $('#example tbody').on( 'click', 'td', function () {
