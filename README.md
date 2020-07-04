@@ -64,9 +64,9 @@ $(document).ready( function () {
 
 [DataTables中文网博客](http://datatables.club/blog)
 
-[DataTables中文网在线代码编辑](http://code.datatables.club)
+[DataTables中文网在线代码编辑](http://datatables.club/code)
 
-[DataTables中文网讨论社区](https://github.com/ssy341/datatables-cn/issues)
+[DataTables中文网Github讨论社区](https://github.com/ssy341/datatables-cn/issues)
 
 
 
