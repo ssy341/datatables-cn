@@ -11,7 +11,7 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— 《使用Datatables"武装"你的html表格》的第二章，主要讲数据源。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第二章，主要讲数据源。
 
 ## 课程简介
 
@@ -20,17 +20,17 @@ hot: 1
 数据是复杂的，所有数据又是不一样的。相对应，Datatables有大量的选项来配置如何获得数据在表格中显示，如何处理这些数据。
 
 本节课讲会介绍一下内容：
-    - 处理模式
-        - 客户端处理
-        - 服务器处理
-    - 数据源类型
-        - 数组
-        - 对象
-        - 实例
-    - 数据源
-        - DOM
-        - Javascript
-        - Ajax源数据
+- 处理模式
+    - 客户端处理
+    - 服务器处理
+- 数据源类型
+    - 数组
+    - 对象
+    - 实例
+- 数据源
+    - DOM
+    - Javascript
+    - Ajax源数据
 
 通过介绍不同的处理模式，以及不同数据类型还有不同的数据源，对于应对各种复杂的情况，都是不在话下了。
 
@@ -51,3 +51,4 @@ hot: 1
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
+[index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
