@@ -47,13 +47,16 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 ## 课程内容
 
 - 开刊（即本节内容，Done √）
-- 第一章，Datatables的6大特性(Done √)
-    - [DOM属性的介绍][one]
-- 第二章，对于各种数据源该怎么使用Datatables？
+- [第一章，Datatables的6大特性][one](Done √)
+    - 如何使用Datatables
+    - DOM属性的介绍
+    - DOM属性的标记语言
+- [第二章，对于各种数据源该怎么使用Datatables][two]？
     - Dom数据源
     - javascript数据
     - Ajax数据
     - 服务器模式
+    - 客户端模式
 - 第三章，打造和自己项目贴近的表格
     - info，paging，processing，lengthChange，searching
 - 第四章，更方便的操作表格数据  
@@ -68,6 +71,10 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     
 > 内容会有变动，只有视频录好后就定下内容，本目录会不断更新直到全部完结
 
+## 课程时间安排
+
+每周2-3次直播，周一到周五晚上八点，如果是周六周日下午三点，每次直播时常在20-30分钟左右，直播前会在群里提前发出通知。如果你不想错过直播，可以加群20779435获取每次的上课提醒。
+
 ## 课程视频
 
 由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]和[bilibili频道][bilibili]在线播放
@@ -79,3 +86,4 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
 
 [one]: {{ site.baseurl }}/blog/2020/06/23/datatables-dom-option.html
+[two]: {{ site.baseurl }}/blog/2020/07/02/datatables-data-source.html
