@@ -272,7 +272,7 @@ relurl: http://datatables.net/reference/api/
                 {% include href/api/Cells.html param="cell().cache()" %}
             </td>
             <td>
-                获取被选择的单元格的缓存数据
+                获取被选择的单元格的Datatables缓存的数据
             </td>
         </tr>
         <tr>
@@ -334,15 +334,23 @@ relurl: http://datatables.net/reference/api/
                 {% include href/api/Cells.html param="cell().render()" %}
             </td>
             <td>
-                从单元格获取已经渲染的数据
+                获取单个单元格的渲染数据
             </td>
         </tr>
-    
         <tr>
-            <td><p><a href="//datatables.net/reference/api/cells().cache()"><code class="api" title="DataTables API method">cells().cache()<span>DT</span></code></a>
-            </p>
+            <td>
+                {% include href/api/Cells.html param="cells().render()" %}
             </td>
-            <td><p>从缓存里获取选中多个单元格的数据</p>
+            <td>
+                获取单元格集合的渲染数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cells().cache()" %}
+            </td>
+            <td>
+                获取被选择的多个单元格的Datatables缓存的数据
             </td>
         </tr>
         <tr>
@@ -360,14 +368,7 @@ relurl: http://datatables.net/reference/api/
             <td><p>获得选中的多个单元格的索引信息</p>
             </td>
         </tr>
-        <tr>
-            <td><p><a href="//datatables.net/reference/api/cells().render()"><code class="api"
-                                                                                title="DataTables API method">cells().render()<span>DT</span></code></a>
-            </p>
-            </td>
-            <td><p>获得渲染过的多个单元格数据</p>
-            </td>
-        </tr>
+       
         
     </tbody>
 </table>

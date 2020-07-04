@@ -1,9 +1,9 @@
 ---
 layout: reference_md
 title: cell().render()
-summary: 从单元格获取已经渲染的数据
+summary: 获取单个单元格的渲染数据
 sub: 文档(Options & API) DataTables中文网
-since: DataTables 1.10
+since: DataTables 1.10.3
 navcategory: api
 keywords: cell,api,render
 author: /reference/api/cell().render()
@@ -28,7 +28,7 @@ DataTables拥有使用 [正交数据](orthogonal-data) 的能力，比如对于�
 
 #### 描述(Description):
 
-获取被选择单元格渲染后的数据
+获取被选择单个单元格渲染后的数据
      
 #### 参数(Parameters):
 {% include_relative cell-render-parameters-code.html %}
