@@ -303,7 +303,9 @@ relurl: http://datatables.net/reference/api/
             <td>
                 {% include href/api/Cells.html param="cell().node()" %}
             </td>
-            <td>得到被选择的单个单元格的DOM元素</td>
+            <td>
+                得到被选择的单个单元格的DOM元素
+            </td>
         </tr>
         <tr>
             <td>
@@ -325,7 +327,8 @@ relurl: http://datatables.net/reference/api/
             <td>
                 {% include href/api/Cells.html param="cells().nodes()" %}
             </td>
-            <td><p>获得选中的多个单元格的dom</p>
+            <td>
+                获得选中的多个单元格的DOM
             </td>
         </tr>
         
@@ -362,11 +365,11 @@ relurl: http://datatables.net/reference/api/
             </td>
         </tr>
         <tr>
-            <td><p><a href="//datatables.net/reference/api/cells().indexes()"><code class="api"
-                                                                                    title="DataTables API method">cells().indexes()<span>DT</span></code></a>
-            </p>
+            <td>
+                {% include href/api/Cells.html param="cells().indexes()" %}
             </td>
-            <td><p>获得选中的多个单元格的索引信息</p>
+            <td>
+                获取被选单元格的索引信息
             </td>
         </tr>
         <tr>
@@ -377,8 +380,6 @@ relurl: http://datatables.net/reference/api/
                 遍历每个选定的单元格，并且每个单元格应用传入方法里的处理
             </td>
         </tr>
-       
-        
     </tbody>
 </table>
 
