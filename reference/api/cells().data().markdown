@@ -27,6 +27,7 @@ author: /reference/api/cells().data()
 {% include href/type/DataTables.html param="DataTables.Api"%}
 
 Datatables API 实例，在结果集里包含被选择的单元格的数据
+
 --- 
     
 ## 例子(Example)

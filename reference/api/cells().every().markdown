@@ -44,8 +44,6 @@ Although a relatively simple optimisation in terms of code presentation, it can 
 The other advantage is that the table context is automatically handled - in the first example above where {% include href/api/Utility.html param="each()" %} is used, the {% include href/api/Utility.html param="eq()" %} method is used to select the information from the first table in the API's context only, introducing complexity if multiple tables are used. In {% include href/api/Cells.html param="cells().every()" %} the table context is automatically set to the appropriate table for each cell that has been selected.
 
 ## 类型(Type)
-这个选项能够接受以下类型的参数：
-
 ---
     
 ### _function_ **cells().every( fn )**   
@@ -59,6 +57,8 @@ The other advantage is that the table context is automatically handled - in the 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}
 Datatables API 实例，包含被选中的单元格。
+
+
 --- 
     
 ## 例子(Example)
@@ -86,6 +86,6 @@ API
 
 - {% include href/api/Columns.html param="columns().every()" %}
 - {% include href/api/Utility.html param="each()" %}
-- {% include href/api/Utility.html param="iterator()()" %}
+- {% include href/api/Utility.html param="iterator()" %}
 - {% include href/api/Rows.html param="rows().every()" %}
 
