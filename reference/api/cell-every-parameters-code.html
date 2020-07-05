@@ -1,0 +1,41 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>fn</code></td>
+        <td>
+            {% include href/type/Javascript.html param="function" %}
+        </td>
+        <td>no</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            <p>
+                对每个选定的单元格执行这个函数。该函数的上下文设置为该单元格的API实例。
+            </p>
+
+
+           <p>
+               从Datatables 1.10.8 开始，该函数将传递以下参数：
+           </p>
+            <ul>
+                <li> 1，Cell's row index - 单元格的行索引</li>
+                <li> 2，Cell's column index - 单元格的列索引</li>
+                <li> 3，Table loop counter - 表格的循环计数器</li>
+                <li> 4，Cell loop counter - 单元格的循环计数器</li>
+            </ul>
+
+            <p>No return value is expected or acted upon.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>

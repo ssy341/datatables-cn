@@ -354,10 +354,11 @@ relurl: http://datatables.net/reference/api/
             </td>
         </tr>
         <tr>
-            <td><p><a href="//datatables.net/reference/api/cells().data()"><code class="api" title="DataTables API method">cells().data()<span>DT</span></code></a>
-            </p>
+            <td>
+                {% include href/api/Cells.html param="cells().data()" %}
             </td>
-            <td><p>获取选中的多个单元格值</p>
+            <td>
+                获取所选单元格的数据
             </td>
         </tr>
         <tr>
@@ -366,6 +367,14 @@ relurl: http://datatables.net/reference/api/
             </p>
             </td>
             <td><p>获得选中的多个单元格的索引信息</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Cells.html param="cells().every()" %}
+            </td>
+            <td>
+                遍历每个选定的单元格，并且每个单元格应用传入方法里的处理
             </td>
         </tr>
        

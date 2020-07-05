@@ -48,7 +48,7 @@ author: /reference/api/cell().data()
 
 ## 例子(Example)
 alert打印出点击单元格的值
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var table = $('#example').DataTable();
  
 $('#example tbody').on( 'click', 'td', function () {
@@ -57,7 +57,7 @@ $('#example tbody').on( 'click', 'td', function () {
 {% endhighlight %}
 
 每点击一次单元格，让单元格里的值加1
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var table = $('#example').DataTable();
  
 $('#example tbody').on( 'click', 'td', function () {
