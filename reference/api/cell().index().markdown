@@ -75,7 +75,7 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/Cells.html param="cells().indexs()" %}
+- {% include href/api/Cells.html param="cells().indexes()" %}
 - {% include href/api/Rows.html param="row().index()" %}
 - {% include href/api/Columns.html param="column().index()" %}
 - {% include href/api/Columns.html param="column.index()" %}
