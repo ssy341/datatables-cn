@@ -21,7 +21,7 @@ since: Buttons 1.0.0
         <li>不支持<b>UTF-8</b>。如果要支持UTF-8，请使用  {% include href/button/pdfHtml5.button %}</li>
         <li>必须安装Adobe Flash</li>
         <li> The action for this button cannot be activated using the
-            {% include href/api/button.trigger %}
+            {% include href/api/Buttons.html param="button().trigger()" %}
             or key combination methods due to the security restrictions of Flash
         </li>
         <li>创建文件的对话框必须显示，文件不会自动打开</li>
@@ -94,7 +94,7 @@ since: Buttons 1.0.0
     <tr class="odd continuation">
         <td colspan="2">
             选择性的导出数据，包括哪些列，行，排序或者过滤。
-            详细参考 {% include href/api/buttons.exportData %} 方法，这里收集所需要的数据
+            详细参考 {% include href/api/Buttons.html param="buttons().exportData()" %} 方法，这里收集所需要的数据
         </td>
     </tr>
     <tr class="odd">
