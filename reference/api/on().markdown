@@ -42,7 +42,7 @@ DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件
 监听事件，并在发生这个事件的时候触发回调函数
      
 #### 参数(Parameters):
-{% include_relative on-parameters-code.html %}
+{% include_relative parameters/on.html %}
 
 #### 返回(Returns):
 

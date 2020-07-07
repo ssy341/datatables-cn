@@ -37,7 +37,7 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 作为一个function，你可以定制自己的错误提示方式，例如向用户显示消息或重新加载页面以从错误中恢复。 
      
 #### 参数(Parameters):
-{% include_relative fn.dataTable.ext.errMode-parameters-code.html %}
+{% include_relative parameters/fn.dataTable.ext.errMode.html %}
 
 #### 返回(Returns):
 {% include href/type/Javascript.html param="undefined" %}

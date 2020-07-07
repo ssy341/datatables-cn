@@ -30,7 +30,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 获得指定缓存类型的缓存数据 
 
 #### 参数(Parameters):
-{% include_relative cell-cache-parameters-code.html %}
+{% include_relative parameters/cell.cache.html %}
 
 #### 返回(Returns):
 

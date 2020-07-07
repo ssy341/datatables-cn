@@ -59,7 +59,7 @@ author: /reference/api/order()
 使用一维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/api/Core.html param="draw()" %}方法来执行。
      
 #### 参数(Parameters):
-{% include_relative order-fun1-parameters-code.html %}
+{% include_relative parameters/order-fun1.html %}
 
 #### 返回(Returns):
 
@@ -78,7 +78,7 @@ DataTables API 实例对象
 使用二维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/api/Core.html param="draw()" %}方法来执行。
      
 #### 参数(Parameters):
-{% include_relative order-fun2-parameters-code.html %}
+{% include_relative parameters/order-fun2.html %}
 
 #### 返回(Returns):
 

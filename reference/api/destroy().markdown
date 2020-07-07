@@ -31,7 +31,7 @@ DataTables 添加了许多HTML元素，事件监听和其他修改，来增强�
 通过删除所有DataTables增强功能，改变表和事件监听的DOM结构，将当前上下文中的表恢复到DOM的原始状态。
      
 #### 参数(Parameters):
-{% include_relative destroy-parameters-code.html %}
+{% include_relative parameters/destroy.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}

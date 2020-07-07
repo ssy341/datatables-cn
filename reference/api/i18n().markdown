@@ -47,7 +47,7 @@ author: /reference/api/i18n()
 
      
 #### 参数(Parameters):
-{% include_relative i18n-parameters-code.html %}
+{% include_relative parameters/i18n.html %}
 
 #### 返回(Returns):
 

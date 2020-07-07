@@ -24,7 +24,7 @@ author: /reference/option/columns.createdCell
 ### function createdCell( cell, cellData, rowData, rowIndex, colIndex )
 
 #### 参数(Parameters):
-{% include_relative columns.createdCell-parameters-code.html %}
+{% include_relative parameters/columns.createdCell.html %}
 
 ---
 

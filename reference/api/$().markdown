@@ -23,7 +23,7 @@ DataTables使用了大量的DOM操作，比如从 document 移除行来实现分
 表格中{% include href/tags.html param="tbody" %}里的行和内容执行 jQuery 操作
 
 #### 参数(Parameters):
-{% include_relative jQuery-parameters-code.html %}
+{% include_relative parameters/jQuery.html %}
 
 #### 返回(Returns):
 {% include href/type/Javascript.html param="jQuery" %}

@@ -30,7 +30,7 @@ author: /reference/event/error
 
 
 #### 参数(Parameters):
-{% include_relative error-parameters-code.html %}
+{% include_relative parameters/error.html %}
 
 ---
 

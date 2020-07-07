@@ -33,7 +33,7 @@ author: /reference/api/draw()
 在当前上下文重绘表格，可选择是否需要更新排序，搜索或者是分页
      
 #### 参数(Parameters):
-{% include_relative draw-parameters-code.html %}
+{% include_relative parameters/draw.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}

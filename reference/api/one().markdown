@@ -42,7 +42,7 @@ DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件
 添加一个事件监听器，为此回调将被触发一次，然后删除事件侦听器
      
 #### 参数(Parameters):
-{% include_relative on-parameters-code.html %}
+{% include_relative parameters/on.html %}
 
 #### 返回(Returns):
 

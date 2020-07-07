@@ -26,7 +26,7 @@ author: /reference/api/column()
 通过列选择器获取的列
      
 #### 参数(Parameters):
-{% include_relative column-parameters-code.html %}
+{% include_relative parameters/column.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DateTables.Api" %}

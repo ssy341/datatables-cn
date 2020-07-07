@@ -41,7 +41,7 @@ DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件
 删除使用 {% include href/api/Core.html param="on()" %} 绑定的监听器
      
 #### 参数(Parameters):
-{% include_relative off-parameters-code.html %}
+{% include_relative parameters/off.html %}
 
 #### 返回(Returns):
 

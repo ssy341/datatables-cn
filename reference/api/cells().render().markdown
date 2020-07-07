@@ -31,7 +31,7 @@ DataTables拥有使用 [正交数据](orthogonal-data) 的能力，比如对于�
 获取被选择多个单元格渲染后的数据
      
 #### 参数(Parameters):
-{% include_relative cell-render-parameters-code.html %}
+{% include_relative parameters/cell.render.html %}
 
 #### 返回(Returns):
 

@@ -28,7 +28,7 @@ DataTables实例，可以有效保证你不会把一个已经初始化的再次�
 DataTables实例
 
 #### 参数(Parameters):
-{% include_relative jQuery.fn.dataTable.isDataTable-parameters-code.html %}
+{% include_relative parameters/jQuery.fn.dataTable.isDataTable.html %}
 
 #### 返回(Returns):
 {% include href/type/Javascript.html param="boolean" %}

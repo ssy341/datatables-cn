@@ -39,7 +39,7 @@ API实例，结果里是根据选择器匹配的每一列列数据并且每个�
 
 #### 参数(Parameters):
 
-{% include_relative column.visible-parameters-code.html %}
+{% include_relative parameters/column.visible.html %}
 
 #### 返回(Returns):
 

@@ -26,7 +26,7 @@ author: /reference/api/%24.fn.dataTable.versionCheck()
 指定一个版本字符串检查DataTables运行版本的兼容性
 
 #### 参数(Parameters):
-{% include_relative jQuery.fn.dataTable.versionCheck-parameters-code.html %}
+{% include_relative parameters/jQuery.fn.dataTable.versionCheck.html %}
 
 #### 返回(Returns):
 `true` 表示当前的版本更高或者是刚好需要的版本，`false`表示和给定的版本不匹配

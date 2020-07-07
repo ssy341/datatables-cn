@@ -32,7 +32,7 @@ API实例的上下文定义了API将在哪些DataTables表格上进行操作，�
 
 #### 参数(Parameters):
 
-{% include_relative table-parameters-code.html %}
+{% include_relative parameters/table.html %}
 
 #### 返回(Returns):
 

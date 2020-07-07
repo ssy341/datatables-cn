@@ -29,7 +29,7 @@ DataTables 是不会知道你做了修改。这个方法就是用来告诉DataTa
 使选定的多个单元格的数据失效
 
 #### 参数(Parameters):
-{% include_relative cell.invalidate-parameters-code.html %}
+{% include_relative parameters/cell.invalidate.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}

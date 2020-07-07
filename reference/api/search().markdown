@@ -55,7 +55,7 @@ DataTables提供了一个工具方法（{% include href/api/Static.html param="$
 设置全局搜索应用到表格中。注意，如果要把搜索结果显示在表格中，还需要执行{% include href/api/Core.html param="draw()" %}方法。
 
 #### 参数(Parameters):
-{% include_relative search-parameters-code.html %}
+{% include_relative parameters/search.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api" %}

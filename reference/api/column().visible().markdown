@@ -39,7 +39,7 @@ author: /reference/api/column().visible()
 
 #### 参数(Parameters):
 
-{% include_relative column.visible-parameters-code.html %}
+{% include_relative parameters/column.visible.html %}
 
 #### 返回(Returns):
 

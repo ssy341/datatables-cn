@@ -45,7 +45,7 @@ author: /reference/api/row().data()
 
 #### 参数(Parameters):
 
-{% include_relative row.data-parameters-code.html %}
+{% include_relative parameters/row.data.html %}
 
 #### 返回(Returns):
 

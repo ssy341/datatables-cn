@@ -123,7 +123,7 @@ $('#example').DataTable( {
 注意：在1.10.6+， 当使用了 `ajax` 属性后，{% include href/event.html param="xhr" %}事件会被触发（即使没有ajax请求）
             
 #### 参数(Parameters):
-{% include_relative ajax-parameters-code.html %}
+{% include_relative parameters/ajax.html %}
 
 ## 例子(Example)
 

@@ -38,7 +38,7 @@ author: /reference/api/cell().data()
 给选中的单元格设置数据
 
 #### 参数(Parameters):
-{% include_relative cell.data-parameters-code.html %}
+{% include_relative parameters/cell.data.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}

@@ -52,7 +52,7 @@ The other advantage is that the table context is automatically handled - in the 
 遍历每一个被选择的单元格
      
 #### 参数(Parameters):
-{% include_relative cell-every-parameters-code.html %}
+{% include_relative parameters/cells.every.html %}
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api"%}
