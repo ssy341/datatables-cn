@@ -23,7 +23,7 @@ since: Editor 1.5.0
 </aside>
 <p>
     这个按钮允许用户创建一个新行，调用
-    {% include href/api/create.api %}方法，他所可用的配置选项有这些
+    {% include href/api/Editor.html param="create()" %}方法，他所可用的配置选项有这些
     （即  <code>formButtons</code> ，<code>formMessage</code> 和 <code>formTitle</code>）。
     其实就是弹出一个表单，然后表单里包含需要添加的字段，以及按钮。
 
@@ -79,7 +79,7 @@ since: Editor 1.5.0
                 显示在弹出表单的消息。可以是一个简单的 <code>string</code>或者一个 <code>function</code>。
             </p>
             <p>
-                这个值是通过 {% include href/api/message.api %}方法设置。
+                这个值是通过 {% include href/api/Editor.html param="message()" %}方法设置。
             </p>
         </td>
     </tr>
@@ -93,7 +93,7 @@ since: Editor 1.5.0
                 表单的标题，比如：新建用户。
             </p>
             <p>
-                这个值是通过 {% include href/api/title.api %}方法设置。
+                这个值是通过 {% include href/api/Editor.html param="title()" %}方法设置。
             </p>
 
 

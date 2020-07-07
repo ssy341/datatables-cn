@@ -23,10 +23,10 @@ since: Editor 1.5.0
 </aside>
 <p>
     这个按钮允许用户删除已存在的行，调用
-    {% include href/api/remove.api %}方法触发此操作。
+    {% include href/api/Editor.html param="remove()" %}方法触发此操作。
 </p>
 <p>
-   使用Select扩展来获取选中的数据，把这些数据提供给 {% include href/api/remove.api %}方法来删除数据
+   使用Select扩展来获取选中的数据，把这些数据提供给 {% include href/api/Editor.html param="remove()" %}方法来删除数据
 </p>
 <p>
     他所可用的配置选项有这些
@@ -84,7 +84,7 @@ since: Editor 1.5.0
                 显示在弹出表单的消息。可以是一个简单的 <code>string</code>或者一个 <code>function</code>。
             </p>
             <p>
-                这个值是通过 {% include href/api/message.api %}方法设置。
+                这个值是通过 {% include href/api/Editor.html param="message()" %}方法设置。
             </p>
         </td>
     </tr>
@@ -98,7 +98,7 @@ since: Editor 1.5.0
                 表单的标题，比如：新建用户。
             </p>
             <p>
-                这个值是通过 {% include href/api/title.api %}方法设置。
+                这个值是通过 {% include href/api/Editor.html param="title()" %}方法设置。
             </p>
 
 
