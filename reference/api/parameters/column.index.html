@@ -1,0 +1,26 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>type</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>Yes-default:data</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            指定是否要获取列的数据索引（默认）或者是可见列的索引（{% include href/string.html param="visible" %}）
+        </td>
+    </tr>
+    </tbody>
+</table>

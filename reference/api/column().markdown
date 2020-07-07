@@ -31,3 +31,14 @@ author: /reference/api/column()
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DateTables.Api" %}
 Datatables API 实例，结果集中包含被选择的列
+
+
+---
+
+
+## 相关属性(Related)
+下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
+
+API
+
+- {% include href/api/Columns.html param="columns()" %}
