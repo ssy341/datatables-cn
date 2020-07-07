@@ -7,6 +7,7 @@ since: DataTables 1.10
 navcategory: api
 keywords: column,visible,api
 author: /reference/api/column().visible()
+toc: true
 ---
 
 ## 描述(Description)
@@ -15,7 +16,7 @@ author: /reference/api/column().visible()
 
 ## 类型(Type)
 
-### _function_ column().visible()
+### _function_ **column().visible()**
 
 #### 描述(Description):
 
@@ -31,7 +32,7 @@ author: /reference/api/column().visible()
 ---
 
 
-### _function_ column().visible( show [, redrawCalculations ] )
+### _function_ **column().visible( show [, redrawCalculations ] )**
 
 #### 描述(Description):
 
@@ -55,7 +56,7 @@ DataTables API 实例，包含被选择的列在结果集中。
 获取序号为0的列的可见性
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 var table = $('#example').DataTable();
  
@@ -68,7 +69,7 @@ alert( 'Column index 0 is '+
 
 隐藏表格的第一列
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 var table = $('#example').DataTable();
  
@@ -78,7 +79,7 @@ table.column( 0 ).visible( false );
 
 隐藏多列，使用`redrawCalculations`来提高性能
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 var table = $('#example').DataTable();
  

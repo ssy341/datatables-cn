@@ -9,6 +9,7 @@ categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
 author: DataTable中文网
 hot: 1
+toc: true
 ---
 
 ## 前言

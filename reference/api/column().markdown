@@ -7,6 +7,7 @@ since: DataTables 1.10
 navcategory: api
 keywords: column,api
 author: /reference/api/column()
+toc: true
 ---
 
 ## 描述(Description)
