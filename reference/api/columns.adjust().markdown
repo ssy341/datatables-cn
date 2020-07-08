@@ -49,7 +49,7 @@ table.columns.adjust().draw();
 ## 相关属性(Related)
 下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
 
-API
+Options
 
 - {% include href/option/Columns.html param="columns.width" %}
 - {% include href/option/Features.html param="autoWidth" %}
