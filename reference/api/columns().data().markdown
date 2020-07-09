@@ -40,7 +40,7 @@ DataTables API实例，结果集中包含别选择列的单元格数据。这是
 {: #columns-data-example1-js }
 {% highlight javascript %}
 var table = $('#example').DataTable({
-    dom:"<"#listData"><lftip>"
+    dom:"<lftip><'#listData'>"
 });
  
 $('#listData').html(
