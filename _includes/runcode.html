@@ -1,5 +1,5 @@
 <div>
-    <button style="position:absolute;right: 15px;"><a id="runcode{{ include.param }}" target="_blank">亲自试一试</a></button>
+    <button style="position:absolute;right: 15px;"><a href="#" id="runcode{{ include.param }}">亲自试一试</a></button>
 </div>
 <script>
 
@@ -28,7 +28,7 @@ $("#runcode{{ include.param }}").click(function(){
     $.localStorage.set("styleContent_datatables_club",styleContent);
     $.localStorage.set("bodyContent_datatables_club",bodyContent);
 
-    window.location.href = "{{ site.baseurl }}/code/run.html";
+    window.open("{{ site.baseurl }}/code/run.html", '_blank');
 })
 
 </script>
