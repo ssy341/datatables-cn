@@ -845,7 +845,28 @@ form.bs-docs-example {
   bottom: 270px;
 }
 
+.bs-docs-sidenav ul>li>a{
+  padding-left: 30px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    border: 1px solid #e5e5e5;
+}
 
+
+.bs-docs-sidenav ul>li{
+  list-style: none;
+}
+
+.bs-docs-sidenav ul{
+  margin: 0;
+}
+
+.bs-docs-sidenav ul .icon-chevron-right {
+  margin-right: 10px;
+}
 
 
 /* Responsive

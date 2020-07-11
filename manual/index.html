@@ -6,7 +6,40 @@ title: 手册 Datatables中文网
 <header class="jumbotron subhead" id="overview">
     <div class="container">
         <h1>Manual</h1>
-        <p class="lead">使用Datatables的基本手册</p>
+        <p class="lead">
+
+            DataTables的既定目标是”增强HTML表格中数据的可访问性“。为了实现这个目标，我们认识到DataTables具有两类用户，与接口和软件的相互作用分为下面两类：
+        </p>
+
+        <ul>
+            <li>
+                最终用户 - 在您使用DataTables创建的浏览器中的使用界面的用户
+            </li>
+            <li>
+                开发人员 - 您自己和其他使用DataTables创建您的应用程序，站点，服务等的开发人员
+            </li>
+        </ul>
+
+        <p class="lead">
+            最终用户需要能够尽快从表中获取有用的信息，为此，DataTables具有内置的功能，比如排序，搜索和分页。在这些控件不言而喻（比如，键入搜索输入框，然后搜索表）的假设下，本文档没有详细介绍最终用户如何使用该界面。
+        </p>
+
+        <p class="lead">
+            本文档的重点是给使用DataTables的开发人员提供有关在应用程序中使用DataTables所需的信息，对其进行自定义满足您的确切需求，以使最终用户可以从DataTables可以提供的功能中受益。因此，本文档涵盖了有关如何首先在您的网站上安装DataTables的详细信息，解释如何为创建的表格提供数据，并详细说明如何自定义最终用户界面，引导您进入更高级的主题，例如为DataTables创建自己的插件以进一步增强其功能并能与应用程序无缝对接。
+        </p>
+
+        <p class="lead">
+            尽管DataTables呈现给最终用户和开发人员界面当然是完全不同的，每个对于DataTables都具有同等重要的意义，以实现其目标，即确保可以尽快高效地访问和使用HTML表中的数据。
+        </p>
+
+        <blockquote>
+            <b>版本信息：</b><br>
+            这里的文档适用于DataTables1.10及更高版本，在<a href="https://legacy.datatables.net" target="_blank">旧站点</a>上可以找到有关DataTables早期版本的文档，即建议您尽可能升级。
+            <br>
+            <b>兼容性信息：</b>
+            DataTables1.10+及其扩展需要jQuery1.7或更高版本。DataTables1.10与IE6及更高版本兼容。扩展需要求IE8或更高版本。完全支持所有其他常用浏览器（Chrome,Firefox,Safari,Opera）。
+
+        </blockquote>
     </div>
 </header>
 
@@ -18,20 +51,25 @@ title: 手册 Datatables中文网
         <div class="span3 bs-docs-sidebar">
             <ul class="nav nav-list bs-docs-sidenav">
                 <li><a href="#install"><i class="icon-chevron-right"></i>安装</a></li>
-                <li><a href="#data"><i class="icon-chevron-right"></i>数据</a></li>
+                <li>
+                    <a href="#data"><i class="icon-chevron-right"></i>数据</a>
+                    <ul>
+                        <li><a href="#orthogonal-data"><i class="icon-chevron-right"></i>正交数据</a></li>
+                        <li><a href="#renderers"><i class="icon-chevron-right"></i>渲染</a></li>
+                    </ul>
+                </li>
+                <li><a href="#ajax"><i class="icon-chevron-right"></i>Ajax</a></li>
                 <li><a href="#options"><i class="icon-chevron-right"></i>选项</a></li>
                 <li><a href="#api"><i class="icon-chevron-right"></i>API</a></li>
                 <li><a href="#style"><i class="icon-chevron-right"></i>样式</a></li>
                 <li><a href="#events"><i class="icon-chevron-right"></i>事件</a></li>
-                <li><a href="#orthogonal-data"><i class="icon-chevron-right"></i>正交数据</a></li>
                 <li><a href="#server-side"><i class="icon-chevron-right"></i>服务器支持</a></li>
                 <li><a href="#internationalisation"><i class="icon-chevron-right"></i>国际化</a></li>
-                <li><a href="#diy"><i class="icon-chevron-right"></i>自助解决问题<span class="hot"></span></a></li>
-                <li><a href="#daily"><i class="icon-chevron-right"></i>不定时一讲<span class="hot"></span></a></li>
+                <li><a href="#diy"><i class="icon-chevron-right"></i>自助解决问题</a></li>
+                <li><a href="#daily"><i class="icon-chevron-right"></i>不定时一讲</a></li>
             </ul>
         </div>
         <div class="span9">
-            {% include xad.html %}
             <!-- Download
             ================================================== -->
             <section id="install">
@@ -48,6 +86,23 @@ title: 手册 Datatables中文网
             <section id="data">
                 <div class="page-header">
                     <h1><a   href="data.html">数据(Data)</a></h1>
+                </div>
+                <p class="lead">数据是复杂的并且所有的数据是不同的。因此,datatable中有大量的选项可用于配置如何获得表中的数据显示,以及如何处理这些数据。<a   href="data.html">更多 »</a>
+                </p>
+            </section>
+
+            <section id="orthogonal-data">
+                <div class="page-header">
+                    <h1><a   href="http://datatables.net/manual/orthogonal-data">正交数据(Orthogonal data)</a></h1>
+                </div>
+                <p class="lead">数据是复杂的. 表格中的每个单元可能显示多种格式（例如货币数据显示$1200去而1200作为排序）. datatable中可以使用不同的数据适用于不同的数据的处理; 这里管它叫orthogonal-data. <a   href="http://datatables.net/manual/orthogonal-data">更多 »</a>
+                </p>
+            </section>
+
+
+            <section id="renderers">
+                <div class="page-header">
+                    <h1><a   href="data.html">渲染器(Renderers)</a></h1>
                 </div>
                 <p class="lead">数据是复杂的并且所有的数据是不同的。因此,datatable中有大量的选项可用于配置如何获得表中的数据显示,以及如何处理这些数据。<a   href="data.html">更多 »</a>
                 </p>
@@ -112,14 +167,7 @@ title: 手册 Datatables中文网
 
 
 
-            <section id="orthogonal-data">
-                <div class="page-header">
-                    <h1><a   href="http://datatables.net/manual/orthogonal-data">正交数据(Orthogonal data)</a></h1>
-                </div>
-                <p class="lead">数据是复杂的. 表格中的每个单元可能显示多种格式（例如货币数据显示$1200去而1200作为排序）. datatable中可以使用不同的数据适用于不同的数据的处理; 这里管它叫orthogonal-data. <a   href="http://datatables.net/manual/orthogonal-data">更多 »</a>
-                </p>
-            </section>
-
+            
 
 
             <section id="server-side">
