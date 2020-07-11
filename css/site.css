@@ -120,7 +120,7 @@ a code {
     border-bottom: 1px solid #f2f3f3;
 }
 
-.sidebar__left {
+.sidebar__left .sidebar_right {
     margin-bottom:1em
 }
 @media (min-width: 64em) {
@@ -134,10 +134,27 @@ a code {
         z-index:10
     }
 }
+@media (min-width: 64em) {
+    .sidebar__right {
+        position:absolute;
+        top:120;
+        right:0;
+        width:200px;
+        margin-right:-200px;
+        padding-right:1em;
+        z-index:10
+    }
+}
 @media (min-width: 80em) {
     .sidebar__left {
         width:300px;
         margin-left:-300px
+    }
+}
+@media (min-width: 80em) {
+    .sidebar__right {
+        width:300px;
+        margin-right:-300px
     }
 }
 @media (min-width: 64em) {
@@ -145,5 +162,13 @@ a code {
         position:relative;
         float:left;
         margin-left:0
+    }
+}
+
+@media (min-width: 64em) {
+    .splash .sidebar__right {
+        position:relative;
+        float:right;
+        margin-right:0
     }
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="utf-8">
+<head>
+    <!--meta-->
+    <title>{{ page.title }} {{ page.summary }} {{ page.sub }}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="{{ site.sitename }}">
+    <meta name="keywords" content="{{ page.keywords }}">
+    <!-- Le styles -->
+    <link href="{{site.baseurl}}/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/docs.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{site.baseurl}}/css/blog-home.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/site.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/css/highlighting.css" rel="stylesheet">
+    <link href="{{site.baseurl}}/images/favicon.png" rel="shortcut icon">
+    <script type="text/javascript" src="{{ site.wlan_url }}/js/jquery-2.0.0.js"></script>
+    {{ page.style }}
+</head>
+<body>
+    <!--nav-->
+    {% include blog/nav.html  param='manual' %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="{{site.baseurl}}/">首页</a></li>
+                <li><a href="{{site.baseurl}}/manual">手册</a></li>
+                {% if page.navcategory %}
+                <li><a href="{{site.baseurl}}/manual/{{page.navcategory}}">{{page.navcategory|capitalize}}</a></li>
+                {% endif %}
+                <li class="active">{{ page.title }} 正文</li>
+            </ol>
+            <!-- Blog Entries Column -->
+            <div class="col-md-8">
+
+                <h2>
+                    <a href="{{ page.url }}">{{ page.title }}</a>
+                </h2>
+                <hr>
+
+                {% if page.toc %}
+                <aside class="sidebar__right">
+                    <nav class="toc">
+                    <header>
+                        <h4 class="nav__title">
+                            <svg t="1594130194211" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2234" width="15" height="15"><path d="M832 25.6H192c-51.2 0-83.2 38.4-83.2 89.6v800c0 51.2 38.4 83.2 83.2 83.2h640c51.2 0 83.2-38.4 83.2-83.2V115.2c0-51.2-32-89.6-83.2-89.6zM256 742.4c-12.8 0-25.6-12.8-25.6-25.6s12.8-25.6 25.6-25.6 25.6 12.8 25.6 25.6-12.8 25.6-25.6 25.6z m0-224c-25.6 0-38.4-12.8-38.4-25.6s12.8-25.6 25.6-25.6 25.6 12.8 25.6 25.6 0 25.6-12.8 25.6z m0-224c-12.8 0-25.6-12.8-25.6-25.6s12.8-25.6 25.6-25.6 25.6 12.8 25.6 25.6-12.8 25.6-25.6 25.6z m524.8 448H416c-12.8 0-38.4-12.8-38.4-38.4 0-12.8 12.8-38.4 38.4-38.4h371.2c12.8 0 38.4 12.8 38.4 38.4-6.4 25.6-19.2 38.4-44.8 38.4z m0-224H416c-25.6 0-38.4-12.8-38.4-25.6s12.8-38.4 38.4-38.4h371.2c12.8 0 38.4 12.8 38.4 38.4-6.4 25.6-19.2 25.6-44.8 25.6z m0-224H416c-12.8 0-38.4-12.8-38.4-38.4 0-12.8 12.8-38.4 38.4-38.4h371.2c12.8 0 38.4 12.8 38.4 38.4s-19.2 38.4-44.8 38.4z" p-id="2235" fill="#8a8a8a"></path></svg>
+                            目录
+                        </h4>
+                    </header>
+                    {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="toc__menu" %}
+                    </nav>
+                </aside>
+                {% endif %}
+                <div class="content">
+                    {{ content }}
+                </div>
+
+                <blockquote>
+                    <p><a href="{{site.en_url}}{{page.author}}" target="_blank">{{site.en_url}}{{page.author}}</a></p>
+                    <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
+                </blockquote>
+
+                <hr>
+                {% include xad.html %}
+                <!--评论-->
+                {% include disqus.html %}
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        {% include blog/footer.html %}
+
+    </div>
+    <!-- /.container -->
+    <script src="{{site.baseurl}}/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+    <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
+    <script src="{{ site.baseurl }}/code/scripts/jquery.storageapi.js"></script>
+    {{ page.script }}
+</body>
+
+</html>
