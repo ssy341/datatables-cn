@@ -1,0 +1,27 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>type</code></td>
+        <td>
+            {% include href/type/Javascript.html param="string" %}
+        </td>
+        <td>Yes - default: order</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            指定数据应该从哪个缓存器中读取。可以使用两个值{% include href/string.html param="order" %} 和
+              {% include href/string.html param="search" %}。如果未指定任何值，则默认为<code>order</code>
+        </td>
+    </tr>
+    </tbody>
+</table>

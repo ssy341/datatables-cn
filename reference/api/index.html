@@ -489,14 +489,24 @@ relurl: http://datatables.net/reference/api/
                 获取被选择单个列数据源的属性名称
             </td>
         </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/column().cache()"><code class="api"
-                                                                               title="DataTables API method">column().cache()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>从缓存的数据里获取选中的列</p>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="column().cache()" %}
+            </td>
+            <td>
+                获取被选单择列的DataTables缓存的数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="columns().cache()" %}
+            </td>
+            <td>
+                获取被选择多列的DataTables缓存的数据
+            </td>
+        </tr>
+   
+        
     
     
     <tr>
@@ -540,15 +550,6 @@ relurl: http://datatables.net/reference/api/
         <td>在指定列搜索</td>
     </tr>
    
-   
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/columns().cache()"><code class="api"
-                                                                                title="DataTables API method">columns().cache()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获取表格缓存里被选中的列</p>
-        </td>
-    </tr>
    
    
     <tr>
