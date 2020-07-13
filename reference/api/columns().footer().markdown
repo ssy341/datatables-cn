@@ -48,12 +48,6 @@ table.columns( '.sum' ).every( function () {
     var sum = this
         .data()
         .reduce( function (a,b) {
-            if(a.indexOf("$")>0 || a.indexOf(",")>0){
-                a = a.replacAll("$","").repalceAll(",","");
-            }
-            if(b.indexOf("$")>0 || b.indexOf(",")>0){
-                b = b.replacAll("$","").repalceAll(",","");
-            }
             return Number(a) + Number(b);
         } );
  
