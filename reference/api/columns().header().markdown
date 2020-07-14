@@ -1,6 +1,6 @@
 ---
 layout: reference_md
-title: 参数名称
+title: columns().header()
 summary: 描述
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
