@@ -52,15 +52,18 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - 如何使用Datatables
     - DOM属性的介绍
     - DOM属性的标记语言
-- [第二章，对于各种数据源该怎么使用Datatables][two]？
+- [第二章，对于各种数据源该怎么使用Datatables][two](Done √)
     - Dom数据源
     - javascript数据
     - Ajax数据
     - 服务器模式
     - 客户端模式
-- 第三章，打造和自己项目贴近的表格
+- [第三章，复杂数据的处理-正交数据][three]
+- 第四章，复杂数据的显示-渲染器
+
+- 第五章，打造和自己项目贴近的表格
     - info，paging，processing，lengthChange，searching
-- 第四章，更方便的操作表格数据  
+- 第六章，更方便的操作表格数据  
     - ajax
     - columns
     - row
@@ -78,13 +81,15 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 
 ## 课程视频
 
-由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]和[bilibili频道][bilibili]在线播放
+由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]、[bilibili频道][bilibili]和[微博][weibo]在线播放
 
 最后，谢谢大家的支持，如有错误的地方还望指出，如果您还有其他的建议或要求，欢迎在下方留言
 
 
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
+[weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
 
 [one]: {{ site.baseurl }}/blog/2020/06/23/datatables-dom-option.html
 [two]: {{ site.baseurl }}/blog/2020/07/02/datatables-data-source.html
+[three]: {{ site.baseurl }}/blog/2020/07/15/datatables-orthogonal-data.html

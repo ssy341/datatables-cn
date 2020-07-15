@@ -19,7 +19,7 @@ hot: 1
 
 数据是复杂的，所有数据又是不一样的。相对应，Datatables有大量的选项来配置如何获得数据在表格中显示，如何处理这些数据。
 
-本节课讲会介绍一下内容：
+本节课将会介绍一下内容：
 - 处理模式
     - 客户端处理
     - 服务器处理
@@ -39,7 +39,7 @@ hot: 1
 
 ## 课程视频
 
-由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]和[bilibili频道][bilibili]在线播放
+由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]、[bilibili频道][bilibili]和[微博][weibo]在线播放
 
 ## 课程代码
 
@@ -52,3 +52,4 @@ hot: 1
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
+[weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
