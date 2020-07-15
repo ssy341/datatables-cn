@@ -57,7 +57,7 @@ columns:[
 ]
 ```
 
-注意，当{% include href/option/Columns.html param="columns" %}或{% include href/option/Columns.html param="columnDefs" %}用做对象，必须定义`_`属性。如果数据选项没有被定义，则`_`属性为”后备“（例如，上述对象中没有`display`选项）
+注意，当{% include href/option/Columns.html param="columns.data" %}或{% include href/option/Columns.html param="columns.render" %}用做对象，必须定义`_`属性。如果数据选项没有被定义，则`_`属性为”后备“（例如，上述对象中没有`display`选项）
 
 实际操作参考这个[例子](https://datatables.net/examples/ajax/orthogonal-data)
 
