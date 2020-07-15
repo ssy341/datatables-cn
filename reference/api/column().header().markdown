@@ -27,9 +27,6 @@ author: 原地址
 
 #### 描述(Description):
 
-     
-#### 参数(Parameters):
-{% include_relative parameters-code.html %}
 
 #### 返回(Returns):
 
