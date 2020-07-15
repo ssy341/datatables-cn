@@ -8,3 +8,8 @@ navcategory: option
 keywords: formatNumber,option
 author: /reference/option/formatNumber
 ---
+
+
+<a href="{{ site.wlan_url }}/manual/daily/2016/05/03/option-formatNumber.html" >
+    <code class="option">formatNumber<span>不定时一讲</span></code>
+</a>

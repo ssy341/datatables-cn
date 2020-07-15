@@ -8,3 +8,7 @@ navcategory: option
 keywords: headerCallback,option
 author: /reference/option/headerCallback
 ---
+
+<a href="{{ site.wlan_url }}/manual/daily/2016/08/29/option-headerCallback.html" >
+    <code class="option">headerCallback<span>不定时一讲</span></code>
+</a>

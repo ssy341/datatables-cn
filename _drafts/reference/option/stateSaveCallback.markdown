@@ -8,3 +8,6 @@ navcategory: option
 keywords: stateSaveCallback,option
 author: /reference/option/stateSaveCallback
 ---
+<a href="{{ site.wlan_url }}/manual/daily/2016/09/23/option-stateSaveCallback.html" >
+    <code class="option">stateSaveCallback<span>不定时一讲</span></code>
+</a>

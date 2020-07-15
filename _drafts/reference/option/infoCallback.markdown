@@ -8,3 +8,7 @@ navcategory: option
 keywords: infoCallback,option
 author: /reference/option/infoCallback
 ---
+
+<a href="{{ site.wlan_url }}/manual/daily/2016/08/30/option-infoCallback.html" >
+    <code class="option">infoCallback<span>不定时一讲</span></code>
+</a>

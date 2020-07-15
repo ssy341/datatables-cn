@@ -224,3 +224,9 @@ Options
 - {% include href/option/Features.html param="serverSide" %}
 - {% include href/option/data.html param="ajax.data" %}
 - {% include href/option/data.html param="ajax.dataSrc" %}
+
+
+不定时一讲
+<a href="{{ site.baseurl }}/manual/daily/2016/04/18/option-ajax.html" >
+    <code class="option">ajax<span>不定时一讲</span></code>
+</a>
