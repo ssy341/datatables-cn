@@ -205,8 +205,12 @@
     console.log(":)");
 
     if(document.getElementById("noad")){
-        document.getElementById("adLeft").style.display = "none";
-        document.getElementById("adRight").style.display = "none";
+        if(document.getElementById("adLeft")){
+            document.getElementById("adLeft").style.display = "none";
+        }
+        if(document.getElementById("adRight")){
+            document.getElementById("adRight").style.display = "none";
+        }
         console.log("index no ad of side");
     }
 </script>

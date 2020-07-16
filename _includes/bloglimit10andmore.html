@@ -2,13 +2,17 @@
 {% assign postlist = site.tags %}
 {% for post in postlist['博客'] limit:pagelen %}
 <!-- First Blog Post -->
-<article class="news">
-    <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}{% if post.hot %}<span class="hot"></span>{% endif %}</div>
-    <div class="news-title">
-        <a href="{{ post.url }}">{{ post.short }}</a>
-        <span class='disqus-comment-count'
-                                           data-disqus-url="{{ site.wlan_url }}{{ post.url }}"></span><i class="icon-comment "></i>
-    </div>
-</article>
+<div class="span3">
+    <article class="news">
+        <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}{% if post.hot %}<span class="hot"></span>{% endif %}</div>
+        <div class="news-title">
+            <a href="{{ post.url }}">{{ post.short }}</a>
+            <span class='disqus-comment-count'
+                                            data-disqus-url="{{ site.wlan_url }}{{ post.url }}"></span><i class="icon-comment "></i>
+        </div>
+        <p class="news-content">   
+            {{ post.excerpt | strip_html }} 
+        </p>
+    </article>
+</div>
 {% endfor %}
-<a class="more-news" href="/blog">更多 »</a>

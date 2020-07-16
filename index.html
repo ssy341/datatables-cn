@@ -74,6 +74,13 @@ title: Datatables 中文网
     .more-news {
         margin-top: 2.5rem;
         display: inline-block;
+        font-size:16px;
+    }
+
+    .news-content {
+        color: grey;
+        line-height: 1.5em;
+        margin-top: 0.5em;
     }
 
     .highlights {
@@ -179,14 +186,9 @@ title: Datatables 中文网
 
         <div class="row highlights">
 
-            <div class="span4 news-list">
-                <h2>DataTables中文网Blog</h2>
-                {% include bloglimit10andmore.html param=15 %}
-            </div>
-
-            <div class="span4 news-list">
-                <h2>不定时一讲</h2>
-                {% include dailylimit10andmore.html param=15 %}
+            <div class="span8 news-list">
+                <h2>DataTables中文网 新鲜事   <a class="more-news" href="/blog">更多 »</a></h2>
+                {% include bloglimit10andmore.html param=8 %}
             </div>
 
             <div class="span4 intro">
