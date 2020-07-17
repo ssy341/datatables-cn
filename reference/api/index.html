@@ -521,17 +521,24 @@ relurl: http://datatables.net/reference/api/
                 获取被选择单个列的<code>tfoot</code>的单元格节点
             </td>
         </tr>
-    
-    
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="column().hearder()" %}
+            </td>
+            <td>
+                获取选择单个列的表头节点
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="columns().hearder()" %}
+            </td>
+            <td>
+                获取选择多个列的表头节点
+            </td>
+        </tr>
    
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/column().header()"><code class="api"
-                                                                                title="DataTables API method">column().header()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得选中列header的node</p>
-        </td>
-    </tr>
+    
     
     <tr>
         <td><p><a href="//datatables.net/reference/api/column().nodes()"><code class="api"
@@ -560,14 +567,6 @@ relurl: http://datatables.net/reference/api/
    
    
    
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/columns().header()"><code class="api"
-                                                                                 title="DataTables API method">columns().header()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获取选中列header的node</p>
-        </td>
-    </tr>
     
     <tr>
         <td><p><a href="//datatables.net/reference/api/columns().nodes()"><code class="api"
