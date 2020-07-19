@@ -17,7 +17,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 - {% include href/string.html param="filter" %} 用于过滤的数据
 - {% include href/string.html param="type" %} 类型检测数据
 
-默认情况下，DataTables将对四个操作使用相同的数据，但这可以使用{% include href/option/Columns.html param="column.data" %}和{% include href/option/Columns.html param="column.render" %}初始化选项进行修改，或者使用HTML 5 `data-*`属性。
+默认情况下，DataTables将对四个操作使用相同的数据，但这可以使用{% include href/option/Columns.html param="column.data" %}和{% include href/option/Columns.html param="columns.render" %}初始化选项进行修改，或者使用HTML 5 `data-*`属性。
 
 ## 数据源（Data source）
 
@@ -25,7 +25,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 
 ### 预定义值（Predefined values）
 
-如果您的数据源中已经包含希望显示的正交数据，DataTables可以通过{% include href/option/Columns.html param="column.data" %}或者{% include href/option/Columns.html param="column.render" %}选项配置。
+如果您的数据源中已经包含希望显示的正交数据，DataTables可以通过{% include href/option/Columns.html param="column.data" %}或者{% include href/option/Columns.html param="columns.render" %}选项配置。
 
 例如，有如下数据结构，`start_date`对象具有`display`属性，该属性将用于显示表中的数据，同时还具有`timestamp`属性，该属性将用于排序。这种格式的数据非常有用，因为日期显示的格式不容易进行排序：
 
