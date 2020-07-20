@@ -42,11 +42,12 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 - 滥用Datatables，小小需求就用插件导致项目臃肿
 - 不知道怎么把Datatables的强大功能套用到自己的项目中
 - 客户端模式和服务器模式什么区别，怎么使用
+- 什么是正交数据，什么是渲染器
 - 等等……
 
 ## 课程内容
 
-- 开刊（即本节内容，Done √）
+- [开刊][zero]（即本节内容，Done √）
 - [第一章，Datatables的6大特性][one](Done √)
     - 如何使用Datatables
     - DOM属性的介绍
@@ -57,9 +58,12 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - Ajax数据
     - 服务器模式
     - 客户端模式
-- [第三章，复杂数据的处理-正交数据][three]
-- 第四章，复杂数据的显示-渲染器
-
+- [第三章，复杂数据的处理-正交数据][three](Done √)
+    - 什么是正交数据
+    - 预定义值提供正交数据
+    - 函数处理提供正交数据
+    - HTML5 `data-*`和正交数据
+- [第四章，复杂数据的显示-渲染器][four]
 - 第五章，打造和自己项目贴近的表格
     - info，paging，processing，lengthChange，searching
 - 第六章，更方便的操作表格数据  
@@ -76,7 +80,7 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 
 ## 课程时间安排
 
-每周2-3次直播，周一到周五晚上八点，如果是周六周日下午三点，每次直播时常在20-30分钟左右，直播前会在群里提前发出通知。如果你不想错过直播，可以加群20779435获取每次的上课提醒。
+每周2-3次直播，周一到周五，晚上八点，如果是周六周日下午三点，每次直播时常在30分钟左右，直播前会在群里提前发出通知。如果你不想错过直播，可以加群20779435或者关注Datatables中文网官方[微博][weibo]获取每次的上课提醒。
 
 ## 课程视频
 
@@ -89,6 +93,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
 
+[zero]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger
 [one]: {{ site.baseurl }}/blog/2020/06/23/datatables-dom-option.html
 [two]: {{ site.baseurl }}/blog/2020/07/02/datatables-data-source.html
 [three]: {{ site.baseurl }}/blog/2020/07/15/datatables-orthogonal-data.html
+[four]: {{ site.baseurl }}/blog/2020/07/20/datatables-renderers.html
