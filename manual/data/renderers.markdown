@@ -208,7 +208,7 @@ columns:[
 columns:[
     {
         data: 'price',
-        render: $.fn.dataTable.render.number( ',', '.', 2, '$' )
+        render: $.fn.dataTable.render.number( ',', '.', 2, '￥' )
     }
     //其他列配置
 ]
