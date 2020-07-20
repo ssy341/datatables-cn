@@ -78,7 +78,7 @@ table
                 <th>Office</th>
                 <th>Age</th>
                 <th>Start date</th>
-                <th>Status</th>
+                <th class="status">Status</th>
             </tr>
         </thead>
  
