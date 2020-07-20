@@ -1,0 +1,64 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+        <tr>
+            <th></th>
+            <th>名称（Name）</th>
+            <th>类型（Type）</th>
+            <th>是否可选（Optional）</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="even">
+            <td>1</td>
+            <td><code>input</code></td>
+            <td>
+                {% include href/type/Javascript.html param="string" %}
+            </td>
+            <td>No</td>
+        </tr>
+        <tr class="even continuation">
+            <td></td>
+            <td colspan="3">
+            应用于单个列的搜索字符串
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>2</td>
+            <td><code>regex</code></td>
+            <td>{% include href/type/Javascript.html param="boolean" %}</td>
+            <td>Yes - default:false</td>
+        </tr>
+        <tr class="odd continuation">
+            <td></td>
+            <td colspan="3">
+                视指定的字符串为正则表达式（<code>true</code>）或者不（默认，<code>false</code>）
+            </td>
+        </tr>
+        <tr class="even">
+            <td>3</td>
+            <td><code>smart</code></td>
+            <td>
+                {% include href/type/Javascript.html param="boolean" %}
+            </td>
+            <td>Yes - default:true</td>
+        </tr>
+        <tr class="even continuation">
+            <td></td>
+            <td colspan="3">
+                执行智能搜索（默认 <code>true</code>）或不执行（<code>false</code>）。请注意，执行“smart”搜索，Datatables使用正则表达式，因此，如果您将正则表达式作为第二个参数传递给此方法，您可能需要禁用智能搜索，以保证不同的正则表达是不会冲突。
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>4</td>
+            <td><code>caseInsen</code></td>
+            <td>{% include href/type/Javascript.html param="boolean" %}</td>
+            <td>Yes - default:true</td>
+        </tr>
+        <tr class="odd continuation">
+            <td></td>
+            <td colspan="3">
+               不区分大小写的匹配（默认，<code>true</code>）或者不（<code>false</code>）
+            </td>
+        </tr>
+    </tbody>
+</table>

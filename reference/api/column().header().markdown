@@ -27,7 +27,7 @@ author: reference/api/column().header()
 获取单个列的表头{% include href/tags.html param="td" %}或者是{% include href/tags.html param="th" %}单元格。
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="node" %}
+{% include href/type/Javascript.html param="node" %}
 被选择列表头单元格
 
 

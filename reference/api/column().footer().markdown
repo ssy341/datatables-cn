@@ -30,7 +30,7 @@ author: /reference/api/column().footer()
 获取被选择单个列{% include href/tags.html param="tfoot" %}元素下的{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}
      
 #### 返回(Returns):
-{% include href/type/DataTables.html param="node" %},{% include href/type/DataTables.html param="null" %}
+{% include href/type/Javascript.html param="node" %},{% include href/type/Javascript.html param="null" %}
 
 所选元素的{% include href/tags.html param="tfoot" %}单元格节点，如果匹配的列没有{% include href/tags.html param="tfoot" %}元素，则为`null`。
 
