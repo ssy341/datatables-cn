@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: DataTables使用入门-数据源   博客 DataTables中文网
-short: DataTables使用入门-数据源
+title: DataTables使用入门-数据源 Data   博客 DataTables中文网
+short: DataTables使用入门-数据源 Data
 date: 2020-07-02
 group: 2020-7
 caption: DataTables 中文网博客

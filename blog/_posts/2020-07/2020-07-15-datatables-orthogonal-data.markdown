@@ -1,7 +1,7 @@
 ---
 layout: daily
-title: DataTables使用入门-正交数据 博客 DataTables中文网
-short: DataTables使用入门-正交数据
+title: DataTables使用入门-正交数据 Orthogonal data 博客 DataTables中文网
+short: DataTables使用入门-正交数据 Orthogonal data
 date: 2020-07-15
 group: 2020-7
 caption: DataTables 中文网博客
