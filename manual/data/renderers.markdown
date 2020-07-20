@@ -50,7 +50,7 @@ navcategory: data
 
 #### 附加处理 Adding formatting
 
-在我们的Datatables中，如果我们希望有一个显示价格的列，通常希望在其前面加上货币符号。在这种情况下，我们是用人民币符号（另参见下面的内置数字渲染器，他提供了高级格式设置选项）：
+在我们的Datatables中，如果我们希望有一个显示价格的列，通常希望在其前面加上货币符号。在这种情况下，我们是用人民币符号（另参见下面的[内置数字渲染器][number-helper]，他提供了高级格式设置选项）：
 
 ```javascript
 columns:[
@@ -291,3 +291,5 @@ columns:[
 
 
 [forums]: https://datatables.net/forums
+
+[number-helper]: #数字辅助函数-number-helper
