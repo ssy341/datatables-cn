@@ -7,7 +7,7 @@ navcategory: data
 ---
 
 
-在使用表格展示数据的情况下，表中行的数据源有时不包含您希望直接显示在表中的显示的值。您可能希望将其转换为其他表现形式（将时间戳转换为可读格式），合并数据点（名字和姓氏）或对该值进行一些计算（根据营业额和费用值计算保证金）。
+在使用表格展示数据的情况下，表中行的数据源有时不包含您希望直接显示在表中的显示的值。您可能希望将其转换为其他表现形式（将时间戳转换为可读格式），合并数据点（名字和姓氏）或对该值进行一些计算（根据营业额和费用值计算毛利率）。
 
 将原始数据转换为将在Datatables中显示的值的过程在Datatables的属于称为**渲染**，并使用{% include href/option/Columns.html param="columns.render" %}选项执行。
 
@@ -101,7 +101,7 @@ columns:[
 
 #### 计算值 Computing values
 
-最后，要从`price`和`cost`字段创建保证金列，我们可以使用函数来计算所需要的值，请注意，在这种情况下，{% include href/option/Columns.html param="columns.data" %}为`null`，所以传递给{% include href/option/Columns.html param="columns.render" %}方法的第一个参数也为`null`，但是第三个参数提供对原始数据源对象的访问，因此我们可以从第三个参数里继续使用数据：
+最后，要从`price`和`cost`字段创建毛利率列，我们可以使用函数来计算所需要的值，请注意，在这种情况下，{% include href/option/Columns.html param="columns.data" %}为`null`，所以传递给{% include href/option/Columns.html param="columns.render" %}方法的第一个参数也为`null`，但是第三个参数提供对原始数据源对象的访问，因此我们可以从第三个参数里继续使用数据：
 
 ```javascript
 columns:[
