@@ -68,7 +68,7 @@ table
 {% endhighlight %}
 
 
-{: #columns-search-example1-html }
+{: #columns-search-example1-body }
 {% highlight html %}
 <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
