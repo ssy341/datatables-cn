@@ -34,6 +34,7 @@ author: /reference/api/cell()
 {% include_relative parameters/cell.fun1.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
@@ -49,6 +50,7 @@ DataTables API 实例，包含被选择的单元格
 {% include_relative parameters/cell.fun2.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
@@ -63,6 +65,7 @@ DataTables API 实例，包含被选择的单元格
 {% include_relative parameters/cell.fun3.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 

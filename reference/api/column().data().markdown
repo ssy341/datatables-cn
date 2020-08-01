@@ -31,6 +31,7 @@ toc: true
 根据选择器获取列的数据
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api" %}
 DataTables API实例，结果集中包含别选择列的单元格数据。是一个一维数组，每个条目都是所选列中单元格的数据。
 

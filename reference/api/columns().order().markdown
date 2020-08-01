@@ -32,8 +32,7 @@ author: 原地址
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DateTables.Api" %}
-
+{% include href/type/DataTables.html param="DataTables.Api" %}
 Datatables API 实例
 
 

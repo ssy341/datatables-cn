@@ -27,10 +27,13 @@ toc: true
 通过列选择器获取的列
      
 #### 参数(Parameters):
+
 {% include_relative parameters/column.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DateTables.Api" %}
+
 Datatables API 实例，结果集中包含被选择的列
 
 

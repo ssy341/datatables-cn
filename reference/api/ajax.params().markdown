@@ -30,6 +30,7 @@ option has been fully evaluated, so any custom parameters are also stored.
 ### _function_ **ajax.params()**
 
 #### 返回(Returns):
+
 {% include href/type/Javascript.html param="object" %},{% include href/type/Javascript.html param="undefined" %}
 
 在最后一个Ajax请求中提交的数据，如果没有发生请求则返回{% include href/type/Javascript.html param="undefined" %}。

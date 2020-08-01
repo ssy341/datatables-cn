@@ -31,6 +31,7 @@ DataTables实例
 {% include_relative parameters/jQuery.fn.dataTable.isDataTable.html %}
 
 #### 返回(Returns):
+
 {% include href/type/Javascript.html param="boolean" %}
 
 `true` 表示检查的table是一个DataTables实例，`false`则不是

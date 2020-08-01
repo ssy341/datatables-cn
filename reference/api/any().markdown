@@ -31,6 +31,7 @@ author: /reference/api/any()
 获得一个布尔值来告诉你DataTables API实例是否包含符合条件的记录
 
 #### 返回(Returns):
+
 {% include href/type/Javascript.html param="boolean" %}
 `true` 表示在结果集中包含一条或者多条符合条件的记录，`false`表示不包含
 

@@ -123,7 +123,7 @@ a code {
 .sidebar__left .sidebar_right {
     margin-bottom:1em
 }
-@media (min-width: 64em) {
+@media (min-width: 100em) {
     .sidebar__left {
         position:absolute;
         top:120;
@@ -145,7 +145,7 @@ a code {
         z-index:10
     }
 }
-@media (min-width: 80em) {
+@media (min-width: 116em) {
     .sidebar__left {
         width:300px;
         margin-left:-300px
@@ -157,7 +157,7 @@ a code {
         margin-right:-300px
     }
 }
-@media (min-width: 64em) {
+@media (min-width: 100em) {
     .splash .sidebar__left {
         position:relative;
         float:left;

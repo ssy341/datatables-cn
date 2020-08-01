@@ -32,6 +32,7 @@ DataTables 是不会知道你做了修改。这个方法就是用来告诉DataTa
 {% include_relative parameters/cell.invalidate.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 被选中单元格的Datatables API实例结果集
 

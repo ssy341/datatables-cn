@@ -41,6 +41,7 @@ author: /reference/api/cell().data()
 {% include_relative parameters/cell.data.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 被选择单元格数据结果集的DataTables API 实例
 

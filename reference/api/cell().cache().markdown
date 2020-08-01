@@ -31,6 +31,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 {% include_relative parameters/cell.cache.html %}
 
 #### 返回(Returns):
+
 {% include href/type/DataTables.html param="DataTables.Api"%}
 被选择单元格缓存数据结果集的DataTables API 实例
 
