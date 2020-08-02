@@ -27,7 +27,7 @@ toc: true
 
 #### 返回(Returns):
 {% include href/type/DataTables.html param="DataTables.Api" %}
-DataTables API实例，结果集中包含别选择列的单元格数据。这是一个二维数组，其中每个列的顶级数组均由{% include href/api/Columns.html param="columns()" %}选择器匹配。
+DataTables API实例，结果集中包含别选择列的单元格数据。这是一个二维数组，其中每个顶级数组均由{% include href/api/Columns.html param="columns()" %}选择器匹配的列。
 
 
 --- 

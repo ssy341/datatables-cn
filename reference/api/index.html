@@ -569,29 +569,29 @@ relurl: http://datatables.net/reference/api/
                 根据选择的多个列排序表格数据
             </td>
         </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/column().nodes()"><code class="api"
-                                                                               title="DataTables API method">column().nodes()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获得选中列所有单元格node</p>
-        </td>
-    </tr>
-    
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="columns().nodes()" %}
+            </td>
+            <td>
+                获取被选择的多列的单元格节点
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/api/Columns.html param="column().nodes()" %}
+            </td>
+            <td>
+                获取被选择的单列的单元格节点
+            </td>
+        </tr>
 
      
    
    
    
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/columns().nodes()"><code class="api"
-                                                                                title="DataTables API method">columns().nodes()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获取选中列单元格nodes</p>
-        </td>
-    </tr>
+    
     
    
     <tr>
