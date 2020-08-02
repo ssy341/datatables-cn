@@ -1,6 +1,199 @@
 ---
 layout: default
 title: Datatables 中文网
+css: >
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">
+    <style>
+        .news-title {
+            font-weight: 700;
+        }
+    
+        .news-date {
+            color: #acaaaf;
+            font-weight: 500;
+        }
+    
+        .news {
+            margin-top: 1.25rem;
+        }
+    
+        .news-list h2 {
+            margin-top: 25px;
+            text-transform: uppercase;
+            color: #333;
+            font-size: 22px;
+        }
+    
+        .more-news {
+            margin-top: 2.5rem;
+            display: inline-block;
+            font-size:16px;
+        }
+    
+        .news-content {
+            color: grey;
+            line-height: 1.5em;
+            margin-top: 0.5em;
+        }
+    
+        .highlights {
+            margin-top: 2rem;
+        }
+    
+    
+    
+        /*可以隐藏的广告css样式*/
+        .adsense_fixed {
+            width: 100%;
+            z-index: 999999999999;
+        }
+    
+        .adsense_content {
+            width: 720px;
+            margin: 0 auto;
+            position: relative;
+            background: #fff;
+        }
+    
+        .adsense_btn_close, .adsense_btn_info {
+            font-size: 12px;
+            color: #fff;
+            height: 20px;
+            width: 20px;
+            vertical-align: middle;
+            text-align: center;
+            background: #000;
+            top: 4px;
+            left: 4px;
+            position: absolute;
+            z-index: 99999999;
+            font-family: Georgia;
+            cursor: pointer;
+            line-height: 18px
+        }
+    
+        .adsense_btn_info {
+            left: 26px;
+            font-family: Georgia;
+            font-style: italic
+        }
+    
+        .adsense_info_content {
+            display: none;
+            width: 260px;
+            height: 220px;
+            position: absolute;
+            top: -270px;
+            background: rgba(255, 255, 255, .9);
+            font-size: 14px;
+            padding: 20px;
+            font-family: Arial;
+            border-radius: 4px;
+            -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
+            box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
+        }
+    
+        .adsense_info_content:after {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 100%;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #fff;
+            clear: both
+        }
+    
+        .adsense_info_content .adsense_h3 {
+            color: #000;
+            margin: 0;
+            font-size: 18px !important;
+            font-family: 'Arial' !important;
+            margin-bottom: 20px !important;
+        }
+    
+        .adsense_info_content .adsense_p {
+            color: #888;
+            font-size: 13px !important;
+            line-height: 20px;
+            font-family: 'Arial' !important;
+            margin-bottom: 20px !important;
+        }
+    
+        .adsense_fh5co-team {
+            color: #000;
+            font-style: italic;
+        }
+    
+        .unread {
+            box-shadow: 2px 0 0 #4078c0 inset;
+        }
+        pre {
+            font-size: 12px;
+            padding: 0;
+            margin: 0;
+            background: #f0f0f0;
+            line-height: 20px; /* 行距 */
+            background: url(/images/pre-bg.gif) repeat-y left top;
+            width: 300px;
+            overflow: auto; /* 超出宽度出现滑动条 */
+            overflow-Y:hidden; /* 作用是隐藏IE的右侧滑动条 */
+        }
+
+        div.cdn {
+            position: relative;
+            margin-bottom: 1em;
+            box-shadow: 0 0 3px #555;
+        }
+
+        div.cdn>span {
+            display: inline-block;
+            width: 15%;
+            height: 30px;
+            text-align: center;
+            padding-top: 6px;
+            float: left;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background: #eee;
+            border-right: 1px solid #bbb;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        div.cdn>input {
+            display: inline-block;
+            width: 84%;
+            height: 20px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px 5px;
+            vertical-align: middle;
+            background-color: #f9f9f9;
+            border: none;
+            font-family: "Source Code Pro","Consolas","Monaco","Bitstream Vera Sans Mono","Courier New",Courier,monospace;
+            font-size: 0.8em;
+        }
+
+        div.cdn>a.cdn-link {
+            position: absolute;
+            top: 6px;
+            right: 11px;
+            height: 9px;
+            width: 9px;
+            background: url(/images/external-site.gif) no-repeat center center;
+            background-color: #f9f9f9;
+            padding: 3px;
+            border: 1px solid #4d90fe;
+            border-radius: 3px;
+        }
+    </style>
 ---
 {% include nav.html param="index" %}
 <input type="hidden" id="noad"/>
@@ -50,218 +243,18 @@ title: Datatables 中文网
         </div>
     </div>
 </header>
-<style>
-    .news-title {
-        font-weight: 700;
-    }
 
-    .news-date {
-        color: #acaaaf;
-        font-weight: 500;
-    }
-
-    .news {
-        margin-top: 1.25rem;
-    }
-
-    .news-list h2 {
-        margin-top: 25px;
-        text-transform: uppercase;
-        color: #333;
-        font-size: 22px;
-    }
-
-    .more-news {
-        margin-top: 2.5rem;
-        display: inline-block;
-        font-size:16px;
-    }
-
-    .news-content {
-        color: grey;
-        line-height: 1.5em;
-        margin-top: 0.5em;
-    }
-
-    .highlights {
-        margin-top: 2rem;
-    }
-
-
-
-    /*可以隐藏的广告css样式*/
-    .adsense_fixed {
-        width: 100%;
-        z-index: 999999999999;
-    }
-
-    .adsense_content {
-        width: 720px;
-        margin: 0 auto;
-        position: relative;
-        background: #fff;
-    }
-
-    .adsense_btn_close, .adsense_btn_info {
-        font-size: 12px;
-        color: #fff;
-        height: 20px;
-        width: 20px;
-        vertical-align: middle;
-        text-align: center;
-        background: #000;
-        top: 4px;
-        left: 4px;
-        position: absolute;
-        z-index: 99999999;
-        font-family: Georgia;
-        cursor: pointer;
-        line-height: 18px
-    }
-
-    .adsense_btn_info {
-        left: 26px;
-        font-family: Georgia;
-        font-style: italic
-    }
-
-    .adsense_info_content {
-        display: none;
-        width: 260px;
-        height: 220px;
-        position: absolute;
-        top: -270px;
-        background: rgba(255, 255, 255, .9);
-        font-size: 14px;
-        padding: 20px;
-        font-family: Arial;
-        border-radius: 4px;
-        -webkit-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        -moz-box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3);
-        box-shadow: 0 1px 26px -2px rgba(0, 0, 0, .3)
-    }
-
-    .adsense_info_content:after {
-        content: '';
-        position: absolute;
-        left: 25px;
-        top: 100%;
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #fff;
-        clear: both
-    }
-
-    .adsense_info_content .adsense_h3 {
-        color: #000;
-        margin: 0;
-        font-size: 18px !important;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_info_content .adsense_p {
-        color: #888;
-        font-size: 13px !important;
-        line-height: 20px;
-        font-family: 'Arial' !important;
-        margin-bottom: 20px !important;
-    }
-
-    .adsense_fh5co-team {
-        color: #000;
-        font-style: italic;
-    }
-
-    .unread {
-        box-shadow: 2px 0 0 #4078c0 inset;
-    }
-</style>
 <div class="container"  style="margin-top:20px">
-
-    {% include getting_started.html %}
-
-
-        <div class="row highlights">
-
-            <div class="span8 news-list">
-                <h2>DataTables中文网 新鲜事   <a class="more-news" href="/blog">更多 »</a></h2>
-                {% include bloglimit10andmore.html param=8 %}
-            </div>
-
-            <div class="span4 intro">
-                <div class="well">
-                    <h4>百度站内搜索</h4>
-                    <div class="input-group">
-                        <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=4182846633237332666' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
-                    </div>
-                </div>
-                <div class="well">
-                    <div class="input-group">
-                        <script>
-                            (function() {
-                                var cx = '001171264216576386016:xim4af2d2ik';
-                                var gcse = document.createElement('script');
-                                gcse.type = 'text/javascript';
-                                gcse.async = true;
-                                gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-                                var s = document.getElementsByTagName('script')[0];
-                                s.parentNode.insertBefore(gcse, s);
-                            })();
-                        </script>
-                        <gcse:searchbox-only></gcse:searchbox-only>
-                    </div>
-                    <!-- /.input-group -->
-                </div>
-                {% include xad.html %}
-
-                <div class="well">
-                    <h3>赞助</h3>
-                    <div class="flex-center">
-                        <a href="/about/index.html#donate">
-                            <img src="/images/bigstock-green-donate-button-46905649.jpg" class="img-polaroid">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="well">
-                    <span>
-                        您的支持，将是我们前进的最大动力……
-                    </span>
-
-                    <!-- 表格开始 -->
-                    <table id="example" class="display" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th>昵称</th>
-                            <th>金额</th>
-                            <th>时间</th>
-                            <!--<th>备注</th>-->
-                        </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        <tfoot>
-                        <th colspan="3"></th>
-                        </tfoot>
-                    </table>
-
-                </div>
-            </div>
-
-            {% include ad/hiddenable.html %}
-
-        </div>
-
+    {% include index/getting_started.html %}
+    {% include index/bloglist.html %}
 </div>
 {% include script.html %}
 {% include copyright.html %}
 <script id="dsq-count-scr" src="//datatables.disqus.com/count.js" async></script>
 
-
-{% include libs/datatables_js.html param='1.10.5' %}
+<!-- 自适应支持 -->
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
 
 <script id="issueTableScript">
 
@@ -278,6 +271,8 @@ title: Datatables 中文网
 
         //issue表格初始化
         githubTable = $("#issueTable").DataTable({
+            //使用响应式
+            responsive: true,
             //调用github api 获取issues 数据
             ajax: {
                 url: "https://api.github.com/repos/ssy341/datatables-cn/issues",
@@ -306,6 +301,7 @@ title: Datatables 中文网
                     title.html(title.html() + hot);
                 }
             },
+            //配置列
             columnDefs: [
                 {
                     targets: 4,
