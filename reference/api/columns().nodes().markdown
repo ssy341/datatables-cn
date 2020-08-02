@@ -57,7 +57,7 @@ table
 {% highlight css %}
 .highlight{
     color:red;
-    font-weight:blod;
+    font-weight:bolder;
 }
 {% endhighlight %}
 
