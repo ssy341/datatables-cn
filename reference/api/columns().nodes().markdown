@@ -69,7 +69,7 @@ table
                 <th>Name</th>
                 <th>Position</th>
                 <th>Office</th>
-                <th>Age</th>
+                <th class='ready'>Age</th>
                 <th>Start date</th>
                 <th class='ready'>Salary</th>
             </tr>
