@@ -49,7 +49,7 @@ table
     .flatten()  // Reduce to a 1D array
     .to$()      // Convert to a jQuery object
     .addClass( 'highlight' );
-);
+
 {% endhighlight %}
 
 

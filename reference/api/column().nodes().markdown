@@ -51,7 +51,7 @@ table
     .nodes()
     .to$()      // Convert to a jQuery object
     .addClass( 'ready' );
-);
+
 {% endhighlight %}
 
 {: #column-nodes-example-css }
