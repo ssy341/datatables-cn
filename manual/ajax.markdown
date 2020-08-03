@@ -15,8 +15,6 @@ DataTables的数据本质上可以来自三个不同的地方：
 
 使用Ajax加载的数据的另一个好处是可以启用DataTables的{% include href/option/Features.html param="deferRender" %}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
 
-<br/>
-<br/>
 
 ## 加载数据（Loading data）
 ---
@@ -30,9 +28,6 @@ $('#myTable').DataTable( {
 ```
 
 
-<br/>
-<br/>
-
 ## JSON数据源（JSON data source）
 ---
 
@@ -45,9 +40,6 @@ $('#myTable').DataTable( {
 - 表中的每行数据是否在数据源中
 - 表中的列的数据点是否在行对象/数组中
 
-
-<br/>
-<br/>
 
 ## 告诉DataTables数据数组的位置(Data array location) 
 ---
@@ -158,10 +150,6 @@ $('#myTable').DataTable( {
     columns: [ ... ]
 } );
 ```
-
-
-<br/>
-<br/>
 
 ## 告诉DataTables每一列数据点(Column data points)
 ---
@@ -278,18 +266,12 @@ $('#myTable').DataTable( {
 ```
 
 
-<br/>
-<br/>
-
 ## 在线例子(Live examples)
 ---
 
 [DataTables示例][DatatablesExamples]包含许多有关DataTables如何读取Ajax加载数据的示例。
 
 
-
-<br/>
-<br/>
 
 ## Ajax加载配置(Ajax configuration)
 ---
