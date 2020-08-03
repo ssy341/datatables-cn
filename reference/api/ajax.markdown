@@ -11,7 +11,7 @@ author: /reference/api/ajax
 
 ## 描述(Description)
 在 DataTables 中，使用Ajax获取大量数据集操作是一个非常方便的操作，
-在初始化的时候，使用 {% include href/option/data.html param="ajax" %} 选项控制Ajax，
+在初始化的时候，使用 {% include href/option/Data.html param="ajax" %} 选项控制Ajax，
 在初始化之后，DataTables API 提供了许多获取加载数据的方法，更改设置和加载新的数据。
 
 此属性是 DataTables API 的静态对象，它仅用于为其子方法提供命名空间，用于控制 DataTables 可提供的Ajax操作，并检索Ajax请求检索的数据

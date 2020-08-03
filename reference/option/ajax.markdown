@@ -36,7 +36,7 @@ author: /reference/option/ajax
 json.txt、json.txt、jsonlist.action、jsonlist.jsp、jsonlist.php……
 
 Datatables默认接收的是一个属性为 `data`，如果你返回的数据不是这样，
-你需要使用 {% include href/option/data.html param="ajax.dataSrc" %} 来处理
+你需要使用 {% include href/option/Data.html param="ajax.dataSrc" %} 来处理
 
 默认的数据（对象）格式如下：
 {% highlight javascript linenos %}
@@ -85,9 +85,9 @@ $('#example').DataTable( {
 接收一个对象，其用法类同于 {% include href/jQuery/jQuery.ajax %}，
 这里只介绍不相同的，没有列出的参考jQuery文档即可，可以同样适用
 
-- `data` ({% include href/option/data.html param="ajax.data" %}) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收 `function`，作为 function 时可以操作请求参数，在实际应用中，可以在此函数里加入自定义的条件传到服务器。这个方法在1.9-版本中为 `fnServerParams`。
-- `dataSrc`（{% include href/option/data.html param="ajax.dataSrc" %}） - 如果 DataTables 是通过 ajax 获取取数据，默认情况下，DataTables会去读取返回数据中的 `data`（在1.9-中是`aaData`）对象。这个方法已经取代了1.9-中的 `sAjaxDataProp`
-- `success` 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用{% include href/option/data.html param="ajax.dataSrc" %}处理，或者是把 `ajax` 作为一个函数使用（见下面的说明）
+- `data` ({% include href/option/Data.html param="ajax.data" %}) - 与jQuery一样，接收一个对象，这里Datatables对他做出扩展，还可以接收 `function`，作为 function 时可以操作请求参数，在实际应用中，可以在此函数里加入自定义的条件传到服务器。这个方法在1.9-版本中为 `fnServerParams`。
+- `dataSrc`（{% include href/option/Data.html param="ajax.dataSrc" %}） - 如果 DataTables 是通过 ajax 获取取数据，默认情况下，DataTables会去读取返回数据中的 `data`（在1.9-中是`aaData`）对象。这个方法已经取代了1.9-中的 `sAjaxDataProp`
+- `success` 这个是在Datatables内部调用的，不能覆盖使用，如果你不满意Datatables的实现，你可以使用{% include href/option/Data.html param="ajax.dataSrc" %}处理，或者是把 `ajax` 作为一个函数使用（见下面的说明）
 
 一个简单的例子：
 
@@ -222,8 +222,8 @@ API
 Options
 
 - {% include href/option/Features.html param="serverSide" %}
-- {% include href/option/data.html param="ajax.data" %}
-- {% include href/option/data.html param="ajax.dataSrc" %}
+- {% include href/option/Data.html param="ajax.data" %}
+- {% include href/option/Data.html param="ajax.dataSrc" %}
 
 
 不定时一讲

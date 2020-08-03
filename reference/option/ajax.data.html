@@ -17,7 +17,7 @@ since: 1.10.0
 </ul>
 </p>
 <p>
-    {% include href/option/data.html param="ajax.data" %}
+    {% include href/option/Data.html param="ajax.data" %}
     将额外的参数添加到请求或修改需要被提交的数据对象
 </p>
 <p>
@@ -37,7 +37,7 @@ since: 1.10.0
             <p>
                 如果当做一个对象，<a href="#" target="_blank"><code>ajax.data<span>DT</span></code></a>
                 选项用于扩展Datatables构造内部对象，将额外的，静态的参数传递给服务器。对于动态的处理，使用
-                {% include href/option/data.html param="ajax.data" %}作为一个函数（见下文）。
+                {% include href/option/Data.html param="ajax.data" %}作为一个函数（见下文）。
             </p>
         </dd>
     </dl>
@@ -49,7 +49,7 @@ since: 1.10.0
         <dt>描述:</dt>
         <dd class="description">
             <p>
-                作为一个函数，{% include href/option/data.html param="ajax.data" %}
+                作为一个函数，{% include href/option/Data.html param="ajax.data" %}
                 选项可以用于修改由Datatables内部构造的原始数据或者完全取代这些，然后ajax请求到服务器
             </p>
 
@@ -229,7 +229,7 @@ function reloadTable() {
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/data.html param="ajax" %}</li>
+        <li>{% include href/option/Data.html param="ajax" %}</li>
     </ul>
 </div>
 

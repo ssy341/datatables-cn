@@ -11,7 +11,7 @@ author: DataTables中文网
 redirect_from: /manual/daily/2016/04/19/option-ajax-dataSrc1.html
 ---
 
-参数详解连接{% include href/option/data.html param="ajax.dataSrc" %}
+参数详解连接{% include href/option/Data.html param="ajax.dataSrc" %}
 
 今天讲的参数dataSrc是属于ajax下的一个属性，他类似于jQuery ajax的success方法，废话少说看下面的代码
 <!--more-->
