@@ -17,7 +17,7 @@ DataTables的数据本质上可以来自三个不同的地方：
 
 ## 加载数据（Loading data）
 
-只需要使用 {% include href/option/Data.html param="ajax" %}选项设置获取数据的URL，即可通过DataTables加载Ajax数据。例如，以下显示使用Ajax数据源的最少配置：
+只需要使用include href/option/Data.html param="ajax"选项设置获取数据的URL，即可通过DataTables加载Ajax数据。例如，以下显示使用Ajax数据源的最少配置：
 
 ```javascript
 $('#myTable').DataTable( {
