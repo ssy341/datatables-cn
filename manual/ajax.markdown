@@ -29,7 +29,7 @@ $('#myTable').DataTable( {
 
 当我们考虑使用Ajax加载数据给DataTables的时候，我们几乎总是指定一个**[JSON][JSON] payload**（payload意为，数据源中一系列信息中关键信息，即表格数据），比如数据从服务器返回的结构是JSON数据结构。这是因为JSON是从JavaScript派生的，因此它自然可以与JavaScript库（例如DataTables）一起很好地使用。它也是一种紧凑且易于理解的数据格式，已被证明在JavaScript世界中非常流行。
 
-像[XML][XML]和[YAML][YAML]这样的数据格式，在使用前需要转为JavaScript对象表示法（即JSON），然后再和DataTables一起使用，通常使用{% include href/option/Data.html param="ajax.dataSrc" %}完成此操作。本文档余下部分将只讨论如何使用JSON的情况。
+像[XML][XML]和[YAML][YAML]这样的数据格式，在使用前需要转为JavaScript对象表示法（即JSON），然后再和DataTables一起使用，通常使用include href/option/Data.html param="ajax.dataSrc"完成此操作。本文档余下部分将只讨论如何使用JSON的情况。
 
 使用JSON数据源，我们需要注意两个关键信息：
 
