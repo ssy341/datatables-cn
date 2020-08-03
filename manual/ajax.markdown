@@ -13,11 +13,11 @@ DataTables的数据本质上可以来自三个不同的地方：
 
 本手册的这一部分着眼于如何使用最后一种方式，教你可以特别方便的加载你的Ajax数据 - 例如通过HTTP API接口获取或者只是为了从HTML中分开表格数据逻辑。
 
-使用Ajax加载的数据的另一个好处是可以启用DataTables的include选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
+使用Ajax加载的数据的另一个好处是可以启用DataTables的{% include href/option/Features.html param="deferRender" %}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
 
 ## 加载数据（Loading data）
 
-只需要使用include选项设置获取数据的URL，即可通过DataTables加载Ajax数据。例如，以下显示使用Ajax数据源的最少配置：
+只需要使用 {% include href/option/Data.html param="ajax" %}选项设置获取数据的URL，即可通过DataTables加载Ajax数据。例如，以下显示使用Ajax数据源的最少配置：
 
 ```javascript
 $('#myTable').DataTable( {
@@ -29,7 +29,7 @@ $('#myTable').DataTable( {
 
 当我们考虑使用Ajax加载数据给DataTables的时候，我们几乎总是指定一个**[JSON][JSON] payload**（payload意为，数据源中一系列信息中关键信息，即表格数据），比如数据从服务器返回的结构是JSON数据结构。这是因为JSON是从JavaScript派生的，因此它自然可以与JavaScript库（例如DataTables）一起很好地使用。它也是一种紧凑且易于理解的数据格式，已被证明在JavaScript世界中非常流行。
 
-像[XML][XML]和[YAML][YAML]这样的数据格式，在使用前需要转为JavaScript对象表示法（即JSON），然后再和DataTables一起使用，通常使用include ajax.dataSrc完成此操作。本文档余下部分将只讨论如何使用JSON的情况。
+像[XML][XML]和[YAML][YAML]这样的数据格式，在使用前需要转为JavaScript对象表示法（即JSON），然后再和DataTables一起使用，通常使用{% include href/option/Data.html param="ajax.dataSrc" %}完成此操作。本文档余下部分将只讨论如何使用JSON的情况。
 
 使用JSON数据源，我们需要注意两个关键信息：
 
@@ -42,13 +42,13 @@ DataTables需要一个数组的项目来代表表格中的数据，数组中的�
 
 例如，考虑下面给出的三种JSON数据对象，你可以看到三个结构中都包含相同的数据，但是每个数据数组在数据源中的位置都不同，下面演示他们该如何在表中显示。每个数据都是完全有效的，可以在不同的情况下使用-没有单一的“正确方法”！
 
-include ajax.dataSrc 选项用来告诉DataTables在JSON结构中获取数据数组。include ajax.dataSrc 通常以字符串的方式给出，该字符串指示JavaScript对象表示法中的位置（只需将其设置为数组所在的属性的名称）。空字符串是一种特殊情况，它告诉DataTables需要一个数组即可（下面第一个例子展示了该情况的用法）。
+{% include href/option/Data.html param="ajax.dataSrc" %}选项用来告诉DataTables在JSON结构中获取数据数组。{% include href/option/Data.html param="ajax.dataSrc" %}通常以字符串的方式给出，该字符串指示JavaScript对象表示法中的位置（只需将其设置为数组所在的属性的名称）。空字符串是一种特殊情况，它告诉DataTables需要一个数组即可（下面第一个例子展示了该情况的用法）。
 
 分别显示这三个数据结构及其相应的DataTables初始化。
 
 - 1)简单数组数据：
 
-```json
+```javascript
 [
     {
         "name": "Tiger Nixon",
@@ -77,7 +77,7 @@ $('#myTable').DataTable( {
 
 - 2)对象在`data`属性下，注意，此处有一种简写的方式和正常的配置方式，因为`data`是DataTables在数据源对象中查找的默认属性。
 
-```json
+```javascript
 {
     "data": [
         {
@@ -117,7 +117,7 @@ $('#myTable').DataTable( {
 
 - 3)对象在`staff`属性下：
 
-```json
+```javascript
 {
     "staff": [
         {
@@ -147,19 +147,19 @@ $('#myTable').DataTable( {
 
 ## 告诉DataTables每一列数据点(Column data points)
 
-现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过include columns.data 选项完成。
+现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过{% include href/option/Columns.html param="columns.data" %}选项完成。
 
 这次，我们继续考虑三种不同的数据格式，下面三种情况下，每种情况下仅显示一行数据。（为了简洁起见，数据结构没有包装，像上面讨论的数据结构中）。
 
-如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用include columns.data 属性告诉DataTables从哪里获取每列的数据。
+如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用{% include href/option/Columns.html param="columns.data" %}属性告诉DataTables从哪里获取每列的数据。
 
-像上面讨论的 include ajax.dataSrc 选项一样，include columns.data 通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
+像上面讨论的{% include href/option/Data.html param="ajax.dataSrc" %}选项一样，{% include href/option/Columns.html param="columns.data" %}通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
 
 下面显示了这三个数据结构已经对应DataTables如何初始化：
 
-- 1）数组数据，注意，数组不需要设置include columns.data 选项。这是因为include columns.data 的默认值就是列的索引（比如`0，1，2，3`）
+- 1）数组数据，注意，数组不需要设置{% include href/option/Columns.html param="columns.data" %}选项。这是因为{% include href/option/Columns.html param="columns.data" %}的默认值就是列的索引（比如`0，1，2，3`）
 
-```json
+```javascript
 [
     "Tiger Nixon",
     "System Architect",
@@ -196,7 +196,7 @@ $('#myTable').DataTable( {
 
 - 2）对象数据：
 
-```json
+```javascript
 {
     "name": "Tiger Nixon",
     "position": "System Architect",
@@ -227,7 +227,7 @@ $('#myTable').DataTable( {
 
 - 3)嵌套对象，请注意，在这种清下，我们使用点对象表示法（例如`hr.positioin`）来访问嵌套数据。有这种功能，几乎所有JSON数据结构都可以与DataTables一起使用：
 
-```json
+```javascript
 {
     "name": "Tiger Nixon",
     "hr": {
