@@ -15,7 +15,7 @@ author: /reference/api/ajax.json()
 
 请注意，如果API实例引用了多个DataTables实例，则只会返回第一个表中的JSON数据。如果你使用了多个表，通过{% include href/api/Tables.html param="table()" %}获取指定的DataTables实例。
 
-此外，如果{% include href/option/Data.html param="ajax" %}是作为一个function使用，该方法返回的是`undefined`而不是JSON字符串，
+此外，如果{% include href/Options.html param="ajax" %}是作为一个function使用，该方法返回的是`undefined`而不是JSON字符串，
 因为给定的function已经覆盖了DataTables原有的Ajax处理程序。
 
 ## 类型(Type)
@@ -64,4 +64,4 @@ Events
 
 Options
 
-- {% include href/option/Data.html param="ajax" %}
+- {% include href/Options.html param="ajax" %}

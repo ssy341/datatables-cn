@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/04/18/option-ajax.html
 ---
-参数详解连接{% include href/option/Data.html param="ajax" %}
+参数详解连接{% include href/Options.html param="ajax" %}
 
 今天讲的参数是ajax，相信大家不陌生，用过jQuery的人对这个应该很熟悉。dt是基于jquery做的表格插件，所以dt在读取数据时也用了jquery的ajax，虽然是类似，但是有加强，下面看ajax的用法吧。
 <!--more-->

@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/04/21/option-ajax-data.html
 ---
-参数详解连接{% include href/option/Data.html param="ajax.data" %}
+参数详解连接{% include href/Options.html param="ajax.data" %}
 
 这连续几天讲的都是关于dt怎么取数，今天讲讲怎么传参数给服务器。平时我们都有这样的应用场景，比如根据时间，或者input框的值作为查询条件显示表格数据
 <!--more-->

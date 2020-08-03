@@ -40,5 +40,5 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Data.html param="ajax" %}
+- {% include href/Options.html param="ajax" %}
 - {% include href/option/Columns.html param="columns.createdCell" %}

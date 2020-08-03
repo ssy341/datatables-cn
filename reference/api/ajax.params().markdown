@@ -15,7 +15,7 @@ author: /reference/api/ajax.params()
 
 在某些时候可以知道什么数据提交到服务器了。该方法提供获取DataTables的Ajax请求的数据对象。
 
-The data object stored is the resulting object once the {% include href/option/Data.html param="ajax.data" %} 
+The data object stored is the resulting object once the {% include href/Options.html param="ajax.data" %} 
 option has been fully evaluated, so any custom parameters are also stored.
 
 这个对象是只读的，你对它进行任何更改，不会影响DataTables的操作，它提供仅是为了使用API。
@@ -73,5 +73,5 @@ Events
 
 Options
 
-- {% include href/option/Data.html param="ajax" %}
+- {% include href/Options.html param="ajax" %}
 

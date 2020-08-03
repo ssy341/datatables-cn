@@ -21,7 +21,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 
 ## 数据源（Data source）
 
-可以通过数组/对象（注意，对象更容易使用，因为你不需要记住数组的索引）数据源将表的正交数据作为预定义值（通常，这是通过{% include href/option/Data.html param="ajax" %}加载的数据或JavaScript提供的数据源完成的）提供，也可以根据需要即使对其进行计算。
+可以通过数组/对象（注意，对象更容易使用，因为你不需要记住数组的索引）数据源将表的正交数据作为预定义值（通常，这是通过{% include href/Options.html param="ajax" %}加载的数据或JavaScript提供的数据源完成的）提供，也可以根据需要即使对其进行计算。
 
 ### 预定义值（Predefined values）
 
@@ -104,7 +104,7 @@ columns:[
 
 ## HTML 5
 
-如果要用{% include href/option/Data.html param="ajax" %}加载数据，则上述使用数据源正交数据的方法非常有用，但是如果您的表已经存在于HTML中，它就没那么有用了。对于此，DataTables支持[`data-*`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#data-*)，可用于保存DOM中可见的信息，但是对最终用户是不可见的。
+如果要用{% include href/Options.html param="ajax" %}加载数据，则上述使用数据源正交数据的方法非常有用，但是如果您的表已经存在于HTML中，它就没那么有用了。对于此，DataTables支持[`data-*`属性](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes#data-*)，可用于保存DOM中可见的信息，但是对最终用户是不可见的。
 
 DataTables将自动检测下面这些属性在HTML的单元格上：
 
