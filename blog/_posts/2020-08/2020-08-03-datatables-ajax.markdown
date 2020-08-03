@@ -1,9 +1,9 @@
 ---
 layout: daily
-title: DataTables使用入门-渲染器 Renderers 博客 DataTables中文网
-short: DataTables使用入门-渲染器 Renderers
-date: 2020-07-20
-group: 2020-7
+title: DataTables使用入门-Ajax 博客 DataTables中文网
+short: DataTables使用入门-Ajax
+date: 2020-08-03
+group: 2020-8
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
@@ -11,28 +11,24 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第四章，主要讲数据[渲染器][renderers]。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第五章，主要讲[Ajax][ajax]。
 
 ## 课程简介
 
-在使用表格展示数据的时候，总有一些数据并不直接包含在数据源里，可能是需要做一些处理，又或许是需要几个字段拼接，又或者是通过几列数据计算得出一个总的结果。那么在Datatables里，把原始数据进行一些列的处理和转换这么一个过程叫做**渲染**。
+在使用DataTables时我们总是纠结该如何加载数据，数据该如何和表格的每一列绑定，对于复杂的数据对象不知所措。本节课着重介绍Ajax获取数据的一些技巧和规则，让你取数游刃有余，你会搞清以上一些疑问，让暴风雨来的更厉害一点，数据只管丢给我，我总能提取有效信息。放码过来！
 <!--more-->
 
 本节课程通过以下几个方面进行讲述：
 
-- 渲染的方式
-- Datatables内置的渲染辅助函数
-- 自定义渲染辅助函数
+- 加载数据
+- 在数据源里找到表格数据
+- 在数据中找到每一列单元格数据
 
 学完本节课程可以解决哪些疑惑？
 
-- 时间戳转变为可读
-- 图片url显示出来
-- 多列合并到一列显示
-- 添加按钮
-- 等等
-
-正交在手，天下我有，配上渲染，所向披靡
+- ajax如何加载数据
+- 如何从数据源中获取有效信息
+- 如何从数据源中配置每列的数据
 
 ## 课程视频
 
@@ -50,4 +46,4 @@ hot: 1
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
-[renderers]: {{ site.baseurl }}/manual/data/renderers
+[ajax]: {{ site.baseurl }}/manual/ajax

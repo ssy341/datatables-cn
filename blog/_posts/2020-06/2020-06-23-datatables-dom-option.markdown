@@ -11,7 +11,7 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第一章，主要讲dom。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第一章，主要讲如何[使用Datatables][install]，以及通过dom来开启DataTables。
 
 ## 课程简介
 
@@ -65,3 +65,4 @@ hot: 1
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
+[install]: {{ site.baseurl }}/manual/install

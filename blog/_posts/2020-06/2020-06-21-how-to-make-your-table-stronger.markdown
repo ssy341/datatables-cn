@@ -63,10 +63,11 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - 预定义值提供正交数据
     - 函数处理提供正交数据
     - HTML5 `data-*`和正交数据
-- [第四章，复杂数据的显示-渲染器][four]
-- 第五章，打造和自己项目贴近的表格
+- [第四章，复杂数据的显示-渲染器][four]（Done √）
+- [第五章，Ajax][five]
+- 第六章，打造和自己项目贴近的表格
     - info，paging，processing，lengthChange，searching
-- 第六章，更方便的操作表格数据  
+- 第七章，更方便的操作表格数据  
     - ajax
     - columns
     - row
@@ -98,3 +99,4 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [two]: {{ site.baseurl }}/blog/2020/07/02/datatables-data-source.html
 [three]: {{ site.baseurl }}/blog/2020/07/15/datatables-orthogonal-data.html
 [four]: {{ site.baseurl }}/blog/2020/07/20/datatables-renderers.html
+[five]: {{ site.baseurl }}/blog/2020/08/03/datatables-ajax.html

@@ -11,7 +11,7 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第二章，主要讲数据源。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第二章，主要讲[数据源][data]。
 
 ## 课程简介
 
@@ -53,3 +53,4 @@ hot: 1
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
+[data]: {{ site.baseurl }}/manual/data
