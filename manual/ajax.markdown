@@ -94,6 +94,7 @@ $('#myTable').DataTable( {
 ```
 
 如上数据结构使用如下代码初始化：
+
 ```javascript
 //简写的方法，默认从数据源中的data属性去找数据数组
 $('#myTable').DataTable( {
@@ -102,7 +103,6 @@ $('#myTable').DataTable( {
 } );
  
 // 或者使用标准的写法，指定在data中去找
- 
 $('#myTable').DataTable( {
     ajax: {
         url: '/api/myData',
@@ -145,7 +145,6 @@ $('#myTable').DataTable( {
 } );
 ```
 
-
 ## 告诉DataTables每一列数据点(Column data points)
 
 现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过{% include href/option/Columns.html param="columns.data" %}选项完成。
@@ -180,7 +179,6 @@ $('#myTable').DataTable( {
 } );
  
 // 或者是标准写法，指定数组索引
- 
 $('#myTable').DataTable( {
     ajax: ...,
     columns: [
@@ -208,6 +206,7 @@ $('#myTable').DataTable( {
     "extn": "5421"
 }
 ```
+
 如上数据结构使用如下代码初始化：
 
 ```javascript
@@ -242,6 +241,7 @@ $('#myTable').DataTable( {
     }
 }
 ```
+
 如上数据结构使用如下代码初始化：
 
 ```javascript
