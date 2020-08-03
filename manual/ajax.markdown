@@ -42,7 +42,7 @@ DataTables需要一个数组的项目来代表表格中的数据，数组中的�
 
 例如，考虑下面给出的三种JSON数据对象，你可以看到三个结构中都包含相同的数据，但是每个数据数组在数据源中的位置都不同，下面演示他们该如何在表中显示。每个数据都是完全有效的，可以在不同的情况下使用-没有单一的“正确方法”！
 
-{% include href/option/Data.html param="ajax.dataSrc" %}选项用来告诉DataTables在JSON结构中获取数据数组。{% include href/option/Data.html param="ajax.dataSrc" %}通常以字符串的方式给出，该字符串指示JavaScript对象表示法中的位置（只需将其设置为数组所在的属性的名称）。空字符串是一种特殊情况，它告诉DataTables需要一个数组即可（下面第一个例子展示了该情况的用法）。
+include href/option/Data.html param="ajax.dataSrc"选项用来告诉DataTables在JSON结构中获取数据数组。include href/option/Data.html param="ajax.dataSrc"通常以字符串的方式给出，该字符串指示JavaScript对象表示法中的位置（只需将其设置为数组所在的属性的名称）。空字符串是一种特殊情况，它告诉DataTables需要一个数组即可（下面第一个例子展示了该情况的用法）。
 
 分别显示这三个数据结构及其相应的DataTables初始化。
 
@@ -147,17 +147,17 @@ $('#myTable').DataTable( {
 
 ## 告诉DataTables每一列数据点(Column data points)
 
-现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过{% include href/option/Columns.html param="columns.data" %}选项完成。
+现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过include href/option/Columns.html param="columns.data"选项完成。
 
 这次，我们继续考虑三种不同的数据格式，下面三种情况下，每种情况下仅显示一行数据。（为了简洁起见，数据结构没有包装，像上面讨论的数据结构中）。
 
-如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用{% include href/option/Columns.html param="columns.data" %}属性告诉DataTables从哪里获取每列的数据。
+如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用include href/option/Columns.html param="columns.data"属性告诉DataTables从哪里获取每列的数据。
 
-像上面讨论的{% include href/option/Data.html param="ajax.dataSrc" %}选项一样，{% include href/option/Columns.html param="columns.data" %}通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
+像上面讨论的include href/option/Data.html param="ajax.dataSrc"选项一样，include href/option/Columns.html param="columns.data"通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
 
 下面显示了这三个数据结构已经对应DataTables如何初始化：
 
-- 1）数组数据，注意，数组不需要设置{% include href/option/Columns.html param="columns.data" %}选项。这是因为{% include href/option/Columns.html param="columns.data" %}的默认值就是列的索引（比如`0，1，2，3`）
+- 1）数组数据，注意，数组不需要设置include href/option/Columns.html param="columns.data"选项。这是因为include href/option/Columns.html param="columns.data"的默认值就是列的索引（比如`0，1，2，3`）
 
 ```javascript
 [
