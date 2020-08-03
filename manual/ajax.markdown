@@ -13,7 +13,7 @@ DataTables的数据本质上可以来自三个不同的地方：
 
 本手册的这一部分着眼于如何使用最后一种方式，教你可以特别方便的加载你的Ajax数据 - 例如通过HTTP API接口获取或者只是为了从HTML中分开表格数据逻辑。
 
-使用Ajax加载的数据的另一个好处是可以启用DataTables的{--% include href/option/Features.html param="deferRender" %--}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
+使用Ajax加载的数据的另一个好处是可以启用DataTables的{% include href/option/Features.html param="deferRender" %}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
 
 ## 加载数据（Loading data）
 
