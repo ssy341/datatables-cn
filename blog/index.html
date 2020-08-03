@@ -8,7 +8,7 @@ title: DataTables 中文网博客
 {% for post in postlist %}
 <!-- First Blog Post -->
 <h2>
-    <a href="{{ post.url }}" target="_blank">{{ post.short }}</a>
+    <a href="{{ post.url }}">{{ post.short }}</a>
 </h2>
 <p>
     <span class="glyphicon glyphicon-user"></span>
@@ -22,7 +22,7 @@ title: DataTables 中文网博客
 <p>
     {{ post.excerpt | strip_html }}
 </p>
-<a class="btn btn-primary" href="{{ post.url }}" target="_blank">
+<a class="btn btn-primary" href="{{ post.url }}">
     阅读更多<span class="glyphicon glyphicon-chevron-right"></span>
 </a>
 
