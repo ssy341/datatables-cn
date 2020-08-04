@@ -11,7 +11,7 @@ author: /reference/api/cell().node()
 
 ## 描述(Description)
 
-此方法与{% include href/api/Cells.html param="cell" %}结合使用（因此可以使用各种选择器形式），获得所选单个单元格的DOM节点，对其进行直接操作。
+此方法与{% include href/APIs.html param="cell" %}结合使用（因此可以使用各种选择器形式），获得所选单个单元格的DOM节点，对其进行直接操作。
 
 ## 类型(Type)
 
@@ -63,5 +63,5 @@ $( cell ).addClass( 'warning' );
 
 API
 
-- {% include href/api/Cells.html param="cells().nodes()" %}
+- {% include href/APIs.html param="cells().nodes()" %}
 

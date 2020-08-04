@@ -22,7 +22,7 @@ author: /reference/option/columns.name
 - `location` 是标准前缀，用来告诉DataTables使用名称来操作列而不是索引
 - `:name` 追加冒号和具体的名称表明DataTables应该使用 `name` 去做选择器操作
  
-更多关于列选择器操作的文档请参考 {% include href/api/Columns.html param="columns()" %}文档
+更多关于列选择器操作的文档请参考 {% include href/APIs.html param="columns()" %}文档
  
 
 ## 类型(Type)
@@ -64,7 +64,7 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/Columns.html param="column()" %}
-- {% include href/api/Columns.html param="columns()" %}
-- {% include href/api/Columns.html param="column().index()" %}
-- {% include href/api/Columns.html param="columns().indexes()" %}
+- {% include href/APIs.html param="column()" %}
+- {% include href/APIs.html param="columns()" %}
+- {% include href/APIs.html param="column().index()" %}
+- {% include href/APIs.html param="columns().indexes()" %}

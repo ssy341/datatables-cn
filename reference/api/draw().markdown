@@ -36,7 +36,7 @@ author: /reference/api/draw()
 {% include_relative parameters/draw.html %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 
 DataTables API 实例
 

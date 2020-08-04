@@ -29,7 +29,7 @@ author: /reference/api/columns().footer()
 获取被选择多个列{% include href/tags.html param="tfoot" %}元素下的{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 DataTables API实例，结果集包含被选择多个列{% include href/tags.html param="tfoot" %}下的单元格节点。
 
@@ -62,4 +62,4 @@ table.columns( '.sum' ).every( function () {
 
 API
 
-- {% include href/api/Columns.html param="column().footer()" %}
+- {% include href/APIs.html param="column().footer()" %}

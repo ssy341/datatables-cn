@@ -45,7 +45,7 @@ DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 DataTables API 实例对象
 

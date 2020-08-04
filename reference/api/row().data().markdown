@@ -11,7 +11,7 @@ author: /reference/api/row().data()
 
 ## 描述(Description)
 
-该方法用来获取{% include href/api/Rows.html param="row()" %}选择器选中行的数据。它可以获取行的数据，或者给行设置新的数据。
+该方法用来获取{% include href/APIs.html param="row()" %}选择器选中行的数据。它可以获取行的数据，或者给行设置新的数据。
 
 需要注意的是，当作为设置方法时，该方法设置的数据会应用到表格中，但是他不会更新表格内部数据对象缓存，除非你再调用 {% include href/api/Core.html param="draw()" %} 方法来触发触发这个操作。
 比如像这样 `table.row( 0 ).data( newData ).draw();` 。 这样操作是为了使表易于优化，在重绘表之前，可以做更多的操作。
@@ -49,7 +49,7 @@ author: /reference/api/row().data()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 DataTables API 实例对象，其中结果集中的数据是row选择器范围内的
 
@@ -117,5 +117,5 @@ table.draw();
 
 API
 
-- {% include href/api/Rows.html param="rows().data()" %}
-- {% include href/api/Cells.html param="cell().data()" %}
+- {% include href/APIs.html param="rows().data()" %}
+- {% include href/APIs.html param="cell().data()" %}

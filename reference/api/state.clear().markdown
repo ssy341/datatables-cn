@@ -33,7 +33,7 @@ author: /reference/api/state.clear()
 清除存储的表状态
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 API实例，可以用来链式继续调用其他方法
 

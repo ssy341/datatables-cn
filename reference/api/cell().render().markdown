@@ -13,9 +13,9 @@ author: /reference/api/cell().render()
 
 DataTables拥有使用 [正交数据](orthogonal-data) 的能力，比如对于一个单元格有不同的数据，取决于当前所做的操作。一个典型的例子就是时间、日期以数字格式（时间戳的方式）进行排序，以复杂的格式进行显示。
 
-{% include href/api/Cells.html param="cell().data()" %}方法提供访问底层的原始数据，而这个方法提供访问在每个类型下的被渲染的数据。提供这个方法是为了允许插件作者可以访问表中可用的正交数据。
+{% include href/APIs.html param="cell().data()" %}方法提供访问底层的原始数据，而这个方法提供访问在每个类型下的被渲染的数据。提供这个方法是为了允许插件作者可以访问表中可用的正交数据。
 
-注意，调用这个方法会对单元格执行渲染器，而不是从缓存里获取信息（参考{% include href/api/Cells.html param="cell().cache()" %}从缓存里读取和{% include href/api/Cells.html param="cell().invalidate()" %}清除缓存）。
+注意，调用这个方法会对单元格执行渲染器，而不是从缓存里获取信息（参考{% include href/APIs.html param="cell().cache()" %}从缓存里读取和{% include href/APIs.html param="cell().invalidate()" %}清除缓存）。
 
 
 
@@ -275,9 +275,9 @@ $('#example').on( 'click', 'tbody td', function () {
 
 API
 
-- {% include href/api/Cells.html param="cells().data()" %}
-- {% include href/api/Cells.html param="cell().data()" %}
-- {% include href/api/Cells.html param="cell().invalidate()" %}
+- {% include href/APIs.html param="cells().data()" %}
+- {% include href/APIs.html param="cell().data()" %}
+- {% include href/APIs.html param="cell().invalidate()" %}
 
 Options
 

@@ -26,7 +26,7 @@ redirect_from: /manual/daily/2016/09/25/option-stateSaveParams.html
     - 可选的
     - 说明
 - `settings`
-    - {% include href/type/DataTables.html param="DataTables.Settings" %}
+    - {% include href/Types.html param="DataTables.Settings" %}
     - No
     - DataTables settings 对象
 - `data`

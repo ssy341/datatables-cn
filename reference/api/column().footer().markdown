@@ -18,7 +18,7 @@ author: /reference/api/column().footer()
 
 {% include href/tags.html param="tfoot" %}在DataTables中是可选的。如果结果集里没有{% include href/tags.html param="tfoot" %}标签，则将返回`null`。
 
-另外，如果{% include href/api/Columns.html param="column()" %}中使用的选择器与多个列匹配，则结果集将被截断为单个列，默认返回匹配到的第一个列。
+另外，如果{% include href/APIs.html param="column()" %}中使用的选择器与多个列匹配，则结果集将被截断为单个列，默认返回匹配到的第一个列。
 
 
 ## 类型(Type)
@@ -60,5 +60,5 @@ $( column.footer() ).html(
 
 API
 
-- {% include href/api/Columns.html param="columns().footer()" %}
+- {% include href/APIs.html param="columns().footer()" %}
 

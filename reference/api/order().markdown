@@ -63,7 +63,7 @@ author: /reference/api/order()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 
 DataTables API 实例对象
@@ -82,7 +82,7 @@ DataTables API 实例对象
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 
 DataTables API 实例对象

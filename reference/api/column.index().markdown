@@ -11,7 +11,7 @@ toc: true
 ---
 
 ## 描述(Description)
-当使用DOM数据源，通常会使用列的可见索引，因为这是DOM本来的信息（当一列通过DataTables隐藏时，它会完全从DOM移除，如果需要再次通过{% include href/api/Columns.html param="column().visible()" %}变得可见，可以重新插入）。然而，在处理表的原始数据时，通常需要使用列数据索引。这个方法就提供在两种索引形式之间的转换。
+当使用DOM数据源，通常会使用列的可见索引，因为这是DOM本来的信息（当一列通过DataTables隐藏时，它会完全从DOM移除，如果需要再次通过{% include href/APIs.html param="column().visible()" %}变得可见，可以重新插入）。然而，在处理表的原始数据时，通常需要使用列数据索引。这个方法就提供在两种索引形式之间的转换。
 
 
 ## 类型(Type)

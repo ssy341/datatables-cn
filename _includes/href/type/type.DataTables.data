@@ -12,7 +12,7 @@
     <tr>
         <td>
             {% assign key = {{item.key}} %}
-            {% include href/type/DataTables.html param=key %}
+            {% include href/Types.html param=key %}
         </td>
         <td>
             <p>{{item.des}}</p>

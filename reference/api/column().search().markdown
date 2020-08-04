@@ -46,7 +46,7 @@ author: /reference/api/column().search()
 {% include_relative parameters/column.search.html %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DateTables.Api" %}
+{% include href/Types.html param="DateTables.Api" %}
 
 Datatables API 实例
 
@@ -119,7 +119,7 @@ table.columns( '.select-filter' ).every( function () {
 API
 
 - {% include href/api/Core.html param="search()" %}
-- {% include href/api/Columns.html param="columns().search()" %}
+- {% include href/APIs.html param="columns().search()" %}
 - {% include href/api/Static.html param="$.fn.dataTable.util.escapeRegex()" %}
 
 

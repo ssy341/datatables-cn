@@ -10,9 +10,9 @@ author: /reference/api/cells().data()
 ---
 
 ## 描述(Description)
-此方法用于从{% include href/api/Cells.html param="cells()" %}方法的调用中使用的选择器获取的单元格中的数据。
+此方法用于从{% include href/APIs.html param="cells()" %}方法的调用中使用的选择器获取的单元格中的数据。
 
-注意，他与{% include href/api/Cells.html param="cell().data()" %}方法不一样，这个方法没有设置的功能，只能获取数据。
+注意，他与{% include href/APIs.html param="cell().data()" %}方法不一样，这个方法没有设置的功能，只能获取数据。
 
 
 ## 类型(Type)
@@ -25,7 +25,7 @@ author: /reference/api/cells().data()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 
 Datatables API 实例，在结果集里包含被选择的单元格的数据
 
@@ -51,5 +51,5 @@ console.log( data );
 
 API
 
-- {% include href/api/Cells.html param="cell().data()" %}
-- {% include href/api/Cells.html param="cells().render()" %}
+- {% include href/APIs.html param="cell().data()" %}
+- {% include href/APIs.html param="cells().render()" %}

@@ -13,7 +13,7 @@ author: /reference/api/columns().nodes()
 
 此方法用于获取选择器匹配的多个列中单元格节点（{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}元素）。
 
-请注意，返回数组中节点的顺序以及获得节点的行（搜索结果的行，可见的行等等）是由{% include href/api/Columns.html param="columns()" %}选择器的{% include href/type/DataTables.html param="selector-modifier" %}选项决定。
+请注意，返回数组中节点的顺序以及获得节点的行（搜索结果的行，可见的行等等）是由{% include href/APIs.html param="columns()" %}选择器的{% include href/Types.html param="selector-modifier" %}选项决定。
 
 此外，请注意，使用{% include href/option/Features.html param="deferRender" %}选项会使某些节点在需要显示的时候才会创建，因此调用本方法时，它可能不会立即有结果。
 
@@ -27,9 +27,9 @@ author: /reference/api/columns().nodes()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
-DataTables API实例，结果集中包含被选择列的单元格节点。这是一个二维数组，其中每个顶级数组均由{% include href/api/Columns.html param="columns()" %}选择器匹配的列。
+DataTables API实例，结果集中包含被选择列的单元格节点。这是一个二维数组，其中每个顶级数组均由{% include href/APIs.html param="columns()" %}选择器匹配的列。
 
 --- 
     
@@ -110,6 +110,6 @@ table
 
 API
 
-- {% include href/api/Columns.html param="column().nodes()" %}
+- {% include href/APIs.html param="column().nodes()" %}
 
 

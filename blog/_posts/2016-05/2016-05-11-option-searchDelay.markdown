@@ -24,7 +24,7 @@ Datatables的客户端搜索和服务器搜索默认的延迟时间是400ms，�
 <!--more-->
 
 提一点，这个延迟参数只针对全局搜索有效，如果是
-{% include href/api/Core.html param="search()" %},{% include href/api/Columns.html param="column().search()" %} 方法则此参数不会生效，需要使用
+{% include href/api/Core.html param="search()" %},{% include href/APIs.html param="column().search()" %} 方法则此参数不会生效，需要使用
 {% include href/api/Static.html param="$.fn.dataTable.util.throttle()" %}来处理
 
 {% include href/option/Options.html param="searchDelay" %}默认值为 `null` ，

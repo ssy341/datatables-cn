@@ -10,7 +10,7 @@ author: /reference/api/cell().data()
 ---
 
 ## 描述(Description)
-通过使用{% include href/api/Cells.html param="cell()" %}对象调用，获取被选中单元格的数据，或者设置一个新新值给选择单元格。
+通过使用{% include href/APIs.html param="cell()" %}对象调用，获取被选中单元格的数据，或者设置一个新新值给选择单元格。
 
 注意这个方法设置的值会改变表格里的值，并更新数据源，但是他不会更新缓存里的数据（比如，搜索缓存和排序缓存），除非调用{% include href/api/Core.html param="draw()" %}方法。
 `draw`方法可以像`jQuery`的调用方式使用，比如`table.cell( 0, 0 ).data( 'Updated' ).draw();`
@@ -42,7 +42,7 @@ author: /reference/api/cell().data()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 被选择单元格数据结果集的DataTables API 实例
 
 ---
@@ -77,10 +77,10 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/Cells.html param="cells().cache()" %}
-- {% include href/api/Cells.html param="cells().data()" %}
-- {% include href/api/Cells.html param="cells().render()" %}
-- {% include href/api/Cells.html param="cell().cache()" %}
-- {% include href/api/Cells.html param="cell().render()" %}
+- {% include href/APIs.html param="cells().cache()" %}
+- {% include href/APIs.html param="cells().data()" %}
+- {% include href/APIs.html param="cells().render()" %}
+- {% include href/APIs.html param="cell().cache()" %}
+- {% include href/APIs.html param="cell().render()" %}
 
 

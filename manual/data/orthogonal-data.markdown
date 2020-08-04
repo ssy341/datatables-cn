@@ -160,6 +160,6 @@ DataTables将自动检测下面这些属性在HTML的单元格上：
 }
 ```
 
-如果你不使用DataTables API操作表格中的数据，那么也也不需要知道这个数据结构。然而，如果你需要读取数据（比如使用{% include href/api/Rows.html param="row().data()" %}）或者添加一行新的数据（{% include href/api/Rows.html param="row.add()" %}，注意需要**1.10.20+**版本才支持），您需要确保使用与DataTables读取数据相同的数据结构，如果没有，你会得到[ Requested unknown parameter ](https://datatables.net/tn/4)错误。
+如果你不使用DataTables API操作表格中的数据，那么也也不需要知道这个数据结构。然而，如果你需要读取数据（比如使用{% include href/APIs.html param="row().data()" %}）或者添加一行新的数据（{% include href/APIs.html param="row.add()" %}，注意需要**1.10.20+**版本才支持），您需要确保使用与DataTables读取数据相同的数据结构，如果没有，你会得到[ Requested unknown parameter ](https://datatables.net/tn/4)错误。
 
 要检查DataTables用于行的数据结构，可以使用`console.log(myTable.row(':eq(0)').data() )`以显示表中第一行的数据。

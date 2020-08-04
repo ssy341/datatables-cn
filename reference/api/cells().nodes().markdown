@@ -11,7 +11,7 @@ author: /reference/api/cells().nodes()
 
 ## 描述(Description)
 
-此方法与{% include href/api/Cells.html param="cells" %}结合使用（因此可以使用各种选择器形式），获得所选多个单元格的DOM节点，对其进行直接操作。
+此方法与{% include href/APIs.html param="cells" %}结合使用（因此可以使用各种选择器形式），获得所选多个单元格的DOM节点，对其进行直接操作。
 
 ## 类型(Type)
 
@@ -25,7 +25,7 @@ author: /reference/api/cells().nodes()
 
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 
 DataTables API 实例，集合中包含选择器获得到的{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}多个单元格元素
 
@@ -55,5 +55,5 @@ $( cells ).addClass( 'warning' );
 
 API
 
-- {% include href/api/Cells.html param="cell().node()" %}
+- {% include href/APIs.html param="cell().node()" %}
 

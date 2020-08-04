@@ -11,11 +11,11 @@ author: /reference/api/cells().indexes()
 
 ## 描述(Description)
 
-Datatables把row和列的数据存储在内部索引中，这样能快速执行排序，搜索等操作。有的时候了解这些索引是有用的，就像他能够被用来执行高效的选择器在{% include href/api/Rows.html param="rows()" %}，{% include href/api/Columns.html param="columns()" %}和其他使用选择器的API方法。
+Datatables把row和列的数据存储在内部索引中，这样能快速执行排序，搜索等操作。有的时候了解这些索引是有用的，就像他能够被用来执行高效的选择器在{% include href/APIs.html param="rows()" %}，{% include href/APIs.html param="columns()" %}和其他使用选择器的API方法。
 
 有用的是，此方法可还可以提供可见列的索引以及列数据索引，因此可以动态添加和删除document中的列。
 
-从{% include href/api/Cells.html param="cells()" %}选择方法的结果里，每个单元格返回的数据结构如下：
+从{% include href/APIs.html param="cells()" %}选择方法的结果里，每个单元格返回的数据结构如下：
 
 ```javascript
 {
@@ -37,7 +37,7 @@ Datatables把row和列的数据存储在内部索引中，这样能快速执行�
 得到行，列和可见列索引信息
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 Datatables API 实例，结果集包含被选择单元格的索引信息
 
 --- 
@@ -66,8 +66,8 @@ alert( 'Columns containing 21: '+columns.join(', ') );
 
 API
 
-- {% include href/api/Cells.html param="cell().index()" %}
-- {% include href/api/Rows.html param="rows().indexes()" %}
-- {% include href/api/Columns.html param="columns().indexes()" %}
-- {% include href/api/Columns.html param="column().index()" %}
+- {% include href/APIs.html param="cell().index()" %}
+- {% include href/APIs.html param="rows().indexes()" %}
+- {% include href/APIs.html param="columns().indexes()" %}
+- {% include href/APIs.html param="column().index()" %}
 

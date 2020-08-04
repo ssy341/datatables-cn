@@ -13,7 +13,7 @@ author: /reference/api/cell()
 
 从DataTables中获取需要使用的单个单元格，其链式方法提供了设置/获取单元格中的数据，还可以直接操作节点或者执行其他操作。
 
-注意，此方法选择单个单元格。如果提供的选择器匹配到多个单元格，则最终的结果为找到的第一个单元格。如果你需要操作多个单元格，你可以使用相对应的方法{% include href/api/Cells.html param="cells" %}。
+注意，此方法选择单个单元格。如果提供的选择器匹配到多个单元格，则最终的结果为找到的第一个单元格。如果你需要操作多个单元格，你可以使用相对应的方法{% include href/APIs.html param="cells" %}。
 
 这个方法有两种形式：
 
@@ -35,7 +35,7 @@ author: /reference/api/cell()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 
@@ -51,7 +51,7 @@ DataTables API 实例，包含被选择的单元格
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 ---
@@ -66,7 +66,7 @@ DataTables API 实例，包含被选择的单元格
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 --- 
@@ -75,7 +75,7 @@ DataTables API 实例，包含被选择的单元格
 ## 例子(Example)
 
 
-打印指定样式单元格内容(表格数据里有两个单元格的class为specialCell，在不同的页数，通过使用 {% include href/type/DataTables.html param="selector-modifier" %}参数指定当前页，即第一页，所以打印的结果为Airi Satou)
+打印指定样式单元格内容(表格数据里有两个单元格的class为specialCell，在不同的页数，通过使用 {% include href/Types.html param="selector-modifier" %}参数指定当前页，即第一页，所以打印的结果为Airi Satou)
 
 {% include runcode.html param="cell-example1" %}
 {: #cell-example1-js }
@@ -114,7 +114,7 @@ alert("第一行和第二列交叉的单元格的内容是" + table.cell("#row-1
 
 API
 
-- {% include href/api/Cells.html param="cells()" %}
+- {% include href/APIs.html param="cells()" %}
 
 
 

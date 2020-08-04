@@ -13,9 +13,9 @@ author: /reference/api/data()
 ## 描述(Description)
 该方法提供获取当前API上下文每行的原始数据。结果集包含原始数据（无论是数组还是对象），每行由API结果集中的条目定义。行的顺序就是行数据索引（即数据最初读入表的顺序）。
 
-如果你要修改的数据包含在返回的数组中，确保你使用了{% include href/api/Rows.html param="rows().invalidate()" %},{% include href/api/Rows.html param="row().invalidate()" %}或者任何其他失效的方法来让DataTables注意到更改并且重新读取数据源。
+如果你要修改的数据包含在返回的数组中，确保你使用了{% include href/APIs.html param="rows().invalidate()" %},{% include href/APIs.html param="row().invalidate()" %}或者任何其他失效的方法来让DataTables注意到更改并且重新读取数据源。
 
-请注意{% include href/api/Rows.html param="rows().data()" %}方法可以完全访问该数据，为了更灵活的获取数据，还可以通过{% include href/type/DataTables.html param="selector-modifier" %}选项对对象结果集进行排序，分页和搜索修改。例如`rows({'order':'index'}).data()`和`rows().data()`完全相同-两者都是数据索引顺序，然而`rows().data()`
+请注意{% include href/APIs.html param="rows().data()" %}方法可以完全访问该数据，为了更灵活的获取数据，还可以通过{% include href/Types.html param="selector-modifier" %}选项对对象结果集进行排序，分页和搜索修改。例如`rows({'order':'index'}).data()`和`rows().data()`完全相同-两者都是数据索引顺序，然而`rows().data()`
 将会返回全部的结果集，而`rows({'order':'index'}).data()`取决于当前显示顺序（由{% include href/api/Core.html param="order()" %}定义）
 
 ## 类型(Type)
@@ -30,7 +30,7 @@ author: /reference/api/data()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 包含表格中每行的数据的结果集的DataTables API实例
 
@@ -66,6 +66,6 @@ table.rows().invalidate().draw();
 API
 
 - {% include href/api/Core.html param="clear()" %}
-- {% include href/api/Rows.html param="row.add()" %}
-- {% include href/api/Rows.html param="rows.add()" %}
+- {% include href/APIs.html param="row.add()" %}
+- {% include href/APIs.html param="rows.add()" %}
 

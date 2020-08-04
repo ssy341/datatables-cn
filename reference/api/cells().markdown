@@ -12,11 +12,11 @@ author: /reference/api/cells()
 ## 描述(Description)
 从DataTables中获取需要使用的多个单元格，其链式方法提供了设置/获取单元格中的数据，还可以直接操作节点或者执行其他操作。
 
-{% include href/api/Cells.html param="cell" %}提供访问单个单元格，这个{% include href/api/Cells.html param="cells" %}方法用于同时操作或修改多个单元格。
+{% include href/APIs.html param="cell" %}提供访问单个单元格，这个{% include href/APIs.html param="cells" %}方法用于同时操作或修改多个单元格。
 
 该方法有三种形式：
 
-- All cells - 所有单元格(没有参数或只有{% include href/type/DataTables.html param="selector-modifier" %}选项) 
+- All cells - 所有单元格(没有参数或只有{% include href/Types.html param="selector-modifier" %}选项) 
 - Cell selector - 单元格选择器
 - Cross product between row and column selectors （行和列之间的叉集选择器）
 
@@ -35,7 +35,7 @@ author: /reference/api/cells()
 {% include_relative parameters/cell.fun1.html %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 
@@ -51,7 +51,7 @@ DataTables API 实例，包含被选择的单元格
 {% include_relative parameters/cell.fun2.html %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 
@@ -67,7 +67,7 @@ DataTables API 实例，包含被选择的单元格
 {% include_relative parameters/cell.fun3.html %}
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api"%}
+{% include href/Types.html param="DataTables.Api"%}
 DataTables API 实例，包含被选择的单元格
 
 ---
@@ -79,5 +79,5 @@ DataTables API 实例，包含被选择的单元格
 
 API
 
-- {% include href/api/Cells.html param="cell()" %}
+- {% include href/APIs.html param="cell()" %}
 

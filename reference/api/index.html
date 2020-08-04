@@ -30,8 +30,8 @@ relurl: http://datatables.net/reference/api/
     </div>
 </div>
 
-<a name="Core"></a><h2 data-anchor="Core">核心(Core)</h2>
-
+<a name="Core"></a>
+<h2 data-anchor="Core">核心(Core)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -250,7 +250,8 @@ relurl: http://datatables.net/reference/api/
     </tbody>
 </table>
 
-<a name="Data"></a><h2 data-anchor="Data">单元格(Cells)</h2>
+<a name="Cells"></a>
+<h2 data-anchor="Cells">单元格(Cells)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -261,7 +262,7 @@ relurl: http://datatables.net/reference/api/
     <tbody>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell()" %}
+                {% include href/APIs.html param="cell()" %}
             </td>
             <td>
                 从表格中获取单个的单元格
@@ -269,7 +270,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().cache()" %}
+                {% include href/APIs.html param="cell().cache()" %}
             </td>
             <td>
                 获取被选择的单元格的Datatables缓存的数据
@@ -277,7 +278,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().data()" %}
+                {% include href/APIs.html param="cell().data()" %}
             </td>
             <td>
                 获取/设置被选择的单元格的数据
@@ -285,7 +286,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().index()" %}
+                {% include href/APIs.html param="cell().index()" %}
             </td>
             <td>
                 获取被选择的单元格的索引信息
@@ -293,7 +294,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().invalidate()" %}
+                {% include href/APIs.html param="cell().invalidate()" %}
             </td>
             <td>
                 失效被选中单元格保持在DataTables内部数据中的数据
@@ -301,7 +302,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().node()" %}
+                {% include href/APIs.html param="cell().node()" %}
             </td>
             <td>
                 得到被选择的单个单元格的DOM元素
@@ -309,7 +310,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells()" %}
+                {% include href/APIs.html param="cells()" %}
             </td>
             <td>
                 从表格里选择多个单元格
@@ -317,7 +318,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().invalidate()" %}
+                {% include href/APIs.html param="cells().invalidate()" %}
             </td>
             <td>
                 失效被选中的多个单元格保持在DataTables内部数据中的数据
@@ -325,7 +326,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().nodes()" %}
+                {% include href/APIs.html param="cells().nodes()" %}
             </td>
             <td>
                 获得选中的多个单元格的DOM
@@ -334,7 +335,7 @@ relurl: http://datatables.net/reference/api/
         
         <tr>
             <td>
-                {% include href/api/Cells.html param="cell().render()" %}
+                {% include href/APIs.html param="cell().render()" %}
             </td>
             <td>
                 获取单个单元格的渲染数据
@@ -342,7 +343,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().render()" %}
+                {% include href/APIs.html param="cells().render()" %}
             </td>
             <td>
                 获取单元格集合的渲染数据
@@ -350,7 +351,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().cache()" %}
+                {% include href/APIs.html param="cells().cache()" %}
             </td>
             <td>
                 获取被选择的多个单元格的Datatables缓存的数据
@@ -358,7 +359,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().data()" %}
+                {% include href/APIs.html param="cells().data()" %}
             </td>
             <td>
                 获取所选单元格的数据
@@ -366,7 +367,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().indexes()" %}
+                {% include href/APIs.html param="cells().indexes()" %}
             </td>
             <td>
                 获取被选单元格的索引信息
@@ -374,7 +375,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Cells.html param="cells().every()" %}
+                {% include href/APIs.html param="cells().every()" %}
             </td>
             <td>
                 遍历每个选定的单元格，并且每个单元格应用传入方法里的处理
@@ -384,7 +385,8 @@ relurl: http://datatables.net/reference/api/
 </table>
 
 
-<a name="Callbacks"></a><h2 data-anchor="Callbacks">列(Columns)</h2>
+<a name="Columns"></a>
+<h2 data-anchor="Columns">列(Columns)</h2>
 <table class="reference row-border hover">
     <thead>
     <tr>
@@ -395,7 +397,7 @@ relurl: http://datatables.net/reference/api/
     <tbody>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column()" %}
+                {% include href/APIs.html param="column()" %}
             </td>
             <td>
                 从表格中获取单个列
@@ -403,7 +405,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().visible()" %}
+                {% include href/APIs.html param="column().visible()" %}
             </td>
             <td>
                 获取/设置选择列的可见性
@@ -411,7 +413,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().visible()" %}
+                {% include href/APIs.html param="columns().visible()" %}
             </td>
             <td>
                 获取/设置选择列的可见性
@@ -419,7 +421,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().index()" %}
+                {% include href/APIs.html param="column().index()" %}
             </td>
             <td>
                 获取被选择的单列的列索引
@@ -427,7 +429,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().indexes()" %}
+                {% include href/APIs.html param="columns().indexes()" %}
             </td>
             <td>
                 获取被选择多列的列索引
@@ -435,7 +437,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column.index()" %}
+                {% include href/APIs.html param="column.index()" %}
             </td>
             <td>
                 在不同列索引类型之间进行转换
@@ -443,7 +445,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                 {% include href/api/Columns.html param="columns()" %}
+                 {% include href/APIs.html param="columns()" %}
             </td>
             <td>
                 从表格选择多列
@@ -451,7 +453,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns.adjust()" %}
+                {% include href/APIs.html param="columns.adjust()" %}
             </td>
             <td>
                 重新计算列宽
@@ -459,7 +461,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().data()" %}
+                {% include href/APIs.html param="column().data()" %}
             </td>
             <td>
                 获取被选择单个列的单元格数据
@@ -467,7 +469,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().data()" %}
+                {% include href/APIs.html param="columns().data()" %}
             </td>
             <td>
                 获取被选择多个列的单元格数据
@@ -475,7 +477,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().dataSrc()" %}
+                {% include href/APIs.html param="columns().dataSrc()" %}
             </td>
             <td><p>获取选中多个列数据源的属性名</p>
             </td>
@@ -483,7 +485,7 @@ relurl: http://datatables.net/reference/api/
 
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().dataSrc()" %}
+                {% include href/APIs.html param="column().dataSrc()" %}
             </td>
             <td>
                 获取被选择单个列数据源的属性名称
@@ -491,7 +493,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().cache()" %}
+                {% include href/APIs.html param="column().cache()" %}
             </td>
             <td>
                 获取被选单择列的DataTables缓存的数据
@@ -499,7 +501,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().cache()" %}
+                {% include href/APIs.html param="columns().cache()" %}
             </td>
             <td>
                 获取被选择多列的DataTables缓存的数据
@@ -507,7 +509,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().footer()" %}
+                {% include href/APIs.html param="columns().footer()" %}
             </td>
             <td>
                 获取被选择多个列的<code>tfoot</code>的单元格节点
@@ -515,7 +517,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().footer()" %}
+                {% include href/APIs.html param="column().footer()" %}
             </td>
             <td>
                 获取被选择单个列的<code>tfoot</code>的单元格节点
@@ -523,7 +525,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().header()" %}
+                {% include href/APIs.html param="column().header()" %}
             </td>
             <td>
                 获取选择单个列的表头节点
@@ -531,7 +533,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().header()" %}
+                {% include href/APIs.html param="columns().header()" %}
             </td>
             <td>
                 获取选择多个列的表头节点
@@ -539,7 +541,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().search()" %}
+                {% include href/APIs.html param="column().search()" %}
             </td>
             <td>
                 在所选单个列中搜索数据
@@ -547,7 +549,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().search()" %}
+                {% include href/APIs.html param="columns().search()" %}
             </td>
             <td>
                 在所选多个列中搜索数据
@@ -555,7 +557,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().order()" %}
+                {% include href/APIs.html param="column().order()" %}
             </td>
             <td>
                 根据选择的单个列排序表格数据
@@ -563,7 +565,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().order()" %}
+                {% include href/APIs.html param="columns().order()" %}
             </td>
             <td>
                 根据选择的多个列排序表格数据
@@ -571,7 +573,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="columns().nodes()" %}
+                {% include href/APIs.html param="columns().nodes()" %}
             </td>
             <td>
                 获取被选择的多列的单元格节点
@@ -579,7 +581,7 @@ relurl: http://datatables.net/reference/api/
         </tr>
         <tr>
             <td>
-                {% include href/api/Columns.html param="column().nodes()" %}
+                {% include href/APIs.html param="column().nodes()" %}
             </td>
             <td>
                 获取被选择的单列的单元格节点
@@ -606,15 +608,32 @@ relurl: http://datatables.net/reference/api/
     </tbody>
 </table>
 
-<h2 data-anchor="Options">行(Rows)</h2>
+<a name="Rows"></a>
+<h2 data-anchor="Rows">行(Rows)</h2>
 <table class="reference row-border hover">
     <thead>
-    <tr>
-        <th width="30%">名称</th>
-        <th>说明</th>
-    </tr>
+        <tr>
+            <th width="30%">名称</th>
+            <th>说明</th>
+        </tr>
     </thead>
     <tbody>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row()" %}
+            </td>
+            <td>
+                从表格中选择单行
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="rows()" %}
+            </td>
+            <td>
+                从表格中选择多行
+            </td>
+        </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().cache()"><code class="api" title="DataTables API method">row().cache()<span>DT</span></code></a>
         </p>
@@ -694,7 +713,7 @@ relurl: http://datatables.net/reference/api/
     </tr>
     <tr>
         <td>
-            {% include href/api/Rows.html param="row().data()" %}
+            {% include href/APIs.html param="row().data()" %}
         </td>
         <td><p>获取行数据或者设置行数据</p>
         </td>
@@ -728,14 +747,7 @@ relurl: http://datatables.net/reference/api/
         <td><p>删除行</p>
         </td>
     </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row()"><code class="api"
-                                                                    title="DataTables API method">row()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>获取一行</p>
-        </td>
-    </tr>
+   
     <tr>
         <td><p><a href="//datatables.net/reference/api/row.add()"><code class="api" title="DataTables API method">row.add()<span>DT</span></code></a>
         </p>
@@ -787,14 +799,7 @@ relurl: http://datatables.net/reference/api/
         <td><p>删除多行</p>
         </td>
     </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/rows()"><code class="api"
-                                                                     title="DataTables API method">rows()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>多行对象</p>
-        </td>
-    </tr>
+    
     <tr>
         <td><p><a href="//datatables.net/reference/api/rows.add()"><code class="api" title="DataTables API method">rows.add()<span>DT</span></code></a>
         </p>

@@ -13,7 +13,7 @@ redirect_from: /manual/daily/2016/05/28/how-to-add-row-to-top-of-table.html
 
 这个还要从很久很久之前说起……
 
-首先要说的是 Datatables 提供了两个 api 来添加新的行，一个是{% include href/api/Rows.html param="row.add()" %},一个是{% include href/api/Rows.html param="rows.add()" %}
+首先要说的是 Datatables 提供了两个 api 来添加新的行，一个是{% include href/APIs.html param="row.add()" %},一个是{% include href/APIs.html param="rows.add()" %}
 
 前者是单行添加，后者是多行添加，那么先看下面的代码，看看我们是怎么添加一行到表格中的
 <!--more-->

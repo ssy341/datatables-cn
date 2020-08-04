@@ -26,7 +26,7 @@ author: /reference/api/columns().header()
 获取多个列的表头{% include href/tags.html param="td" %}或者是{% include href/tags.html param="th" %}单元格。
 
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 Datatables API 实例，结果集包含被选择列表头的单元格
 
 
@@ -65,5 +65,5 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/Columns.html param="column().header()" %}
+- {% include href/APIs.html param="column().header()" %}
 

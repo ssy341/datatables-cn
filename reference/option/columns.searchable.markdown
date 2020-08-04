@@ -50,8 +50,8 @@ $('#example').DataTable( {
 API
 
 - {% include href/api/Core.html param="search()" %}
-- {% include href/api/Columns.html param="column().search()" %}
-- {% include href/api/Columns.html param="columns().search()" %}
+- {% include href/APIs.html param="column().search()" %}
+- {% include href/APIs.html param="columns().search()" %}
 
 Options
 

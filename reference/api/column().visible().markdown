@@ -44,7 +44,7 @@ toc: true
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DateTables.Api" %}
+{% include href/Types.html param="DateTables.Api" %}
 
 DataTables API 实例，包含被选择的列在结果集中。
 
@@ -98,4 +98,4 @@ table.columns.adjust().draw( false ); // adjust column sizing and redraw
 
 API
 
-- {% include href/api/Columns.html param="columns().visible()" %}
+- {% include href/APIs.html param="columns().visible()" %}

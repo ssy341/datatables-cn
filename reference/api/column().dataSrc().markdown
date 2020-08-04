@@ -10,7 +10,7 @@ author: /reference/api/column().dataSrc()
 ---
 
 ## 描述(Description)
-通过使用{% include href/option/Columns.html param="column.data" %}选项，DataTables能够从各种复杂的数据源中读取数据。此方法提供了基于列选择器（参考{% include href/type/DataTables.html param="column-selector" %}）初始化后检索该设置的功能。
+通过使用{% include href/option/Columns.html param="column.data" %}选项，DataTables能够从各种复杂的数据源中读取数据。此方法提供了基于列选择器（参考{% include href/Types.html param="column-selector" %}）初始化后检索该设置的功能。
 
 此方法将返回初始化期间设置的{% include href/option/Columns.html param="column.data" %}的值（包括列索引整数的默认值），包括函数（不会执行）。需要注意的是，如何设置{% include href/option/Columns.html param="columns.render" %}对该方法的返回值没有影响，该方法仅用于检索{% include href/option/Columns.html param="column.data" %}的值。
 
@@ -51,7 +51,7 @@ $('#example').on( 'click', 'tbody td', function () {
 
 API
 
-- {% include href/api/Columns.html param="columns().data()" %}
-- {% include href/api/Columns.html param="columns().dataSrc()" %}
-- {% include href/api/Columns.html param="column().data()" %}
+- {% include href/APIs.html param="columns().data()" %}
+- {% include href/APIs.html param="columns().dataSrc()" %}
+- {% include href/APIs.html param="column().data()" %}
 

@@ -11,7 +11,7 @@ author: /reference/api/clear()
 
 
 ## 描述(Description)
-该方法简单地从DataTables删除所有行，导致数据集长度为0。然后可以使用{% include href/api/Rows.html param="rows.add()" %}方法添加新的数据。
+该方法简单地从DataTables删除所有行，导致数据集长度为0。然后可以使用{% include href/APIs.html param="rows.add()" %}方法添加新的数据。
 
 请注意，此方法不会自动重绘，因此你需要在清空数据之后调用{% include href/api/Core.html param="draw()" %}方法重绘表格，比如
 `table.clear().draw()`;当你希望立即向表中添加新行的时候，完成操作后，你将只需要调用一次{% include href/api/Core.html param="draw()" %}方法，
@@ -34,7 +34,7 @@ author: /reference/api/clear()
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 
 DataTables API 实例对象
@@ -58,6 +58,6 @@ table.clear().draw();
 API
 
 - {% include href/api/Core.html param="data()" %}
-- {% include href/api/Rows.html param="row.add()" %}
-- {% include href/api/Rows.html param="rows.add()" %}
+- {% include href/APIs.html param="row.add()" %}
+- {% include href/APIs.html param="rows.add()" %}
 

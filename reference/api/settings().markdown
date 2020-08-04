@@ -37,6 +37,6 @@ DataTables会保存表格有关各个设置对象中的状态的信息。该对�
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DataTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 包含当前上下文表格的settings对象的DataTables API实例

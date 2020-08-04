@@ -14,7 +14,7 @@ toc: true
 
 从表格中选择一列来操作，它链式操作可以提供操作列的能力，采取诸如切换可见性或者从列中获取数据之类的操作。
 
-注意，这个操作获取的是选择单列，如果你提供的选择器匹配到多列，结果会被截断，返回第一个匹配的列。如果你需要操作多列，则可以使用具有相同选项的{% include href/api/Columns.html param="columns()" %}方法。
+注意，这个操作获取的是选择单列，如果你提供的选择器匹配到多列，结果会被截断，返回第一个匹配的列。如果你需要操作多列，则可以使用具有相同选项的{% include href/APIs.html param="columns()" %}方法。
 
 
 ## 类型(Type)
@@ -32,7 +32,7 @@ toc: true
 
 #### 返回(Returns):
 
-{% include href/type/DataTables.html param="DateTables.Api" %}
+{% include href/Types.html param="DateTables.Api" %}
 
 Datatables API 实例，结果集中包含被选择的列
 
@@ -45,4 +45,4 @@ Datatables API 实例，结果集中包含被选择的列
 
 API
 
-- {% include href/api/Columns.html param="columns()" %}
+- {% include href/APIs.html param="columns()" %}

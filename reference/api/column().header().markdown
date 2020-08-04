@@ -14,7 +14,7 @@ author: reference/api/column().header()
 
 返回的一个单元格是Datatables用来添加点击监听事件来排序操作。如果有多个单元格在表头（比如有多行），Datatables会用主要的表头单元格，这个由{% include href/option/Options.html param="orderCellsTop" %}来定义。
 
-另外，如果{% include href/api/Columns.html param="column()" %}中使用的选择器与多个列匹配，则结果集将被截断为单个列，默认返回匹配到的第一个列。
+另外，如果{% include href/APIs.html param="column()" %}中使用的选择器与多个列匹配，则结果集将被截断为单个列，默认返回匹配到的第一个列。
 
 
 
@@ -57,5 +57,5 @@ $('#example tbody').on( 'click', 'td', function () {
 
 API
 
-- {% include href/api/Columns.html param="columns().header()" %}
+- {% include href/APIs.html param="columns().header()" %}
 

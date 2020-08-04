@@ -26,7 +26,7 @@ DataTables将在窗口调整大小事件上自动调用此方法，以使列与�
 重新计算布局的列宽
      
 #### 返回(Returns):
-{% include href/type/DataTables.html param="DateTables.Api" %}
+{% include href/Types.html param="DateTables.Api" %}
 
 DataTables API实例。
 
