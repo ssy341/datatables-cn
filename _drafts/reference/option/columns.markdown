@@ -52,20 +52,20 @@ API
 
 Options
 
-- {% include href/option/Columns.html param="columnDefs" %}
-- {% include href/option/Columns.html param="columns.cellType" %}
-- {% include href/option/Columns.html param="columns.className" %}
-- {% include href/option/Columns.html param="columns.contentPadding" %}
-- {% include href/option/Columns.html param="columns.createdCell" %}
-- {% include href/option/Columns.html param="columns.data" %}
-- {% include href/option/Columns.html param="columns.defaultContent" %}
-- {% include href/option/Columns.html param="columns.name" %}
-- {% include href/option/Columns.html param="columns.orderable" %}
-- {% include href/option/Columns.html param="columns.orderData" %}
-- {% include href/option/Columns.html param="columns.orderDataType" %}
-- {% include href/option/Columns.html param="columns.render" %}
-- {% include href/option/Columns.html param="columns.searchable" %}
-- {% include href/option/Columns.html param="columns.title" %}
-- {% include href/option/Columns.html param="columns.type" %}
-- {% include href/option/Columns.html param="columns.visible" %}
-- {% include href/option/Columns.html param="columns.width" %}
+- {% include href/Options.html param="columnDefs" %}
+- {% include href/Options.html param="columns.cellType" %}
+- {% include href/Options.html param="columns.className" %}
+- {% include href/Options.html param="columns.contentPadding" %}
+- {% include href/Options.html param="columns.createdCell" %}
+- {% include href/Options.html param="columns.data" %}
+- {% include href/Options.html param="columns.defaultContent" %}
+- {% include href/Options.html param="columns.name" %}
+- {% include href/Options.html param="columns.orderable" %}
+- {% include href/Options.html param="columns.orderData" %}
+- {% include href/Options.html param="columns.orderDataType" %}
+- {% include href/Options.html param="columns.render" %}
+- {% include href/Options.html param="columns.searchable" %}
+- {% include href/Options.html param="columns.title" %}
+- {% include href/Options.html param="columns.type" %}
+- {% include href/Options.html param="columns.visible" %}
+- {% include href/Options.html param="columns.width" %}

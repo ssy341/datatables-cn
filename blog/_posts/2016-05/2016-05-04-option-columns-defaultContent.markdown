@@ -10,10 +10,10 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/04/option-columns-defaultContent.html
 ---
-参数详解连接{% include href/option/Columns.html param="columns.defaultContent" %}
+参数详解连接{% include href/Options.html param="columns.defaultContent" %}
 
 给单元格设置静态默认内容，这个属性不得不说是非常有用的，提到这个大家还可以看看
-{% include href/option/Columns.html param="columns.render" %}属性，想要弄得更复杂点，全靠它了
+{% include href/Options.html param="columns.render" %}属性，想要弄得更复杂点，全靠它了
 
 我们返回的数据不能保证都是正常的，可能包含 `null` ，显然这个对于最终用户来说是不友好的，那么我们可以这么处理
 <!--more-->

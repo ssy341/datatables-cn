@@ -41,4 +41,4 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Features.html param="autoWidth" %}
+- {% include href/Options.html param="autoWidth" %}

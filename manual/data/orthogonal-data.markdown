@@ -17,7 +17,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 - {% include href/string.html param="filter" %} 用于过滤的数据
 - {% include href/string.html param="type" %} 类型检测数据
 
-默认情况下，DataTables将对四个操作使用相同的数据，但这可以使用{% include href/option/Columns.html param="column.data" %}和{% include href/option/Columns.html param="columns.render" %}初始化选项进行修改，或者使用HTML 5 `data-*`属性。
+默认情况下，DataTables将对四个操作使用相同的数据，但这可以使用{% include href/Options.html param="column.data" %}和{% include href/Options.html param="columns.render" %}初始化选项进行修改，或者使用HTML 5 `data-*`属性。
 
 ## 数据源（Data source）
 
@@ -25,7 +25,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 
 ### 预定义值（Predefined values）
 
-如果您的数据源中已经包含希望显示的正交数据，DataTables可以通过{% include href/option/Columns.html param="column.data" %}或者{% include href/option/Columns.html param="columns.render" %}选项配置。
+如果您的数据源中已经包含希望显示的正交数据，DataTables可以通过{% include href/Options.html param="column.data" %}或者{% include href/Options.html param="columns.render" %}选项配置。
 
 例如，有如下数据结构，`start_date`对象具有`display`属性，该属性将用于显示表中的数据，同时还具有`timestamp`属性，该属性将用于排序。这种格式的数据非常有用，因为日期显示的格式不容易进行排序：
 
@@ -41,7 +41,7 @@ DataTables有4种内置数据操作，每一个都可能使用正交（独立）
 }
 ```
 
-要在表中使用这种格式的数据，我们可以用 {% include href/option/Columns.html param="columns" %}或者{% include href/option/Columns.html param="columnDefs" %}选项进行配置：
+要在表中使用这种格式的数据，我们可以用 {% include href/Options.html param="columns" %}或者{% include href/Options.html param="columnDefs" %}选项进行配置：
 
 ```javascript
 columns:[
@@ -57,14 +57,14 @@ columns:[
 ]
 ```
 
-注意，当{% include href/option/Columns.html param="columns.data" %}或{% include href/option/Columns.html param="columns.render" %}用做对象，必须定义`_`属性。如果数据选项没有被定义，则`_`属性为”后备“（例如，上述对象中没有`display`选项）
+注意，当{% include href/Options.html param="columns.data" %}或{% include href/Options.html param="columns.render" %}用做对象，必须定义`_`属性。如果数据选项没有被定义，则`_`属性为”后备“（例如，上述对象中没有`display`选项）
 
 实际操作参考这个[例子](https://datatables.net/examples/ajax/orthogonal-data)
 
 ### 计算值（Computed values）
 
 如果你的数据源不包含预格式化的正交数据，则可以将
-{% include href/option/Columns.html param="columns.data" %}和{% include href/option/Columns.html param="columns.render" %}作为函数提供。这些函数将用于计算显示需要的数据。
+{% include href/Options.html param="columns.data" %}和{% include href/Options.html param="columns.render" %}作为函数提供。这些函数将用于计算显示需要的数据。
 
 举个例子，有如下结构的数据：
 ```javascript
@@ -76,7 +76,7 @@ columns:[
 }
 ```
 
-尽管时间戳的格式对于计算机来说很友好，但是对于最终用户来说实际是没有用的。为了解决这个问题，我们可以使用{% include href/option/Columns.html param="columns.render" %}作为函数来计算要显示的值，{% include href/option/Columns.html param="columns.data" %}选项告诉渲染器使用什么数据：
+尽管时间戳的格式对于计算机来说很友好，但是对于最终用户来说实际是没有用的。为了解决这个问题，我们可以使用{% include href/Options.html param="columns.render" %}作为函数来计算要显示的值，{% include href/Options.html param="columns.data" %}选项告诉渲染器使用什么数据：
 
 ```javascript
 columns:[
@@ -100,7 +100,7 @@ columns:[
 ]
 ```
 
-有关将渲染器与DataTables一起使用的更多信息，请参考[渲染器](https://datatables.net/manual/data/renderers)的指导手册和{% include href/option/Columns.html param="columns.render" %}参考文档。
+有关将渲染器与DataTables一起使用的更多信息，请参考[渲染器](https://datatables.net/manual/data/renderers)的指导手册和{% include href/Options.html param="columns.render" %}参考文档。
 
 ## HTML 5
 
@@ -134,7 +134,7 @@ DataTables将自动检测下面这些属性在HTML的单元格上：
 
 ### API 接口
 
-当DataTables从HTML表中读取数据时，默认情况下，它将把每一行中的数据读入数组（你也可以使用{% include href/option/Columns.html param="columns.data" %}进行[自定义](https://datatables.net/manual/data/#Objects)）。当DataTables检测到正交HTML5属性时，它将信息读入一个对象，从而允许每个单元有多个数据点（如果需要）。
+当DataTables从HTML表中读取数据时，默认情况下，它将把每一行中的数据读入数组（你也可以使用{% include href/Options.html param="columns.data" %}进行[自定义](https://datatables.net/manual/data/#Objects)）。当DataTables检测到正交HTML5属性时，它将信息读入一个对象，从而允许每个单元有多个数据点（如果需要）。
 
 如果某个单元格存在正交数据，则该单元格的内容（即用户看到的内容）将被复制到`display`属性中。将HTML5属性复制到具有与属性相同名称但带有`@`前缀的属性中。
 

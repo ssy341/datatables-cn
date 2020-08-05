@@ -12,7 +12,7 @@ author: /reference/api/state()
 
 ## 描述(Description)
 
-当{% include href/option/Features.html param="stateSave" %}开启时，知道某个特定时刻表保存的状态是很有用的。该方法提供了获取最新保存的状态。
+当{% include href/Options.html param="stateSave" %}开启时，知道某个特定时刻表保存的状态是很有用的。该方法提供了获取最新保存的状态。
 
 该数据格式如下所示，但请注意，作为DataTables的插件和扩展可以通过添加所需要的状态信息来修改这个结构。
 
@@ -84,7 +84,7 @@ Events
 
 Options
 
-- {% include href/option/Features.html param="stateSave" %}
+- {% include href/Options.html param="stateSave" %}
 - {% include href/option/Callbacks.html param="stateSaveCallback" %}
 - {% include href/option/Callbacks.html param="stateLoadCallback" %}
 - {% include href/option/Callbacks.html param="stateLoadParams" %}

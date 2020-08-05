@@ -10,7 +10,7 @@ author: /reference/option/orderFixed
 ---
 
 ## 描述(Description)
-这个参数和{% include href/option/Options.html param="order" %}参数同时生效，两者都是来初始化DataTables的排序操作，
+这个参数和{% include href/Options.html param="order" %}参数同时生效，两者都是来初始化DataTables的排序操作，
 然后用户可以通过点击表头来修改，而这个选择指定的顺序总是应用到表格中不管用户的操作。
 
 这个固定的排序可以应用在用户标准排序的前面`pre` 和`post`之后，通过下面2中不同的形式（array or object）来描述。
@@ -76,10 +76,10 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Options.html param="order" %}
-- {% include href/option/Features.html param="ordering" %}
-- {% include href/option/Columns.html param="columns.orderable" %}
-- {% include href/option/Columns.html param="columns.orderData" %}
+- {% include href/Options.html param="order" %}
+- {% include href/Options.html param="ordering" %}
+- {% include href/Options.html param="columns.orderable" %}
+- {% include href/Options.html param="columns.orderData" %}
 
 API
 

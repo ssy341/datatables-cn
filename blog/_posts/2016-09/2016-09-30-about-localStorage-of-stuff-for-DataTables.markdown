@@ -10,7 +10,7 @@ tags: [博客,DataTables使用经验,不定时一讲]
 author: DataTable中文网
 ---
 
-这是一个{% include href/option/Features.html param="stateSave" %}参数引发的一系列“惨案”。
+这是一个{% include href/Options.html param="stateSave" %}参数引发的一系列“惨案”。
 
 为什么说又爱又恨？这要从很久很久以前说起……
 <!--more-->

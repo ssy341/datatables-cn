@@ -44,8 +44,8 @@ $$('#example').DataTable( {
 
 Options
 
-- {% include href/option/Options.html param="dom" %}
-- {% include href/option/Features.html param="paging" %}
+- {% include href/Options.html param="dom" %}
+- {% include href/Options.html param="paging" %}
 
 API
 

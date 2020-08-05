@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/04/25/option-columns-render1.html
 ---
-参数详解连接{% include href/option/Columns.html param="columns.render" %}
+参数详解连接{% include href/Options.html param="columns.render" %}
 
 说到这个参数，可以说是明星参数了，他几乎能解决群友们问到的问题，几乎啊！废话不说我先简单介绍下这个参数到底能解决那些常见问题。
 <!--more-->

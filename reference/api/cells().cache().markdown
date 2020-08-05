@@ -15,7 +15,7 @@ DataTables缓存数据是用来做搜索和排序，是为了让搜索和排序�
 
 缓存数据并不能保证在任何特定的时候都可用。如果DataTables没有请求数据，那么就不会被缓存。特别是当你使用{% include href/string.html param="order" %}选项，列的排序还没有执行，数据就不会被缓存。数据失效也会导致缓存被移移除。
 
-应当注意的是，这个方法是必须的，因为Datatables针对不同操作（搜索、排序、显示等）使用不同的数据。具体参考{% include href/option/Columns.html param="columns.data" %}和{% include href/option/Columns.html param="columns.render" %}可以获取更多信息。{% include href/APIs.html param="cells().data()" %}方法可以获取单元格里的原始数据。如果你不为DataTables的不同操作使用数据和显示分离，这个方法则没什么意义。
+应当注意的是，这个方法是必须的，因为Datatables针对不同操作（搜索、排序、显示等）使用不同的数据。具体参考{% include href/Options.html param="columns.data" %}和{% include href/Options.html param="columns.render" %}可以获取更多信息。{% include href/APIs.html param="cells().data()" %}方法可以获取单元格里的原始数据。如果你不为DataTables的不同操作使用数据和显示分离，这个方法则没什么意义。
 
 注意，这个方法主要为开发DataTables插件的作者提供操作内部数据的能力。
 

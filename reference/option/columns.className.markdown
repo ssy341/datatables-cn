@@ -20,7 +20,7 @@ author: /reference/option/columns.className
 - {% include href/type/Javascript.html param="string" %}
 
 ## 例子(Example)
-使用{% include href/option/Columns.html param="columnDefs" %}的方式给第一列的每一个单元格指定一个 `my_class` 的样式
+使用{% include href/Options.html param="columnDefs" %}的方式给第一列的每一个单元格指定一个 `my_class` 的样式
 {% highlight javascript linenos %}
 $('#example').DataTable( {
   "columnDefs": [
@@ -29,7 +29,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用{% include href/option/Columns.html param="columns" %}的方式给第一了列的每一个单元格指定一个`my_class`和`my_class2`的样式
+使用{% include href/Options.html param="columns" %}的方式给第一了列的每一个单元格指定一个`my_class`和`my_class2`的样式
 {% highlight javascript linenos %}
 $('#example').DataTable( {
    "columns": [
@@ -47,5 +47,5 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Columns.html param="columnDefs" %}
-- {% include href/option/Columns.html param="columns" %}
+- {% include href/Options.html param="columnDefs" %}
+- {% include href/Options.html param="columns" %}

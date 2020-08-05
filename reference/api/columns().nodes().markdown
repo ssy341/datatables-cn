@@ -15,7 +15,7 @@ author: /reference/api/columns().nodes()
 
 请注意，返回数组中节点的顺序以及获得节点的行（搜索结果的行，可见的行等等）是由{% include href/APIs.html param="columns()" %}选择器的{% include href/Types.html param="selector-modifier" %}选项决定。
 
-此外，请注意，使用{% include href/option/Features.html param="deferRender" %}选项会使某些节点在需要显示的时候才会创建，因此调用本方法时，它可能不会立即有结果。
+此外，请注意，使用{% include href/Options.html param="deferRender" %}选项会使某些节点在需要显示的时候才会创建，因此调用本方法时，它可能不会立即有结果。
 
 ## 类型(Type)
 ---

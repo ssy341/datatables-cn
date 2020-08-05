@@ -125,5 +125,5 @@ API
 
 Options
 
-- {% include href/option/Features.html param="searching" %}
-- {% include href/option/Columns.html param="columns.searchable" %}
+- {% include href/Options.html param="searching" %}
+- {% include href/Options.html param="columns.searchable" %}

@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/11/option-dom.html
 ---
-参数详解连接{% include href/option/Options.html param="dom" %}
+参数详解连接{% include href/Options.html param="dom" %}
 
 相关例子 [视频讲解]({{ site.baseurl }}/example/vedio/season1/dom/)，
 [示例讲解1]({{ site.baseurl }}/example/basic_init/dom.html) 和
@@ -47,7 +47,7 @@ HTML DOM 定义了所有 HTML 元素的对象和属性，以及访问它们的�
 
 + 其次，Datatables里所谓的DOM是什么？
 
-{% include href/option/Options.html param="dom" %}也是指 html 元素。
+{% include href/Options.html param="dom" %}也是指 html 元素。
 
 用过Datatables的朋友应该都知道，默认情况下，表格都会有左上角的 *改变每页显示条数*、右上角的 *搜索框*、
 左下角的 *表格信息* ，右下角的 *分页信息* 、表格中部 *数据加载等待框* 以及 *表格* 本身，这都是Datatables所谓的
@@ -67,7 +67,7 @@ DOM。它们实际上就是一个 `div` 包裹起来的 `select`、`input`或者
 
 + 最后，我们怎么摆放这些控件的位置，或者我不想看到她？
 
-因为{% include href/option/Options.html param="dom" %}的默认值是 `lfrtip` ,所以表格初始化后都是
+因为{% include href/Options.html param="dom" %}的默认值是 `lfrtip` ,所以表格初始化后都是
 左上角是长度控制，右上角是过滤框，中间是表格和数据加载等待，左下角是表格信息展示，右下角是分页控件。
 
 上面的 `lfrtip` 被Datatables处理后的代码如下：

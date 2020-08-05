@@ -55,4 +55,4 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Options.html param="pagingType" %}
+- {% include href/Options.html param="pagingType" %}

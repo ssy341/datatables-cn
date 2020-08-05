@@ -33,7 +33,7 @@ since: 1.10.0
 这些字母你可以理解为一个标签，dt会自动把这些字母替换成相应的控件，就想模板一样。上面的这些元素 l、f、t、i、p、r除了t只能指定一次，其他的均可多次指定。
 </p>
 <p>
-    下面还有两个字母是应用到jQueryUI上的，不过作者推荐在1.10甚至1.11版本中不去使用他，通过使用{% include href/option/Features.html param="jQueryUI" %}来分离开
+    下面还有两个字母是应用到jQueryUI上的，不过作者推荐在1.10甚至1.11版本中不去使用他，通过使用{% include href/Options.html param="jQueryUI" %}来分离开
 <ul>
     <li>H - jQueryUI'header'classes (<code>fg-toolbar ui-widget-header ui-corner-tl ui-corner-tr
         ui-helper-clearfix </code>)</li>
@@ -66,7 +66,7 @@ since: 1.10.0
     </li>
 </ul>
 <p>
-    注意：当 {% include href/option/Features.html param="jQueryUI" %}启用时，默认值是：<code><"H"lfr > t <"F"ip ></code>
+    注意：当 {% include href/Options.html param="jQueryUI" %}启用时，默认值是：<code><"H"lfr > t <"F"ip ></code>
 </p>
 
 <a name="Example"></a>
@@ -187,11 +187,11 @@ $('#example').dataTable( {
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/Features.html param="searching" %}</li>
-        <li>{% include href/option/Features.html param="info" %}</li>
-        <li>{% include href/option/Features.html param="ordering" %}</li>
-        <li>{% include href/option/Features.html param="processing" %}</li>
-        <li>{% include href/option/Features.html param="paging" %}</li>
+        <li>{% include href/Options.html param="searching" %}</li>
+        <li>{% include href/Options.html param="info" %}</li>
+        <li>{% include href/Options.html param="ordering" %}</li>
+        <li>{% include href/Options.html param="processing" %}</li>
+        <li>{% include href/Options.html param="paging" %}</li>
     </ul>
 </div>
 

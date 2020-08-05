@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/11/option-search-caseInsensitive.html
 ---
-参数详解连接{% include href/option/Options.html param="search.caseInsensitive" %}
+参数详解连接{% include href/Options.html param="search.caseInsensitive" %}
 
 这个参数很简单，在只有英文的情况下使用这个参数可以设置这个参数，Datatables过滤的时候是否区分大小写
 

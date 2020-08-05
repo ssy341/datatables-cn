@@ -14,7 +14,7 @@ author: /reference/option/dom
 
 DataTables将在表格的周围添加许多元素，来控制表格并显示有关表格的其他信息。这些元素的位置在屏幕上由document(DOM)的顺序和应用于这些元素的CSS共同来控制。这个参数被用来控制他们的显示顺序以及额外的标记在DOM中是如何包裹的。
 
-每个表格控制元素在DataTables中有一个单独的字母和他们关联，并且在{% include href/option/Options.html param="dom" %}选项中使用的字母，来表示该元素在document中出现的位置。
+每个表格控制元素在DataTables中有一个单独的字母和他们关联，并且在{% include href/Options.html param="dom" %}选项中使用的字母，来表示该元素在document中出现的位置。
 
 
 - ### 选项（Options）
@@ -30,7 +30,7 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 
   以上每一个选项都可以指定多次（表格本身除外），这样可以在表格上下都有同样的控制元素。DataTables会自动保持多个控件的同步。
 
-  除了上述这些选项以外，DataTables还能理解两个常量（请注意，这两个选项在1.10版本中已经弃用，在1.11版本中删除，并将在{% include href/option/Options.html param="jQueryUI" %}选项分离到其他自己的主题文件中 ）
+  除了上述这些选项以外，DataTables还能理解两个常量（请注意，这两个选项在1.10版本中已经弃用，在1.11版本中删除，并将在{% include href/Options.html param="jQueryUI" %}选项分离到其他自己的主题文件中 ）
 
   - `H` - jQueryUI 主题 "header" 样式 （{% include href/string.html param="header" %}）
   - `F` - jQueryUI 主题 "footer" 样式 （{% include href/string.html param="footer" %}）
@@ -47,7 +47,7 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 
 - ### 样式（Styling）
 
-  DataTables支持的样式库将覆盖{% include href/option/Options.html param="dom" %}参数的默认值，并将其替换为合适他们布局系统的值。比如，Bootstrap就会利用他的网格布局。
+  DataTables支持的样式库将覆盖{% include href/Options.html param="dom" %}参数的默认值，并将其替换为合适他们布局系统的值。比如，Bootstrap就会利用他的网格布局。
 
   样式集成的默认值为：
 
@@ -99,9 +99,9 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 
 - ### 插件（Plug-ins）
 
-  可以开发DataTables功能插件来向DataTables添加其他功能，并且通常会利用此选项向DataTables核心功能添加新字母。比如，[Buttons]({{site.baseurl}}/extensions/buttons)添加`B`到{% include href/option/Options.html param="dom" %}来指定应将表格控制按钮插入到表格的哪个位置。
+  可以开发DataTables功能插件来向DataTables添加其他功能，并且通常会利用此选项向DataTables核心功能添加新字母。比如，[Buttons]({{site.baseurl}}/extensions/buttons)添加`B`到{% include href/Options.html param="dom" %}来指定应将表格控制按钮插入到表格的哪个位置。
 
-  通过{% include href/option/Options.html param="dom" %}选项下面这些[扩展（extensions）]({{site.baseurl}}/extensions)能够被初始化：
+  通过{% include href/Options.html param="dom" %}选项下面这些[扩展（extensions）]({{site.baseurl}}/extensions)能够被初始化：
 
   - `B` - [Buttons]({{site.baseurl}}/extensions/buttons)
   - `R` - [ColReorder](https://datatables.net/extensions/colreorder)
@@ -240,9 +240,9 @@ $('#example').dataTable( {
 
 Options
 
-- {% include href/option/Features.html param="searching" %}
-- {% include href/option/Features.html param="info" %}
-- {% include href/option/Features.html param="ordering" %}
-- {% include href/option/Features.html param="processing" %}
-- {% include href/option/Features.html param="paging" %}
-- {% include href/option/Features.html param="lengthChange" %}
+- {% include href/Options.html param="searching" %}
+- {% include href/Options.html param="info" %}
+- {% include href/Options.html param="ordering" %}
+- {% include href/Options.html param="processing" %}
+- {% include href/Options.html param="paging" %}
+- {% include href/Options.html param="lengthChange" %}

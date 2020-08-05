@@ -13,7 +13,7 @@ author: /reference/api/state.clear()
 
 ## 描述(Description)
 
-该方法提供清除已经保存的表格状态。在开发中是很有用的，当用户退出系统，在有效期（{% include href/option/Options.html param="stateDuration" %}）到之前清除这些数据。
+该方法提供清除已经保存的表格状态。在开发中是很有用的，当用户退出系统，在有效期（{% include href/Options.html param="stateDuration" %}）到之前清除这些数据。
 
 该方法会触发状态保存，只不过是保存的一个空对象（`{}`），有效的删除任何现有的状态数据。
 
@@ -66,7 +66,7 @@ Events
 
 Options
 
-- {% include href/option/Features.html param="stateSave" %}
+- {% include href/Options.html param="stateSave" %}
 - {% include href/option/Callbacks.html param="stateSaveCallback" %}
 - {% include href/option/Callbacks.html param="stateLoadCallback" %}
 - {% include href/option/Callbacks.html param="stateLoadParams" %}

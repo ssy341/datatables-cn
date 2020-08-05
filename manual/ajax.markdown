@@ -13,7 +13,7 @@ DataTables的数据本质上可以来自三个不同的地方：
 
 本手册的这一部分着眼于如何使用最后一种方式，教你可以特别方便的加载你的Ajax数据 - 例如通过HTTP API接口获取或者只是为了从HTML中分开表格数据逻辑。
 
-使用Ajax加载的数据的另一个好处是可以启用DataTables的{% include href/option/Features.html param="deferRender" %}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
+使用Ajax加载的数据的另一个好处是可以启用DataTables的{% include href/Options.html param="deferRender" %}选项来提高性能。这个选项当它启动时，导致仅需要显示的数据会在页面上绘制DOM元素而创建DOM元素，从而减少了首次将数据插入表时的初始CPU负载。
 
 
 ## 加载数据（Loading data）
@@ -154,17 +154,17 @@ $('#myTable').DataTable( {
 ## 告诉DataTables每一列数据点(Column data points)
 ---
 
-现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过{% include href/option/Columns.html param="columns.data" %}选项完成。
+现在，DataTables知道从何处获取行数据了，第二步就是告诉它从何处获取该行中每个单元格的数据。这个操作通过{% include href/Options.html param="columns.data" %}选项完成。
 
 这次，我们继续考虑三种不同的数据格式，下面三种情况下，每种情况下仅显示一行数据。（为了简洁起见，数据结构没有包装，像上面讨论的数据结构中）。
 
-如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用{% include href/option/Columns.html param="columns.data" %}属性告诉DataTables从哪里获取每列的数据。
+如你所见，在这三种情况下，该行使用相同的数据，但是JSON数据结构不同。我们使用{% include href/Options.html param="columns.data" %}属性告诉DataTables从哪里获取每列的数据。
 
-像上面讨论的{% include href/Options.html param="ajax.dataSrc" %}选项一样，{% include href/option/Columns.html param="columns.data" %}通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
+像上面讨论的{% include href/Options.html param="ajax.dataSrc" %}选项一样，{% include href/Options.html param="columns.data" %}通常提供一个字符串来代表JavaScript对象表示法中所需数据的位置。它也可以其他形式给出，例如用于访问数组的索引值。
 
 下面显示了这三个数据结构已经对应DataTables如何初始化：
 
-- 1）数组数据，注意，数组不需要设置{% include href/option/Columns.html param="columns.data" %}选项。这是因为{% include href/option/Columns.html param="columns.data" %}的默认值就是列的索引（比如`0，1，2，3`）
+- 1）数组数据，注意，数组不需要设置{% include href/Options.html param="columns.data" %}选项。这是因为{% include href/Options.html param="columns.data" %}的默认值就是列的索引（比如`0，1，2，3`）
 
 ```javascript
 [

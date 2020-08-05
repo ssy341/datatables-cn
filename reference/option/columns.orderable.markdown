@@ -13,7 +13,7 @@ author: /reference/option/columns.orderable
 使用这个参数可以控制用户是否能够操作该列排序。对于有些生成的列你并不想让用户对其排序，比如索引列，或者操作列（删除，编辑按钮）。
 
 注意，这个参数只是不允许用户进行列的排序操作，作为开发人员，你任然可以使用 
-{% include href/option/Options.html param="order" %} 或者 {% include href/api/Core.html param="order()" %} 对列进行排序。
+{% include href/Options.html param="order" %} 或者 {% include href/api/Core.html param="order()" %} 对列进行排序。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -25,7 +25,7 @@ author: /reference/option/columns.orderable
 
 
 ## 例子(Example)
-使用 {% include href/option/Columns.html param="columnDefs" %} 配置第一列不允许排序
+使用 {% include href/Options.html param="columnDefs" %} 配置第一列不允许排序
 {% highlight javascript linenos %}
 $('#example').DataTable( {
    "columnDefs": [
@@ -34,7 +34,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/Columns.html param="columns" %} 配置第一列不允许排序
+使用 {% include href/Options.html param="columns" %} 配置第一列不允许排序
 {% highlight javascript linenos %}
 $('#example').DataTable( {
     "columns": [
@@ -58,8 +58,8 @@ API
 
 Options
 
-- {% include href/option/Options.html param="order" %}
-- {% include href/option/Features.html param="ordering" %}
+- {% include href/Options.html param="order" %}
+- {% include href/Options.html param="ordering" %}
 
 
 

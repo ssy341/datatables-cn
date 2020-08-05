@@ -10,9 +10,9 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/11/option-searchCols.html
 ---
-参数详解连接{% include href/option/Options.html param="searchCols" %}
+参数详解连接{% include href/Options.html param="searchCols" %}
 
-和{% include href/option/Options.html param="search.search" %} 类似，只是这个不是全局的，
+和{% include href/Options.html param="search.search" %} 类似，只是这个不是全局的，
 而是针对于某个列，这个参数接受一个对象数组，对象里有两个属性 `search ` 和 `escapeRegex`。
 `search ` 代表过滤的条件，`escapeRegex` 代表是否支持正则，这个参数是可选的。
 

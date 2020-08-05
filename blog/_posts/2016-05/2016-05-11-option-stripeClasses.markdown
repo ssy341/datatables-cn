@@ -10,11 +10,11 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/11/option-stripeClasses.html
 ---
-参数详解连接{% include href/option/Options.html param="stripeClasses" %}
+参数详解连接{% include href/Options.html param="stripeClasses" %}
 
 默认情况下，Datatables就已经把行和行区分开了，使用的是 `$.fn.dataTable.ext.classes.stripe*` 选项，值为 `odd` 和 `even`
 
-{% include href/option/Options.html param="stripeClasses" %}接受的是一个数组
+{% include href/Options.html param="stripeClasses" %}接受的是一个数组
 <!--more-->
 
 定义三个不同的样式

@@ -281,8 +281,8 @@ API
 
 Options
 
-- {% include href/option/Columns.html param="columns.data" %}
-- {% include href/option/Columns.html param="columns.render" %}
+- {% include href/Options.html param="columns.data" %}
+- {% include href/Options.html param="columns.render" %}
 
 
 

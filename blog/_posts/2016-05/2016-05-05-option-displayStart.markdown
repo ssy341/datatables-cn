@@ -10,10 +10,10 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/05/option-displayStart.html
 ---
-参数详解连接{% include href/option/Options.html param="displayStart" %}
+参数详解连接{% include href/Options.html param="displayStart" %}
 
 定义表格初始化时显示的页数，使用这个参数的前提是得开启分页特性 `paging:true`，默认情况下是打开分页了，但是如果你把
-{% include href/option/Features.html param="paging" %}属性置为 `false` 那肯定就没用了哦！
+{% include href/Options.html param="paging" %}属性置为 `false` 那肯定就没用了哦！
 <!--more-->
 
 {% highlight javascript linenos %}

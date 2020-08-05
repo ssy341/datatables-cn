@@ -75,5 +75,5 @@ $('#submit').on( 'click', function () {
 
 Options
 
-- {% include href/option/Options.html param="destroy" %}
+- {% include href/Options.html param="destroy" %}
 

@@ -50,4 +50,4 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Features.html param="stateSave" %}
+- {% include href/Options.html param="stateSave" %}

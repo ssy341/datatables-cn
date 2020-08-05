@@ -17,7 +17,7 @@ author: /reference/option/lengthMenu
 
 分页长度值必须的大于`0`，当为`-1`的时候，代表告诉DataTablse禁用分页（比如，显示所有数据）
 
-注意{% include href/option/Options.html param="pageLength" %}属性将会自动设置为这个数组的第一个值
+注意{% include href/Options.html param="pageLength" %}属性将会自动设置为这个数组的第一个值
 
 
 ## 类型(Type)
@@ -58,7 +58,7 @@ API
 
 Options
 
-- {% include href/option/Features.html param="paging" %}
-- {% include href/option/Features.html param="lengthChange" %}
-- {% include href/option/Options.html param="pageLength" %}
+- {% include href/Options.html param="paging" %}
+- {% include href/Options.html param="lengthChange" %}
+- {% include href/Options.html param="pageLength" %}
 

@@ -5,12 +5,12 @@ from: /plug-ins/pagination/
 short: 分页插件（Pagination plug-ins）
 ---
 
-DataTables 有下列扩展的分页风格，通过{% include href/option/Options.html param="pagingType" %}设置，以满足不同的需求，你也可以自己开发属于自己的分页插件。
+DataTables 有下列扩展的分页风格，通过{% include href/Options.html param="pagingType" %}设置，以满足不同的需求，你也可以自己开发属于自己的分页插件。
 
 
 ### 如何使用？
 
-要使用分页插件，您必须引入DataTables核心库和分页插件的js。当初始化DataTable时，必须通过将{% include href/option/Options.html param="pagingType" %}设置为插件所需的值，告诉它使用此插件，而不是使用默认值。
+要使用分页插件，您必须引入DataTables核心库和分页插件的js。当初始化DataTable时，必须通过将{% include href/Options.html param="pagingType" %}设置为插件所需的值，告诉它使用此插件，而不是使用默认值。
 
 如下所示，怎么使用分页插件：
 

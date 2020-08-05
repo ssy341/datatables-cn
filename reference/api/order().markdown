@@ -133,6 +133,6 @@ table.order( [[ 1, 'asc' ], [ 2, 'asc' ]] ).draw();
 
 Options
 
-- {% include href/option/Options.html param="order" %}
-- {% include href/option/Features.html param="ordering" %}
+- {% include href/Options.html param="order" %}
+- {% include href/Options.html param="ordering" %}
 

@@ -12,27 +12,27 @@ since: 1.10.0
 <a name="Description"></a>
 <h2 data-anchor="Description">说明</h2>
 <p>
-    这个属性可以操作从数据源读取到的数据。{% include href/option/Columns.html param="columns.data" %}
-    和{% include href/option/Columns.html param="columns.render" %}比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
+    这个属性可以操作从数据源读取到的数据。{% include href/Options.html param="columns.data" %}
+    和{% include href/Options.html param="columns.render" %}比较像，可以说前者是只读，后者稍微复杂点可以读可以写。
 </p>
 <p>
-    {% include href/option/Columns.html param="columns.render" %}可以看做为把请求过来的数据做进一步的处理，
+    {% include href/Options.html param="columns.render" %}可以看做为把请求过来的数据做进一步的处理，
     比较常见的操作有格式化、字符串替换、字符串截取等等其他处理数据的方式。
     Datatables把不同数据的不同操作叫做 {% include href/localTarget/orthogonaldata.local %}（正交数据）,
     并允许不同形式的相同数据做不同的操作（例如，日期字段给用户是以'yyyy-MM-dd hh:mi:ss'格式显示和搜索，
     但是以long型作为排序）
 </p>
 <p>
-有三种特殊的值可以通过{% include href/option/Columns.html param="columns.render" %}解决
+有三种特殊的值可以通过{% include href/Options.html param="columns.render" %}解决
 <ul class="markdown">
     <li>
         {% include href/type/Javascript.html param="undefined" %}
         - 当值未定义时，
-        {% include href/option/Columns.html param="columns.defaultContent" %}将会替换作为默认的值去显示.
+        {% include href/Options.html param="columns.defaultContent" %}将会替换作为默认的值去显示.
         如果又是undefined又没有定义这个则会得到一个错误
     </li>
     <li>{% include href/type/Javascript.html param="null"%}
-        - 当值为null时，{% include href/option/Columns.html param="columns.defaultContent" %}将会替换作为默认值去显示.
+        - 当值为null时，{% include href/Options.html param="columns.defaultContent" %}将会替换作为默认值去显示.
         如果没有设置默认值则会以一个空的字符串显示 。 {% include href/type/Javascript.html param="null"%}将会被用作其他所有数据类型
     </li>
     <li>
@@ -116,8 +116,8 @@ since: 1.10.0
                         比如: <code>browser()</code> 在数据源中的一个简单的方法,
                         <code>browser.version()</code> 或者在属性里在嵌套一个方法
                         <code>browser().version</code>再或者是从一个方法里返回的对象里获取属性。
-                        注意，函数符号推荐使用{% include href/option/Columns.html param="columns.render" %}
-                        而不使用{% include href/option/Columns.html param="columns.data" %}，前者比后者更容易处理渲染
+                        注意，函数符号推荐使用{% include href/Options.html param="columns.render" %}
+                        而不使用{% include href/Options.html param="columns.data" %}，前者比后者更容易处理渲染
                     </p>
                 </li>
             </ul>
@@ -138,14 +138,14 @@ since: 1.10.0
                 <code>type  <span>String</span></code>
                 <code>sort <span>String</span></code>
                 ）。提到属性名称就是对应的属性名，他的值可以被定义为 integer，string或者function，规则就像
-                {% include href/option/Columns.html param="columns.render" %}做的一样
+                {% include href/Options.html param="columns.render" %}做的一样
             </p>
 
            <p>
                注意， <code>_ <span>String</span></code>选项可以被定义。当你没有指定数据类型时，这个
                被当做默认值交给Datatables处理。
                如果 <code>_ <span>String</span></code>选项没有被选择数据类型指定到数据列，那么
-               {% include href/option/Columns.html param="columns.data" %}将会被使用。
+               {% include href/Options.html param="columns.data" %}将会被使用。
            </p>
             <p>
                 看下面的数据例子：
@@ -194,7 +194,7 @@ since: 1.10.0
                 <tr class="even continuation">
                     <td></td>
                     <td colspan="3">
-                        当前cell的值（基于{% include href/option/Columns.html param="columns.data" %}）
+                        当前cell的值（基于{% include href/Options.html param="columns.data" %}）
                     </td>
                 </tr>
                 <tr class="odd">
@@ -221,7 +221,7 @@ since: 1.10.0
                 <tr class="even continuation">
                     <td></td>
                     <td colspan="3">
-                        整个row的数据（不基于{% include href/option/Columns.html param="columns.data" %}）
+                        整个row的数据（不基于{% include href/Options.html param="columns.data" %}）
                     </td>
                 </tr>
                 <tr class="odd">
@@ -510,7 +510,7 @@ var oTable = $(&quot;#example&quot;).DataTable({
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/Columns.html param="columns.data" %}</li>
+        <li>{% include href/Options.html param="columns.data" %}</li>
     </ul>
 </div>
 

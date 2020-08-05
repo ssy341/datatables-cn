@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: 雨吴
 redirect_from: /manual/daily/2016/04/27/option-columns-render3.html
 ---
-参数详解连接{% include href/option/Columns.html param="columns.render" %}
+参数详解连接{% include href/Options.html param="columns.render" %}
 
 今天由4群的小伙伴- **雨吴**  给大家讲解`columns.render` 的用法，先看个代码片段：
 <!--more-->

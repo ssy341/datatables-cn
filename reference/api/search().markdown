@@ -11,7 +11,7 @@ author: /reference/api/search()
 
 ## 描述(Description)
 
-检索数据是表概念的核心，该方法允许用户轻松访问数据。该方法提供通过API控制表的全局搜索的能力。全局搜索在所有可搜索的列中执行（参考{% include href/option/Columns.html param="columns.searchable" %}禁止搜索某些列）。
+检索数据是表概念的核心，该方法允许用户轻松访问数据。该方法提供通过API控制表的全局搜索的能力。全局搜索在所有可搜索的列中执行（参考{% include href/Options.html param="columns.searchable" %}禁止搜索某些列）。
 如果发现数据在任何列中匹配，则整行匹配并显示在结果集中。可以使用{% include href/APIs.html param="columns().search()" %}和{% include href/APIs.html param="column().search()" %}方法来执行各个列的搜索。
 
 DataTables有一个内置的搜索算法，称为“smart”搜索，旨在搜索表格数据，方便最终用户使用。smart搜索提供以下功能：
@@ -102,5 +102,5 @@ API
 
 Options
 
-- {% include href/option/Features.html param="searching" %}
-- {% include href/option/Columns.html param="columns.searchable" %}
+- {% include href/Options.html param="searching" %}
+- {% include href/Options.html param="columns.searchable" %}

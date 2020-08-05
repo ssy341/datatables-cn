@@ -14,7 +14,7 @@ since: 1.10.0
     <a href="/example/data_sources/js_array.html" target="_blank">JavaScript数据数据源</a>、<a href="/example/data_sources/ajax.html" target="_blank">Ajax数据源</a>
 </p>
 <p>
-    当你使用对象数组作为数据源时，你需要使用{% include href/option/Columns.html param="columns.data" %}来读取对象的属性，如果使用的是纯数组则不需要使用，Datatables会默认按照数组的顺序显示每一个行数据
+    当你使用对象数组作为数据源时，你需要使用{% include href/Options.html param="columns.data" %}来读取对象的属性，如果使用的是纯数组则不需要使用，Datatables会默认按照数组的顺序显示每一个行数据
 </p>
 <p>
     <code>ajax</code>接收三种类型的参数：
@@ -255,7 +255,7 @@ since: 1.10.0
     <div class="reference_example">
         <div class="title">
             <p>
-               操作服务器返回的数据添加链接，这个使用  {% include href/option/Columns.html param="columns.render" %}也可以达到效果，这里只是演示怎么操作返回的数据
+               操作服务器返回的数据添加链接，这个使用  {% include href/Options.html param="columns.render" %}也可以达到效果，这里只是演示怎么操作返回的数据
             </p>
         </div>
    <pre class="brush:js;toolbar:false">$(&#39;#example&#39;).dataTable( {
@@ -299,7 +299,7 @@ since: 1.10.0
 </div>
 <div class="reference_related">Options
     <ul class="markdown">
-        <li>{% include href/option/Features.html param="serverSide" %}</li>
+        <li>{% include href/Options.html param="serverSide" %}</li>
 
         <li>{% include href/Options.html param="ajax.data" %}</li>
 

@@ -12,7 +12,7 @@ author: reference/api/column().header()
 ## 描述(Description)
 此方法可以获取（并因此修改）用于单个列的标题单元格。这个可能是{% include href/tags.html param="td" %}或者是{% include href/tags.html param="th" %}，具体取决于表的HTML。
 
-返回的一个单元格是Datatables用来添加点击监听事件来排序操作。如果有多个单元格在表头（比如有多行），Datatables会用主要的表头单元格，这个由{% include href/option/Options.html param="orderCellsTop" %}来定义。
+返回的一个单元格是Datatables用来添加点击监听事件来排序操作。如果有多个单元格在表头（比如有多行），Datatables会用主要的表头单元格，这个由{% include href/Options.html param="orderCellsTop" %}来定义。
 
 另外，如果{% include href/APIs.html param="column()" %}中使用的选择器与多个列匹配，则结果集将被截断为单个列，默认返回匹配到的第一个列。
 

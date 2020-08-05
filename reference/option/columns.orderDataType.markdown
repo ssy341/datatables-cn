@@ -10,7 +10,7 @@ author: /reference/option/columns.orderDataType
 ---
 
 ## 描述(Description)
-DataTables主要的排序功能（{% include href/option/Features.html param="ordering" %}特性）是利用已经缓存在内存中的
+DataTables主要的排序功能（{% include href/Options.html param="ordering" %}特性）是利用已经缓存在内存中的
 数据，而不是每次读取DOM的数据来排序，考虑到从DOM读取本来就很慢。然后有时候又不得不从DOM中读取数据，比如表格中有表单元素，
 这势必也会影响到性能。提供这个属性是为了插件在DataTables能提供此功能。
 
@@ -22,7 +22,7 @@ DataTables主要的排序功能（{% include href/option/Features.html param="or
 - {% include href/type/Javascript.html param="string" %}
 
 ## 例子(Example)
-使用 {% include href/option/Columns.html param="columnDefs" %} 设置实时排序类型
+使用 {% include href/Options.html param="columnDefs" %} 设置实时排序类型
 下面给出了一个表格包含了form表单元素的排序例子
 
 - 第3,4列按照text排序
@@ -41,7 +41,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/Columns.html param="columns" %} 配置
+使用 {% include href/Options.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
      "columns": [
@@ -60,8 +60,8 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Features.html param="ordering" %}
-- {% include href/option/Columns.html param="columns.type" %}
+- {% include href/Options.html param="ordering" %}
+- {% include href/Options.html param="columns.type" %}
 
 
 

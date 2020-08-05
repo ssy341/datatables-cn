@@ -22,7 +22,7 @@ author: /reference/option/columns.searchable
 - Value: `true`
 
 ## 例子(Example)
-使用 {% include href/option/Columns.html param="columnDefs" %} 设置第一列不参与过滤
+使用 {% include href/Options.html param="columnDefs" %} 设置第一列不参与过滤
 {% highlight javascript linenos %}
 $('#example').DataTable( {
   "columnDefs": [
@@ -31,7 +31,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-使用 {% include href/option/Columns.html param="columns" %} 配置
+使用 {% include href/Options.html param="columns" %} 配置
 {% highlight javascript linenos %}
 $('#example').DataTable( {
    "columns": [
@@ -55,7 +55,7 @@ API
 
 Options
 
-- {% include href/option/Options.html param="search" %}
+- {% include href/Options.html param="search" %}
 
 
 

@@ -7,7 +7,7 @@ tags: [四个按钮,插件,分页插件]
 tour: ['<li><a href="/">首页</a></li>','<li><a href="/plug-ins">插件</a></li>','<li><a href="/plug-ins/pagination">分页插件</a></li>','<li class="active">四个按钮没有省略号</li>']
 ---
 
-该插件在1.10.+的版本已经内置，类似 `full_numbers` (参考 {% include href/option/Options.html param="pagingType" %})
+该插件在1.10.+的版本已经内置，类似 `full_numbers` (参考 {% include href/Options.html param="pagingType" %})
 最多一次性显示7个分页按钮
 使用方法如下代码所示：
 

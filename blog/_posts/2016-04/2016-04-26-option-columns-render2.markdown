@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/04/26/option-columns-render2.html
 ---
-参数详解连接{% include href/option/Columns.html param="columns.render" %}
+参数详解连接{% include href/Options.html param="columns.render" %}
 
 昨天暂且列出了7个问题，今天讲第二个，怎么在表格的最后一列，添加自定义的按钮，比如说【删除】
 <!--more-->

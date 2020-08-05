@@ -10,17 +10,17 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/11/option-search.html
 ---
-参数详解连接{% include href/option/Options.html param="search" %}
+参数详解连接{% include href/Options.html param="search" %}
 
-{% include href/option/Options.html param="search" %}可以接受一个字符串或者一个对象
+{% include href/Options.html param="search" %}可以接受一个字符串或者一个对象
 
 作为字符串的时候就是设置初始化过滤条件
 
 作为对象的时候，可以配置下面过滤选项：
-{% include href/option/Options.html param="search.search" %}、
-{% include href/option/Options.html param="search.smart" %}、
-{% include href/option/Options.html param="search.regex" %}和
-{% include href/option/Options.html param="search.caseInsensitive" %}
+{% include href/Options.html param="search.search" %}、
+{% include href/Options.html param="search.smart" %}、
+{% include href/Options.html param="search.regex" %}和
+{% include href/Options.html param="search.caseInsensitive" %}
 <!--more-->
 
 看下面两段代码是一样的效果，给全局设置初始化过滤选项

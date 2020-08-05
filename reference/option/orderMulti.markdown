@@ -10,13 +10,13 @@ author: /reference/option/orderMulti
 ---
 
 ## 描述(Description)
-当排序功能（{% include href/option/Features.html param="ordering" %} 为true
+当排序功能（{% include href/Options.html param="ordering" %} 为true
 ）打开的时候，DataTables 默认是允许用户按住shift点击表头，多列排序。
 虽然这个操作对用户来说是比较有用的，但同时也增加了表格处理数据的时间。因此，可以通过此选项来关闭多列排序的功能。
 
 需要注意的是，即使禁用了多列排序，但是开发人员任然可以使用 
-{% include href/option/Columns.html param="columns.orderData" %}，
-{% include href/option/Options.html param="order" %}和{% include href/api/Core.html param="order()" %}在代码里
+{% include href/Options.html param="columns.orderData" %}，
+{% include href/Options.html param="order" %}和{% include href/api/Core.html param="order()" %}在代码里
 实现多列排序，次禁用只是不允许用户来操作多列排序。
 
 
@@ -43,11 +43,11 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Options.html param="order" %}
-- {% include href/option/Features.html param="ordering" %}
-- {% include href/option/Columns.html param="columns.orderable" %}
-- {% include href/option/Columns.html param="columns.orderData" %}
-- {% include href/option/Options.html param="orderFixed" %}
+- {% include href/Options.html param="order" %}
+- {% include href/Options.html param="ordering" %}
+- {% include href/Options.html param="columns.orderable" %}
+- {% include href/Options.html param="columns.orderData" %}
+- {% include href/Options.html param="orderFixed" %}
 
 API
 

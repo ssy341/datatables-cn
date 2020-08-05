@@ -10,9 +10,9 @@ author: /reference/api/column().dataSrc()
 ---
 
 ## 描述(Description)
-通过使用{% include href/option/Columns.html param="column.data" %}选项，DataTables能够从各种复杂的数据源中读取数据。此方法提供了基于列选择器（参考{% include href/Types.html param="column-selector" %}）初始化后检索该设置的功能。
+通过使用{% include href/Options.html param="column.data" %}选项，DataTables能够从各种复杂的数据源中读取数据。此方法提供了基于列选择器（参考{% include href/Types.html param="column-selector" %}）初始化后检索该设置的功能。
 
-此方法将返回初始化期间设置的{% include href/option/Columns.html param="column.data" %}的值（包括列索引整数的默认值），包括函数（不会执行）。需要注意的是，如何设置{% include href/option/Columns.html param="columns.render" %}对该方法的返回值没有影响，该方法仅用于检索{% include href/option/Columns.html param="column.data" %}的值。
+此方法将返回初始化期间设置的{% include href/Options.html param="column.data" %}的值（包括列索引整数的默认值），包括函数（不会执行）。需要注意的是，如何设置{% include href/Options.html param="columns.render" %}对该方法的返回值没有影响，该方法仅用于检索{% include href/Options.html param="column.data" %}的值。
 
 目前无法将此方法用作设置方法-初始化后无法更改列的数据源。
 
@@ -27,7 +27,7 @@ author: /reference/api/column().dataSrc()
 #### 返回(Returns):
 {% include href/type/Javascript.html param="integer" %}，{% include href/type/Javascript.html param="string" %}，{% include href/type/Javascript.html param="function" %}
 
-{% include href/option/Columns.html param="column.data" %}配置的数据源属性。
+{% include href/Options.html param="column.data" %}配置的数据源属性。
 
 
 --- 

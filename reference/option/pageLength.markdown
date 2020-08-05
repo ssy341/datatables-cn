@@ -12,7 +12,7 @@ author: /reference/option/pageLength
 ## 描述(Description)
 使用分页时，单页显示的数据条数
 
-如果该参数是开启的，那么用户可以通过弹出（{% include href/option/Options.html param="lengthMenu" %}）的菜单设置每页显示的数据条数
+如果该参数是开启的，那么用户可以通过弹出（{% include href/Options.html param="lengthMenu" %}）的菜单设置每页显示的数据条数
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -35,9 +35,9 @@ $$('#example').DataTable( {
 
 Options
 
-- {% include href/option/Features.html param="lengthChange" %}
-- {% include href/option/Options.html param="lengthMenu" %}
-- {% include href/option/Features.html param="paging" %}
+- {% include href/Options.html param="lengthChange" %}
+- {% include href/Options.html param="lengthMenu" %}
+- {% include href/Options.html param="paging" %}
 
 API
 

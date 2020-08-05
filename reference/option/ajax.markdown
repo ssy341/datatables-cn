@@ -16,7 +16,7 @@ author: /reference/option/ajax
 [JavaScript数据数据源](/example/data_sources/js_array.html)、
 [Ajax数据源](/example/data_sources/ajax.html)
     
-当你使用对象数组作为数据源时，你需要使用{% include href/option/Columns.html param="columns.data" %}来匹对对象的属性，
+当你使用对象数组作为数据源时，你需要使用{% include href/Options.html param="columns.data" %}来匹对对象的属性，
 如果使用的是纯数组则不需要使用，DataTables 会默认按照数组的顺序显示每一个行数据
     
 `ajax` 接收三种类型的参数：
@@ -180,7 +180,7 @@ $('#example').DataTable( {
 {% endhighlight %}
 
 
-操作服务器返回的数据添加链接，这个使用  {% include href/option/Columns.html param="columns.render" %}也可以达到效果，这里只是演示怎么操作返回的数据
+操作服务器返回的数据添加链接，这个使用  {% include href/Options.html param="columns.render" %}也可以达到效果，这里只是演示怎么操作返回的数据
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {
@@ -221,7 +221,7 @@ API
 
 Options
 
-- {% include href/option/Features.html param="serverSide" %}
+- {% include href/Options.html param="serverSide" %}
 - {% include href/Options.html param="ajax.data" %}
 - {% include href/Options.html param="ajax.dataSrc" %}
 

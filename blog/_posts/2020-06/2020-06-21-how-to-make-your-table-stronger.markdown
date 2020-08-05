@@ -64,9 +64,15 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - 函数处理提供正交数据
     - HTML5 `data-*`和正交数据
 - [第四章，复杂数据的显示-渲染器][four]（Done √）
-- [第五章，Ajax][five]
-- 第六章，打造和自己项目贴近的表格
-    - info，paging，processing，lengthChange，searching
+- [第五章，Ajax][five]（Done √）
+- [第六章，打造和自己项目贴近的表格-如何配置Datatables]
+    - {% include href/Options.html param="ajax" %} Ajax数据源配置
+    - {% include href/Options.html param="data" %} JavaScript数据源配置
+    - {% include href/Options.html param="serverSide" %} 开启服务器处理
+    - {% include href/Options.html param="columns.data" %}  列数据源选项
+    - {% include href/Options.html param="scrollX" %}  水平滚动条
+    - {% include href/Options.html param="scrollY" %}  垂直滚动条
+    - [完整的选项列表][options]
 - 第七章，更方便的操作表格数据  
     - ajax
     - columns
@@ -100,3 +106,5 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [three]: {{ site.baseurl }}/blog/2020/07/15/datatables-orthogonal-data.html
 [four]: {{ site.baseurl }}/blog/2020/07/20/datatables-renderers.html
 [five]: {{ site.baseurl }}/blog/2020/08/03/datatables-ajax.html
+[six]: {{ site.baseurl }}/blog/2020/08/05/datatables-options.html
+[options]: {{site.baseurl}}/reference/option

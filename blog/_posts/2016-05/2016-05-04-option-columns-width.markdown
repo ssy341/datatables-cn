@@ -10,9 +10,9 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/04/option-columns-width.html
 ---
-参数详解连接{% include href/option/Columns.html param="columns.width" %}
+参数详解连接{% include href/Options.html param="columns.width" %}
 
-DataTable会根据列内容自动计算列宽，通过设置{% include href/option/Features.html param="autoWidth" %}属性控制是否开启这个功能
+DataTable会根据列内容自动计算列宽，通过设置{% include href/Options.html param="autoWidth" %}属性控制是否开启这个功能
 <!--more-->
 
 同样我们也可以自定义列宽，看下面代码：
@@ -38,7 +38,7 @@ $('#example').DataTable( {
 } );
 {% endhighlight %}
 
-除了百分比，{% include href/option/Columns.html param="columns.width" %}还接受任何 css 值，比如 3em, 20px 等等
+除了百分比，{% include href/Options.html param="columns.width" %}还接受任何 css 值，比如 3em, 20px 等等
 
 {% highlight javascript linenos %}
 $('#example').DataTable( {

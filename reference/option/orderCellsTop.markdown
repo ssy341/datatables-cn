@@ -26,8 +26,8 @@ author: /reference/option/orderCellsTop
 </thead>
 {% endhighlight %}
 
-在这个情况下，当 {% include href/option/Options.html param="orderCellsTop" %} 是 `false`(默认)，单元格 
-`1` 和 `2.2` 将会被监听排序事件。如果{% include href/option/Options.html param="orderCellsTop" %}是
+在这个情况下，当 {% include href/Options.html param="orderCellsTop" %} 是 `false`(默认)，单元格 
+`1` 和 `2.2` 将会被监听排序事件。如果{% include href/Options.html param="orderCellsTop" %}是
 `true` 那么 `1` 和 `2.1` 将会被监听排序事件
 
 
@@ -53,8 +53,8 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Options.html param="order" %}
-- {% include href/option/Features.html param="ordering" %}
+- {% include href/Options.html param="order" %}
+- {% include href/Options.html param="ordering" %}
 
 API
 

@@ -10,7 +10,7 @@ tags: [不定时一讲]
 author: DataTables中文网
 redirect_from: /manual/daily/2016/05/06/option-lengthMenu.html
 ---
-参数详解连接{% include href/option/Options.html param="lengthMenu" %}
+参数详解连接{% include href/Options.html param="lengthMenu" %}
 
 这个参数可以设置左上角那个下拉框（默认在左上角），默认值为 `[ 10, 25, 50, 100 ]`
 
