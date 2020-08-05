@@ -65,7 +65,7 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - HTML5 `data-*`和正交数据
 - [第四章，复杂数据的显示-渲染器][four]（Done √）
 - [第五章，Ajax][five]（Done √）
-- [第六章，打造和自己项目贴近的表格-如何配置Datatables]
+- [第六章，打造和自己项目贴近的表格-如何配置Datatables][six]
     - {% include href/Options.html param="ajax" %} Ajax数据源配置
     - {% include href/Options.html param="data" %} JavaScript数据源配置
     - {% include href/Options.html param="serverSide" %} 开启服务器处理
