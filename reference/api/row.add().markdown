@@ -74,5 +74,5 @@ $( rowNode )
 
 API
 
-- {% include href/APIs.html param="rows.add" %}
+- {% include href/APIs.html param="rows.add()" %}
 

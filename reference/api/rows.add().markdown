@@ -131,5 +131,5 @@ table
 
 API
 
-- {% include href/APIs.html param="row.add" %}
+- {% include href/APIs.html param="row.add()" %}
 
