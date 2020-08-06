@@ -62,25 +62,13 @@ table.search("Datatables中文网").draw();
 {: #rows-add-example2-js }
 {% highlight javascript %}
 
-function Pupil ( name, position, salary, office, start_date, extn ) {
-    this.name = name;
-    this.position = position;
-    this.salary = salary;
-    this._office = office;
-    this.extn = extn;
-    this.start_date = start_date;
-
-    this.office = function () {
-        return this._office;
-    }
-}
 
 var table = $('#example').DataTable();
  
 table
     .rows.add([
-        new  Pupil("AA Datatables中文网","System Architect","$3,120","2011/04/25","Edinburgh","5421"),
-        new  Pupil("AA Datatables中文网","System Architect","$3,120","2011/04/25","Edinburgh","5421")
+        ["AA Datatables中文网","System Architect","$3,120","2011/04/25","Edinburgh","5421"],
+        ["AA Datatables中文网","System Architect","$3,120","2011/04/25","Edinburgh","5421"]
     ]) 
     .draw()
     .nodes()
@@ -94,35 +82,6 @@ table
     color:green;
     font-weight:bolder;
 }
-{% endhighlight %}
-
-
-{: #rows-add-example2-body }
-{% highlight html %}
-<table id="example" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Office</th>
-            <th>Age</th>
-            <th>Start date</th>
-            <th>Salary</th>
-        </tr>
-    </tfoot>
-    <tbody>
-    </tbody>
-</table>
 {% endhighlight %}
 
 ---
