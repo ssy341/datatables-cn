@@ -44,7 +44,7 @@ Datatables API 实例，结果集中包含新添加的行
 {% highlight javascript %}
 var table = $('#example').DataTable();
  
-table.row.add(["Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"]).draw();
+table.row.add(["AA Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"]).draw();
 
 table.search("Datatables中文网").draw();
 {% endhighlight %}
@@ -58,7 +58,7 @@ table.search("Datatables中文网").draw();
 var table = $('#example').DataTable();
  
 var rowNode = table
-    .row.add(["Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"])
+    .row.add(["AA Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"])
     .draw()
     .node();
  
