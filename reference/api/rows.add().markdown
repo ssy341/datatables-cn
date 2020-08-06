@@ -44,21 +44,11 @@ Datatables API 实例，结果集中包含新添加的行
 {% highlight javascript %}
 var table = $('#example').DataTable();
  
-table.rows.add([ {
-        "name":       "Datatables中文网",
-        "position":   "System Architect",
-        "salary":     "$3,120",
-        "start_date": "2011/04/25",
-        "office":     "Edinburgh",
-        "extn":       "5421"
-    }, {
-        "name": "Datatables中文网博客",
-        "position": "Director",
-        "salary": "$5,300",
-        "start_date": "2011/07/25",
-        "office": "Edinburgh",
-        "extn": "8422"
-    } ] ).draw();
+table.rows.add([ 
+    ["AAA Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"]
+    ,
+    ["AA Datatables中文网","System Architect","Edinburgh", "21","2011/04/25","$3,120"] 
+     ] ).draw();
 
 table.search("Datatables中文网").draw();
 {% endhighlight %}
@@ -105,9 +95,36 @@ table
 }
 {% endhighlight %}
 
+
+{: #rows-add-example2-body }
+{% highlight html %}
+<table id="example" class="display" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Position</th>
+            <th>Office</th>
+            <th>Age</th>
+            <th>Start date</th>
+            <th>Salary</th>
+        </tr>
+    </tfoot>
+    <tbody>
+    </tbody>
+</table>
+{% endhighlight %}
+
 ---
-
-
 
 ## 相关属性(Related)
 下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
