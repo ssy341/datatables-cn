@@ -19,7 +19,7 @@ author: /reference/option/language.infoPostFix
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/Javascript.html param="string" %}
+- {% include href/Types.html param="string" %}
 
 ## 默认值(Default)
 - Value ：`Empty string`

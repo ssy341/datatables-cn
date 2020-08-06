@@ -41,7 +41,7 @@ DataTables提供了一个工具方法（{% include href/api/Static.html param="$
 获取当前全局搜索词。如果当前有多个DataTables实例对象，将返回找到的第一个实例对象的搜索词。使用{% include href/api/Tables.html param="table()" %}来获取不同表格实例。
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="string" %}
+{% include href/Types.html param="string" %}
 
 当前全局搜索的词语。如果没有，将返回空字符串。
 

@@ -634,6 +634,23 @@ relurl: http://datatables.net/reference/api/
                 从表格中选择多行
             </td>
         </tr>
+
+        <tr>
+            <td>
+                {% include href/APIs.html param="row.add()" %}
+            </td>
+            <td>
+                给表格添加一条新的数据
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                {% include href/APIs.html param="rows.add()" %}
+            </td>
+            <td>
+                给表格添加多条新的数据
+            </td>
+        </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().cache()"><code class="api" title="DataTables API method">row().cache()<span>DT</span></code></a>
         </p>
@@ -749,13 +766,6 @@ relurl: http://datatables.net/reference/api/
     </tr>
    
     <tr>
-        <td><p><a href="//datatables.net/reference/api/row.add()"><code class="api" title="DataTables API method">row.add()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>添加一行</p>
-        </td>
-    </tr>
-    <tr>
         <td><p><a href="//datatables.net/reference/api/rows().cache()"><code class="api" title="DataTables API method">rows().cache()<span>DT</span></code></a>
         </p>
         </td>
@@ -800,13 +810,7 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/rows.add()"><code class="api" title="DataTables API method">rows.add()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>添加多行</p>
-        </td>
-    </tr>
+   
     </tbody>
 </table>
 <a name="Columns"></a>

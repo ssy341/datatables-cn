@@ -23,7 +23,7 @@ DataTables提供的所有语言选项都可以储存在服务器上的文件中�
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/Javascript.html param="string" %}
+- {% include href/Types.html param="string" %}
 
  
 ## 例子(Example)

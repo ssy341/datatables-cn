@@ -35,7 +35,7 @@ DataTables 把行列的数据储存在内部索引里面，这个可以用来快
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="object"%}
+{% include href/Types.html param="object"%}
 被选中单元格索引信息数据，参考上面的数据格式
 
 ---

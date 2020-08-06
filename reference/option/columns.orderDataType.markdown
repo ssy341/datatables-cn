@@ -19,7 +19,7 @@ DataTables主要的排序功能（{% include href/Options.html param="ordering" 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/Javascript.html param="string" %}
+- {% include href/Types.html param="string" %}
 
 ## 例子(Example)
 使用 {% include href/Options.html param="columnDefs" %} 设置实时排序类型

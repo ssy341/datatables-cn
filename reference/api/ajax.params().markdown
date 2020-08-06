@@ -31,9 +31,9 @@ option has been fully evaluated, so any custom parameters are also stored.
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="object" %},{% include href/type/Javascript.html param="undefined" %}
+{% include href/Types.html param="object" %},{% include href/Types.html param="undefined" %}
 
-在最后一个Ajax请求中提交的数据，如果没有发生请求则返回{% include href/type/Javascript.html param="undefined" %}。
+在最后一个Ajax请求中提交的数据，如果没有发生请求则返回{% include href/Types.html param="undefined" %}。
 
 ---
     

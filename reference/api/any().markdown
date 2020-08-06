@@ -13,7 +13,7 @@ author: /reference/api/any()
 这个方法非常有用，它用来判断一个 API 实例是否包含符合条件的数据以便决定可以采取什么行动。
 比如，你可以你可以知道是否有行被选中，或者是特定的数据在表格中。
 
-作为多个DataTables API实例，当使用标准的Javascript{% include href/type/Javascript.html param="array" %}去使用，仅仅去判断`length`属性为0，
+作为多个DataTables API实例，当使用标准的Javascript{% include href/Types.html param="array" %}去使用，仅仅去判断`length`属性为0，
 不总是对的。也就是说，DataTables API实例可能包含多个表格信息，而他们也许是空的。
 
 这个方法提供了可以在API 实例中检索是否有可用的数据。返回的结果也可以用 {% include href/api/Utility.html param="flatten()" %}方法检查长度来判断。
@@ -32,7 +32,7 @@ author: /reference/api/any()
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="boolean" %}
+{% include href/Types.html param="boolean" %}
 `true` 表示在结果集中包含一条或者多条符合条件的记录，`false`表示不包含
 
 ---

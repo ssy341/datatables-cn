@@ -45,7 +45,7 @@ author: /reference/api/order()
 获取表格的排序信息。如果当前有多个DataTables实例对象，将返回找到的第一个实例对象的排序信息。使用{% include href/api/Tables.html param="table()" %}来获取不同表格实例。
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="array" %}
+{% include href/Types.html param="array" %}
 
 包含当前表格排序信息的二维数组。该二维数组与用来设置排序的数据格式相同（见下文）。
 

@@ -28,7 +28,7 @@ Datatables把行和列的数据存储在内部的索引中，为了快速排序�
 {% include_relative parameters/column.index.html %}
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="integer" %}
+{% include href/Types.html param="integer" %}
 被选则的单列的列索引
 
 --- 

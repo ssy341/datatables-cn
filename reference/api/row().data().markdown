@@ -30,7 +30,7 @@ author: /reference/api/row().data()
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="array" %}，{% include href/type/Javascript.html param="object" %}
+{% include href/Types.html param="array" %}，{% include href/Types.html param="object" %}
 
 行的数据源对象。如果使用的是DOM数据源，结果将会是一个数组，如果是非DOM数据源则返回的是数组、对象、实例。
 

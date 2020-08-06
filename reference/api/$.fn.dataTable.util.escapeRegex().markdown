@@ -27,7 +27,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="string" %}
+{% include href/Types.html param="string" %}
 
 被转义的字符串
 
@@ -35,7 +35,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
 
 ## 例子(Example)
 
-使用{% include href/tags.html param="select" %}元素执行转义匹配搜索：  
+使用{% include href/Tags.html param="select" %}元素执行转义匹配搜索：  
 {% highlight javascript linenos %}
 var table = $('#example').DataTable();
  

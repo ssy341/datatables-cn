@@ -19,7 +19,7 @@ Note that if you use columns to define your columns, you must have an entry in t
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/Javascript.html param="array" %}
+- {% include href/Types.html param="array" %}
 
 
 ## 默认值(Default)

@@ -53,7 +53,7 @@ author: /reference/api/state()
 获取最新表的状态
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="object" %}
+{% include href/Types.html param="object" %}
 被保存的状态对象
 
 --- 

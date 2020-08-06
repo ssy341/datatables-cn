@@ -18,7 +18,7 @@ DataTables通过 {% include href/APIs.html param="column().visible()" %}/ {% inc
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
 
-- {% include href/type/Javascript.html param="boolean" %}
+- {% include href/Types.html param="boolean" %}
 
 
 ## 默认值(Default)

@@ -17,9 +17,8 @@ author: /reference/api/row()
 
 ## 类型(Type)
 ---
-    
 ### _function_ **row( rowSelector [, modifier ] )**   
-
+---
 #### 描述(Description):
 
 通过行选择器选择一行

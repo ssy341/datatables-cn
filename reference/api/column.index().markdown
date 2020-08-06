@@ -27,7 +27,7 @@ toc: true
 {% include_relative parameters/column.index.type.html %}
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="integer" %}
+{% include href/Types.html param="integer" %}
 
 已经计算的列索引
 

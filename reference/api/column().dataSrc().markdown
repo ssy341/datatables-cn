@@ -25,7 +25,7 @@ author: /reference/api/column().dataSrc()
 获取被选择列数据源的属性名称
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="integer" %}，{% include href/type/Javascript.html param="string" %}，{% include href/type/Javascript.html param="function" %}
+{% include href/Types.html param="integer" %}，{% include href/Types.html param="string" %}，{% include href/Types.html param="function" %}
 
 {% include href/Options.html param="column.data" %}配置的数据源属性。
 

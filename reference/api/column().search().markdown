@@ -30,7 +30,7 @@ author: /reference/api/column().search()
 获取当前列搜索应用的搜索词。
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="string" %}
+{% include href/Types.html param="string" %}
 
 当前应用于该列的搜索词，如果未应用搜索项，则该字符串为空。
 

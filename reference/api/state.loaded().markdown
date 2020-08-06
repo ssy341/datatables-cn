@@ -30,7 +30,7 @@ author: /reference/api/state.loaded()
 获取初始化期间加载的表状态
 
 #### 返回(Returns):
-{% include href/type/Javascript.html param="object" %}
+{% include href/Types.html param="object" %}
 被保存的状态对象，参考{% include href/api/Core.html param="state()" %} 对象格式
 
 --- 

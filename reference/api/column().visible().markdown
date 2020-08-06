@@ -24,7 +24,7 @@ toc: true
 
 #### 返回(Returns):
 
-{% include href/type/Javascript.html param="boolean" %}
+{% include href/Types.html param="boolean" %}
 
 `true`表示列是可见的，`false`表示不可见
 

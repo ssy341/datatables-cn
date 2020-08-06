@@ -10,7 +10,7 @@ author: /reference/api/column().nodes()
 ---
 
 ## 描述(Description)
-此方法用于获取选择器匹配的单个列中单元格节点（{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}元素）。
+此方法用于获取选择器匹配的单个列中单元格节点（{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}元素）。
 
 请注意，返回数组中节点的顺序以及获得节点的行（搜索结果的行，可见的行等等）是由{% include href/APIs.html param="column()" %}选择器的{% include href/Types.html param="selector-modifier" %}选项决定。
 
@@ -26,7 +26,7 @@ author: /reference/api/column().nodes()
 ### _function_ **column().nodes()**   
 
 #### 描述(Description):
-获取所选的单个列的{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}节点。
+获取所选的单个列的{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}节点。
 
 #### 返回(Returns):
 

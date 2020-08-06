@@ -27,7 +27,7 @@ author: /reference/api/cells().nodes()
 #### 返回(Returns):
 {% include href/Types.html param="DataTables.Api"%}
 
-DataTables API 实例，集合中包含选择器获得到的{% include href/tags.html param="td" %}/{% include href/tags.html param="th" %}多个单元格元素
+DataTables API 实例，集合中包含选择器获得到的{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}多个单元格元素
 
 
 --- 

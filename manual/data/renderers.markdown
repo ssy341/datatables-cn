@@ -215,7 +215,7 @@ columns:[
 ```
 这个例子不需要千位分隔符，但是对于较大的值（例如`1000`），他们的格式因为`￥1,000.00`。
 
-注意，如果`number`辅助函数遇到的值不是有效数字（{% include href/type/Javascript.html param="number" %}或者是包含数字的 {% include href/type/Javascript.html param="string" %}）转义其中的HTML实体后，返回该值（帮助防止潜在的安全攻击）。
+注意，如果`number`辅助函数遇到的值不是有效数字（{% include href/Types.html param="number" %}或者是包含数字的 {% include href/Types.html param="string" %}）转义其中的HTML实体后，返回该值（帮助防止潜在的安全攻击）。
 
 ---
 

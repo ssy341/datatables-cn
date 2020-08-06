@@ -30,7 +30,7 @@ redirect_from: /manual/daily/2016/09/25/option-stateSaveParams.html
     - No
     - DataTables settings 对象
 - `data`
-    - {% include href/type/Javascript.html param="object"%}
+    - {% include href/Types.html param="object"%}
     - No
     - 用来储存的数据。数据来自{% include href/option/Callbacks.html param="stateSaveParams" %}
 
