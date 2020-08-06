@@ -10,7 +10,7 @@ author: reference/api/column().header()
 ---
 
 ## 描述(Description)
-此方法可以获取（并因此修改）用于单个列的标题单元格。这个可能是{% include href/Tags.html param="td" %}或者是{% include href/Tags.html param="th" %}，具体取决于表的HTML。
+此方法可以获取（并因此修改）用于单个列的标题单元格。这个可能是{% include href/HtmlTags.html param="td" %}或者是{% include href/HtmlTags.html param="th" %}，具体取决于表的HTML。
 
 返回的一个单元格是Datatables用来添加点击监听事件来排序操作。如果有多个单元格在表头（比如有多行），Datatables会用主要的表头单元格，这个由{% include href/Options.html param="orderCellsTop" %}来定义。
 
@@ -24,7 +24,7 @@ author: reference/api/column().header()
 ### _function_ **column().header()**   
 
 #### 描述(Description):
-获取单个列的表头{% include href/Tags.html param="td" %}或者是{% include href/Tags.html param="th" %}单元格。
+获取单个列的表头{% include href/HtmlTags.html param="td" %}或者是{% include href/HtmlTags.html param="th" %}单元格。
 
 #### 返回(Returns):
 {% include href/Types.html param="node" %}

@@ -11,7 +11,7 @@ author: /reference/api/columns().nodes()
 
 ## 描述(Description)
 
-此方法用于获取选择器匹配的多个列中单元格节点（{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}元素）。
+此方法用于获取选择器匹配的多个列中单元格节点（{% include href/HtmlTags.html param="td" %}/{% include href/HtmlTags.html param="th" %}元素）。
 
 请注意，返回数组中节点的顺序以及获得节点的行（搜索结果的行，可见的行等等）是由{% include href/APIs.html param="columns()" %}选择器的{% include href/Types.html param="selector-modifier" %}选项决定。
 
@@ -22,7 +22,7 @@ author: /reference/api/columns().nodes()
 ### _function_ **columns().nodes()**   
 ---
 #### 描述(Description):
-获取所选的多个列的{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}节点。
+获取所选的多个列的{% include href/HtmlTags.html param="td" %}/{% include href/HtmlTags.html param="th" %}节点。
 
 #### 返回(Returns):
 

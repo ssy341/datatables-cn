@@ -38,7 +38,7 @@ DataTables将在表格的周围添加许多元素，来控制表格并显示有�
 
 - ### 标记语言（Markup）
 
-  除了这些选项，你还可以指明额外的{% include href/Tags.html param="div" %}元素插入到document中，这样可以控制元素的样式/嵌套。需要添加标签，需要使用如下的语法：
+  除了这些选项，你还可以指明额外的{% include href/HtmlTags.html param="div" %}元素插入到document中，这样可以控制元素的样式/嵌套。需要添加标签，需要使用如下的语法：
 
   - `<` 和 `>` - div 元素
   - `<"class"` 和 `>` - 指定一个样式的 div 元素

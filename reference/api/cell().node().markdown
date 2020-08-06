@@ -28,7 +28,7 @@ author: /reference/api/cell().node()
 
 {% include href/Types.html param="node" %}
 
-选择器获得到的{% include href/Tags.html param="td" %}/{% include href/Tags.html param="th" %}单元格
+选择器获得到的{% include href/HtmlTags.html param="td" %}/{% include href/HtmlTags.html param="th" %}单元格
 
 
 --- 

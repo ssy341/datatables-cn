@@ -35,7 +35,7 @@ Javascript的正则表达式中有许多特殊字符，DataTables需要在内部
 
 ## 例子(Example)
 
-使用{% include href/Tags.html param="select" %}元素执行转义匹配搜索：  
+使用{% include href/HtmlTags.html param="select" %}元素执行转义匹配搜索：  
 {% highlight javascript linenos %}
 var table = $('#example').DataTable();
  
