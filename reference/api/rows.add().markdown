@@ -33,6 +33,7 @@ author: /reference/api/rows.add()
 {% include href/Types.html param="DateTables.Api" %}
 
 Datatables API 实例，结果集中包含新添加的行
+
 --- 
     
 ## 例子(Example)
