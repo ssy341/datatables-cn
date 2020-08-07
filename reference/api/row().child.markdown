@@ -21,7 +21,7 @@ Datatables能够显示每一行（在本文档中称为“父行”，以区别�
 这个选项能够接受以下类型的参数：
 
 ---
-- {% include href/Types.html param="object()" %}
+- {% include href/Types.html param="object" %}
 ---
 
 

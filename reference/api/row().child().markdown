@@ -41,13 +41,15 @@ jQuery对象，其结果集中有父行的子行，如果尚未为父行设置�
 显示或删除并销毁所选行的子行。
      
 #### 参数(Parameters):
+
 {% include_relative parameters/row.child-fun1.html %}
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API实例
+
 
 ---   
 ### _function_ **row().child( data [, className ] )**
@@ -56,6 +58,7 @@ Datatables API实例
 设置数据以显示到子行中。请注意，调用此方法将替换所有已经附加到父行的子行。
 
 #### 参数(Parameters):
+
 {% include_relative parameters/row.child-fun2.html %}
 
 #### 返回(Returns):
@@ -63,6 +66,7 @@ Datatables API实例
 {% include href/Types.html param="DateTables.Api" %}
 
 Datatables API实例
+
 
 ---  
 ## 例子(Example)
