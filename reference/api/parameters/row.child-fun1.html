@@ -1,0 +1,34 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>showRemove</code></td>
+        <td> 
+            {% include href/Types.html param="boolean" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            此参数可以指定为<code>true</code>或<code>false</code>：
+            <ul>
+                <li>
+                    <code>true</code>，附加到父级的任何子级行将立即变为可见。这相当于使用{% include href/APIs.html param="row().child.show()" %}
+                </li>
+                <li> 
+                    <code>false</code>，如果父行当前有任何子行（无论显示与否），此方法将销毁那些子行，并在适当的情况下将其从DOM中删除。与{% include href/APIs.html param="row().child.hide()" %}方法不同，此选项从Datatables保留的内存数据中完全删除行。这相当于使用{% include href/APIs.html param="row().child.remove()" %}。
+                </li>
+            </ul>
+        </td>
+    </tr>
+    </tbody>
+</table>

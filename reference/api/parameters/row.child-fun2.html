@@ -1,0 +1,66 @@
+<table class="parameters dataTable stripe row-border no-footer">
+    <thead>
+    <tr>
+        <th></th>
+        <th>名称（Name）</th>
+        <th>类型（Type）</th>
+        <th>是否可选（Optional）</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="even">
+        <td>1</td>
+        <td><code>data</code></td>
+        <td> 
+            {% include href/Types.html param="string" %}，
+            {% include href/Types.html param="node" %}，
+            {% include href/Types.html param="jQuery" %}，
+            {% include href/Types.html param="array" %}
+        </td>
+        <td>No</td>
+    </tr>
+    <tr class="even continuation">
+        <td></td>
+        <td colspan="3">
+            子行中显示的数据可以通过多种不同方式给出：
+            <ul>
+                <li>
+                    <code>string</code>，作为字符串，创建单个子行，并将数据插入该子行中的单个单元格。
+                </li>
+                <li>
+                    <code>node</code>，作为{% include href/HtmlTags.html param="tr" %}元素，{% include href/HtmlTags.html param="tr" %}元素作为子行。如果你希望在子行中定义多个列，这将很有用。
+                </li>
+                <li>
+                    <code>jQuery</code>，多个节点的jQuery对象。如果jQuery结果集中有多个元素，则将它们添加为多行。如果节点是{% include href/HtmlTags.html param="tr" %}元素，则将其视为子行，否则将自动创建行和单元格，并将jQuery结果集中的节点插入其中。
+                </li>
+                <li>
+                    <code>array</code>，通过将上述任何一个选项作为数组传递，可以一次添加多个子行。比如，你可以传入一个包含两个字符串元素的组数，已创建两个子行，每个子行使用字符串内容。
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="odd">
+        <td>2</td>
+        <td><code>className</code></td>
+        <td> 
+            {% include href/Types.html param="string" %}
+        </td>
+        <td>Yes - default:</td>
+    </tr>
+    <tr class="odd continuation">
+        <td></td>
+        <td colspan="3">
+            <p>
+                当Datatables生成子行时，添加到子行的{% include href/HtmlTags.html param="td" %}单元格的类名。从1.10.1版本开始，它也被添加到子行的{% include href/HtmlTags.html param="tr" %}行节点。 
+            </p>
+            <p>
+                向子行添加其他样式信息以指示他是表数据的一部分时，它是正常显示之外的其他信息，这是很有用的。
+            </p>
+
+            <p>
+                请注意，如果在第一个参数中给出了节点或包含jQuery对象的节点，则不会自动添加类名（假定现有的行已经按要求配置）
+            </p>
+        </td>
+    </tr>
+    </tbody>
+</table>
