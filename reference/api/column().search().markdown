@@ -46,7 +46,7 @@ author: /reference/api/column().search()
 {% include_relative parameters/column.search.html %}
 
 #### 返回(Returns):
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API 实例
 

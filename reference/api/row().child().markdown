@@ -63,9 +63,10 @@ Datatables API实例
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API实例
+
 
 
 ---  

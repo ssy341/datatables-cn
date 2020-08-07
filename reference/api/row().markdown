@@ -29,7 +29,7 @@ author: /reference/api/row()
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API 实例，结果集中包含被选择的行
 

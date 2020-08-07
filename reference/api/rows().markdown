@@ -35,7 +35,7 @@ author: /reference/api/rows()
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API 实例，结果集中包含被选择的行
 
@@ -52,7 +52,7 @@ Datatables API 实例，结果集中包含被选择的行
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API 实例，结果集中包含被选择的行
 

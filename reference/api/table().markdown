@@ -36,7 +36,7 @@ API实例的上下文定义了API将在哪些DataTables表格上进行操作，�
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 在上下文中包含被选择的表的DataTables API实例
 

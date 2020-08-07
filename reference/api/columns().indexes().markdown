@@ -29,7 +29,7 @@ Datatables把行和列的数据存储在内部的索引中，为了快速排序�
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 Datatables API 实例，结果集包含被选则的多列的列索引
 
 --- 

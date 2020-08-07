@@ -30,7 +30,7 @@ Datatables具有称为“smart”搜索的内置搜索算法，旨在使搜索�
 获取当前列搜索应用的搜索词。
 
 #### 返回(Returns):
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 Datatables API 实例，结果集中包含被选择列应用的搜索词。
 
 --- 
@@ -46,7 +46,7 @@ Datatables API 实例，结果集中包含被选择列应用的搜索词。
 {% include_relative parameters/columns.search.html %}
 
 #### 返回(Returns):
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 Datatables API 实例
 

@@ -27,7 +27,7 @@ author: /reference/api/columns().dataSrc()
 获取被选择多列数据源的属性名称
 
 #### 返回(Returns):
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 DataTables API实例，结果包含被由{% include href/Options.html param="column.data" %}选项配置的所选列的数据源参数。
 

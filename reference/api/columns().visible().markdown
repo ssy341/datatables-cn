@@ -23,7 +23,7 @@ author: /reference/api/columns().visible()
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 API实例，结果里是根据选择器匹配的每一列列数据并且每个数据包含一个布尔值，这个布尔值为`true`表示列是可见的，`false`表示不可见
 
@@ -43,7 +43,7 @@ API实例，结果里是根据选择器匹配的每一列列数据并且每个�
 
 #### 返回(Returns):
 
-{% include href/Types.html param="DateTables.Api" %}
+{% include href/Types.html param="DataTables.Api" %}
 
 DataTables API 实例，包含被选择的列在结果集中。
 
