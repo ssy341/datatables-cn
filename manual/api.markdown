@@ -43,7 +43,9 @@ Datatables和扩展功能都具有许多易于操作表格的API接口，可以�
 请务必注意`$( selector ).DataTable();`和`$( selector ).dataTable();`之间的区别。前者返回Datatables API实例，而后者返回 {% include href/Types.html param="jQuery" %}对象。使用`api()`方法添加到jQuery对象，你也可以轻松访问API，但是jQuery对象对于操作表节点可能很有用，就像处理其他jQuery实例一样（比如使用`addClass()`等等）。
 
 > 更新日志：
+> 
 > 在`v1.9`版本中使用`$().dataTable().method()`方式访问早起版本中的Datatables API方法。这是通过使用Datatables API方法扩展jQuery对象来完成的。
+> 
 > 为了向后兼容，[旧的API][legacy]在Datatables 1.10中任可以用，但是首选新的API（参见上面描述的三种方式），因为它具有更大的灵活性和改进的功能。
 
 ## 链式调用（Chaining）
