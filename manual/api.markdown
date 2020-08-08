@@ -133,7 +133,7 @@ table.columns().flatten().each( function ( colIdx ) {
 } );
 {% endhighlight %}
 
----
+
 - 第1行，在上下文中获取表格的Datatables API实例
 ---
 - 第3行，使用{% include href/APIs.html param="columns()" %}方法选择表中所有列。{% include href/APIs.html param="flatten()" %}方法用于把{% include href/APIs.html param="columns()" %}方法返回的二维数组转为一维数组的列索引，通用的方法{% include href/APIs.html param="each()" %}用于对每个选定的列执行操作。
