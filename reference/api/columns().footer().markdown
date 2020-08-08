@@ -12,7 +12,7 @@ author: /reference/api/columns().footer()
 ## 描述(Description)
 本方法可以用来获取（并因此修改）选择多个列的footer单元格节点。这个可能是{% include href/HtmlTags.html param="td" %}或者是{% include href/HtmlTags.html param="th" %}元素，这个取决于表的HTML。
 
-返回的单元格是被选择多个列的{% include href/HtmlTags.html param="tfoot" %}第一行的单元格。如果你{% include href/HtmlTags.html param="tfoot" %}有多个行要操作，则必须使用{% include href/api/Tables.html param="table().footer()" %}方法获取{% include href/HtmlTags.html param="tfoot" %}元素下的节点，然后再使用标准的DOM/jQuery方法来操作节点。
+返回的单元格是被选择多个列的{% include href/HtmlTags.html param="tfoot" %}第一行的单元格。如果你{% include href/HtmlTags.html param="tfoot" %}有多个行要操作，则必须使用{% include href/APIs.html param="table().footer()" %}方法获取{% include href/HtmlTags.html param="tfoot" %}元素下的节点，然后再使用标准的DOM/jQuery方法来操作节点。
 
 此外，在{% include href/HtmlTags.html param="tfoot" %}的单元格可以使用`colspan`跨多列（他们也可以使用`rowspan`，但是如果跨行，在此方法中只能获取第一行中的单元格）。这样，使用`colspan`的单元格可能属于多个列。
 

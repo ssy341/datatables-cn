@@ -14,7 +14,7 @@ author: /reference/api/state.loaded()
 
 该方法主要用于插件的开发，在初始化时获得DataTables的状态，以恢复其自身插件的保存功能。
 
-该方法返回的对象结构和 {% include href/api/Core.html param="state()" %} 状态对象定义的相匹配。
+该方法返回的对象结构和 {% include href/APIs.html param="state()" %} 状态对象定义的相匹配。
 
 
 ## 类型(Type)
@@ -31,7 +31,7 @@ author: /reference/api/state.loaded()
 
 #### 返回(Returns):
 {% include href/Types.html param="object" %}
-被保存的状态对象，参考{% include href/api/Core.html param="state()" %} 对象格式
+被保存的状态对象，参考{% include href/APIs.html param="state()" %} 对象格式
 
 --- 
     
@@ -54,9 +54,9 @@ $(document).on( 'init.dt', function ( e, settings ) {
 
 API
 
-- {% include href/api/Core.html param="state()" %}
-- {% include href/api/Core.html param="state.clear()" %}
-- {% include href/api/Core.html param="state.save()" %}
+- {% include href/APIs.html param="state()" %}
+- {% include href/APIs.html param="state.clear()" %}
+- {% include href/APIs.html param="state.save()" %}
 
 Events
 

@@ -17,7 +17,7 @@ author: /reference/api/state.clear()
 
 该方法会触发状态保存，只不过是保存的一个空对象（`{}`），有效的删除任何现有的状态数据。
 
-请注意，如果状态保存方法在这个方法之后执行，状态将再次存储（{% include href/api/Core.html param="draw()" %}是最常用的触发状态保存的方法）。
+请注意，如果状态保存方法在这个方法之后执行，状态将再次存储（{% include href/APIs.html param="draw()" %}是最常用的触发状态保存的方法）。
 
 
 ## 类型(Type)
@@ -54,9 +54,9 @@ window.location.reload();
 
 API
 
-- {% include href/api/Core.html param="state()" %}
-- {% include href/api/Core.html param="state.loaded()" %}
-- {% include href/api/Core.html param="state.save()" %}
+- {% include href/APIs.html param="state()" %}
+- {% include href/APIs.html param="state.loaded()" %}
+- {% include href/APIs.html param="state.save()" %}
 
 Events
 

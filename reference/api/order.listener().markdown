@@ -15,10 +15,10 @@ author: /reference/api/order.listener()
 ## 描述(Description)
 此方法提供了将排序监听附加到页面上任何一个DOM元素的功能。这与DataTables在内部用于为每个列附加到`thead`的排序监听器使用的方法相同。（比如，点击排序，按住shift多列排序）
 
-虽然不是常用方法，但是可以从外部触发表排序操作（equally {% include href/api/Core.html param="order()" %} and its columns counterparts could also be used）
+虽然不是常用方法，但是可以从外部触发表排序操作（equally {% include href/APIs.html param="order()" %} and its columns counterparts could also be used）
 
-注意，与 {% include href/api/Core.html param="order()" %} 和 {% include href/APIs.html param="columns().order()" %} 不同，当通过此功能附加的监听器被激活时，
-它将导致表格自动重绘，也就是它不需要额外调用{% include href/api/Core.html param="draw()" %}方法来重绘表格。
+注意，与 {% include href/APIs.html param="order()" %} 和 {% include href/APIs.html param="columns().order()" %} 不同，当通过此功能附加的监听器被激活时，
+它将导致表格自动重绘，也就是它不需要额外调用{% include href/APIs.html param="draw()" %}方法来重绘表格。
 
 
 
@@ -64,7 +64,7 @@ table.order.listener( '#sorter', 1 );
 
 API
 
-- {% include href/api/Core.html param="order()" %}
+- {% include href/APIs.html param="order()" %}
 - {% include href/APIs.html param="column().order()" %}
 - {% include href/APIs.html param="columns().order()" %}
 

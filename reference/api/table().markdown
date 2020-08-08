@@ -81,4 +81,4 @@ tables.table('#admin').search( 'Important' ).draw();
 
 API
 
-- {% include href/api/Tables.html param="tables()" %}
+- {% include href/APIs.html param="tables()" %}

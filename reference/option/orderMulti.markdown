@@ -16,7 +16,7 @@ author: /reference/option/orderMulti
 
 需要注意的是，即使禁用了多列排序，但是开发人员任然可以使用 
 {% include href/Options.html param="columns.orderData" %}，
-{% include href/Options.html param="order" %}和{% include href/api/Core.html param="order()" %}在代码里
+{% include href/Options.html param="order" %}和{% include href/APIs.html param="order()" %}在代码里
 实现多列排序，次禁用只是不允许用户来操作多列排序。
 
 
@@ -51,6 +51,6 @@ Options
 
 API
 
-- {% include href/api/Core.html param="order()" %}
+- {% include href/APIs.html param="order()" %}
 - {% include href/APIs.html param="column().order()" %}
 - {% include href/APIs.html param="columns().order()" %}

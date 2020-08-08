@@ -16,7 +16,7 @@ author: /reference/api/data()
 如果你要修改的数据包含在返回的数组中，确保你使用了{% include href/APIs.html param="rows().invalidate()" %},{% include href/APIs.html param="row().invalidate()" %}或者任何其他失效的方法来让DataTables注意到更改并且重新读取数据源。
 
 请注意{% include href/APIs.html param="rows().data()" %}方法可以完全访问该数据，为了更灵活的获取数据，还可以通过{% include href/Types.html param="selector-modifier" %}选项对对象结果集进行排序，分页和搜索修改。例如`rows({'order':'index'}).data()`和`rows().data()`完全相同-两者都是数据索引顺序，然而`rows().data()`
-将会返回全部的结果集，而`rows({'order':'index'}).data()`取决于当前显示顺序（由{% include href/api/Core.html param="order()" %}定义）
+将会返回全部的结果集，而`rows({'order':'index'}).data()`取决于当前显示顺序（由{% include href/APIs.html param="order()" %}定义）
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -65,7 +65,7 @@ table.rows().invalidate().draw();
 
 API
 
-- {% include href/api/Core.html param="clear()" %}
+- {% include href/APIs.html param="clear()" %}
 - {% include href/APIs.html param="row.add()" %}
 - {% include href/APIs.html param="rows.add()" %}
 

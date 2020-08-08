@@ -37,7 +37,7 @@ author: /reference/api/state()
 }
 {% endhighlight %}
 
-请注意，这个方法提供获取最新的状态，但不一定是当前的状态。比如{% include href/api/Core.html param="page()" %}方法不会自动触发状态保存。调用{% include href/api/Core.html param="draw()" %}方法或者{% include href/api/Core.html param="state.save()" %}方法来保存状态。
+请注意，这个方法提供获取最新的状态，但不一定是当前的状态。比如{% include href/APIs.html param="page()" %}方法不会自动触发状态保存。调用{% include href/APIs.html param="draw()" %}方法或者{% include href/APIs.html param="state.save()" %}方法来保存状态。
 
 
 ## 类型(Type)
@@ -72,9 +72,9 @@ alert( '保存的分页长度是: '+ table.state().length );
 
 API
 
-- {% include href/api/Core.html param="state.clear()" %}
-- {% include href/api/Core.html param="state.loaded()" %}
-- {% include href/api/Core.html param="state.save()" %}
+- {% include href/APIs.html param="state.clear()" %}
+- {% include href/APIs.html param="state.loaded()" %}
+- {% include href/APIs.html param="state.save()" %}
 
 Events
 

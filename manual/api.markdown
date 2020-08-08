@@ -21,6 +21,7 @@ Datatables和扩展功能都具有许多易于操作表格的API接口，可以�
 有关API中可用方法的完整列表，请参考[API参考][api]部分。
 
 ## 术语（Terminology）
+---
 
 为了使API的文档简洁明了，使用了许多术语来描述或引用API的各个方面。这些在这里定义：
 
@@ -29,6 +30,7 @@ Datatables和扩展功能都具有许多易于操作表格的API接口，可以�
 - 上下文，API实例的上下文描述是Datatables和API实例之间的联系，每个API实例可以关联一个或多个Datatables表，并能够对这些表进行操作（有关信息，请参考下面的详细描述）。
 
 ## 访问API（Accessing the API）
+---
 
 可以通过三种不同的方式为一个或多个表获取一个新的Datatables API实例：
 
@@ -45,6 +47,7 @@ Datatables和扩展功能都具有许多易于操作表格的API接口，可以�
 > 为了向后兼容，[旧的API][legacy]在Datatables 1.10中任可以用，但是首选新的API（参见上面描述的三种方式），因为它具有更大的灵活性和改进的功能。
 
 ## 链式调用（Chaining）
+---
 
 与jQuery一样，Datatables API可以使用链式调用，许多但不是全部Datatables方法返回了API实例本身，因此你可以立即调用另一个API方法。例如下面代码：
 
@@ -72,6 +75,7 @@ Datatables API和jQuery的链式方法不同的地方是Datatables使用嵌套�
 请注意，并非所有的方法都会返回用于链式写法的API实例。在某些情况下，返回API实例是不合适的，比如{% include href/APIs.html param="cell().node()" %}方法用来获取{% include href/HtmlTags.html param="td" %}/{% include href/HtmlTags.html param="th" %}元素。[API参考][api]文档包含每种方法及其返回结果的完整详细信息。
 
 ## 多个表（Multiple tables）
+---
 
 Datatables API实例可以在其上下文中关联多个表。API将上下文中的每个表视为相同的。例如：
 ```javascript
@@ -84,6 +88,7 @@ tables.page( 'next' ).draw( false );
 同样，如果需要，API实例可以只关联单个表，只需要更改用于创建API实例的jQuery选择器即可：`$('#myTable').DataTable();`，这样在上下文创建的API实例只关联单个表。
 
 ## 复数/单数（Plural / Singular）
+---
 
 在使用API时，你会注意到这些方法都分单数和复数形式。尽管这在API中相对来说不常见，但这样做是为了反映你访问表中数据的方式，比如{% include href/APIs.html param="rows().data()" %}方法将返回一个API实例，其结果集中有选定多行的数据（即数组），而{% include href/APIs.html param="row().data()" %}方法仅返回单行的数据。这使使用API更加直观，因为你将始终获得期望的结果。
 
@@ -96,6 +101,7 @@ tables.page( 'next' ).draw( false );
 
 
 ## 示例 - 列过滤
+---
 
 [API参考][api]文档包含每个API方法的示例，并详细说明其功能，返回的内容以及可以接受的参数；但是让我们将上述概念形成一个详细的示例，逐行说明如何使用Datatables API。在这个情况下，我们在表中每一列的页脚单元格创建一个{% include href/HtmlTags.html param="select" %}元素，其中包含该列中的数据，并将用于搜索表。
 

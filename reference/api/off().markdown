@@ -17,9 +17,9 @@ DataTables可以触发很多事件，这些事件在DataTables执行对应事件
 
 DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件方法相匹配：
 
-- {% include href/api/Core.html param="on()" %} 监听事件
-- {% include href/api/Core.html param="off()" %} 移除监听事件
-- {% include href/api/Core.html param="one()" %} 监听一次然后移除事件
+- {% include href/APIs.html param="on()" %} 监听事件
+- {% include href/APIs.html param="off()" %} 移除监听事件
+- {% include href/APIs.html param="one()" %} 监听一次然后移除事件
 
 
 `off()`方法用于删除已经附加到DataTables的事件。只需要传递你希望删除的事件即可移除事件监听，你还可以使用特定的方法来移除单个的事件监听。
@@ -38,7 +38,7 @@ DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件
 
 #### 描述(Description):
 
-删除使用 {% include href/api/Core.html param="on()" %} 绑定的监听器
+删除使用 {% include href/APIs.html param="on()" %} 绑定的监听器
      
 #### 参数(Parameters):
 {% include_relative parameters/off.html %}
@@ -74,6 +74,6 @@ table.on( 'xhr', function ( e, settings, json ) {
 
 API
 
-- {% include href/api/Core.html param="on()" %}
-- {% include href/api/Core.html param="one()" %}
+- {% include href/APIs.html param="on()" %}
+- {% include href/APIs.html param="one()" %}
 

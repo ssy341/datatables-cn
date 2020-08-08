@@ -54,7 +54,7 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/Core.html param="page.len()" %}
+- {% include href/APIs.html param="page.len()" %}
 
 Options
 

@@ -49,4 +49,4 @@ Options
 
 API
 
-- {% include href/api/Core.html param="page()" %}
+- {% include href/APIs.html param="page()" %}

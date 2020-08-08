@@ -14,7 +14,7 @@ author: /reference/api/destroy()
 DataTables 添加了许多HTML元素，事件监听和其他修改，来增强原始HTMl表格。该方法可用来删除这些增强功能，并将表格恢复原始未增强状态。
 
 因为这些增强不能通过API进行动态更改，如果你需要基于不同初始化设置或者不同列数来销毁和创建新表，该方法将非常有用。如果你不需要
-更改表的功能，只需要改变表中的数据，那么请考虑使用{% include href/api/Core.html param="clear()" %},{% include href/api/Core.html param="ajax.url()" %}和{% include href/APIs.html param="rows.add()" %}这些方法。
+更改表的功能，只需要改变表中的数据，那么请考虑使用{% include href/APIs.html param="clear()" %},{% include href/APIs.html param="ajax.url()" %}和{% include href/APIs.html param="rows.add()" %}这些方法。
 
 注意如果你希望将一个表替换成另一个表，则一定要销毁这个实例，以防止内存泄露。
 

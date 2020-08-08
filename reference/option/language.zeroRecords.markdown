@@ -43,7 +43,7 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/Core.html param="search()" %}
+- {% include href/APIs.html param="search()" %}
 
 
 Options

@@ -28,7 +28,7 @@ author: /reference/api/order()
 
 使用这种格式，DataTables可以实现单列排序或多列排序。为了方便，该方法允许传入多个一维数组或一个二维数组来多列排序。但是获取排序信息，DataTables总是返回二维数组。
 
-请注意，此方法只设置表的排序，实际上不执行排序，要达到最终的效果，还需要执行{% include href/api/Core.html param="draw()" %}方法，像这样
+请注意，此方法只设置表的排序，实际上不执行排序，要达到最终的效果，还需要执行{% include href/APIs.html param="draw()" %}方法，像这样
 `table.order([0,'desc']).draw();`
 
 
@@ -42,7 +42,7 @@ author: /reference/api/order()
 ---
 
 #### 描述(Description):
-获取表格的排序信息。如果当前有多个DataTables实例对象，将返回找到的第一个实例对象的排序信息。使用{% include href/api/Tables.html param="table()" %}来获取不同表格实例。
+获取表格的排序信息。如果当前有多个DataTables实例对象，将返回找到的第一个实例对象的排序信息。使用{% include href/APIs.html param="table()" %}来获取不同表格实例。
 
 #### 返回(Returns):
 {% include href/Types.html param="array" %}
@@ -56,7 +56,7 @@ author: /reference/api/order()
 ---
 
 #### 描述(Description):
-使用一维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/api/Core.html param="draw()" %}方法来执行。
+使用一维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/APIs.html param="draw()" %}方法来执行。
      
 #### 参数(Parameters):
 {% include_relative parameters/order-fun1.html %}
@@ -75,7 +75,7 @@ DataTables API 实例对象
 ---
 
 #### 描述(Description):
-使用二维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/api/Core.html param="draw()" %}方法来执行。
+使用二维数组设置表格的排序。请注意，这并不执行排序，需要使用{% include href/APIs.html param="draw()" %}方法来执行。
      
 #### 参数(Parameters):
 {% include_relative parameters/order-fun2.html %}

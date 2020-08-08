@@ -64,7 +64,7 @@ $('#example').DataTable( {
 
 API
 
-- {% include href/api/Core.html param="order()" %}
+- {% include href/APIs.html param="order()" %}
 - {% include href/APIs.html param="column().order()" %}
 - {% include href/APIs.html param="columns().order()" %}
 

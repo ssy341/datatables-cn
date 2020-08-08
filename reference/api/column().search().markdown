@@ -10,13 +10,13 @@ author: /reference/api/column().search()
 ---
 
 ## 描述(Description)
-虽然 {% include href/api/Core.html param="search()" %}方法提供了在整个表中进行全局搜索的功能，但是此方法以及复数形式提供了搜索特定列上数据的功能。
+虽然 {% include href/APIs.html param="search()" %}方法提供了在整个表中进行全局搜索的功能，但是此方法以及复数形式提供了搜索特定列上数据的功能。
 
 因为可以使用多种不同的方式来搜索特定列数据，所以Datatables没有内置任何搜索控件，但是使用这种方法添加自定义列搜索控件变得非常容易。下面的例子显示了如何使用它。
 
-请注意，Datatables中的这种搜索功能实际上是一种过滤器，它是减法操作。之所以称为搜索，以避免与过滤器辅助方法 {% include href/api/Utility.html param="filter()" %}重名。
+请注意，Datatables中的这种搜索功能实际上是一种过滤器，它是减法操作。之所以称为搜索，以避免与过滤器辅助方法 {% include href/APIs.html param="filter()" %}重名。
 
-请注意，此方法只是在内部执行过滤，并没有把数据显示到表中。为了执行搜索并显示结果，还需用{% include href/api/Core.html param="draw()" %}方法。使用链式操作，比如这样`table.column( 0 ).search( 'Fred' ).draw();`，这是为了能够执行绘制之前将多个更改排入队列。
+请注意，此方法只是在内部执行过滤，并没有把数据显示到表中。为了执行搜索并显示结果，还需用{% include href/APIs.html param="draw()" %}方法。使用链式操作，比如这样`table.column( 0 ).search( 'Fred' ).draw();`，这是为了能够执行绘制之前将多个更改排入队列。
 
 
 ## 类型(Types)
@@ -40,7 +40,7 @@ author: /reference/api/column().search()
 
 #### 描述(Description):
 
-在选择器匹配到的单个列设置列的搜索词。注意，这实际并不执行搜索，而是将其操作加入到队列中，使用{% include href/api/Core.html param="draw()" %}执行搜索并显示结果。
+在选择器匹配到的单个列设置列的搜索词。注意，这实际并不执行搜索，而是将其操作加入到队列中，使用{% include href/APIs.html param="draw()" %}执行搜索并显示结果。
      
 #### 参数(Parameters):
 {% include_relative parameters/column.search.html %}
@@ -118,9 +118,9 @@ table.columns( '.select-filter' ).every( function () {
 
 API
 
-- {% include href/api/Core.html param="search()" %}
+- {% include href/APIs.html param="search()" %}
 - {% include href/APIs.html param="columns().search()" %}
-- {% include href/api/Static.html param="$.fn.dataTable.util.escapeRegex()" %}
+- {% include href/APIs.html param="$.fn.dataTable.util.escapeRegex()" %}
 
 
 Options

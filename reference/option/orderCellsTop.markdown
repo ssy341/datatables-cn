@@ -58,4 +58,4 @@ Options
 
 API
 
-- {% include href/api/Core.html param="order()" %}
+- {% include href/APIs.html param="order()" %}

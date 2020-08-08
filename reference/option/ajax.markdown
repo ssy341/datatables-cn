@@ -215,9 +215,9 @@ $('#example').dataTable( {
 
 API
 
-- {% include href/api/Core.html param="ajax.json()" %}
-- {% include href/api/Core.html param="ajax.reload()" %}
-- {% include href/api/Core.html param="ajax.url()" %}
+- {% include href/APIs.html param="ajax.json()" %}
+- {% include href/APIs.html param="ajax.reload()" %}
+- {% include href/APIs.html param="ajax.url()" %}
 
 Options
 

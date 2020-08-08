@@ -18,9 +18,9 @@ DataTables可以触发很多事件，这些事件在DataTables执行对应事件
 
 DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件方法相匹配：
 
-- {% include href/api/Core.html param="on()" %} 监听事件
-- {% include href/api/Core.html param="off()" %} 移除监听事件
-- {% include href/api/Core.html param="one()" %} 监听一次然后移除事件
+- {% include href/APIs.html param="on()" %} 监听事件
+- {% include href/APIs.html param="off()" %} 移除监听事件
+- {% include href/APIs.html param="one()" %} 监听一次然后移除事件
 
 
 
@@ -73,5 +73,5 @@ table.one( 'xhr', function ( e, settings, json ) {
 
 API
 
-- {% include href/api/Core.html param="on()" %}
-- {% include href/api/Core.html param="off()" %}
+- {% include href/APIs.html param="on()" %}
+- {% include href/APIs.html param="off()" %}

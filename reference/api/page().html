@@ -16,7 +16,7 @@ since: 1.10.0
     注意：如果你视图操作一个不存在的页数，Datatables不会抛出错误，而是重置到第一页
 </p>
 <p>
-    还需要注意的是，使用 <code>page()</code>时需要搭配 {% include href/api/Core.html param="draw()" %} 方法一起使用，比如 <code>table.page( 0 ).draw( false
+    还需要注意的是，使用 <code>page()</code>时需要搭配 {% include href/APIs.html param="draw()" %} 方法一起使用，比如 <code>table.page( 0 ).draw( false
     );</code>
 </p>
 <p>
@@ -31,7 +31,7 @@ since: 1.10.0
     <dl>
         <dt>描述:</dt>
         <dd>
-           获取表格当前页。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/api/Tables.html param="table()" %}来确保操作的是单个表格对象
+           获取表格当前页。注意：如果当前api实例里有多个表格对象，那么返回的是第一个对象的当前页，你应该使用 {% include href/APIs.html param="table()" %}来确保操作的是单个表格对象
         </dd>
         <dt>返回:</dt>
         <dd>
@@ -137,7 +137,7 @@ $(&#39;#previous&#39;).on( &#39;click&#39;, function () {
 <p>下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。</p>
 <div class="reference_related">API
     <ul class="markdown">
-        <li>{% include href/api/Core.html param="page.len()" %}</li>
+        <li>{% include href/APIs.html param="page.len()" %}</li>
     </ul>
 </div>
 <div class="reference_related">Options
