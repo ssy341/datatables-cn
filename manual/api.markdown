@@ -133,15 +133,25 @@ table.columns().flatten().each( function ( colIdx ) {
 } );
 {% endhighlight %}
 
+---
 - 第1行，在上下文中获取表格的Datatables API实例
+---
 - 第3行，使用{% include href/APIs.html param="columns()" %}方法选择表中所有列。{% include href/APIs.html param="flatten()" %}方法用于把{% include href/APIs.html param="columns()" %}方法返回的二维数组转为一维数组的列索引，通用的方法{% include href/APIs.html param="each()" %}用于对每个选定的列执行操作。
+---
 - 第5行，创建列过滤的{% include href/HtmlTags.html param="select" %}元素
+---
 - 第7行，使用{% include href/APIs.html param="column().footer()" %}方法获取要在其中插入select元素的页脚单元格元素。
+---
 - 第9行，使用[jQuery on()][jquery]方法监听当{% include href/HtmlTags.html param="select" %}元素的值发生改变时执行的操作。
+---
 - 第10-13行，使用{% include href/APIs.html param="column().search()" %}方法加入到处理队列中，并执行{% include href/APIs.html param="draw()" %}方法，将结果以更行到表格中显示。
+---
 - 第17-19行，使用{% include href/APIs.html param="column().cache()" %}方法从Datatables用于搜索表的列中获取数据。
+---
 - 第20-21行，通用的方法{% include href/APIs.html param="sort()" %}和{% include href/APIs.html param="unique()" %}将数据进行排序，并进行数据去重供最终用户选择使用。
+---
 - 第22-24行，搜索词选项已经添加到我们的{% include href/HtmlTags.html param="select" %}元素中，等待使用。
+---
 
 正如你所见，Datatables API非常灵活，并提供了访问和操作表的多种选择。请参阅[API参考][api]文档以获取可用方法的完整列表。此外，插件如[Editor][editor]可以用自定义扩展API方法,如`row().edit()`和`cell().edit()`等选项。
 
