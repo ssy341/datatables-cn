@@ -8,7 +8,6 @@ caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
 author: DataTable中文网
-hot: 1
 toc: true
 ---
 
@@ -65,7 +64,7 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - HTML5 `data-*`和正交数据
 - [第四章，复杂数据的显示-渲染器][four]（Done √）
 - [第五章，Ajax][five]（Done √）
-- [第六章，打造和自己项目贴近的表格-如何配置Datatables][six]
+- [第六章，打造和自己项目贴近的表格-如何配置Datatables][six]（Done √）
     - {% include href/Options.html param="ajax" %} Ajax数据源配置
     - {% include href/Options.html param="data" %} JavaScript数据源配置
     - {% include href/Options.html param="serverSide" %} 开启服务器处理
@@ -73,7 +72,9 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - {% include href/Options.html param="scrollX" %}  水平滚动条
     - {% include href/Options.html param="scrollY" %}  垂直滚动条
     - [完整的选项列表][options]
-- 第七章，更方便的操作表格数据  
+- [第七章，API][seven]
+    - [完整的API列表][api]
+- 第八章，更方便的操作表格数据  
     - ajax
     - columns
     - row
@@ -107,4 +108,6 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [four]: {{ site.baseurl }}/blog/2020/07/20/datatables-renderers.html
 [five]: {{ site.baseurl }}/blog/2020/08/03/datatables-ajax.html
 [six]: {{ site.baseurl }}/blog/2020/08/05/datatables-options.html
+[seven]: {{ site.baseurl }}/blog/2020/08/10/datatables-api.html
 [options]: {{site.baseurl}}/reference/option
+[api]: {{site.baseurl}}/reference/api
