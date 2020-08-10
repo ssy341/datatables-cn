@@ -35,6 +35,10 @@ hot: 1
 
 由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]、[bilibili频道][bilibili]和[微博][weibo]在线播放
 
+
+<iframe id="b" class="b video_pc" src="https://www.bilibili.com/html/html5player.html?cid=220085564&aid=414095732&pre_ad=0" frameborder="0" allowfullscreen="true"> </iframe>
+
+
 ## 课程代码
 
 课程中所有代码都已经放在github上了，[点我查看][github]

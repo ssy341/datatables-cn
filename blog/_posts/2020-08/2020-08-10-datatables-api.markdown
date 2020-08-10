@@ -11,7 +11,7 @@ author: DataTable中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第七章，主要讲Datatables的[API][API]，即Datatables提供的操作表格内容的接口。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第七章，主要讲Datatables的[API][api]，即Datatables提供的操作表格内容的接口。
 
 ## 课程简介
 
@@ -28,9 +28,9 @@ hot: 1
 
 学完本节课程可以解决哪些疑惑？
 
-- 了解Datatables的API有那几个核心内容
-- 了解如何简单的使用API及如果通过文档获取帮助
-- 了解如何在实际开发中使用Datatables提供的API
+- 了解Datatables的API有哪几个核心内容
+- 了解如何简单的使用API及如何通过文档获取帮助
+- 如何在实际开发中使用Datatables提供的API
 
 ## 课程视频
 
@@ -48,4 +48,4 @@ hot: 1
 [github]: https://github.com/ssy341/datatables-season2/tree/master/example01
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
-[options]: {{ site.baseurl }}/manual/options
+[api]: {{ site.baseurl }}/manual/api
