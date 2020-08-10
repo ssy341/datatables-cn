@@ -41,6 +41,13 @@ author: DataTable中文网
 由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]、[bilibili频道][bilibili]和[微博][weibo]在线播放
 
 
+DataTables中文网第二季 第四节 DataTables使用入门-数据源处理模式
+<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV13z4y1D71F/" frameborder="0" allowfullscreen="true"> </iframe>
+
+DataTables中文网第二季 第五节 DataTables使用入门-数据源数据类型
+<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1st4y1Q7sF/" frameborder="0" allowfullscreen="true"> </iframe>
+
+DataTables中文网第二季 第六节 DataTables使用入门-数据源选择
 <iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV15C4y1h7XM/" frameborder="0" allowfullscreen="true"> </iframe>
 
 
