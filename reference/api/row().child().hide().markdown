@@ -4,8 +4,8 @@ title: row().child().hide()
 summary: 创建子行并隐藏子行
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
-navcategory: option
-keywords: 关键字
+navcategory: api
+keywords: row,child,hide,创建子行并隐藏子行
 author: /reference/api/row().child().hide()
 ---
 
