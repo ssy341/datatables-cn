@@ -669,11 +669,20 @@ relurl: http://datatables.net/reference/api/
             </td>
         </tr>
         <tr>
-            <td><p><a href="//datatables.net/reference/api/row().child().hide()"><code class="api"
-                                                                                       title="DataTables API method">row().child().hide()<span>DT</span></code></a>
-            </p>
+            <td>
+                {% include href/APIs.html param="row().child().hide()" %}
             </td>
-            <td><p>隐藏子行然后创建一个新的子行</p>
+            <td>
+                创建子行并隐藏子行
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child.hide()" %}
+            </td>
+            <td>
+                隐藏父行的子行
             </td>
         </tr>
     <tr>
@@ -701,14 +710,6 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child.hide()"><code class="api"
-                                                                                 title="DataTables API method">row().child.hide()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>隐藏子行</p>
-        </td>
-    </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().child.isShown()"><code class="api"
                                                                                     title="DataTables API method">row().child.isShown()<span>DT</span></code></a>
