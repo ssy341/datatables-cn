@@ -42,13 +42,13 @@ author: DataTable中文网
 
 
 DataTables中文网第二季 第四节 DataTables使用入门-数据源处理模式
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV13z4y1D71F/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=583811895&bvid=BV13z4y1D71F&cid=209633237&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 DataTables中文网第二季 第五节 DataTables使用入门-数据源数据类型
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1st4y1Q7sF/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=626265195&bvid=BV1st4y1Q7sF&cid=210406665&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 DataTables中文网第二季 第六节 DataTables使用入门-数据源选择
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV15C4y1h7XM/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=796266725&bvid=BV15C4y1h7XM&cid=211036559&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 ## 课程代码

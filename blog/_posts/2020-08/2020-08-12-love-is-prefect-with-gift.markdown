@@ -69,7 +69,7 @@ Datatables中文网决定举办一次和”七夕“有关的活动：
 ![gift-desc1](/images/blog/2020-08/熊.jpg)
 
 制作视频：
-<iframe src="//player.bilibili.com/player.html?bvid=BV1bt4y1D7Z1&cid=223772094&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" width="700px" height="500px" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1bt4y1D7Z1&cid=223772094&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ## 额外福利
 

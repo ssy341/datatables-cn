@@ -94,6 +94,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 
 由于源码托管在github上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[Youtube频道][youtube]、[bilibili频道][bilibili]和[微博][weibo]在线播放
 
+<iframe src="//player.bilibili.com/player.html?aid=371059858&bvid=BV14Z4y1H7be&cid=204746284&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 最后，谢谢大家的支持，如有错误的地方还望指出，如果您还有其他的建议或要求，欢迎在下方留言
 
 

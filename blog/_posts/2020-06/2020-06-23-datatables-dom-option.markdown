@@ -54,15 +54,15 @@ author: DataTable中文网
 
 
 DataTables中文网第二季 第一节 DataTables使用入门
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1zT4y1J7g8/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=926116186&bvid=BV1zT4y1J7g8&cid=205149054&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 DataTables中文网第二季视频 第二节 DataTables使用入门之DOM属性
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1Dk4y1q7er/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=753735885&bvid=BV1Dk4y1q7er&cid=206568301&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 DataTables中文网第二季视频 第三节 DataTables使用入门之DOM属性标记语言
-<iframe id="b" width="auto" heigth="auto" src="https://xbeibeix.com/api/bilibili/biliplayer/?url=https://www.bilibili.com/video/BV1Mz411v7GJ/" frameborder="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=201204288&bvid=BV1Mz411v7GJ&cid=208014655&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
