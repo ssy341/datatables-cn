@@ -685,6 +685,22 @@ relurl: http://datatables.net/reference/api/
                 隐藏父行的子行
             </td>
         </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child.remove()" %}
+            </td>
+            <td>
+                销毁所选父行的子行
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child().remove()" %}
+            </td>
+            <td>
+                销毁所选父行的子行
+            </td>
+        </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().cache()"><code class="api" title="DataTables API method">row().cache()<span>DT</span></code></a>
         </p>
@@ -693,14 +709,7 @@ relurl: http://datatables.net/reference/api/
         </td>
     </tr>
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child().remove()"><code class="api"
-                                                                                     title="DataTables API method">row().child().remove()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>删除子行</p>
-        </td>
-    </tr>
+    
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().child().show()"><code class="api"
                                                                                    title="DataTables API method">row().child().show()<span>DT</span></code></a>
@@ -716,14 +725,6 @@ relurl: http://datatables.net/reference/api/
         </p>
         </td>
         <td><p>检测子行是否显示</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child.remove()"><code class="api"
-                                                                                   title="DataTables API method">row().child.remove()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>移除子行</p>
         </td>
     </tr>
     <tr>

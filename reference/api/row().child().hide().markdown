@@ -11,7 +11,7 @@ author: /reference/api/row().child().hide()
 
 ## 描述(Description)
 
-此方方法可以随时隐藏父行的子行。将子行设置为隐藏时，它们不会与父行分离，而是简单的不绘制在页面上。
+此方方法可以随时隐藏父行的子行。将子行设置为隐藏时，它们不会与父行分离，而是简单的不绘制在页面上。实际调用的是jQuery的detach方法。
 
 请注意，该方法只有在{% include href/APIs.html param="row().child()" %}方法带参数时才有用。这是因为{% include href/APIs.html param="row().child()" %}不带参数，他只会返回子行节点（{% include href/Types.html param="jQuery" %}对象或者{% include href/Types.html param="undefined" %}），如果你使用带参数的{% include href/APIs.html param="row().child()" %}方法，它会返回{% include href/Types.html param="DataTables.Api" %}实例。如果你仅仅只需要隐藏子行，不需要对子行操作，使用{% include href/APIs.html param="row().child.hide()" %}方法即可。
 
@@ -26,7 +26,7 @@ author: /reference/api/row().child().hide()
 ### _function_ **row().child().hide()**   
 ---
 #### 描述(Description):
-创建子行并隐藏子行
+创建子行并隐藏子行，实际调用的是jQuery的detach方法
 
 #### 返回(Returns):
 

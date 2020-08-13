@@ -10,7 +10,7 @@ author: /reference/api/row().child.hide()
 ---
 
 ## 描述(Description)
-此方方法可以随时隐藏父行的子行。将子行设置为隐藏时，它们不会与父行分离，而是简单的不绘制在页面上。
+此方方法可以随时隐藏父行的子行。将子行设置为隐藏时，它们不会与父行分离，而是简单的不绘制在页面上。实际调用的是jQuery的detach方法。
 
 与操作Datatables许多其他方法不同，此方法不需要调用{% include href/APIs.html param="draw()" %}即可显示结果更改。子行插入到表中，不需要重新绘制Datatables。
 
@@ -21,7 +21,7 @@ author: /reference/api/row().child.hide()
 ### _function_ **row().child.hide()**   
 ---
 #### 描述(Description):
-隐藏父行的子行
+隐藏父行的子行，实际调用的是jQuery的detach方法
 
 #### 返回(Returns):
 
