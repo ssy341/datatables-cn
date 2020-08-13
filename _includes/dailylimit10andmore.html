@@ -1,6 +1,6 @@
 {% assign dailylist = site.tags %}
 {% assign pagelen = include.param %}
-{% for post in dailylist['不定时一讲'] limit:pagelen %}
+{% for post in dailylist['博客'] limit:pagelen %}
 <!-- First Blog Post -->
 <article class="news">
     <div class="news-date">{{ post.date | date: "%Y年%m月%-d日" }}</div>
