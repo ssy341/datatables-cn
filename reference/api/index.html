@@ -701,6 +701,30 @@ relurl: http://datatables.net/reference/api/
                 销毁所选父行的子行
             </td>
         </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child().show()" %}
+            </td>
+            <td>
+                使父行的子行可见
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child.isShown()" %}
+            </td>
+            <td>
+                检查父行的子行是否可见
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% include href/APIs.html param="row().child.show()" %}
+            </td>
+            <td>
+                使父行的子行可见
+            </td>
+        </tr>
     <tr>
         <td><p><a href="//datatables.net/reference/api/row().cache()"><code class="api" title="DataTables API method">row().cache()<span>DT</span></code></a>
         </p>
@@ -710,31 +734,9 @@ relurl: http://datatables.net/reference/api/
     </tr>
     
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child().show()"><code class="api"
-                                                                                   title="DataTables API method">row().child().show()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>显示子行</p>
-        </td>
-    </tr>
     
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child.isShown()"><code class="api"
-                                                                                    title="DataTables API method">row().child.isShown()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>检测子行是否显示</p>
-        </td>
-    </tr>
-    <tr>
-        <td><p><a href="//datatables.net/reference/api/row().child.show()"><code class="api"
-                                                                                 title="DataTables API method">row().child.show()<span>DT</span></code></a>
-        </p>
-        </td>
-        <td><p>显示子行</p>
-        </td>
-    </tr>
+    
+    
     
     <tr>
         <td>

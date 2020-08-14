@@ -10,14 +10,6 @@
 <a href="{{site.baseurl}}/reference/api/rows.add()" >
     <code class="api">rows.add()<span>API</span></code>
 </a>
-{% elsif include.param == "row().child().hide()" %}
-<a href="{{site.baseurl}}/reference/api/row().child().hide()" >
-    <code class="api">row().child().hide()<span>API</span></code>
-</a>
-{% elsif include.param == "row().child().show()" %}
-<a href="//datatables.net/reference/api/row().child().show()" >
-    <code class="api">row().child().show()<span>API</span></code>
-</a>
 {% elsif include.param == "row()" %}
 <a href="{{site.baseurl}}/reference/api/row()" >
     <code class="api">row()<span>API</span></code>
@@ -74,9 +66,17 @@
 <a href="{{site.baseurl}}/reference/api/row().child()" >
     <code class="api">row().child()<span>API</span></code>
 </a>
+{% elsif include.param == "row().child().show()" %}
+<a href="{{site.baseurl}}/reference/api/row().child().show()" >
+    <code class="api">row().child().show()<span>API</span></code>
+</a>
 {% elsif include.param == "row().child().remove()" %}
 <a href="{{site.baseurl}}/reference/api/row().child().remove()" >
     <code class="api">row().child().remove()<span>API</span></code>
+</a>
+{% elsif include.param == "row().child().hide()" %}
+<a href="{{site.baseurl}}/reference/api/row().child().hide()" >
+    <code class="api">row().child().hide()<span>API</span></code>
 </a>
 {% elsif include.param == "rows().every()" %}
 <a href="//datatables.net/reference/api/rows().every()" >

@@ -1,27 +1,26 @@
 ---
 layout: reference_md
-title: row().child.hide()
-summary: 隐藏父行的子行
+title: row().child.show()
+summary: 使父行的子行可见
 sub: 文档(Options & API) DataTables中文网
 since: DataTables 1.10
 navcategory: api
-keywords: row,child,hide,隐藏父行的子行
-author: /reference/api/row().child.hide()
+keywords: row,child,show,使父行的子行可见
+author: /reference/api/row().child.show()
 ---
 
 ## 描述(Description)
-此方方法可以随时隐藏父行的子行。将子行设置为隐藏时，它们不会与父行分离，而是简单的不绘制在页面上。实际调用的是jQuery的detach方法。
+此方法可以用于随时使父行的子行可见。可以使用{% include href/APIs.html param="row().child()" %}附加子行，但不必立即使其可见。这个方法提供了可以让已经在父行附加了子行的内容显示出来的选项。
 
-与操作Datatables许多其他方法不同，此方法不需要调用{% include href/APIs.html param="draw()" %}即可显示结果更改。子行从表中移除，不需要重新绘制Datatables。
-
+与操作Datatables许多其他方法不同，此方法不需要调用{% include href/APIs.html param="draw()" %}即可显示结果更改。子行插入到表中，不需要重新绘制Datatables。
 
 
 ## 类型(Type)
----
-### _function_ **row().child.hide()**   
+--- 
+### _function_ **row().child.show()**   
 ---
 #### 描述(Description):
-隐藏父行的子行，实际调用的是jQuery的detach方法
+显示父行的子行
 
 #### 返回(Returns):
 
@@ -33,10 +32,11 @@ Datatables API实例
     
 ## 例子(Example)
 
-给每一行创建一个详情，点击可展开详情
+给每一行创建明细行，当点击的时候显示出来
 
-{% include runcode.html param="row-child-hide-example" %}
-{: #row-child-hide-example-js }
+
+{% include runcode.html param="row-child-show-example" %}
+{: #row-child-show-example-js }
 {% highlight javascript %}
 var table = $('#example').DataTable();
  
@@ -55,6 +55,7 @@ $('#example tbody').on( 'click', 'tr', function () {
     }
 } );
 {% endhighlight %}
+
 
 
 ## 相关属性(Related)
