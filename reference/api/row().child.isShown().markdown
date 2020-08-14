@@ -56,7 +56,7 @@ $('#example tbody').on('click', 'td.details-control', function () {
 ## 相关属性(Related)
 下面的选项是直接相关的，也可能是您的应用程序的开发非常有用。
 
-Events
+API
 
-- {% include href/event.html param="error" %}
+- {% include href/APIs.html param="row().child" %}
 
