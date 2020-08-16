@@ -66,7 +66,7 @@ Datatables中文网决定举办一次和”七夕“有关的活动：
     > 他们幸福快乐的生活在Line Town。愿你也能够找到那个TA。一直简单幸福下去。
 - 本次包包图片为成品，实际是需要通过材料手工缝制，站长比较喜欢手工，喜欢创造，也在不断追求完美生活。
 
-![gift-desc1](/images/blog/2020-08/熊.jpg)
+![gift-desc1](/images/blog/2020-08/bag/bag熊.jpg)
 
 制作视频：
 <iframe flag="bilibili" src="//player.bilibili.com/player.html?bvid=BV1bt4y1D7Z1&cid=223772094&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
@@ -79,37 +79,37 @@ Datatables中文网决定举办一次和”七夕“有关的活动：
 
 
 可妮兔款：
-![gift-desc1](/images/blog/2020-08/可妮兔粉红+绿色.jpg)
+![gift-desc1](/images/blog/2020-08/bag/可妮兔粉红+绿色.jpg)
 
 恶魔款：
-![gift-desc1](/images/blog/2020-08/恶魔红色+白色.jpg)
+![gift-desc1](/images/blog/2020-08/bag/恶魔红色+白色.jpg)
 
 狗狗款：
-![gift-desc1](/images/blog/2020-08/狗.jpg)
+![gift-desc1](/images/blog/2020-08/bag/狗.jpg)
 
 龙猫款：
-![gift-desc1](/images/blog/2020-08/龙猫.jpg)
+![gift-desc1](/images/blog/2020-08/bag/龙猫.jpg)
 
 猫猫款：
-![gift-desc1](/images/blog/2020-08/猫.jpg)
+![gift-desc1](/images/blog/2020-08/bag/猫.jpg)
 
 皮卡丘款：
-![gift-desc1](/images/blog/2020-08/皮卡丘.jpg)
+![gift-desc1](/images/blog/2020-08/bag/皮卡丘.jpg)
 
 天使款：
-![gift-desc1](/images/blog/2020-08/天使.jpg)
+![gift-desc1](/images/blog/2020-08/bag/天使.jpg)
 
 兔子款：
-![gift-desc1](/images/blog/2020-08/兔2.jpg)
+![gift-desc1](/images/blog/2020-08/bag/兔2.jpg)
 
 小猫咪款：
-![gift-desc1](/images/blog/2020-08/小猫.jpg)
+![gift-desc1](/images/blog/2020-08/bag/小猫.jpg)
 
 可爱鸭款：
-![gift-desc1](/images/blog/2020-08/鸭.jpg)
+![gift-desc1](/images/blog/2020-08/bag/鸭.jpg)
 
 小飞猪款：
-![gift-desc1](/images/blog/2020-08/猪翅膀.jpg)
+![gift-desc1](/images/blog/2020-08/bag/猪翅膀.jpg)
 
 
 是不是又更加心动了呢？站长选的包包款式还可以吧？关于价格呢，1314，含义一生一世，由于制作需要一定的时间，所以限量**10**个（一个131.4元），需要提前预定，以确保在七夕之前收到Datatables中文网站长亲手缝制的礼物（包含礼物袋+卡片）。
