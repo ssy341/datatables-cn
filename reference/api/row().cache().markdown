@@ -30,7 +30,7 @@ Datatables缓存数据用来进行排序和搜索，以使这些操作在需要�
 
      
 #### 参数(Parameters):
-{% include_relative parameters/row-cache.html %}
+{% include_relative parameters/row.cache.html %}
 
 #### 返回(Returns):
 
