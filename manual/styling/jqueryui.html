@@ -43,15 +43,119 @@ title: jQuery UI 样式 手册 Datatables中文网
 
             <div class="span9">
                 {% include xad.html %}
-                <h3>jQuery UI </h3>
-                <p>jQueryUI 是一套 jQuery 的页面 UI 插件，包含很多种常用的页面空间，例如 Tabs（如本站首页右上角部分） 、拉帘效果（本站首页左上角）、对话框、拖放效果、日期选择、颜色选择、数据排序、窗体大小调整等等非常多的内容。</p>
-                <p>同Bootstrap和Foundation一样，使用jQuery UI也只需引入css和js即可</p>
-                <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.css</code></p>
-                <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/jqueryui/dataTables.jqueryui.js</code></p>
-                <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/jqueryui</code></p>
-                <p>jQuery UI风格的Datatables:<a href="./jqueryui-simple.html" target="_blank">在新的页面查看此示例</a></p>
-                <iframe border="0" frameBorder="0" src="./jqueryui-simple.html" width="100%" height="530"></iframe>
-                <blockquote>
+
+                <h1>jQuery UI</h1>
+
+                <p>
+                    <a href="https://jqueryui.com/" target="_blank">jQuery UI</a>
+                是流行的小部套件，例如
+                <a href="https://jqueryui.com/datepicker/" target="_blank">DatePicker</a>、
+                <a href="https://jqueryui.com/autocomplete/" target="_blank">AutoComplete</a>和
+                <a href="https://jqueryui.com/dialog/" target="_blank">Dialog</a>。
+                尽管jQuery UI和 
+                <a href="https://datatables.net/manual/styling/bootstrap" target="_blank">Bootstrap</a>和
+                <a href="https://datatables.net/manual/styling/foundation" target="_blank">Foundation</a>的含义不同，但它确实通过其
+                <a href="https://jqueryui.com/themeroller/" target="_blank">ThemeRoller</a>组件为其小部件提供了通用的的样式框架。
+                </p>
+
+                <p>
+                    如果你已经在使用jQuery UI了，Datatables提供了集成文件，可用于以其他jQuery UI小部件相同的方式设置样式表，
+                    以确保你的网站中的各个组件外观一致。
+                    由于ThemeRoller不提供此信息，因此，
+                    Datatables增强了ThemeRoller提供的CSS样式表信息，
+                    因此，你可以使用与默认Datatables CSS相同的
+                    <a href="/manual/styling/classes">样式类</a>
+                </p>
+
+
+
+                <h2>安装（Installation）</h2>
+                <p>
+                    包括用于Datatables及其扩展的Bootstrap集成的最简单方法就是使用 
+                    <a href="https://datatables.net/download">Datatables下载构建器</a> 。
+                    在这个功能下，你可以选择你要使用的样式或者是扩展功能。
+                </p>
+
+                <p>
+                    下载构建器，可以将所需的文件托管在Datatables CDN上或者下载到本地。
+                </p>
+
+                <h2>手动安装（Manual Installation）</h2>
+
+                <p>
+                    如果你希望使用Datatables <a href="https://github.com/DataTables/DataTablesSrc">Git仓库</a>    或者下载包，而不是通过<a href="https://datatables.net/download">Datatables下载构建器</a>，
+                    则Datatables及其所有扩展名都共享类似的文件命名约定，该约定可用于包括所需的文件。
+                </p>
+
+                <h3>DataTables</h3>
+
+            <p>
+                主Datatables文件名称为 <code>jquery.dataTables.js</code> ，使用大多数jQuery插件通用的格式。
+                还有一个用于Datatables支持的各种样式库的样式集成文件，其格式为 <code>dataTables.{style}.js</code>(
+                    比如jQuery UI的就是 <code>dataTables.jqueryui.js</code>)
+            </p>
+
+            <p> 
+                这两个JavaScript文件都应该包含在内-包含基本Datatables功能的主文件和用于设置合适于样式库的默认值的样式文件。
+            </p>
+
+            <p>
+                对于CSS，应仅包含一个文件，因为样式库将提供表格的核心样式选项。CSS文件的格式为 <code>dataTables.{style}.css</code>
+                (比如jQuery UI的就是 <code>dataTables.jqueryui.css</code>      )
+            </p>
+
+
+
+
+            <h3>Extensions</h3>
+
+            <p> 
+                上述文件命名约定也适用于<a href="https://datatables.net/extensions">扩展功能</a>。
+            </p>
+
+            <p>
+                对于JavaScript，我们保留两个部分的名称，并且删除jQuery，所以我们有：
+                <code>dataTables.{extension}.js</code>和 <code>{extension}.{style}.js</code>。
+                比如 <a href="https://datatables.net/extensions/buttons">Buttons</a>扩展功能，包括
+                <code>dataTables.buttons.js</code>和 <code>buttons.jqueryui.js</code>，还包含核心库和用于设置适当默认值的样式文件。
+            </p>
+
+            <p>
+                如果是CSS文件，应当仅包含一个文件，<code>extension.{style}.css</code>，比如
+                <code>buttons.jqueryui.css</code>。
+            </p>
+
+            <p>
+                注意，并非所有的扩展都需要样式库的JavaScript和/或者CSS。如果仓库或软件包中没有样式库，则不需要他们。
+            </p>
+
+            <h3>
+                Details
+            </h3>
+
+            <p>
+                如果你对Datatables文件名约定的详细信息感兴趣，请参与此 <a href="https://datatables.net/tn/13">技术文档</a>
+            </p>
+                
+
+            <h2>
+                例子
+            </h2>
+            下面是基于jQuery UI的Datatables示例：<a href="./jqueryui-simple.html" target="_blank">在新的页面查看此示例</a>
+            <iframe border="0" frameBorder="0" src="./jqueryui-simple.html" width="100%" height="520"></iframe>
+            
+
+
+            <h2>旧版本支持（Legacy support）</h2>
+
+            <p>
+                Datatables实际上具有通过<code>jQueryUI</code>选项直接集成到核心JavaScript中的jQuery UI支持。
+                但是此选项在Datatables1.10中已弃用，并将在Datatables1.11中删除，以支持此页面上描述的方法，
+                该方法更具模块化，并且与其他CSS框架（如Bootstrap和Foundation）提供集成方式相匹配。
+                因此，建议你使用此处提供的jQuery UI集成文件，而不是<code>jQueryUI</code>选项。
+            </p>
+
+            <blockquote>
                     <p><a href="http://datatables.net/manual/styling/jqueryui" title="foundation">http://datatables.net/manual/styling/jqueryui</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
@@ -60,7 +164,7 @@ title: jQuery UI 样式 手册 Datatables中文网
 
             </div><!--/row-->
             <div class="span3">
-                {% include manual_styling_left_nav.html param='styling' %}
+                {% include manual_left_nav.html param='jqueryui' %}
             </div>
         </div><!--/row-->
 

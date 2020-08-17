@@ -1,15 +1,22 @@
 <div class="well sidebar-nav">
     <ul class="nav nav-list">
         <li class="nav-header"><h3>手册(Manual)</h3></li>
-        <li {% if include.param == "install" %}class="active"{% endif %}><a href="install.html">安装（Installation）</a></li>
-        <li {% if include.param == "data" %}class="active"{% endif %}><a href="data/index.html">数据（Data）</a></li>
-        <li {% if include.param == "orthogonal" %}class="active"{% endif %}><a href="/manual/data/orthogonal-data">    正文数据（Orthogonal data）</a></li>
-        <li {% if include.param == "renderers" %}class="active"{% endif %}><a href="/manual/data/renderers">    渲染器（Renderers）</a></li>
-        <li {% if include.param == "options" %}class="active"{% endif %}><a href="options.html">选项（Options）</a></li>
-        <li {% if include.param == "api" %}class="active"{% endif %}><a href="api.html">API</a></li>
-        <li {% if include.param == "styling" %}class="active"{% endif %}><a href="styling/index.html">样式（Styling）</a></li>
+        <li {% if include.param == "install" %}class="active"{% endif %}><a href="/manual/install.html">安装（Installation）</a></li>
+        <li {% if include.param == "data" %}class="active"{% endif %}><a href="/manual/data/index.html">数据（Data）</a></li>
+        <li {% if include.param == "orthogonal" %}class="active"{% endif %}><a href="/manual/data/orthogonal-data">&nbsp;&nbsp;&nbsp;&nbsp;正文数据（Orthogonal data）</a></li>
+        <li {% if include.param == "renderers" %}class="active"{% endif %}><a href="/manual/data/renderers">&nbsp;&nbsp;&nbsp;&nbsp;渲染器（Renderers）</a></li>
+        <li {% if include.param == "options" %}class="active"{% endif %}><a href="/manual/options.html">选项（Options）</a></li>
+        <li {% if include.param == "api" %}class="active"{% endif %}><a href="/manual/api.html">API</a></li>
+        <li {% if include.param == "styling" %}class="active"{% endif %}><a href="/manual/styling/index.html">样式（Styling）</a></li>
+        <li {% if include.param == "default" %}class="active"{% endif %}><a href="/manual/styling/classes.html">&nbsp;&nbsp;&nbsp;&nbsp;Default styling options</a></li>
+        <li><a href="//datatables.net/manual/styling/theme-creator">&nbsp;&nbsp;&nbsp;&nbsp;Theme creator</a></li>
+        <li><a href="//datatables.net/manual/styling/themeforest">&nbsp;&nbsp;&nbsp;&nbsp;ThemeForest</a></li>
+        <li {% if include.param == "bootstrap" %}class="active"{% endif %}><a href="/manual/styling/bootstrap.html">&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap 3</a></li>
+        <li {% if include.param == "bootstrap4" %}class="active"{% endif %}><a href="/manual/styling/bootstrap4.html">&nbsp;&nbsp;&nbsp;&nbsp;Bootstrap 4</a></li>
+        <li {% if include.param == "foundation" %}class="active"{% endif %}><a href="/manual/styling/foundation.html">&nbsp;&nbsp;&nbsp;&nbsp;Foundation</a></li>
+        <li {% if include.param == "jqueryui" %}class="active"{% endif %}><a href="/manual/styling/jqueryui.html">&nbsp;&nbsp;&nbsp;&nbsp;jQuery UI</a></li>
         <li {% if include.param == "event" %}class="active"{% endif %}><a href="http://datatables.net/manual/events">事件（Events）</a></li>
-        <li {% if include.param == "serverside" %}class="active"{% endif %}><a href="server-side.html">服务器支持处理（Server-side processing）</a></li>
-        <li {% if include.param == "i18n" %}class="active"{% endif %}><a href="i18n.html">国际化（Internationalisation）</a></li>
+        <li {% if include.param == "serverside" %}class="active"{% endif %}><a href="/manual/server-side.html">服务器支持处理（Server-side processing）</a></li>
+        <li {% if include.param == "i18n" %}class="active"{% endif %}><a href="/manual/i18n.html">国际化（Internationalisation）</a></li>
     </ul>
 </div><!--/.well -->

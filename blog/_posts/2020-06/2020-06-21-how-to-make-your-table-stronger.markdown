@@ -72,14 +72,13 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - {% include href/Options.html param="scrollX" %}  水平滚动条
     - {% include href/Options.html param="scrollY" %}  垂直滚动条
     - [完整的选项列表][options]
-- [第七章，API][seven]
+- [第七章，API][seven]（Done √）
+    - {% include href/APIs.html param="ajax.reload()" %} 重新获取数据
+    - {% include href/APIs.html param="cell().data()" %} 获取单元格数据
+    - {% include href/APIs.html param="columns().data()" %} 获取列的数据
+    - {% include href/APIs.html param="rows().data()" %}  获取行的数据
     - [完整的API列表][api]
-- 第八章，更方便的操作表格数据  
-    - ajax
-    - columns
-    - row
-    - draw
-    - page  
+- [第八章，Styling 样式][eight]
 - 实战——制作一个具有增删改查功能的表格
     - 行内编辑
     - 弹框编辑
@@ -111,5 +110,6 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [five]: {{ site.baseurl }}/blog/2020/08/03/datatables-ajax.html
 [six]: {{ site.baseurl }}/blog/2020/08/05/datatables-options.html
 [seven]: {{ site.baseurl }}/blog/2020/08/10/datatables-api.html
+[eight]: {{ site.baseurl }}/blog/2020/08/17/datatables-styling.html
 [options]: {{site.baseurl}}/reference/option
 [api]: {{site.baseurl}}/reference/api

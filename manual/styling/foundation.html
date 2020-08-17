@@ -45,14 +45,97 @@ title: Bootstrap 样式 手册 Datatables中文网
 
         <div class="span9">
             {% include xad.html %}
-            <h3>Foundation </h3>
-            <p>ZURB Foundation 是一个高级的前端响应式框架。</p>
-            <p>像Bootstrap一样，只需要引入Datatables已经写好的css样式和js即可</p>
-            <p>css: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/foundation/dataTables.foundation.css</code></p>
-            <p>js: <code>http://cdn.datatables.net/plug-ins/28e7751dbec/integration/foundation/dataTables.foundation.js</code></p>
-            <p>你也可以在github上clone下来 <code>https://github.com/DataTables/Plugins/tree/master/integration/foundation</code></p>
-            <p>Foundation风格的Datatables:<a href="./foundation-simple.html" target="_blank">在新的页面查看此示例</a></p>
-            <iframe border="0" frameBorder="0" src="./foundation-simple.html" width="100%" height="530"></iframe>
+            <h1>Foundation</h1>
+
+            <p> 
+                <a href="http://foundation.zurb.com/">Foundation</a>
+                来自Zurb，是一个CSS框架，可用于快速开发复杂的网站，在HTML页面的设计过程采用移动端优先的方法。
+                使用Foundation等CSS框架，你可以快速创建具有统一外观的用户界面。
+                而且，在Datatables集成Foundation非常容易，功能强大的Datatables将与网站的其他部分的外观保持一致。
+
+            </p>
+
+
+            <p>
+
+                Foundation提供了 <a href="http://foundation.zurb.com/docs/components/tables.html" target="_blank">许多选项</a> 
+                来支持表格的样式，让你更加灵活的布局你的表格，同时让你看起来非常的舒服。
+                Datatables/Foundation集成，确保你可以使用所有这些功能以及Datatables对纯html表格所做的增强。
+            </p>
+
+            <h2>安装（Installation）</h2>
+            <p>
+                包括用于Datatables及其扩展的Bootstrap集成的最简单方法就是使用 
+                <a href="https://datatables.net/download">Datatables下载构建器</a> 。
+                在这个功能下，你可以选择你要使用的样式或者是扩展功能。
+            </p>
+
+            <p>
+                下载构建器，可以将所需的文件托管在Datatables CDN上或者下载到本地。
+            </p>
+
+            <h2>手动安装（Manual Installation）</h2>
+
+            <p>
+                如果你希望使用Datatables <a href="https://github.com/DataTables/DataTablesSrc">Git仓库</a>    或者下载包，而不是通过<a href="https://datatables.net/download">Datatables下载构建器</a>，
+                则Datatables及其所有扩展名都共享类似的文件命名约定，该约定可用于包括所需的文件。
+            </p>
+
+            <h3>DataTables</h3>
+
+            <p>
+                主Datatables文件名称为 <code>jquery.dataTables.js</code> ，使用大多数jQuery插件通用的格式。
+                还有一个用于Datatables支持的各种样式库的样式集成文件，其格式为 <code>dataTables.{style}.js</code>(
+                    比如Foundation的就是 <code>dataTables.foundation.js</code>)
+            </p>
+
+            <p> 
+                这两个JavaScript文件都应该包含在内-包含基本Datatables功能的主文件和用于设置合适于样式库的默认值的样式文件。
+            </p>
+
+            <p>
+                对于CSS，应仅包含一个文件，因为样式库将提供表格的核心样式选项。CSS文件的格式为 <code>dataTables.{style}.css</code>
+                (比如Foundation的就是 <code>dataTables.foundation.css</code>      )
+            </p>
+
+
+
+            <h3>Extensions</h3>
+
+            <p> 
+                上述文件命名约定也适用于<a href="https://datatables.net/extensions">扩展功能</a>。
+            </p>
+
+            <p>
+                对于JavaScript，我们保留两个部分的名称，并且删除jQuery，所以我们有：
+                <code>dataTables.{extension}.js</code>和 <code>{extension}.{style}.js</code>。
+                比如 <a href="https://datatables.net/extensions/buttons">Buttons</a>扩展功能，包括
+                <code>dataTables.buttons.js</code>和 <code>buttons.foundation.js</code>，还包含核心库和用于设置适当默认值的样式文件。
+            </p>
+
+            <p>
+                如果是CSS文件，应当仅包含一个文件，<code>extension.{style}.css</code>，比如
+                <code>buttons.foundation.css</code>。
+            </p>
+
+            <p>
+                注意，并非所有的扩展都需要样式库的JavaScript和/或者CSS。如果仓库或软件包中没有样式库，则不需要他们。
+            </p>
+
+            <h3>
+                Details
+            </h3>
+
+            <p>
+                如果你对Datatables文件名约定的详细信息感兴趣，请参与此 <a href="https://datatables.net/tn/13">技术文档</a>
+            </p>
+                
+            <h2>
+                例子
+            </h2>
+            下面是基于Foundation的Datatables示例：<a href="./foundation-simple.html" target="_blank">在新的页面查看此示例</a>
+            <iframe border="0" frameBorder="0" src="./foundation-simple.html" width="100%" height="700"></iframe>
+            
             <blockquote>
                 <p><a href="http://datatables.net/manual/styling/foundation" title="foundation">http://datatables.net/manual/styling/foundation</a></p>
                 <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
@@ -62,7 +145,7 @@ title: Bootstrap 样式 手册 Datatables中文网
 
         </div><!--/row-->
         <div class="span3">
-            {% include manual_styling_left_nav.html param='styling' %}
+            {% include manual_left_nav.html param='foundation' %}
         </div>
     </div><!--/row-->
 

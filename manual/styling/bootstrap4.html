@@ -1,11 +1,11 @@
 ---
-title: Bootstrap3 样式 手册 Datatables中文网
+title: Bootstrap4 样式 手册 Datatables中文网
 ---
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Datatables | 手册 | 样式 | Bootstrap3</title>
+    <title>Datatables | 手册 | 样式 | Bootstrap4</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="datatables is jquery-plugin">
 
@@ -43,19 +43,21 @@ title: Bootstrap3 样式 手册 Datatables中文网
 
             <div class="span9">
                 {% include xad.html %}
-                <h3>Bootstrap 3</h3>
+
+                <h1>Bootstrap 4</h1>
+                <p>
+                    <a href="https://getbootstrap.com/" target="_blank">Bootstrap 4</a>
+                是一个CSS框架，可以让你轻松构建具有统一风格的用户界面。
+                在Datatables集成Bootstrap 4非常容易，功能强大的Datatables将与网站的其他部分的外观保持一致。
+
+                </p>
 
                 <p>
-                    <a href="https://getbootstrap.com/" target="_blank">Bootstrap 3</a>
-                    是一个CSS框架，可以让你轻松构建具有统一风格的用户界面。
-                    在Datatables集成Bootstrap 3非常容易，功能强大的Datatables将与网站的其他部分的外观保持一致。
-                </p>
-                <p>
-                    Bootstrap 3提供了 <a href="http://getbootstrap.com/docs/3.3/css/#tables" target="_blank">许多选项</a> 
+
+                    Bootstrap 4提供了 <a href="https://getbootstrap.com/docs/4.0/content/tables/" target="_blank">许多选项</a> 
                     来支持表格的样式，让你更加灵活的布局你的表格，同时让你看起来非常的舒服。
-                    Datatables/Bootstrap 3集成，确保你可以使用所有这些功能以及Datatables对纯html表格所做的增强。
+                    Datatables/Bootstrap 4集成，确保你可以使用所有这些功能以及Datatables对纯html表格所做的增强。
                 </p>
-
 
                 <h2>安装（Installation）</h2>
                 <p>
@@ -80,7 +82,7 @@ title: Bootstrap3 样式 手册 Datatables中文网
                 <p>
                     主Datatables文件名称为 <code>jquery.dataTables.js</code> ，使用大多数jQuery插件通用的格式。
                     还有一个用于Datatables支持的各种样式库的样式集成文件，其格式为 <code>dataTables.{style}.js</code>(
-                        比如Bootstrap的就是 <code>dataTables.bootstrap.js</code>)
+                        比如Bootstrap 4的就是 <code>dataTables.bootstrap4.js</code>)
                 </p>
 
                 <p> 
@@ -89,7 +91,7 @@ title: Bootstrap3 样式 手册 Datatables中文网
 
                 <p>
                     对于CSS，应仅包含一个文件，因为样式库将提供表格的核心样式选项。CSS文件的格式为 <code>dataTables.{style}.css</code>
-                    (比如Bootstrap的就是 <code>dataTables.bootstrap.css</code>      )
+                    (比如Bootstrap的就是 <code>dataTables.bootstrap4.css</code>      )
                 </p>
 
                 <h3>Extensions</h3>
@@ -102,12 +104,12 @@ title: Bootstrap3 样式 手册 Datatables中文网
                     对于JavaScript，我们保留两个部分的名称，并且删除jQuery，所以我们有：
                     <code>dataTables.{extension}.js</code>和 <code>{extension}.{style}.js</code>。
                     比如 <a href="https://datatables.net/extensions/buttons">Buttons</a>扩展功能，包括
-                    <code>dataTables.buttons.js</code>和 <code>buttons.bootstrap.js</code>，还包含核心库和用于设置适当默认值的样式文件。
+                    <code>dataTables.buttons.js</code>和 <code>buttons.bootstrap4.js</code>，还包含核心库和用于设置适当默认值的样式文件。
                 </p>
 
                 <p>
                     如果是CSS文件，应当仅包含一个文件，<code>extension.{style}.css</code>，比如
-                    <code>buttons.bootstrap.css</code>。
+                    <code>buttons.bootstrap4.css</code>。
                 </p>
 
                 <p>
@@ -121,15 +123,18 @@ title: Bootstrap3 样式 手册 Datatables中文网
                 <p>
                     如果你对Datatables文件名约定的详细信息感兴趣，请参与此 <a href="https://datatables.net/tn/13">技术文档</a>
                 </p>
-                
+                 
                 <h2>
                     例子
                 </h2>
-                下面是基于Bootstrap 3的Datatables示例：<a href="./bootstrap-simple.html" target="_blank">在新的页面查看此示例</a>
-                <iframe border="0" frameBorder="0" src="./bootstrap-simple.html" width="100%" height="520"></iframe>
+                下面是基于Bootstrap 4的Datatables示例：<a href="./bootstrap4-simple.html" target="_blank">在新的页面查看此示例</a>
+                <iframe border="0" frameBorder="0" src="./bootstrap4-simple.html" width="100%" height="700"></iframe>
                 
+
+
+
                 <blockquote>
-                    <p><a href="http://datatables.net/manual/styling/bootstrap" title="bootstrap">http://datatables.net/manual/styling/bootstrap</a></p>
+                    <p><a href="http://datatables.net/manual/styling/bootstrap4" title="bootstrap">http://datatables.net/manual/styling/bootstrap</a></p>
                     <small><cite title="DataTables.net">Translation from DataTables.net, with permission</cite></small>
                 </blockquote>
 
@@ -137,7 +142,7 @@ title: Bootstrap3 样式 手册 Datatables中文网
 
             </div><!--/row-->
             <div class="span3">
-                {% include manual_left_nav.html param='bootstrap' %}
+                {% include manual_left_nav.html param='bootstrap4' %}
             </div>
         </div><!--/row-->
 
