@@ -78,9 +78,9 @@ API
 
 Events
 
-- {% include href/event.html param="stateLoaded" %}
-- {% include href/event.html param="stateLoadParams" %}
-- {% include href/event.html param="stateSaveParams" %}
+- {% include href/Events.html param="stateLoaded" %}
+- {% include href/Events.html param="stateLoadParams" %}
+- {% include href/Events.html param="stateSaveParams" %}
 
 Options
 

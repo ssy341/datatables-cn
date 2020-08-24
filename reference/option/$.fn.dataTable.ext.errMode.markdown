@@ -27,7 +27,7 @@ author: /reference/option/%24.fn.dataTable.ext.errMode
 
 - `alert` (default) - alert提示错误
 - `throw` - 抛出一个js的错误，在控制台可以看到具体的错误
-- `none` - 不处理（你可能想使用{% include href/event.html param="error" %}来处理这个情况）
+- `none` - 不处理（你可能想使用{% include href/Events.html param="error" %}来处理这个情况）
     
 ---
     
@@ -85,5 +85,5 @@ table.on('xhr.dt',function (e, settings, json, xhr) {
 
 Events
 
-- {% include href/event.html param="error" %}
+- {% include href/Events.html param="error" %}
 

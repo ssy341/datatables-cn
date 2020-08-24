@@ -12,7 +12,7 @@ author: /reference/api/state.save()
 
 ## 描述(Description)
 
-该方法主要用于插件开发，希望将信息添加到DataTables状态保存对象（通过{% include href/event.html param="stateSaveParams" %}）,并希望能够触发状态保存操作，以保存插件特定的信息。
+该方法主要用于插件开发，希望将信息添加到DataTables状态保存对象（通过{% include href/Events.html param="stateSaveParams" %}）,并希望能够触发状态保存操作，以保存插件特定的信息。
 
 
 举个例子-列过滤插件，当输入框值被最终用户更改之后，可能要触发状态保存，这使插件在下一次初始化（ {% include href/APIs.html param="state.loaded()" %}）表格时能够恢复表的状态。
@@ -58,9 +58,9 @@ API
 
 Events
 
-- {% include href/event.html param="stateLoaded" %}
-- {% include href/event.html param="stateLoadParams" %}
-- {% include href/event.html param="stateSaveParams" %}
+- {% include href/Events.html param="stateLoaded" %}
+- {% include href/Events.html param="stateLoadParams" %}
+- {% include href/Events.html param="stateSaveParams" %}
 
 Options
 

@@ -13,7 +13,7 @@ author: /reference/api/one()
 ## 描述(Description)
 
 
-DataTables可以触发很多事件，这些事件在DataTables执行对应事件可以采取相应的行动。比如说，知道当Ajax事件（{% include href/event.html param="xhr" %}）
+DataTables可以触发很多事件，这些事件在DataTables执行对应事件可以采取相应的行动。比如说，知道当Ajax事件（{% include href/Events.html param="xhr" %}）
 何时发生是非常有用的，所以你可以添加额外的数据到JSON有效载荷。
 
 DataTables提供了使用DataTables事件的三种方法，与jQuery核心事件方法相匹配：

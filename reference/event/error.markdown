@@ -17,7 +17,7 @@ author: /reference/event/error
 
 - {% include href/string.html param="alert" %} （默认）弹框显示错误
 - {% include href/string.html param="throw" %} 抛出一个Javascript错误
-- {% include href/string.html param="none" %} 什么都不做（你可能想使用 {% include href/event.html param="error" %} 在这个情况下）
+- {% include href/string.html param="none" %} 什么都不做（你可能想使用 {% include href/Events.html param="error" %} 在这个情况下）
 - `function` 当页面上所有DataTables发生一个错误会执行这个方法
 
 需要注意的是，与所有DataTables发出的事件一样，这个事件由`dt`命名空间触发。因此，你要监听此事件，还必须将`.dt`附加到事件名称中来使用`dt`命名空间，如下面的示例所示。

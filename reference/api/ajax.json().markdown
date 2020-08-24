@@ -60,7 +60,7 @@ API
 
 Events
 
-- {% include href/event.html param="xhr" %}
+- {% include href/Events.html param="xhr" %}
 
 Options
 
