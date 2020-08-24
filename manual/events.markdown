@@ -64,3 +64,4 @@ $(document).on( 'init.dt', function ( e, settings ) {
 [on]: http://api.jquery.com/on/
 [off]: http://api.jquery.com/off/
 [one]: http://api.jquery.com/one/
+[events]: {{ site.baseurl }}/reference/event/
