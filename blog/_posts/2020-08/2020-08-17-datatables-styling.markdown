@@ -38,7 +38,7 @@ author: DataTable中文网
 
 由于源码托管在GitHub上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[bilibili频道][bilibili]、[Youtube频道][youtube]和[微博视频][weibo]在线播放
 
-<iframe flag="bilibili" style="display:none" src="//player.bilibili.com/player.html?aid=969335703&bvid=BV19p4y1v7vZ&cid=225646411&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe flag="bilibili" src="//player.bilibili.com/player.html?aid=969335703&bvid=BV19p4y1v7vZ&cid=225646411&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
 
 ## 课程代码
 ---
