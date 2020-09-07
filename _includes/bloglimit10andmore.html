@@ -2,7 +2,7 @@
 {% assign postlist = site.tags %}
 {% for post in postlist['博客'] limit:pagelen %}
 <!-- First Blog Post -->
-    <div class="span4" style="min-height: 230px;">
+    <div class="span4" style="min-height: 240px;">
         <article class="news">
             <div class="news-date">
                 {{ post.date | date: "%Y年%m月%-d日" }}{% if post.hot %}<span class="hot"></span>{% endif %}
@@ -15,7 +15,7 @@
                 <i class="icon-comment "></i>
             </div>
             <p class="news-content">   
-                {{ post.excerpt | strip_html | truncate: 200 }} 
+                {{ post.excerpt | strip_html | truncate: 180 }} 
             </p>
         </article>
     </div>
