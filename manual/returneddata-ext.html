@@ -1,0 +1,51 @@
+<table class="parameters basic display dataTable no-footer" role="grid">
+    <thead>
+    <tr role="row">
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 100px;">名称</th>
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;">类型</th>
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 200px;">描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr role="row" class="odd">
+        <td><code>DT_RowId</code></td>
+        <td>
+            {% include href/Types.html param="string" %}
+        </td>
+        <td>
+            将{% include href/HtmlTags.html param="tr" %}节点的ID属性设置为此值
+        </td>
+    </tr>
+    <tr role="row" class="even">
+        <td><code>DT_RowClass</code></td>
+        <td>
+            {% include href/Types.html param="string" %}
+        </td>
+        <td>
+            添加这个样式到{% include href/HtmlTags.html param="tr" %}节点上
+        </td>
+    </tr>
+    <tr role="row" class="odd">
+        <td><code>DT_RowData</code></td>
+        <td>
+            {% include href/Types.html param="object" %}
+        </td>
+        <td>
+            使用 <a href="//api.jquery.com/data/">jQuery <code>data()</code></a>方法把对象数据绑定到行中，方便之后用来取出（比如在一个点击事件）
+        </td>
+    </tr>
+    <tr role="row" class="even">
+        <td><code>DT_RowAttr</code></td>
+        <td>
+            {% include href/Types.html param="object" %}
+        </td>
+        <td>
+            将对象中包含的数据作为属性添加到{% include href/HtmlTags.html param="tr" %}节点。
+            对象的键作为属性的键，对象的值作为属性的值。这个是使用 
+            <a href="//api.jquery.com/param/">jQuery <code>param()</code></a>方法。请注意这个选项
+                需要 <code>Datatables 1.10.5</code>或者更新的版本才支持。
+        </td>
+    </tr>
+
+    </tbody>
+</table>

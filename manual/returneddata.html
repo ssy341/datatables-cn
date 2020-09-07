@@ -1,0 +1,61 @@
+<table class="parameters basic display dataTable no-footer" role="grid">
+    <thead>
+    <tr role="row">
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 100px;">名称</th>
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;">类型</th>
+        <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 200px;">描述</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr role="row" class="odd">
+        <td><code>draw</code></td>
+        <td>
+            {% include href/Types.html param="integer" %}
+        </td>
+        <td>
+            <b>必要</b>。上面请求参数提到了，Datatables发送请求会带上的 <code>draw</code>参数，
+            服务端接收到此参数，然后作为返回数据返回给前端。
+                这里注意，出于安全的考虑，强烈建议你将此参数转换为整数，而不是纯粹的接收，然后返回给前端。这是
+                为了防止跨站脚本（XSS）攻击。
+        </td>
+    </tr>
+    <tr role="row" class="even">
+        <td><code>recordsTotal</code></td>
+        <td>
+            {% include href/Types.html param="integer" %}
+        </td>
+        <td>
+            <b>必要</b>。记录总数，没有过滤之前（数据库里表的总记录数）
+        </td>
+    </tr>
+    <tr role="row" class="odd">
+        <td><code>recordsFiltered</code></td>
+        <td>
+            {% include href/Types.html param="integer" %}
+        </td>
+        <td>
+            <b>必要</b>。过滤后的总记录数（如果有接收到前台的过滤条件，则返回的是过滤后的记录数，而不仅仅是当前页的记录数）
+        </td>
+    </tr>
+    <tr role="row" class="even">
+        <td><code>data</code></td>
+        <td>
+            {% include href/Types.html param="array" %}
+        </td>
+        <td>
+            <b>必要</b>。要在表中显示的数据。这是一个数据源对象数组，每一个项代表一行，Datatables将使用该数组。
+            请注意，可以使用{% include href/Options.html param="ajax" %}选项的{% include href/Options.html param="ajax.dataSrc" %}属性更改此参数的名称。
+        </td>
+    </tr>
+    <tr role="row" class="odd">
+        <td><code>error</code></td>
+        <td>
+            {% include href/Types.html param="string" %}
+        </td>
+        <td>
+            <b>可选</b>。如果服务端发生了异常，你可以定义一个错误来描述服务器出了问题来通知用户该错误。
+            如果没有错误，可以不需要此属性。
+        </td>
+    </tr>
+    </tbody>
+</table>

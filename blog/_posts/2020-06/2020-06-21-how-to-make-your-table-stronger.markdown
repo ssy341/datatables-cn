@@ -79,7 +79,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - {% include href/APIs.html param="rows().data()" %}  获取行的数据
     - [完整的API列表][api]
 - [第八章，Styling 样式][eight]<font color=green>（Done √）</font>
-- [第九章，Events 事件][nine]
+- [第九章，Events 事件][nine]<font color=green>（Done √）</font>
+- [第十章，ServerSide 服务端处理][ten]
 - 实战——制作一个具有增删改查功能的表格
     - 行内编辑
     - 弹框编辑
@@ -113,5 +114,6 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [seven]: {{ site.baseurl }}/blog/2020/08/10/datatables-api.html
 [eight]: {{ site.baseurl }}/blog/2020/08/17/datatables-styling.html
 [nine]: {{ site.baseurl }}/blog/2020/08/26/datatables-events.html
+[ten]: {{ site.baseurl }}/blog/2020/09/07/datatables-server-side.html
 [options]: {{site.baseurl}}/reference/option
 [api]: {{site.baseurl}}/reference/api

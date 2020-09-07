@@ -1,0 +1,137 @@
+<table class="parameters basic display dataTable no-footer" role="grid">
+        <thead>
+            <tr role="row">
+                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 100px;">名称</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 50px;">类型</th>
+                <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 200px;">描述</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr role="row" class="odd">
+            <td><code>draw</code></td>
+            <td>
+                {% include href/Types.html param="integer" %}
+            </td>
+            <td>
+                绘制计数器。这个是用来确保Ajax从服务器返回的是相对应的（Ajax是异步的，因此返回的顺序是不确定的）。
+                要求在服务器接收到此参数后再返回（具体看 <a href="#返回数据returned-data">下面</a>）
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>start</code></td>
+            <td>
+                {% include href/Types.html param="integer" %}
+            </td>
+            <td>
+                分页第一条数据的起始位置，比如0代表第一条数据。
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>length</code></td>
+            <td> 
+                {% include href/Types.html param="integer" %}
+            </td>
+            <td>
+                表格在当前绘制显示多少条数据。服务器返回的记录将等于该数目，除非服务器返回的记录数较少。
+                请注意，也可以为 <code>-1</code>，表示应该返回所有的记录（这个和服务器处理的理念有些违背）
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>search[value]</code></td>
+            <td> 
+                {% include href/Types.html param="string" %}
+            </td>
+            <td>
+                全局的搜索值。值会应用到每一列（ <code>searchable</code>需要设置为<code>true</code> ）
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>search[regex]</code></td>
+            <td>
+                {% include href/Types.html param="boolean" %}
+            </td>
+            <td>
+                如果为 <code>true</code>代表全局搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                注意：出于性能原因，通常在服务器模式下对于大数据不执行这样的正则表达式，但这在技术上是可行的，由自己决定是否需要这样做。
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>order[i][column]</code></td>
+            <td>
+                {% include href/Types.html param="integer" %}
+            </td>
+            <td>
+                那些列需要应用排序。这是对<code>columns</code> 数组的索引引用，并且也会提交到服务端。
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>order[i][dir]</code></td>
+            <td>
+                {% include href/Types.html param="string" %}
+            </td>
+            <td>
+                对应列的排序方向。 <code>desc</code> 降序， <code>asc</code>升序。
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>columns[i][data]</code></td>
+            <td>
+                {% include href/Types.html param="string" %}
+            </td>
+            <td>
+                columns 绑定的数据源，由{% include href/Options.html param="columns.data" %} 定义。
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>columns[i][name]</code></td>
+            <td>
+                {% include href/Types.html param="string" %}
+            </td>
+            <td>
+                columns 的名字，由{% include href/Options.html param="columns.name" %}定义。
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>columns[i][searchable]</code></td>
+            <td>
+                {% include href/Types.html param="boolean" %}
+            </td>
+            <td>
+                标记列是否能被搜索,为<code>true</code>代表可以，否则不可以。
+                这个是由{% include href/Options.html param="columns.searchable" %}选项控制。
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>columns[i][orderable]</code></td>
+            <td>
+                {% include href/Types.html param="boolean" %}
+            </td>
+            <td>
+                标记列是否能排序,为 <code>true</code>代表可以，否则不可以。
+                这个是由{% include href/Options.html param="columns.orderable" %}选项控制。
+            </td>
+        </tr>
+        <tr role="row" class="even">
+            <td><code>columns[i][search][value]</code></td>
+            <td>
+                {% include href/Types.html param="string" %}
+            </td>
+            <td>
+                特定列应用的搜索值。
+            </td>
+        </tr>
+        <tr role="row" class="odd">
+            <td><code>columns[i][search][regex]</code></td>
+            <td>
+                {% include href/Types.html param="boolean" %}
+            </td>
+            <td>
+                特定列的搜索值是否视为正则表达式处理，
+                    如果为 <code>true</code>代表搜索的值是作为正则表达式处理，为 <code>false</code>则不是。
+                    与全局搜索一样，出于性能原因，通常在服务器模式下对于大数据不执行这样的正则表达式搜索，
+                    但从技术上讲是可行的，由自己决定是否需要这样做。
+            </td>
+        </tr>
+
+    </tbody>
+</table>
