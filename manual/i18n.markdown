@@ -101,6 +101,7 @@ $('#example').DataTable( {
 
 
 ## 可用翻译（Available translations）
+---
 
 [这里][translate]由社区提供了50多种翻译，可供随意使用，从而使Datatables轻松集成到你的项目中去。
 
