@@ -20,7 +20,7 @@ author: /reference/option/language.aria.paginate.first
 - {% include href/Types.html param="string" %}
 
 ## 默认值(Default)
- {% include href/option/Internationalisation.html param="language.aria.paginate.first" %} 属性没有默认值
+ {% include href/Options.html param="language.aria.paginate.first" %} 属性没有默认值
 
 ## 例子(Example)
 定义分页按钮为带 ARIA 标签文字的图标
@@ -51,8 +51,8 @@ $('#example').DataTable({
 
 Options
 
-- {% include href/option/Internationalisation.html param="language.aria.paginate" %}
-- {% include href/option/Internationalisation.html param="language.paginate.first" %}
+- {% include href/Options.html param="language.aria.paginate" %}
+- {% include href/Options.html param="language.paginate.first" %}
 
 扩展阅读
 

@@ -12,7 +12,7 @@ author: /reference/option/language.url
 ## 描述(Description)
 
 DataTables提供的所有语言选项都可以储存在服务器上的文件中，如果你设置了此参数，DataTables将会从这个url中去获取语言。
-该文件必须是有效的JSON文件，里面包含的属性参考{% include href/option/Internationalisation.html param="language" %}
+该文件必须是有效的JSON文件，里面包含的属性参考{% include href/Options.html param="language" %}
 
 在这个[网站](https://datatables.net/plug-ins/i18n)上，已经有其他语言的插件可以直接使用。
 
@@ -62,5 +62,5 @@ $('#example').DataTable({
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/Options.html param="language" %}
 - {% include href/option/Callbacks.html param="initComplete" %}

@@ -61,5 +61,5 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
-- {% include href/option/Internationalisation.html param="language.thousands" %}
+- {% include href/Options.html param="language" %}
+- {% include href/Options.html param="language.thousands" %}

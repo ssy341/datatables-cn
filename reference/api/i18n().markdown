@@ -11,7 +11,7 @@ author: /reference/api/i18n()
 
 
 ## 描述(Description)
-该方法设计是为了提供给插件和扩展的开发人员，最终向用户显示语言字符串。它提供了将{% include href/option/Internationalisation.html param="language" %}配置对象
+该方法设计是为了提供给插件和扩展的开发人员，最终向用户显示语言字符串。它提供了将{% include href/Options.html param="language" %}配置对象
 用作语言字符串的单个配置点，然后从该对象中查找值的功能。对于开发人员未提供自己的字符串的情况，应该提供默认值。
 
 该方法还提供了在考虑国际化时必须考虑的单数，复数，双重等形式的基本支持。这是通过提供一个包含要使用的表单的键的对象以及默认值来完成的。
@@ -43,7 +43,7 @@ author: /reference/api/i18n()
 
 #### 描述(Description):
 
-查找在DataTables的{% include href/option/Internationalisation.html param="language" %}初始化对象中定义的语言标记。
+查找在DataTables的{% include href/Options.html param="language" %}初始化对象中定义的语言标记。
 
      
 #### 参数(Parameters):
@@ -166,5 +166,5 @@ alert(
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
+- {% include href/Options.html param="language" %}
 

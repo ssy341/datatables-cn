@@ -14,7 +14,7 @@ author: /reference/option/language.thousands
 DataTables内置的数字格式化方法({% include href/option/Callbacks.html param="formatNumber" %})用于格式化表中使用的大数字。
 默认情况下使用逗号分隔，这个参数可以改变成你想要的其他任何字符，适合任何地方，或者你不需要千分位分隔，设置为空即可。
 
-请注意，不同于{% include href/option/Internationalisation.html param="language.decimal" %}，千分位分隔符仅用于输出信息
+请注意，不同于{% include href/Options.html param="language.decimal" %}，千分位分隔符仅用于输出信息
 (特别是{% include href/Options.html param="info" %})，更改它不会影响DataTable如何读取原始数据。
 
 ## 类型(Type)
@@ -43,10 +43,10 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
-- {% include href/option/Internationalisation.html param="language.decimal" %}
-- {% include href/option/Internationalisation.html param="language.info" %}
-- {% include href/option/Internationalisation.html param="language.infoEmpty" %}
-- {% include href/option/Internationalisation.html param="language.infoFiltered" %}
-- {% include href/option/Internationalisation.html param="language.infoPostFix" %}
+- {% include href/Options.html param="language" %}
+- {% include href/Options.html param="language.decimal" %}
+- {% include href/Options.html param="language.info" %}
+- {% include href/Options.html param="language.infoEmpty" %}
+- {% include href/Options.html param="language.infoFiltered" %}
+- {% include href/Options.html param="language.infoPostFix" %}
 - {% include href/option/Callbacks.html param="formatNumber" %}

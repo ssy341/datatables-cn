@@ -44,7 +44,7 @@ DataTables的默认语言选项如下所示。此外，这里还提供了更多�
 }
 {% endhighlight %}
 
-从 DataTables 1.10.7 开始，新的{% include href/APIs.html param="i18n()" %}方法可以由插件作者从{% include href/option/Internationalisation.html param="language" %}对象来访问语言信息。
+从 DataTables 1.10.7 开始，新的{% include href/APIs.html param="i18n()" %}方法可以由插件作者从{% include href/Options.html param="language" %}对象来访问语言信息。
 因此这里提供的参数列表并不是最详细的。如果你想知道使用{% include href/APIs.html param=" i18n()" %}能获取到的完整信息，参考插件文档。
 
 ## 类型(Type)
@@ -62,23 +62,23 @@ API
 
 Options
 
-- {% include href/option/Internationalisation.html param="language.decimal" %}
-- {% include href/option/Internationalisation.html param="language.emptyTable" %}
-- {% include href/option/Internationalisation.html param="language.info" %}
-- {% include href/option/Internationalisation.html param="language.infoEmpty" %}
-- {% include href/option/Internationalisation.html param="language.infoFiltered" %}
-- {% include href/option/Internationalisation.html param="language.infoPostFix" %}
-- {% include href/option/Internationalisation.html param="language.thousands" %}
-- {% include href/option/Internationalisation.html param="language.lengthMenu" %}
-- {% include href/option/Internationalisation.html param="language.loadingRecords" %}
-- {% include href/option/Internationalisation.html param="language.processing" %}
-- {% include href/option/Internationalisation.html param="language.search" %}
-- {% include href/option/Internationalisation.html param="language.zeroRecords" %}
-- {% include href/option/Internationalisation.html param="language.paginate" %}
-- {% include href/option/Internationalisation.html param="language.paginate.first" %}
-- {% include href/option/Internationalisation.html param="language.paginate.last" %}
-- {% include href/option/Internationalisation.html param="language.paginate.next" %}
-- {% include href/option/Internationalisation.html param="language.paginate.previous" %}
-- {% include href/option/Internationalisation.html param="language.aria" %}
-- {% include href/option/Internationalisation.html param="language.aria.sortAscending" %}
-- {% include href/option/Internationalisation.html param="language.aria.sortDescending" %}
+- {% include href/Options.html param="language.decimal" %}
+- {% include href/Options.html param="language.emptyTable" %}
+- {% include href/Options.html param="language.info" %}
+- {% include href/Options.html param="language.infoEmpty" %}
+- {% include href/Options.html param="language.infoFiltered" %}
+- {% include href/Options.html param="language.infoPostFix" %}
+- {% include href/Options.html param="language.thousands" %}
+- {% include href/Options.html param="language.lengthMenu" %}
+- {% include href/Options.html param="language.loadingRecords" %}
+- {% include href/Options.html param="language.processing" %}
+- {% include href/Options.html param="language.search" %}
+- {% include href/Options.html param="language.zeroRecords" %}
+- {% include href/Options.html param="language.paginate" %}
+- {% include href/Options.html param="language.paginate.first" %}
+- {% include href/Options.html param="language.paginate.last" %}
+- {% include href/Options.html param="language.paginate.next" %}
+- {% include href/Options.html param="language.paginate.previous" %}
+- {% include href/Options.html param="language.aria" %}
+- {% include href/Options.html param="language.aria.sortAscending" %}
+- {% include href/Options.html param="language.aria.sortDescending" %}

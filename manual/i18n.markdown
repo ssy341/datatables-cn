@@ -7,10 +7,105 @@ author: /manual/i18n
 
 Datatables增强表格功能后，会在表格的周围添加多个控件，这些控件使用了语言字符的方式将用法或意思传达给最终用户。这些语言字符默认是英语，你也可以自定义以适合自己项目的实际情况来表达这些意思。
 
-[这里][translate]由社区提供了50多种翻译，可供使用，从而使Datatables轻松集成到你的项目中去。
+## 配置（Configuration）
+---
+
+通过{% include href/Options.html param="language" %}选项配置Datatables使用的语言。这是一个对象，其参数描述了Datatables每个部分使用的字符串。语言选项的完整列表在{% include href/Options.html param="language" %}文档中查看。
+
+### 常规配置（Normal configuration）
+---
+
+作为初始化对象的一部分，语言选项的配置与Datatables中的其他[配置选项][options]完全相同。下面的例子演示了如何改变搜索字符串：
+
+```javascript
+$('#example').DataTable( {
+    language: {
+        search: "在表格中搜索："
+    }
+} );
+```
+
+与其他初始化选项一样，你可以根据你的需要使用任意数量的的选项。那些你没有提供的值将会用默认值替代。下面实例演示了用中文显示Datatables中的每个控件和提示信息：
+```javascript
+$('#example').DataTable( {
+    language:{
+        "processing": "处理中...",
+        "lengthMenu": "显示 _MENU_ 项结果",
+        "zeroRecords": "没有匹配结果",
+        "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+        "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+        "infoFiltered": "(由 _MAX_ 项结果过滤)",
+        "infoPostFix": "",
+        "search": "搜索:",
+        "searchPlaceholder": "搜索...",
+        "url": "",
+        "emptyTable": "表中数据为空",
+        "loadingRecords": "载入中...",
+        "infoThousands": ",",
+        "paginate": {
+            "first": "首页",
+            "previous": "上页",
+            "next": "下页",
+            "last": "末页"
+        },
+        "aria": {
+            "paginate": {
+                "first": "首页",
+                "previous": "上页",
+                "next": "下页",
+                "last": "末页"
+            },
+            "sortAscending": "以升序排列此列",
+            "sortDescending": "以降序排列此列"
+        },
+        "thousands": "."
+    }
+} );
+```
+
+### Ajax加载语言（Ajax loading a translation）
+---
+
+为了方便起见，Datatables提供了通过Ajax从远程文件加载语言信息的选项。这是通过{% include href/Options.html param="language.url" %}选项配置的。例如下面的代码示例：
+
+```javascript
+$('#example').DataTable( {
+    language: {
+        url: '/localisation/zh_CN.json'
+    }
+} );
+```
+
+与{% include href/Options.html param="language.url" %}选项配置一样，由Ajax加载的文件可以指定任意数量的语言选项，没有指定的选项将使用Datatables的默认值。
 
 
+## 数字数据的排序（Ordering of numeric data）
+---
+
+
+数字数据通常按照某些规则进行格式化，例如小数点字符，千位分隔符，和数字类标识（例如货币符号）。Datatables会自动检测数字数据类型，例如币种，百分比值和带有千位分隔符的值，但默认情况下，所有这些都使用点`.`作为小数点，因为这是用JavaScript标识数字的方式。
+
+Datatables可以通过{% include href/Options.html param="language.decimal" %}选项将任何字符用作数字数据的小数位，从而提供完整的数字类型检测和任何形式的数字数据的排序。例如，[世界上很多地方都使用逗号][comma]`,`作为小数位，Unicode定义小数点分隔符`⎖`，财务文件有时会用破折号`-`，等等。
+
+通过使用{% include href/Options.html param="language.decimal" %}选项，你可以告诉Datatables寻找什么字符作为表中数据的小数位，因此可以正确地对这些数据进行排序。
+
+如下代码演示如何配置小数位字符，直接配置在初始化代码，或者通过Ajax加载语言配置文件，在配置文件里定义：
+
+```javascript
+$('#example').DataTable( {
+    language: {
+        decimal: ",",
+    }
+} );
+```
+
+
+## 可用翻译（Available translations）
+
+[这里][translate]由社区提供了50多种翻译，可供随意使用，从而使Datatables轻松集成到你的项目中去。
 
 
 
 [translate]: https://datatables.net/plug-ins/i18n
+[options]: {{site.baseurl}}/manual/options
+[comma]: http://en.wikipedia.org/wiki/Decimal_mark

@@ -39,8 +39,8 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
-- {% include href/option/Internationalisation.html param="language.info" %}
-- {% include href/option/Internationalisation.html param="language.infoFiltered" %}
-- {% include href/option/Internationalisation.html param="language.infoPostFix" %}
-- {% include href/option/Internationalisation.html param="language.thousands" %}
+- {% include href/Options.html param="language" %}
+- {% include href/Options.html param="language.info" %}
+- {% include href/Options.html param="language.infoFiltered" %}
+- {% include href/Options.html param="language.infoPostFix" %}
+- {% include href/Options.html param="language.thousands" %}

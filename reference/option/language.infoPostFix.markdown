@@ -13,8 +13,8 @@ author: /reference/option/language.infoPostFix
 
 有时候你希望追加额外的字符串到主要摘要信息上，这个参数就是起这个作用的。
 
-这个字符串在任何时间都会追加到{% include href/option/Internationalisation.html param="language.info" %}({% include href/option/Internationalisation.html param="language.infoEmpty" %}
-和{% include href/option/Internationalisation.html param="language.infoFiltered" %} 不管两个怎么组合)。
+这个字符串在任何时间都会追加到{% include href/Options.html param="language.info" %}({% include href/Options.html param="language.infoEmpty" %}
+和{% include href/Options.html param="language.infoFiltered" %} 不管两个怎么组合)。
 
 ## 类型(Type)
 这个选项能够接受以下类型的参数：
@@ -41,8 +41,8 @@ $('#example').DataTable( {
 
 Options
 
-- {% include href/option/Internationalisation.html param="language" %}
-- {% include href/option/Internationalisation.html param="language.info" %}
-- {% include href/option/Internationalisation.html param="language.infoEmpty" %}
-- {% include href/option/Internationalisation.html param="language.infoFiltered" %}
-- {% include href/option/Internationalisation.html param="language.thousands" %}
+- {% include href/Options.html param="language" %}
+- {% include href/Options.html param="language.info" %}
+- {% include href/Options.html param="language.infoEmpty" %}
+- {% include href/Options.html param="language.infoFiltered" %}
+- {% include href/Options.html param="language.thousands" %}
