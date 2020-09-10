@@ -45,7 +45,7 @@ author: DataTable中文网
 
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
-[github]: https://github.com/ssy341/datatables-season2/tree/master/example01
+[github]: https://github.com/ssy341/datatables-season2/tree/master/example06
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
 [ajax]: {{ site.baseurl }}/manual/ajax

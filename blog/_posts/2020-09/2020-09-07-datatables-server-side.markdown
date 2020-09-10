@@ -39,6 +39,8 @@ Datatables提供了对大量数据读取的方案，每一页数据可以单独�
 
 由于源码托管在GitHub上，不方便传大文件，观看视频请加群20779435，视频在群文件里可以查阅，或者查看我的[bilibili频道][bilibili]、[Youtube频道][youtube]和[微博视频][weibo]在线播放
 
+<iframe flag="bilibili" src="//player.bilibili.com/player.html?aid=712053760&bvid=BV13D4y1o7tk&cid=233537029&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 
 ## 课程代码
 ---
@@ -50,7 +52,7 @@ Datatables提供了对大量数据读取的方案，每一页数据可以单独�
 
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
-[github]: https://github.com/ssy341/datatables-season2/tree/master/example01
+[github]: https://github.com/ssy341/datatables-serverside-java-spring-boot
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
 [serverside]: {{ site.baseurl }}/manual/server-side

@@ -70,14 +70,14 @@ DataTables中文网第二季视频 第三节 DataTables使用入门之DOM属性�
 
 ## 课程代码
 
-课程中所有代码都已经放在github上了，[点我查看][github]
+课程中所有代码都已经放在github上了（example01-example02），[点我查看][github]
 
 最后，谢谢大家的支持，如有错误的地方还望指出，如果您还有其他的建议或要求，欢迎在下方留言
 
 
 [youtube]: https://www.youtube.com/playlist?list=PLfl1Raz12t6s43Fb--qDoIsBPKHEme7FO
 [bilibili]: https://space.bilibili.com/618644465/channel/detail?cid=133983
-[github]: https://github.com/ssy341/datatables-season2/tree/master/example01
+[github]: https://github.com/ssy341/datatables-season2
 [index]: {{ site.baseurl }}/blog/2020/06/21/how-to-make-your-table-stronger.html
 [weibo]: https://weibo.com/2957561617/profile?topnav=1&wvr=6&is_all=1
 [install]: {{ site.baseurl }}/manual/install
