@@ -80,7 +80,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - [完整的API列表][api]
 - [第八章，Styling 样式][eight]<font color=green>（Done √）</font>
 - [第九章，Events 事件][nine]<font color=green>（Done √）</font>
-- [第十章，ServerSide 服务端处理][ten]
+- [第十章，ServerSide 服务端处理][ten]<font color=green>（Done √）</font>
+- [第十一章，Internationalisation 国际化处理][eleven]
 - 实战——制作一个具有增删改查功能的表格
     - 行内编辑
     - 弹框编辑
@@ -115,5 +116,7 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [eight]: {{ site.baseurl }}/blog/2020/08/17/datatables-styling.html
 [nine]: {{ site.baseurl }}/blog/2020/08/26/datatables-events.html
 [ten]: {{ site.baseurl }}/blog/2020/09/07/datatables-server-side.html
+[eleven]: {{ site.baseurl }}/blog/2020/09/10/datatables-i18n.html
+
 [options]: {{site.baseurl}}/reference/option
 [api]: {{site.baseurl}}/reference/api

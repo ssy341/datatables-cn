@@ -1,0 +1,16 @@
+---
+layout: manual
+toc: true
+title: 国际化 Internationalisation
+author: /manual/i18n
+---
+
+Datatables增强表格功能后，会在表格的周围添加多个控件，这些控件使用了语言字符的方式将用法或意思传达给最终用户。这些语言字符默认是英语，你也可以自定义以适合自己项目的实际情况来表达这些意思。
+
+[这里][translate]由社区提供了50多种翻译，可供使用，从而使Datatables轻松集成到你的项目中去。
+
+
+
+
+
+[translate]: https://datatables.net/plug-ins/i18n
