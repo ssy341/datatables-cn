@@ -10,7 +10,7 @@ Datatables增强表格功能后，会在表格的周围添加多个控件，这�
 ## 配置（Configuration）
 ---
 
-通过{% include href/Options.html param="language" %}选项配置Datatables使用的语言。这是一个对象，其参数描述了Datatables每个部分使用的字符串。语言选项的完整列表在{% include href/Options.html param="language" %}文档中查看。
+通过{% include href/Options.html param="language" %}选项配置Datatables使用的语言。这是一个对象，其参数描述了Datatables每个部分使用的字符串。语言选项的完整列表在[配置选项][language]文档中查看。
 
 ### 常规配置（Normal configuration）
 ---
@@ -110,3 +110,4 @@ $('#example').DataTable( {
 [translate]: https://datatables.net/plug-ins/i18n
 [options]: {{site.baseurl}}/manual/options
 [comma]: http://en.wikipedia.org/wiki/Decimal_mark
+[language]: {{site.baseurl}}/reference/option/index.html?title=language
