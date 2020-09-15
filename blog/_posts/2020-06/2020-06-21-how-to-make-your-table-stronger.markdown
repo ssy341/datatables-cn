@@ -7,7 +7,7 @@ group: 2020-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
-author: DataTable中文网
+author: DataTables中文网
 toc: true
 ---
 

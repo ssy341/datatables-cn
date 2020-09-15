@@ -7,7 +7,7 @@ group: 2016-7
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 banner: https://github.com/ssy341/datatabes_cn_example_curd_java/raw/master/images/demo1.png
 ---
 

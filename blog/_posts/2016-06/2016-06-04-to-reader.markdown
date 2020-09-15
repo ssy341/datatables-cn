@@ -7,7 +7,7 @@ group: 2016-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客]
-author: DataTable中文网
+author: DataTables中文网
 ---
 
 DataTables 中文网博客今天正式面向大家，我非常激动，非常高兴。之前中文网推出了《不定时一讲》，反映还行。不管怎样，记住一句话

@@ -7,7 +7,7 @@ group: 2020-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
-author: DataTable中文网
+author: DataTables中文网
 ---
 
 本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第一章，主要讲如何[使用Datatables][install]，以及通过dom来开启DataTables。

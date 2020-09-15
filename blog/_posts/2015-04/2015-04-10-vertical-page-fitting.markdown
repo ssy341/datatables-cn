@@ -7,7 +7,7 @@ group: 2015-4
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,官方博客]
-author: DataTable中文网
+author: DataTables中文网
 banner: /assets/blog/2015-04/2015-04-10-vertical-page-fitting.markdown.png
 ---
 

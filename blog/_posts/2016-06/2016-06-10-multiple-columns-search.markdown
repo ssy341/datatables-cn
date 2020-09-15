@@ -1,13 +1,13 @@
 ---
 layout: daily
-title: DataTables 多条件查询、多列搜索 博客 DataTable中文网
+title: DataTables 多条件查询、多列搜索 博客 DataTables中文网
 short: DataTables 多条件查询、多列搜索
 date: 2016-6-10
 group: 2016-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验]
-author: DataTable中文网
+author: DataTables中文网
 ---
 
 在使用DataTables展示数据，通常有两种

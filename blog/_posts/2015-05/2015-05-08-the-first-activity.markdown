@@ -7,7 +7,7 @@ group: 2015-5
 caption: DataTables 中文网博客
 categories: blog
 tags: [活动,博客]
-author: DataTable中文网
+author: DataTables中文网
 banner: /images/activity/ibm.jpg
 ---
 

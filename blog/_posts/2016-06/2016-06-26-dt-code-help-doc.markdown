@@ -7,7 +7,7 @@ group: 2016-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DTCODE]
-author: DataTable中文网
+author: DataTables中文网
 banner: /images/blog/2016-06/dt-code-help-doc.png
 ---
 

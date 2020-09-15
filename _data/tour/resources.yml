@@ -9,3 +9,7 @@
 - url: https://www.w3schools.com/default.asp
   title: W3C学校
   text: W3C学校
+
+- url: https://owasp.org/
+  title: Open Web Application Security Project
+  text: 开放式Web应用程序安全项目

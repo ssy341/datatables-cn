@@ -7,7 +7,7 @@ group: 2020-8
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,第二季视频]
-author: DataTable中文网
+author: DataTables中文网
 ---
 
 本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第九章，主要讲Datatables的[Events][events]，即Datatables内部和与其他插件之间的协同合作怎么处理的。

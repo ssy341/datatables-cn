@@ -7,7 +7,7 @@ group: 2016-6
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,番茄工作法]
-author: DataTable中文网
+author: DataTables中文网
 banner: http://i1.sinaimg.cn/edu/cr/2014/0228/3213211257.jpg
 style: >
     <link rel="stylesheet" href="/js/datatables/dataTables.bootstrap.css">

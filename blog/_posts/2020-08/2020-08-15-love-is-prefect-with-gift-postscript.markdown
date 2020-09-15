@@ -7,8 +7,8 @@ group: 2020-8
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables中文网活动]
-author: DataTable中文网
-keywords: DataTable中文网活动,七夕
+author: DataTables中文网
+keywords: DataTables中文网活动,七夕
 toc: true
 style: >
     <style>img[alt=gift-desc1] { width: 700px; }</style>

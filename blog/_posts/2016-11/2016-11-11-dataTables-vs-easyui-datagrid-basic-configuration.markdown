@@ -7,7 +7,7 @@ group: 2016-11
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,DataTables VS EasyUI DataGrid]
-author: DataTable中文网
+author: DataTables中文网
 style: >
     <link rel="stylesheet" type="text/css" href="/js/datatables/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/easyui/easyui.css">

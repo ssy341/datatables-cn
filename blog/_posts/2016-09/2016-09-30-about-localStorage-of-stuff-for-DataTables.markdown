@@ -7,7 +7,7 @@ group: 2016-9
 caption: DataTables 中文网博客
 categories: blog
 tags: [博客,DataTables使用经验,不定时一讲]
-author: DataTable中文网
+author: DataTables中文网
 ---
 
 这是一个{% include href/Options.html param="stateSave" %}参数引发的一系列“惨案”。
