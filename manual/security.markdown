@@ -29,7 +29,7 @@ author: /manual/security
 - 跨站脚本（Cross-Site Scripting），简称XSS
 - 跨站请求伪造（Cross-Site Request Forgery），简称CSRF
 
-还会发生其他形式的数据泄露，例如，允许未登录的用户访问明感数据，允许特权提升（查看不应允许的数据）和sql注入攻击。这些是使用Datatables创建的应用程序的主要问题。
+还会发生其他形式的数据泄露，例如，允许未登录的用户访问敏感数据，允许特权提升（查看不应允许的数据）和SQL注入攻击。这些是使用Datatables创建的应用程序的主要问题。
 
 ## 跨站脚本（Cross-Site Scripting）
 ---
