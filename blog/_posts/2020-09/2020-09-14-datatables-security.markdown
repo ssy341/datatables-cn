@@ -11,7 +11,7 @@ author: DataTables中文网
 hot: 1
 ---
 
-本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第十二章，主要讲Datatables的[安全]][security]，即Datatables如何预防XSS攻击和跨站请求伪造。
+本节为Datatables入门第二期 —— [《使用Datatables"武装"你的html表格》][index]的第十二章，主要讲Datatables的[安全][security]，即Datatables如何预防XSS（跨站脚本）和CSRF（跨站请求伪造）。
 
 ## 课程简介
 ---

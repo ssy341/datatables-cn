@@ -81,8 +81,8 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 - [第八章，Styling 样式][eight]<font color=green>（Done √）</font>
 - [第九章，Events 事件][nine]<font color=green>（Done √）</font>
 - [第十章，ServerSide 服务端处理][ten]<font color=green>（Done √）</font>
-- [第十一章，Internationalisation 国际化处理][eleven]
-- 第十二章，Security 安全
+- [第十一章，Internationalisation 国际化处理][eleven]<font color=green>（Done √）</font>
+- [第十二章，Security 安全][twelve]
 - 第十三章，Technical notes 技术说明
 - 第十四章，实战——制作一个具有增删改查功能的表格
     - 行内编辑
@@ -119,6 +119,6 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [nine]: {{ site.baseurl }}/blog/2020/08/26/datatables-events.html
 [ten]: {{ site.baseurl }}/blog/2020/09/07/datatables-server-side.html
 [eleven]: {{ site.baseurl }}/blog/2020/09/10/datatables-i18n.html
-
+[twelve]: {{ site.baseurl }}/blog/2020/09/14/datatables-security.html
 [options]: {{site.baseurl}}/reference/option
 [api]: {{site.baseurl}}/reference/api
