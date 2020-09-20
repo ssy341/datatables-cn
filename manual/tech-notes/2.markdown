@@ -1,0 +1,52 @@
+---
+layout: manual
+toc: true
+title: "2. Warning: Non-table node initialisation"
+author: /manual/tech-notes/2
+navcategory: tech-notes
+---
+
+Datatables只会在{% include href/HtmlTags.html param="table" %}元素上初始化。在任何其他元素上使用Datatables都会导致此错误。
+
+
+## 含义（Meaning）
+---
+
+如果你尝试在任何其他类型的元素上初始化Datatables，Datatables会给出警告提示：
+
+```
+DataTables warning: Non-table node initialisation ({tag}).
+```
+
+其中`{tag}`替换为尝试用来初始化表格的元素的节点名称（比如{% include href/HtmlTags.html param="div" %}或者{% include href/HtmlTags.html param="h3" %}）
+
+
+## 诊断（Diagnosis）
+---
+
+发生这种错误时，通常是由于用于初始化Datatables的jQuery选择器中的选择器错误所致。这可能仅仅是因为选择器指向错误的元素类型或者选择器过于宽泛。
+
+作为这两个情况的示例，有如下HTML代码：
+
+```html
+<div id="demo" class="display">
+    <table class="display">...</table>
+</div>
+```
+
+然后以下的操作将会导致此错误的发生：
+```javascript
+// 选择错误的元素
+// 会导致错误，因为#demo 是一个div元素
+$('#demo').dataTable()
+
+// 选择器太宽泛
+// 会导致错误，因为.display同时应用于div和table元素上
+$('.display').dataTable();
+```
+
+
+## 解决（Resolution）
+---
+
+如果你遇到此错误，检查你操作的元素是否为表格元素，或者检查选择器的选择范围。

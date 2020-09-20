@@ -1,0 +1,97 @@
+---
+layout: manual
+toc: true
+title: "7. Warning: Ajax error"
+author: /manual/tech-notes/7
+navcategory: tech-notes
+style: >
+    <style>img { width: 700px; }</style>
+---
+
+当使用{% include href/Options.html param="ajax" %}选项为Datatables加载数据时，如果服务器返回HTTP 2xx响应以外的其他响应，则可能会触发这个错误。这个错误是：
+
+```
+DataTables warning: table id={id} - Ajax error
+```
+
+`{id}`为触发错误的表的DOM id
+
+
+## 含义（Meaning）
+---
+
+jQuery执行[`error`][jqueryerror]回调(Datatables内置了此回调)时会发生这个情况，当服务器以2xx HTTP状态代码以外的任何其他内容响应时，就会发生此错误提示。例如，服务器可能会响应`404 Not Found`，表明当前请求URL是不可用的，或者`500 Internal Error`，表明服务器在处理请求时遇到了错误。
+
+如果服务器的请求是有效的返回值（例如`200 ok`），但不是有效的JSON，则触发特定的错误。参考[技术说明1][1]获取更多信息，本节介绍的是一般错误。
+
+
+
+## 诊断（Diagnosis）
+---
+
+如果服务器未使用2xx状态代码响应Ajax请求，则我们需要知道服务器响应的内容，以便采取纠正措施。因此，发现该响应是解决问题的出发点。
+
+目前主流的浏览器都内置了Web开发人员工具，可以用于查找服务器响应Datatables Ajax请求数据。下面显示了有关如何使用浏览器执行此操作的说明。
+
+### Chrome
+---
+
+- 1，打开Chrome的web开发者工具：
+    - Mac：视图 > 开发者 > 开发者工具
+    - Windows： Chrome菜单（地址栏右侧），然后选择工具 > 开发者工具
+
+
+![open debugger](/images/manual/tech-notes/1.jpg)
+
+- 2，开发人员工具显示在当前浏览器窗口的底部。
+    - 单击网络选项卡(Network)以查看网络请求
+    - 刷新页面以允许Chrome捕获所有请求
+
+![console displayed](/images/manual/tech-notes/2.jpg)
+
+
+- 3，网络面板会显示当前页面所有的请求
+    - 单击HXR选项，以将请求限定在为Ajax（HXR）的请求。
+    - 单击Datatables发出的Ajax请求（array.txt）
+
+![show network tab](/images/manual/tech-notes/3.jpg)
+
+
+- 4，Ajax请求的详细信息将会显示出来：
+    - 单击Ajax视图的中的Response选项卡，以查看从服务器返回的确切数据。这部分就是我们感兴趣的，能够知道究竟出了什么问题。
+
+![ajax response](/images/manual/tech-notes/4.jpg)
+
+
+请注意，随着软件的更新，上述步骤可能会略有不同。
+
+
+## 解决（Resolution）
+---
+
+按照上面的说明进行操作后，你将知道服务器针对Ajax请求响应的错误。
+
+最常见的错误是：
+
+- 404 - Not Found.
+    - 在服务器上找不到请求的URL
+    - 在{% include href/Options.html param="ajax" %}参数中的URL和服务器上的URL检查拼写错误。
+- 500 - Internal Error.
+    - 服务器在响应请求时遇到错误。
+    - 检查服务器的错误日志，以获取有关此错误发生的原因信息。
+- Origin not allowed by Access-Control-Allow-Origin.
+    - 当前的请求的域和当前加载页面的域不是同一个
+    - 浏览器具有内置的安全措施，可防止加载外部脚本 - 比如在`http://localhost`下，没有任何特殊措施，你不能用Ajax加载脚本从`http://google.com`。
+    - 如果使用单个域，请确保指定的相对或绝对路径不带域名（比如，请勿以http(s)://开头的URL）
+    - 在服务器上使用[JSONP][jsonp] 或其他跨域访问技术，例如脚本代理。
+
+如果你愿意接受该错误（例如，如果你无法更改后端系统以修复该错误），但不希望最终用户看到`alert()`消息，你可以更改Datatables的错误报告机制，以向浏览器的控制台抛出JavaScript错误，而不是弹出消息。参考如下代码：
+
+```javascript
+$.fn.dataTable.ext.errMode = 'throw';
+```
+
+
+[jqueryerror]: http://api.jquery.com/jQuery.ajax/#error
+[1]: {{ site.baseurl }}/manual/tech-notes/1
+[jsonp]: https://datatables.net/examples/server_side/jsonp

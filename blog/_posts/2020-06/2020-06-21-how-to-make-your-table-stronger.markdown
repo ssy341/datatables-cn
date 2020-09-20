@@ -46,25 +46,25 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 
 ## 课程内容
 
-- [开刊][zero]（即本节内容，<font color=green>Done √</font>
-- [第一章，Datatables的6大特性][one]<font color=green>（Done √）</font>
+- [开刊][zero]（即本节内容）
+- [第一章，Datatables的6大特性][one]
     - 如何使用Datatables
     - DOM属性的介绍
     - DOM属性的标记语言
-- [第二章，对于各种数据源该怎么使用Datatables][two]<font color=green>（Done √）</font>
+- [第二章，对于各种数据源该怎么使用Datatables][two]
     - Dom数据源
     - javascript数据
     - Ajax数据
     - 服务器模式
     - 客户端模式
-- [第三章，复杂数据的处理-正交数据][three]<font color=green>（Done √）</font>
+- [第三章，复杂数据的处理-正交数据][three]
     - 什么是正交数据
     - 预定义值提供正交数据
     - 函数处理提供正交数据
     - HTML5 `data-*`和正交数据
-- [第四章，复杂数据的显示-渲染器][four]<font color=green>（Done √）</font>
-- [第五章，Ajax][five]<font color=green>（Done √）</font>
-- [第六章，打造和自己项目贴近的表格-如何配置Datatables][six]<font color=green>（Done √</font>
+- [第四章，复杂数据的显示-渲染器][four]
+- [第五章，Ajax][five]
+- [第六章，打造和自己项目贴近的表格-如何配置Datatables][six]
     - {% include href/Options.html param="ajax" %} Ajax数据源配置
     - {% include href/Options.html param="data" %} JavaScript数据源配置
     - {% include href/Options.html param="serverSide" %} 开启服务器处理
@@ -72,18 +72,18 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
     - {% include href/Options.html param="scrollX" %}  水平滚动条
     - {% include href/Options.html param="scrollY" %}  垂直滚动条
     - [完整的选项列表][options]
-- [第七章，API][seven]<font color=green>（Done √）</font>
+- [第七章，API][seven]
     - {% include href/APIs.html param="ajax.reload()" %} 重新获取数据
     - {% include href/APIs.html param="cell().data()" %} 获取单元格数据
     - {% include href/APIs.html param="columns().data()" %} 获取列的数据
     - {% include href/APIs.html param="rows().data()" %}  获取行的数据
     - [完整的API列表][api]
-- [第八章，Styling 样式][eight]<font color=green>（Done √）</font>
-- [第九章，Events 事件][nine]<font color=green>（Done √）</font>
-- [第十章，ServerSide 服务端处理][ten]<font color=green>（Done √）</font>
-- [第十一章，Internationalisation 国际化处理][eleven]<font color=green>（Done √）</font>
+- [第八章，Styling 样式][eight]
+- [第九章，Events 事件][nine]
+- [第十章，ServerSide 服务端处理][ten]
+- [第十一章，Internationalisation 国际化处理][eleven]
 - [第十二章，Security 安全][twelve]
-- 第十三章，Technical notes 技术说明
+- [第十三章，Technical notes 技术说明][thirteen]
 - 第十四章，实战——制作一个具有增删改查功能的表格
     - 行内编辑
     - 弹框编辑
@@ -120,5 +120,6 @@ DataTables中文网，没有你们，Datatables中文网也走不到今天。每
 [ten]: {{ site.baseurl }}/blog/2020/09/07/datatables-server-side.html
 [eleven]: {{ site.baseurl }}/blog/2020/09/10/datatables-i18n.html
 [twelve]: {{ site.baseurl }}/blog/2020/09/14/datatables-security.html
+[thirteen]: {{ site.baseurl }}/blog/2020/09/21/datatables-tech-notes.html
 [options]: {{site.baseurl}}/reference/option
 [api]: {{site.baseurl}}/reference/api

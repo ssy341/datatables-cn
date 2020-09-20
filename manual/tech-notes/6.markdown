@@ -1,0 +1,54 @@
+---
+layout: manual
+toc: true
+title: "6. Warning: Possible column misalignment"
+author: /manual/tech-notes/6
+navcategory: tech-notes
+---
+
+
+通过使用{% include href/Options.html param="scrollX" %}或者{% include href/Options.html param="scrollY" %}选项开启滚动时，它会将表格分成两个或者三个独立的HTML {% include href/HtmlTags.html param="table" %}。表头，表体和表尾（可选）。这样做是为了提供以跨浏览器方式滚动Datatables的不同部分的能力。
+
+警告：
+
+```
+Warning: Possible column misalignment
+```
+
+当Datatables无法在不同表之间正确对齐列时，将会发生这种情况。由于表头，表体，表尾可能无法对齐，因此最终用户可能会感到不安，因此，如果此错误发生在你的网站上，请务必解决。
+
+
+## 含义（Meaning）
+---
+
+
+当Datatables在启用滚动的情况下执行绘制时，它将对表中的列应用一致的宽度，以使列在表的两个或三个滚动组件上对齐。完成此操作后，Datatables将执行完整性检查以查看列是否对齐（请注意，此健全性并不完全可靠，列未对齐可能会在不显示错误的情况下发生-全面检查会影响表的性能）。
+
+如果健全性检查失败，则会显示警告。
+
+基本上这意味着列没有对齐的可能性很高。
+
+
+
+## 诊断（Diagnosis）
+---
+从根本上讲，这很可能是由于表绘制在对于表中的内容而言太小的空间引起的。例如，表体的宽度总计为500px，则不能在小余该宽度的空间中绘制内容。表头可能可以，但表体不可以，因此未对齐。
+
+
+使用浏览器开发者工具，审查元素来查看实时DOM，可以检查页面的HTML元素，并找出限制表宽度的元素。
+
+
+## 解决（Resolution）
+---
+
+由于HTML页面和Datatables初始化中的许多不同配置，可能触发此警告。这些是：
+
+- 如果你使用的是垂直滚动（{% include href/Options.html param="scrollY" %}）而不是水平滚动{% include href/Options.html param="scrollX" %}，请启用“水平滚动”选项，以便表格有足够的空间滚动到其中。
+- 如果你使用的是`scrollXInner`或者`sScrollXInner`选项，请删除它们。这些选项将内部表强制为特定宽度，这可能不适用于表的内容。从Datatables1.10开始，这些选项在文档里尚未提及，因为它们带来的危害大于帮助，但保留这些选项是为了向后兼容。如果希望表格中的每一行内容都在一行上，这些参数的典型用法是，使用以下CSS：
+
+```css
+table.dataTable tbody th,
+table.dataTable tbody td {
+    white-space: nowrap;
+}
+```

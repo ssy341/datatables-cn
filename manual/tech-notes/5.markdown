@@ -1,0 +1,34 @@
+---
+layout: manual
+toc: true
+title: "5. Warning: Unknown paging action"
+author: /manual/tech-notes/5
+navcategory: tech-notes
+---
+
+
+内置的{% include href/APIs.html param="page()" %}方法具有一些更改页面的选项，比如，你可以传入{% include href/string.html param="next" %}以跳到下一页。当你传入未知的选项时，将会触发此错误。
+
+## 含义（Meaning）
+---
+
+传递给{% include href/APIs.html param="page()" %}的选项不是已知的操作。在这个情况下，你将收到警告：
+
+```
+Unknown paging action: {action}
+```
+
+`{action}`为你传入给{% include href/APIs.html param="page()" %}方法的未知操作。
+
+
+## 诊断（Diagnosis）
+---
+
+解决此问题的关键在于找到我们正在调用的{% include href/APIs.html param="page()" %}方法，并检查你作为操作传递给函数的内容。
+
+
+## 解决（Resolution）
+---
+
+要解决此问题，请确保按照{% include href/APIs.html param="page()" %}文档中的说明传递有效的选项。
+

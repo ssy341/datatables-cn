@@ -1,0 +1,124 @@
+---
+layout: manual
+toc: true
+title: "4. Warning: Requested unknown parameter"
+author: /manual/tech-notes/4
+navcategory: tech-notes
+---
+
+这是一条简短的错误信息，因为它需要处理Datatables拥有的所有数据源选项，但是足够灵活，可以针对每种情况传达信息。
+
+
+## 含义（Meaning）
+---
+
+Datatables中的每个单元格都请求数据，并且当Datatables尝试获取某个单元格的数据而无法执行此操作时，它将触发警告，告知你数据在预期的位置不可用。警告信息如下：
+
+```
+DataTables warning: table id={id} - Requested unknown parameter '{parameter}' for row {row-index}, column{column-index}`
+```
+
+- `{id}`为触发错误的表的DOM id
+- `{parameter}`是Datatables请求的数据参数的名称
+- `{row-index}`是触发错误的行的Datatables内部行索引（{% include href/APIs.html param="row().index()" %}）
+- `{column-index}`是触发错误的列的Datatables内部列索引（{% include href/APIs.html param="row().index()" %}），注意，这个列索引的信息在`1.10.10`版本之后才加上。
+
+根据上面分解，错误的要表达的意思是，Datatables已请求提供给定`{parameter}`的给定行、给定列的数据，并且那里没有数据，或者是`null`又或者是`undefined`(默认情况下，Datatables不知道如何显示这些参数)。
+
+
+## 诊断（Diagnosis）
+---
+
+了解此错误信息的关键部分是它的`{parameter}`，它将采取以下三种形式之一：
+
+- Integer
+- String
+- Function
+
+### 参数是整型（Parameter is an integer）
+---
+
+当`{parameter}`是整型，代表Datatables在从数组中寻找数据。使用DOM数据源时通常是这种情况（即，表格的数据是从页面元素中自动读取的）。在这种情况下，请求的数据在源数组中不存在，可能是因为数组长度不够。在以下情况下可能会发生这种情况：
+
+- 在{% include href/HtmlTags.html param="tbody" %}中有`colspan`或者`rowspan`，而这个是Datatables不支持的。
+- 使用{% include href/Options.html param="columns" %}或者{% include href/Options.html param="columnDefs" %}指定的列多于HTML中的列。
+- 表中的单元格数量不满足`#cell = #columns * #rows`等式（也就是说，表头中定义的列多于表主体中的列，反之亦然）。
+
+
+### 参数是字符串（Parameter is an string）
+---
+
+当`{parameter}`是字符串，代表你使用了{% include href/Options.html param="columns.data" %}或者{% include href/Options.html param="columns.render" %}从数据源中提取数据。例如如下错误：
+
+```
+Requested unknown parameter 'Name' for row 0. 
+```
+
+这将表明你使用{% include href/Options.html param="columns.data" %}的列无法从数据源中获取数据显示，参考如下代码：
+
+```javascript
+var jsonData = [
+    {age:18,position:"Chengdu"}
+];
+$("#example").DataTable({
+    data: jsonData,
+    columns:[
+        { data: 'Name' }
+    ]
+});
+```
+
+如上所示，如果行的数据对象没有`Name`参数，或者数据为`null`或者`undefined`，将产生此错误。
+
+结论，如果发生以下情况，通常会发生此错误：
+
+- 指定的数据属性不存在（错字或者是数据空白）
+- 指定的属性的值为`null`
+
+
+
+### 参数是function（Parameter is an function）
+---
+
+当`{parameter}`是`{function}`，代表使用{% include href/Options.html param="columns.data" %}或者{% include href/Options.html param="columns.render" %}指定的是function，但是该函数返回了`null`或者`undefined`。参考如下例子，会触发此错误：
+
+```javascript
+var jsonData = [
+    {age:18,position:"Chengdu"}
+];
+$("#example").DataTable({
+    data: jsonData,
+    columns:[
+        { 
+            data: function ( row, type, set ) {
+                if ( type === 'display' ) {
+                    return row.Name;
+                }
+            } 
+        }
+    ]
+});
+```
+
+上面代码表示，只有在`type==='display'`时才使用return语句。所以，如果`type`不为`display`的时候，则函数的返回值是`undefined`，Datatables将发出警告。
+
+
+## 解决（Resolution）
+---
+
+解决此错误的关键是确保Datatables具有所需的所有数据，具体来说，请检查以下内容：
+
+- `colspan`和`rowspan`没有在{% include href/HtmlTags.html param="tbody" %}中使用
+- `#cells = #columns * #rows` 该等式是成立的
+- 如果使用{% include href/Options.html param="columns" %}，请确保已正确指定表的HTML中存在的列数。
+- 如果使用{% include href/Options.html param="columns" %}，请删除数组末尾可能包含的所有逗号。在一些旧版的浏览器中，额外的逗号可能会导致错误。
+- 如果使用{% include href/Options.html param="columnDefs" %}，请确保你指定的列不超过HTML中的列。
+- 如果使用{% include href/Options.html param="columns.data" %}或者{% include href/Options.html param="columns.render" %}，请确保它们一定返回一个值（在JavaScript中，没有返回值与返回`undefined`是相同的，所以会导致此错误）。
+- 确保服务器的代码是正常运行的，长时间运行的脚本可能会导致超时。如果这种情况，服务器错误日志将会给出指示。
+
+### `null`或`undefined`数据
+---
+
+`null`和`undefined`在数据源中绝对是有效的，而且通常非常有用。Datatables警告默认情况下使用它们，因为在大多数情况下，它们都不打算显示，比如，比起显示一个`null`，你可能更希望显示`还没有设置值`或者仅显示一个空字符串（空单元格）。对于此，Datatables有一个{% include href/Options.html param="columns.defaultContent" %}选项。
+
+当{% include href/Options.html param="columns.defaultContent" %}设置，任何`null`和`undefined`都会被替换成设置的值。在这种情况下也不会显示警告信息。

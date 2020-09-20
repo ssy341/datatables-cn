@@ -1,0 +1,149 @@
+---
+layout: manual
+toc: true
+title: "3. Warning: Cannot reinitialise DataTable"
+author: /manual/tech-notes/3
+navcategory: tech-notes
+---
+
+
+Datatables具有许多[配置选项][option]，可用于在初始化时自定义表，但是这些选项仅仅只能在初始化的时候配置。如果已经初始化Datatables了，任何尝试使用这些选项的操作都会导致错误。
+
+
+## 含义（Meaning）
+---
+
+
+简而言之，Datatables不允许在初始化时间以外的任何时间更改初始化选项。初始化后对表格的任何操作都必须通过[API][api]进行，并且一旦表格已经初始化，尝试设置初始化选项将导致错误：
+
+```
+DataTables warning: table id={id} - Cannot reinitialise DataTable.
+```
+其中`{id}`为触发错误的表的DOM的id。
+
+
+## 诊断（Diagnosis）
+---
+
+当所选节点的Datatables实例已经初始化时，通过将选项传递给Datatables构造函数对象触发此错误。比如下面的例子：
+
+```javascript
+$('#example').dataTable( {
+    paging: false
+} );
+ 
+ 
+$('#example').dataTable( {
+    searching: false
+} );
+```
+
+当第二个代码块运行时，将导致错误，因为`#example`已经被初始化为Datatables。
+
+
+
+## 解决（Resolution）
+---
+
+可以通过多种方法在代码中出现此错误，因此，也可以根据你要实现的目标使用多种不同的方法来解决此问题。
+
+### 单次初始化（Single initialisation）
+---
+
+如果要使用多个Datatables初始化选项，只需要将它们全部一起应用于表。在上述示例错误的情况下，我们尝试禁用分页和搜索，我们可以这样使用：
+
+```javascript
+$('#example').dataTable( {
+    paging: false,
+    searching: false
+} );
+```
+
+有关Datatables初始化和可用的选项的更多信息，请参考阅读初始化[选项手册指南][optionmanual]。
+
+
+### 对象实例检索（Object instance retrieval）
+---
+
+你可能有一个方法是专门来初始化Datatables，通过获得方法的参数作为初始化选项，当你改变了选项之后重新调用此方法，它会在已经初始化的表格上再次初始化，于是就会发生错误。
+
+对于这个情况，你可以使用`$.fn.dataTable.isDataTable()`静态方法。它可以来检查表格是否为Datatables：
+
+```javascript
+if ( $.fn.dataTable.isDataTable( '#example' ) ) {
+    table = $('#example').DataTable();
+}else {
+    table = $('#example').DataTable( {
+        paging: false
+    } );
+}
+```
+
+### 重新获取实例（retrieve）
+---
+
+上述代码可能不是最佳方案，Datatables具有一个{% include href/Options.html param="retrieve" %}选项，该选项可用于告诉Datatables，你知道初始化后无法更改初始化选项，但你仅仅只是需要返回Datatables实例。
+
+下面的代码效果和上述代码是一样的效果，这样代码更加简便
+
+```javascript
+table = $('#example').DataTable( {
+    retrieve: true,
+    paging: false
+} );
+```
+
+### 销毁实例（destroy）
+---
+
+有时，你确实希望更改表的初始化参数，也可以通过两种不同的方式之一来完成此操作。
+
+更改初始化参数的前提条件是，你需要销毁旧表，然后使用新的参数创建一张新表。由于涉及大量计算和DOM操作，因此在页面上具有非常重要的性能影响，因此如果你必须要重建表格，请使用API操作。
+
+
+Datatables提供了{% include href/APIs.html param="destory()" %}方法来销毁旧表，然后可以用新的参数来初始化新的表格，比如下面代码：
+
+```javascript
+table = $('#example').DataTable( {
+    paging: false
+} );
+ 
+table.destroy();
+ 
+table = $('#example').DataTable( {
+    searching: false
+} );
+```
+
+上述代码最终的效果是，分页将在第二个初始化中启用，因为它是全新的Datatables，并且禁用了搜索。
+
+Datatables还提供了{% include href/Options.html param="destory" %}选项，表示你将销毁旧的表格，使用新的参数初始化表格。比如下面代码：
+
+```javascript
+$('#example').DataTable( {
+    paging: false
+} );
+ 
+$('#example').DataTable( {
+    destroy: true,
+    searching: false
+} );
+```
+
+需要注意的是，{% include href/Options.html param="destory" %}和{% include href/Options.html param="retrieve" %}是互斥的，不能一起使用，不然会导致不确定的行为。
+
+
+
+## 原因（Reason）
+---
+
+初始化后无法动态更改Datatables初始化选项的原因是，它将向核心代码库添加大量代码来实现此功能（例如，动态启用和禁用滚动将非常麻烦）。结果是无法使用此功能来保持Datatables核心代码尽可能精简。如上所述，如果必须能够动态启用和禁用功能，则可以使用{% include href/Options.html param="destory" %}选项，但是需要注意这对性能会产生影响。
+
+
+
+
+
+
+
+[option]: {{ site.baseurl }}/reference/option
+[optionmanual]: {{ site.baseurl }}/manual/options

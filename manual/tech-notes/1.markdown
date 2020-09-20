@@ -1,0 +1,86 @@
+---
+layout: manual
+toc: true
+title: "1. Warning: Invalid JSON response"
+author: /manual/tech-notes/1
+navcategory: tech-notes
+style: >
+    <style>img { width: 700px; }</style>
+---
+
+来自Datatables的警告，指出“无效的JSON响应”，这个是Datatables最常见的错误之一。幸运的是，使用现代Web浏览器中内置的开发人员工具，可以很容易诊断问题所在。本节指南准确显示了错误的含义，如何诊断问题以及如何解决问题。
+
+## 含义（Meaning）
+---
+
+当Datatables通过Ajax({% include href/Options.html param="ajax" %})读取数据时，Datatables默认会期待加载的数据是有效的JSON。[JSON][json]是一种数据交换格式，因为与JavaScript的兼容性，易用性以及易于人类阅读，在web开发中使用率非常高。但是，像所有数据交换格式一样，它对有效的JSON具有严格的规则。任何不符合此条件的内容都是无效的JSON，并且会在期望JSON的Datatables中引发错误。
+
+当Datatables弹出消息：
+
+```
+DataTables warning: table id={id} - Invalid JSON response.
+```
+
+这意味着你的JSON数据是无效的。Datatables向服务器发送了针对JSON数据的Ajax响应，但是它收到的数据不是有效的JSON。
+
+
+## 诊断（Diagnosis）
+---
+
+如果服务器未使用有效的JSON数据答复Ajax请求，则我们需要知道其答复的内容，以便采取纠正措施。通常，响应将包含来自服务器上用于创建JSON的程序的错误消息，这将是彻底解决问题的起点。
+
+### 服务器数据（Server data）
+---
+
+目前主流的浏览器都内置了Web开发人员工具，可以用于查找服务器响应Datatables Ajax请求数据。下面显示了有关如何使用浏览器执行此操作的说明。
+
+### Chrome
+---
+
+- 1，打开Chrome的web开发者工具：
+    - Mac：视图 > 开发者 > 开发者工具
+    - Windows： Chrome菜单（地址栏右侧），然后选择工具 > 开发者工具
+
+
+![open debugger](/images/manual/tech-notes/1.jpg)
+
+- 2，开发人员工具显示在当前浏览器窗口的底部。
+    - 单击网络选项卡(Network)以查看网络请求
+    - 刷新页面以允许Chrome捕获所有请求
+
+![console displayed](/images/manual/tech-notes/2.jpg)
+
+
+- 3，网络面板会显示当前页面所有的请求
+    - 单击HXR选项，以将请求限定在为Ajax（HXR）的请求。
+    - 单击Datatables发出的Ajax请求（array.txt）
+
+![show network tab](/images/manual/tech-notes/3.jpg)
+
+
+- 4，Ajax请求的详细信息将会显示出来：
+    - 单击Ajax视图的中的Response选项卡，以查看从服务器返回的确切数据。这部分就是我们感兴趣的，能够知道究竟出了什么问题。
+
+![ajax response](/images/manual/tech-notes/4.jpg)
+
+
+请注意，随着软件的更新，上述步骤可能会略有不同。
+
+## JSON验证（JSON validation）
+---
+
+从服务器获得Ajax的响应数据后，就可以使用[JSON Lint][lint]或者[JSON Parser][parser]之类的工具来验证JSON。通常，来自服务器的JSON响应中的错误非常明显，但是JSON Linter可以提供非常有用的解决方案，用来针对不太明显的问题，比如尾部少了括号，或者多了逗号之类的。
+
+## 解决（Resolution）
+---
+
+一旦按照上述说明找出了服务器中的实际数据，因为不是有效的JSON，那么你就能够修改构建数据的代码确保返回有效的JSON。
+
+
+
+
+
+
+[json]: http://www.json.org/
+[lint]: http://jsonlint.com/
+[parser]: http://json.parser.online.fr/
