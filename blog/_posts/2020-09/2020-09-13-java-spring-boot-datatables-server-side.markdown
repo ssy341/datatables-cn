@@ -573,6 +573,149 @@ public class DataTablesOutput<T> {
 - data 表格每页显示的数据集合
 - error 错误信息
 
+最后封装好的数据如下：
+
+```json
+{
+    "draw": 1,
+    "recordsTotal": 57,
+    "recordsFiltered": 57,
+    "data": [
+        {
+            "id": 5,
+            "firstName": "Airi",
+            "lastName": "Satou",
+            "position": "Accountant",
+            "email": "a.satou@datatables.net",
+            "office": "Tokyo",
+            "startDate": "2008-11-28T06:00:00.000+00:00",
+            "age": 33,
+            "salary": 162700,
+            "seq": 55,
+            "extn": "5407"
+        },
+        {
+            "id": 25,
+            "firstName": "Angelica",
+            "lastName": "Ramos",
+            "position": "Chief Executive Officer (CEO)",
+            "email": "a.ramos@datatables.net",
+            "office": "London",
+            "startDate": "2009-10-09T05:00:00.000+00:00",
+            "age": 47,
+            "salary": 1200000,
+            "seq": 36,
+            "extn": "5797"
+        },
+        {
+            "id": 3,
+            "firstName": "Ashton",
+            "lastName": "Cox",
+            "position": "Junior Technical Author",
+            "email": "a.cox@datatables.net",
+            "office": "San Francisco",
+            "startDate": "2009-01-12T06:00:00.000+00:00",
+            "age": 66,
+            "salary": 86000,
+            "seq": 6,
+            "extn": "1562"
+        },
+        {
+            "id": 19,
+            "firstName": "Bradley",
+            "lastName": "Greer",
+            "position": "Software Engineer",
+            "email": "b.greer@datatables.net",
+            "office": "London",
+            "startDate": "2012-10-13T05:00:00.000+00:00",
+            "age": 41,
+            "salary": 132000,
+            "seq": 48,
+            "extn": "2558"
+        },
+        {
+            "id": 28,
+            "firstName": "Brenden",
+            "lastName": "Wagner",
+            "position": "Software Engineer",
+            "email": "b.wagner@datatables.net",
+            "office": "San Francisco",
+            "startDate": "2011-06-07T05:00:00.000+00:00",
+            "age": 28,
+            "salary": 206850,
+            "seq": 20,
+            "extn": "1314"
+        },
+        {
+            "id": 6,
+            "firstName": "Brielle",
+            "lastName": "Williamson",
+            "position": "Integration Specialist",
+            "email": "b.williamson@datatables.net",
+            "office": "New York",
+            "startDate": "2012-12-02T06:00:00.000+00:00",
+            "age": 61,
+            "salary": 372000,
+            "seq": 21,
+            "extn": "4804"
+        },
+        {
+            "id": 43,
+            "firstName": "Bruno",
+            "lastName": "Nash",
+            "position": "Software Engineer",
+            "email": "b.nash@datatables.net",
+            "office": "London",
+            "startDate": "2011-05-03T05:00:00.000+00:00",
+            "age": 38,
+            "salary": 163500,
+            "seq": 3,
+            "extn": "6222"
+        },
+        {
+            "id": 23,
+            "firstName": "Caesar",
+            "lastName": "Vance",
+            "position": "Pre-Sales Support",
+            "email": "c.vance@datatables.net",
+            "office": "New York",
+            "startDate": "2011-12-12T06:00:00.000+00:00",
+            "age": 21,
+            "salary": 106450,
+            "seq": 29,
+            "extn": "8330"
+        },
+        {
+            "id": 51,
+            "firstName": "Cara",
+            "lastName": "Stevens",
+            "position": "Sales Assistant",
+            "email": "c.stevens@datatables.net",
+            "office": "New York",
+            "startDate": "2011-12-06T06:00:00.000+00:00",
+            "age": 46,
+            "salary": 145600,
+            "seq": 15,
+            "extn": "3990"
+        },
+        {
+            "id": 4,
+            "firstName": "Cedric",
+            "lastName": "Kelly",
+            "position": "Senior Javascript Developer",
+            "email": "c.kelly@datatables.net",
+            "office": "Edinburgh",
+            "startDate": "2012-03-29T05:00:00.000+00:00",
+            "age": 22,
+            "salary": 433060,
+            "seq": 41,
+            "extn": "6224"
+        }
+    ],
+    "error": null
+}
+```
+
 由于这里采用了第三方插件，所以这些数据都由插件自动封装，Datatables接收到返回，即可正常工作。
 
 ## 总结
