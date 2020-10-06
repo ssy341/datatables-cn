@@ -367,8 +367,10 @@ public class DatatablesDemoController {
 
 通过以上5步即可实现java端的服务器处理，是不是非常简单？但光实现了还没有解决问题，我们还得弄清楚是怎么实现的。
 
+其实不难理解，只需要搞清楚`DataTablesInput`和`DataTablesOutput`这两个类，即可
 
-#### 接受参数
+
+#### 接受参数(DataTablesInput)
 ---
 
 首先我们看一下关键类`DataTablesInput`。
@@ -504,7 +506,7 @@ public class DataTablesInput {
 结合前面提到的请求参数，我们可以看到`DataTablesInput`类封装了Datatables请求的所有参数，通过这个类可以获取Datatables在前端所做的操作。
 
 
-#### 返回数据
+#### 返回数据(DataTablesOutput)
 ---
 
 接受参数后，可以处理分页，排序，过滤，最后把数据包装到`DataTablesOutput`类中，返回给前端。再看`DataTablesOutput`的代码：
